@@ -223,7 +223,7 @@ public final class RealCall implements Call {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // okhttp3.Call
     /* renamed from: clone */
-    public RealCall mo2360clone() {
+    public RealCall mo2362clone() {
         return newRealCall(this.client, this.originalRequest, this.forWebSocket);
     }
 

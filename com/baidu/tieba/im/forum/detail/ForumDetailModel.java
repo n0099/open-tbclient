@@ -39,17 +39,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     /* loaded from: classes6.dex */
     public interface f {
-        void B0(boolean z);
+        void G0(boolean z);
 
-        void F0(ForumDetailSocketResponse forumDetailSocketResponse);
+        void Q(BarEmotionResponseMessage barEmotionResponseMessage);
+
+        void R(boolean z);
+
+        void Y(ForumDetailSocketResponse forumDetailSocketResponse);
 
         void a(String str);
 
-        void c1(ForumDetailHttpResponse forumDetailHttpResponse);
-
-        void g1(boolean z);
-
-        void z0(BarEmotionResponseMessage barEmotionResponseMessage);
+        void z0(ForumDetailHttpResponse forumDetailHttpResponse);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -98,7 +98,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                 if (((LikeReturnData) customResponsedMessage.getData()).isLike() != 1) {
                     z = false;
                 }
-                this.a.a.C1(z);
+                this.a.a.d1(z);
             }
         }
     }
@@ -145,10 +145,10 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.a.b.c1((ForumDetailHttpResponse) responsedMessage);
+                        this.a.b.z0((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        this.a.b.F0((ForumDetailSocketResponse) responsedMessage);
+                        this.a.b.Y((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
@@ -202,20 +202,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             }
             if (responseUpdateMaskInfoMessage.getError() != 0) {
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e40);
+                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e42);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }
                 this.a.a.showToast(errorString);
                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                    this.a.b.B0(false);
+                    this.a.b.R(false);
                 } else {
-                    this.a.b.g1(false);
+                    this.a.b.G0(false);
                 }
             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                this.a.b.B0(true);
+                this.a.b.R(true);
             } else {
-                this.a.b.g1(true);
+                this.a.b.G0(true);
             }
         }
     }
@@ -295,7 +295,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                         this.a.b.a(httpResponsedMessage.getErrorString());
                     }
                 } else if (z && httpResponsedMessage.getCmd() == 1002510) {
-                    this.a.b.z0((BarEmotionResponseMessage) httpResponsedMessage);
+                    this.a.b.Q((BarEmotionResponseMessage) httpResponsedMessage);
                 }
             }
         }

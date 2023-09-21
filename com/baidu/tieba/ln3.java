@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.view.View;
+import android.widget.AbsoluteLayout;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.tts.jni.TtsLogLoad;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+/* loaded from: classes7.dex */
 public class ln3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -31,86 +34,51 @@ public class ln3 {
                 return;
             }
         }
-        a = rr1.a;
+        a = qr1.a;
     }
 
-    public static JSONObject a(String str, String str2, String str3) throws JSONException {
-        InterceptResult invokeLLL;
+    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
+        AbsoluteLayout webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("success", str);
-            jSONObject.put("swan", str2);
-            jSONObject.put("type", "NA");
-            jSONObject.put("error", str3);
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static JSONObject b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", a(str, str2, str3));
-                jSONObject.put(TtsLogLoad.KEY_OS, "android");
-                jSONObject.put("type", CommonTbJsBridge.GET_APIS);
-                jSONObject.put("from", "swan");
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
+            Drawable d = jp4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081431);
+            Drawable d2 = jp4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081430);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                webView = bdSailorWebView.getCurrentWebView();
+            } else {
+                webView = bdSailorWebView.getCurrentWebView().getWebView();
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x001c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(@Nullable String str) {
-        String str2;
-        SwanCoreVersion e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            try {
-                e = mk3.e(0);
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
+            if (Build.VERSION.SDK_INT >= 29) {
+                webView.setVerticalScrollbarThumbDrawable(d);
+                webView.setHorizontalScrollbarThumbDrawable(d2);
+                return;
             }
-            if (e != null) {
-                str2 = e.swanCoreVersionName;
-                if (str == null) {
-                    str = "";
-                }
-                oh3.k("1087", b("2", str2, str));
-            }
-            str2 = "";
-            if (str == null) {
-            }
-            oh3.k("1087", b("2", str2, str));
+            b(webView, d, d2);
         }
     }
 
-    public static void d() {
-        String str;
+    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                str = bi2.U().d0().swanCoreVersionName;
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                str = "";
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, view2, drawable, drawable2) != null) || view2 == null) {
+            return;
+        }
+        try {
+            Field declaredField = View.class.getDeclaredField("mScrollCache");
+            declaredField.setAccessible(true);
+            Object obj = declaredField.get(view2);
+            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
+            declaredField2.setAccessible(true);
+            Object obj2 = declaredField2.get(obj);
+            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(obj2, drawable);
+            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
+            declaredMethod2.setAccessible(true);
+            declaredMethod2.invoke(obj2, drawable2);
+        } catch (Throwable th) {
+            if (a) {
+                th.printStackTrace();
             }
-            oh3.k("1087", b("1", str, ""));
         }
     }
 }

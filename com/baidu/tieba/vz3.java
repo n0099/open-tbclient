@@ -1,9 +1,15 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes8.dex */
 public interface vz3 {
-    void d(String str, String str2);
+    void onCompletion();
 
-    void f(View view2);
+    boolean onError();
+
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onStart();
 }

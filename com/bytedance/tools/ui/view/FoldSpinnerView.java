@@ -103,10 +103,10 @@ public class FoldSpinnerView extends LinearLayout {
     public final void e() {
         setBackgroundColor(-1);
         setOrientation(1);
-        addView(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a07, (ViewGroup) this, false));
-        this.a = findViewById(R.id.obfuscated_res_0x7f0929ab);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0929aa);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0929a9);
+        addView(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a04, (ViewGroup) this, false));
+        this.a = findViewById(R.id.obfuscated_res_0x7f092977);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092976);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092975);
         this.a.setOnClickListener(new a());
         this.b.setText(this.d);
     }

@@ -203,7 +203,7 @@ public class PbGiftListView extends FrameLayout {
                     this.f.setVisibility(8);
                 }
                 if (g35Var.b() > 0) {
-                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08ee), Integer.valueOf(g35Var.b())));
+                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08ef), Integer.valueOf(g35Var.b())));
                     this.g.setVisibility(0);
                 } else {
                     this.g.setVisibility(8);
@@ -223,12 +223,12 @@ public class PbGiftListView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d07a7, this);
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d07a6, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091af6);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091af7);
-            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091af8);
-            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091af9);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ae2);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ae3);
+            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ae4);
+            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ae5);
             this.c.setDefaultBgResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             this.e.setDefaultBgResource(R.drawable.transparent_bg);
@@ -237,8 +237,8 @@ public class PbGiftListView extends FrameLayout {
             this.d.setDefaultResource(R.drawable.icon_gift_moren);
             this.e.setDefaultResource(R.drawable.icon_gift_moren);
             this.f.setDefaultResource(R.drawable.icon_gift_moren);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091af4);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091af5);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ae0);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ae1);
             this.h = textView;
             textView.setOnClickListener(new a(this));
         }

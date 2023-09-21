@@ -1,21 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface dd2 {
-    void C(vh2 vh2Var);
+public class dd2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String a();
+    public dd2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void attachActivity(Activity activity);
-
-    void b(v92 v92Var);
-
-    void destroy();
-
-    fa2 e();
-
-    void loadUrl(String str);
-
-    void o(int i);
+    public cd2 a(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return new ed2(context);
+                }
+                return new gd2(context);
+            }
+            return new ed2(context);
+        }
+        return (cd2) invokeLI.objValue;
+    }
 }

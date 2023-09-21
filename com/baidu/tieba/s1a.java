@@ -1,62 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes7.dex */
-public class s1a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface s1a extends View.OnClickListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnSeekCompleteListener, TbVideoViewContainer.a {
+    void changeRenderViewMode(int i);
 
-    public static void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
-        }
-    }
+    int getCurrentPosition();
 
-    public static void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
-        }
-    }
+    View getMainView();
 
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
-        }
-    }
+    boolean isFullScreen();
 
-    public static void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
-        }
-    }
+    boolean isPlaying();
 
-    public static void e(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
-            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
-        }
-    }
+    boolean onBackPress();
 
-    public static Ringtone f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
-            ringtone.play();
-            return ringtone;
-        }
-        return (Ringtone) invokeV.objValue;
-    }
+    boolean onBackground(boolean z);
+
+    void onScroll();
+
+    boolean onVolumeUp();
+
+    void setAfterClickListener(View.OnClickListener onClickListener);
+
+    void setData(ThreadData threadData);
+
+    void setFrom(String str);
+
+    void setJumpToPbClickListener(View.OnClickListener onClickListener);
+
+    void setStageType(String str);
+
+    void setStatistic(n1a n1aVar);
+
+    void setUniqueId(BdUniqueId bdUniqueId);
+
+    void startPlay();
+
+    void stopPlay();
 }

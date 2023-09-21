@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.bubble.group;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ioa;
-import com.baidu.tieba.uoa;
+import com.baidu.tieba.ara;
+import com.baidu.tieba.oqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ioa> mBubbleGroupList;
-    public uoa mRecommand;
+    public List<oqa> mBubbleGroupList;
+    public ara mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupHttpResponseMessage(int i) {
@@ -60,24 +60,24 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         DataRes dataRes = getBubbleByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                uoa uoaVar = new uoa();
-                this.mRecommand = uoaVar;
-                uoaVar.d(getBubbleByCategoryResIdl.data.recommend);
+                ara araVar = new ara();
+                this.mRecommand = araVar;
+                araVar.d(getBubbleByCategoryResIdl.data.recommend);
             }
             if (getBubbleByCategoryResIdl.data.bubbles != null) {
                 this.mBubbleGroupList = new ArrayList();
                 for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                     if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                        ioa ioaVar = new ioa();
-                        ioaVar.c(themeBubbleInMain);
-                        this.mBubbleGroupList.add(ioaVar);
+                        oqa oqaVar = new oqa();
+                        oqaVar.c(themeBubbleInMain);
+                        this.mBubbleGroupList.add(oqaVar);
                     }
                 }
             }
         }
     }
 
-    public List<ioa> getGroupList() {
+    public List<oqa> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -86,12 +86,12 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public uoa getRecommand() {
+    public ara getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (uoa) invokeV.objValue;
+        return (ara) invokeV.objValue;
     }
 }

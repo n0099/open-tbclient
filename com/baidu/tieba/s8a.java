@@ -1,51 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.android.common.security.AESUtil;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class s8a {
+public final class s8a implements cd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.cd7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            dm dmVar = new dm();
-            String version = TbConfig.getVersion();
-            if (TbConfig.getVersionType() == 1 && !ei.isEmpty(TbConfig.getSubVersion())) {
-                version = version + "." + TbConfig.getSubVersion();
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(HttpRequest.CLIENT_TYPE, "Android");
-                jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, "1.0.14");
-                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-                jSONObject.put("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-                jSONObject.put("_client_version", version);
-                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
-                jSONObject.put(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
-                jSONObject.put(Config.DEVICE_PART, DeviceInfoHelper.getModel() + " " + Build.BRAND + " " + DeviceInfoUtil.getDevicesManufacturer() + " " + Build.BOARD + " " + Build.HARDWARE);
-                jSONObject.put(SchemeDescPatchListener.PATCH, dmVar.a(context));
-                return xh.j(AESUtil.encrypt("tbpatch-iv-value", "tbpatch1tbpatch2tbpatch3tbpatch4", jSONObject.toString().getBytes()));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10705" : (String) invokeV.objValue;
+    }
+
+    public s8a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.cd7
+    public Map<String, String> a(m87 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.putAll(d9a.a.a(businessInfo));
+            String str = a.get("pic_count");
+            String str2 = "0";
+            if (str == null) {
+                str = "0";
+            }
+            hashMap.put("obj_type", str);
+            hashMap.put(TiebaStatic.Params.AB_ACTION, "show");
+            String str3 = a.get("has_concerned");
+            if (str3 == null) {
+                str3 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.AB_TYPE, str3);
+            hashMap.put(TiebaStatic.Params.IS_FULL, "");
+            String str4 = a.get("author_is_living");
+            if (str4 == null) {
+                str4 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM6, str4);
+            String str5 = a.get(TiebaStatic.Params.GUA_TYPE);
+            if (str5 != null) {
+                str2 = str5;
+            }
+            hashMap.put(TiebaStatic.Params.GUA_TYPE, str2);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

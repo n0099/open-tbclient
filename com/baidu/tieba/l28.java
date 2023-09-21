@@ -2,31 +2,32 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
+import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l28 extends ax<a28> {
+public class l28 extends zw<RecommendBarCardModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public k28 f;
+    public RecommendBarLayout f;
+    public int g;
+    public int h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l28(TbPageContext<?> tbPageContext) {
+    public l28(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,50 +38,48 @@ public class l28 extends ax<a28> {
                 return;
             }
         }
-        Object obj = TbadkCoreApplication.getInst().getPersonalizeViewData().t;
-        if (obj instanceof k28) {
-            k28 k28Var = (k28) obj;
-            if (k28Var.h().getParent() == null) {
-                this.f = k28Var;
-                return;
-            }
-        }
-        this.f = new k28(tbPageContext.getPageActivity());
+        this.g = 3;
+        this.f = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b);
     }
 
-    @Override // com.baidu.tieba.ax
+    @Override // com.baidu.tieba.zw
     public View j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f.h();
+            return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ax
+    @Override // com.baidu.tieba.zw
     public void p(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.f.m(bdUniqueId);
+            this.f.setPageId(bdUniqueId);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: s */
-    public void onBindDataToView(a28 a28Var) {
+    public void onBindDataToView(RecommendBarCardModel recommendBarCardModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, a28Var) == null) {
-            this.f.l(a28Var);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, recommendBarCardModel) == null) && recommendBarCardModel != null && this.h != recommendBarCardModel.hashCode()) {
+            this.h = recommendBarCardModel.hashCode();
+            this.f.setData(recommendBarCardModel);
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
+                q(this.f, 3);
+            }
+            this.g = i;
         }
     }
 }

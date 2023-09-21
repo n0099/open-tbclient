@@ -38,26 +38,26 @@ public final class FindClassInModuleKt {
         MemberScope memberScope = packageViewDescriptor.getMemberScope();
         Object first = CollectionsKt___CollectionsKt.first((List<? extends Object>) pathSegments);
         Intrinsics.checkExpressionValueIsNotNull(first, "segments.first()");
-        ClassifierDescriptor mo2107getContributedClassifier = memberScope.mo2107getContributedClassifier((Name) first, NoLookupLocation.FROM_DESERIALIZATION);
-        if (mo2107getContributedClassifier == null) {
+        ClassifierDescriptor mo2109getContributedClassifier = memberScope.mo2109getContributedClassifier((Name) first, NoLookupLocation.FROM_DESERIALIZATION);
+        if (mo2109getContributedClassifier == null) {
             return null;
         }
         for (Name name : pathSegments.subList(1, pathSegments.size())) {
-            if (!(mo2107getContributedClassifier instanceof ClassDescriptor)) {
+            if (!(mo2109getContributedClassifier instanceof ClassDescriptor)) {
                 return null;
             }
-            MemberScope unsubstitutedInnerClassesScope = ((ClassDescriptor) mo2107getContributedClassifier).getUnsubstitutedInnerClassesScope();
+            MemberScope unsubstitutedInnerClassesScope = ((ClassDescriptor) mo2109getContributedClassifier).getUnsubstitutedInnerClassesScope();
             Intrinsics.checkExpressionValueIsNotNull(name, "name");
-            ClassifierDescriptor mo2107getContributedClassifier2 = unsubstitutedInnerClassesScope.mo2107getContributedClassifier(name, NoLookupLocation.FROM_DESERIALIZATION);
-            if (!(mo2107getContributedClassifier2 instanceof ClassDescriptor)) {
-                mo2107getContributedClassifier2 = null;
+            ClassifierDescriptor mo2109getContributedClassifier2 = unsubstitutedInnerClassesScope.mo2109getContributedClassifier(name, NoLookupLocation.FROM_DESERIALIZATION);
+            if (!(mo2109getContributedClassifier2 instanceof ClassDescriptor)) {
+                mo2109getContributedClassifier2 = null;
             }
-            mo2107getContributedClassifier = (ClassDescriptor) mo2107getContributedClassifier2;
-            if (mo2107getContributedClassifier == null) {
+            mo2109getContributedClassifier = (ClassDescriptor) mo2109getContributedClassifier2;
+            if (mo2109getContributedClassifier == null) {
                 return null;
             }
         }
-        return mo2107getContributedClassifier;
+        return mo2109getContributedClassifier;
     }
 
     public static final ClassDescriptor findNonGenericClassAcrossDependencies(ModuleDescriptor moduleDescriptor, ClassId classId, NotFoundClasses notFoundClasses) {

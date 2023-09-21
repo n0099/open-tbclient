@@ -1,112 +1,151 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public class zh7 implements kj7 {
+public class zh7 extends to6<wh7> {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<kj7> a;
-    public static final kj7 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ImageView i;
+    public final TextView j;
+    public int k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948360032, "Lcom/baidu/tieba/zh7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948360032, "Lcom/baidu/tieba/zh7;");
-                return;
-            }
-        }
-        a = new AtomicReference<>(null);
-        b = new zh7();
+    @Override // com.baidu.tieba.to6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0316 : invokeV.intValue;
     }
 
-    public zh7() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.to6
+    /* renamed from: n */
+    public void i(wh7 wh7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wh7Var) == null) {
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class a implements z45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(zh7 zh7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.z45.e
+        public void onClick(z45 z45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                vh7.a();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
+                z45Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements z45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(zh7 zh7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.z45.e
+        public void onClick(z45 z45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                z45Var.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zh7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = 3;
+        this.i = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090f51);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f57);
+        this.i.setOnClickListener(this);
     }
 
-    public static kj7 e() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            kj7 kj7Var = a.get();
-            if (kj7Var == null) {
-                return b;
-            }
-            return kj7Var;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2 == this.i) {
+            z45 z45Var = new z45(this.b.getPageActivity());
+            z45Var.setTitle(R.string.obfuscated_res_0x7f0f04c7);
+            z45Var.setCanceledOnTouchOutside(true);
+            z45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04c4, new a(this));
+            z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d0, new b(this));
+            z45Var.create(this.b);
+            z45Var.show();
         }
-        return (kj7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kj7
-    public pm<? extends h45, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.to6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.k == i) {
+            return;
         }
-        return (pm) invokeLLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.kj7
-    public fi7<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (fi7) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kj7
-    public pm<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (pm) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kj7
-    public pm<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (pm) invokeCommon.objValue;
+        SkinManager.setBackgroundResource(this.i, R.drawable.icon_search_history_del);
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0110);
+        this.k = i;
     }
 }

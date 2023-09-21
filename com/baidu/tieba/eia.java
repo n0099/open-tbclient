@@ -1,56 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.Group;
 /* loaded from: classes5.dex */
-public final class eia extends Dialog {
+public class eia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eia(Context context, int i) {
-        super(context, i);
+    public eia() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        this.a = context;
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public void a(Group group) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context context = this.a;
-            if (context instanceof Activity) {
-                if (kg.e((Activity) context)) {
-                    super.show();
-                }
-            } else if (!GlobalBuildConfig.isDebug()) {
-            } else {
-                throw new RuntimeException("非Activity模式下不允许弹Dialog!");
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, group) != null) || group == null) {
+            return;
         }
+        group.group_count.intValue();
+        group.hide_recommend_group.intValue();
     }
 }

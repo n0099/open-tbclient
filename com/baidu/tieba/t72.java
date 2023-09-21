@@ -1,175 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class t72 extends o62 {
+public class t72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public int M;
-    public String N;
-    public String O;
-    public boolean P;
-    public boolean Q;
-    public boolean R;
-    public boolean S;
 
-    /* renamed from: T  reason: collision with root package name */
-    public boolean f1162T;
-    public int U;
-    public int V;
-    public boolean W;
-    public boolean X;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t72() {
-        super("textArea", "componentId");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134042, "Lcom/baidu/tieba/t72;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948134042, "Lcom/baidu/tieba/t72;");
                 return;
             }
         }
-        this.L = "";
-        this.N = "";
-        this.O = "";
+        boolean z = qr1.a;
     }
 
-    private void i() {
-        JSONObject jSONObject;
+    @Nullable
+    public static <C extends v62> C a(w62 w62Var) {
+        InterceptResult invokeL;
+        C c;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
-            int g = yo3.g(c(jSONObject, "minHeight", 0.0f));
-            if (g < 0) {
-                g = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, w62Var)) == null) {
+            if (w62Var == null) {
+                z72.a("Component-Finder", "find a null component: null model");
+                return null;
             }
-            this.U = g;
-            int g2 = yo3.g(c(this.j, "maxHeight", 2.1474836E9f));
-            if (g2 < 0) {
-                g2 = Integer.MAX_VALUE;
+            String d = w62Var.d();
+            String str = w62Var.c;
+            if (TextUtils.isEmpty(str)) {
+                g82.c("Component-Finder", "find a null " + d + " : slaveId is empty");
+                return null;
             }
-            this.V = g2;
-        }
-    }
-
-    @Override // com.baidu.tieba.o62, com.baidu.tieba.t62, com.baidu.tieba.v62, com.baidu.tieba.x62, com.baidu.tieba.g13
-    public void a(JSONObject jSONObject) throws JSONException {
-        n13 n13Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("placeholder");
-        o(jSONObject);
-        boolean z = false;
-        this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
-        boolean optBoolean = jSONObject.optBoolean("autoHeight", false);
-        this.Q = optBoolean;
-        if (optBoolean && (n13Var = this.h) != null) {
-            n13Var.j(-2);
-            this.h.k(true);
-        }
-        boolean optBoolean2 = jSONObject.optBoolean("fixed");
-        this.R = optBoolean2;
-        n13 n13Var2 = this.h;
-        if (n13Var2 != null) {
-            n13Var2.i(optBoolean2);
-        }
-        this.S = jSONObject.optBoolean("showConfirmBar", true);
-        this.f1162T = jSONObject.optBoolean("adjustPosition", true);
-        this.W = jSONObject.optBoolean("disabled", false);
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        }
-        this.X = z;
-        i();
-    }
-
-    @Override // com.baidu.tieba.o62, com.baidu.tieba.t62, com.baidu.tieba.v62, com.baidu.tieba.x62
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.W = jSONObject.optBoolean("disabled", this.W);
-            this.L = jSONObject.optString("placeholder", this.L);
-            this.t = jSONObject.optString("value", this.t);
-            this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
-            this.S = jSONObject.optBoolean("showConfirmBar", this.S);
-            this.f1162T = jSONObject.optBoolean("adjustPosition", this.f1162T);
-            n(jSONObject);
-            p(jSONObject);
-            o(jSONObject);
-            i();
-        }
-    }
-
-    public final void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            boolean optBoolean = jSONObject.optBoolean("autoHeight", this.Q);
-            this.Q = optBoolean;
-            n13 n13Var = this.h;
-            if (n13Var != null) {
-                if (optBoolean) {
-                    n13Var.j(-2);
-                    this.h.k(true);
-                    return;
+            w72 d2 = d(str);
+            if (d2 == null) {
+                g82.c("Component-Finder", "find a null " + d + " : null component context");
+                return null;
+            }
+            String str2 = w62Var.b;
+            if (TextUtils.isEmpty(str2)) {
+                g82.o("Component-Finder", "find " + d + " with a empty componentId");
+                List<v62> list = d2.a().c.get(w62Var.a);
+                if (list == null) {
+                    g82.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
+                    return null;
+                } else if (list.size() <= 0) {
+                    g82.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
+                    return null;
+                } else {
+                    g82.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
+                    c = (C) list.get(0);
                 }
-                int c = n13Var.c();
-                int i = this.K;
-                if (i > 0) {
-                    c = i;
-                }
-                this.h.j(c);
-                this.h.k(false);
+            } else {
+                c = (C) d2.a().b.get(str2);
             }
-        }
-    }
-
-    public final void o(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("placeholderStyle")) != null) {
-            this.M = optJSONObject.optInt(TtmlNode.ATTR_TTS_FONT_SIZE);
-            this.N = optJSONObject.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-            this.O = optJSONObject.optString("color");
-        }
-    }
-
-    public final void p(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            boolean optBoolean = jSONObject.optBoolean("fixed", this.R);
-            this.R = optBoolean;
-            n13 n13Var = this.h;
-            if (n13Var != null) {
-                n13Var.i(optBoolean);
+            if (c == null) {
+                g82.c("Component-Finder", "find a null " + d + " : not exist");
+                return null;
             }
+            return c;
         }
+        return (C) invokeL.objValue;
     }
 
-    public void q(boolean z) {
+    @Nullable
+    public static <C extends v62> C b(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.P = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            w72 d = d(str);
+            if (d == null) {
+                g82.c("Component-Finder", "find a null " + str2 + " : null component context");
+                return null;
+            }
+            C c = (C) d.a().b.get(str2);
+            if (c == null) {
+                g82.c("Component-Finder", "find a null " + str2 + " : not exist");
+                return null;
+            }
+            return c;
         }
+        return (C) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static w72 c(w62 w62Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, w62Var)) == null) {
+            if (w62Var == null) {
+                z72.a("Component-Finder", "find component context with a null model");
+                return null;
+            }
+            return d(w62Var.c);
+        }
+        return (w72) invokeL.objValue;
+    }
+
+    @Nullable
+    public static w72 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                g82.c("Component-Finder", "find component context with a null slave id");
+                return null;
+            }
+            ox1 A = tw2.T().A(str);
+            if (!(A instanceof mx1)) {
+                return null;
+            }
+            return ((mx1) A).b0();
+        }
+        return (w72) invokeL.objValue;
     }
 }

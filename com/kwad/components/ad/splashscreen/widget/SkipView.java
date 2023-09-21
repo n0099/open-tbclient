@@ -250,11 +250,11 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
 
     private void ae(Context context) {
         setOrientation(0);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ed, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04f0, this);
         this.mContext = context;
-        this.Bp = (TextView) findViewById(R.id.obfuscated_res_0x7f09140f);
-        this.Bq = (TextView) findViewById(R.id.obfuscated_res_0x7f091410);
-        this.Bo = findViewById(R.id.obfuscated_res_0x7f09140e);
+        this.Bp = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ff);
+        this.Bq = (TextView) findViewById(R.id.obfuscated_res_0x7f091400);
+        this.Bo = findViewById(R.id.obfuscated_res_0x7f0913fe);
         setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {

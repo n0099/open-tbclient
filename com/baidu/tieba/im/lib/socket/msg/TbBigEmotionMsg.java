@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.spswitch.utils.EmotionUbcHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ch8;
+import com.baidu.tieba.xk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,8 +19,8 @@ public class TbBigEmotionMsg extends TbBaseImageMsg {
     public static final int MSG_TYPE = 4;
     public static final long serialVersionUID = 8778630731654009426L;
     public transient /* synthetic */ FieldHolder $fh;
+    @xk8
     @SerializedName("emoticon_content")
-    @ch8
     public EmotionContent emoticonContent;
 
     /* loaded from: classes6.dex */

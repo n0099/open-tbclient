@@ -1,41 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i79 implements FollowStatusService {
+public class i79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public i79() {
+    public static void a(TextView textView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, textView, str, str2) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            String lowerCase = str.toLowerCase();
+            String lowerCase2 = str2.trim().toLowerCase();
+            textView.setText(str);
+            int indexOf = lowerCase.indexOf(lowerCase2);
+            if (indexOf >= 0) {
+                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0107));
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, lowerCase2.length() + indexOf, 33);
+                if (indexOf > 0) {
+                    spannableStringBuilder.setSpan(new StyleSpan(1), 0, indexOf, 33);
+                }
+                spannableStringBuilder.setSpan(new StyleSpan(1), indexOf + lowerCase2.length(), lowerCase.length(), 33);
+                textView.setText(spannableStringBuilder);
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
-    public void saveFollowStatus(boolean z, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-            UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
-            updateAttentionData.isSucc = true;
-            updateAttentionData.toUid = str;
-            updateAttentionData.isAttention = z;
-            updateAttentionData.isFromLive = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(updateAttentionData));
         }
     }
 }

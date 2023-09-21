@@ -1,16 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface jf1 {
+public class jf1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947881268, "Lcom/baidu/tieba/jf1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947881268, "Lcom/baidu/tieba/jf1;");
+                return;
+            }
+        }
+        a = ContextHolder.getApplicationContext().getPackageName() + ".nps.process.kill";
     }
-
-    void a(String str);
-
-    String b(Activity activity, String str, a aVar);
-
-    void c(String str, String str2, int i);
 }

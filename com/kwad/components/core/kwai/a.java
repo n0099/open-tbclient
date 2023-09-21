@@ -14,14 +14,14 @@ public final class a implements View.OnClickListener {
     @Nullable
     public ImageView CP;
     @Nullable
-    public InterfaceC0649a CQ;
+    public InterfaceC0642a CQ;
     @Nullable
     public TextView mTitle;
     public ViewGroup pV;
 
     /* renamed from: com.kwad.components.core.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0649a {
+    public interface InterfaceC0642a {
         void r(View view2);
 
         void s(View view2);
@@ -31,7 +31,7 @@ public final class a implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09130f);
+        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912ff);
         this.pV = viewGroup2;
         if (viewGroup2 == null) {
             return;
@@ -40,16 +40,16 @@ public final class a implements View.OnClickListener {
     }
 
     private void initView() {
-        this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09130c);
-        this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09130d);
-        ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09130e);
+        this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912fc);
+        this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912fd);
+        ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912fe);
         this.CP = imageView;
         imageView.setOnClickListener(this);
         this.CO.setOnClickListener(this);
     }
 
-    public final void a(@Nullable InterfaceC0649a interfaceC0649a) {
-        this.CQ = interfaceC0649a;
+    public final void a(@Nullable InterfaceC0642a interfaceC0642a) {
+        this.CQ = interfaceC0642a;
     }
 
     public final void a(b bVar) {

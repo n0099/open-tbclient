@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,16 +12,56 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ba7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
+    public final int a;
+    public final ga7 b;
+    public final o97 c;
+    public final String d;
+    public final m87 e;
+    public final String f;
+    public final ea7 g;
 
-    public ba7(String from, String voiceId, int i) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof ba7) {
+                ba7 ba7Var = (ba7) obj;
+                return this.a == ba7Var.a && Intrinsics.areEqual(this.b, ba7Var.b) && Intrinsics.areEqual(this.c, ba7Var.c) && Intrinsics.areEqual(this.d, ba7Var.d) && Intrinsics.areEqual(this.e, ba7Var.e) && Intrinsics.areEqual(this.f, ba7Var.f) && Intrinsics.areEqual(this.g, ba7Var.g);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int hashCode = ((((((((((this.a * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31;
+            ea7 ea7Var = this.g;
+            return hashCode + (ea7Var == null ? 0 : ea7Var.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "RichTextData(type=" + this.a + ", textData=" + this.b + ", iconData=" + this.c + ", emoji=" + this.d + ", businessInfo=" + this.e + ", schema=" + this.f + ", statData=" + this.g + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ba7(int i, ga7 textData, o97 iconData, String emoji, m87 businessInfo, String schema, ea7 ea7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {from, voiceId, Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i), textData, iconData, emoji, businessInfo, schema, ea7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -30,37 +71,80 @@ public final class ba7 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(from, "from");
-        Intrinsics.checkNotNullParameter(voiceId, "voiceId");
-        this.a = from;
-        this.b = voiceId;
-        this.c = i;
+        Intrinsics.checkNotNullParameter(textData, "textData");
+        Intrinsics.checkNotNullParameter(iconData, "iconData");
+        Intrinsics.checkNotNullParameter(emoji, "emoji");
+        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+        Intrinsics.checkNotNullParameter(schema, "schema");
+        this.a = i;
+        this.b = textData;
+        this.c = iconData;
+        this.d = emoji;
+        this.e = businessInfo;
+        this.f = schema;
+        this.g = ea7Var;
     }
 
-    public final int a() {
+    public final m87 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.e;
         }
-        return invokeV.intValue;
+        return (m87) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String c() {
+    public final o97 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.c;
+        }
+        return (o97) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
         return (String) invokeV.objValue;
+    }
+
+    public final ea7 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (ea7) invokeV.objValue;
+    }
+
+    public final ga7 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (ga7) invokeV.objValue;
+    }
+
+    public final int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d07;
+import com.baidu.tieba.nya;
+import com.baidu.tieba.oya;
+import com.baidu.tieba.pya;
 import com.baidu.tieba.tbadkcore.databinding.FoldCloseViewBinding;
 import com.baidu.tieba.view.foldclose.FoldCloseView;
-import com.baidu.tieba.vwa;
-import com.baidu.tieba.wwa;
-import com.baidu.tieba.wz6;
-import com.baidu.tieba.xwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,17 +34,17 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0010\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B\u000f\b\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006B\u0019\b\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tB!\b\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\b\u0012\u0006\u0010\n\u001a\u00020\u000b¢\u0006\u0002\u0010\fJ\u0018\u0010+\u001a\u00020,2\u0006\u0010-\u001a\u00020\u000b2\u0006\u0010.\u001a\u00020\u000bH\u0002J\u0006\u0010/\u001a\u00020,J\b\u00100\u001a\u00020,H\u0002J\u0010\u00101\u001a\u00020,2\u0006\u00102\u001a\u00020\u000bH\u0016J\u0010\u00103\u001a\u00020,2\u0006\u00104\u001a\u00020*H\u0016J\u0006\u00105\u001a\u00020,J\u001e\u00106\u001a\u00020,2\u0006\u0010)\u001a\u00020*2\u0006\u00107\u001a\u00020\u000b2\u0006\u00108\u001a\u00020\u000bJ\u000e\u00109\u001a\u00020,2\u0006\u0010:\u001a\u00020\u0010J\u0006\u0010;\u001a\u00020,R\u000e\u0010\r\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0013\u001a\u00020\u00122\u0006\u0010\u0011\u001a\u00020\u0012@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014R\u001c\u0010\u0015\u001a\u0004\u0018\u00010\u0002X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\u001c\u0010\u001a\u001a\u0004\u0018\u00010\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u001d\"\u0004\b\u001e\u0010\u001fR\u001c\u0010 \u001a\u0004\u0018\u00010!X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\"\u0010#\"\u0004\b$\u0010%R\u001c\u0010&\u001a\u0004\u0018\u00010\u0002X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b'\u0010\u0017\"\u0004\b(\u0010\u0019R\u0010\u0010)\u001a\u0004\u0018\u00010*X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006<"}, d2 = {"Lcom/baidu/tieba/view/foldclose/FoldCloseView;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "binding", "Lcom/baidu/tieba/tbadkcore/databinding/FoldCloseViewBinding;", "foldCloseData", "Lcom/baidu/tieba/view/foldclose/FoldCloseData;", "<set-?>", "", "isFolded", "()Z", "onCloseClickListener", "getOnCloseClickListener", "()Landroid/view/View$OnClickListener;", "setOnCloseClickListener", "(Landroid/view/View$OnClickListener;)V", "onFoldCloseWidthChangeListener", "Lcom/baidu/tieba/view/foldclose/OnFoldCloseWidthChangeListener;", "getOnFoldCloseWidthChangeListener", "()Lcom/baidu/tieba/view/foldclose/OnFoldCloseWidthChangeListener;", "setOnFoldCloseWidthChangeListener", "(Lcom/baidu/tieba/view/foldclose/OnFoldCloseWidthChangeListener;)V", "onFoldStateChangeListener", "Lcom/baidu/tieba/view/foldclose/OnFoldStateChangeListener;", "getOnFoldStateChangeListener", "()Lcom/baidu/tieba/view/foldclose/OnFoldStateChangeListener;", "setOnFoldStateChangeListener", "(Lcom/baidu/tieba/view/foldclose/OnFoldStateChangeListener;)V", "onOtherClickListener", "getOnOtherClickListener", "setOnOtherClickListener", "view", "Landroid/view/View;", "doAnimation", "", "oldWidth", "newWidth", StatKey.EDITADDR_PASTE_ADDRESS_STAGE_FOLD, "init", "onChangeSkinType", "type", "onClick", "v", "resetWidth", "setChild", "width", "height", "setData", "data", "unfold", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class FoldCloseView extends RelativeLayout implements View.OnClickListener, wz6 {
+public final class FoldCloseView extends RelativeLayout implements View.OnClickListener, d07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FoldCloseViewBinding a;
     public View b;
-    public vwa c;
+    public nya c;
     public boolean d;
     public View.OnClickListener e;
     public View.OnClickListener f;
-    public xwa g;
-    public wwa h;
+    public pya g;
+    public oya h;
 
     /* loaded from: classes8.dex */
     public static final class a implements Animator.AnimatorListener {
@@ -101,7 +101,7 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
                 Intrinsics.checkNotNullExpressionValue(layoutParams, "layoutParams");
                 layoutParams.width = this.b;
                 this.a.setLayoutParams(layoutParams);
-                wwa onFoldCloseWidthChangeListener = this.a.getOnFoldCloseWidthChangeListener();
+                oya onFoldCloseWidthChangeListener = this.a.getOnFoldCloseWidthChangeListener();
                 if (onFoldCloseWidthChangeListener != null) {
                     int i = this.b;
                     onFoldCloseWidthChangeListener.a(i, i);
@@ -204,7 +204,7 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.c = new vwa();
+        this.c = new nya();
         this.d = true;
         d();
     }
@@ -221,9 +221,9 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
                 int i = layoutParams.width;
                 layoutParams.width = intValue;
                 this$0.setLayoutParams(layoutParams);
-                wwa wwaVar = this$0.h;
-                if (wwaVar != null) {
-                    wwaVar.a(i, intValue);
+                oya oyaVar = this$0.h;
+                if (oyaVar != null) {
+                    oyaVar.a(i, intValue);
                     return;
                 }
                 return;
@@ -238,7 +238,7 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             ValueAnimator widthAnim = ValueAnimator.ofInt(i, i2);
             widthAnim.setDuration(this.c.a());
             widthAnim.setInterpolator(new DecelerateInterpolator());
-            widthAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.uwa
+            widthAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.mya
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -262,9 +262,9 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             return;
         }
         this.d = true;
-        xwa xwaVar = this.g;
-        if (xwaVar != null) {
-            xwaVar.a(true);
+        pya pyaVar = this.g;
+        if (pyaVar != null) {
+            pyaVar.a(true);
         }
         a(this.c.d() + (this.c.c() * 2), this.c.b() + (this.c.c() * 2));
         FoldCloseViewBinding foldCloseViewBinding = this.a;
@@ -304,17 +304,17 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             return;
         }
         this.d = true;
-        xwa xwaVar = this.g;
-        if (xwaVar != null) {
-            xwaVar.a(true);
+        pya pyaVar = this.g;
+        if (pyaVar != null) {
+            pyaVar.a(true);
         }
         int b = this.c.b() + (this.c.c() * 2);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         int i = layoutParams.width;
         layoutParams.width = b;
-        wwa wwaVar = this.h;
-        if (wwaVar != null) {
-            wwaVar.a(i, b);
+        oya oyaVar = this.h;
+        if (oyaVar != null) {
+            oyaVar.a(i, b);
         }
         setLayoutParams(layoutParams);
         FoldCloseViewBinding foldCloseViewBinding = this.a;
@@ -331,9 +331,9 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             return;
         }
         this.d = false;
-        xwa xwaVar = this.g;
-        if (xwaVar != null) {
-            xwaVar.a(false);
+        pya pyaVar = this.g;
+        if (pyaVar != null) {
+            pyaVar.a(false);
         }
         a(this.c.b() + (this.c.c() * 2), this.c.d() + (this.c.c() * 2));
         FoldCloseViewBinding foldCloseViewBinding = this.a;
@@ -362,22 +362,22 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
         return (View.OnClickListener) invokeV.objValue;
     }
 
-    public final wwa getOnFoldCloseWidthChangeListener() {
+    public final oya getOnFoldCloseWidthChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.h;
         }
-        return (wwa) invokeV.objValue;
+        return (oya) invokeV.objValue;
     }
 
-    public final xwa getOnFoldStateChangeListener() {
+    public final pya getOnFoldStateChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.g;
         }
-        return (xwa) invokeV.objValue;
+        return (pya) invokeV.objValue;
     }
 
     public final View.OnClickListener getOnOtherClickListener() {
@@ -389,14 +389,14 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
         return (View.OnClickListener) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wz6
+    @Override // com.baidu.tieba.d07
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             View view2 = this.b;
-            if (view2 instanceof wz6) {
+            if (view2 instanceof d07) {
                 if (view2 != null) {
-                    ((wz6) view2).onChangeSkinType(i);
+                    ((d07) view2).onChangeSkinType(i);
                 } else {
                     throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.edgefloat.IChangeSkinType");
                 }
@@ -439,7 +439,7 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public final void setData(vwa data) {
+    public final void setData(nya data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -454,17 +454,17 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public final void setOnFoldCloseWidthChangeListener(wwa wwaVar) {
+    public final void setOnFoldCloseWidthChangeListener(oya oyaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, wwaVar) == null) {
-            this.h = wwaVar;
+        if (interceptable == null || interceptable.invokeL(1048591, this, oyaVar) == null) {
+            this.h = oyaVar;
         }
     }
 
-    public final void setOnFoldStateChangeListener(xwa xwaVar) {
+    public final void setOnFoldStateChangeListener(pya pyaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, xwaVar) == null) {
-            this.g = xwaVar;
+        if (interceptable == null || interceptable.invokeL(1048592, this, pyaVar) == null) {
+            this.g = pyaVar;
         }
     }
 

@@ -1,7 +1,19 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+import android.net.Uri;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public interface lv2 {
-    void a(Context context, k32 k32Var);
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
+
+        void b();
+    }
+
+    void a(Context context, JSONObject jSONObject, a aVar);
+
+    void b(Context context, String str, Uri uri);
 }

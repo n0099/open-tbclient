@@ -9,7 +9,7 @@ import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.l35;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import com.baidu.tieba.oe;
-import com.baidu.tieba.x45;
+import com.baidu.tieba.y45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,8 +63,8 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
                 BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                 z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                 String str2 = new String(bArr);
-                x45.k();
-                oe<String> l = x45.l("tb.my_pages");
+                y45.k();
+                oe<String> l = y45.l("tb.my_pages");
                 if (l != null) {
                     if (z) {
                         str = "personal_followme";

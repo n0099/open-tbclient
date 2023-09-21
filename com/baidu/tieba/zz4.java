@@ -44,11 +44,11 @@ public class zz4 {
 
         /* renamed from: com.baidu.tieba.zz4$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC0548a implements Runnable {
+        public class RunnableC0541a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0548a(a aVar) {
+            public RunnableC0541a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class zz4 {
                     j = currentTimeMillis;
                 }
                 if (currentTimeMillis - j > zz4.a) {
-                    vu6.a(new RunnableC0548a(this), "clearResource", 3);
+                    bv6.a(new RunnableC0541a(this), "clearResource", 3);
                     SharedPrefHelper.getInstance().putLong("key_clear_resource", currentTimeMillis);
                 }
             }

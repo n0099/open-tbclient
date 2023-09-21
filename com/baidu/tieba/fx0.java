@@ -1,96 +1,137 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.provider.Settings;
+import android.view.OrientationEventListener;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class fx0 implements cx0 {
+import org.chromium.net.NetError;
+/* loaded from: classes6.dex */
+public class fx0 extends OrientationEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    @NonNull
-    public du0 b;
-    public ViewGroup c;
+    public a b;
 
-    public fx0(@NonNull du0 du0Var) {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onOrientationChanged(int i);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fx0(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {du0Var};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = du0Var;
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void b(@Nullable Activity activity) {
+    public static boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
-            f21.b("NormalSwitchHelper", "SCREEN_ORIENTATION_PORTRAIT ");
-            activity.setRequestedOrientation(1);
-            activity.getWindow().clearFlags(1024);
-            h21.l(activity);
-        }
-    }
-
-    public void a(boolean z, @Nullable Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) {
-            if (z) {
-                int i = this.a;
-                if (i != -1) {
-                    g71.d(activity, i);
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (Math.abs(i - 90) > 23 && Math.abs(i - 270) > 23) {
+                return false;
             }
-            g71.f(activity);
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if ((i >= 0 && i <= 23) || ((337 <= i && i < 360) || Math.abs(i + NetError.ERR_TLS13_DOWNGRADE_DETECTED) <= 23)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (Math.abs(i - 90) <= 23) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation", 0) != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.cx0
-    public void switchToFullStyle() {
+    @Override // android.view.OrientationEventListener
+    public void onOrientationChanged(int i) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = this.b.n();
-            this.b.Y0(true);
-            Activity activity = this.b.getActivity();
-            a(true, activity);
-            g21.b(activity, this.b.X0());
-            g21.c(activity, true);
-            h21.b(activity, this.b.v());
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+            if (i != -1 && (aVar = this.b) != null) {
+                aVar.onOrientationChanged(i);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.cx0
-    public void switchToNormalStyle() {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.c == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                super.enable();
+                return true;
+            } catch (Exception e) {
+                e21.k("enableSensor()", e);
+                return false;
+            }
         }
-        this.c = this.b.n();
-        this.b.Y0(false);
-        Activity activity = this.b.getActivity();
-        a(false, activity);
-        b(activity);
-        h21.k(this.b.v());
-        h21.j(this.b.n());
-        h21.c(this.b.v(), this.c);
+        return invokeV.booleanValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

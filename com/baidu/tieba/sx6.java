@@ -6,62 +6,76 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.Comparable;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.properties.ReadWriteProperty;
+import kotlin.reflect.KProperty;
 /* loaded from: classes8.dex */
-public final class sx6 {
+public final class sx6<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
+    public final Function1<T, Unit> a;
+    public T b;
 
-    public sx6(int i, int i2) {
+    public sx6(T initial, Function1<? super T, Unit> onChange) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {initial, onChange};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        Intrinsics.checkNotNullParameter(initial, "initial");
+        Intrinsics.checkNotNullParameter(onChange, "onChange");
+        this.a = onChange;
+        this.b = initial;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
+    /* renamed from: a */
+    public T getValue(Object thisRef, KProperty<?> property) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
             return this.b;
         }
-        return invokeV.intValue;
+        return (T) invokeLL.objValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.properties.ReadWriteProperty
+    /* renamed from: b */
+    public void setValue(Object thisRef, KProperty<?> property, T value) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
+            Intrinsics.checkNotNullParameter(value, "value");
+            T t = this.b;
+            this.b = value;
+            if (!Intrinsics.areEqual(t, value)) {
+                this.a.invoke(value);
+            }
         }
-        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (wrap: int : 0x000e: IGET  (r1v3 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.sx6 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.sx6.a int), ('x' char), (wrap: int : 0x0018: IGET  (r1v5 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.sx6 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.sx6.b int), (']' char)] */
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append('[');
-            sb.append(this.a);
-            sb.append('x');
-            sb.append(this.b);
-            sb.append(']');
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b.toString();
         }
         return (String) invokeV.objValue;
     }

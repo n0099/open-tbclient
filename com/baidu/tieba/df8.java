@@ -1,117 +1,89 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import androidx.annotation.CallSuper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class df8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public List<df8> e;
+public interface df8 {
 
-    public df8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @CallSuper
+        public static void a(df8 df8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65536, null, df8Var) == null) {
             }
         }
-        this.e = new ArrayList();
-    }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        @CallSuper
+        public static void b(df8 df8Var, int i, int i2, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{df8Var, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
+            }
         }
-        return invokeV.intValue;
-    }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        @CallSuper
+        public static void c(df8 df8Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65538, null, df8Var, z) == null) {
+            }
         }
-        return (String) invokeV.objValue;
-    }
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        @CallSuper
+        public static void d(df8 df8Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(65539, null, df8Var, i) == null) {
+            }
         }
-        return (String) invokeV.objValue;
-    }
 
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        @CallSuper
+        public static boolean e(df8 df8Var, int i, KeyEvent event) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, df8Var, i, event)) == null) {
+                Intrinsics.checkNotNullParameter(event, "event");
+                return false;
+            }
+            return invokeLIL.booleanValue;
         }
-        return (String) invokeV.objValue;
-    }
 
-    public List<df8> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+        @CallSuper
+        public static void f(df8 df8Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65541, null, df8Var, z) == null) {
+            }
         }
-        return (List) invokeV.objValue;
-    }
 
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c = i;
+        @CallSuper
+        public static void g(df8 df8Var, int i, String[] permissions, int[] grantResults) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(65542, null, df8Var, i, permissions, grantResults) == null) {
+                Intrinsics.checkNotNullParameter(permissions, "permissions");
+                Intrinsics.checkNotNullParameter(grantResults, "grantResults");
+            }
         }
-    }
 
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.d = str;
+        public static void h(df8 df8Var, Bundle outState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65543, null, df8Var, outState) == null) {
+                Intrinsics.checkNotNullParameter(outState, "outState");
+            }
         }
-    }
 
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(List<df8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.e = list;
+        @CallSuper
+        public static void i(df8 df8Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65544, null, df8Var, z) == null) {
+            }
         }
     }
 }

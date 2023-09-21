@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class EventConstant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public @interface EventId {
         public static final String EVENT_ID_PUSH_APP_NO_SHOW = "push_app_no_show";
         public static final String EVENT_ID_PUSH_CHANNEL_NONE_IMPORTANCE = "push_channel_none_importance";

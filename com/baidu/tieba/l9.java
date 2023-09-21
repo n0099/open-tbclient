@@ -7,7 +7,7 @@ public interface l9 {
 
     boolean isScroll();
 
-    void onPreLoad(gn gnVar);
+    void onPreLoad(fn fnVar);
 
     void setIsScroll(boolean z);
 }

@@ -87,19 +87,24 @@ public class MaskView extends View {
     public static class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
 
-        public c() {
+        public c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
         }
 
         @Override // android.view.View.OnClickListener
@@ -107,7 +112,9 @@ public class MaskView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001450));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921606));
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921606);
+                customResponsedMessage.setResultData(this.a);
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         }
     }
@@ -155,10 +162,10 @@ public class MaskView extends View {
         a();
     }
 
-    public static void d(TextView textView, boolean z) {
+    public static void c(TextView textView, boolean z) {
         Drawable[] compoundDrawables;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65541, null, textView, z) == null) && textView != null && z) {
+        if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, textView, z) == null) && textView != null && z) {
             textView.setTextColor(textView.getTextColors().withAlpha(84));
             textView.setClickable(false);
             textView.setEnabled(false);
@@ -193,23 +200,6 @@ public class MaskView extends View {
         a();
     }
 
-    public static void e(ViewGroup viewGroup, boolean z, View.OnClickListener onClickListener) {
-        int childCount;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{viewGroup, Boolean.valueOf(z), onClickListener}) != null) || viewGroup == null || !z || (childCount = viewGroup.getChildCount()) <= 0) {
-            return;
-        }
-        for (int i = 0; i < childCount; i++) {
-            View childAt = viewGroup.getChildAt(i);
-            if (childAt instanceof ImageView) {
-                b((ImageView) childAt, z);
-            } else if (childAt instanceof TextView) {
-                d((TextView) childAt, z);
-            }
-        }
-        viewGroup.setOnClickListener(onClickListener);
-    }
-
     public static void b(ImageView imageView, boolean z) {
         Drawable drawable;
         Interceptable interceptable = $ic;
@@ -218,10 +208,43 @@ public class MaskView extends View {
         }
     }
 
-    public static void c(ViewGroup viewGroup, boolean z) {
+    public static void d(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, z) == null) {
-            e(viewGroup, z, new c());
+        if (interceptable == null || interceptable.invokeLZ(65541, null, view2, z) == null) {
+            e(view2, z, "");
+        }
+    }
+
+    public static void e(View view2, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{view2, Boolean.valueOf(z), str}) == null) {
+            f(view2, z, new c(str));
+        }
+    }
+
+    public static void f(View view2, boolean z, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{view2, Boolean.valueOf(z), onClickListener}) == null) && view2 != null && z) {
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                int childCount = viewGroup.getChildCount();
+                if (childCount <= 0) {
+                    return;
+                }
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = viewGroup.getChildAt(i);
+                    if (childAt instanceof ImageView) {
+                        b((ImageView) childAt, z);
+                    } else if (childAt instanceof TextView) {
+                        c((TextView) childAt, z);
+                    }
+                }
+            } else if (view2 instanceof ImageView) {
+                b((ImageView) view2, z);
+            } else if (view2 instanceof TextView) {
+                c((TextView) view2, z);
+            }
+            view2.setOnClickListener(onClickListener);
         }
     }
 
@@ -230,11 +253,11 @@ public class MaskView extends View {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOnClickListener(new a(this));
             setVisibility(8);
-            f();
+            g();
         }
     }
 
-    public void f() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);

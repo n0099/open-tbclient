@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nk3 {
+public final class nk3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,68 +30,76 @@ public class nk3 {
                 return;
             }
         }
-        a = rr1.a;
+        a = qr1.a;
     }
 
-    public static JSONObject b() {
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File c = c();
+            if (c.exists()) {
+                kr4.j(c);
+            }
+        }
+    }
+
+    public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("abTestSwitch", a());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+            return uj3.a().getLong("aiapps_cur_debug_ver_key", 0L);
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (nk3.class) {
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "release cache ab obj ");
-                }
-                b = null;
-            }
-        }
-    }
-
-    public static synchronized JSONObject a() {
+    public static File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (nk3.class) {
-                if (b != null) {
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "return cache obj : " + b.toString());
-                    }
-                    return b;
-                }
-                JSONObject rawSwitch = ou2.g0().getRawSwitch();
-                if (rawSwitch == null) {
-                    b = new JSONObject();
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
-                    }
-                    return b;
-                }
-                Iterator<String> keys = rawSwitch.keys();
-                while (keys.hasNext()) {
-                    if (!keys.next().startsWith("swanswitch")) {
-                        keys.remove();
-                    }
-                }
-                b = rawSwitch;
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "return new obj : " + b.toString());
-                }
-                return b;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new File(yv2.d().get(0).a, "/aiapps_debug_swan_core/");
         }
-        return (JSONObject) invokeV.objValue;
+        return (File) invokeV.objValue;
+    }
+
+    public static File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File c = c();
+            if (!c.exists()) {
+                c.mkdirs();
+            }
+            return new File(c, "debugSwanCore.zip");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            File file = new File(c().getPath(), "pkginfo.json");
+            if (!file.exists()) {
+                return false;
+            }
+            JSONObject jSONObject = null;
+            try {
+                jSONObject = new JSONObject(kr4.E(file));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            if (jSONObject == null) {
+                return false;
+            }
+            String optString = jSONObject.optString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+            if (!TextUtils.isEmpty(optString)) {
+                uj3.a().putLong("aiapps_cur_debug_ver_key", vo3.b(optString));
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

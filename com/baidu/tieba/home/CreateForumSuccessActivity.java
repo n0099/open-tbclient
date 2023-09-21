@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vt5;
+import com.baidu.tieba.wt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,7 +88,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
 
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String stringExtra = getIntent().getStringExtra("forumname");
             this.a = stringExtra;
             if (stringExtra == null) {
@@ -109,14 +109,38 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         }
     }
 
+    public final void M0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fb6);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c.setTitleText(R.string.create_bar);
+            this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
+            int dimens = BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909bb), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, dimens), null, null);
+            this.e = a2;
+            a2.setVisibility(0);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0924cb);
+            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0e9b) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0e9c));
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a0);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0e97);
+            if (!StringUtils.isNull(string) && this.g != null) {
+                this.g.setText(string.replace("%s", this.a));
+            }
+            findViewById(R.id.obfuscated_res_0x7f0924ae).setOnClickListener(new a(this));
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.changeSkinType(i);
             super.changeSkinType(i);
             getLayoutMode().onModeChanged(this.b);
-            vt5.a(getPageContext(), this.b);
+            wt5.a(getPageContext(), this.b);
             NoNetworkView noNetworkView = this.d;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
                 this.d.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -132,38 +156,14 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         }
     }
 
-    public final void o1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fec);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.c = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(R.string.create_bar);
-            this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-            int dimens = BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909c3), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, dimens), null, null);
-            this.e = a2;
-            a2.setVisibility(0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ff);
-            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0e99) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0e9a));
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924d4);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0e95);
-            if (!StringUtils.isNull(string) && this.g != null) {
-                this.g.setText(string.replace("%s", this.a));
-            }
-            findViewById(R.id.obfuscated_res_0x7f0924e2).setOnClickListener(new a(this));
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d023d);
+            setContentView(R.layout.obfuscated_res_0x7f0d023c);
             initData();
-            o1();
+            M0();
         }
     }
 }

@@ -167,7 +167,7 @@ public class pe<T> implements oe.c<T> {
     public void f(String str, oe.a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) {
-            lg.a().b(new a(this, str, aVar));
+            kg.a().b(new a(this, str, aVar));
         }
     }
 
@@ -229,7 +229,7 @@ public class pe<T> implements oe.c<T> {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            lg.a().b(new c(this, str));
+            kg.a().b(new c(this, str));
         }
     }
 
@@ -300,7 +300,7 @@ public class pe<T> implements oe.c<T> {
     public void i(String str, T t, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, t, Long.valueOf(j)}) == null) {
-            lg.a().b(new b(this, str, t, j));
+            kg.a().b(new b(this, str, t, j));
         }
     }
 }

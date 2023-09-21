@@ -109,8 +109,8 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
             if (TextUtils.isEmpty(this.b)) {
                 finish();
             }
-            this.a = VideoAggregationFragment.a2(this.b, this.c, stringExtra, stringExtra2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0907aa, this.a).commit();
+            this.a = VideoAggregationFragment.g2(this.b, this.c, stringExtra, stringExtra2);
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0907a0, this.a).commit();
         }
     }
 
@@ -121,7 +121,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
             if (keyEvent != null && (videoAggregationFragment = this.a) != null) {
-                if (videoAggregationFragment.e2(i)) {
+                if (videoAggregationFragment.k2(i)) {
                     return true;
                 }
                 return super.onKeyDown(i, keyEvent);

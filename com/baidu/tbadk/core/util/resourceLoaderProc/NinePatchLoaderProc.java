@@ -8,7 +8,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.dg;
+import com.baidu.tieba.cg;
 import com.baidu.tieba.yb;
 import com.baidu.tieba.zb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -130,7 +130,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     /* renamed from: decodeToResource */
-    public BdImage mo120decodeToResource(byte[] bArr, Object... objArr) {
+    public BdImage mo121decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
@@ -140,7 +140,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
             if (Bytes2NineBitmap != null) {
                 z = true;
             }
-            dg.c(z, System.currentTimeMillis() - currentTimeMillis);
+            cg.c(z, System.currentTimeMillis() - currentTimeMillis);
             return new BdImage(Bytes2NineBitmap);
         }
         return (BdImage) invokeLL.objValue;

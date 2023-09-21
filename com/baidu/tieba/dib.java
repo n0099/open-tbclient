@@ -1,188 +1,239 @@
 package com.baidu.tieba;
 
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.xhb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.download.exception.DownloadException;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 /* loaded from: classes5.dex */
-public class dib {
+public class dib implements xhb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public boolean d;
-    public b e;
+    public final String a;
+    public final xhb.a b;
+    public volatile int c;
+    public volatile long d;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dib a;
-
-        public a(dib dibVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dibVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dibVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947706924, "Lcom/baidu/tieba/dib;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947706924, "Lcom/baidu/tieba/dib;");
-        }
-    }
-
-    public dib() {
+    public dib(String str, xhb.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.c;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = this.b;
-            return i2 != 0 ? i2 : this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                if (i == this.c) {
-                    return;
-                }
-                if ((this.b == 0 || i != this.b) && (this.b != 0 || i != this.a)) {
-                    this.c = i;
-                    if (i != 0 && !this.d) {
-                        this.d = true;
-                        g();
-                    }
-                }
-                this.c = 0;
-            }
-        }
-    }
-
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.c != this.a) {
-                    this.b = this.c;
-                }
-                this.c = 0;
-            }
-        }
-    }
-
-    public final synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.b != 0) {
-                    this.a = this.b;
-                }
-                this.b = 0;
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ThreadPool.b().e(new a(this));
-        }
-    }
-
-    public final synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this) {
-                this.d = false;
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048583, this) != null) {
-            return;
-        }
-        while (true) {
-            e();
-            int i = this.b;
-            if (i == 0) {
-                h();
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.a(i);
+        }
+        this.a = str;
+        this.b = aVar;
+    }
+
+    public final void a() throws DownloadException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!isCanceled()) {
+                if (!isPaused()) {
+                    return;
+                }
+                throw new DownloadException(106, "Connection Paused!");
             }
-            f();
+            throw new DownloadException(107, "Connection Canceled!");
+        }
+    }
+
+    @Override // com.baidu.tieba.xhb
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = 107;
+        }
+    }
+
+    @Override // com.baidu.tieba.xhb
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.c == 107) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xhb
+    public boolean isPaused() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.c == 106) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xhb
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = 106;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Process.setThreadPriority(10);
+            this.c = 102;
+            this.b.onConnecting();
+            try {
+                b();
+            } catch (DownloadException e) {
+                c(e);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0064 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0082  */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v6 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = System.currentTimeMillis();
+            try {
+                URL url = new URL(this.a);
+                ?? r2 = 0;
+                try {
+                    try {
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        try {
+                            httpURLConnection.setConnectTimeout(4000);
+                            httpURLConnection.setReadTimeout(4000);
+                            httpURLConnection.setRequestMethod("GET");
+                            httpURLConnection.setRequestProperty("Range", "bytes=0-");
+                            int responseCode = httpURLConnection.getResponseCode();
+                            if (responseCode == 200) {
+                                d(httpURLConnection, false);
+                            } else if (responseCode == 206) {
+                                d(httpURLConnection, true);
+                            } else {
+                                throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                            }
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                        } catch (ProtocolException e3) {
+                            e2 = e3;
+                            throw new DownloadException(108, "Protocol error", e2);
+                        } catch (IOException e4) {
+                            e = e4;
+                            throw new DownloadException(108, "IO error", e);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = url;
+                        if (r2 != 0) {
+                            r2.disconnect();
+                        }
+                        throw th;
+                    }
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (r2 != 0) {
+                    }
+                    throw th;
+                }
+            } catch (MalformedURLException e7) {
+                throw new DownloadException(108, "Bad url.", e7);
+            }
+        }
+    }
+
+    public final void c(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.b) {
+                        this.c = 106;
+                        this.b.onConnectPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.b) {
+                        this.c = 107;
+                        this.b.onConnectCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.b) {
+                        this.c = 108;
+                        this.b.b(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
+            }
+        }
+    }
+
+    public final void d(HttpURLConnection httpURLConnection, boolean z) throws DownloadException {
+        long contentLength;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, httpURLConnection, z) == null) {
+            String headerField = httpURLConnection.getHeaderField("Content-Length");
+            if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
+                contentLength = Long.parseLong(headerField);
+            } else {
+                contentLength = httpURLConnection.getContentLength();
+            }
+            if (contentLength <= 0) {
+                String headerField2 = httpURLConnection.getHeaderField("Ohc-File-Size");
+                if (!TextUtils.isEmpty(headerField2) && !headerField2.equals("0") && !headerField2.equals("-1")) {
+                    contentLength = Long.parseLong(headerField2);
+                } else {
+                    contentLength = httpURLConnection.getContentLength();
+                }
+                if (contentLength <= 0) {
+                    throw new DownloadException(108, "length <= 0");
+                }
+            }
+            a();
+            this.c = 103;
+            this.b.onConnected(System.currentTimeMillis() - this.d, contentLength, z);
         }
     }
 }

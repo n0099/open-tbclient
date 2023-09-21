@@ -1,139 +1,111 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.MemeDiyEnableSwitch;
+import com.baidu.tieba.faceshop.DiyEmotionData;
+import com.baidu.tieba.mj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class v47 {
+public class v47 extends mj5 {
     public static /* synthetic */ Interceptable $ic;
+    public static v47 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedList<pj5> a;
+    public final CustomMessageListener b;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void L(List<String> list);
-
-        void o0();
+    @Override // com.baidu.tieba.mj5
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 4;
+        }
+        return invokeV.intValue;
     }
 
     /* loaded from: classes8.dex */
-    public interface d {
-        void a(ImageUploadResult imageUploadResult);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements d {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicInteger a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ c c;
+        public final /* synthetic */ v47 a;
 
-        public a(v47 v47Var, AtomicInteger atomicInteger, List list, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v47Var, atomicInteger, list, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicInteger;
-            this.b = list;
-            this.c = cVar;
-        }
+        /* renamed from: com.baidu.tieba.v47$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class RunnableC0480a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-        @Override // com.baidu.tieba.v47.d
-        public void a(ImageUploadResult imageUploadResult) {
-            ImageUploadResult.picInfo picinfo;
-            ImageUploadResult.PicDetailedInfo picDetailedInfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
-                this.a.decrementAndGet();
-                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
-                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
-                }
-                if (this.a.get() == 0) {
-                    if (!ListUtils.isEmpty(this.b)) {
-                        this.c.L(this.b);
-                    } else {
-                        this.c.o0();
+            public RunnableC0480a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
                 }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.g();
+                }
             }
         }
-    }
 
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageFileInfo a;
-        public final /* synthetic */ d b;
-
-        public b(v47 v47Var, ImageFileInfo imageFileInfo, d dVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(v47 v47Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v47Var, imageFileInfo, dVar};
+                Object[] objArr = {v47Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = imageFileInfo;
-            this.b = dVar;
+            this.a = v47Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String filePath = this.a.getFilePath();
-                ImageUploader imageUploader = new ImageUploader("from_user_collect");
-                if (this.a.isGif()) {
-                    this.b.a(imageUploader.uploadInBackground(filePath, true, false));
-                    return;
-                }
-                Bitmap b = qe9.b(this.a);
-                if (b == null) {
-                    this.b.a(null);
-                    return;
-                }
-                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
-                b.recycle();
-                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
-                    this.b.a(null);
-                    return;
-                }
-                ImageUploadResult uploadInBackground = imageUploader.uploadInBackground(saveBitmapByAbsolutelyPath, false, false);
-                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
-                this.b.a(uploadInBackground);
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.d();
+                bv6.a(new RunnableC0480a(this), "FaceShop", 1);
             }
         }
     }
@@ -148,28 +120,116 @@ public class v47 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.b);
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    return;
+                }
+                Iterator<pj5> it = this.a.iterator();
+                while (it.hasNext()) {
+                    pj5 next = it.next();
+                    if (next instanceof u47) {
+                        ((u47) next).y();
+                    }
+                }
             }
         }
     }
 
-    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
+    public static v47 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, arrayList, cVar) != null) || ListUtils.isEmpty(arrayList)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (v47.class) {
+                    if (c == null) {
+                        c = new v47();
+                    }
+                }
+            }
+            return c;
         }
-        AtomicInteger atomicInteger = new AtomicInteger();
-        atomicInteger.set(arrayList.size());
-        ArrayList arrayList2 = new ArrayList();
-        Iterator<ImageFileInfo> it = arrayList.iterator();
-        while (it.hasNext()) {
-            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
+        return (v47) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mj5
+    public void b(mj5.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && MemeDiyEnableSwitch.isOn()) {
+            LinkedList<pj5> linkedList = this.a;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                Iterator<pj5> it = this.a.iterator();
+                while (it.hasNext()) {
+                    pj5 next = it.next();
+                    if (aVar != null) {
+                        aVar.a(next);
+                    }
+                }
+                return;
+            }
+            this.a = new LinkedList<>();
+            u47 u47Var = new u47();
+            this.a.add(u47Var);
+            if (aVar != null) {
+                aVar.a(u47Var);
+            }
         }
     }
 
-    public final void b(ImageFileInfo imageFileInfo, d dVar) {
+    @Override // com.baidu.tieba.mj5
+    public void d() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
-            ge9.b().a(new b(this, imageFileInfo, dVar));
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            return;
         }
+        List<DiyEmotionData> r = y47.o().r(TbadkCoreApplication.getCurrentAccount());
+        if (r != null && r.size() != 0) {
+            if (r != null && r.size() != 0) {
+                i = r.size() - 1;
+            } else {
+                i = 0;
+            }
+            StatisticItem statisticItem = new StatisticItem("c12224");
+            statisticItem.param("obj_param1", i);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            return;
+        }
+        DiyEmotionData diyEmotionData = new DiyEmotionData();
+        diyEmotionData.setPid("setting_icon");
+        diyEmotionData.setOrderId(301);
+        diyEmotionData.setSharpText("#(meme,diysetting)");
+        diyEmotionData.setUid(TbadkCoreApplication.getCurrentAccount());
+        y47.o().c(diyEmotionData);
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            LinkedList<pj5> linkedList = this.a;
+            if (linkedList == null) {
+                return false;
+            }
+            Iterator<pj5> it = linkedList.iterator();
+            while (it.hasNext()) {
+                pj5 next = it.next();
+                if (next instanceof u47) {
+                    return ((u47) next).w(str);
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

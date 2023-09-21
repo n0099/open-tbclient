@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.bd.LiveYYRtcLoadService;
+import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class o89 extends bl1<LiveYYRtcLoadService> {
+public final class o89 extends al1<LiveUserSecurityBehaviorService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class o89 extends bl1<LiveYYRtcLoadService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bl1
+    @Override // com.baidu.tieba.al1
     /* renamed from: a */
-    public LiveYYRtcLoadService createService() throws ServiceNotFoundException {
+    public LiveUserSecurityBehaviorService createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new p89();
+            return new LiveUserSecurityBehaviorServiceImpl();
         }
-        return (LiveYYRtcLoadService) invokeV.objValue;
+        return (LiveUserSecurityBehaviorService) invokeV.objValue;
     }
 }

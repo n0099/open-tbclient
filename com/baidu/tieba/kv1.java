@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ia2;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
+import android.content.Context;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface kv1 {
-    int a();
+    void a(String str, String str2);
 
-    VideoPlayerFactory b();
+    File b(Context context, String str);
 
-    int c();
+    JSONObject c(Context context, String str);
 
-    void d(boolean z);
-
-    boolean e();
-
-    boolean f();
-
-    void g(int i);
-
-    void h(ia2.c cVar);
+    void d();
 }

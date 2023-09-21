@@ -1,106 +1,116 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class wb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, List<vb0>> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public HashMap<Integer, String> c;
+    public HashMap<String, Object> d;
 
-    @JvmStatic
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
-    public static final vb0 a(String str) {
+    public wb0() {
+        this(null, 0, null, null, 15, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], ((Integer) objArr[1]).intValue(), (HashMap) objArr[2], (HashMap) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (vb0) invokeL.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948264676, "Lcom/baidu/tieba/wb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948264676, "Lcom/baidu/tieba/wb0;");
-                return;
-            }
-        }
-        a = new ConcurrentHashMap<>();
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    public static final vb0 b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
-            List<vb0> list = a.get(str2);
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (!list.isEmpty() && list.size() >= 2) {
-                vb0 vb0Var = list.get(0);
-                Collections.swap(list, 0, 1);
-                if (vb0Var.isPlaying()) {
-                    vb0Var.detachFromContainer();
-                    vb0Var.stop();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof wb0) {
+                    wb0 wb0Var = (wb0) obj;
+                    return Intrinsics.areEqual(this.a, wb0Var.a) && this.b == wb0Var.b && Intrinsics.areEqual(this.c, wb0Var.c) && Intrinsics.areEqual(this.d, wb0Var.d);
                 }
-                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + vb0Var);
-                return vb0Var;
+                return false;
             }
-            vb0 vb0Var2 = new vb0(new xb0(str, 0, null, null, 14, null));
-            list.add(vb0Var2);
-            a.put(str2, list);
-            return vb0Var2;
+            return true;
         }
-        return (vb0) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static /* synthetic */ vb0 c(String str, String str2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            str = "";
-        }
-        return b(str, str2);
-    }
-
-    @JvmStatic
-    public static final void d(String str) {
-        boolean z;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
-            List<vb0> list = a.get(str);
-            if (list != null && !list.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.a;
+            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
+            HashMap<Integer, String> hashMap = this.c;
+            int hashCode2 = (hashCode + (hashMap != null ? hashMap.hashCode() : 0)) * 31;
+            HashMap<String, Object> hashMap2 = this.d;
+            return hashCode2 + (hashMap2 != null ? hashMap2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "MediaSource(roomId=" + this.a + ", mediaSourceType=" + this.b + ", videoInfo=" + this.c + ", launchInfo=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public wb0(String str, int i, HashMap<Integer, String> hashMap, HashMap<String, Object> hashMap2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), hashMap, hashMap2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            for (vb0 vb0Var : list) {
-                vb0Var.detachFromContainer();
-                vb0Var.release();
-            }
-            list.clear();
-            a.remove(str);
         }
+        this.a = str;
+        this.b = i;
+        this.c = hashMap;
+        this.d = hashMap2;
+    }
+
+    public /* synthetic */ wb0(String str, int i, HashMap hashMap, HashMap hashMap2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i2 & 1) != 0 ? null : str, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? null : hashMap, (i2 & 8) != 0 ? null : hashMap2);
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

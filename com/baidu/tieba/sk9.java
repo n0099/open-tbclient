@@ -1,31 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes8.dex */
-public final class sk9 {
+public class sk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public final ok1<yp5> a;
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            mk1 b = mk1.b();
-            this.a = b;
-            b.a(new zp5());
-        }
-    }
+    public String a;
 
     public sk9() {
         Interceptable interceptable = $ic;
@@ -40,90 +26,23 @@ public final class sk9 {
                 return;
             }
         }
-        f();
+        this.a = "";
     }
 
-    public final yp5 a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ok1<yp5> ok1Var = this.a;
-            if (ok1Var != null) {
-                return ok1Var.get();
-            }
-            return null;
+            return this.a;
         }
-        return (yp5) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final BaseFragment b() {
-        InterceptResult invokeV;
+    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            yp5 a = a();
-            if (a != null) {
-                return a.t();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+            return;
         }
-        return (BaseFragment) invokeV.objValue;
-    }
-
-    public final long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            yp5 a = a();
-            if (a != null) {
-                return a.n();
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            yp5 a = a();
-            if (a != null && a.s()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void d(int i, int i2, Intent intent) {
-        yp5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && (a = a()) != null) {
-            a.q(i, i2, intent);
-        }
-    }
-
-    public final void g(boolean z) {
-        yp5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (a = a()) != null) {
-            a.u(z);
-        }
-    }
-
-    public final void h(BdUniqueId bdUniqueId) {
-        yp5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) && (a = a()) != null) {
-            a.setUniqueId(bdUniqueId);
-        }
-    }
-
-    public final void i(boolean z) {
-        yp5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (a = a()) != null) {
-            a.setUserVisibleHint(z);
-        }
+        this.a = forumHeadlineImgInfo.img_url;
     }
 }

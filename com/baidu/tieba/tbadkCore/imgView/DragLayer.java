@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fia;
-import com.baidu.tieba.gia;
+import com.baidu.tieba.lka;
+import com.baidu.tieba.mka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DragLayer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fia a;
-    public gia b;
+    public lka a;
+    public mka b;
 
     public final void b() {
         Interceptable interceptable = $ic;
@@ -94,10 +94,10 @@ public class DragLayer extends FrameLayout {
     }
 
     public void a() {
-        gia giaVar;
+        mka mkaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (giaVar = this.b) != null) {
-            Bitmap bitmap = giaVar.a;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mkaVar = this.b) != null) {
+            Bitmap bitmap = mkaVar.a;
             if (bitmap != null) {
                 bitmap.recycle();
                 this.b.a = null;
@@ -106,22 +106,22 @@ public class DragLayer extends FrameLayout {
         }
     }
 
-    public fia getDragController() {
+    public lka getDragController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return (fia) invokeV.objValue;
+        return (lka) invokeV.objValue;
     }
 
-    public gia getDragObject() {
+    public mka getDragObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
-        return (gia) invokeV.objValue;
+        return (mka) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -138,9 +138,9 @@ public class DragLayer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            gia giaVar = this.b;
-            if (giaVar != null && this.a.a) {
-                giaVar.a(canvas);
+            mka mkaVar = this.b;
+            if (mkaVar != null && this.a.a) {
+                mkaVar.a(canvas);
             }
         }
     }
@@ -173,17 +173,17 @@ public class DragLayer extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public void setDragController(fia fiaVar) {
+    public void setDragController(lka lkaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, fiaVar) == null) {
-            this.a = fiaVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, lkaVar) == null) {
+            this.a = lkaVar;
         }
     }
 
-    public void setDragObject(gia giaVar) {
+    public void setDragObject(mka mkaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, giaVar) == null) {
-            this.b = giaVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, mkaVar) == null) {
+            this.b = mkaVar;
             invalidate();
         }
     }

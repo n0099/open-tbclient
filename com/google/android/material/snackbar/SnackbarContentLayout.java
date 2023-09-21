@@ -101,8 +101,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f09229c);
-        this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f09229b);
+        this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f092267);
+        this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f092266);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0055, code lost:

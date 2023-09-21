@@ -1,31 +1,39 @@
 package com.baidu.tieba;
 
+import android.graphics.Path;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
 public final class q2c {
     public static /* synthetic */ Interceptable $ic;
+    public static final Path a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringsKt__StringsJVMKt.isBlank(str)) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041383, "Lcom/baidu/tieba/q2c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append('[');
-            Thread currentThread = Thread.currentThread();
-            Intrinsics.checkExpressionValueIsNotNull(currentThread, "Thread.currentThread()");
-            sb.append(currentThread.getName());
-            sb.append("] ");
-            sb.append(str);
-            return sb.toString();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948041383, "Lcom/baidu/tieba/q2c;");
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        a = new Path();
+    }
+
+    public static final Path a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
+        }
+        return (Path) invokeV.objValue;
     }
 }

@@ -20,10 +20,10 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gn;
+import com.baidu.tieba.fn;
 import com.baidu.tieba.k9;
+import com.baidu.tieba.kk;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.lk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,13 +60,13 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         }
     }
 
-    public gn onGetPreLoadListView() {
+    public fn onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
-        return (gn) invokeV.objValue;
+        return (fn) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -97,9 +97,9 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     }
 
     @Override // com.baidu.tieba.l9
-    public void onPreLoad(gn gnVar) {
+    public void onPreLoad(fn fnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, gnVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, fnVar) == null) {
         }
     }
 
@@ -180,8 +180,8 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         if ((interceptable != null && interceptable.invokeL(65537, this, view2) != null) || view2 == null) {
             return;
         }
-        if (view2 instanceof lk) {
-            ((lk) view2).refresh();
+        if (view2 instanceof kk) {
+            ((kk) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -282,7 +282,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStop();
-            gn onGetPreLoadListView = onGetPreLoadListView();
+            fn onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }

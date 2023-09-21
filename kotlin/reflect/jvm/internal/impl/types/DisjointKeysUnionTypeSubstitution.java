@@ -77,11 +77,11 @@ public final class DisjointKeysUnionTypeSubstitution extends TypeSubstitution {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
     /* renamed from: get */
-    public TypeProjection mo2110get(KotlinType kotlinType) {
-        TypeProjection mo2110get = this.first.mo2110get(kotlinType);
-        if (mo2110get == null) {
-            return this.second.mo2110get(kotlinType);
+    public TypeProjection mo2112get(KotlinType kotlinType) {
+        TypeProjection mo2112get = this.first.mo2112get(kotlinType);
+        if (mo2112get == null) {
+            return this.second.mo2112get(kotlinType);
         }
-        return mo2110get;
+        return mo2112get;
     }
 }

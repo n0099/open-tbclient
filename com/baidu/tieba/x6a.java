@@ -1,113 +1,135 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class x6a {
+public class x6a extends b7a {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253702, "Lcom/baidu/tieba/x6a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948253702, "Lcom/baidu/tieba/x6a;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
+    public HeadImageView h;
+    public TextView i;
+    public TextView j;
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m6a a;
+        public final /* synthetic */ x6a b;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(x6a x6aVar, m6a m6aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x6aVar, m6aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = x6aVar;
+            this.a = m6aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Context context = this.b.b.getContext();
+                m6a m6aVar = this.a;
+                String str2 = m6aVar.d;
+                String str3 = m6aVar.f;
+                AdvertAppInfo advertAppInfo = this.b.c;
+                if (advertAppInfo != null) {
+                    str = advertAppInfo.g;
+                } else {
+                    str = "";
+                }
+                h5a.a(context, str2, str3, str, this.a.j);
+                ClogBuilder clogBuilder = new ClogBuilder();
+                clogBuilder.v(this.b.c.j).q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g).z(String.valueOf(302));
+                w31.e(clogBuilder);
+                x6a x6aVar = this.b;
+                if (x6aVar.d != null) {
+                    o49.c(x6aVar.c);
                 }
             }
         }
+    }
 
-        public final Map<String, String> a(f87 businessInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-                Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-                HashMap hashMap = new HashMap();
-                Map<String, String> a = businessInfo.a();
-                String str = a.get("extra");
-                String str2 = "";
-                if (str == null) {
-                    str = "";
-                }
-                hashMap.put("obj_id", str);
-                String str3 = a.get("weight");
-                if (str3 == null) {
-                    str3 = "";
-                }
-                hashMap.put("obj_param1", str3);
-                hashMap.put(TiebaStatic.Params.OBJ_PARAM2, "1");
-                String str4 = a.get("source");
-                if (str4 == null) {
-                    str4 = "";
-                }
-                hashMap.put("obj_source", str4);
-                String str5 = a.get("position_from_1");
-                String str6 = "0";
-                if (str5 == null) {
-                    str5 = "0";
-                }
-                hashMap.put("obj_locate", str5);
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                hashMap.put("uid", currentAccount);
-                hashMap.put(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(System.currentTimeMillis() / 1000));
-                String str7 = a.get("abtest_tag");
-                if (str7 != null) {
-                    str2 = str7;
-                }
-                hashMap.put("ab_tag", str2);
-                String str8 = a.get("is_video_work");
-                if (str8 != null) {
-                    str6 = str8;
-                }
-                hashMap.put(TiebaStatic.Params.IS_ZP, str6);
-                hashMap.put(TiebaStatic.Params.OBJ_PARAM5, "1");
-                return hashMap;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x6a(View view2, String str) {
+        super(view2, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (Map) invokeL.objValue;
+        }
+        k();
+    }
+
+    @Override // com.baidu.tieba.b7a
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.b();
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f0814f2, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    @Override // com.baidu.tieba.b7a
+    public void c(m6a m6aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m6aVar) == null) {
+            super.c(m6aVar);
+            this.h.startLoad(m6aVar.c, 10, false);
+            this.i.setText(m6aVar.b);
+            this.j.setText(m6aVar.e);
+            this.b.setOnClickListener(new a(this, m6aVar));
+            b();
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f09286f);
+            this.h = headImageView;
+            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
+            this.h.setDefaultBgResource(R.color.CAM_X0205);
+            this.h.setIsRound(true);
+            this.i = (TextView) a(R.id.user_name);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f09006a);
         }
     }
 }

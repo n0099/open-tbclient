@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kk7;
-import com.baidu.tieba.mk7;
+import com.baidu.tieba.uk7;
+import com.baidu.tieba.wk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mk7 a;
-    public kk7 b;
+    public wk7 a;
+    public uk7 b;
     public View.OnClickListener c;
 
     /* loaded from: classes5.dex */
@@ -103,13 +103,13 @@ public class AchievementActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0028);
-            mk7 mk7Var = new mk7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0914d1));
-            this.a = mk7Var;
-            mk7Var.h(true);
+            wk7 wk7Var = new wk7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0914bc));
+            this.a = wk7Var;
+            wk7Var.h(true);
             this.a.j(this.c);
-            kk7 kk7Var = new kk7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0914bb));
-            this.b = kk7Var;
-            kk7Var.h(false);
+            uk7 uk7Var = new uk7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0914a8));
+            this.b = uk7Var;
+            uk7Var.h(false);
         }
     }
 }

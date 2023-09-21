@@ -17,12 +17,14 @@ import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.File;
+import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.collections.SetsKt__SetsJVMKt;
 import kotlin.io.FilesKt__UtilsKt;
 import kotlin.jvm.functions.Function0;
@@ -31,7 +33,7 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import kotlin.text.StringsKt__StringsKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000x\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010%\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\b\u000b\n\u0002\u0010\"\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\bB\u0010%J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u0015\u0010\b\u001a\u00020\u00072\u0006\u0010\u0006\u001a\u00020\u0001¢\u0006\u0004\b\b\u0010\tJ1\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0012\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\r0\f¢\u0006\u0004\b\u000f\u0010\u0010J\u0019\u0010\u0014\u001a\u00020\u00132\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0015\u0010\u0016\u001a\u00020\u00132\u0006\u0010\u0006\u001a\u00020\u0001¢\u0006\u0004\b\u0016\u0010\u0017J\u0017\u0010\u001a\u001a\u00020\u00072\u0006\u0010\u0019\u001a\u00020\u0018H\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ/\u0010\"\u001a\u00020\u00072\u0006\u0010\u001c\u001a\u00020\u00132\u0006\u0010\u001e\u001a\u00020\u001d2\u0006\u0010\u001f\u001a\u00020\u001d2\b\u0010!\u001a\u0004\u0018\u00010 ¢\u0006\u0004\b\"\u0010#J\r\u0010$\u001a\u00020\u0007¢\u0006\u0004\b$\u0010%J)\u0010*\u001a\u00020\u00072\u0006\u0010'\u001a\u00020&2\u0012\u0010)\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n0(¢\u0006\u0004\b*\u0010+J)\u0010,\u001a\u00020\u00072\u0006\u0010'\u001a\u00020&2\u0012\u0010)\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n0(¢\u0006\u0004\b,\u0010+R\u0016\u0010-\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b/\u0010.R\u0016\u00100\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b0\u0010.R\u0016\u00101\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b1\u0010.R\u0016\u00102\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b2\u0010.R\u0016\u00103\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b3\u0010.R\u001c\u00105\u001a\b\u0012\u0004\u0012\u00020\n048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b5\u00106R\u001d\u0010<\u001a\u0002078F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b8\u00109\u001a\u0004\b:\u0010;R\u0018\u0010>\u001a\u0004\u0018\u00010=8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010?R\u0016\u0010@\u001a\u00020\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010A¨\u0006C"}, d2 = {"Lcom/baidu/searchbox/yy/gameassist/GameAssistNPSPluginManager;", "Landroid/content/Context;", "context", "", "checkGameAssistAlive", "(Landroid/content/Context;)Z", "packageContext", "", GameAssistConstKt.METHOD_CLEAR_ALL_CACHE, "(Landroid/content/Context;)V", "", "key", "", "", "params", "dispatchHostEvent", "(Landroid/content/Context;Ljava/lang/String;Ljava/util/Map;)V", "Ljava/io/File;", "file", "", "getFileLength", "(Ljava/io/File;)J", "getLiveResourceSize", "(Landroid/content/Context;)J", "Lcom/baidu/searchbox/yy/gameassist/PluginLoadCallback;", "originCallback", "loadNpsPluginImpl", "(Lcom/baidu/searchbox/yy/gameassist/PluginLoadCallback;)V", GameAssistConstKt.KEY_DISK_QUOTA, "", GameAssistConstKt.KEY_DISK_OLD_STATE, GameAssistConstKt.KEY_DISK_NEW_STATE, "Lcom/baidu/searchbox/live/interfaces/callback/ILiveDiskClearCacheCallback;", WebChromeClient.KEY_ARG_CALLBACK, GameAssistConstKt.METHOD_DISK_CLEAR_CACHE_CHANGE, "(JIILcom/baidu/searchbox/live/interfaces/callback/ILiveDiskClearCacheCallback;)V", "onGameAssistProcessDestroy", "()V", "Landroid/app/Activity;", "act", "", "paramsMap", "startGameAssistActivity", "(Landroid/app/Activity;Ljava/util/Map;)V", "startGameAssistActivityFromDebug", "GAMEASSIST_DISKCACHE_DIRNAME", "Ljava/lang/String;", "GAMEASSIST_ENTER_DEBUG", "GAMEASSIST_PKG_NAME", "IMPL_ENTRY_CLASS_NAME", "KEY_YY_WX_PAY_RESULT", "TAG", "", "hostEventSet", "Ljava/util/Set;", "Landroid/os/Handler;", "mMainHandler$delegate", "Lkotlin/Lazy;", "getMMainHandler", "()Landroid/os/Handler;", "mMainHandler", "Lcom/baidu/searchbox/yy/gameassist/IGameAssistPlugin;", "pluginImpl", "Lcom/baidu/searchbox/yy/gameassist/IGameAssistPlugin;", "receiveOnDestroy", "Z", "<init>", "lib-gameassist-host_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000x\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010%\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\b\u000b\n\u0002\u0010\"\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\bÆ\u0002\u0018\u0000:\u0001CB\t\b\u0002¢\u0006\u0004\bB\u0010%J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u0015\u0010\b\u001a\u00020\u00072\u0006\u0010\u0006\u001a\u00020\u0001¢\u0006\u0004\b\b\u0010\tJ1\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0012\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\r0\f¢\u0006\u0004\b\u000f\u0010\u0010J\u0019\u0010\u0014\u001a\u00020\u00132\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0015\u0010\u0016\u001a\u00020\u00132\u0006\u0010\u0006\u001a\u00020\u0001¢\u0006\u0004\b\u0016\u0010\u0017J\u0017\u0010\u001a\u001a\u00020\u00072\u0006\u0010\u0019\u001a\u00020\u0018H\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ/\u0010\"\u001a\u00020\u00072\u0006\u0010\u001c\u001a\u00020\u00132\u0006\u0010\u001e\u001a\u00020\u001d2\u0006\u0010\u001f\u001a\u00020\u001d2\b\u0010!\u001a\u0004\u0018\u00010 ¢\u0006\u0004\b\"\u0010#J\r\u0010$\u001a\u00020\u0007¢\u0006\u0004\b$\u0010%J)\u0010*\u001a\u00020\u00072\u0006\u0010'\u001a\u00020&2\u0012\u0010)\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n0(¢\u0006\u0004\b*\u0010+J)\u0010,\u001a\u00020\u00072\u0006\u0010'\u001a\u00020&2\u0012\u0010)\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\n0(¢\u0006\u0004\b,\u0010+R\u0016\u0010-\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b/\u0010.R\u0016\u00100\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b0\u0010.R\u0016\u00101\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b1\u0010.R\u0016\u00102\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b2\u0010.R\u0016\u00103\u001a\u00020\n8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b3\u0010.R\u001c\u00105\u001a\b\u0012\u0004\u0012\u00020\n048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b5\u00106R\u001d\u0010<\u001a\u0002078F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b8\u00109\u001a\u0004\b:\u0010;R\u0018\u0010>\u001a\u0004\u0018\u00010=8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010?R\u0016\u0010@\u001a\u00020\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010A¨\u0006D"}, d2 = {"Lcom/baidu/searchbox/yy/gameassist/GameAssistNPSPluginManager;", "Landroid/content/Context;", "context", "", "checkGameAssistAlive", "(Landroid/content/Context;)Z", "packageContext", "", GameAssistConstKt.METHOD_CLEAR_ALL_CACHE, "(Landroid/content/Context;)V", "", "key", "", "", "params", "dispatchHostEvent", "(Landroid/content/Context;Ljava/lang/String;Ljava/util/Map;)V", "Ljava/io/File;", "file", "", "getFileLength", "(Ljava/io/File;)J", "getLiveResourceSize", "(Landroid/content/Context;)J", "Lcom/baidu/searchbox/yy/gameassist/PluginLoadCallback;", "originCallback", "loadNpsPluginImpl", "(Lcom/baidu/searchbox/yy/gameassist/PluginLoadCallback;)V", GameAssistConstKt.KEY_DISK_QUOTA, "", GameAssistConstKt.KEY_DISK_OLD_STATE, GameAssistConstKt.KEY_DISK_NEW_STATE, "Lcom/baidu/searchbox/live/interfaces/callback/ILiveDiskClearCacheCallback;", WebChromeClient.KEY_ARG_CALLBACK, GameAssistConstKt.METHOD_DISK_CLEAR_CACHE_CHANGE, "(JIILcom/baidu/searchbox/live/interfaces/callback/ILiveDiskClearCacheCallback;)V", "onGameAssistProcessDestroy", "()V", "Landroid/app/Activity;", "act", "", "paramsMap", "startGameAssistActivity", "(Landroid/app/Activity;Ljava/util/Map;)V", "startGameAssistActivityFromDebug", "GAMEASSIST_DISKCACHE_DIRNAME", "Ljava/lang/String;", "GAMEASSIST_ENTER_DEBUG", "GAMEASSIST_PKG_NAME", "IMPL_ENTRY_CLASS_NAME", "KEY_YY_WX_PAY_RESULT", "TAG", "", "hostEventSet", "Ljava/util/Set;", "Landroid/os/Handler;", "mMainHandler$delegate", "Lkotlin/Lazy;", "getMMainHandler", "()Landroid/os/Handler;", "mMainHandler", "Lcom/baidu/searchbox/yy/gameassist/IGameAssistPlugin;", "pluginImpl", "Lcom/baidu/searchbox/yy/gameassist/IGameAssistPlugin;", "receiveOnDestroy", "Z", "<init>", "PluginLoadCallbackWeak", "lib-gameassist-host_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public final class GameAssistNPSPluginManager {
     public static final String GAMEASSIST_DISKCACHE_DIRNAME = "bzrescache";
@@ -58,6 +60,26 @@ public final class GameAssistNPSPluginManager {
         Lazy lazy = mMainHandler$delegate;
         KProperty kProperty = $$delegatedProperties[0];
         return (Handler) lazy.getValue();
+    }
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b&\u0018\u00002\u00020\u0001B\u0019\u0012\u0006\u0010\r\u001a\u00020\b\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u000e\u0010\u000fR\u001b\u0010\u0003\u001a\u0004\u0018\u00010\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006R\u001f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\u00078\u0006@\u0006¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u000b\u0010\f¨\u0006\u0010"}, d2 = {"Lcom/baidu/searchbox/yy/gameassist/GameAssistNPSPluginManager$PluginLoadCallbackWeak;", "Lcom/baidu/searchbox/yy/gameassist/PluginLoadCallback;", "Lcom/baidu/searchbox/yy/gameassist/IGameAssistPlugin;", "plugin", "Lcom/baidu/searchbox/yy/gameassist/IGameAssistPlugin;", "getPlugin", "()Lcom/baidu/searchbox/yy/gameassist/IGameAssistPlugin;", "Ljava/lang/ref/WeakReference;", "Landroid/app/Activity;", "weakAct", "Ljava/lang/ref/WeakReference;", "getWeakAct", "()Ljava/lang/ref/WeakReference;", "act", "<init>", "(Landroid/app/Activity;Lcom/baidu/searchbox/yy/gameassist/IGameAssistPlugin;)V", "lib-gameassist-host_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes4.dex */
+    public static abstract class PluginLoadCallbackWeak extends PluginLoadCallback {
+        public final IGameAssistPlugin plugin;
+        public final WeakReference<Activity> weakAct;
+
+        public PluginLoadCallbackWeak(Activity activity, IGameAssistPlugin iGameAssistPlugin) {
+            this.plugin = iGameAssistPlugin;
+            this.weakAct = new WeakReference<>(activity);
+        }
+
+        public final IGameAssistPlugin getPlugin() {
+            return this.plugin;
+        }
+
+        public final WeakReference<Activity> getWeakAct() {
+            return this.weakAct;
+        }
     }
 
     public final void onGameAssistProcessDestroy() {
@@ -291,15 +313,30 @@ public final class GameAssistNPSPluginManager {
                 }
             }, 1000L);
         } else {
-            loadNpsPluginImpl(new PluginLoadCallback() { // from class: com.baidu.searchbox.yy.gameassist.GameAssistNPSPluginManager$startGameAssistActivity$3
+            final IGameAssistPlugin iGameAssistPlugin = pluginImpl;
+            loadNpsPluginImpl(new PluginLoadCallbackWeak(activity, iGameAssistPlugin) { // from class: com.baidu.searchbox.yy.gameassist.GameAssistNPSPluginManager$startGameAssistActivity$3
+                /* JADX WARN: Code restructure failed: missing block: B:8:0x0020, code lost:
+                    if (r2 != null) goto L7;
+                 */
                 @Override // com.baidu.searchbox.yy.gameassist.PluginLoadCallback
+                /*
+                    Code decompiled incorrectly, please refer to instructions dump.
+                */
                 public void onResult(Object obj, String str) {
-                    IGameAssistPlugin iGameAssistPlugin;
-                    GameAssistNPSPluginManager gameAssistNPSPluginManager = GameAssistNPSPluginManager.INSTANCE;
-                    iGameAssistPlugin = GameAssistNPSPluginManager.pluginImpl;
-                    if (iGameAssistPlugin != null) {
-                        iGameAssistPlugin.startGameAssistActivity(activity, map);
+                    Unit unit;
+                    Activity it = getWeakAct().get();
+                    if (it != null) {
+                        IGameAssistPlugin plugin = getPlugin();
+                        if (plugin != null) {
+                            Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                            plugin.startGameAssistActivity(it, map);
+                            unit = Unit.INSTANCE;
+                        } else {
+                            unit = null;
+                        }
                     }
+                    YalogKt.yalog(GameAssistNPSPluginManager.TAG, "startAct, but act null");
+                    Unit unit2 = Unit.INSTANCE;
                     NPSPluginStateHelper.INSTANCE.downloadUpdatePackage();
                 }
             });

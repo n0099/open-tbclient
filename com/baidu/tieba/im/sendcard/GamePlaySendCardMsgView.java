@@ -33,7 +33,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GamePlaySendCardMsgData;
 import com.baidu.tieba.tbadkCore.voice.VoicePlayBtn;
-import com.baidu.tieba.ve5;
+import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +69,7 @@ public class GamePlaySendCardMsgView extends LinearLayout {
     public String r;
     public String s;
     public boolean t;
-    public ve5 u;
+    public ze5 u;
     public CustomMessageListener v;
 
     /* loaded from: classes6.dex */
@@ -274,15 +274,19 @@ public class GamePlaySendCardMsgView extends LinearLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !k(str)) {
             h();
+            GamePlaySendCardMsgData gamePlaySendCardMsgData = this.q;
+            if (gamePlaySendCardMsgData != null && gamePlaySendCardMsgData.getFollow() != null) {
+                this.d.setText(this.q.getFollow().getIntro_txt());
+            }
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ve5 ve5Var = this.u;
-            if (ve5Var != null) {
-                ve5Var.e();
+            ze5 ze5Var = this.u;
+            if (ze5Var != null) {
+                ze5Var.e();
             }
             MessageManager.getInstance().unRegisterListener(this.v);
         }
@@ -375,7 +379,7 @@ public class GamePlaySendCardMsgView extends LinearLayout {
                 return;
             }
             if (this.u == null) {
-                this.u = new ve5(this.b);
+                this.u = new ze5(this.b);
             }
             this.u.h(true, this.r, this.s, this.a);
         }
@@ -473,7 +477,7 @@ public class GamePlaySendCardMsgView extends LinearLayout {
                 if (!StringUtils.isNull(sendCardTagInfo.getTag_img())) {
                     int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds195);
                     if (dimens < dimens2) {
-                        return;
+                        break;
                     }
                     TbImageView tbImageView = new TbImageView(getContext());
                     tbImageView.setPlaceHolderAutoChangeSkinType(2);
@@ -487,7 +491,7 @@ public class GamePlaySendCardMsgView extends LinearLayout {
                     EMTextView eMTextView2 = new EMTextView(getContext());
                     float measureText = eMTextView2.getPaint().measureText(sendCardTagInfo.getTag_name());
                     if (dimens < measureText) {
-                        return;
+                        break;
                     }
                     eMTextView2.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), BdUtilHelper.getDimens(getContext(), R.dimen.tbds3), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), BdUtilHelper.getDimens(getContext(), R.dimen.tbds9));
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);

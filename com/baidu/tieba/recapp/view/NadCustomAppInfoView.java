@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d15;
-import com.baidu.tieba.j3a;
+import com.baidu.tieba.h5a;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.NadCustomAppInfoView;
-import com.baidu.tieba.x31;
+import com.baidu.tieba.w31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -295,7 +295,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 return (TextView) invokeV.objValue;
             }
         });
-        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.h5a
+        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.f7a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -307,7 +307,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 }
             }
         };
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0696, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0695, this);
         getPrivacyTagView().setOnClickListener(this.g);
         getPermissionTagView().setOnClickListener(this.g);
     }
@@ -378,7 +378,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             } else if (id != R.id.ad_author_full_name) {
                 str = "";
                 str2 = str;
-                j3a.a(context, str7, null, null, str);
+                h5a.a(context, str7, null, null, str);
                 this$0.c(str2);
             } else {
                 d15 d15Var5 = this$0.f;
@@ -391,7 +391,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             String str8 = str7;
             str7 = str3;
             str = str8;
-            j3a.a(context, str7, null, null, str);
+            h5a.a(context, str7, null, null, str);
             this$0.c(str2);
         }
     }
@@ -544,7 +544,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 str3 = advertAppInfo3.g;
             }
             j.p(str3);
-            x31.e(clogBuilder);
+            w31.e(clogBuilder);
         }
     }
 
@@ -609,7 +609,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                     z2 = true;
                 }
                 if (!z2) {
-                    getAuthorNameView().setText(getResources().getString(R.string.obfuscated_res_0x7f0f0d4f) + appInfoModel.d);
+                    getAuthorNameView().setText(getResources().getString(R.string.obfuscated_res_0x7f0f0d51) + appInfoModel.d);
                     getAuthorNameView().setVisibility(0);
                     a();
                 } else {
@@ -641,7 +641,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                     if (!z5) {
                         TextView privacyTagView = getPrivacyTagView();
                         StringBuilder sb = new StringBuilder();
-                        sb.append(getResources().getString(R.string.obfuscated_res_0x7f0f0d4f));
+                        sb.append(getResources().getString(R.string.obfuscated_res_0x7f0f0d51));
                         d15.c cVar3 = appInfoModel.g;
                         if (cVar3 != null) {
                             str5 = cVar3.a;
@@ -675,7 +675,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                             if (!z6) {
                                 TextView permissionTagView = getPermissionTagView();
                                 StringBuilder sb2 = new StringBuilder();
-                                sb2.append(getResources().getString(R.string.obfuscated_res_0x7f0f0d4f));
+                                sb2.append(getResources().getString(R.string.obfuscated_res_0x7f0f0d51));
                                 d15.b bVar3 = appInfoModel.h;
                                 if (bVar3 != null) {
                                     str6 = bVar3.a;

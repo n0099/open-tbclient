@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.im.base.core.slice.Slice;
+import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
-import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,11 +89,11 @@ public class EmojiReplayDetailSlice extends Slice {
                 } else {
                     customView = tab.getCustomView();
                 }
-                TextView textView = (TextView) customView.findViewById(R.id.obfuscated_res_0x7f09099f);
-                EMManager.from((LinearLayout) customView.findViewById(R.id.obfuscated_res_0x7f09099a)).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0212);
+                TextView textView = (TextView) customView.findViewById(R.id.obfuscated_res_0x7f090997);
+                EMManager.from((LinearLayout) customView.findViewById(R.id.obfuscated_res_0x7f090992)).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0212);
                 EMManager.from(textView).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0105);
                 EmojiData emojiData = (EmojiData) this.a.o.get(i);
-                ((TbImageView) customView.findViewById(R.id.obfuscated_res_0x7f090999)).startLoad(emojiData.getContent());
+                ((TbImageView) customView.findViewById(R.id.obfuscated_res_0x7f090991)).startLoad(emojiData.getContent());
                 textView.setText(String.valueOf(emojiData.getAllNum()));
             }
         }
@@ -126,10 +126,10 @@ public class EmojiReplayDetailSlice extends Slice {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091ef8) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091ec5) {
                 return;
             }
-            this.a.h0();
+            this.a.j0();
         }
     }
 
@@ -170,7 +170,7 @@ public class EmojiReplayDetailSlice extends Slice {
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tab) != null) {
                 return;
             }
-            this.a.j0(tab.getCustomView(), false);
+            this.a.l0(tab.getCustomView(), false);
         }
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
@@ -179,11 +179,11 @@ public class EmojiReplayDetailSlice extends Slice {
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tab) != null) {
                 return;
             }
-            this.a.j0(tab.getCustomView(), true);
+            this.a.l0(tab.getCustomView(), true);
             this.a.l.g.setCurrentItem(tab.getPosition());
             EmojiDetailFragment emojiDetailFragment = (EmojiDetailFragment) this.a.p.get(tab.getPosition());
             if (emojiDetailFragment != null) {
-                emojiDetailFragment.a2();
+                emojiDetailFragment.g2();
             }
         }
     }
@@ -220,14 +220,14 @@ public class EmojiReplayDetailSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d dVar = new d();
                 dVar.a = view2;
-                dVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f04);
-                dVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f05);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ef8);
-                dVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ef9);
-                TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f07);
+                dVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ed1);
+                dVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ed2);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec5);
+                dVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec6);
+                TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ed4);
                 dVar.f = tabLayout;
                 tabLayout.setSelectedTabIndicator(0);
-                dVar.g = (ViewPager2) view2.findViewById(R.id.obfuscated_res_0x7f091f09);
+                dVar.g = (ViewPager2) view2.findViewById(R.id.obfuscated_res_0x7f091ed6);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -259,31 +259,31 @@ public class EmojiReplayDetailSlice extends Slice {
         this.q = j;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
     @Nullable
-    public View R(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View T(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0882, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d087e, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void X(@Nullable View view2, @Nullable Bundle bundle) {
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
+    public void Z(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.X(view2, bundle);
+            super.Z(view2, bundle);
             View inflate = LayoutInflater.from(this.j.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0295, (ViewGroup) null);
             if (inflate != null) {
                 this.l = d.a(inflate);
-                g0();
+                i0();
             }
         }
     }
 
-    public final void g0() {
+    public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.l.e.setText(R.string.obfuscated_res_0x7f0f0636);
@@ -304,7 +304,7 @@ public class EmojiReplayDetailSlice extends Slice {
         }
     }
 
-    public final void h0() {
+    public final void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.l.g.setAdapter(null);
@@ -315,7 +315,7 @@ public class EmojiReplayDetailSlice extends Slice {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice, com.baidu.tieba.immessagecenter.slice.ability.LifecycleAbility
+    @Override // com.baidu.tieba.im.base.core.slice.Slice, com.baidu.tieba.im.base.core.slice.ability.LifecycleAbility
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -324,7 +324,7 @@ public class EmojiReplayDetailSlice extends Slice {
         }
     }
 
-    public void i0(@NonNull List<EmojiData> list, int i) {
+    public void k0(@NonNull List<EmojiData> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, list, i) == null) {
             this.o.clear();
@@ -346,16 +346,16 @@ public class EmojiReplayDetailSlice extends Slice {
         }
     }
 
-    public final void j0(@Nullable View view2, boolean z) {
+    public final void l0(@Nullable View view2, boolean z) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048581, this, view2, z) != null) || view2 == null) {
             return;
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090999);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09099f);
-        EMManager corner = EMManager.from((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09099a)).setCorner(R.string.J_X01);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090991);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090997);
+        EMManager corner = EMManager.from((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090992)).setCorner(R.string.J_X01);
         if (z) {
             i = R.color.CAM_X0905;
         } else {
@@ -371,7 +371,7 @@ public class EmojiReplayDetailSlice extends Slice {
         textSize.setTextColor(i2);
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
     @SuppressLint({"NotifyDataSetChanged"})
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;

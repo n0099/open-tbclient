@@ -1,184 +1,73 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ci2 {
+public class ci2 extends dd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
-    public static Runnable c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rv3.e(AppRuntime.getAppContext());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rv3.d(AppRuntime.getAppContext()).g();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675645, "Lcom/baidu/tieba/ci2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947675645, "Lcom/baidu/tieba/ci2;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ci2(dc3 dc3Var) {
+        super(dc3Var, "/swanAPI/getRegionData");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = rr1.a;
-        ou2.g0().getSwitch("swan_cpu_booster", 0);
-        b = b(0);
-        if (a) {
-            Log.d("SwanCpuBoosterWrapper", "swan_cpu_booster - 0");
-            Log.d("SwanCpuBoosterWrapper", "SWAN_CPU_BOOSTER - " + b);
-        }
-        a();
     }
 
-    public static void a() {
-        long j;
+    @Override // com.baidu.tieba.dd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !b) {
-            return;
-        }
-        if (a) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        rv3.b(a);
-        if (c == null) {
-            c = new b();
-        }
-        if (a) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("SwanCpuBoosterWrapper", "init cpu booster cost - " + (currentTimeMillis - j) + "ms");
-        }
-    }
-
-    public static void e() {
-        long j;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || !b) {
-            return;
-        }
-        if (a) {
-            Log.d("SwanCpuBoosterWrapper", "startBooster");
-        }
-        if (a) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        d(c);
-        if (a) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("SwanCpuBoosterWrapper", "startBooster cost - " + (currentTimeMillis - j) + "ms");
-        }
-    }
-
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i <= 0) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
+            if (gb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
-            if (i == 1) {
+            String b = rn3.b(context, "aiapps/pickerRegion.js");
+            if (TextUtils.isEmpty(b)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty regionData");
+                return false;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(b);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("content", jSONArray);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                 return true;
-            }
-            if (i != 2) {
+            } catch (JSONException e) {
+                if (dd3.b) {
+                    e.printStackTrace();
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exec fail");
                 return false;
             }
-            return ou2.u0().a();
         }
-        return invokeI.booleanValue;
-    }
-
-    public static void d(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) != null) || runnable == null) {
-            return;
-        }
-        ExecutorUtilsExt.postOnElastic(runnable, "SwanCpuBoosterWrapper", 0);
-    }
-
-    public static void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65539, null, z) != null) || !b) {
-            return;
-        }
-        if (a) {
-            Log.d("SwanCpuBoosterWrapper", "cpu-booster preInit async ? - " + z);
-        }
-        a aVar = new a();
-        if (z) {
-            ExecutorUtilsExt.postOnElastic(aVar, "booster-preInit", 3);
-        } else {
-            aVar.run();
-        }
+        return invokeLLLL.booleanValue;
     }
 }

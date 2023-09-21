@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.pm;
+import com.baidu.tieba.om;
 import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaEnterEffectAdapter extends pm<AlaEnterEffectData, ViewHolder> {
+public class AlaEnterEffectAdapter extends om<AlaEnterEffectData, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -71,17 +71,17 @@ public class AlaEnterEffectAdapter extends pm<AlaEnterEffectData, ViewHolder> {
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbImageView tbImageView = (TbImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901e8);
+                TbImageView tbImageView = (TbImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901e6);
                 this.a = tbImageView;
                 tbImageView.setAutoChangeStyle(false);
-                this.b = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901ee);
-                this.c = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901ef);
-                this.d = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901f0);
-                this.e = (ImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901e5);
-                this.f = (ProgressBar) getView().findViewById(R.id.obfuscated_res_0x7f0901ec);
-                this.g = getView().findViewById(R.id.obfuscated_res_0x7f0901f7);
-                this.h = getView().findViewById(R.id.obfuscated_res_0x7f0901e9);
-                this.i = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901e2);
+                this.b = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901ec);
+                this.c = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901ed);
+                this.d = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901ee);
+                this.e = (ImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901e3);
+                this.f = (ProgressBar) getView().findViewById(R.id.obfuscated_res_0x7f0901ea);
+                this.g = getView().findViewById(R.id.obfuscated_res_0x7f0901f5);
+                this.h = getView().findViewById(R.id.obfuscated_res_0x7f0901e7);
+                this.i = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901e0);
             }
         }
     }
@@ -110,7 +110,7 @@ public class AlaEnterEffectAdapter extends pm<AlaEnterEffectData, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: t */
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -133,7 +133,7 @@ public class AlaEnterEffectAdapter extends pm<AlaEnterEffectData, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: u */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, ViewHolder viewHolder) {
         InterceptResult invokeCommon;

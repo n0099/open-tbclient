@@ -1,189 +1,108 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.tracker.core.monitors.PageTraceMonitor;
+import com.baidu.tieba.xra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import kotlin.Pair;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class tra extends BaseAdapter implements View.OnClickListener {
+public final class tra<R extends xra> extends PageTraceMonitor<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<dsa> a;
-    public dsa b;
+    public final Fragment e;
+    public final Function1<R, ora> f;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TextView b;
-
-        public a(tra traVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {traVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public tra() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tra(Fragment fragment, R thisRef, Function1<? super R, ora> traceHolderFactory) {
+        super(thisRef);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragment, thisRef, traceHolderFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xra) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+        Intrinsics.checkNotNullParameter(traceHolderFactory, "traceHolderFactory");
+        this.e = fragment;
+        this.f = traceHolderFactory;
     }
 
-    public List<dsa> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ura
+    public ora c(R thisRef) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            return this.f.invoke(thisRef);
         }
-        return (List) invokeV.objValue;
+        return (ora) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public Lifecycle h(R thisRef) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public void b(dsa dsaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dsaVar) == null) {
-            if (dsaVar == null) {
-                List<dsa> list = this.a;
-                if (list != null) {
-                    this.b = list.get(0);
-                }
-            } else {
-                this.b = dsaVar;
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<dsa> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null) {
-            this.a = list;
-            if (list.size() > 0) {
-                this.b = this.a.get(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            try {
+                Lifecycle lifecycle = this.e.getLifecycle();
+                Intrinsics.checkNotNullExpressionValue(lifecycle, "fragment.lifecycle");
+                return lifecycle;
+            } catch (IllegalStateException e) {
+                throw new IllegalStateException("Fragment doesn 't have view associated with it or the view has been destroyed!", e);
             }
         }
+        return (Lifecycle) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public void j(Pair<String, String>... params) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091224 && (view2.getTag() instanceof dsa)) {
-            this.b = (dsa) view2.getTag();
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(1048579, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            wra.a(this.e, (Pair[]) Arrays.copyOf(params, params.length));
         }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        a aVar;
-        dsa dsaVar;
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public String i(R thisRef) {
+        InterceptResult invokeL;
+        xra xraVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                aVar = new a(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c8, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091224);
-                aVar.a = tbImageView;
-                tbImageView.setIsRound(true);
-                aVar.a.setDrawerType(1);
-                aVar.a.setDefaultBgResource(R.color.transparent);
-                aVar.a.setBorderWidth(BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
-                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                aVar.a.setConrers(15);
-                TextView textView = (TextView) view3.findViewById(R.id.tv_name);
-                aVar.b = textView;
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0107);
-                aVar.b = (TextView) view3.findViewById(R.id.tv_name);
-                view3.setTag(aVar);
-            } else {
-                view3 = view2;
-                aVar = (a) view2.getTag();
-            }
-            if (i >= 0 && i < this.a.size()) {
-                dsa dsaVar2 = this.a.get(i);
-                if (dsaVar2 != null) {
-                    aVar.a.setTag(dsaVar2);
-                    aVar.a.setOnClickListener(this);
-                    aVar.a.startLoad(String.valueOf(dsaVar2.b), 24, false);
-                    aVar.b.setText(dsaVar2.a);
-                }
-                if (!TextUtils.isEmpty(dsaVar2.a) && (dsaVar = this.b) != null && TextUtils.equals(dsaVar2.a, dsaVar.a)) {
-                    aVar.a.setDrawBorder(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Fragment parentFragment = this.e.getParentFragment();
+            if (parentFragment != null) {
+                if (parentFragment instanceof xra) {
+                    xraVar = (xra) parentFragment;
                 } else {
-                    aVar.a.setDrawBorder(false);
+                    xraVar = null;
+                }
+                if (xraVar != null) {
+                    return xraVar.V1();
                 }
             }
-            return view3;
+            return thisRef.V1();
         }
-        return (View) invokeILL.objValue;
+        return (String) invokeL.objValue;
     }
 }

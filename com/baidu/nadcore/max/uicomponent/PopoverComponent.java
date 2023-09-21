@@ -12,28 +12,28 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tieba.aq0;
+import com.baidu.tieba.bj0;
 import com.baidu.tieba.bq0;
-import com.baidu.tieba.cj0;
+import com.baidu.tieba.bs0;
 import com.baidu.tieba.cq0;
-import com.baidu.tieba.cs0;
-import com.baidu.tieba.dq0;
-import com.baidu.tieba.fq0;
-import com.baidu.tieba.fr0;
-import com.baidu.tieba.i31;
-import com.baidu.tieba.ir0;
-import com.baidu.tieba.jd1;
-import com.baidu.tieba.l71;
-import com.baidu.tieba.lr0;
+import com.baidu.tieba.eq0;
+import com.baidu.tieba.er0;
+import com.baidu.tieba.h31;
+import com.baidu.tieba.hr0;
+import com.baidu.tieba.id1;
+import com.baidu.tieba.k71;
+import com.baidu.tieba.kr0;
+import com.baidu.tieba.lq0;
 import com.baidu.tieba.mq0;
 import com.baidu.tieba.nq0;
 import com.baidu.tieba.oq0;
-import com.baidu.tieba.pq0;
-import com.baidu.tieba.rj0;
-import com.baidu.tieba.tq0;
-import com.baidu.tieba.vd1;
-import com.baidu.tieba.vr0;
-import com.baidu.tieba.x31;
-import com.baidu.tieba.xd1;
+import com.baidu.tieba.qj0;
+import com.baidu.tieba.sq0;
+import com.baidu.tieba.ud1;
+import com.baidu.tieba.ur0;
+import com.baidu.tieba.w31;
+import com.baidu.tieba.wd1;
 import java.io.Serializable;
 import java.util.HashMap;
 import kotlin.Metadata;
@@ -43,73 +43,73 @@ import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000|\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u0001CB\u0007¢\u0006\u0004\bB\u0010\u0004J\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u000b\u001a\u00020\u00022\u0006\u0010\n\u001a\u00020\tH\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u000e\u001a\u00020\u00022\u0006\u0010\r\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u000e\u0010\bJ\u000f\u0010\u000f\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u000f\u0010\u0004J\u0017\u0010\u0012\u001a\u00020\u00022\u0006\u0010\u0011\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0016\u001a\u00020\u00022\u0006\u0010\u0015\u001a\u00020\u0014H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\u0017\u0010\u001a\u001a\u00020\u00022\u0006\u0010\u0019\u001a\u00020\u0018H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001c\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u001c\u0010\u0004J\u000f\u0010\u001d\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u001d\u0010\u0004J\u000f\u0010\u001e\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u001e\u0010\u0004J'\u0010#\u001a\u00020\u00022\u0006\u0010 \u001a\u00020\u001f2\u0006\u0010!\u001a\u00020\u001f2\u0006\u0010\"\u001a\u00020\u001fH\u0002¢\u0006\u0004\b#\u0010$J\u0017\u0010%\u001a\u00020\u00022\u0006\u0010\u0019\u001a\u00020\u0018H\u0002¢\u0006\u0004\b%\u0010\u001bJ\u0017\u0010'\u001a\u00020\u00022\u0006\u0010\n\u001a\u00020&H\u0016¢\u0006\u0004\b'\u0010(J\u0017\u0010+\u001a\u00020\u00022\u0006\u0010*\u001a\u00020)H\u0002¢\u0006\u0004\b+\u0010,R\u0018\u0010.\u001a\u0004\u0018\u00010-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/R\u001e\u00102\u001a\n\u0012\u0004\u0012\u000201\u0018\u0001008\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00104\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00106\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00105R\u0016\u00108\u001a\u0002078\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b8\u00109R\u0016\u0010:\u001a\u00020\u001f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b:\u0010;R\u0018\u0010=\u001a\u0004\u0018\u00010<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>R\u0018\u0010@\u001a\u0004\u0018\u00010?8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010A¨\u0006D"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/PopoverComponent;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "", "attachToParent", "()V", "", "scrollUp", "handleActionUp", "(Z)V", "Lcom/baidu/nadcore/max/event/NestedScrollEvent;", "event", "handleNestedEvent", "(Lcom/baidu/nadcore/max/event/NestedScrollEvent;)V", "withAnim", "hideAdPopOver", "initCountDownTimer", "Lorg/json/JSONObject;", "paramJson", "initPopoverData", "(Lorg/json/JSONObject;)V", "Landroid/view/ViewGroup;", "parent", "onCreateView", "(Landroid/view/ViewGroup;)V", "Landroid/content/Intent;", "intent", "onNewIntent", "(Landroid/content/Intent;)V", MissionEvent.MESSAGE_PAUSE, "onRelease", "onResume", "", "currentY", "videoHeight", "minTopMargin", "onScroll", "(III)V", "parseData", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "receiveEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "Lcom/baidu/nadcore/model/AdLpParams$AlsModel;", "alsModel", "sendActionAls", "(Lcom/baidu/nadcore/model/AdLpParams$AlsModel;)V", "Lcom/baidu/nadcore/widget/ioc/IAdCriusPopViewFactory;", "criusPopFactory", "Lcom/baidu/nadcore/widget/ioc/IAdCriusPopViewFactory;", "Lcom/baidu/nadcore/widget/uiwidget/ICriusPopView;", "Landroid/view/View;", "criusPopView", "Lcom/baidu/nadcore/widget/uiwidget/ICriusPopView;", "hasShowPop", "Z", "hasStartCountDown", "Lcom/baidu/nadcore/model/AdLpParams$PopoverModel;", "popoverModel", "Lcom/baidu/nadcore/model/AdLpParams$PopoverModel;", "popviewHeight", "I", "Lcom/baidu/nadcore/model/CmdPolicy;", "switchModel", "Lcom/baidu/nadcore/model/CmdPolicy;", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "timeoutTimer", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "<init>", "PopOverListener", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class PopoverComponent extends AbsComponentPlugin {
-    public xd1<View> d;
-    public lr0 e;
-    public jd1 f;
-    public l71 g;
+    public wd1<View> d;
+    public kr0 e;
+    public id1 f;
+    public k71 g;
     public boolean h;
     public int i;
     public boolean j;
 
     /* loaded from: classes3.dex */
-    public final class a extends vd1 {
+    public final class a extends ud1 {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a() {
         }
 
-        @Override // com.baidu.tieba.vd1
+        @Override // com.baidu.tieba.ud1
         public void a(boolean z, long j) {
-            nq0 nq0Var = (nq0) PopoverComponent.this.c().q(nq0.class);
-            if (nq0Var != null) {
-                nq0Var.d(240L, true);
+            mq0 mq0Var = (mq0) PopoverComponent.this.c().p(mq0.class);
+            if (mq0Var != null) {
+                mq0Var.d(240L, true);
             }
         }
 
-        @Override // com.baidu.tieba.vd1
-        public void b(vr0 clickInfo) {
+        @Override // com.baidu.tieba.ud1
+        public void b(ur0 clickInfo) {
             Intrinsics.checkNotNullParameter(clickInfo, "clickInfo");
             if (clickInfo.c) {
                 if (!TextUtils.isEmpty(clickInfo.a) && !TextUtils.equals("AD_IMMERSIVE_VIDEO_SCROLL", clickInfo.a)) {
-                    cj0.c(clickInfo.a, PopoverComponent.this.getContext());
+                    bj0.c(clickInfo.a, PopoverComponent.this.getContext());
                 } else {
-                    mq0 mq0Var = (mq0) PopoverComponent.this.c().q(mq0.class);
-                    if (mq0Var != null) {
-                        mq0Var.i(false, true, false);
+                    lq0 lq0Var = (lq0) PopoverComponent.this.c().p(lq0.class);
+                    if (lq0Var != null) {
+                        lq0Var.i(false, true, false);
                     }
                 }
-                ir0 ir0Var = PopoverComponent.q(PopoverComponent.this).e;
-                if (ir0Var != null) {
-                    ir0Var.a();
-                    ir0Var.b = clickInfo.b;
-                    ir0Var.c = ClogBuilder.LogType.FREE_CLICK.type;
-                    PopoverComponent.this.N(ir0Var);
+                hr0 hr0Var = PopoverComponent.p(PopoverComponent.this).e;
+                if (hr0Var != null) {
+                    hr0Var.a();
+                    hr0Var.b = clickInfo.b;
+                    hr0Var.c = ClogBuilder.LogType.FREE_CLICK.type;
+                    PopoverComponent.this.N(hr0Var);
                 }
             }
-            PopoverComponent.this.c().j(new fq0(PopEventTypeEnum.CLICK_POP_UI));
+            PopoverComponent.this.c().j(new eq0(PopEventTypeEnum.CLICK_POP_UI));
         }
 
-        @Override // com.baidu.tieba.vd1
+        @Override // com.baidu.tieba.ud1
         public void c() {
-            nq0 nq0Var = (nq0) PopoverComponent.this.c().q(nq0.class);
-            if (nq0Var != null) {
-                nq0Var.d(240L, false);
+            mq0 mq0Var = (mq0) PopoverComponent.this.c().p(mq0.class);
+            if (mq0Var != null) {
+                mq0Var.d(240L, false);
             }
-            ir0 ir0Var = PopoverComponent.q(PopoverComponent.this).e;
-            if (ir0Var != null) {
-                ir0Var.a();
-                ir0Var.c = ClogBuilder.LogType.FREE_SHOW.type;
-                PopoverComponent.this.N(ir0Var);
+            hr0 hr0Var = PopoverComponent.p(PopoverComponent.this).e;
+            if (hr0Var != null) {
+                hr0Var.a();
+                hr0Var.c = ClogBuilder.LogType.FREE_SHOW.type;
+                PopoverComponent.this.N(hr0Var);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends l71.b {
+    public static final class b extends k71.b {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public b() {
         }
 
-        @Override // com.baidu.tieba.l71.b
+        @Override // com.baidu.tieba.k71.b
         public void b() {
             int i;
             int i2;
@@ -118,41 +118,41 @@ public final class PopoverComponent extends AbsComponentPlugin {
             if (!PopoverComponent.this.h) {
                 return;
             }
-            xd1 xd1Var = PopoverComponent.this.d;
-            if (xd1Var != null) {
-                if (PopoverComponent.q(PopoverComponent.this).a != 3) {
+            wd1 wd1Var = PopoverComponent.this.d;
+            if (wd1Var != null) {
+                if (PopoverComponent.p(PopoverComponent.this).a != 3) {
                     z = true;
                 } else {
                     z = false;
                 }
-                xd1Var.c(z);
+                wd1Var.c(z);
             }
-            if (PopoverComponent.q(PopoverComponent.this).a == 3) {
-                mq0 mq0Var = (mq0) PopoverComponent.this.c().q(mq0.class);
-                oq0 oq0Var = (oq0) PopoverComponent.this.c().q(oq0.class);
-                if (mq0Var != null && (b = mq0Var.b()) != null) {
+            if (PopoverComponent.p(PopoverComponent.this).a == 3) {
+                lq0 lq0Var = (lq0) PopoverComponent.this.c().p(lq0.class);
+                nq0 nq0Var = (nq0) PopoverComponent.this.c().p(nq0.class);
+                if (lq0Var != null && (b = lq0Var.b()) != null) {
                     i = b.getTopMargin();
                 } else {
                     i = 0;
                 }
-                if (oq0Var != null) {
-                    i2 = oq0Var.getVideoHeight();
+                if (nq0Var != null) {
+                    i2 = nq0Var.getVideoHeight();
                 } else {
                     i2 = 0;
                 }
                 int max = Math.max(0, PopoverComponent.this.i - (i2 - i));
-                if (mq0Var != null) {
-                    mq0Var.f(false, true, true, max);
+                if (lq0Var != null) {
+                    lq0Var.f(false, true, true, max);
                 }
             }
-            l71 l71Var = PopoverComponent.this.g;
-            if (l71Var != null) {
-                l71Var.a();
+            k71 k71Var = PopoverComponent.this.g;
+            if (k71Var != null) {
+                k71Var.a();
             }
             PopoverComponent.this.g = null;
         }
 
-        @Override // com.baidu.tieba.l71.b
+        @Override // com.baidu.tieba.k71.b
         public void e() {
             PopoverComponent.this.h = true;
         }
@@ -166,34 +166,34 @@ public final class PopoverComponent extends AbsComponentPlugin {
         @Override // java.lang.Runnable
         public final void run() {
             PopoverComponent.this.D();
-            l71 l71Var = PopoverComponent.this.g;
-            if (l71Var != null) {
-                l71Var.e();
+            k71 k71Var = PopoverComponent.this.g;
+            if (k71Var != null) {
+                k71Var.e();
             }
         }
     }
 
     public final void I() {
-        l71 l71Var = this.g;
-        if (l71Var != null) {
-            l71Var.a();
+        k71 k71Var = this.g;
+        if (k71Var != null) {
+            k71Var.a();
         }
         this.g = null;
-        lr0 lr0Var = this.e;
-        if (lr0Var == null) {
+        kr0 kr0Var = this.e;
+        if (kr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
         }
-        l71 l71Var2 = new l71(lr0Var.b * 1000, 1000L);
-        l71Var2.d(new b());
-        this.g = l71Var2;
+        k71 k71Var2 = new k71(kr0Var.b * 1000, 1000L);
+        k71Var2.d(new b());
+        this.g = k71Var2;
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
         super.onPause();
-        l71 l71Var = this.g;
-        if (l71Var != null) {
-            l71Var.b();
+        k71 k71Var = this.g;
+        if (k71Var != null) {
+            k71Var.b();
         }
     }
 
@@ -201,38 +201,38 @@ public final class PopoverComponent extends AbsComponentPlugin {
     public void onRelease() {
         super.onRelease();
         H(false);
-        xd1<View> xd1Var = this.d;
-        if (xd1Var != null) {
-            xd1Var.a();
+        wd1<View> wd1Var = this.d;
+        if (wd1Var != null) {
+            wd1Var.a();
         }
         this.d = null;
-        l71 l71Var = this.g;
-        if (l71Var != null) {
-            l71Var.a();
+        k71 k71Var = this.g;
+        if (k71Var != null) {
+            k71Var.a();
         }
         this.g = null;
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
-        l71 l71Var;
+        k71 k71Var;
         super.onResume();
-        oq0 oq0Var = (oq0) c().q(oq0.class);
-        if (oq0Var != null && oq0Var.j() && (l71Var = this.g) != null) {
-            l71Var.c();
+        nq0 nq0Var = (nq0) c().p(nq0.class);
+        if (nq0Var != null && nq0Var.j() && (k71Var = this.g) != null) {
+            k71Var.c();
         }
     }
 
-    public static final /* synthetic */ lr0 q(PopoverComponent popoverComponent) {
-        lr0 lr0Var = popoverComponent.e;
-        if (lr0Var == null) {
+    public static final /* synthetic */ kr0 p(PopoverComponent popoverComponent) {
+        kr0 kr0Var = popoverComponent.e;
+        if (kr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
         }
-        return lr0Var;
+        return kr0Var;
     }
 
-    public final void G(cq0 cq0Var) {
-        int i = tq0.$EnumSwitchMapping$0[cq0Var.getType().ordinal()];
+    public final void F(bq0 bq0Var) {
+        int i = sq0.$EnumSwitchMapping$0[bq0Var.getType().ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i == 3) {
@@ -241,25 +241,25 @@ public final class PopoverComponent extends AbsComponentPlugin {
                 }
                 return;
             }
-            l71 l71Var = this.g;
-            if (l71Var != null) {
-                l71Var.b();
+            k71 k71Var = this.g;
+            if (k71Var != null) {
+                k71Var.b();
                 return;
             }
             return;
         }
-        l71 l71Var2 = this.g;
-        if (l71Var2 != null) {
-            l71Var2.c();
+        k71 k71Var2 = this.g;
+        if (k71Var2 != null) {
+            k71Var2.c();
         }
     }
 
     public final void H(boolean z) {
         View realView;
-        xd1<View> xd1Var;
-        xd1<View> xd1Var2 = this.d;
-        if (xd1Var2 != null && (realView = xd1Var2.getRealView()) != null && realView.getVisibility() == 0 && (xd1Var = this.d) != null) {
-            xd1Var.b("0", z);
+        wd1<View> wd1Var;
+        wd1<View> wd1Var2 = this.d;
+        if (wd1Var2 != null && (realView = wd1Var2.getRealView()) != null && realView.getVisibility() == 0 && (wd1Var = this.d) != null) {
+            wd1Var.b("0", z);
         }
     }
 
@@ -277,51 +277,51 @@ public final class PopoverComponent extends AbsComponentPlugin {
     }
 
     public final void D() {
-        pq0 pq0Var;
-        xd1<View> xd1Var;
+        oq0 oq0Var;
+        wd1<View> wd1Var;
         View videoHolder;
-        oq0 oq0Var = (oq0) c().q(oq0.class);
-        if (oq0Var != null && (pq0Var = (pq0) c().q(pq0.class)) != null && (xd1Var = this.d) != null) {
+        nq0 nq0Var = (nq0) c().p(nq0.class);
+        if (nq0Var != null && (oq0Var = (oq0) c().p(oq0.class)) != null && (wd1Var = this.d) != null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            lr0 lr0Var = this.e;
-            if (lr0Var == null) {
+            kr0 kr0Var = this.e;
+            if (kr0Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
             }
-            if (lr0Var.a == 3) {
+            if (kr0Var.a == 3) {
                 layoutParams.gravity = 48;
             } else {
                 layoutParams.gravity = 80;
             }
-            lr0 lr0Var2 = this.e;
-            if (lr0Var2 == null) {
+            kr0 kr0Var2 = this.e;
+            if (kr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
             }
-            if (lr0Var2.a == 3) {
-                videoHolder = pq0Var.b().j();
+            if (kr0Var2.a == 3) {
+                videoHolder = oq0Var.b().j();
             } else {
-                videoHolder = oq0Var.getVideoHolder();
+                videoHolder = nq0Var.getVideoHolder();
             }
             if (!(videoHolder instanceof ViewGroup)) {
                 videoHolder = null;
             }
-            xd1Var.setContainer((ViewGroup) videoHolder, layoutParams);
+            wd1Var.setContainer((ViewGroup) videoHolder, layoutParams);
         }
     }
 
     public final void E(boolean z) {
-        xd1<View> xd1Var;
+        wd1<View> wd1Var;
         View realView;
-        oq0 oq0Var;
-        mq0 mq0Var;
+        nq0 nq0Var;
+        lq0 lq0Var;
         boolean z2;
-        lr0 lr0Var = this.e;
-        if (lr0Var == null) {
+        kr0 kr0Var = this.e;
+        if (kr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
         }
-        if (lr0Var.a != 3 || (xd1Var = this.d) == null || (realView = xd1Var.getRealView()) == null || realView.getVisibility() != 0 || (oq0Var = (oq0) c().q(oq0.class)) == null || (mq0Var = (mq0) c().q(mq0.class)) == null || !oq0Var.j()) {
+        if (kr0Var.a != 3 || (wd1Var = this.d) == null || (realView = wd1Var.getRealView()) == null || realView.getVisibility() != 0 || (nq0Var = (nq0) c().p(nq0.class)) == null || (lq0Var = (lq0) c().p(lq0.class)) == null || !nq0Var.j()) {
             return;
         }
-        int videoHeight = oq0Var.getVideoHeight() - mq0Var.b().getTopMargin();
+        int videoHeight = nq0Var.getVideoHeight() - lq0Var.b().getTopMargin();
         if (!z && videoHeight < this.i / 2) {
             return;
         }
@@ -331,15 +331,15 @@ public final class PopoverComponent extends AbsComponentPlugin {
         } else {
             z2 = false;
         }
-        mq0Var.f(z2, true, true, abs);
+        lq0Var.f(z2, true, true, abs);
     }
 
     public final void K(JSONObject jSONObject) {
         boolean z;
         boolean z2;
         Object obj;
-        xd1<View> xd1Var;
-        lr0 a2 = lr0.f.a(jSONObject);
+        wd1<View> wd1Var;
+        kr0 a2 = kr0.f.a(jSONObject);
         if (a2 != null) {
             this.e = a2;
             String cmdStr = jSONObject.optString("cmd_map");
@@ -365,90 +365,90 @@ public final class PopoverComponent extends AbsComponentPlugin {
             }
             JSONObject jSONObject2 = new JSONObject(cmdStr);
             JSONObject jSONObject3 = new JSONObject(popoverStr);
-            i31.f(jSONObject3, "cmd_map", jSONObject2);
-            lr0 lr0Var = this.e;
-            if (lr0Var == null) {
+            h31.f(jSONObject3, "cmd_map", jSONObject2);
+            kr0 kr0Var = this.e;
+            if (kr0Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
             }
-            jd1 jd1Var = this.f;
+            id1 id1Var = this.f;
             View view2 = null;
-            if (jd1Var != null) {
-                obj = jd1Var.a(jSONObject3);
+            if (id1Var != null) {
+                obj = id1Var.a(jSONObject3);
             } else {
                 obj = null;
             }
-            lr0Var.c = obj;
-            lr0 lr0Var2 = this.e;
-            if (lr0Var2 == null) {
+            kr0Var.c = obj;
+            kr0 kr0Var2 = this.e;
+            if (kr0Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
             }
-            if (lr0Var2.c == null) {
+            if (kr0Var2.c == null) {
                 return;
             }
-            lr0 lr0Var3 = this.e;
-            if (lr0Var3 == null) {
+            kr0 kr0Var3 = this.e;
+            if (kr0Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
             }
-            if (lr0Var3.a != 2) {
-                lr0 lr0Var4 = this.e;
-                if (lr0Var4 == null) {
+            if (kr0Var3.a != 2) {
+                kr0 kr0Var4 = this.e;
+                if (kr0Var4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
                 }
-                if (lr0Var4.a != 3) {
-                    lr0 lr0Var5 = this.e;
-                    if (lr0Var5 == null) {
+                if (kr0Var4.a != 3) {
+                    kr0 kr0Var5 = this.e;
+                    if (kr0Var5 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
                     }
-                    if (lr0Var5.a == 1) {
+                    if (kr0Var5.a == 1) {
                         this.d = null;
                         return;
                     }
                     return;
                 }
             }
-            lr0 lr0Var6 = this.e;
-            if (lr0Var6 == null) {
+            kr0 kr0Var6 = this.e;
+            if (kr0Var6 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
             }
-            if (lr0Var6.c == null) {
+            if (kr0Var6.c == null) {
                 return;
             }
-            lr0 lr0Var7 = this.e;
-            if (lr0Var7 == null) {
+            kr0 kr0Var7 = this.e;
+            if (kr0Var7 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
             }
-            fr0 c2 = fr0.c(i31.c(jSONObject.optString("download")));
-            lr0Var7.d = c2;
+            er0 c2 = er0.c(h31.c(jSONObject.optString("download")));
+            kr0Var7.d = c2;
             if (c2 != null) {
                 c2.b = jSONObject.optString("deferred_cmd");
             }
-            ir0 ir0Var = new ir0();
-            ir0Var.a = ClogBuilder.Page.NAVIDEO_POP.type;
-            ir0Var.d = jSONObject.optString(MigrateStatisticUtils.EXT_INFO);
+            hr0 hr0Var = new hr0();
+            hr0Var.a = ClogBuilder.Page.NAVIDEO_POP.type;
+            hr0Var.d = jSONObject.optString(MigrateStatisticUtils.EXT_INFO);
             Unit unit = Unit.INSTANCE;
-            lr0Var7.e = ir0Var;
-            jd1 jd1Var2 = this.f;
-            if (jd1Var2 != null) {
-                xd1Var = jd1Var2.b(getContext());
+            kr0Var7.e = hr0Var;
+            id1 id1Var2 = this.f;
+            if (id1Var2 != null) {
+                wd1Var = id1Var2.b(getContext());
             } else {
-                xd1Var = null;
+                wd1Var = null;
             }
-            this.d = xd1Var;
-            if (xd1Var == null) {
+            this.d = wd1Var;
+            if (wd1Var == null) {
                 c().B(this);
                 return;
             }
-            if (xd1Var != null) {
-                lr0 lr0Var8 = this.e;
-                if (lr0Var8 == null) {
+            if (wd1Var != null) {
+                kr0 kr0Var8 = this.e;
+                if (kr0Var8 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
                 }
-                xd1Var.setData(lr0Var8);
-                xd1Var.setCriusPopListener(new a());
+                wd1Var.setData(kr0Var8);
+                wd1Var.setCriusPopListener(new a());
             }
-            xd1<View> xd1Var2 = this.d;
-            if (xd1Var2 != null) {
-                view2 = xd1Var2.getRealView();
+            wd1<View> wd1Var2 = this.d;
+            if (wd1Var2 != null) {
+                view2 = wd1Var2.getRealView();
             }
             if (view2 != null) {
                 view2.measure(-2, -2);
@@ -461,13 +461,13 @@ public final class PopoverComponent extends AbsComponentPlugin {
     }
 
     public final void L(int i, int i2, int i3) {
-        xd1<View> xd1Var;
+        wd1<View> wd1Var;
         View realView;
-        lr0 lr0Var = this.e;
-        if (lr0Var == null) {
+        kr0 kr0Var = this.e;
+        if (kr0Var == null) {
             Intrinsics.throwUninitializedPropertyAccessException("popoverModel");
         }
-        if (lr0Var.a != 3 || (xd1Var = this.d) == null || (realView = xd1Var.getRealView()) == null || !this.j || realView.getVisibility() != 0) {
+        if (kr0Var.a != 3 || (wd1Var = this.d) == null || (realView = wd1Var.getRealView()) == null || !this.j || realView.getVisibility() != 0) {
             return;
         }
         if (i < i2 && i > i3) {
@@ -487,9 +487,9 @@ public final class PopoverComponent extends AbsComponentPlugin {
     }
 
     public final void M(Intent intent) {
-        jd1 jd1Var = (jd1) ServiceManager.getService(jd1.a);
-        this.f = jd1Var;
-        if (jd1Var == null) {
+        id1 id1Var = (id1) ServiceManager.getService(id1.a);
+        this.f = id1Var;
+        if (id1Var == null) {
             c().B(this);
             return;
         }
@@ -507,7 +507,7 @@ public final class PopoverComponent extends AbsComponentPlugin {
             }
             String str2 = str;
             if (!TextUtils.isEmpty(str2)) {
-                cs0.v.a(i31.c(str2));
+                bs0.v.a(h31.c(str2));
             }
             K(jSONObject);
             I();
@@ -515,21 +515,21 @@ public final class PopoverComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void s(rj0 event) {
+    public void s(qj0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         super.s(event);
         String a2 = event.a();
-        if (Intrinsics.areEqual(a2, cq0.class.getSimpleName())) {
-            G((cq0) event);
-        } else if (Intrinsics.areEqual(a2, bq0.class.getSimpleName())) {
-            bq0 bq0Var = (bq0) event;
-            L(bq0Var.c(), bq0Var.d(), bq0Var.b());
-        } else if (Intrinsics.areEqual(a2, dq0.class.getSimpleName())) {
-            E(((dq0) event).b());
+        if (Intrinsics.areEqual(a2, bq0.class.getSimpleName())) {
+            F((bq0) event);
+        } else if (Intrinsics.areEqual(a2, aq0.class.getSimpleName())) {
+            aq0 aq0Var = (aq0) event;
+            L(aq0Var.c(), aq0Var.d(), aq0Var.b());
+        } else if (Intrinsics.areEqual(a2, cq0.class.getSimpleName())) {
+            E(((cq0) event).b());
         }
     }
 
-    public final void N(ir0 ir0Var) {
-        x31.e(new ClogBuilder().z(ir0Var.c).v(ir0Var.a).j(ir0Var.b).p(ir0Var.d).k(ir0Var.e).l(ir0Var.f).m(ir0Var.g));
+    public final void N(hr0 hr0Var) {
+        w31.e(new ClogBuilder().z(hr0Var.c).v(hr0Var.a).j(hr0Var.b).p(hr0Var.d).k(hr0Var.e).l(hr0Var.f).m(hr0Var.g));
     }
 }

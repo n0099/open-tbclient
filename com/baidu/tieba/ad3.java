@@ -1,68 +1,32 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.DelayTB;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ad3 extends ed3 {
+public class ad3 extends dd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(ad3 ad3Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ad3Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bundle bundle = new Bundle();
-                bundle.putString("bundle_key_preload_preload_scene", "5");
-                f83.k(this.a, bundle);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad3(ec3 ec3Var) {
-        super(ec3Var, "/swanAPI/preloadSwanCore");
+    public ad3(dc3 dc3Var) {
+        super(dc3Var, "/swanAPI/preventPullDownRefresh");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ec3Var};
+            Object[] objArr = {dc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,34 +40,57 @@ public class ad3 extends ed3 {
         }
     }
 
-    @Override // com.baidu.tieba.ed3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
+    @Override // com.baidu.tieba.dd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
         InterceptResult invokeLLLL;
-        int optInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
-            if (ed3.b) {
-                Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
+            if (dd3.b) {
+                Log.d("PreventPullDownRefresh", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (!ProcessUtils.isMainProcess()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
+            JSONObject a = dd3.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                g82.c("preventPullDownRefresh", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
                 return false;
             }
-            JSONObject a2 = ed3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                optInt = 0;
+            String optString = a.optString("slaveId");
+            if (TextUtils.isEmpty(optString)) {
+                g82.c("preventPullDownRefresh", "slaveId null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "slaveId null");
+                return false;
+            }
+            tw2 T2 = tw2.T();
+            ox1 A = T2.A(optString);
+            if (!(A instanceof mx1)) {
+                g82.c("preventPullDownRefresh", "webViewManager not a SwanAppSlaveManager");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "webViewManager not a SwanAppSlaveManager");
+                return false;
+            }
+            pa2 U = T2.U();
+            if (U == null) {
+                g82.c("PreventPullDownRefresh", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            oa2 o = U.o();
+            if (o == null) {
+                g82.c("PreventPullDownRefresh", "slave container is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals("7", o.O1().l())) {
+                g82.c("PreventPullDownRefresh", "this page is from showModalPage api");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
+                return false;
             } else {
-                optInt = a2.optInt(DelayTB.DELAY, 0);
+                boolean optBoolean = a.optBoolean("prevent", false);
+                PullToRefreshBaseWebView f0 = ((mx1) A).f0();
+                if (f0 != null) {
+                    f0.setIsPreventPullToRefresh(optBoolean);
+                    return true;
+                }
+                return true;
             }
-            if (optInt < 0) {
-                optInt = 0;
-            }
-            if (ed3.b) {
-                Log.d("PreloadSwanCoreAction", "delay: " + optInt);
-            }
-            bp3.b0(new a(this, context), optInt);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
         }
         return invokeLLLL.booleanValue;
     }

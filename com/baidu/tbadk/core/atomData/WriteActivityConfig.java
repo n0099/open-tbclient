@@ -22,13 +22,13 @@ import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.data.JSONLikeSerializable;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.d1b;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.lza;
-import com.baidu.tieba.rja;
-import com.baidu.tieba.sja;
-import com.baidu.tieba.tja;
+import com.baidu.tieba.xla;
+import com.baidu.tieba.yla;
+import com.baidu.tieba.zla;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,8 +139,8 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
-            boolean n = rja.k().n();
-            sja.a("发帖阻拦状态 = " + n);
+            boolean n = xla.k().n();
+            yla.a("发帖阻拦状态 = " + n);
             if (n && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 BdUtilHelper.showToast(currentActivity, "正在发布，请稍后");
             }
@@ -175,7 +175,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            tja.h = new Intent(getIntent());
+            zla.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -366,7 +366,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (lza.l.equals(str)) {
+            if (d1b.m.equals(str)) {
                 setType(11);
             }
             return this;

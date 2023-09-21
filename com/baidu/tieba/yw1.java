@@ -1,18 +1,25 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
-/* loaded from: classes9.dex */
+import android.content.Context;
+/* loaded from: classes8.dex */
 public interface yw1 {
-    ExecutorService d();
+    void b();
 
-    void e(String str, int i, JSONArray jSONArray);
+    void c();
 
-    void f(String str, int i);
+    yw1 create();
 
-    void g(String str, String str2, int i, String str3, int i2);
+    void d(q03 q03Var, boolean z);
 
-    void i(String str, int i, String str2);
+    void e(q03 q03Var, Context context);
 
-    void n(String str, String str2, int i, String str3, long j, int i2);
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

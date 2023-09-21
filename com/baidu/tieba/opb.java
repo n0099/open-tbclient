@@ -1,83 +1,197 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import androidx.lifecycle.SavedStateHandle;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.tencent.open.SocialConstants;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class opb extends hpb<TTNativeAd> {
+public class opb extends cqb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<a> a;
+
+    /* loaded from: classes7.dex */
+    public static class a extends cqb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final Map<String, Set<Object>> b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, ObjectInput objectInput) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), objectInput};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = objectInput.readUTF();
+            HashMap hashMap = new HashMap();
+            int readInt = objectInput.readInt();
+            for (int i4 = 0; i4 < readInt; i4++) {
+                String readUTF = objectInput.readUTF();
+                int readInt2 = objectInput.readInt();
+                HashSet hashSet = new HashSet();
+                for (int i5 = 0; i5 < readInt2; i5++) {
+                    try {
+                        hashSet.add(objectInput.readObject());
+                    } catch (ClassNotFoundException e) {
+                        LogPrinter.e(e);
+                    }
+                }
+                hashMap.put(readUTF, Collections.unmodifiableSet(hashSet));
+            }
+            this.b = Collections.unmodifiableMap(hashMap);
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(JSONObject jSONObject) {
+            super(1);
+            Map<String, Set<Object>> unmodifiableMap;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject.getString("key");
+            JSONArray optJSONArray = jSONObject.optJSONArray("content");
+            if (optJSONArray == null) {
+                unmodifiableMap = Collections.emptyMap();
+            } else {
+                HashMap hashMap = new HashMap();
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
+                    String string = jSONObject2.getString(CriusAttrConstants.COLUMN);
+                    JSONArray optJSONArray2 = jSONObject2.optJSONArray(SavedStateHandle.VALUES);
+                    int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
+                    HashSet hashSet = new HashSet();
+                    for (int i4 = 0; i4 < length; i4++) {
+                        hashSet.add(optJSONArray2.get(i4));
+                    }
+                    hashMap.put(string, Collections.unmodifiableSet(hashSet));
+                }
+                unmodifiableMap = Collections.unmodifiableMap(hashMap);
+            }
+            this.b = unmodifiableMap;
+        }
+
+        @Override // com.baidu.tieba.cqb
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+                objectOutput.writeUTF(this.a);
+                objectOutput.writeInt(this.b.size());
+                for (Map.Entry<String, Set<Object>> entry : this.b.entrySet()) {
+                    Set<Object> value = entry.getValue();
+                    objectOutput.writeUTF(entry.getKey());
+                    objectOutput.writeInt(value.size());
+                    for (Object obj : value) {
+                        objectOutput.writeObject(obj);
+                    }
+                }
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public opb(TTNativeAd tTNativeAd) {
-        super(tTNativeAd);
+    public opb(int i, ObjectInput objectInput) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tTNativeAd};
+            Object[] objArr = {Integer.valueOf(i), objectInput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        int readInt = objectInput.readInt();
+        HashSet hashSet = new HashSet();
+        for (int i4 = 0; i4 < readInt; i4++) {
+            hashSet.add(new a(objectInput.readInt(), objectInput));
+        }
+        this.a = Collections.unmodifiableSet(hashSet);
     }
 
-    @Override // com.baidu.tieba.hpb
-    public double a() {
-        InterceptResult invokeV;
-        Map<String, Object> mediaExtraInfo;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public opb(JSONObject jSONObject) {
+        super(1);
+        Set<a> unmodifiableSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                A a = this.a;
-                if (a == 0 || (mediaExtraInfo = ((TTNativeAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
-                    return 0.0d;
-                }
-                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
-            } catch (Exception unused) {
-                return 0.0d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeV.doubleValue;
-    }
-
-    @Override // com.baidu.tieba.hpb
-    public void b(String str, double d, double d2, boolean z, int i) {
-        A a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
-            return;
-        }
-        TTNativeAd tTNativeAd = (TTNativeAd) a;
-        if (z) {
-            tTNativeAd.win(Double.valueOf(d2));
+        JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_EXCLUDE);
+        if (optJSONArray == null) {
+            unmodifiableSet = Collections.emptySet();
         } else {
-            tTNativeAd.loss(Double.valueOf(d), str, String.valueOf(i));
+            HashSet hashSet = new HashSet();
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                hashSet.add(new a(optJSONArray.getJSONObject(i3)));
+            }
+            unmodifiableSet = Collections.unmodifiableSet(hashSet);
         }
+        this.a = unmodifiableSet;
     }
 
-    @Override // com.baidu.tieba.hpb
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cqb
+    public void srzableInternal(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.isEmpty() && ((TTNativeAd) this.a).getMediaExtraInfo() != null) {
-                this.b = (String) ((TTNativeAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+            objectOutput.writeInt(this.a.size());
+            for (a aVar : this.a) {
+                aVar.srzable(objectOutput);
             }
-            return this.b;
         }
-        return (String) invokeV.objValue;
     }
 }

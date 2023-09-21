@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IMessageEntity;
-import com.hihonor.push.framework.aidl.entity.RequestHeader;
-import com.hihonor.push.sdk.common.data.ApiException;
+import java.util.Collections;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public abstract class gxb<TResult> {
+public final class gxb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final IMessageEntity b;
-    public final qwb c;
-    public RequestHeader d;
-    public oxb<TResult> e;
+    public final /* synthetic */ Activity a;
+    public final /* synthetic */ cxb b;
+    public final /* synthetic */ bxb c;
 
-    public abstract void a(ApiException apiException, Object obj);
-
-    public gxb(String str, IMessageEntity iMessageEntity) {
+    public gxb(bxb bxbVar, Activity activity, cxb cxbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, iMessageEntity};
+            Object[] objArr = {bxbVar, activity, cxbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,20 +34,30 @@ public abstract class gxb<TResult> {
                 return;
             }
         }
-        getClass().getSimpleName();
-        this.a = str;
-        this.b = iMessageEntity;
-        this.c = qwb.b(str);
+        this.c = bxbVar;
+        this.a = activity;
+        this.b = cxbVar;
     }
 
-    public final void b(ApiException apiException, Object obj) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
-            if (this.e != null) {
-                a(apiException, obj);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                aVar = this.c.d;
+                String str = this.a.getApplicationInfo().packageName;
+                bxb bxbVar = this.c;
+                l = bxb.l();
+                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
+                new Handler().postDelayed(new hxb(this, atomicBoolean), 3000L);
+            } catch (RemoteException e) {
+                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
+                bxb bxbVar2 = this.c;
+                bxb.n(this.a, this.b);
             }
-            String str = "This Task has been canceled, uri:" + this.a;
         }
     }
 }

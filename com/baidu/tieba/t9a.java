@@ -1,42 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class t9a implements IAperfOverlayContext {
+public class t9a {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile s9a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public t9a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
-    public String getAppVersion() {
+    public static synchronized s9a a() {
         InterceptResult invokeV;
+        s9a s9aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbConfig.getVersion();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (t9a.class) {
+                if (a == null) {
+                    a = new s9a();
+                }
+                s9aVar = a;
+            }
+            return s9aVar;
         }
-        return (String) invokeV.objValue;
+        return (s9a) invokeV.objValue;
     }
 }

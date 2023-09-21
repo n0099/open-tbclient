@@ -1,76 +1,146 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.pyramid.annotation.Service;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class pa9 implements e0b {
+public class pa9 extends BdBaseView<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NavigationBar a;
+    public ViewGroup b;
+    public GridView c;
+    public View d;
+    public oa9 e;
+    public BubbleChooseActivity f;
+    public ProgressBar g;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements CustomMessageTask.CustomRunnable<Context> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ej5> run(CustomMessage<Context> customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && customMessage.getData() != null) {
-                    return new CustomResponsedMessage<>(2001343, new lb9(customMessage.getData(), 1));
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    public pa9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pa9(TbPageContext<BubbleChooseActivity> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
+        this.f = orignalPage;
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d018d);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
+        this.a = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.setTitleText(R.string.editor_privilege);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d018e, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0907a0);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090ed7);
+        oa9 oa9Var = new oa9(tbPageContext);
+        this.e = oa9Var;
+        this.c.setAdapter((ListAdapter) oa9Var);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f090519);
+    }
+
+    public oa9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (oa9) invokeV.objValue;
+    }
+
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public GridView h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (GridView) invokeV.objValue;
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.g.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.e0b
-    public void a() {
+    public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001343, new a());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.g.setVisibility(0);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
+            BDLayoutMode layoutMode = this.f.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.setNightMode(z);
+            this.f.getLayoutMode().onModeChanged(this.b);
+        }
+    }
+
+    public BubbleListData.BubbleData s(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            oa9 oa9Var = this.e;
+            if (oa9Var == null) {
+                return null;
+            }
+            return oa9Var.getItem(i);
+        }
+        return (BubbleListData.BubbleData) invokeI.objValue;
+    }
+
+    public void u(List<BubbleListData.BubbleData> list, boolean z) {
+        oa9 oa9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048582, this, list, z) == null) && (oa9Var = this.e) != null) {
+            oa9Var.d(z);
+            this.e.c(list);
         }
     }
 }

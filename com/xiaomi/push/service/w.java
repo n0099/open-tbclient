@@ -29,37 +29,37 @@ public class w extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo756a() {
+    public String mo758a() {
         return "register app";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo473a() {
+    public void mo475a() {
         bg.b next;
-        t m837a = u.m837a((Context) this.a);
-        if (m837a == null) {
+        t m839a = u.m839a((Context) this.a);
+        if (m839a == null) {
             try {
-                m837a = u.a(this.a, this.f1009a, this.b, this.c);
+                m839a = u.a(this.a, this.f1009a, this.b, this.c);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e);
             }
         }
-        if (m837a == null) {
+        if (m839a == null) {
             com.xiaomi.channel.commonutils.logger.b.d("no account for registration.");
             x.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m181a("do registration now.");
-        Collection<bg.b> m794a = bg.a().m794a("5");
-        if (m794a.isEmpty()) {
-            next = m837a.a(this.a);
+        com.xiaomi.channel.commonutils.logger.b.m183a("do registration now.");
+        Collection<bg.b> m796a = bg.a().m796a("5");
+        if (m796a.isEmpty()) {
+            next = m839a.a(this.a);
             ah.a(this.a, next);
             bg.a().a(next);
         } else {
-            next = m794a.iterator().next();
+            next = m796a.iterator().next();
         }
-        if (!this.a.m754c()) {
+        if (!this.a.m756c()) {
             x.a(this.f1009a, this.f1010a);
             this.a.a(true);
             return;

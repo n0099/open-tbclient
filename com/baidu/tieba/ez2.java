@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface ez2 {
-    void a(int i);
+    void onMove(int i, int i2);
 }

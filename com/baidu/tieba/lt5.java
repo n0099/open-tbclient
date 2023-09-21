@@ -1,31 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.DeviceInfoHelper;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class lt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public nt5 a;
+    public String b;
 
-    public static void a() {
+    public lt5(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13395");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_id", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-            statisticItem.param("obj_type", DeviceInfoHelper.getModel());
-            statisticItem.param("resource_id", DeviceInfoHelper.getOsVersion());
-            statisticItem.param("aid", TbSingleton.getInstance().getCpuFlopsDuration());
-            statisticItem.param("obj_param1", TbSingleton.getInstance().getAnimComputedFps("anim_switch_slide"));
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, TbSingleton.getInstance().getAnimComputedFps("anim_switch_trans_frs"));
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, TbSingleton.getInstance().getAnimComputedFps("anim_switch_sendthread_maintab"));
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = str;
+    }
+
+    public final void a(String str, int i) {
+        int intValue;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || di.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
+            return;
+        }
+        int i2 = intValue + 1;
+        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
+        if (intValue2 > 0) {
+            i = (i + (intValue2 * (i2 - 1))) / i2;
+        }
+        TbSingleton.getInstance().setAnimAvgFps(str, i);
+        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
+        if (i2 >= 5) {
+            TbSingleton.getInstance().setAnimComputedFps(str, i);
+            mt5.a();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && Build.VERSION.SDK_INT >= 16) {
+            if (this.a == null) {
+                this.a = new nt5();
+            }
+            this.a.c();
+        }
+    }
+
+    public void c() {
+        nt5 nt5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (nt5Var = this.a) != null && Build.VERSION.SDK_INT >= 16) {
+            nt5Var.d();
+            a(this.b, this.a.b());
         }
     }
 }

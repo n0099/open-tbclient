@@ -1,57 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class r29 implements lv4 {
+public final class r29 extends l29<AudioMsg, VoiceMsgContent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.lv4
-    public String a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948069872, "Lcom/baidu/tieba/r29;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948069872, "Lcom/baidu/tieba/r29;");
+        }
+    }
+
+    @Override // com.baidu.tieba.l29
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.FOLLOW_ADDRESS : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
     }
 
     public r29() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.lv4
-    public void b(HashMap<String, String> hashMap, mv4 mv4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l29
+    /* renamed from: h */
+    public AudioMsg e(VoiceMsgContent voiceMsgContent) {
+        InterceptResult invokeL;
+        int i;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, mv4Var) == null) && mv4Var != null && hashMap != null && !hashMap.isEmpty()) {
-            UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
-            updateAttentionData.isSucc = mv4Var.a;
-            updateAttentionData.errorString = mv4Var.c;
-            updateAttentionData.isAttention = true;
-            if (hashMap.get("touid") == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsgContent)) == null) {
+            String str2 = (voiceMsgContent == null || (str2 = voiceMsgContent.b()) == null) ? "" : "";
+            if (voiceMsgContent != null) {
+                i = voiceMsgContent.a();
             } else {
-                str = hashMap.get("touid");
+                i = 0;
             }
-            updateAttentionData.toUid = str;
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(updateAttentionData));
+            AudioMsg audioMsg = new AudioMsg(str2, i, 2);
+            if (voiceMsgContent != null) {
+                str = voiceMsgContent.f();
+            } else {
+                str = null;
+            }
+            audioMsg.setRemoteUrl(str);
+            return audioMsg;
         }
+        return (AudioMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.l29
+    /* renamed from: i */
+    public VoiceMsgContent g(AudioMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            VoiceMsgContent voiceMsgContent = new VoiceMsgContent();
+            String localUrl = sdkMsg.getLocalUrl();
+            Intrinsics.checkNotNullExpressionValue(localUrl, "sdkMsg.localUrl");
+            voiceMsgContent.i(localUrl);
+            String remoteUrl = sdkMsg.getRemoteUrl();
+            Intrinsics.checkNotNullExpressionValue(remoteUrl, "sdkMsg.remoteUrl");
+            voiceMsgContent.k(remoteUrl);
+            voiceMsgContent.h(sdkMsg.getDuration());
+            return voiceMsgContent;
+        }
+        return (VoiceMsgContent) invokeL.objValue;
     }
 }

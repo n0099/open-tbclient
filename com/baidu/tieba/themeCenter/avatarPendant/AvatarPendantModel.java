@@ -8,9 +8,9 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.sna;
-import com.baidu.tieba.uoa;
+import com.baidu.tieba.ara;
+import com.baidu.tieba.hja;
+import com.baidu.tieba.ypa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,13 +22,13 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public uoa b;
-    public List<sna> c;
+    public ara b;
+    public List<ypa> c;
     public NetMessageListener d;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(int i, String str, uoa uoaVar, List<sna> list);
+        void a(int i, String str, ara araVar, List<ypa> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -124,7 +124,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
         }
     }
 
-    public List<sna> R() {
+    public List<ypa> R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -154,8 +154,8 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            bha.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
-            bha.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
+            hja.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
+            hja.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
         }
     }
 }

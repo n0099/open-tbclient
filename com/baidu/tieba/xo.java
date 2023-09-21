@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton;
+import com.baidu.audiorecorder.lib.voice.VoiceRecordButton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xo extends ej5 {
+public class xo extends ij5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,17 +34,16 @@ public class xo extends ej5 {
                 return;
             }
         }
-        this.d = R.drawable.icon_pure_post_voice24;
-        this.e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.i = false;
-        this.j = true;
+        this.d = R.drawable.icon_pure_post_voice_n_svg;
+        this.e = R.drawable.icon_mask_post_voice24_selection_svg;
+        this.i = true;
         this.n = 6;
         this.o = true;
-        this.m = new NewVoiceRecordButton(context);
+        this.m = VoiceRecordButton.u(context);
         this.p = new int[]{1, 9};
     }
 
-    @Override // com.baidu.tieba.ej5
+    @Override // com.baidu.tieba.ij5
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

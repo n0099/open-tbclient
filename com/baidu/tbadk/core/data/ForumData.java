@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.bn;
 import com.baidu.tieba.f25;
 import com.baidu.tieba.h25;
 import com.baidu.tieba.i45;
@@ -20,7 +20,7 @@ import com.baidu.tieba.l25;
 import com.baidu.tieba.l45;
 import com.baidu.tieba.n15;
 import com.baidu.tieba.r25;
-import com.baidu.tieba.t45;
+import com.baidu.tieba.u45;
 import com.baidu.tieba.y15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -54,7 +54,7 @@ import tbclient.SimpleForum;
 import tbclient.SpritePBGuide;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes4.dex */
-public class ForumData implements Serializable, PreLoadImageProvider, cn {
+public class ForumData implements Serializable, PreLoadImageProvider, bn {
     public static /* synthetic */ Interceptable $ic = null;
     public static BdUniqueId FORUM_FLOOR_TYPE = null;
     public static final String FROM_PAGE_FRS = "frs";
@@ -121,7 +121,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, cn {
     public String topic_special_icon_right;
     public int user_level;
     public String warning_msg;
-    public t45 yuleData;
+    public u45 yuleData;
 
     static {
         InterceptResult invokeClinit;
@@ -571,7 +571,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, cn {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -599,13 +599,13 @@ public class ForumData implements Serializable, PreLoadImageProvider, cn {
         return (String) invokeV.objValue;
     }
 
-    public t45 getYuleData() {
+    public u45 getYuleData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             return this.yuleData;
         }
-        return (t45) invokeV.objValue;
+        return (u45) invokeV.objValue;
     }
 
     public String getfShareImage() {
@@ -687,7 +687,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, cn {
         this.top_code = new i45();
         this.news_info = new l45();
         this.mMemberShowIconData = new h25();
-        this.yuleData = new t45();
+        this.yuleData = new u45();
         this.mIsLiveGameForum = 0;
         this.warning_msg = null;
         this.special_forum_type = null;

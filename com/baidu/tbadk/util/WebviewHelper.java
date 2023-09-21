@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.data.JSONLikeSerializable;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -183,7 +183,7 @@ public class WebviewHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (ei.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return str;
             }
             if (str.contains("page_type")) {

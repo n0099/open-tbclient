@@ -204,7 +204,7 @@ public class SpeechSynthesizer {
         PARAM_KEY = n0.a(n0.z0);
         PARAM_AUTH_SN = n0.a(n0.J);
         PARAM_LANGUAGE = n0.a(n0.S);
-        PARAM_AUDIO_ENCODE = n0.a(n0.f1188T);
+        PARAM_AUDIO_ENCODE = n0.a(n0.f1185T);
         PARAM_AUDIO_RATE = n0.a(n0.U);
         PARAM_PLAYER_VOLUME = n0.a(n0.V);
         PLAYER_STREAM_TYPE = n0.a(n0.W);
@@ -340,34 +340,24 @@ public class SpeechSynthesizer {
                                 LoggerProxy.w("NetworkCallback", "unregisterReceiver exception.");
                             }
                             try {
-                                try {
-                                    ConnectivityManager connectivityManager = e2Var.a;
-                                    if (connectivityManager != null) {
-                                        connectivityManager.unregisterNetworkCallback(e2Var);
-                                    }
-                                } catch (IllegalArgumentException unused2) {
-                                } catch (Exception unused3) {
-                                    LoggerProxy.w("NetworkCallback", "unregisterNetworkCallback exception.");
-                                    e2Var.e.clear();
-                                    e2Var.c = false;
-                                    e2Var.d = "";
-                                    e2Var.g = false;
+                                ConnectivityManager connectivityManager = e2Var.a;
+                                if (connectivityManager != null) {
+                                    connectivityManager.unregisterNetworkCallback(e2Var);
                                 }
+                            } catch (IllegalArgumentException unused2) {
+                            } catch (Exception unused3) {
+                                LoggerProxy.w("NetworkCallback", "unregisterNetworkCallback exception.");
                                 e2Var.e.clear();
                                 e2Var.c = false;
                                 e2Var.d = "";
                                 e2Var.g = false;
-                                e2Var.b = e2.c.c;
-                                e2Var.d();
-                            } catch (Throwable th) {
-                                e2Var.e.clear();
-                                e2Var.c = false;
-                                e2Var.d = "";
-                                e2Var.g = false;
-                                e2Var.b = e2.c.c;
-                                e2Var.d();
-                                throw th;
                             }
+                            e2Var.e.clear();
+                            e2Var.c = false;
+                            e2Var.d = "";
+                            e2Var.g = false;
+                            e2Var.b = e2.c.c;
+                            e2Var.d();
                         }
                         b1 d = b1.d();
                         d.a.clear();

@@ -90,7 +90,7 @@ public class ClientConfigModel extends BdBaseModel {
                     }
                 } else {
                     String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e40);
+                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e42);
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }

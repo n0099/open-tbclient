@@ -1,68 +1,48 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Outline;
-import android.graphics.Rect;
-import android.os.Build;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.view.ViewTreeObserver;
+import android.widget.PopupWindow;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.webpanel.PanelScrollView;
-import com.baidu.nadcore.webpanel.proxy.WebPanelBrowserContainer;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tieba.q61;
+import com.baidu.nadcore.webpanel.model.AdData;
+import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class c91 implements h91, ta1, sa1 {
+public class c91 extends PopupWindow implements i91, ViewTreeObserver.OnWindowFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o91 a;
-    public l91 b;
-    public m91 c;
-    public final Activity d;
-
-    @Override // com.baidu.tieba.ta1
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ta1
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-        }
-    }
+    public View a;
+    public AdImageView b;
+    public ViewGroup c;
+    public z81 d;
+    public k91 e;
+    public j91 f;
 
     /* loaded from: classes5.dex */
-    public static final class a extends ViewOutlineProvider {
+    public class a implements PanelScrollView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LinearLayout a;
+        public final /* synthetic */ c91 a;
 
-        public a(LinearLayout linearLayout) {
+        public a(c91 c91Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {linearLayout};
+                Object[] objArr = {c91Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,33 +52,30 @@ public final class c91 implements h91, ta1, sa1 {
                     return;
                 }
             }
-            this.a = linearLayout;
+            this.a = c91Var;
         }
 
-        @Override // android.view.ViewOutlineProvider
-        public void getOutline(View view2, Outline outline) {
+        @Override // com.baidu.nadcore.webpanel.PanelScrollView.c
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
-                Rect rect = new Rect(0, 0, this.a.getMeasuredWidth(), this.a.getMeasuredHeight());
-                if (outline != null) {
-                    outline.setRoundRect(rect, q61.c.a(ac1.a(), 0.0f));
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
+                this.a.f.c();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static final class b extends ViewOutlineProvider {
+    public class b implements PanelScrollView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LinearLayout a;
+        public final /* synthetic */ c91 a;
 
-        public b(LinearLayout linearLayout) {
+        public b(c91 c91Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {linearLayout};
+                Object[] objArr = {c91Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -108,27 +85,65 @@ public final class c91 implements h91, ta1, sa1 {
                     return;
                 }
             }
-            this.a = linearLayout;
+            this.a = c91Var;
         }
 
-        @Override // android.view.ViewOutlineProvider
-        public void getOutline(View view2, Outline outline) {
+        @Override // com.baidu.nadcore.webpanel.PanelScrollView.d
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
-                Rect rect = new Rect(0, 0, this.a.getMeasuredWidth(), this.a.getMeasuredHeight());
-                if (outline != null) {
-                    outline.setRoundRect(rect, q61.c.a(ac1.a(), 18.0f));
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
+                this.a.f.b();
             }
         }
     }
 
-    public c91(Activity activity) {
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k91 a;
+        public final /* synthetic */ c91 b;
+
+        public c(c91 c91Var, k91 k91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c91Var, k91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = c91Var;
+            this.a = k91Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.f != null) {
+                if (!this.a.w()) {
+                    en0.a().a(new f91(8, this.b.e.a()));
+                    return;
+                }
+                this.b.h();
+                this.b.b.setVisibility(8);
+                this.b.f.a();
+            }
+        }
+    }
+
+    public c91(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -138,374 +153,218 @@ public final class c91 implements h91, ta1, sa1 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.d = activity;
+        this.c = null;
+        setFocusable(true);
+        setBackgroundDrawable(new ColorDrawable(0));
+        setAnimationStyle(R.style.obfuscated_res_0x7f1003f4);
+        setClippingEnabled(true);
+        setWidth(-1);
+        setHeight(-1);
+        setContentView(g(context, R.layout.nad_panel_pop_view));
     }
 
-    @Override // com.baidu.tieba.h91
-    public void e(int i) {
-        o91 o91Var;
-        LinearLayout e;
+    public void i(k91 k91Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (o91Var = this.a) != null && (e = o91Var.e()) != null && (e.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
-            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
-            if (layoutParams != null) {
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-                layoutParams2.topMargin = i;
-                e.setLayoutParams(layoutParams2);
+        if (interceptable == null || interceptable.invokeL(1048581, this, k91Var) == null) {
+            this.e = k91Var;
+            z81 z81Var = new z81((Activity) this.a.getContext(), (ViewGroup) this.a);
+            this.d = z81Var;
+            z81Var.f(k91Var);
+            this.d.a(this);
+            PanelScrollView b2 = this.d.b();
+            if (b2 != null) {
+                b2.setOnGestureScrollListener(new a(this));
+                b2.setOnGestureSingleTapUpListener(new b(this));
+            }
+            m(k91Var);
+        }
+    }
+
+    public c91(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            throw new NullPointerException("null cannot be cast to non-null type android.widget.FrameLayout.LayoutParams");
+        }
+        this.c = null;
+        setFocusable(true);
+        setBackgroundDrawable(new ColorDrawable(0));
+        setAnimationStyle(R.style.obfuscated_res_0x7f1003f4);
+        setClippingEnabled(true);
+        setWidth(-1);
+        setHeight(-1);
+        setContentView(g(context, i));
+    }
+
+    public void j(@NonNull j91 j91Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, j91Var) == null) {
+            this.f = j91Var;
         }
     }
 
-    @Override // com.baidu.tieba.h91
-    public void o(e91 controlHelper) {
-        m91 m91Var;
+    @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
+    public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, controlHelper) == null) {
-            Intrinsics.checkNotNullParameter(controlHelper, "controlHelper");
-            o91 o91Var = this.a;
-            if (o91Var != null) {
-                m91 m91Var2 = new m91(o91Var);
-                this.c = m91Var2;
-                if (m91Var2 != null) {
-                    m91Var2.q(this.b);
-                }
-                m91 m91Var3 = this.c;
-                if (m91Var3 != null) {
-                    m91Var3.o(controlHelper);
-                }
-                l91 l91Var = this.b;
-                if (l91Var != null && l91Var.z() && (m91Var = this.c) != null) {
-                    m91Var.k();
-                }
-                o91Var.n(this.c);
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && this.e.t()) {
+            s91.a(this.a.getContext(), this);
+        }
+    }
+
+    @Override // com.baidu.tieba.i91
+    public void a(int i) {
+        ClogBuilder.Page page;
+        ClogBuilder.LogType logType;
+        j91 j91Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.e.q() && this.f != null) {
+                en0.a().a(new f91(8, this.e.a()));
+                return;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void a() {
-        m91 m91Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (m91Var = this.c) != null) {
-            m91Var.j();
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public ViewGroup.LayoutParams b() {
-        InterceptResult invokeV;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            o91 o91Var = this.a;
-            if (o91Var != null && (e = o91Var.e()) != null) {
-                return e.getLayoutParams();
-            }
-            return null;
-        }
-        return (ViewGroup.LayoutParams) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void d() {
-        o91 o91Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (o91Var = this.a) != null && (e = o91Var.e()) != null && Build.VERSION.SDK_INT >= 21) {
-            e.setOutlineProvider(new a(e));
-            e.setClipToOutline(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public boolean f() {
-        InterceptResult invokeV;
-        AbsNadBrowserView m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            o91 o91Var = this.a;
-            if (o91Var != null && (m = o91Var.m()) != null && m.d()) {
-                o91 o91Var2 = this.a;
-                if (o91Var2 != null) {
-                    o91Var2.i();
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ta1
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h91
-    public boolean h() {
-        InterceptResult invokeV;
-        AbsNadBrowserView m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            o91 o91Var = this.a;
-            if (o91Var != null && (m = o91Var.m()) != null) {
-                return m.x();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h91
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            m91 m91Var = this.c;
-            if (m91Var != null) {
-                return m91Var.h();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void onDestroy() {
-        m91 m91Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            l91 l91Var = this.b;
-            if (l91Var != null && l91Var.z() && (m91Var = this.c) != null) {
-                m91Var.t();
-            }
-            o91 o91Var = this.a;
-            if (o91Var != null) {
-                o91Var.onPause();
-            }
-            o91 o91Var2 = this.a;
-            if (o91Var2 != null) {
-                o91Var2.onDestroy();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.sa1
-    public void p() {
-        m91 m91Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (m91Var = this.c) != null) {
-            m91Var.g();
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void u() {
-        o91 o91Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (o91Var = this.a) != null && (e = o91Var.e()) != null && Build.VERSION.SDK_INT >= 21) {
-            e.setOutlineProvider(new b(e));
-            e.setClipToOutline(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void c(View.OnLayoutChangeListener onLayoutChangeListener) {
-        o91 o91Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onLayoutChangeListener) == null) && (o91Var = this.a) != null && (e = o91Var.e()) != null) {
-            e.removeOnLayoutChangeListener(onLayoutChangeListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void g(FrameLayout.LayoutParams params) {
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            o91 o91Var = this.a;
-            if (o91Var != null && (e = o91Var.e()) != null) {
-                e.setLayoutParams(params);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void i(int i) {
-        o91 o91Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (o91Var = this.a) != null && (e = o91Var.e()) != null) {
-            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
-            layoutParams.height = i;
-            e.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void j(l91 l91Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, l91Var) == null) {
-            this.b = l91Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void k(boolean z) {
-        m91 m91Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (m91Var = this.c) != null) {
-            m91Var.n(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void q(String str) {
-        o91 o91Var;
-        AbsNadBrowserView m;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && (o91Var = this.a) != null && (m = o91Var.m()) != null) {
-            AbsNadBrowserView.C(m, str, null, 2, null);
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void r(View.OnLayoutChangeListener onLayoutChangeListener) {
-        o91 o91Var;
-        LinearLayout e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, onLayoutChangeListener) == null) && (o91Var = this.a) != null && (e = o91Var.e()) != null) {
-            e.addOnLayoutChangeListener(onLayoutChangeListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void t(j91 j91Var) {
-        m91 m91Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048599, this, j91Var) == null) && (m91Var = this.c) != null) {
-            m91Var.p(j91Var);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0083, code lost:
-        if (r0.putExtra("lp_org_type", r2) != null) goto L34;
-     */
-    @Override // com.baidu.tieba.ta1
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Intent getIntent() {
-        InterceptResult invokeV;
-        String b2;
-        String j;
-        String e;
-        String f;
-        String i;
-        String m;
-        String n;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Intent intent = new Intent();
-            HashMap hashMap = new HashMap();
-            l91 l91Var = this.b;
-            if (l91Var != null && (n = l91Var.n()) != null) {
-                hashMap.put("url", n);
-                hashMap.put("lp_real_url", n);
-                intent.putExtra("url", n);
-                intent.putExtra("lp_real_url", n);
-            }
-            l91 l91Var2 = this.b;
-            if (l91Var2 != null && (m = l91Var2.m()) != null) {
-                hashMap.put("sdk_script", m);
-                intent.putExtra("sdk_script", m);
-            }
-            l91 l91Var3 = this.b;
-            if (l91Var3 != null && (i = l91Var3.i()) != null) {
-                hashMap.put("log_switch", i);
-                intent.putExtra("log_switch", i);
-            }
-            l91 l91Var4 = this.b;
-            if (l91Var4 != null && (f = l91Var4.f()) != null) {
-                hashMap.put(MigrateStatisticUtils.EXT_INFO, f);
-                intent.putExtra(MigrateStatisticUtils.EXT_INFO, f);
-            }
-            l91 l91Var5 = this.b;
-            if (l91Var5 != null && (e = l91Var5.e()) != null) {
-                hashMap.put("charge_url", e);
-                intent.putExtra("charge_url", e);
-            }
-            l91 l91Var6 = this.b;
-            if (l91Var6 != null && (j = l91Var6.j()) != null) {
-                hashMap.put("lp_org_type", j);
-            }
-            hashMap.put("lp_org_type", "pop_web");
-            intent.putExtra("lp_org_type", "pop_web");
-            l91 l91Var7 = this.b;
-            if (l91Var7 != null && (b2 = l91Var7.b()) != null) {
-                hashMap.put("ad_invoke_flag", b2);
-                intent.putExtra("ad_invoke_flag", b2);
-            }
-            intent.putExtra("map", hashMap);
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h91
-    public void n(ViewGroup parent) {
-        ViewParent viewParent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, parent) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            ViewGroup viewGroup = null;
-            WebPanelBrowserContainer webPanelBrowserContainer = new WebPanelBrowserContainer(this, new u91(), null);
-            this.a = webPanelBrowserContainer;
-            webPanelBrowserContainer.u0(false);
-            webPanelBrowserContainer.t0(false);
-            webPanelBrowserContainer.u();
-            webPanelBrowserContainer.A(this);
-            webPanelBrowserContainer.w();
-            u();
-            LinearLayout e = webPanelBrowserContainer.e();
-            if (e != null) {
-                e.setPadding(0, 0, 0, PanelScrollView.B);
-            }
-            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
-            FrameLayout j = webPanelBrowserContainer.j();
-            if (j != null) {
-                viewParent = j.getParent();
+            if (this.e.v()) {
+                page = ClogBuilder.Page.WELFAREWEB;
             } else {
-                viewParent = null;
+                page = ClogBuilder.Page.NAD_POP_WEB_PANEL;
             }
-            if (viewParent instanceof ViewGroup) {
-                viewGroup = viewParent;
+            if (this.e.v()) {
+                logType = ClogBuilder.LogType.REWARD_HALF_TAIL_SLIDE;
+            } else {
+                logType = ClogBuilder.LogType.NAVIDEO_POP_CLOSE;
             }
-            ViewGroup viewGroup2 = viewGroup;
-            if (viewGroup2 != null) {
-                viewGroup2.removeView(j);
+            r91.b(page, logType, String.valueOf(i), "", this.e.f());
+            h();
+            if (i == 0 && (j91Var = this.f) != null) {
+                j91Var.d();
             }
-            parent.addView(j, layoutParams);
         }
     }
 
-    @Override // com.baidu.tieba.h91
-    public void s(int i, boolean z) {
-        m91 m91Var;
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (m91Var = this.c) != null) {
-            m91Var.i(i, z);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                StackTraceElement[] stackTrace = new Exception().getStackTrace();
+                if (stackTrace.length >= 2 && stackTrace[1] != null && "dispatchKeyEvent".equals(stackTrace[1].getMethodName())) {
+                    if (this.e.u()) {
+                        if (this.d != null) {
+                            this.d.d("javascript:onAndroidBack()");
+                        }
+                    } else if (!this.d.g()) {
+                        a(0);
+                    }
+                } else {
+                    a(0);
+                }
+            } catch (Exception unused) {
+                a(0);
+            }
         }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            en0.a().a(new f91(5, this.e.a()));
+            this.d.e();
+            this.a.getViewTreeObserver().removeOnWindowFocusChangeListener(this);
+            if (this.e.p()) {
+                this.c = s91.b(this.a.getContext(), this.c, false);
+            }
+            y81.b.c(false);
+            y81.b.b(false);
+            super.dismiss();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h();
+        }
+    }
+
+    public final View g(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, context, i)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
+            this.a = inflate;
+            this.b = (AdImageView) inflate.findViewById(R.id.top_right_icon);
+            return this.a;
+        }
+        return (View) invokeLI.objValue;
+    }
+
+    public void k() {
+        ClogBuilder.Page page;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.getViewTreeObserver().addOnWindowFocusChangeListener(this);
+            if (this.e.t()) {
+                s91.a(this.a.getContext(), this);
+            }
+            View.OnTouchListener c2 = this.d.c();
+            if (c2 != null && !this.e.r()) {
+                setTouchInterceptor(c2);
+            }
+            if (this.e.p()) {
+                this.c = s91.b(this.a.getContext(), this.c, true);
+            }
+            en0.a().a(new f91(7, this.d.b()));
+            l(this.a.getContext(), ((Activity) this.a.getContext()).getWindow().getDecorView(), 80, 0, 0);
+            y81.b.c(true);
+            y81.b.b(false);
+            if (this.e.v()) {
+                page = ClogBuilder.Page.WELFAREWEB;
+            } else {
+                page = ClogBuilder.Page.NAD_POP_WEB_PANEL;
+            }
+            r91.b(page, ClogBuilder.LogType.FREE_SHOW, "", "", this.e.f());
+        }
+    }
+
+    public final void l(Context context, View view2, int i, int i2, int i3) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (context instanceof Activity) {
+                activity = (Activity) context;
+            } else {
+                activity = null;
+            }
+            if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
+                try {
+                    showAtLocation(view2, i, i2, i3);
+                    en0.a().a(new f91(0, (AdData) null));
+                } catch (Exception e) {
+                    ib1.d(e);
+                }
+            }
+        }
+    }
+
+    public final void m(k91 k91Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, k91Var) != null) || !k91Var.y()) {
+            return;
+        }
+        if (k91Var.w()) {
+            this.b.setImageResource(R.drawable.nad_reward_video_lp_down_arrow);
+        } else {
+            this.b.setImageResource(R.drawable.nad_reward_video_lp_close_btn);
+        }
+        this.b.setVisibility(0);
+        this.b.setOnClickListener(new c(this, k91Var));
     }
 }

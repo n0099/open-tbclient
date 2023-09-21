@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.network.outback.core.Request;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 /* loaded from: classes5.dex */
 public interface c70 {
-    z60 a(Request request) throws IOException;
+    HttpURLConnection openHttpURLConnection(URL url) throws IOException;
 }

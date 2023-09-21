@@ -1,132 +1,161 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class fxa implements cn {
+/* loaded from: classes6.dex */
+public class fxa extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
+    public static fxa f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public cxa b;
+    public f26 a;
+    public int b;
     public int c;
-    public String d;
-    public String e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947780890, "Lcom/baidu/tieba/fxa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947780890, "Lcom/baidu/tieba/fxa;");
-                return;
-            }
-        }
-        f = BdUniqueId.gen();
-    }
+    public long d;
+    public int e;
 
     public fxa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.c = 0;
+        this.e = -1;
     }
 
-    public String a() {
+    public static fxa a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public cxa c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (cxa) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.cn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                f = new fxa();
+            }
             return f;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (fxa) invokeV.objValue;
     }
 
-    public void e(cxa cxaVar) {
+    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, cxaVar) != null) || cxaVar == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            float abs = Math.abs(f4 - f2);
+            float abs2 = Math.abs(f5 - f3);
+            long j4 = j2 - j;
+            if (abs <= 100.0f && abs2 <= 100.0f && j4 >= j3) {
+                return true;
+            }
+            return false;
         }
-        this.a = false;
-        this.b = cxaVar;
+        return invokeCommon.booleanValue;
     }
 
-    public void f(String str) {
+    public final f26 b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
+            if (motionEvent != null && motionEvent.getAction() != 3) {
+                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+                int scrollX = x + textView.getScrollX();
+                int scrollY = y + textView.getScrollY();
+                try {
+                    Layout layout = textView.getLayout();
+                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                    f26[] f26VarArr = (f26[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, f26.class);
+                    if (f26VarArr == null || f26VarArr.length <= 0 || f26VarArr[0] == null) {
+                        return null;
+                    }
+                    return f26VarArr[0];
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return this.a;
+                }
+            }
+            return this.a;
+        }
+        return (f26) invokeLLL.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.e = i;
         }
     }
 
-    public void g(String str) {
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
+            f26 b = b(textView, spannable, motionEvent);
+            if (b == null && motionEvent.getAction() == 0) {
+                try {
+                    return super.onTouchEvent(textView, spannable, motionEvent);
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return true;
+                }
+            }
+            if (b != null) {
+                this.a = b;
+            }
+            int i = this.e;
+            if (i > -1) {
+                this.a.m(i);
+            }
+            if (motionEvent.getAction() == 0) {
+                this.b = (int) motionEvent.getX();
+                this.c = (int) motionEvent.getY();
+                this.d = System.currentTimeMillis();
+                f26 f26Var = this.a;
+                if (f26Var != null) {
+                    f26Var.p(1);
+                    Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
+                }
+                textView.invalidate();
+            } else if (motionEvent.getAction() == 2) {
+                if (this.a != null && (Math.abs(this.b - motionEvent.getX()) > 20.0f || Math.abs(this.c - motionEvent.getY()) > 20.0f)) {
+                    this.a.p(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
+                f26 f26Var2 = this.a;
+                if (f26Var2 != null) {
+                    f26Var2.p(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+                if (c(this.b, this.c, motionEvent.getX(), motionEvent.getY(), this.d, System.currentTimeMillis(), 500L)) {
+                    return true;
+                }
+            }
+            try {
+                return super.onTouchEvent(textView, spannable, motionEvent);
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return true;
+            }
         }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.c = i;
-        }
+        return invokeLLL.booleanValue;
     }
 }

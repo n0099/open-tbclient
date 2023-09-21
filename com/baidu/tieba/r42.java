@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,16 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class r42 extends n42 {
+public class r42 extends m42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
-    public boolean g;
+    public Rect a;
+    public Paint b;
+    public PorterDuffXfermode c;
 
     public r42() {
         Interceptable interceptable = $ic;
@@ -32,28 +32,34 @@ public class r42 extends n42 {
                 return;
             }
         }
-        this.g = false;
+        this.b = new Paint();
+        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     }
 
-    @Override // com.baidu.tieba.n42
-    public void a(o42 o42Var, Canvas canvas) {
+    @Override // com.baidu.tieba.m42
+    public void a(n42 n42Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, o42Var, canvas) == null) && this.g) {
-            o42Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, n42Var, canvas) == null) && this.a != null) {
+            this.b.setXfermode(this.c);
+            canvas.drawRect(this.a, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.n42
+    @Override // com.baidu.tieba.m42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 5) {
-            this.a = yo3.g((float) jSONArray.optDouble(0));
-            this.b = yo3.g((float) jSONArray.optDouble(1));
-            this.c = yo3.g((float) jSONArray.optDouble(2));
-            this.d = yo3.g((float) jSONArray.optDouble(3));
-            this.e = yo3.g((float) jSONArray.optDouble(4));
-            this.f = yo3.g((float) jSONArray.optDouble(5));
-            this.g = true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = xo3.g((float) jSONArray.optDouble(0));
+                    int g2 = xo3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, xo3.g((float) jSONArray.optDouble(2)) + g, xo3.g((float) jSONArray.optDouble(3)) + g2);
+                }
+            } catch (Exception e) {
+                if (qr1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

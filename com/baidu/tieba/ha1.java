@@ -1,76 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
-import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import androidx.core.view.ViewCompat;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q61;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.oa1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ha1 implements ViewTreeObserver.OnGlobalLayoutListener {
+public final class ha1 extends aa1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public WeakReference<View> c;
+    public final String a;
+    public ViewTreeObserver.OnGlobalLayoutListener b;
+    public View.OnLayoutChangeListener c;
+    public boolean d;
+    public final wa1 e;
+    public final ea1 f;
 
     /* loaded from: classes6.dex */
-    public static final class a implements Application.ActivityLifecycleCallbacks {
+    public static final class a implements View.OnLayoutChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public int a;
         public final /* synthetic */ ha1 b;
-        public final /* synthetic */ View c;
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, outState) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                Intrinsics.checkNotNullParameter(outState, "outState");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        public a(Context context, ha1 ha1Var, View view2) {
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(ha1 ha1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, ha1Var, view2};
+                Object[] objArr = {ha1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -80,51 +52,89 @@ public final class ha1 implements ViewTreeObserver.OnGlobalLayoutListener {
                     return;
                 }
             }
-            this.a = context;
             this.b = ha1Var;
-            this.c = view2;
         }
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
+        @Override // android.view.View.OnLayoutChangeListener
+        public void onLayoutChange(View v, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                if (activity == this.c.getContext()) {
-                    ((Application) this.a).unregisterActivityLifecycleCallbacks(this);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+                Intrinsics.checkNotNullParameter(v, "v");
+                Rect rect = new Rect();
+                v.getWindowVisibleDisplayFrame(rect);
+                String str = this.b.a;
+                ib1.a(str, "preBottom: " + this.a + " bottom: " + rect.bottom);
+                int i9 = rect.bottom;
+                int i10 = this.a;
+                if (i9 != i10 && i10 != 0) {
+                    AbsNadBrowserView m = this.b.f.m();
+                    if (m != null) {
+                        int i11 = this.a - rect.bottom;
+                        if (i11 <= 200) {
+                            if (i3 == i7 && this.b.d) {
+                                ma1.b(this.b.e, m.getHeight(), 0, m.getHeight(), 0);
+                                ha1 ha1Var = this.b;
+                                ha1Var.w(ha1Var.f.m(), -1, -1);
+                            }
+                            this.b.d = false;
+                        } else {
+                            this.b.d = true;
+                            if (i3 == i7) {
+                                ma1.b(this.b.e, m.getHeight() - i11, i11, m.getHeight(), 0);
+                                ha1 ha1Var2 = this.b;
+                                ha1Var2.w(ha1Var2.f.m(), -1, -1);
+                            }
+                        }
+                        this.a = rect.bottom;
+                        return;
+                    }
+                    return;
                 }
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                if (activity == this.c.getContext()) {
-                    this.b.a = false;
-                }
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                if (activity == this.c.getContext()) {
-                    this.b.a = true;
-                }
+                this.a = rect.bottom;
             }
         }
     }
 
-    public ha1(View rootView) {
+    /* loaded from: classes6.dex */
+    public static final class b implements wa1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ha1 a;
+
+        public b(ha1 ha1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ha1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ha1Var;
+        }
+
+        @Override // com.baidu.tieba.wa1
+        public final void loadUrl(String str, Map<String, String> map) {
+            AbsNadBrowserView m;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) && (m = this.a.f.m()) != null) {
+                AbsNadBrowserView.E(m, str, map, false, 4, null);
+            }
+        }
+    }
+
+    public ha1(ea1 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rootView};
+            Object[] objArr = {container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -134,40 +144,167 @@ public final class ha1 implements ViewTreeObserver.OnGlobalLayoutListener {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(rootView, "rootView");
-        this.b = -1;
-        this.c = new WeakReference<>(rootView);
-        Context a2 = bb1.a();
-        if (a2 instanceof Application) {
-            ((Application) a2).registerActivityLifecycleCallbacks(new a(a2, this, rootView));
+        Intrinsics.checkNotNullParameter(container, "container");
+        this.f = container;
+        this.a = "KeyboardPlugin";
+        this.e = new b(this);
+    }
+
+    @Override // com.baidu.tieba.aa1
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            s();
+            t();
+            super.d();
         }
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        View rootView;
-        int measuredHeight;
+    @Override // com.baidu.tieba.aa1
+    public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (rootView = this.c.get()) != null) {
-            Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
-            if (this.b >= ((int) (q61.c.f(rootView.getContext()) * 0.85f)) && !this.a) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (ab1.c()) {
+                s();
+                t();
+            } else {
+                v();
+                u();
+            }
+            super.m();
+        }
+    }
+
+    public final void t() {
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f.e() != null && this.c != null && (e = this.f.e()) != null) {
+            e.removeOnLayoutChangeListener(this.c);
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = new a(this);
+            LinearLayout e = this.f.e();
+            if (e != null) {
+                e.addOnLayoutChangeListener(this.c);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.aa1
+    public void h(AbsNadBrowserView webView, String str, Bitmap bitmap) {
+        String str2;
+        AbsNadBrowserView m;
+        String str3;
+        oa1.e j;
+        oa1.e j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            oa1.d l = this.f.l();
+            if (l != null && (j2 = l.j()) != null) {
+                str2 = j2.b();
+            } else {
+                str2 = null;
+            }
+            if (str2 != null && (m = this.f.m()) != null) {
+                oa1.d l2 = this.f.l();
+                if (l2 != null && (j = l2.j()) != null) {
+                    str3 = j.b();
+                } else {
+                    str3 = null;
+                }
+                AbsNadBrowserView.C(m, str3, null, 2, null);
+            }
+            super.h(webView, str, bitmap);
+        }
+    }
+
+    public final void w(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i, i2) != null) || view2 == null) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            view2.setLayoutParams(new FrameLayout.LayoutParams(i, i2));
+        } else if (layoutParams instanceof LinearLayout.LayoutParams) {
+            view2.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+        } else if (layoutParams instanceof RelativeLayout.LayoutParams) {
+            view2.setLayoutParams(new RelativeLayout.LayoutParams(i, i2));
+        } else if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            view2.setLayoutParams(new ViewGroup.MarginLayoutParams(i, i2));
+        } else if (layoutParams instanceof ViewGroup.LayoutParams) {
+            view2.setLayoutParams(new ViewGroup.LayoutParams(i, i2));
+        }
+    }
+
+    @Override // com.baidu.tieba.aa1
+    public void k(AbsNadBrowserView webView, String str) {
+        String str2;
+        AbsNadBrowserView m;
+        String str3;
+        oa1.e j;
+        oa1.e j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            oa1.d l = this.f.l();
+            if (l != null && (j2 = l.j()) != null) {
+                str2 = j2.a();
+            } else {
+                str2 = null;
+            }
+            if (str2 != null && (m = this.f.m()) != null) {
+                oa1.d l2 = this.f.l();
+                if (l2 != null && (j = l2.j()) != null) {
+                    str3 = j.a();
+                } else {
+                    str3 = null;
+                }
+                AbsNadBrowserView.C(m, str3, null, 2, null);
+            }
+            super.k(webView, str);
+        }
+    }
+
+    public final void s() {
+        ViewTreeObserver viewTreeObserver;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f.e() != null && this.b != null) {
+            LinearLayout e = this.f.e();
+            if (e != null) {
+                viewTreeObserver = e.getViewTreeObserver();
+            } else {
+                viewTreeObserver = null;
+            }
+            if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
+                viewTreeObserver.removeOnGlobalLayoutListener(this.b);
+            }
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.f.e() == null) {
+                ib1.a(this.a, "init keyboard config failed");
                 return;
             }
-            if (ViewCompat.isAttachedToWindow(rootView)) {
-                Rect rect = new Rect();
-                rootView.getWindowVisibleDisplayFrame(rect);
-                int i = rect.top;
-                if (i == 0) {
-                    i = q61.c.g();
+            LinearLayout e = this.f.e();
+            if (e != null) {
+                if (this.b == null) {
+                    this.b = new ga1(e);
                 }
-                measuredHeight = rect.bottom - i;
-            } else {
-                measuredHeight = rootView.getMeasuredHeight();
-            }
-            if (this.b != measuredHeight && measuredHeight > 0) {
-                this.b = measuredHeight;
-                rootView.getLayoutParams().height = measuredHeight;
-                rootView.requestLayout();
+                ViewTreeObserver viewTreeObserver = e.getViewTreeObserver();
+                Intrinsics.checkNotNullExpressionValue(viewTreeObserver, "it.viewTreeObserver");
+                if (viewTreeObserver.isAlive()) {
+                    ib1.a(this.a, "add layout listener");
+                    viewTreeObserver.addOnGlobalLayoutListener(this.b);
+                }
             }
         }
     }

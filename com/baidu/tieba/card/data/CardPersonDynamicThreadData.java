@@ -650,7 +650,7 @@ public class CardPersonDynamicThreadData extends b15 {
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

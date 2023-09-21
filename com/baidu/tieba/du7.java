@@ -1,18 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.qp5;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tieba.frs.FrsPrivateCommonDialogView;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import tbclient.PrivateForumInfo;
 /* loaded from: classes5.dex */
-public class du7 extends e65 {
+public class du7 implements w65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,29 +37,77 @@ public class du7 extends e65 {
         }
     }
 
-    @Override // com.baidu.tieba.e65
-    public void a(@NonNull Context context, @NonNull v55 v55Var) {
+    public static boolean c() {
+        InterceptResult invokeV;
+        String str;
+        boolean z;
+        PrivateForumPopInfoData privateForumPopInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, v55Var) == null) {
-            if (!(context instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示群聊引导弹窗失败：当前Activity非FrsActivity");
-                YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            pia frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            if (frsResponseData == null) {
+                return false;
             }
-            FrsFragment v1 = ((FrsActivity) context).v1();
-            if (v1 == null) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示群聊引导弹窗失败：当前FrsFragment为空");
-                YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
-                return;
+            FrsViewData frsViewData = new FrsViewData();
+            frsViewData.receiveData(frsResponseData);
+            String str2 = null;
+            if (frsViewData.getForum() != null) {
+                str2 = frsViewData.getForum().getName();
+                str = frsViewData.getForum().getId();
+            } else {
+                str = null;
             }
-            qp5.b g4 = v1.g4();
-            if (g4 == null) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示群聊引导弹窗失败：当前OptFragment为空");
-                YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
-            } else if (!g4.i1()) {
-                v1.l5(true);
-                YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
+            if (StringUtils.isNull(str2) || StringUtils.isNull(str)) {
+                return false;
             }
+            if ((frsViewData.getPrivateForumTotalInfo() == null || frsViewData.getPrivateForumTotalInfo().a() == null || frsViewData.getUserData().getIs_manager() != 1) && frsViewData.getPrivateForumPopInfo() == null) {
+                return false;
+            }
+            PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
+            privateForumPopInfoData.R(frsViewData.getPrivateForumTotalInfo().c());
+            PrivateForumInfo a = frsViewData.getPrivateForumTotalInfo().a();
+            if (a != null && a.private_forum_status.intValue() == 1 && (di.isEmpty(privateForumPopInfoData.P()) || privateForumPopInfoData.O() != JavaTypesHelper.toInt(str, 0))) {
+                privateForumPopInfoData.U("create_success");
+                privateForumPopInfoData.V(String.format(au7.a, str, str2));
+                privateForumPopInfoData.T(JavaTypesHelper.toInt(str, -1));
+                privateForumPopInfoData.setTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f171a));
+                privateForumPopInfoData.S(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f171b));
+                z = FrsPrivateCommonDialogView.b(privateForumPopInfoData, false);
+            } else if (privateForumPopInfoData.O() == JavaTypesHelper.toInt(str, 0)) {
+                z = FrsPrivateCommonDialogView.b(privateForumPopInfoData, false);
+            } else {
+                z = false;
+            }
+            if (!z && (privateForumPopInfo = frsViewData.getPrivateForumPopInfo()) != null && privateForumPopInfo.O() == JavaTypesHelper.toInt(str, 0)) {
+                return FrsPrivateCommonDialogView.b(privateForumPopInfo, true);
+            }
+            return z;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.w65
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsExam");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.w65
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            return c();
+        }
+        return invokeL.booleanValue;
     }
 }

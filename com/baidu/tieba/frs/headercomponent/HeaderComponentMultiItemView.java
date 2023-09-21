@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jq7;
+import com.baidu.tieba.tq7;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -45,7 +45,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public TbImageView d;
     public ViewGroup e;
     public TbImageAutoSwitch f;
-    public jq7 g;
+    public tq7 g;
     public List<String> h;
     public LiveFuseForumData i;
     public boolean j;
@@ -66,13 +66,13 @@ public class HeaderComponentMultiItemView extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentMultiItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0293a implements View.OnClickListener {
+        public class View$OnClickListenerC0306a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0293a(a aVar, int i) {
+            public View$OnClickListenerC0306a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.startLoad((String) this.a.h.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0293a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0306a(this, i));
             }
         }
 
@@ -295,14 +295,14 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         h();
     }
 
-    public void g(LiveFuseForumData liveFuseForumData, jq7 jq7Var) {
+    public void g(LiveFuseForumData liveFuseForumData, tq7 tq7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, jq7Var) != null) || liveFuseForumData == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, tq7Var) != null) || liveFuseForumData == null) {
             return;
         }
         this.i = liveFuseForumData;
-        this.g = jq7Var;
+        this.g = tq7Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -320,9 +320,9 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
         j();
         setOnClickListener(new b(this, liveFuseForumData));
-        jq7 jq7Var2 = this.g;
-        if (jq7Var2 != null) {
-            jq7Var2.a(2, liveFuseForumData);
+        tq7 tq7Var2 = this.g;
+        if (tq7Var2 != null) {
+            tq7Var2.a(2, liveFuseForumData);
         }
     }
 
@@ -354,27 +354,27 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0370, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0371, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            this.d = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090780);
-            ViewGroup viewGroup = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09078a);
+            this.d = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090777);
+            ViewGroup viewGroup = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090781);
             this.e = viewGroup;
             viewGroup.getLayoutParams().width = (BdUtilHelper.getEquipmentWidth(getContext()) - (getResources().getDimensionPixelSize(R.dimen.M_W_X004) * 3)) / 2;
-            TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090780);
+            TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090777);
             this.d = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.d.setDrawCorner(true);
             this.d.setRadiusById(R.string.J_X06);
             this.d.setPlaceHolder(2);
             this.d.setConrers(15);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090789);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f090785);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090780);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f09077c);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f090784);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f09077b);
             this.f = tbImageAutoSwitch;
             int i = l;
             tbImageAutoSwitch.l(4, i, i, m);

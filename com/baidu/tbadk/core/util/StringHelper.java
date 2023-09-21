@@ -17,7 +17,7 @@ import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes4.dex */
-public class StringHelper extends ei {
+public class StringHelper extends di {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_CARD_DAY_BEFORE;
     public static final String ALA_CARD_HOUR_BEFORE;
@@ -99,7 +99,7 @@ public class StringHelper extends ei {
         TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
         TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
         TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0ca2);
+        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0ca4);
         TIME_MINUTE_SINGLE = string;
         TIME_STR = new String[]{TIME_DAY, TIME_HOUR, string, TIME_SECOND};
         ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
@@ -118,16 +118,16 @@ public class StringHelper extends ei {
         date = new Date();
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
-            ei.FORMATE_DATE_ALL.setTimeZone(timeZone);
-            ei.FORMATE_DATE_YEAR.setTimeZone(timeZone);
-            ei.FORMATE_DATE_TIME.setTimeZone(timeZone);
-            ei.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
-            ei.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
-            ei.FORMATE_DATE_DAY.setTimeZone(timeZone);
-            ei.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
-            ei.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
-            ei.FORMATE_DATE_MS.setTimeZone(timeZone);
-            ei.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
+            di.FORMATE_DATE_ALL.setTimeZone(timeZone);
+            di.FORMATE_DATE_YEAR.setTimeZone(timeZone);
+            di.FORMATE_DATE_TIME.setTimeZone(timeZone);
+            di.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
+            di.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
+            di.FORMATE_DATE_DAY.setTimeZone(timeZone);
+            di.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
+            di.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
+            di.FORMATE_DATE_MS.setTimeZone(timeZone);
+            di.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
         }
     }
 
@@ -151,8 +151,8 @@ public class StringHelper extends ei {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             Date date2 = new Date();
-            synchronized (ei.FORMATE_DATE_MS) {
-                format = ei.FORMATE_DATE_MS.format(date2);
+            synchronized (di.FORMATE_DATE_MS) {
+                format = di.FORMATE_DATE_MS.format(date2);
             }
             return format;
         }
@@ -165,8 +165,8 @@ public class StringHelper extends ei {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             Date date2 = new Date();
-            synchronized (ei.FORMATE_DATE_DAY) {
-                format = ei.FORMATE_DATE_DAY.format(date2);
+            synchronized (di.FORMATE_DATE_DAY) {
+                format = di.FORMATE_DATE_DAY.format(date2);
             }
             return format;
         }
@@ -300,7 +300,7 @@ public class StringHelper extends ei {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (ei.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -462,7 +462,7 @@ public class StringHelper extends ei {
                 int i2 = 0;
                 for (int i3 = 0; i3 < length; i3++) {
                     char charAt = str.charAt(i3);
-                    if (ei.isChinese(charAt)) {
+                    if (di.isChinese(charAt)) {
                         i2 += 2;
                     } else {
                         i2++;
@@ -490,7 +490,7 @@ public class StringHelper extends ei {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (ei.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -527,7 +527,7 @@ public class StringHelper extends ei {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (ei.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -565,7 +565,7 @@ public class StringHelper extends ei {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (ei.isChinese(replaceAll.charAt(i2))) {
+                    if (di.isChinese(replaceAll.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -643,7 +643,7 @@ public class StringHelper extends ei {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (ei.isChinese(charSequence.charAt(i2))) {
+                if (di.isChinese(charSequence.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -676,7 +676,7 @@ public class StringHelper extends ei {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (ei.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -757,7 +757,7 @@ public class StringHelper extends ei {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (ei.isChinese(str.charAt(i2))) {
+                    if (di.isChinese(str.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -799,7 +799,7 @@ public class StringHelper extends ei {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return ei.getDateStringDay(date2);
+                return di.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -1261,7 +1261,7 @@ public class StringHelper extends ei {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            if (ei.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return "";
             }
             return "\u202d" + str + "\u202c";
@@ -1326,11 +1326,11 @@ public class StringHelper extends ei {
         if (interceptable == null || (invokeI = interceptable.invokeI(65617, null, i)) == null) {
             if (i != 1) {
                 if (i != 2) {
-                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09b9);
+                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09ba);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f13ef);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f13f0);
             }
-            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09b9);
+            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09ba);
         }
         return (String) invokeI.objValue;
     }
@@ -1576,7 +1576,7 @@ public class StringHelper extends ei {
             int length = charSequence.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (ei.isChinese(charSequence.charAt(i2))) {
+                if (di.isChinese(charSequence.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -1628,8 +1628,8 @@ public class StringHelper extends ei {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, date2)) == null) {
-            synchronized (ei.FORMATE_DATE_DAY_1) {
-                format = ei.FORMATE_DATE_DAY_1.format(date2);
+            synchronized (di.FORMATE_DATE_DAY_1) {
+                format = di.FORMATE_DATE_DAY_1.format(date2);
             }
             return format;
         }
@@ -1641,8 +1641,8 @@ public class StringHelper extends ei {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, date2)) == null) {
-            synchronized (ei.FORMATE_DATE_DAY_NO_YEAR) {
-                format = ei.FORMATE_DATE_DAY_NO_YEAR.format(date2);
+            synchronized (di.FORMATE_DATE_DAY_NO_YEAR) {
+                format = di.FORMATE_DATE_DAY_NO_YEAR.format(date2);
             }
             return format;
         }
@@ -1765,8 +1765,8 @@ public class StringHelper extends ei {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, date2)) == null) {
-            synchronized (ei.FORMATE_DATE_DAY_WEEK) {
-                format = ei.FORMATE_DATE_DAY_WEEK.format(date2);
+            synchronized (di.FORMATE_DATE_DAY_WEEK) {
+                format = di.FORMATE_DATE_DAY_WEEK.format(date2);
             }
             return format;
         }
@@ -1921,7 +1921,7 @@ public class StringHelper extends ei {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, str)) == null) {
-            if (!ei.isEmpty(str)) {
+            if (!di.isEmpty(str)) {
                 String trim = str.trim();
                 if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                     return true;
@@ -1936,7 +1936,7 @@ public class StringHelper extends ei {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, str)) == null) {
-            if (ei.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return false;
             }
             try {
@@ -2212,7 +2212,7 @@ public class StringHelper extends ei {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (ei.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -2626,7 +2626,7 @@ public class StringHelper extends ei {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return ei.getDateStringDay(date3);
+                return di.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2637,7 +2637,7 @@ public class StringHelper extends ei {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return ei.getDateStringHm(date3);
+                        return di.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2646,13 +2646,13 @@ public class StringHelper extends ei {
                     return "1个月前";
                 } else {
                     if (date2.getYear() == date3.getYear()) {
-                        synchronized (ei.FORMATE_DATE_DAY_NO_YEAR) {
-                            format2 = ei.FORMATE_DATE_DAY_NO_YEAR.format(date3);
+                        synchronized (di.FORMATE_DATE_DAY_NO_YEAR) {
+                            format2 = di.FORMATE_DATE_DAY_NO_YEAR.format(date3);
                         }
                         return format2;
                     }
-                    synchronized (ei.FORMATE_DATE_DAY) {
-                        format = ei.FORMATE_DATE_DAY.format(date3);
+                    synchronized (di.FORMATE_DATE_DAY) {
+                        format = di.FORMATE_DATE_DAY.format(date3);
                     }
                     return format;
                 }
@@ -2684,7 +2684,7 @@ public class StringHelper extends ei {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return ei.getDateStringDay(date2);
+                return di.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -2703,7 +2703,7 @@ public class StringHelper extends ei {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return ei.getDateStringDay(date3);
+                return di.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2714,7 +2714,7 @@ public class StringHelper extends ei {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return ei.getDateStringHm(date3);
+                        return di.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2722,7 +2722,7 @@ public class StringHelper extends ei {
                 } else if (time < 2764800000L) {
                     return "1个月前";
                 } else {
-                    return ei.getDateStringDay(date3);
+                    return di.getDateStringDay(date3);
                 }
             }
         }

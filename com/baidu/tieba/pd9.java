@@ -1,150 +1,171 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class pd9 extends pm<fe9, a> {
+public class pd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public TextView b;
-        public View c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(View view2, TextView textView, View view3) {
-            super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, textView, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
-            this.b = textView;
-            this.c = view3;
-        }
-
-        public void a(fe9 fe9Var) {
-            int i;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, fe9Var) == null) && fe9Var != null) {
-                this.b.setText(fe9Var.a);
-                View view2 = this.c;
-                if (fe9Var.b) {
-                    i = 0;
-                } else {
-                    i = 8;
-                }
-                view2.setVisibility(i);
-            }
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != i) {
-                SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
-                this.a = i;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pd9(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), de9.b);
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeL(65536, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        File file = new File(str);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        FileHelper.deleteFileOrDir(new File(rd9.e + rd9.a + str));
+    }
+
+    public static void c(String str, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) && !StringUtils.isNull(str) && jSONArray != null) {
+            try {
+                JSONArray jSONArray2 = new JSONArray(str);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    jSONArray.put(jSONArray2.optJSONObject(i));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: s */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    public static JSONArray d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
-            linearLayout.setOrientation(1);
-            linearLayout.setPadding(BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.tbds44), 0, BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.tbds44), BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.tbds12));
-            linearLayout.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            View view2 = new View(viewGroup.getContext());
-            linearLayout.addView(view2, new LinearLayout.LayoutParams(-1, BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.tbds1)));
-            TextView textView = new TextView(viewGroup.getContext());
-            textView.setTextColor(viewGroup.getContext().getResources().getColor(R.color.CAM_X0105));
-            textView.setTextSize(0, BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.tbds47));
-            textView.setTypeface(Typeface.DEFAULT_BOLD);
-            textView.setIncludeFontPadding(false);
-            textView.setSingleLine();
-            textView.setEllipsize(TextUtils.TruncateAt.END);
-            textView.setPadding(0, BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.tbds48), 0, 0);
-            linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
-            a aVar = new a(linearLayout, textView, view2);
-            aVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (StringUtils.isNull(str)) {
+                return jSONArray;
+            }
+            File file = new File(str);
+            if (!file.exists()) {
+                return jSONArray;
+            }
+            String e = e(file);
+            String[] split = e.split("\n");
+            if (split.length > 0) {
+                for (String str2 : split) {
+                    c(str2, jSONArray);
+                }
+            } else {
+                c(e, jSONArray);
+            }
+            FileHelper.deleteFile(file);
+            return jSONArray;
         }
-        return (a) invokeL.objValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fe9 fe9Var, a aVar) {
-        InterceptResult invokeCommon;
+    public static String e(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fe9Var, aVar})) == null) {
-            if (fe9Var != null && aVar != null) {
-                aVar.a(fe9Var);
-                aVar.b(TbadkCoreApplication.getInst().getSkinType());
-                return aVar.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            StringBuilder sb = new StringBuilder();
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
             }
-            return null;
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    sb.append(new String(bArr, 0, read));
+                }
+                BdCloseHelper.close((InputStream) fileInputStream);
+            } catch (Exception e2) {
+                e = e2;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                BdCloseHelper.close((InputStream) fileInputStream2);
+                return sb.toString();
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                BdCloseHelper.close((InputStream) fileInputStream2);
+                throw th;
+            }
+            return sb.toString();
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, str)) == null) {
+            return g(file, str, true);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(File file, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, str, z)) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    fileOutputStream = new FileOutputStream(file, z);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileOutputStream.write(str.getBytes());
+                fileOutputStream.flush();
+                BdCloseHelper.close((OutputStream) fileOutputStream);
+                return true;
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                BdCloseHelper.close((OutputStream) fileOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                BdCloseHelper.close((OutputStream) fileOutputStream2);
+                throw th;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

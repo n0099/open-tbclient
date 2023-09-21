@@ -1,32 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public final class hda {
+public class hda implements ICloudCommandObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(boolean z) {
-        int i;
+    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
+    public String getCommandType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65536, null, z) == null) {
-            StatisticItem param = new StatisticItem("c15224").param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (z) {
-                i = 1;
-            } else {
-                i = 2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "online_net_log_notice" : (String) invokeV.objValue;
+    }
+
+    public hda() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            param.param("obj_type", i).eventStat();
         }
     }
 
-    public static final void b() {
+    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
+    public void dispatch(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            new StatisticItem("c15223").param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            if (!"fulllog_network".equals(jSONObject.getString("type"))) {
+                return;
+            }
+            ida.a().h(jSONObject, null);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

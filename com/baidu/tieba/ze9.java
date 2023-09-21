@@ -1,164 +1,180 @@
 package com.baidu.tieba;
 
-import android.graphics.Point;
-import android.view.MotionEvent;
+import android.content.Context;
 import android.view.View;
-import android.widget.ListView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
-import com.baidu.tieba.kz5;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class ze9 {
+public class ze9 extends om<pf9, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleDragSortListView a;
-    public final a b;
-    public final kz5 c;
+    public TbPageContext<HotTopicDetailActivity> a;
+    public wz4<pf9> b;
 
     /* loaded from: classes9.dex */
-    public static class a extends lz5 {
+    public class a implements wz4<pf9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int F;
-        public int G;
-        public ListView H;
+        public final /* synthetic */ ze9 a;
 
-        @Override // com.baidu.tieba.oz5, com.baidu.tieba.kz5.j
-        public void a(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wz4
+        /* renamed from: a */
+        public void d(View view2, pf9 pf9Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pf9Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(kz5 kz5Var, ListView listView) {
-            super(kz5Var, listView, 0, 2, 0);
+        public a(ze9 ze9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kz5Var, listView};
+                Object[] objArr = {ze9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((kz5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.F = 0;
-            this.G = Integer.MAX_VALUE;
-            r(false);
-            this.H = listView;
+            this.a = ze9Var;
         }
 
-        @Override // com.baidu.tieba.lz5, com.baidu.tieba.kz5.j
-        public void c(View view2, Point point, Point point2) {
-            View view3;
-            int top;
-            int top2;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wz4
+        /* renamed from: c */
+        public void b(View view2, pf9 pf9Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, point, point2) == null) {
-                int firstVisiblePosition = this.H.getFirstVisiblePosition();
-                int dividerHeight = this.H.getDividerHeight();
-                int headerViewsCount = (this.F - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int headerViewsCount2 = (this.G - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int childCount = this.H.getChildCount();
-                View view4 = null;
-                if (headerViewsCount >= 0 && headerViewsCount < childCount) {
-                    view3 = this.H.getChildAt(headerViewsCount);
-                } else {
-                    view3 = null;
-                }
-                if (headerViewsCount2 >= 0 && headerViewsCount2 < childCount) {
-                    view4 = this.H.getChildAt(headerViewsCount2);
-                }
-                if (view3 != null && point.y < (top2 = view3.getTop())) {
-                    point.y = top2;
-                }
-                if (view4 != null && point.y > (top = (view4.getTop() - dividerHeight) - view2.getHeight())) {
-                    point.y = top;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.lz5
-        public int w(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-                int n = super.n(motionEvent);
-                int headerViewsCount = n - this.H.getHeaderViewsCount();
-                if (headerViewsCount >= this.F && headerViewsCount < this.G) {
-                    return n;
-                }
-                return -1;
-            }
-            return invokeL.intValue;
-        }
-
-        public void z(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-                this.F = i;
-                this.G = i2;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, pf9Var, Integer.valueOf(i), Long.valueOf(j)}) == null) && pf9Var != null && this.a.a != null) {
+                xe9.a("c13820", pf9Var, i, ((HotTopicDetailActivity) this.a.a.getOrignalPage()).O0());
             }
         }
     }
 
-    public ze9(SimpleDragSortListView simpleDragSortListView) {
+    /* loaded from: classes9.dex */
+    public static class b extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HotTopicDetailSpecialItem a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
+            super(hotTopicDetailSpecialItem);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotTopicDetailSpecialItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hotTopicDetailSpecialItem;
+        }
+
+        public void a(pf9 pf9Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, pf9Var) == null) && pf9Var != null) {
+                this.a.a(pf9Var);
+            }
+        }
+
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.a.c(i);
+            }
+        }
+
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.a.setCurrentTopicId(str);
+            }
+        }
+
+        public void d(wz4<pf9> wz4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, wz4Var) == null) {
+                this.a.setOnItemCoverListener(wz4Var);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ze9(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), of9.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {simpleDragSortListView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = simpleDragSortListView;
-        kz5 kz5Var = new kz5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.c = kz5Var;
-        simpleDragSortListView.setDragSortViewEventDelegate(kz5Var);
-        a aVar = new a(this.c, simpleDragSortListView);
-        this.b = aVar;
-        aVar.d(-1);
-        this.c.t0(this.b);
-        this.c.v0(this.b);
-        simpleDragSortListView.setOnTouchListener(this.b);
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    public void a(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public b onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c.p0(z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            b bVar = new b(new HotTopicDetailSpecialItem(viewGroup.getContext()));
+            bVar.c(this.a.getOrignalPage().O0());
+            bVar.d(this.b);
+            bVar.b(TbadkCoreApplication.getInst().getSkinType());
+            return bVar;
         }
+        return (b) invokeL.objValue;
     }
 
-    public void c(kz5.i iVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pf9 pf9Var, b bVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.c.u0(iVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pf9Var, bVar})) == null) {
+            if (pf9Var != null && bVar != null) {
+                bVar.a(pf9Var);
+                bVar.b(TbadkCoreApplication.getInst().getSkinType());
+                return bVar.getView();
+            }
+            return null;
         }
-    }
-
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.b.z(i, i2);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

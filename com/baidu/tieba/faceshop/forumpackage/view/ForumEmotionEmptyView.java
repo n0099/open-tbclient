@@ -54,10 +54,10 @@ public class ForumEmotionEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02fe, this);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bcb);
-            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090bcc);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bc7);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090bd0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bbe);
+            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090bbf);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bba);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090bc3);
             NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, true);
             this.b = b;
             b.setVisibility(0);

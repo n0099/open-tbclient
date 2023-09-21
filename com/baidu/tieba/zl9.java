@@ -1,33 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zl9 {
+public final class zl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public final long a;
+    public final long b;
 
-    public zl9(TbPageContext tbPageContext) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof zl9) {
+                zl9 zl9Var = (zl9) obj;
+                return this.a == zl9Var.a && this.b == zl9Var.b;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (b.a(this.a) * 31) + b.a(this.b) : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FeedbackNumState(selectNum=" + this.a + ", unselectNum=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public zl9(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,80 +59,25 @@ public class zl9 {
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = j;
+        this.b = j2;
     }
 
-    public final void a(PbModel pbModel, int i) {
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, pbModel, i) != null) || pbModel == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        StatisticItem statisticItem = new StatisticItem("c13719");
-        statisticItem.param("fid", pbModel.G.l());
-        statisticItem.param("tid", pbModel.G.Q());
-        statisticItem.param("obj_type", i);
-        if (pbModel.q1() == 5) {
-            statisticItem.param("obj_source", 1);
-        } else if (pbModel.q1() == 7) {
-            statisticItem.param("obj_source", 2);
-        } else {
-            statisticItem.param("obj_source", 3);
-        }
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(statisticItem);
+        return invokeV.longValue;
     }
 
-    public boolean b(PbModel pbModel) {
-        InterceptResult invokeL;
-        aj9 aj9Var;
-        String str;
-        String str2;
+    public final long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
-            int i = 0;
-            if (this.a.getPageActivity() != null && pbModel != null && (aj9Var = pbModel.G) != null) {
-                if ("3".equals(aj9Var.e0)) {
-                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg.setSubTabName(this.a.getString(R.string.tab_name_topic_rank));
-                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
-                    return true;
-                }
-                String string = SharedPrefHelper.getInstance().getString("key_pb_back_sid1", "");
-                String string2 = SharedPrefHelper.getInstance().getString("key_pb_back_sid2", "");
-                if (!TextUtils.isEmpty(string) && UbsABTestDataManager.getInstance().getABTestSwitchData(string) != null) {
-                    str = "1";
-                } else if (!TextUtils.isEmpty(string2) && UbsABTestDataManager.getInstance().getABTestSwitchData(string2) != null) {
-                    str = "2";
-                } else {
-                    str = null;
-                }
-                if (str == null && (str2 = pbModel.G.d0) != null) {
-                    str = str2;
-                }
-                if (str == null) {
-                    return false;
-                }
-                if (str.equals("1")) {
-                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg2.setSubTab(1, null);
-                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
-                    a(pbModel, 1);
-                    return true;
-                } else if (str.equals("2")) {
-                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(1);
-                    createNormalCfg3.setSubTab(0, pbModel.G.e0);
-                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
-                    if ("游戏".equals(pbModel.G.e0)) {
-                        i = 2;
-                    } else if ("数码".equals(pbModel.G.e0)) {
-                        i = 3;
-                    }
-                    a(pbModel, i);
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return invokeV.longValue;
     }
 }

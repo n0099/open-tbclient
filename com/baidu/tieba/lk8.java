@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class lk8 {
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class lk8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lk8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public ArrayList<String> b;
 
     public lk8() {
         Interceptable interceptable = $ic;
@@ -30,67 +30,59 @@ public class lk8 {
         }
     }
 
-    public static lk8 d() {
-        InterceptResult invokeV;
+    public IChatRoomEnterListener.ReMsgInfo a(TbReMsgInfo tbInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (lk8.class) {
-                    if (c == null) {
-                        c = new lk8();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbInfo)) == null) {
+            Intrinsics.checkNotNullParameter(tbInfo, "tbInfo");
+            IChatRoomEnterListener.ReMsgInfo reMsgInfo = new IChatRoomEnterListener.ReMsgInfo();
+            reMsgInfo.msgType = String.valueOf(tbInfo.getSdkMsgType());
+            reMsgInfo.bdUk = fl8.b(tbInfo.getUid());
+            reMsgInfo.nickName = tbInfo.getNickname();
+            reMsgInfo.msgId = String.valueOf(tbInfo.getMsgId());
+            reMsgInfo.msgKey = tbInfo.getMsgKey();
+            reMsgInfo.url = tbInfo.getUrl();
+            reMsgInfo.content = tbInfo.getContent();
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg_type", Integer.valueOf(tbInfo.getMsgType()));
+            reMsgInfo.ext = DataExt.toJson(hashMap);
+            return reMsgInfo;
         }
-        return (lk8) invokeV.objValue;
+        return (IChatRoomEnterListener.ReMsgInfo) invokeL.objValue;
     }
 
-    public void a() {
+    public TbReMsgInfo b(IChatRoomEnterListener.ReMsgInfo sdkInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Map<String, String> map = this.a;
-            if (map != null) {
-                map.clear();
-                this.a = null;
-            }
-            ArrayList<String> arrayList = this.b;
-            if (arrayList != null) {
-                arrayList.clear();
-                this.b = null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkInfo)) == null) {
+            Intrinsics.checkNotNullParameter(sdkInfo, "sdkInfo");
+            TbReMsgInfo tbReMsgInfo = new TbReMsgInfo();
+            String ext = sdkInfo.ext;
+            Intrinsics.checkNotNullExpressionValue(ext, "ext");
+            Long l = (Long) DataExt.toMap(ext).get("msg_type");
+            Intrinsics.checkNotNull(l);
+            tbReMsgInfo.setMsgType((int) l.longValue());
+            String msgType = sdkInfo.msgType;
+            Intrinsics.checkNotNullExpressionValue(msgType, "msgType");
+            tbReMsgInfo.setSdkMsgType(Integer.parseInt(msgType));
+            String bdUk = sdkInfo.bdUk;
+            Intrinsics.checkNotNullExpressionValue(bdUk, "bdUk");
+            tbReMsgInfo.setUid(fl8.a(bdUk));
+            String nickName = sdkInfo.nickName;
+            Intrinsics.checkNotNullExpressionValue(nickName, "nickName");
+            tbReMsgInfo.setNickname(nickName);
+            String msgId = sdkInfo.msgId;
+            Intrinsics.checkNotNullExpressionValue(msgId, "msgId");
+            tbReMsgInfo.setMsgId(Long.parseLong(msgId));
+            String msgKey = sdkInfo.msgKey;
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msgKey");
+            tbReMsgInfo.setMsgKey(msgKey);
+            tbReMsgInfo.setUrl(sdkInfo.url);
+            String content = sdkInfo.content;
+            Intrinsics.checkNotNullExpressionValue(content, "content");
+            tbReMsgInfo.setContent(content);
+            return tbReMsgInfo;
         }
-    }
-
-    public Map<String, String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public ArrayList<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void e(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            this.a = map;
-        }
-    }
-
-    public void f(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.b = arrayList;
-        }
+        return (TbReMsgInfo) invokeL.objValue;
     }
 }

@@ -126,7 +126,7 @@ public class c15 {
             jSONObject.optString("banner_img");
             jSONObject.optInt("show_total_num");
             String optString = jSONObject.optString("banner_img_size");
-            if (!ei.isEmpty(optString)) {
+            if (!di.isEmpty(optString)) {
                 String[] split = optString.split(",");
                 this.h = JavaTypesHelper.toInt(split[0], 1);
                 this.i = JavaTypesHelper.toInt(split[1], 1);
@@ -193,7 +193,7 @@ public class c15 {
         String str = actInfo.banner_img;
         actInfo.show_total_num.intValue();
         String str2 = actInfo.banner_img_size;
-        if (!ei.isEmpty(str2)) {
+        if (!di.isEmpty(str2)) {
             try {
                 String[] split = str2.split(",");
                 this.h = JavaTypesHelper.toInt(split[0], 1);

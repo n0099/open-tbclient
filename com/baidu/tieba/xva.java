@@ -1,142 +1,96 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ihb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.videoplay.VideoPlayView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public abstract class xva implements ihb.b {
+public class xva {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean o;
-    public static boolean p;
-    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public boolean c;
-    public int d;
+    public int a;
+    public int b;
+    public rva c;
+    public VideoPlayView.i d;
     public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public SurfaceTexture l;
-    public volatile boolean m;
-    public volatile boolean n;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948315206, "Lcom/baidu/tieba/xva;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948315206, "Lcom/baidu/tieba/xva;");
-        }
-    }
+    public Set<String> f;
 
     public xva() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = -1;
-        this.m = false;
-        this.n = false;
+        this.a = 0;
+        this.b = 0;
+        this.f = new HashSet();
     }
 
-    @Override // com.baidu.tieba.ihb.b
-    public boolean a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.m;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ihb.b
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.n;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ihb.b
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ihb.b
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return p;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return o;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ihb.b
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.n = z;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
+            this.b = this.a + 1;
+            b();
         }
     }
 
-    @Override // com.baidu.tieba.ihb.b
-    public void m(boolean z) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.m = z;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c != null && this.e > 0) {
+            while (this.b < this.c.k()) {
+                VideoItemData t = this.c.t(this.b);
+                this.b++;
+                if (t != null && !TextUtils.isEmpty(t.video_url)) {
+                    this.e--;
+                    if (!this.f.contains(t.video_url)) {
+                        CyberPlayerManager.prefetch(t.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
+                        this.f.add(t.video_url);
+                    }
+                    if (this.e <= 0) {
+                        break;
+                    }
+                }
+            }
+            if (this.e > 0 && this.d != null && this.c.k() - this.a < 10) {
+                this.d.a();
+            }
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void d(rva rvaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, rvaVar) == null) {
+            this.c = rvaVar;
+        }
+    }
+
+    public void e(VideoPlayView.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
+            this.d = iVar;
         }
     }
 }

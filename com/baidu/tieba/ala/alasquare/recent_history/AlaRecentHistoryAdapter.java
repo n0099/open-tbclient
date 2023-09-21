@@ -44,7 +44,7 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f145d), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f145e)};
+        b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1460), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1461)};
         c = new int[]{100, 200};
     }
 
@@ -68,8 +68,8 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
         }
         Fragment[] fragmentArr = new Fragment[2];
         this.a = fragmentArr;
-        fragmentArr[0] = AlaRecentHistoryFragment.b2(0);
-        this.a[1] = AlaRecentHistoryFragment.b2(1);
+        fragmentArr[0] = AlaRecentHistoryFragment.h2(0);
+        this.a[1] = AlaRecentHistoryFragment.h2(1);
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter

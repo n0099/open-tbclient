@@ -6,20 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
 public final class kb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public final List<jb2> a;
 
-    public kb2(String str, String str2, String str3) {
+    public kb2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,44 +28,64 @@ public final class kb2 {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        this.a = new ArrayList();
     }
 
-    public static kb2 a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            return new kb2(str, str2, str3);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.a.clear();
+            }
         }
-        return (kb2) invokeLLL.objValue;
     }
 
-    public boolean b() {
+    public synchronized boolean c() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "1".equals(this.c);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "1".equals(this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "JSErrorModel{mType='" + this.a + "', mContent='" + this.b + "', mSource='" + this.c + "'}";
+            synchronized (this) {
+                z = false;
+                Iterator<jb2> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    } else if (it.next().c()) {
+                        z = true;
+                        break;
+                    }
+                }
+            }
+            return z;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public synchronized List<jb2> d() {
+        InterceptResult invokeV;
+        List<jb2> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                list = this.a;
+            }
+            return list;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized boolean a(jb2 jb2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jb2Var)) == null) {
+            synchronized (this) {
+                if (jb2Var != null) {
+                    return this.a.add(jb2Var);
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

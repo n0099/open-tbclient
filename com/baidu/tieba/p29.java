@@ -1,48 +1,21 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class p29 {
+public final class p29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, lv4> a;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final p29 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-567871372, "Lcom/baidu/tieba/p29$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-567871372, "Lcom/baidu/tieba/p29$b;");
-                    return;
-                }
-            }
-            a = new p29(null);
-        }
-    }
+    public final SparseArray<o29<ChatMsg, p09<?>>> a;
+    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
     public p29() {
         Interceptable interceptable = $ic;
@@ -57,42 +30,55 @@ public class p29 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = new SparseArray<>();
+        this.b = new HashMap<>();
     }
 
-    public static p29 a() {
-        InterceptResult invokeV;
+    public final void a(int i, o29<ChatMsg, p09<?>> converter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (p29) invokeV.objValue;
-    }
-
-    public /* synthetic */ p29(a aVar) {
-        this();
-    }
-
-    public void b(lv4 lv4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lv4Var) == null) {
-            c(lv4Var.a(), lv4Var);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
+            Intrinsics.checkNotNullParameter(converter, "converter");
+            this.a.put(i, converter);
         }
     }
 
-    public final void c(String str, lv4 lv4Var) {
+    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, lv4Var) == null) {
-            this.a.put(str, lv4Var);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            this.b.put(sdkMsg, Integer.valueOf(i));
         }
     }
 
-    public void d(String str, HashMap<String, String> hashMap, mv4 mv4Var) {
-        lv4 lv4Var;
+    public final ChatMsg c(p09<?> tbMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, mv4Var) != null) || str == null || hashMap == null || hashMap.isEmpty() || mv4Var == null || (lv4Var = this.a.get(str)) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            o29<ChatMsg, p09<?>> o29Var = this.a.get(tbMsg.e().getType());
+            if (o29Var == null) {
+                return null;
+            }
+            return o29Var.b(tbMsg);
         }
-        lv4Var.b(hashMap, mv4Var);
+        return (ChatMsg) invokeL.objValue;
+    }
+
+    public final p09<?> d(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Integer num = this.b.get(sdkMsg.getClass());
+            if (num == null) {
+                return null;
+            }
+            o29<ChatMsg, p09<?>> o29Var = this.a.get(num.intValue());
+            if (o29Var == null) {
+                return null;
+            }
+            return o29Var.a(sdkMsg);
+        }
+        return (p09) invokeL.objValue;
     }
 }

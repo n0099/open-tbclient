@@ -1,68 +1,292 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonalMsgImageActivityConfig;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
+import com.baidu.tbadk.core.util.httpNet.HttpResponse;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tieba.j55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w29 extends y29 {
+public final class w29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<y29> c;
+    public b a;
+    public h55 b;
+    public PermissionJudgePolicy c;
+    public final int d;
+    public final int e;
+    public final int f;
+    public c g;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public final class a implements j55.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public String a;
+        public byte[] b;
+        public final /* synthetic */ w29 c;
 
-    @Override // com.baidu.tieba.y29
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.y29
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final w29 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-367467315, "Lcom/baidu/tieba/w29$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-367467315, "Lcom/baidu/tieba/w29$b;");
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(w29 w29Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w29Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new w29(null);
+            this.c = w29Var;
+        }
+
+        @Override // com.baidu.tieba.j55.f
+        public void G0(j55 mPopupDialogView, int i, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, mPopupDialogView, i, view2) == null) {
+                Intrinsics.checkNotNullParameter(mPopupDialogView, "mPopupDialogView");
+                Intrinsics.checkNotNullParameter(view2, "view");
+                if (!(view2 instanceof TextView)) {
+                    return;
+                }
+                String obj = ((TextView) view2).getText().toString();
+                if (TextUtils.isEmpty(obj)) {
+                    return;
+                }
+                this.c.j(mPopupDialogView, obj, this.a, this.b);
+                h55 h55Var = this.c.b;
+                if (h55Var != null) {
+                    h55Var.dismiss();
+                }
+            }
+        }
+
+        public final void a(String str, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr) == null) {
+                this.a = str;
+                this.b = bArr;
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public final class b extends BdAsyncTask<String, Integer, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public String c;
+        public final /* synthetic */ w29 d;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public b(w29 w29Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w29Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = w29Var;
+        }
+
+        public final void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                try {
+                    this.c = new JSONObject(str).optString("pid");
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    Intrinsics.checkNotNull(netWork);
+                    netWork.cancelNetConnect();
+                }
+                this.d.a = null;
+                super.cancel(true);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... params) {
+            InterceptResult invokeL;
+            boolean z;
+            HttpNetContext netContext;
+            HttpResponse response;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, params)) == null) {
+                Intrinsics.checkNotNullParameter(params, "params");
+                NetWork netWork = new NetWork(TbConfig.URL_REQUEST_PID);
+                this.a = netWork;
+                String str = null;
+                boolean z2 = false;
+                try {
+                    String str2 = params[0];
+                    this.b = str2;
+                    if (netWork != null) {
+                        netWork.addPostData("pic_url", str2);
+                    }
+                    NetWork netWork2 = this.a;
+                    if (netWork2 != null) {
+                        str = netWork2.postMultiNetData();
+                    }
+                    NetWork netWork3 = this.a;
+                    if (netWork3 != null && (netContext = netWork3.getNetContext()) != null && (response = netContext.getResponse()) != null && response.isRequestSuccess()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        if (!((str == null || str.length() == 0) ? true : true)) {
+                            b(str);
+                        }
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+                return str;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                super.onPostExecute((b) str);
+                PersonalMsgImageActivityConfig personalMsgImageActivityConfig = new PersonalMsgImageActivityConfig(TbadkApplication.getInst(), this.b, TbadkCoreApplication.getCurrentAccountId(), "");
+                personalMsgImageActivityConfig.isFromGroupChat(true);
+                personalMsgImageActivityConfig.setPid(this.c);
+                personalMsgImageActivityConfig.isShieldLongClickViewTitle(true);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalMsgImageActivityConfig));
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public final class c extends BdAsyncTask<String, Integer, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final byte[] b;
+        public final /* synthetic */ w29 c;
+
+        public c(w29 w29Var, String str, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w29Var, str, bArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = w29Var;
+            this.a = str;
+            this.b = bArr;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.c.g = null;
+            super.cancel(true);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... arg0) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arg0)) == null) {
+                Intrinsics.checkNotNullParameter(arg0, "arg0");
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, TbadkApplication.getInst());
+                if (saveImageFileByUser == this.c.d) {
+                    String string = TbadkCoreApplication.getInst().getString(R.string.save_image_to_album);
+                    Intrinsics.checkNotNullExpressionValue(string, "getInst()\n              …ring.save_image_to_album)");
+                    return string;
+                } else if (saveImageFileByUser == this.c.f) {
+                    String sdErrorString = FileHelper.getSdErrorString();
+                    Intrinsics.checkNotNullExpressionValue(sdErrorString, "getSdErrorString()");
+                    return sdErrorString;
+                } else if (saveImageFileByUser == this.c.e) {
+                    String string2 = TbadkCoreApplication.getInst().getString(R.string.save_fail);
+                    Intrinsics.checkNotNullExpressionValue(string2, "getInst()\n              …kcore.R.string.save_fail)");
+                    return string2;
+                } else {
+                    String string3 = TbadkCoreApplication.getInst().getString(R.string.save_fail);
+                    Intrinsics.checkNotNullExpressionValue(string3, "getInst()\n              …kcore.R.string.save_fail)");
+                    return string3;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String result) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, result) == null) {
+                Intrinsics.checkNotNullParameter(result, "result");
+                super.onPostExecute((c) result);
+                this.c.g = null;
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), result);
+            }
         }
     }
 
@@ -79,134 +303,89 @@ public class w29 extends y29 {
                 return;
             }
         }
-        this.c = new ArrayList(4);
+        this.e = -1;
+        this.f = -2;
     }
 
-    public static w29 h() {
+    public final String[] h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f12f2);
+            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(com.….tbadkcore.R.string.save)");
+            return new String[]{string};
         }
-        return (w29) invokeV.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    public /* synthetic */ w29(a aVar) {
-        this();
-    }
-
-    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
-        InterceptResult invokeL;
+    public final void i(String mImgUrl) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            return h().b(jSONObject, jSONObject.optInt("card_type"));
-        }
-        return (ICardInfo) invokeL.objValue;
-    }
-
-    public synchronized void g(y29 y29Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, y29Var) == null) {
-            synchronized (this) {
-                this.c.add(y29Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mImgUrl) == null) {
+            Intrinsics.checkNotNullParameter(mImgUrl, "mImgUrl");
+            b bVar = new b(this);
+            this.a = bVar;
+            if (bVar != null) {
+                bVar.execute(mImgUrl);
             }
         }
     }
 
-    public static ICardInfo i(String str) {
-        InterceptResult invokeL;
+    public final void j(j55 j55Var, String str, String str2, byte[] bArr) {
+        TbPageContextSupport tbPageContextSupport;
+        TbPageContext pageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                ICardInfo j = j(new JSONObject(str));
-                if (j != null) {
-                    if (j.isValid()) {
-                        return j;
-                    }
-                }
-                return null;
-            } catch (CardParseException e) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e);
-                return null;
-            } catch (JSONException e2) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e2);
-                return null;
-            }
-        }
-        return (ICardInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.y29
-    public <T> q39 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            q39 e = e(tbPageContext, iCardInfo, i);
-            if (e != null) {
-                e.setBusinessType(i);
-            }
-            return e;
-        }
-        return (q39) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.y29
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            return f(jSONObject, i);
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    public final <T> q39 e(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
-        q39 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            for (y29 y29Var : this.c) {
-                try {
-                    a2 = y29Var.a(tbPageContext, iCardInfo, i);
-                } catch (Throwable th) {
-                    BdLog.detailException("factory <" + y29Var.d() + "> respond exception", th);
-                }
-                if (a2 != null) {
-                    return a2;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("No card factory for card type ");
-            if (iCardInfo == null) {
-                cardType = -1;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, j55Var, str, str2, bArr) == null) {
+            Context context = j55Var.getContext();
+            Activity activity = null;
+            if (context instanceof TbPageContextSupport) {
+                tbPageContextSupport = (TbPageContextSupport) context;
             } else {
-                cardType = iCardInfo.getCardType();
+                tbPageContextSupport = null;
             }
-            sb.append(cardType);
-            BdLog.e(sb.toString());
-            return null;
-        }
-        return (q39) invokeLLI.objValue;
-    }
-
-    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
-            for (y29 y29Var : this.c) {
-                try {
-                    ICardInfo b2 = y29Var.b(jSONObject, i);
-                    if (b2 != null) {
-                        return b2;
-                    }
-                } catch (Throwable th) {
-                    throw new CardParseException("Card type " + i + ", factory <" + y29Var.d() + "> respond exception", th);
+            if (Intrinsics.areEqual(str, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f12f2))) {
+                if (tbPageContextSupport != null && (pageContext = tbPageContextSupport.getPageContext()) != null) {
+                    activity = pageContext.getPageActivity();
+                }
+                if (this.c == null) {
+                    this.c = new PermissionJudgePolicy();
+                }
+                PermissionJudgePolicy permissionJudgePolicy = this.c;
+                if (permissionJudgePolicy != null) {
+                    permissionJudgePolicy.clearRequestPermissionList();
+                }
+                PermissionJudgePolicy permissionJudgePolicy2 = this.c;
+                if (permissionJudgePolicy2 != null) {
+                    permissionJudgePolicy2.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                }
+                PermissionJudgePolicy permissionJudgePolicy3 = this.c;
+                boolean z = true;
+                if ((permissionJudgePolicy3 == null || !permissionJudgePolicy3.startRequestPermission(activity)) ? false : false) {
+                    return;
+                }
+                c cVar = new c(this, str2, bArr);
+                this.g = cVar;
+                if (cVar != null) {
+                    cVar.execute(new String[0]);
                 }
             }
-            BdLog.e("No card factory for card type " + i);
-            return null;
         }
-        return (ICardInfo) invokeLI.objValue;
+    }
+
+    public final void k(Context mContext, String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, mContext, str, bArr) == null) {
+            Intrinsics.checkNotNullParameter(mContext, "mContext");
+            TbPageContext currentPageContext = TbadkApplication.getInst().getCurrentPageContext(mContext);
+            if (currentPageContext != null) {
+                h55 h55Var = new h55(currentPageContext);
+                a aVar = new a(this);
+                aVar.a(str, bArr);
+                h55Var.i(null, h(), aVar);
+                this.b = h55Var;
+                if (h55Var != null) {
+                    h55Var.l();
+                }
+            }
+        }
     }
 }

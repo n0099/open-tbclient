@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.qb5;
-import com.baidu.tieba.zh;
+import com.baidu.tieba.ag;
+import com.baidu.tieba.ub5;
+import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UserRecommendLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,10 +32,10 @@ public class UserRecommendLayout extends LinearLayout {
     public int c;
     public View.OnClickListener d;
     public View.OnClickListener e;
-    public bg<UserRecommendItemView> f;
+    public ag<UserRecommendItemView> f;
     public final ViewGroup.OnHierarchyChangeListener g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,15 +71,15 @@ public class UserRecommendLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) && (view3 instanceof UserRecommendItemView) && this.a.f != null) {
                 UserRecommendItemView userRecommendItemView = (UserRecommendItemView) view3;
-                if (userRecommendItemView.getTag() instanceof qb5) {
-                    ((qb5) userRecommendItemView.getTag()).r(this.a.a.getUniqueId());
+                if (userRecommendItemView.getTag() instanceof ub5) {
+                    ((ub5) userRecommendItemView.getTag()).r(this.a.a.getUniqueId());
                 }
                 this.a.f.e(userRecommendItemView);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements CommonUserLikeButton.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,10 +195,10 @@ public class UserRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(bg<UserRecommendItemView> bgVar) {
+    public void setViewPool(ag<UserRecommendItemView> agVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bgVar) == null) {
-            this.f = bgVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, agVar) == null) {
+            this.f = agVar;
         }
     }
 
@@ -255,21 +255,21 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public final void e(UserRecommendItemView userRecommendItemView, MetaData metaData) {
-        qb5 qb5Var;
+        ub5 ub5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, userRecommendItemView, metaData) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             userRecommendItemView.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(metaData.getFansNum())));
             userRecommendItemView.getUsername().setText(metaData.getName_show());
             userRecommendItemView.getLikeBtn().setFanNumCallBack(new b(this, userRecommendItemView));
-            if (userRecommendItemView.getLikeBtn().getTag() instanceof qb5) {
-                qb5Var = (qb5) userRecommendItemView.getLikeBtn().getTag();
+            if (userRecommendItemView.getLikeBtn().getTag() instanceof ub5) {
+                ub5Var = (ub5) userRecommendItemView.getLikeBtn().getTag();
             } else {
-                qb5Var = new qb5(this.a, userRecommendItemView.getLikeBtn());
+                ub5Var = new ub5(this.a, userRecommendItemView.getLikeBtn());
             }
-            qb5Var.k("7");
-            userRecommendItemView.getLikeBtn().setTag(qb5Var);
-            qb5Var.l(metaData);
+            ub5Var.k("7");
+            userRecommendItemView.getLikeBtn().setTag(ub5Var);
+            ub5Var.l(metaData);
             userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.d);
             userRecommendItemView.getHeaderView().setData(metaData);
             userRecommendItemView.getHeaderView().setAfterClickListener(this.e);
@@ -283,7 +283,7 @@ public class UserRecommendLayout extends LinearLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        int a2 = zh.a(getContext()) - (getPaddingLeft() * 2);
+        int a2 = yh.a(getContext()) - (getPaddingLeft() * 2);
         int i = this.c;
         int i2 = (a2 - (i * 2)) / 3;
         this.b = i + i2;

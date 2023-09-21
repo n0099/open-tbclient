@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.RecommendCardView;
+import com.baidu.tieba.feed.component.CardVideoAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xd7 extends yb7<RecommendCardView, w77> {
+public class xd7 extends hc7<CardVideoAdView, w77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class xd7 extends yb7<RecommendCardView, w77> {
         }
     }
 
-    @Override // com.baidu.tieba.yb7, com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.hc7, com.baidu.tieba.xc7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            de7.h(a);
+            me7.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.xc7
     /* renamed from: e */
-    public void b(@NonNull RecommendCardView recommendCardView, @NonNull w77 w77Var) {
+    public void b(@NonNull CardVideoAdView cardVideoAdView, @NonNull w77 w77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendCardView, w77Var) == null) {
-            recommendCardView.update(w77Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoAdView, w77Var) == null) {
+            cardVideoAdView.f(w77Var);
         }
     }
 }

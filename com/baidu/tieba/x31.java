@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.net.request.BodyStyle;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,18 +14,23 @@ public class x31 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class a extends mt0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d41 a;
-        public final /* synthetic */ mt0 b;
+        public final /* synthetic */ y31 a;
 
-        public a(d41 d41Var, mt0 mt0Var) {
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+
+        public a(y31 y31Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d41Var, mt0Var};
+                Object[] objArr = {y31Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,101 +40,68 @@ public class x31 {
                     return;
                 }
             }
-            this.a = d41Var;
-            this.b = mt0Var;
+            this.a = y31Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.kt0
+        public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x31.g(this.a, this.b);
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.c()) {
+                w31.e(this.a.a(i, exc.getMessage()));
+            }
+        }
+
+        @Override // com.baidu.tieba.lt0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lt0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && this.a.c()) {
+                w31.e(this.a.a(i, "success"));
             }
         }
     }
 
-    public static <T> void f(@NonNull d41 d41Var, @Nullable mt0<T> mt0Var) {
+    public static void a(@Nullable y31 y31Var) {
+        a61 a61Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, d41Var, mt0Var) == null) {
-            d41Var.a();
-            y41.c(new a(d41Var, mt0Var), "als_async_executor", 2);
-        }
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return tj0.d().z() + "/clog/clog";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return tj0.d().z() + "/elog/plog";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static Boolean d() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!u51.a) {
-                return Boolean.FALSE;
-            }
-            w51 w51Var = (w51) t51.a().a(w51.class);
-            if (w51Var != null && w51Var.a()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            return Boolean.valueOf(z);
-        }
-        return (Boolean) invokeV.objValue;
-    }
-
-    public static void e(@NonNull d41 d41Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, d41Var) == null) {
-            f(d41Var, null);
-        }
-    }
-
-    public static <T> void g(d41 d41Var, @Nullable mt0<T> mt0Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, d41Var, mt0Var) == null) && d41Var != null && d41Var.isValid()) {
-            String d41Var2 = d41Var.toString();
-            if (d41Var instanceof ClogBuilder) {
-                if (d().booleanValue()) {
-                    str = b();
-                } else {
-                    str = "https://als.baidu.com/clog/clog";
-                }
-            } else if (d41Var instanceof e41) {
-                if (d().booleanValue()) {
-                    str = c();
-                } else {
-                    str = "https://als.baidu.com/elog/plog";
-                }
-            } else if (d41Var instanceof b41) {
-                str = "https://afd.baidu.com/afd/close";
-            } else {
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, y31Var) == null) && y31Var != null && !TextUtils.isEmpty(y31Var.d())) {
             tt0 tt0Var = new tt0();
-            tt0Var.h(d41Var2);
-            tt0Var.k(BodyStyle.STRING);
-            tt0Var.i("application/x-www-form-urlencoded");
-            ut0 ut0Var = new ut0();
-            ut0Var.l(str);
-            ut0Var.f(tt0Var);
-            bt0.b().a().a(ut0Var, mt0Var);
+            tt0Var.l(y31Var.d());
+            tt0Var.g(3000);
+            tt0Var.c();
+            if (!TextUtils.isEmpty(y31Var.e)) {
+                tt0Var.d("User-Agent", y31Var.e);
+            } else {
+                tt0Var.d("User-Agent", sj0.e());
+            }
+            at0.b().a().a(tt0Var, new a(y31Var));
+            if (t51.a && (a61Var = (a61) s51.a().a(a61.class)) != null) {
+                a61Var.b(new u51("计费", "", "并行计费"));
+            }
+        }
+    }
+
+    public static void b(@Nullable String str) {
+        a61 a61Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        tt0 tt0Var = new tt0();
+        tt0Var.l(str);
+        tt0Var.g(3000);
+        tt0Var.d("User-Agent", sj0.e());
+        tt0Var.c();
+        at0.b().a().a(tt0Var, null);
+        if (t51.a && (a61Var = (a61) s51.a().a(a61.class)) != null) {
+            a61Var.b(new u51("计费", "", "并行计费"));
         }
     }
 }

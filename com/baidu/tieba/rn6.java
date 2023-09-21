@@ -1,83 +1,137 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public class rn6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String c = c(str);
-            if (!TextUtils.isEmpty(c)) {
-                try {
-                    int lastIndexOf2 = c.lastIndexOf(47);
-                    if (lastIndexOf2 >= 0) {
-                        c = c.substring(lastIndexOf2 + 1);
-                    }
-                    if (!TextUtils.isEmpty(c) && (lastIndexOf = c.lastIndexOf(46)) >= 0) {
-                        return c.substring(lastIndexOf + 1);
-                    }
-                    return "";
-                } catch (Exception unused) {
-                    return "";
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127439, "Lcom/baidu/tieba/rn6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return "";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948127439, "Lcom/baidu/tieba/rn6;");
+                return;
+            }
+        }
+        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    }
+
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (byte b : bArr) {
+                sb.append(a[(b & 240) >>> 4]);
+                sb.append(a[b & 15]);
+            }
+            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
+    public static String b(File file) {
         InterceptResult invokeL;
-        String mimeTypeFromExtension;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
             try {
-                String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(str);
-                if (!TextUtils.isEmpty(fileExtensionFromUrl) && !TextUtils.equals(fileExtensionFromUrl, StringUtil.NULL_STRING)) {
-                    if (TextUtils.equals(fileExtensionFromUrl, "json")) {
-                        mimeTypeFromExtension = "application/json";
-                    } else {
-                        mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl);
-                    }
-                    str2 = mimeTypeFromExtension;
+                fileInputStream = new FileInputStream(file);
+                try {
+                    String c = c(fileInputStream);
+                    un6.a(fileInputStream);
+                    return c;
+                } catch (Exception unused) {
+                    un6.a(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    un6.a(fileInputStream2);
+                    throw th;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception unused2) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
-            if (TextUtils.isEmpty(str2)) {
-                return "*/*";
-            }
-            return str2;
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(String str) {
+    public static String c(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
             }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
+            byte[] bArr = new byte[1024];
+            try {
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            messageDigest.update(bArr, 0, read);
+                        } else {
+                            String a2 = a(messageDigest.digest());
+                            un6.a(inputStream);
+                            return a2;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    un6.a(inputStream);
+                    return null;
+                }
+            } catch (Throwable th) {
+                un6.a(inputStream);
+                throw th;
             }
-            return str;
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static boolean d(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str)) == null) {
+            try {
+                String b = b(file);
+                if (b != null) {
+                    if (TextUtils.equals(b.toLowerCase(), str.toLowerCase())) {
+                        return true;
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

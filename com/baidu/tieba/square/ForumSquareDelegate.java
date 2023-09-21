@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.aga;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.fga;
 import com.baidu.tieba.square.model.ForumSquareModel;
-import com.baidu.tieba.tda;
-import com.baidu.tieba.uda;
-import com.baidu.tieba.zda;
+import com.baidu.tieba.zfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ForumSquareDelegate implements uda {
+public class ForumSquareDelegate implements aga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public String mCurrentClassName;
     public ForumSquareModel mForumSquareModel;
     public ForumSquareView mForumSquareView;
-    public tda mSquareViewController;
+    public zfa mSquareViewController;
     public final TbPageContext mTbPageContext;
     public CustomMessageListener refreshForumSquareListener;
 
@@ -104,13 +104,13 @@ public class ForumSquareDelegate implements uda {
         this.mTbPageContext.registerListener(this.refreshForumSquareListener);
     }
 
-    @Override // com.baidu.tieba.uda
+    @Override // com.baidu.tieba.aga
     public void onError(String str, ErrorData errorData) {
         ForumSquareView forumSquareView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) && (forumSquareView = this.mForumSquareView) != null && this.mForumSquareModel != null) {
             forumSquareView.showNormalUI();
-            zda Y = this.mForumSquareModel.Y(str);
+            fga Y = this.mForumSquareModel.Y(str);
             if (Y != null && (!Y.d || !ListUtils.isEmpty(Y.a()))) {
                 this.mForumSquareView.setForumListData(Y.a());
                 checkLoadMoreStateUI(str, Y.a());
@@ -121,7 +121,7 @@ public class ForumSquareDelegate implements uda {
         }
     }
 
-    @Override // com.baidu.tieba.uda
+    @Override // com.baidu.tieba.aga
     public void onNoData(ErrorData errorData) {
         ForumSquareView forumSquareView;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class ForumSquareDelegate implements uda {
         }
     }
 
-    private void checkLoadMoreStateUI(String str, List<cn> list) {
+    private void checkLoadMoreStateUI(String str, List<bn> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, this, str, list) == null) && this.mForumSquareView != null && this.mForumSquareModel != null) {
             if (ListUtils.isEmpty(list)) {
@@ -192,9 +192,9 @@ public class ForumSquareDelegate implements uda {
     public void startLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            tda tdaVar = new tda(this.mContext, this, this.mForumSquareView);
-            this.mSquareViewController = tdaVar;
-            tdaVar.e();
+            zfa zfaVar = new zfa(this.mContext, this, this.mForumSquareView);
+            this.mSquareViewController = zfaVar;
+            zfaVar.e();
             startLoadNetData();
         }
     }
@@ -221,7 +221,7 @@ public class ForumSquareDelegate implements uda {
             this.mCurrentClassName = str;
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null && this.mForumSquareView != null) {
-                zda Y = forumSquareModel.Y(str);
+                fga Y = forumSquareModel.Y(str);
                 if (Y != null && (!Y.d || !ListUtils.isEmpty(Y.a()))) {
                     this.mForumSquareView.showNormalUI();
                     checkLoadMoreStateUI(str, Y.a());
@@ -240,11 +240,11 @@ public class ForumSquareDelegate implements uda {
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
         if (r5.equals(r1) == false) goto L11;
      */
-    @Override // com.baidu.tieba.uda
+    @Override // com.baidu.tieba.aga
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSucc(String str, List<String> list, List<cn> list2) {
+    public void onSucc(String str, List<String> list, List<bn> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, list, list2) == null) && this.mForumSquareModel != null && this.mForumSquareView != null) {
             boolean z = false;
@@ -287,7 +287,7 @@ public class ForumSquareDelegate implements uda {
     }
 
     public void saveScrollPosition(String str) {
-        zda Y;
+        fga Y;
         Pair<Integer, Integer> currentScrollPosition;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (Y = this.mForumSquareModel.Y(str)) == null || (currentScrollPosition = this.mForumSquareView.getCurrentScrollPosition()) == null) {

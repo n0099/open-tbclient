@@ -1,87 +1,58 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.annotation.NonNull;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pb2 {
+public abstract class pb2<T> extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(NetworkStatus networkStatus);
-    }
+    public abstract void a(@NonNull T t);
 
-    /* loaded from: classes7.dex */
-    public class a implements SwanAppNetworkUtils.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+    public abstract void b(@NonNull T t);
 
-        public a(pb2 pb2Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pb2Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            this.a.a(NetworkStatus.NETWORK_UNKNOWN);
-                            return;
-                        } else {
-                            this.a.a(NetworkStatus.NETWORK_OFFLINE);
-                            return;
-                        }
-                    }
-                    this.a.a(NetworkStatus.NETWORK_BAD);
-                    return;
-                }
-                this.a.a(NetworkStatus.NETWORK_GOOD);
-            }
-        }
-    }
-
-    public pb2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pb2(Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(@NonNull b bVar) {
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.pb2<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.os.Handler
+    public void handleMessage(@NonNull Message message) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+            int i = message.what;
+            if (i != 1) {
+                if (i == 2) {
+                    b(message.obj);
+                    return;
+                }
+                return;
+            }
+            a(message.obj);
         }
-        SwanAppNetworkUtils.b(new a(this, bVar));
     }
 }

@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import android.graphics.SurfaceTexture;
 /* loaded from: classes7.dex */
 public interface r6c {
-    void c();
+    void onLibDownloadSuccess();
 
-    void d(SurfaceTexture surfaceTexture);
-
-    Object getWindow();
+    void onLibDownloading();
 }

@@ -1,21 +1,32 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
+import android.content.Intent;
+import android.view.View;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 /* loaded from: classes7.dex */
 public interface qs1 {
-    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
+    SwanCoreVersion m();
 
-    String b();
+    fo2 n(SwanAppActivity swanAppActivity, String str);
 
-    void c(JSONObject jSONObject);
+    oe2 o(zp3<Exception> zp3Var);
 
-    cj4 d();
+    void p(Intent intent);
 
-    void e(int i, String str);
+    View q(ma2 ma2Var);
 
-    void f(@NonNull aq3<Boolean> aq3Var);
+    void r(V8ExceptionInfo v8ExceptionInfo);
+
+    void release();
+
+    ExtensionCore s();
+
+    sl2 t();
+
+    int u(String str, long j);
+
+    void v(String str, boolean z);
 }

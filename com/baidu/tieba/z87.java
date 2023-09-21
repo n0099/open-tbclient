@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public final class z87 implements c97 {
+public final class z87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final Map<String, JSONObject> c;
-    public final c67.h d;
+    public final long a;
+    public final boolean b;
+    public final m87 c;
 
-    public z87(String spaceName, String uid) {
+    public z87(long j, boolean z, m87 businessInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spaceName, uid};
+            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z), businessInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,65 +30,36 @@ public final class z87 implements c97 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(spaceName, "spaceName");
-        Intrinsics.checkNotNullParameter(uid, "uid");
-        this.a = spaceName;
-        this.b = uid;
-        this.c = new LinkedHashMap();
-        c67.h d = c67.a().d();
-        this.d = d;
-        Map<String, JSONObject> b = d.b(this.a, this.b);
-        Intrinsics.checkNotNullExpressionValue(b, "cacheResolver.getCache(spaceName, uid)");
-        this.c.putAll(b);
+        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+        this.a = j;
+        this.b = z;
+        this.c = businessInfo;
     }
 
-    @Override // com.baidu.tieba.c97
-    public void a(String key, Map<String, String> valueMap) {
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, key, valueMap) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(valueMap, "valueMap");
-            if (this.c.get(key) == null) {
-                this.c.put(key, new JSONObject());
-            }
-            try {
-                for (String str : valueMap.keySet()) {
-                    JSONObject jSONObject = this.c.get(key);
-                    if (jSONObject != null) {
-                        jSONObject.put(str, valueMap.get(str));
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            JSONObject jSONObject2 = this.c.get(key);
-            if (jSONObject2 == null) {
-                jSONObject2 = new JSONObject();
-            }
-            b(key, jSONObject2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.longValue;
     }
 
-    public final void b(String str, JSONObject jSONObject) {
+    public final m87 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            this.d.a(this.a, this.b, str, jSONObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (m87) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.c97
-    public String getValue(String key, String subKey) {
-        InterceptResult invokeLL;
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, key, subKey)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(subKey, "subKey");
-            JSONObject jSONObject = this.c.get(key);
-            if (jSONObject != null) {
-                return jSONObject.optString(subKey);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 }

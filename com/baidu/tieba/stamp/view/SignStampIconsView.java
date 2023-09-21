@@ -27,9 +27,9 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bha;
 import com.baidu.tieba.c45;
 import com.baidu.tieba.stamp.view.SignStampIconsView;
-import com.baidu.tieba.vea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class SignStampIconsView extends LinearLayout {
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public vea b;
+    public bha b;
     public List<ImageView> c;
 
     /* loaded from: classes8.dex */
@@ -283,7 +283,7 @@ public class SignStampIconsView extends LinearLayout {
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.afa
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gha
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -319,9 +319,9 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        vea veaVar = this.b;
-        if (veaVar != null) {
-            veaVar.a(aVar);
+        bha bhaVar = this.b;
+        if (bhaVar != null) {
+            bhaVar.a(aVar);
         }
     }
 
@@ -399,10 +399,10 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setSignStampIconClickListener(vea veaVar) {
+    public void setSignStampIconClickListener(bha bhaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, veaVar) == null) {
-            this.b = veaVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bhaVar) == null) {
+            this.b = bhaVar;
         }
     }
 }

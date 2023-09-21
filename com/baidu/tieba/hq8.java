@@ -1,59 +1,90 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotSkillItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotSkillRecentlyItemViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Objects;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hq8 implements yl8 {
+public final class hq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final hq8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public fq8 a;
 
-    public hq8(fq8 fq8Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947832474, "Lcom/baidu/tieba/hq8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947832474, "Lcom/baidu/tieba/hq8;");
+                return;
+            }
+        }
+        a = new hq8();
+    }
+
+    public hq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fq8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = fq8Var;
     }
 
-    @Override // com.baidu.tieba.yl8
-    @Nullable
-    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i, String str) {
-        InterceptResult invokeLIL;
+    public final <T> boolean a(List<? extends T> first, List<? extends T> second) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, viewGroup, i, str)) == null) {
-            if (i == 5) {
-                return new RobotSkillItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03eb, viewGroup, false), this.a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, first, second)) == null) {
+            Intrinsics.checkNotNullParameter(first, "first");
+            Intrinsics.checkNotNullParameter(second, "second");
+            if (first == second) {
+                return true;
             }
-            if (i == 4) {
-                return new RobotItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03e9, viewGroup, false));
+            if (first.size() != second.size()) {
+                return false;
             }
-            if (i == 6) {
-                return new RobotSkillRecentlyItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ec, viewGroup, false), this.a);
+            int i = 0;
+            for (T t : first) {
+                int i2 = i + 1;
+                if (i < 0) {
+                    CollectionsKt__CollectionsKt.throwIndexOverflow();
+                }
+                if (!Objects.equals(t, second.get(i))) {
+                    return false;
+                }
+                i = i2;
             }
-            return null;
+            return true;
         }
-        return (BaseItemViewHolder) invokeLIL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public final <T> boolean b(List<? extends T> list, List<? extends T> list2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2)) == null) {
+            if (list == null || list2 == null) {
+                return true;
+            }
+            return !a(list, list2);
+        }
+        return invokeLL.booleanValue;
     }
 }

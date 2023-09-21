@@ -1,20 +1,32 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.t7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ew6 extends bw6 {
+public abstract class ew6 implements t7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public abstract boolean a(long j);
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void c(fw6 fw6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fw6Var) == null) {
+        }
+    }
+
     public ew6() {
-        super(4096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,35 +34,18 @@ public final class ew6 extends bw6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.bw6
-    public boolean b(kv6 item, nx6 timer, ev6 config) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.t7.a
+    @CallSuper
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            lv6 e = item.e();
-            if (e.i() == 0) {
-                return false;
-            }
-            if (this.b) {
-                if (e.i() != 1) {
-                    return false;
-                }
-            } else if (e.i() != 2) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(null);
         }
-        return invokeLLL.booleanValue;
     }
 }

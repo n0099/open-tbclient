@@ -2,8 +2,8 @@ package com.baidu.turbonet.net.impl;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k9b;
-import com.baidu.tieba.n9b;
+import com.baidu.tieba.cbb;
+import com.baidu.tieba.fbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class JavaCronetProvider extends CronetProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ExperimentalCronetEngine.Builder(new n9b(this.a));
+            return new ExperimentalCronetEngine.Builder(new fbb(this.a));
         }
         return (TurbonetEngine.Builder) invokeV.objValue;
     }
@@ -70,7 +70,7 @@ public class JavaCronetProvider extends CronetProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return k9b.a();
+            return cbb.a();
         }
         return (String) invokeV.objValue;
     }

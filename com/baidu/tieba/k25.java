@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,8 +87,8 @@ public class k25 {
                 return;
             }
             this.c = jSONObject.optString("text");
-            this.a = cra.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-            this.b = cra.j(jSONObject.optJSONObject("bg_color"));
+            this.a = jta.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+            this.b = jta.j(jSONObject.optJSONObject("bg_color"));
         }
     }
 
@@ -138,7 +137,7 @@ public class k25 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!ei.isEmpty(this.a) && this.c > 0) {
+            if (!di.isEmpty(this.a) && this.c > 0) {
                 return true;
             }
             return false;
@@ -152,7 +151,7 @@ public class k25 {
             return;
         }
         this.a = jSONObject.optString("content");
-        this.c = jSONObject.optLong(RecordVideoActivityConfig.SHOW_TYPE, -1L);
+        this.c = jSONObject.optLong("show_type", -1L);
         JSONObject optJSONObject = jSONObject.optJSONObject("tag");
         if (optJSONObject != null) {
             a aVar = new a(this);

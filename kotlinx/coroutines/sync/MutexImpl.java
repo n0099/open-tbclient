@@ -248,7 +248,7 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
 
         @Override // kotlinx.coroutines.DisposableHandle
         public final void dispose() {
-            mo2344remove();
+            mo2346remove();
         }
 
         public final boolean take() {

@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.webkit.sdk.WebView;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public interface zn6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewDebug");
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "EMManagerProvider");
 
-    JSONObject a();
-
-    void b();
-
-    void c();
+    void a(View view2, int i);
 }

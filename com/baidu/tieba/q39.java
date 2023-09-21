@@ -1,28 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface q39<T extends ICardInfo> {
-    void c();
+public interface q39 {
+    void a(List<j59> list);
 
-    void d();
+    void b();
 
-    void f();
+    void c(long j, String str);
 
-    void g(BdUniqueId bdUniqueId);
+    void d(String str, String str2, String str3, List<k59> list);
 
-    void h();
-
-    void setAfterClickSchemeListener(v29 v29Var);
-
-    void setBusinessType(int i);
-
-    void setFromCDN(boolean z);
-
-    void setMulDel(boolean z);
-
-    void setPosition(int i);
-
-    void update(Object obj);
+    void e(long j, String str, int i, String str2);
 }

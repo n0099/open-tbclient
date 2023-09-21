@@ -12,11 +12,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bha;
+import com.baidu.tieba.hja;
 import com.baidu.tieba.qz4;
 import com.baidu.tieba.userblock.message.UserBlockInfoHttpResponseMessage;
 import com.baidu.tieba.userblock.message.UserBlockInfoRequestMessage;
-import com.baidu.tieba.userblock.message.UserBlockInfoSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,9 +87,6 @@ public class UserBlockInfoModel extends BdBaseModel {
                 String errorString = responsedMessage.getErrorString();
                 if (error == 0 && !responsedMessage.hasError()) {
                     DataRes dataRes = null;
-                    if (responsedMessage instanceof UserBlockInfoSocketResponseMessage) {
-                        dataRes = ((UserBlockInfoSocketResponseMessage) responsedMessage).getData();
-                    }
                     if (responsedMessage instanceof UserBlockInfoHttpResponseMessage) {
                         dataRes = ((UserBlockInfoHttpResponseMessage) responsedMessage).getData();
                     }
@@ -158,8 +154,7 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bha.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
-            bha.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
+            hja.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);

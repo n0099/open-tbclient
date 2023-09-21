@@ -10,25 +10,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i53;
-import com.baidu.tieba.ou2;
-import com.baidu.tieba.qa3;
-import com.baidu.tieba.r53;
-import com.baidu.tieba.vg3;
+import com.baidu.tieba.h53;
+import com.baidu.tieba.nu2;
+import com.baidu.tieba.pa3;
+import com.baidu.tieba.q53;
+import com.baidu.tieba.ug3;
 /* loaded from: classes4.dex */
-public class LoadingView extends FrameLayout implements qa3<LoadingView> {
+public class LoadingView extends FrameLayout implements pa3<LoadingView> {
     public View a;
     public SmoothProgressBar b;
     public TextView c;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qa3
+    @Override // com.baidu.tieba.pa3
     public LoadingView getLoadingView() {
         return this;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements vg3 {
+    public class a implements ug3 {
         public a() {
         }
     }
@@ -54,8 +54,8 @@ public class LoadingView extends FrameLayout implements qa3<LoadingView> {
 
     public void a() {
         View view2;
-        if (i53.e()) {
-            view2 = r53.a().d(R.layout.obfuscated_res_0x7f0d00c2);
+        if (h53.e()) {
+            view2 = q53.a().d(R.layout.obfuscated_res_0x7f0d00c2);
         } else {
             view2 = null;
         }
@@ -64,22 +64,22 @@ public class LoadingView extends FrameLayout implements qa3<LoadingView> {
         } else {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00c2, (ViewGroup) this, true);
         }
-        this.a = findViewById(R.id.obfuscated_res_0x7f091fde);
-        this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091651);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091760);
+        this.a = findViewById(R.id.obfuscated_res_0x7f091fa7);
+        this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f09163a);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09174d);
         setPageResources();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ou2.M().f(this, new a());
+        nu2.M().f(this, new a());
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        ou2.M().g(this);
+        nu2.M().g(this);
     }
 
     public void setMsg(String str) {

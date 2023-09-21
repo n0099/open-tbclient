@@ -44,7 +44,7 @@ public class nz4 {
             if (a.p(downloadData) <= 0) {
                 a.w(1);
                 if (a.p(downloadData) <= 0) {
-                    a.w(ef7.a());
+                    a.w(of7.a());
                 }
             }
             return a;

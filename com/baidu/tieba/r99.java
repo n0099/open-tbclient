@@ -1,88 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipThemeItem;
-import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes7.dex */
-public class r99 implements cn {
+public class r99 extends s99 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public m99 a;
-    public List<s99> b;
-    public List<s99> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948076599, "Lcom/baidu/tieba/r99;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948076599, "Lcom/baidu/tieba/r99;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.cn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s99, com.baidu.searchbox.live.interfaces.player.LivePlayer
+    public void saveProgressToDb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public r99(VipThemeList vipThemeList) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r99(String str) {
+        super(null, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipThemeList == null) {
-            return;
+    }
+
+    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
+    public void onPrepared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.onPrepared();
         }
-        String str = vipThemeList.card_id;
-        m99 m99Var = new m99();
-        this.a = m99Var;
-        m99Var.e(2);
-        this.a.d(vipThemeList.class_name);
-        this.a.f(vipThemeList.class_url_name);
-        this.a.g(vipThemeList.class_url);
-        if (vipThemeList.item != null) {
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                this.b.add(new s99(vipThemeItem));
-            }
+    }
+
+    @Override // com.baidu.tieba.s99, com.baidu.tieba.q99, com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.release();
+            saveProgressToDb();
         }
-        if (vipThemeList.item_card != null) {
-            this.c = new ArrayList();
-            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                this.c.add(new s99(vipThemeItem2));
-            }
+    }
+
+    @Override // com.baidu.tieba.q99, com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.stop();
+            saveProgressToDb();
         }
     }
 }

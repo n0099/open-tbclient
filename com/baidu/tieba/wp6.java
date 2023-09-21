@@ -1,47 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.AlaLiveInfo;
 /* loaded from: classes8.dex */
-public class wp6 extends BaseCardInfo implements jq6, t25 {
+public class wp6 extends b15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdvertAppInfo a;
-    public String b;
-    public int c;
-    public boolean d;
+    public String a;
+    public List<AlaLiveInfo> b;
+    public BdUniqueId c;
 
-    @Override // com.baidu.tieba.jq6
-    public void I(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.jq6
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.jq6
-    public boolean r() {
+    @Override // com.baidu.tieba.b15
+    public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        return invokeV.booleanValue;
+        return (NegativeFeedBackData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.b15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
     }
 
     public wp6() {
@@ -57,75 +54,43 @@ public class wp6 extends BaseCardInfo implements jq6, t25 {
                 return;
             }
         }
-        this.b = "";
-        this.c = 0;
-        this.d = false;
-        this.a = null;
-        this.position = -1;
+        this.a = "recommend";
     }
 
-    @Override // com.baidu.tieba.t25
-    public AdvertAppInfo A() {
+    public List<AlaLiveInfo> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (AdvertAppInfo) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public AdvertAppInfo c() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
         }
-        return (AdvertAppInfo) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jq6
-    public int getPosition() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a;
-            if (advertAppInfo != null) {
-                str = advertAppInfo.f;
-            } else {
-                str = "-1";
-            }
-            return JavaTypesHelper.toInt(str, -1);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.t25
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.t25
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.position;
-        }
-        return invokeV.intValue;
-    }
-
-    public wp6(AdvertAppInfo advertAppInfo) {
+    public wp6(BdUniqueId bdUniqueId, List<AlaLiveInfo> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {advertAppInfo};
+            Object[] objArr = {bdUniqueId, list, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -135,55 +100,12 @@ public class wp6 extends BaseCardInfo implements jq6, t25 {
                 return;
             }
         }
-        this.b = "";
-        this.c = 0;
-        this.d = false;
-        this.a = advertAppInfo;
-        this.position = advertAppInfo.position;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a;
-            if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.x) {
-                return AdvertAppInfo.z;
-            }
-            AdvertAppInfo advertAppInfo2 = this.a;
-            if (advertAppInfo2 != null && (iLegoAdvert = advertAppInfo2.h) != null) {
-                BdUniqueId bdUniqueId = AdvertAppInfo.A;
-                int goodsStyle = iLegoAdvert.getGoodsStyle();
-                if (goodsStyle != 2) {
-                    if (goodsStyle != 14) {
-                        if (goodsStyle != 6) {
-                            if (goodsStyle != 7) {
-                                if (goodsStyle != 8) {
-                                    return bdUniqueId;
-                                }
-                            }
-                        } else {
-                            return AdvertAppInfo.C;
-                        }
-                    }
-                    return AdvertAppInfo.D;
-                }
-                return AdvertAppInfo.B;
-            }
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t25
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.position = i;
-            this.a.position = i;
-            this.d = true;
+        this.a = "recommend";
+        this.c = bdUniqueId;
+        this.a = str;
+        this.b = new ArrayList();
+        if (!ListUtils.isEmpty(list)) {
+            this.b.addAll(list);
         }
     }
 }

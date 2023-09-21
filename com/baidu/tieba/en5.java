@@ -1,54 +1,42 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.LinkedList;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes5.dex */
 public class en5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public an5 a;
-    public boolean b;
-    public ImageFileInfo c;
-    public dn5 d;
-    public dn5 e;
-    public dn5 f;
-    public dn5 g;
+    public Queue<gn5> a;
+    public volatile a b;
 
     /* loaded from: classes5.dex */
-    public class a implements dn5 {
+    public class a extends BdAsyncTask<Void, gn5, gn5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ en5 a;
+        public final Queue<gn5> a;
+        public final /* synthetic */ en5 b;
 
-        public a(en5 en5Var) {
+        public a(en5 en5Var, Queue<gn5> queue) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {en5Var};
+                Object[] objArr = {en5Var, queue};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,342 +46,251 @@ public class en5 {
                     return;
                 }
             }
-            this.a = en5Var;
+            this.b = en5Var;
+            this.a = queue;
+            super.setPriority(2);
         }
 
-        @Override // com.baidu.tieba.dn5
-        public String a(ImageFileInfo imageFileInfo) {
-            InterceptResult invokeL;
-            String m;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
-                if (imageFileInfo == null) {
-                    return null;
-                }
-                if (this.a.a == null) {
-                    this.a.a = new an5();
-                }
-                String filePath = imageFileInfo.getFilePath();
-                LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
-                imageFileInfo.setPageActionsList(null);
-                if (filePath.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                    File file = new File(dp5.b.d(imageFileInfo.getFilePath(), true));
-                    if (file.exists()) {
-                        return file.getAbsolutePath();
-                    }
-                }
-                BdImage c = this.a.a.c(imageFileInfo, true);
-                if (c == null) {
-                    Bitmap k = this.a.k(imageFileInfo);
-                    if (k == null) {
-                        return null;
-                    }
-                    int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
-                    if (readPictureDegree != 0) {
-                        k = BitmapHelper.rotateBitmapBydegree(k, readPictureDegree);
-                    }
-                    m = this.a.m(k, 5242880L, 100);
-                } else {
-                    m = this.a.m(c.getRawBitmap(), 5242880L, 100);
-                }
-                imageFileInfo.setPageActionsList(pageActionsList);
-                return m;
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements dn5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ en5 a;
-
-        public b(en5 en5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {en5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = en5Var;
-        }
-
-        @Override // com.baidu.tieba.dn5
-        public String a(ImageFileInfo imageFileInfo) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public gn5 doInBackground(Void... voidArr) {
+            boolean z;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
-                if (imageFileInfo == null) {
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, voidArr)) != null) {
+                return (gn5) invokeL.objValue;
+            }
+            while (true) {
+                gn5 poll = this.a.poll();
+                if (poll == null) {
                     return null;
                 }
-                return this.a.g(imageFileInfo.getFilePath());
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements dn5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ en5 a;
-
-        public c(en5 en5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {en5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = en5Var;
-        }
-
-        @Override // com.baidu.tieba.dn5
-        public String a(ImageFileInfo imageFileInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
-                if (imageFileInfo == null) {
+                if (isCancelled()) {
+                    this.a.add(poll);
                     return null;
                 }
-                return this.a.m(this.a.i(imageFileInfo.getFilePath()), 5242880L, 100);
+                ImageFileInfo imageFileInfo = poll.a;
+                if (imageFileInfo != null) {
+                    poll.d = en5.f(imageFileInfo, poll.c);
+                    if (TbImageMemoryCache.A().C(poll.a.toCachedKey(poll.c)) != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    poll.e = z;
+                }
+                publishProgress(poll);
             }
-            return (String) invokeL.objValue;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740125, "Lcom/baidu/tieba/en5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740125, "Lcom/baidu/tieba/en5;");
-                return;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(gn5 gn5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gn5Var) == null) {
+                super.onPostExecute(gn5Var);
+                this.b.b = null;
+                this.b.h();
             }
         }
-        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(gn5... gn5VarArr) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gn5VarArr) == null) && gn5VarArr != null) {
+                for (gn5 gn5Var : gn5VarArr) {
+                    BdImage bdImage = gn5Var.d;
+                    if (bdImage != null && !gn5Var.e) {
+                        TbImageMemoryCache.A().l(gn5Var.a.toCachedKey(gn5Var.c), bdImage);
+                    }
+                    bn5 bn5Var = gn5Var.b;
+                    if (bn5Var != null) {
+                        bn5Var.a(bdImage, gn5Var.a.toCachedKey(gn5Var.c), gn5Var.e);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.onCancelled();
+                this.b.b = null;
+                while (true) {
+                    gn5 poll = this.a.poll();
+                    if (poll == null) {
+                        return;
+                    }
+                    bn5 bn5Var = poll.b;
+                    if (bn5Var != null) {
+                        bn5Var.a(null, poll.a.toCachedKey(poll.c), false);
+                    }
+                }
+            }
+        }
     }
 
     public en5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.d = new a(this);
-        b bVar = new b(this);
-        this.e = bVar;
-        this.f = bVar;
-        this.g = new c(this);
+        this.a = new ConcurrentLinkedQueue();
     }
 
-    public final String h(String str) {
-        InterceptResult invokeL;
-        String substring;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ".jpg";
-            }
-            try {
-                substring = str.substring(str.lastIndexOf("."));
-            } catch (Exception unused) {
-            }
-            if (TextUtils.isEmpty(substring)) {
-                return ".jpg";
-            }
-            return substring;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final BitmapFactory.Options l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            return options;
-        }
-        return (BitmapFactory.Options) invokeL.objValue;
-    }
-
-    public final String g(String str) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            long fileSize = FileHelper.getFileSize(str);
-            if (fileSize >= 31457280) {
-                i = 80;
-            } else if (fileSize >= 20971520) {
-                i = 85;
-            } else if (fileSize >= 15728640) {
-                i = 90;
-            } else if (fileSize >= Config.FULL_TRACE_LOG_LIMIT) {
-                i = 95;
-            } else {
-                i = 100;
-            }
-            try {
-                int readPictureDegree = BitmapHelper.readPictureDegree(str);
-                if (readPictureDegree != 0 || i != 100) {
-                    Bitmap i2 = i(str);
-                    if (readPictureDegree != 0 && i2 != null) {
-                        return m(BitmapHelper.rotateBitmapBydegree(i2, readPictureDegree), Config.FULL_TRACE_LOG_LIMIT, i);
-                    }
-                    return m(i2, Config.FULL_TRACE_LOG_LIMIT, i);
-                }
-                return str;
-            } catch (Throwable unused) {
-                return str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = new ConcurrentLinkedQueue();
+            if (this.b != null) {
+                this.b.cancel(true);
+                this.b = null;
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public final Bitmap i(String str) {
-        InterceptResult invokeL;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            BitmapFactory.Options l = l(str);
-            int i = l.outWidth;
-            int i2 = l.outHeight;
-            if (i != 0 && i2 != 0) {
-                Bitmap loadBitmap = BitmapHelper.loadBitmap(str);
-                if (loadBitmap != null && !loadBitmap.isRecycled()) {
-                    return loadBitmap;
-                }
-                int i3 = 2;
-                for (int i4 = 0; i4 < 3; i4++) {
-                    l.inSampleSize = i3;
-                    Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, l);
-                    if (loadBitmap2 != null && !loadBitmap2.isRecycled()) {
-                        return loadBitmap2;
-                    }
-                    i3 *= 2;
-                }
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b == null && !this.a.isEmpty()) {
+            this.b = new a(this, this.a);
+            this.b.execute(new Void[0]);
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public String j(WriteData writeData, ImageFileInfo imageFileInfo, boolean z) {
-        InterceptResult invokeLLZ;
-        dn5 dn5Var;
-        String str;
+    public BdImage c(ImageFileInfo imageFileInfo, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, writeData, imageFileInfo, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, z)) == null) {
             if (imageFileInfo == null) {
                 return null;
             }
-            this.c = imageFileInfo;
-            String filePath = imageFileInfo.getFilePath();
-            boolean checkIsLongImage = FileHelper.checkIsLongImage(filePath);
-            boolean checkIsHeifImage = FileHelper.checkIsHeifImage(filePath);
-            if (!imageFileInfo.isGif() && (!z || imageFileInfo.hasActionsWithoutResize() || checkIsHeifImage)) {
-                if (checkIsLongImage) {
-                    dn5Var = this.g;
-                    str = "正常·长图";
-                } else {
-                    dn5Var = this.d;
-                    str = "正常·图";
-                }
-            } else if (checkIsLongImage) {
-                dn5Var = this.f;
-                str = "原始·长图";
-            } else {
-                dn5Var = this.e;
-                str = "原始·图";
-            }
-            qja.s(writeData, imageFileInfo, filePath, FileHelper.getImageFileWH(filePath), FileHelper.getFileSize(filePath), checkIsLongImage, checkIsHeifImage, imageFileInfo.hasActionsWithoutResize(), str);
-            String a2 = dn5Var.a(imageFileInfo);
-            qja.j(writeData, imageFileInfo, a2, FileHelper.getImageFileWH(a2), FileHelper.getFileSize(a2));
-            return a2;
+            return TbImageMemoryCache.A().C(imageFileInfo.toCachedKey(z));
         }
-        return (String) invokeLLZ.objValue;
+        return (BdImage) invokeLZ.objValue;
     }
 
-    public final String m(Bitmap bitmap, long j, int i) {
-        InterceptResult invokeCommon;
-        String str;
+    @Nullable
+    public static BdImage f(@NonNull ImageFileInfo imageFileInfo, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bitmap, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (this.b) {
-                ImageFileInfo imageFileInfo = this.c;
-                if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
-                    return FileHelper.compressBitmapToFile(h, ki.c(this.c.toCachedKey(false)) + h(this.c.getFilePath()), bitmap, (float) j, i);
-                }
-                return "";
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, imageFileInfo, z)) == null) {
+            BdImage C = TbImageMemoryCache.A().C(imageFileInfo.toCachedKey(z));
+            if (C != null) {
+                return C;
             }
-            ImageFileInfo imageFileInfo2 = this.c;
-            if (imageFileInfo2 != null && !TextUtils.isEmpty(imageFileInfo2.getTempUploadFileName())) {
-                str = this.c.getTempUploadFileName();
-            } else {
-                str = "img_upload_temp_file.temp";
-            }
-            return FileHelper.compressBitmapToFile(str, bitmap, (float) j, i);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final Bitmap k(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        fg loaderProc;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageFileInfo)) == null) {
-            if (imageFileInfo == null) {
-                return null;
-            }
-            if (this.a == null) {
-                this.a = new an5();
-            }
-            if (imageFileInfo.getImageType() == 0) {
-                return an5.g(imageFileInfo, true);
-            }
-            if (imageFileInfo.getImageType() == 1 && (loaderProc = BdResourceLoader.getInstance().getLoaderProc(20)) != null) {
+            Bitmap g = g(imageFileInfo, z);
+            if (g != null) {
+                int i = 0;
+                Bitmap bitmap = null;
                 try {
-                    Object fromLocal = loaderProc.getFromLocal(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), Boolean.FALSE, null);
-                    if (fromLocal instanceof BdImage) {
-                        return ((BdImage) fromLocal).getRawBitmap();
+                    i = BitmapHelper.readPictureDegree(imageFileInfo.getFilePath());
+                    if (i != 0) {
+                        Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(g, i);
+                        if (g != rotateBitmapBydegree) {
+                            try {
+                                g.recycle();
+                                g = null;
+                            } catch (Exception unused) {
+                            }
+                        }
+                        bitmap = rotateBitmapBydegree;
                     }
-                } catch (OutOfMemoryError unused) {
-                    BdBaseApplication.getInst().onAppMemoryLow();
+                } catch (Exception unused2) {
                 }
+                if (i != 0 && bitmap != null) {
+                    return new BdImage(bitmap, imageFileInfo.isGif(), imageFileInfo.getFilePath());
+                }
+                return new BdImage(g, imageFileInfo.isGif(), imageFileInfo.getFilePath());
             }
+            return C;
+        }
+        return (BdImage) invokeLZ.objValue;
+    }
+
+    public static Bitmap g(ImageFileInfo imageFileInfo, boolean z) {
+        InterceptResult invokeLZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, imageFileInfo, z)) == null) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            LinkedList linkedList = new LinkedList();
+            if (z && imageFileInfo.getPersistActionsList() != null) {
+                linkedList.addAll(imageFileInfo.getPersistActionsList());
+            }
+            if (imageFileInfo.getPageActionsList() != null) {
+                linkedList.addAll(imageFileInfo.getPageActionsList());
+            }
+            if (imageFileInfo.getOrginalBitmap() != null) {
+                try {
+                    nn5 d = nn5.d();
+                    Bitmap orginalBitmap = imageFileInfo.getOrginalBitmap();
+                    if (!imageFileInfo.isOrginalBitmapShared()) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    return d.b(orginalBitmap, z2, linkedList, imageFileInfo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            } else if (imageFileInfo.hasActions(z)) {
+                try {
+                    return nn5.d().c(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
+            } else {
+                return BitmapHelper.loadBitmap(imageFileInfo.getFilePath());
+            }
+        }
+        return (Bitmap) invokeLZ.objValue;
+    }
+
+    public BdImage d(ImageFileInfo imageFileInfo, bn5 bn5Var, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, imageFileInfo, bn5Var, z)) == null) {
+            return e(imageFileInfo, bn5Var, z, false);
+        }
+        return (BdImage) invokeLLZ.objValue;
+    }
+
+    public BdImage e(ImageFileInfo imageFileInfo, bn5 bn5Var, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{imageFileInfo, bn5Var, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            BdImage c = c(imageFileInfo, z);
+            if (c != null) {
+                return c;
+            }
+            if (z2) {
+                return null;
+            }
+            gn5 gn5Var = new gn5();
+            gn5Var.b = bn5Var;
+            gn5Var.a = imageFileInfo;
+            gn5Var.c = z;
+            this.a.add(gn5Var);
+            h();
             return null;
         }
-        return (Bitmap) invokeL.objValue;
+        return (BdImage) invokeCommon.objValue;
     }
 }

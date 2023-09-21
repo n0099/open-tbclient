@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ht5;
+import com.baidu.tieba.it5;
 import com.baidu.tieba.t9;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
@@ -62,6 +62,6 @@ public class LogoTask extends LaunchTask {
         if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
             NASLib.onAppStart(TbadkCoreApplication.getInst());
         }
-        ht5.a().y(this.mIsFirstUse);
+        it5.a().y(this.mIsFirstUse);
     }
 }

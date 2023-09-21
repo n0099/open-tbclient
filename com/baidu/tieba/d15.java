@@ -186,7 +186,7 @@ public class d15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (z46.a().b("ad_feature_strict_mode_check_switch", 0) != 1) {
+            if (a56.a().b("ad_feature_strict_mode_check_switch", 0) != 1) {
                 return false;
             }
             return true;
@@ -274,7 +274,7 @@ public class d15 {
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, logType, str, str2, str3) == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(logType).p(str).k(str2).l(str3);
-            x31.e(clogBuilder);
+            w31.e(clogBuilder);
         }
     }
 

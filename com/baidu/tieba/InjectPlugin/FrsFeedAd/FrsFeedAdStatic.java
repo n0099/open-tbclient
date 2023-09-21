@@ -6,17 +6,17 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.a46;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.c46;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.c5a;
 import com.baidu.tieba.d46;
-import com.baidu.tieba.e3a;
 import com.baidu.tieba.e46;
 import com.baidu.tieba.f46;
 import com.baidu.tieba.g46;
-import com.baidu.tieba.l46;
-import com.baidu.tieba.q66;
-import com.baidu.tieba.x36;
+import com.baidu.tieba.h46;
+import com.baidu.tieba.m46;
+import com.baidu.tieba.r66;
 import com.baidu.tieba.y36;
 import com.baidu.tieba.z36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -59,51 +59,51 @@ public class FrsFeedAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            l46 l46Var;
-            d46 c;
+            m46 m46Var;
+            e46 c;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof l46) || (c = (l46Var = (l46) customResponsedMessage.getData()).c()) == null || !(c instanceof e3a)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof m46) || (c = (m46Var = (m46) customResponsedMessage.getData()).c()) == null || !(c instanceof c5a)) {
                 return;
             }
-            e3a e3aVar = (e3a) c;
-            c46 o1 = c.o1(1);
-            if (o1 == null) {
-                f46 a = g46.b().a(1);
+            c5a c5aVar = (c5a) c;
+            d46 u1 = c.u1(1);
+            if (u1 == null) {
+                g46 a = h46.b().a(1);
                 if (a == null) {
                     return;
                 }
-                o1 = a.a();
-                c.J0(1, o1);
-                o1.f(new e46(e3aVar), l46Var.i());
+                u1 = a.a();
+                c.R0(1, u1);
+                u1.f(new f46(c5aVar), m46Var.i());
             }
-            if (!(o1 instanceof z36)) {
+            if (!(u1 instanceof a46)) {
                 return;
             }
-            z36 z36Var = (z36) o1;
-            if (l46Var.a() == 1) {
-                List list = (List) l46Var.f();
-                x36.b(z36Var.d());
-                for (BdUniqueId bdUniqueId : x36.c()) {
-                    FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(e3aVar, bdUniqueId);
-                    frsFeedAdAdapter.setPageContext(e3aVar.u());
+            a46 a46Var = (a46) u1;
+            if (m46Var.a() == 1) {
+                List list = (List) m46Var.f();
+                y36.b(a46Var.d());
+                for (BdUniqueId bdUniqueId : y36.c()) {
+                    FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(c5aVar, bdUniqueId);
+                    frsFeedAdAdapter.setPageContext(c5aVar.C());
                     list.add(frsFeedAdAdapter);
                 }
-            } else if (l46Var.a() == 2) {
-                z36Var.k(l46Var.d());
-            } else if (l46Var.a() == 3) {
-                List<cn> o = l46Var.o();
-                List<y36> d = FrsFeedAdStatic.d(o);
-                if (l46Var.q()) {
-                    z36Var.o(d, FrsFeedAdStatic.d(l46Var.l()), l46Var.p(), l46Var.e());
+            } else if (m46Var.a() == 2) {
+                a46Var.k(m46Var.d());
+            } else if (m46Var.a() == 3) {
+                List<bn> o = m46Var.o();
+                List<z36> d = FrsFeedAdStatic.d(o);
+                if (m46Var.q()) {
+                    a46Var.o(d, FrsFeedAdStatic.d(m46Var.l()), m46Var.p(), m46Var.e());
                 } else {
-                    z36Var.i(d, l46Var.e());
+                    a46Var.i(d, m46Var.e());
                 }
                 o.clear();
-                o.addAll(FrsFeedAdStatic.c(d, l46Var.i()));
-            } else if (l46Var.a() == 4) {
-                z36Var.a(l46Var.n());
-            } else if (l46Var.a() == 5) {
-                z36Var.e(FrsFeedAdStatic.d(l46Var.o()), l46Var.h(), l46Var.g(), l46Var.m(), l46Var.j(), l46Var.r(), l46Var.k());
+                o.addAll(FrsFeedAdStatic.c(d, m46Var.i()));
+            } else if (m46Var.a() == 4) {
+                a46Var.a(m46Var.n());
+            } else if (m46Var.a() == 5) {
+                a46Var.e(FrsFeedAdStatic.d(m46Var.o()), m46Var.h(), m46Var.g(), m46Var.m(), m46Var.j(), m46Var.r(), m46Var.k());
             }
         }
     }
@@ -138,25 +138,25 @@ public class FrsFeedAdStatic {
         }
     }
 
-    public static List<cn> c(List<y36> list, String str) {
+    public static List<bn> c(List<z36> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) {
             if (list != null && !list.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
                 boolean z = false;
-                for (y36 y36Var : list) {
-                    if (y36Var.c() == 3) {
-                        x36 x36Var = new x36();
-                        x36Var.f(y36Var.a());
-                        x36Var.g(y36Var.b());
-                        arrayList.add(x36Var);
+                for (z36 z36Var : list) {
+                    if (z36Var.c() == 3) {
+                        y36 y36Var = new y36();
+                        y36Var.f(z36Var.a());
+                        y36Var.g(z36Var.b());
+                        arrayList.add(y36Var);
                         if (!z) {
                             z = true;
                             e(str, arrayList);
                         }
-                    } else if (y36Var.a() instanceof cn) {
-                        arrayList.add((cn) y36Var.a());
+                    } else if (z36Var.a() instanceof bn) {
+                        arrayList.add((bn) z36Var.a());
                     }
                 }
                 return arrayList;
@@ -166,48 +166,48 @@ public class FrsFeedAdStatic {
         return (List) invokeLL.objValue;
     }
 
-    public static List<y36> d(List<cn> list) {
+    public static List<z36> d(List<bn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (cn cnVar : list) {
-                y36 y36Var = new y36();
-                if (cnVar instanceof ThreadData) {
-                    ThreadData threadData = (ThreadData) cnVar;
+            for (bn bnVar : list) {
+                z36 z36Var = new z36();
+                if (bnVar instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) bnVar;
                     if (threadData.getIs_top() == 1) {
-                        y36Var.f(1);
+                        z36Var.f(1);
                     } else if (threadData.getIs_top() == 0) {
-                        y36Var.f(2);
+                        z36Var.f(2);
                     } else {
-                        y36Var.f(4);
+                        z36Var.f(4);
                     }
-                    y36Var.d(cnVar);
-                } else if (cnVar instanceof x36) {
-                    y36Var.f(3);
-                    x36 x36Var = (x36) cnVar;
-                    y36Var.e(x36Var.d());
-                    y36Var.d(x36Var.a());
+                    z36Var.d(bnVar);
+                } else if (bnVar instanceof y36) {
+                    z36Var.f(3);
+                    y36 y36Var = (y36) bnVar;
+                    z36Var.e(y36Var.d());
+                    z36Var.d(y36Var.a());
                 } else {
-                    y36Var.f(4);
-                    y36Var.d(cnVar);
+                    z36Var.f(4);
+                    z36Var.d(bnVar);
                 }
-                arrayList.add(y36Var);
+                arrayList.add(z36Var);
             }
             return arrayList;
         }
         return (List) invokeL.objValue;
     }
 
-    public static void e(String str, List<cn> list) {
+    public static void e(String str, List<bn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, str, list) == null) {
             if ("frs_hot_tab".equals(str)) {
-                if (q66.i().p(AbsDataRecorder.Scene.FRS_HOT)) {
-                    q66.i().n(list, -1, 3);
+                if (r66.i().p(AbsDataRecorder.Scene.FRS_HOT)) {
+                    r66.i().n(list, -1, 3);
                 }
-            } else if ("frs_new_tab".equals(str) && q66.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
-                q66.i().n(list, -1, 2);
+            } else if ("frs_new_tab".equals(str) && r66.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
+                r66.i().n(list, -1, 2);
             }
         }
     }

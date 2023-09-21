@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.dz;
-import com.baidu.tieba.jg5;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.cz;
+import com.baidu.tieba.ng5;
+import com.baidu.tieba.tx;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesCardView extends FrameLayout implements ux<b15> {
+public class HeadlinesCardView extends FrameLayout implements tx<b15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
@@ -52,7 +52,7 @@ public class HeadlinesCardView extends FrameLayout implements ux<b15> {
     public TbImageAutoSwitch h;
     public TextView i;
     public HeadlinesItemInfoView j;
-    public dz k;
+    public cz k;
     public List<String> l;
     public TbImageAutoSwitch.b m;
 
@@ -232,7 +232,7 @@ public class HeadlinesCardView extends FrameLayout implements ux<b15> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                jg5.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
+                ng5.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
             }
         }
     }
@@ -331,10 +331,10 @@ public class HeadlinesCardView extends FrameLayout implements ux<b15> {
         }
     }
 
-    public void setOnStatListener(dz dzVar) {
+    public void setOnStatListener(cz czVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dzVar) == null) {
-            this.k = dzVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, czVar) == null) {
+            this.k = czVar;
         }
     }
 
@@ -373,7 +373,7 @@ public class HeadlinesCardView extends FrameLayout implements ux<b15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: g */
     public void onBindDataToView(b15 b15Var) {
         Interceptable interceptable = $ic;
@@ -392,9 +392,9 @@ public class HeadlinesCardView extends FrameLayout implements ux<b15> {
                 this.j.setOnBannerClickListener(new b(this, f));
                 this.j.setOnButtonClickListener(new c(this, f));
                 this.f.setOnClickListener(new d(this));
-                dz dzVar = this.k;
-                if (dzVar != null) {
-                    dzVar.onShow();
+                cz czVar = this.k;
+                if (czVar != null) {
+                    czVar.onShow();
                 }
             }
         }

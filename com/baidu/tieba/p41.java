@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,15 +13,7 @@ public abstract class p41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract Column[] c();
-
-    public abstract h41[] d();
-
-    public abstract h41[][] e();
-
-    public abstract h41[] f();
-
-    public abstract String g();
+    public abstract o41 b();
 
     public p41() {
         Interceptable interceptable = $ic;
@@ -35,21 +29,34 @@ public abstract class p41 {
         }
     }
 
-    public static h41 a(int i, String str, String str2, int i2) {
-        InterceptResult invokeCommon;
+    public ContentValues a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
-            return b(i, str, str2, i2, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return m41.b(b().c());
         }
-        return (h41) invokeCommon.objValue;
+        return (ContentValues) invokeV.objValue;
     }
 
-    public static h41 b(int i, String str, String str2, int i2, int i3) {
-        InterceptResult invokeCommon;
+    public String toString() {
+        InterceptResult invokeV;
+        Column[] c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            return new h41(i, str, str2, i2, i3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getName());
+            sb.append("\n");
+            for (Column column : b().c()) {
+                sb.append("|");
+                sb.append(column.field.e);
+                sb.append("| ");
+                sb.append(column.isAssignedValue ? 1 : 0);
+                sb.append(" | ");
+                sb.append(column.stringValue());
+                sb.append("\n");
+            }
+            return sb.toString();
         }
-        return (h41) invokeCommon.objValue;
+        return (String) invokeV.objValue;
     }
 }

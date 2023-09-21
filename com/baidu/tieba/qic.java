@@ -1,72 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.view.ViewGroup;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes7.dex */
-public class qic {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public GiftBagsInfo a;
-    public boolean b;
+public interface qic {
 
-    public qic(GiftBagsInfo giftBagsInfo, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {giftBagsInfo, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = giftBagsInfo;
-        this.b = z;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(CancelType cancelType);
     }
 
-    public static boolean b(qic qicVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qicVar)) == null) {
-            if (qicVar != null && qicVar.a() != null && qicVar.a().giftbag != null && !qicVar.a().giftbag.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(CancelType cancelType);
+
+        void b();
     }
 
-    public GiftBagsInfo a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (GiftBagsInfo) invokeV.objValue;
-    }
+    GiftBagsInfo a();
 
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
+    boolean b(Activity activity, b bVar, sic sicVar, AbsViewEventHandler absViewEventHandler);
 
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
-    }
+    void c(ViewGroup viewGroup, Activity activity);
+
+    void d(GiftBagsInfo giftBagsInfo);
+
+    boolean e(Activity activity, a aVar, sic sicVar, AbsViewEventHandler absViewEventHandler);
+
+    void f(GiftBagsInfo giftBagsInfo);
 }

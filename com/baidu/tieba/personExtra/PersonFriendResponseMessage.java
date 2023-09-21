@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.k35;
 import com.baidu.tieba.oe;
-import com.baidu.tieba.x45;
+import com.baidu.tieba.y45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,8 +61,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
                 try {
                     String parseToString = parseToString(bArr);
                     if (parseToString != null) {
-                        x45.k();
-                        oe<String> l = x45.l("tb.my_pages");
+                        y45.k();
+                        oe<String> l = y45.l("tb.my_pages");
                         if (l != null) {
                             l.e("personal_myfollow_" + str, parseToString, 604800000L);
                         }

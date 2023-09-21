@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public final class ica extends ku6<hca> {
+public class ica implements k10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ica() {
-        super(hca.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,21 +23,19 @@ public final class ica extends ku6<hca> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Class) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ku6
-    public void onEvent(hca event) {
+    @Override // com.baidu.tieba.k10
+    public String getAppVersion() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            HomeSpriteEdgeFloatManager.l.c().Y();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbConfig.getVersion();
         }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,162 +1,181 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.ResponsePanelEmojiAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class as8 {
+public class as8 implements d07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public LinearLayout a;
+    @NonNull
+    public final xr8 b;
+    public ImageView c;
+    @Nullable
+    public ResponsePanelEmojiAdapter d;
 
-    public static void a(@NonNull String str, long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, j);
-            statisticItem.param("fid", j2);
-            statisticItem.param("room_id", j3);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a extends LinearLayoutManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void i(@NonNull String str, int i, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_id", i);
-            statisticItem.param("obj_locate", j);
-            statisticItem.param("obj_type", !z ? 1 : 0);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void k(@NonNull String str, String str2, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_id", str2);
-            statisticItem.param("obj_source", j);
-            statisticItem.param("obj_type", !z ? 1 : 0);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static String b(AbilityItem abilityItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, abilityItem)) == null) {
-            if (abilityItem != null && abilityItem.getStyleConf() != null) {
-                return abilityItem.getStyleConf().getContent();
+        @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
+        public boolean canScrollHorizontally() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
             }
-            return "";
+            return invokeV.booleanValue;
         }
-        return (String) invokeL.objValue;
-    }
 
-    public static void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15264");
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void c(@NonNull String str, String str2, long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", str2);
-            statisticItem.param("fid", j);
-            statisticItem.param("room_id", j2);
-            statisticItem.param("obj_locate", i);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d(@NonNull String str, int i, long j, long j2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", i);
-            statisticItem.param("fid", j);
-            statisticItem.param("room_id", j2);
-            statisticItem.param("uid", str2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void e(@NonNull String str, String str2, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", str2);
-            statisticItem.param("fid", j);
-            statisticItem.param("room_id", j2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void f(@NonNull String str, int i, @Nullable AbilityItem abilityItem, String str2, String str3, long j, long j2, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), abilityItem, str2, str3, Long.valueOf(j), Long.valueOf(j2), str4, str5}) == null) {
-            TiebaStatic.log(new StatisticItem(str).param("obj_type", i).param("obj_id", str2).param("obj_name", str3).param("fid", j).param("obj_param1", j2).param(TiebaStatic.Params.OBJ_PARAM2, str4).param(TiebaStatic.Params.OBJ_PARAM3, str5));
-        }
-    }
-
-    public static void g(@NonNull String str, int i, @Nullable AbilityItem abilityItem, @Nullable BaseMsg baseMsg, String str2, String str3, long j, long j2) {
-        String str4;
-        long j3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Integer.valueOf(i), abilityItem, baseMsg, str2, str3, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            String str5 = "";
-            if (abilityItem == null || abilityItem.getStyleConf() == null) {
-                str4 = "";
-            } else {
-                str4 = abilityItem.getStyleConf().getContent();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(as8 as8Var, Context context, int i, boolean z) {
+            super(context, i, z);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {as8Var, context, Integer.valueOf(i), Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            StatisticItem param = new StatisticItem(str).param("obj_type", i).param("obj_name", str4);
-            if (abilityItem != null) {
-                str5 = abilityItem.getType();
-            }
-            StatisticItem param2 = param.param("obj_source", str5).param("fid", j2);
-            long j4 = 0;
-            if (baseMsg != null) {
-                j3 = baseMsg.getCommonMsgField().getRoomId();
-            } else {
-                j3 = 0;
-            }
-            StatisticItem param3 = param2.param("room_id", j3);
-            if (baseMsg != null) {
-                j4 = baseMsg.getCommonMsgField().getMsgId();
-            }
-            TiebaStatic.log(param3.param("obj_id", j4).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_param1", str2).param(TiebaStatic.Params.OBJ_PARAM2, str3).param(TiebaStatic.Params.OBJ_PARAM3, j));
         }
     }
 
-    public static void j(@NonNull String str, String str2, long j, String str3, String str4, long j2, String str5) {
+    /* loaded from: classes5.dex */
+    public class b implements kt8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ as8 a;
+
+        public b(as8 as8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {as8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = as8Var;
+        }
+
+        @Override // com.baidu.tieba.kt8
+        public void a(@NonNull Reaction reaction) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, reaction) == null) {
+                this.a.b.F(reaction);
+                this.a.b.u();
+            }
+        }
+    }
+
+    public as8(@NonNull xr8 xr8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, Long.valueOf(j), str3, str4, Long.valueOf(j2), str5}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("obj_locate", j);
-            statisticItem.param("obj_id", str3);
-            statisticItem.param("obj_name", str4);
-            statisticItem.param("fid", j2);
-            statisticItem.param("obj_param1", str5);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xr8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = xr8Var;
+    }
+
+    public void c(@NonNull List<Reaction> list) {
+        ResponsePanelEmojiAdapter responsePanelEmojiAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && (responsePanelEmojiAdapter = this.d) != null) {
+            responsePanelEmojiAdapter.o(list);
+        }
+    }
+
+    public void d(boolean z) {
+        LinearLayout linearLayout;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (linearLayout = this.a) == null) {
+            return;
+        }
+        if (z) {
+            i = 0;
+        } else {
+            i = 8;
+        }
+        linearLayout.setVisibility(i);
+    }
+
+    @Override // com.baidu.tieba.d07
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f0800e3, R.color.CAM_X0108, null);
+        }
+    }
+
+    public void b(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e8d);
+            this.a = linearLayout;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
+            int i = oo8.a;
+            layoutParams.leftMargin = i;
+            layoutParams.rightMargin = i;
+            this.a.setLayoutParams(layoutParams);
+            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091e55);
+            this.d = new ResponsePanelEmojiAdapter(this.b.getPageContext().getOrignalPage().getPageContext());
+            a aVar = new a(this, this.b.getPageContext().getPageActivity(), 0, false);
+            this.d.p(new b(this));
+            recyclerView.setLayoutManager(aVar);
+            recyclerView.setAdapter(this.d);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091797);
+            this.c = imageView;
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) imageView.getLayoutParams();
+            int i2 = oo8.b;
+            layoutParams2.leftMargin = i2;
+            layoutParams2.rightMargin = i2;
+            this.c.setLayoutParams(layoutParams2);
+            this.c.setOnClickListener(this.b);
+            onChangeSkinType(TbadkApplication.getInst().getSkinType());
         }
     }
 }

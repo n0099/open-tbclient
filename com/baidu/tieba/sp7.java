@@ -1,50 +1,34 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
 import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fz6;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sp7 {
+public class sp7 extends om<fy6, CardViewHolder<zo6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public boolean b;
-    public gz6 c;
-    public boolean d;
-    public VelocityTracker e;
-    public fz6.b f;
+    public TbPageContext<?> a;
+    public zo6 b;
+    public String c;
 
     /* loaded from: classes8.dex */
-    public class a implements fz6.b {
+    public class a extends sp6<fy6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sp7 a;
-
-        @Override // com.baidu.tieba.fz6.b
-        public void c(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.fz6.b
-        public void d(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            }
-        }
+        public final /* synthetic */ sp7 b;
 
         public a(sp7 sp7Var) {
             Interceptable interceptable = $ic;
@@ -61,135 +45,72 @@ public class sp7 {
                     return;
                 }
             }
-            this.a = sp7Var;
+            this.b = sp7Var;
         }
 
-        public final boolean e(float f) {
-            InterceptResult invokeF;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sp6
+        /* renamed from: d */
+        public void a(View view2, fy6 fy6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-                if (Math.abs(f) >= 10.0f) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeF.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.fz6.b
-        public void a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && e(i2)) {
-                this.a.e(true);
-            }
-        }
-
-        @Override // com.baidu.tieba.fz6.b
-        public void b(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && e(i2)) {
-                this.a.e(false);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, fy6Var) == null) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", this.b.c));
+                UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(view2.getContext()), new String[]{fy6Var.c().score_url}, true);
             }
         }
     }
 
-    public sp7(Context context, BdUniqueId bdUniqueId, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sp7(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), fy6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.f = new a(this);
-        this.a = bdUniqueId;
-        this.d = z;
-        if (z) {
-            gz6 gz6Var = new gz6(context);
-            this.c = gz6Var;
-            gz6Var.d(this.f);
-        }
+        this.a = tbPageContext;
+        this.c = str;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
-        if (r5 != 3) goto L12;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(View view2, MotionEvent motionEvent) {
-        gz6 gz6Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public CardViewHolder<zo6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, motionEvent) == null) {
-            if (this.e == null) {
-                this.e = VelocityTracker.obtain();
-            }
-            this.e.addMovement(motionEvent);
-            int action = motionEvent.getAction();
-            if (action != 1) {
-                if (action == 2) {
-                    this.e.computeCurrentVelocity(1000);
-                    if (Math.abs(this.e.getXVelocity()) > Math.abs(this.e.getYVelocity())) {
-                        this.d = false;
-                    } else {
-                        this.d = true;
-                    }
-                }
-                if (!this.d && (gz6Var = this.c) != null) {
-                    gz6Var.c(motionEvent);
-                    return;
-                }
-            }
-            c();
-            if (!this.d) {
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new zo6(this.a);
+            return new CardViewHolder<>(this.b);
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void c() {
-        VelocityTracker velocityTracker;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fy6 fy6Var, CardViewHolder<zo6> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (velocityTracker = this.e) != null) {
-            velocityTracker.clear();
-            this.e.recycle();
-            this.e = null;
-        }
-    }
-
-    public final void d(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                CustomMessage customMessage = new CustomMessage(2001617);
-                customMessage.setTag(this.a);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
-                customResponsedMessage.setOrginalMessage(customMessage);
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fy6Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
             }
-            CustomMessage customMessage2 = new CustomMessage(2001618);
-            customMessage2.setTag(this.a);
-            CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
-            customResponsedMessage2.setOrginalMessage(customMessage2);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
+            cardViewHolder.a().i(fy6Var);
+            cardViewHolder.a().k(new a(this));
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.a().h();
         }
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-            if (this.d) {
-                d(!z, true);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

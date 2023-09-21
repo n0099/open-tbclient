@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.setting.forbiddenforum.CancelForbiddenForumResMsg;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tieba.dd7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class g8a {
+public final class g8a implements dd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,28 +25,88 @@ public class g8a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
     }
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.cd7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CANCEL_FORBIDDEN_FORUM);
-            httpMessage.addParam("forum_id", str);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return dd7.a.b(this);
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.cd7
+    public Map<String, String> a(m87 m87Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANCEL_FORBIDDEN_FORUM, TbConfig.SERVER_ADDRESS + TbConfig.URL_CANCEL_FORBIDDEN_FORUM);
-            tbHttpMessageTask.setResponsedClass(CancelForbiddenForumResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m87Var)) == null) {
+            return dd7.a.a(this, m87Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
+        if (r5.equals("video_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
+        if (r5.equals("live_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x003a, code lost:
+        if (r5.equals("live_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
+        if (r5.equals("common_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
+        return "enter_forum_btn_click";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
+        if (r5.equals("video_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
+        if (r5.equals("common_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
+        return "user_head_click";
+     */
+    @Override // com.baidu.tieba.dd7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(m87 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
+            }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    break;
+                case -1617812209:
+                    break;
+                case 448970189:
+                    break;
+                case 1009035070:
+                    break;
+                case 1201356814:
+                    break;
+                case 1373469789:
+                    break;
+                default:
+                    if (!GlobalBuildConfig.isDebug()) {
+                        return "";
+                    }
+                    throw new IllegalStateException("unknown card_head_type :" + str);
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

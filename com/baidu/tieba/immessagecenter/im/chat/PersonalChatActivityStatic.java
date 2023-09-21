@@ -29,10 +29,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.WebviewHelper;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.by5;
-import com.baidu.tieba.cx5;
-import com.baidu.tieba.gc8;
+import com.baidu.tieba.cy5;
+import com.baidu.tieba.dv8;
+import com.baidu.tieba.dx5;
+import com.baidu.tieba.hja;
 import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
@@ -52,13 +52,13 @@ import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
 import com.baidu.tieba.immessagecenter.mention.agree.AgreeMeActivity;
 import com.baidu.tieba.immessagecenter.mention.reply.ReplyMeActivity;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ObserverRegistry;
-import com.baidu.tieba.pt8;
-import com.baidu.tieba.vf8;
-import com.baidu.tieba.ws8;
-import com.baidu.tieba.xs8;
-import com.baidu.tieba.xx5;
-import com.baidu.tieba.ys8;
-import com.baidu.tieba.zs8;
+import com.baidu.tieba.kc8;
+import com.baidu.tieba.mu8;
+import com.baidu.tieba.nu8;
+import com.baidu.tieba.ou8;
+import com.baidu.tieba.pu8;
+import com.baidu.tieba.qj8;
+import com.baidu.tieba.yx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +70,7 @@ import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class PersonalChatActivityStatic {
     public static /* synthetic */ Interceptable $ic;
-    public static zs8 a;
+    public static pu8 a;
     public static CustomMessageListener b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public class PersonalChatActivityStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes6.dex */
-        public class a extends xx5<Void> {
+        public class a extends yx5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkedList a;
@@ -104,13 +104,13 @@ public class PersonalChatActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.xx5
+            @Override // com.baidu.tieba.yx5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return vf8.w().a(this.a);
+                    return qj8.w().a(this.a);
                 }
                 return (Void) invokeV.objValue;
             }
@@ -118,12 +118,12 @@ public class PersonalChatActivityStatic {
 
         /* renamed from: com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivityStatic$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0341b implements cx5<Void> {
+        public class C0343b implements dx5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomMessage a;
 
-            public C0341b(b bVar, CustomMessage customMessage) {
+            public C0343b(b bVar, CustomMessage customMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +142,7 @@ public class PersonalChatActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.cx5
+            @Override // com.baidu.tieba.dx5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -181,7 +181,7 @@ public class PersonalChatActivityStatic {
                 }
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(String.valueOf(userData.getUserId()));
-                by5.c(new a(this, linkedList), new C0341b(this, customMessage));
+                cy5.c(new a(this, linkedList), new C0343b(this, customMessage));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -220,7 +220,7 @@ public class PersonalChatActivityStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
                 return;
             }
-            zs8 unused = PersonalChatActivityStatic.a = null;
+            pu8 unused = PersonalChatActivityStatic.a = null;
         }
     }
 
@@ -348,9 +348,9 @@ public class PersonalChatActivityStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (TbadkCoreApplication.isLogin()) {
-                    pt8.e().f();
+                    dv8.e().f();
                 } else {
-                    pt8.e().d();
+                    dv8.e().d();
                 }
             }
         }
@@ -445,16 +445,16 @@ public class PersonalChatActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AddFriendActivityConfig.class, AddFriendActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalChatActivityConfig.class, PersonalChatActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GamePersonalChatActivityConfig.class, GamePersonalChatActivity.class);
-        gc8.b(205001, ResponseCommitPersonalMessage.class, false);
-        gc8.b(205003, ResponseQueryUserInfoMessage.class, false);
-        gc8.b(205006, ResponsedPersonalMsgReadMessage.class, false);
-        gc8.a(2001143, ws8.class);
-        gc8.a(2001146, ys8.class);
-        gc8.a(2001149, xs8.class);
+        kc8.b(205001, ResponseCommitPersonalMessage.class, false);
+        kc8.b(205003, ResponseQueryUserInfoMessage.class, false);
+        kc8.b(205006, ResponsedPersonalMsgReadMessage.class, false);
+        kc8.a(2001143, mu8.class);
+        kc8.a(2001146, ou8.class);
+        kc8.a(2001149, nu8.class);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FRIEND_LIST, TbConfig.SERVER_ADDRESS + "c/u/follow/list");
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        bha.e(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP, TbConfig.SHARE_CONTENT_TO_CHAT_GROUP_ROOM, JsonHttpResponsedMessage.class, true, true, true, true);
+        hja.e(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP, TbConfig.SHARE_CONTENT_TO_CHAT_GROUP_ROOM, JsonHttpResponsedMessage.class, true, true, true, true);
         c();
         MessageManager.getInstance().registerListener(b);
         CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new b());
@@ -480,13 +480,13 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    public static zs8 b() {
+    public static pu8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             return a;
         }
-        return (zs8) invokeV.objValue;
+        return (pu8) invokeV.objValue;
     }
 
     public static void c() {
@@ -496,10 +496,10 @@ public class PersonalChatActivityStatic {
         }
     }
 
-    public static void d(zs8 zs8Var) {
+    public static void d(pu8 pu8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, zs8Var) == null) {
-            a = zs8Var;
+        if (interceptable == null || interceptable.invokeL(65541, null, pu8Var) == null) {
+            a = pu8Var;
         }
     }
 }

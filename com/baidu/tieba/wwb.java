@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Lcom/baidu/tieba/wwb<TTResult;>; */
+import com.google.ar.core.AugmentedFace;
+import com.google.ar.core.Session;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class wwb<TResult> {
+public final class wwb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public boolean b;
-    public TResult c;
-    public Exception d;
-    public List<kxb<TResult>> e;
+    public final Map<Long, AugmentedFace> a;
 
     public wwb() {
         Interceptable interceptable = $ic;
@@ -32,101 +27,23 @@ public final class wwb<TResult> {
                 return;
             }
         }
-        this.a = new Object();
-        this.e = new ArrayList();
+        this.a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
-    public final Exception c() {
-        InterceptResult invokeV;
-        Exception exc;
+    public final synchronized AugmentedFace a(long j, Session session) {
+        InterceptResult invokeJL;
+        AugmentedFace augmentedFace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.a) {
-                exc = this.d;
-            }
-            return exc;
-        }
-        return (Exception) invokeV.objValue;
-    }
-
-    public final TResult d() {
-        InterceptResult invokeV;
-        TResult tresult;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                if (this.d == null) {
-                    tresult = this.c;
-                } else {
-                    throw new RuntimeException(this.d);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
+            synchronized (this) {
+                augmentedFace = this.a.get(Long.valueOf(j));
+                if (augmentedFace == null) {
+                    augmentedFace = new AugmentedFace(j, session);
+                    this.a.put(Long.valueOf(j), augmentedFace);
                 }
             }
-            return tresult;
+            return augmentedFace;
         }
-        return (TResult) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.a) {
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    e();
-                    if (this.d == null) {
-                        z = true;
-                    }
-                }
-                z = false;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final wwb<TResult> a(kxb<TResult> kxbVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kxbVar)) == null) {
-            synchronized (this.a) {
-                if (!this.b) {
-                    this.e.add(kxbVar);
-                } else {
-                    kxbVar.a(this);
-                }
-            }
-            return this;
-        }
-        return (wwb) invokeL.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                for (kxb<TResult> kxbVar : this.e) {
-                    try {
-                        kxbVar.a(this);
-                    } catch (RuntimeException e) {
-                        throw e;
-                    } catch (Exception e2) {
-                        throw new RuntimeException(e2);
-                    }
-                }
-                this.e = null;
-            }
-        }
+        return (AugmentedFace) invokeJL.objValue;
     }
 }

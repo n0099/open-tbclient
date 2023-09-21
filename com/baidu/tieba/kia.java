@@ -1,49 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.WebView;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import tbclient.FrsPage.BusinessPromot;
 /* loaded from: classes6.dex */
-public abstract class kia {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
-    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
+public class kia {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, List<lia>> mAsyncCallBackMethodList;
-    public HashSet<String> mNotificationNameList;
-
-    public mia dispatch(WebView webView, oia oiaVar, mia miaVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, oiaVar, miaVar)) == null) {
-            return null;
-        }
-        return (mia) invokeLLL.objValue;
-    }
-
-    @Nullable
-    public tm6 getJsBridge() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (tm6) invokeV.objValue;
-    }
-
-    public abstract List<mia> processNotification(WebView webView, String str, HashMap hashMap);
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public long j;
+    public List<lia> k;
+    public int l;
+    public List<String> m;
+    public boolean n;
+    public boolean o;
+    public aja p;
+    public String q;
+    public String r;
+    public boolean s;
 
     public kia() {
         Interceptable interceptable = $ic;
@@ -55,79 +44,221 @@ public abstract class kia {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.n = false;
     }
 
-    public final void onDestroy() {
-        tm6 jsBridge;
+    public List<lia> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (jsBridge = getJsBridge()) != null) {
-            jsBridge.onDestroy();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
         }
+        return (List) invokeV.objValue;
     }
 
-    public mia addObserver(WebView webView, String str, mia miaVar, boolean z) {
-        InterceptResult invokeCommon;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{webView, str, miaVar, Boolean.valueOf(z)})) == null) {
-            if (miaVar == null) {
-                miaVar = new mia();
-            }
-            if (this.mNotificationNameList.contains(str)) {
-                miaVar.n(false);
-                miaVar.t(true);
-                List<lia> list = this.mAsyncCallBackMethodList.get(str);
-                if (list == null) {
-                    list = new ArrayList<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.q;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
+        }
+        return invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.s;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public aja i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.p;
+        }
+        return (aja) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<String> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.m;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.r;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.n;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s(BusinessPromot businessPromot) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048595, this, businessPromot) != null) || businessPromot == null) {
+            return;
+        }
+        this.a = businessPromot.title;
+        this.b = businessPromot.img;
+        this.c = businessPromot.img_popup;
+        this.d = businessPromot.type.intValue();
+        this.e = businessPromot.thread_id;
+        this.f = businessPromot.url;
+        this.g = businessPromot.schema;
+        this.i = businessPromot.join_num.intValue();
+        this.j = businessPromot.id.longValue();
+        this.n = businessPromot.is_allow_shake.booleanValue();
+        this.o = businessPromot.is_ad.booleanValue();
+        this.h = businessPromot.package_name;
+        this.q = businessPromot.cover_url;
+        this.r = businessPromot.video_url;
+        boolean z = true;
+        if (businessPromot.ban_dialog.intValue() != 1) {
+            z = false;
+        }
+        this.s = z;
+        if (businessPromot.comment_list != null) {
+            this.k = new LinkedList();
+            for (int i = 0; i < businessPromot.comment_list.size(); i++) {
+                if (businessPromot.comment_list.get(i) != null) {
+                    lia liaVar = new lia();
+                    liaVar.c(businessPromot.comment_list.get(i));
+                    this.k.add(liaVar);
                 }
-                lia liaVar = new lia();
-                liaVar.e(miaVar.c());
-                liaVar.d(z);
-                liaVar.f(miaVar.e());
-                list.add(liaVar);
-                this.mAsyncCallBackMethodList.put(str, list);
-                if (webView instanceof qm6) {
-                    ((qm6) webView).a(str, liaVar.a());
-                }
-            }
-            return miaVar;
-        }
-        return (mia) invokeCommon.objValue;
-    }
-
-    public mia addObserver(String str, mia miaVar, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, miaVar, z)) == null) {
-            return addObserver(null, str, miaVar, z);
-        }
-        return (mia) invokeLLZ.objValue;
-    }
-
-    public mia dispatch(oia oiaVar, mia miaVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, oiaVar, miaVar)) == null) {
-            return dispatch(null, oiaVar, miaVar);
-        }
-        return (mia) invokeLL.objValue;
-    }
-
-    public void removeObserverBridge(List<Pair<String, String>> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && list != null && !list.isEmpty()) {
-            for (Pair<String, String> pair : list) {
-                List<lia> list2 = this.mAsyncCallBackMethodList.get(pair.first);
-                if (list2 != null && !list2.isEmpty()) {
-                    Iterator<lia> it = list2.iterator();
-                    while (it.hasNext()) {
-                        if (TextUtils.equals(it.next().a(), pair.second)) {
-                            it.remove();
-                        }
-                    }
-                }
             }
         }
+        this.l = businessPromot.thread_type.intValue();
+        this.m = businessPromot.third_statistics_url;
+        aja ajaVar = new aja();
+        this.p = ajaVar;
+        ajaVar.c(businessPromot);
     }
 }

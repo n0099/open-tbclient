@@ -1,66 +1,114 @@
 package com.baidu.tieba;
 
-import com.baidu.mapapi.search.core.PoiInfo;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.constraintlayout.motion.widget.Key;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class ug4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public PoiInfo a;
-    public boolean b;
-    public boolean c;
+    public View a;
+    public View b;
+    public View c;
+    public boolean d;
+    public b e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ug4(PoiInfo poiInfo) {
-        this(poiInfo, false, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {poiInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(boolean z);
+
+        void b(boolean z);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ ug4 c;
+
+        public a(ug4 ug4Var, boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ug4Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ug4Var;
+            this.a = z;
+            this.b = i;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                animator.removeAllListeners();
+                if (!this.a) {
+                    this.c.c(this.b);
+                }
+                if (this.c.e != null) {
+                    this.c.e.a(this.a);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948210023, "Lcom/baidu/tieba/ug4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948210023, "Lcom/baidu/tieba/ug4;");
                 return;
             }
         }
+        f = xo3.g(58.0f);
     }
 
-    public static List<ug4> a(List<PoiInfo> list) {
-        InterceptResult invokeL;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (list != null && list.size() > 0) {
-                ArrayList arrayList = new ArrayList(list.size());
-                for (PoiInfo poiInfo : list) {
-                    if (poiInfo.location != null) {
-                        arrayList.add(new ug4(poiInfo));
-                    }
-                }
-                return arrayList;
-            }
-            return new ArrayList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (List) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ug4(PoiInfo poiInfo, boolean z, boolean z2) {
+    public ug4(View view2, FrameLayout frameLayout, View view3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {view2, frameLayout, view3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,11 +118,56 @@ public class ug4 {
                 return;
             }
         }
-        if (poiInfo == null) {
-            this.a = new PoiInfo();
+        this.a = view2;
+        this.b = frameLayout;
+        this.c = view3;
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+            layoutParams.height = this.a.getHeight() - (i * 2);
+            this.a.setLayoutParams(layoutParams);
         }
-        this.a = poiInfo;
-        this.b = z;
-        this.c = z2;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            b bVar = this.e;
+            if (bVar != null) {
+                bVar.b(z);
+            }
+            this.d = z;
+            int i = f;
+            if (z) {
+                i = -i;
+            }
+            float[] fArr = new float[2];
+            if (z) {
+                fArr[0] = 0.0f;
+                fArr[1] = i;
+            } else {
+                fArr[0] = -i;
+                fArr[1] = 0.0f;
+            }
+            float[] fArr2 = new float[2];
+            if (z) {
+                fArr2[0] = 0.0f;
+                fArr2[1] = i * 2;
+            } else {
+                fArr2[0] = (-i) * 2;
+                fArr2[1] = 0.0f;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, fArr), ObjectAnimator.ofFloat(this.a, Key.TRANSLATION_Y, fArr2), ObjectAnimator.ofFloat(this.c, Key.TRANSLATION_Y, fArr2));
+            animatorSet.setDuration(200L);
+            animatorSet.start();
+            animatorSet.addListener(new a(this, z, i));
+            if (z) {
+                c(i);
+            }
+        }
     }
 }

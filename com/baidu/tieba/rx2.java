@@ -2,18 +2,22 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rx2 extends tx2 {
+public class rx2 extends sx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String z;
+    public int[] A;
+    public ArrayList<zx2> z;
 
     public rx2() {
         Interceptable interceptable = $ic;
@@ -28,28 +32,51 @@ public class rx2 extends tx2 {
                 return;
             }
         }
-        this.z = "";
+        this.A = new int[]{0, 0, 0, 0};
     }
 
-    @Override // com.baidu.tieba.x62, com.baidu.tieba.g13
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !TextUtils.isEmpty(this.z);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tx2, com.baidu.tieba.x62, com.baidu.tieba.g13
+    @Override // com.baidu.tieba.sx2, com.baidu.tieba.w62, com.baidu.tieba.f13
     public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        this.z = jSONObject.optString("cb");
-        jSONObject.optDouble("latitude");
-        jSONObject.optDouble("longitude");
+        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
+            int length = jSONArray2.length();
+            this.z = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    zx2 zx2Var = new zx2();
+                    zx2Var.a(jSONObject2);
+                    if (zx2Var.isValid()) {
+                        this.z.add(zx2Var);
+                    }
+                }
+            }
+        }
+        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
+            int min = Math.min(jSONArray.length(), 4);
+            for (int i2 = 0; i2 < min; i2++) {
+                this.A[i2] = xo3.g(jSONArray.optInt(i2));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.w62, com.baidu.tieba.f13
+    public boolean isValid() {
+        InterceptResult invokeV;
+        ArrayList<zx2> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

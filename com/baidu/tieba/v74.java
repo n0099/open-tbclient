@@ -1,40 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.app.Activity;
+import android.content.res.Resources;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
+import com.baidu.tieba.ka3;
+import com.baidu.tieba.w74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class v74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
+    public FullScreenFloatView a;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a implements FullScreenFloatView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ v74 b;
 
-        public a(boolean z, String str) {
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void onDrag() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public a(v74 v74Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), str};
+                Object[] objArr = {v74Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,156 +47,75 @@ public class v74 {
                     return;
                 }
             }
-            this.a = false;
-            this.a = z;
-            this.b = str;
+            this.b = v74Var;
+            this.a = activity;
         }
 
-        public static a c() {
-            InterceptResult invokeV;
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return new a(false, "未启用真机调试");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a);
             }
-            return (a) invokeV.objValue;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return invokeV.booleanValue;
         }
     }
 
-    public v74(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public v74() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
-            this.a = optJSONObject.optString("hostname", null);
-            this.b = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
-            this.c = optJSONObject.optBoolean("breakOnStart", false);
-        }
-        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
-        boolean z = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
-        this.f = z;
-        if (z) {
-            this.a = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.a);
-            this.b = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.b);
-            this.c = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.c);
-            this.d = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.d);
-        }
-        String str = this.a;
-        if (str != null && !str.trim().equals("")) {
-            this.e = true;
         }
     }
 
-    public static a f(v74 v74Var) {
-        InterceptResult invokeL;
+    public void c(w74.c cVar, Activity activity) {
+        u74 u74Var;
+        ab4 ab4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, v74Var)) == null) {
-            if (v74Var == null) {
-                return a.c();
-            }
-            return v74Var.e();
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            if (this.b != null) {
-                str = ":" + this.b;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
+            if (cVar != null && (ab4Var = cVar.c) != null) {
+                u74Var = ab4Var.f;
             } else {
-                str = "";
+                u74Var = null;
             }
-            sb.append(str);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public a e() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.f && c()) {
-                return new a(false, "线上包禁用真机调试");
+            if (u74.f(u74Var).b()) {
+                b(activity);
             }
-            boolean z = this.e;
-            if (!z) {
-                str = "未启用真机调试";
-            } else if (this.f) {
-                str = "使用了 debug 面板配置";
-            } else {
-                str = "启用了真机调试";
-            }
-            return new a(z, str);
         }
-        return (a) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            FullScreenFloatView a2 = p93.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
+            this.a = a2;
+            a2.setFloatButtonText(activity.getString(R.string.obfuscated_res_0x7f0f01a2));
+            this.a.setFloatImageBackground(R.drawable.obfuscated_res_0x7f080178);
+            this.a.setAutoAttachEnable(false);
+            this.a.setDragImageListener(new a(this, activity));
+            this.a.setVisibility(0);
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public final void d(Activity activity) {
+        gb3 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return j32.f(hb3.g0());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (M = gb3.M()) != null && M.Y() != null) {
+            Resources resources = activity.getResources();
+            String u = SwanInspectorEndpoint.v().u(resources);
+            ka3.a aVar = new ka3.a(activity);
+            aVar.V(resources.getString(R.string.obfuscated_res_0x7f0f0208));
+            aVar.x(u);
+            aVar.n(new oq3());
+            aVar.m(false);
+            aVar.O(R.string.obfuscated_res_0x7f0f01cf, null);
+            aVar.X();
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
     }
 }

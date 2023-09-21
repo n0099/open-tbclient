@@ -1,19 +1,19 @@
 package rx.internal.subscriptions;
 
-import com.baidu.tieba.ebc;
-import com.baidu.tieba.gfc;
-import com.baidu.tieba.jbc;
-import com.baidu.tieba.zac;
+import com.baidu.tieba.bdc;
+import com.baidu.tieba.rcc;
+import com.baidu.tieba.wcc;
+import com.baidu.tieba.ygc;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class CancellableSubscription extends AtomicReference<jbc> implements zac {
+public final class CancellableSubscription extends AtomicReference<bdc> implements rcc {
     public static final long serialVersionUID = 5718521705281392066L;
 
-    public CancellableSubscription(jbc jbcVar) {
-        super(jbcVar);
+    public CancellableSubscription(bdc bdcVar) {
+        super(bdcVar);
     }
 
-    @Override // com.baidu.tieba.zac
+    @Override // com.baidu.tieba.rcc
     public boolean isUnsubscribed() {
         if (get() == null) {
             return true;
@@ -21,15 +21,15 @@ public final class CancellableSubscription extends AtomicReference<jbc> implemen
         return false;
     }
 
-    @Override // com.baidu.tieba.zac
+    @Override // com.baidu.tieba.rcc
     public void unsubscribe() {
-        jbc andSet;
+        bdc andSet;
         if (get() != null && (andSet = getAndSet(null)) != null) {
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                ebc.e(e);
-                gfc.j(e);
+                wcc.e(e);
+                ygc.j(e);
             }
         }
     }

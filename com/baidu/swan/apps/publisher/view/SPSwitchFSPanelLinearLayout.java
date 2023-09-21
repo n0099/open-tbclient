@@ -4,25 +4,25 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.i93;
-import com.baidu.tieba.k93;
-import com.baidu.tieba.z83;
+import com.baidu.tieba.h93;
+import com.baidu.tieba.j93;
+import com.baidu.tieba.y83;
 /* loaded from: classes4.dex */
-public class SPSwitchFSPanelLinearLayout extends LinearLayout implements k93 {
-    public z83 a;
+public class SPSwitchFSPanelLinearLayout extends LinearLayout implements j93 {
+    public y83 a;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.k93
+    @Override // com.baidu.tieba.j93
     public void onSoftInputShowing(boolean z) {
         this.a.a(z);
     }
 
-    @Override // com.baidu.tieba.k93
+    @Override // com.baidu.tieba.j93
     public void refreshHeight(int i) {
-        i93.g(this, i);
+        h93.g(this, i);
     }
 
     public SPSwitchFSPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
@@ -35,6 +35,6 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements k93 {
     }
 
     public final void a() {
-        this.a = new z83(this);
+        this.a = new y83(this);
     }
 }

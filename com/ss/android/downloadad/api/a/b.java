@@ -37,7 +37,7 @@ public class b implements a {
     public long S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1221T;
+    public boolean f1218T;
     public boolean U;
     public String V;
     public boolean W;
@@ -122,7 +122,7 @@ public class b implements a {
         this.c = new AtomicBoolean(false);
         this.d = new AtomicBoolean(false);
         this.Q = 1;
-        this.f1221T = true;
+        this.f1218T = true;
         this.Z = -1L;
     }
 
@@ -260,7 +260,7 @@ public class b implements a {
     }
 
     public AdDownloadController ah() {
-        return new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.f1221T).setEnableAH(this.a).setEnableAM(this.b).build();
+        return new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.f1218T).setEnableAH(this.a).setEnableAM(this.b).build();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -374,7 +374,7 @@ public class b implements a {
         this.c = new AtomicBoolean(false);
         this.d = new AtomicBoolean(false);
         this.Q = 1;
-        this.f1221T = true;
+        this.f1218T = true;
         this.Z = -1L;
         this.e = downloadModel.getId();
         this.f = downloadModel.getExtraValue();
@@ -399,7 +399,7 @@ public class b implements a {
         this.x = downloadController.isEnableBackDialog();
         this.n = downloadController.getLinkMode();
         this.o = downloadController.getDownloadMode();
-        this.f1221T = downloadController.enableShowComplianceDialog();
+        this.f1218T = downloadController.enableShowComplianceDialog();
         this.U = downloadController.isAutoDownloadOnCardShow();
         this.J = downloadController.enableNewActivity();
         this.a = downloadController.enableAH();
@@ -554,7 +554,7 @@ public class b implements a {
     }
 
     public void p(boolean z) {
-        this.f1221T = z;
+        this.f1218T = z;
     }
 
     public void q(boolean z) {
@@ -773,7 +773,7 @@ public class b implements a {
             jSONObject.put("installAfterCleanSpace", this.O);
             jSONObject.put("funnelType", this.Q);
             jSONObject.put(DeepLinkItem.DEEPLINK_WEBURL_KEY, this.l);
-            jSONObject.put("enableShowComplianceDialog", this.f1221T);
+            jSONObject.put("enableShowComplianceDialog", this.f1218T);
             jSONObject.put("isAutoDownloadOnCardShow", this.U);
             int i4 = 1;
             if (this.J) {

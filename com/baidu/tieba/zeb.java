@@ -1,88 +1,70 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
-public class zeb {
+public final class zeb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<bfb> a;
-    public xeb b;
-    public String c;
+    public SQLiteDatabase a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public zeb(List<bfb> list) {
-        this(list, 0);
+    public zeb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = web.a().c();
     }
 
-    public zeb(List<bfb> list, int i) {
+    public final List<com.baidu.ubs.analytics.a.l> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+                lVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
+                lVar.setPath(rawQuery.getString(rawQuery.getColumnIndex("_path")));
+                lVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
+                lVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
+                lVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                lVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(lVar);
             }
+            rawQuery.close();
+            return arrayList;
         }
-        this.a = list;
+        return (List) invokeV.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public xeb b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (xeb) invokeV.objValue;
-    }
-
-    public List<bfb> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_page_log where _id <= " + i);
         }
     }
 
-    public void e(xeb xebVar) {
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xebVar) == null) {
-            this.b = xebVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
         }
     }
 }

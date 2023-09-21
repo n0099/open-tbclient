@@ -1,80 +1,62 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
+import android.widget.FrameLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.PopupWindow;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.f57;
-import com.baidu.tieba.faceshop.DiyEmotionData;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class g57 {
+public class g57 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f57 a;
-    public Handler b;
+    public Context a;
+    public ListView b;
+    public ViewGroup c;
+    public l57 d;
+    public int e;
+    public d f;
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public interface d {
+        void b(int i, vv4 vv4Var);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ g57 c;
+        public final /* synthetic */ g57 a;
 
-        /* loaded from: classes6.dex */
-        public class a implements f57.k {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // com.baidu.tieba.f57.k
-            public void a(int i, int i2, int i3, @Nullable Object obj) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
-                    b bVar = this.a;
-                    bVar.c.g(bVar.b);
-                }
-            }
-        }
-
-        public b(g57 g57Var, List list, List list2) {
+        public a(g57 g57Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g57Var, list, list2};
+                Object[] objArr = {g57Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,34 +66,34 @@ public class g57 {
                     return;
                 }
             }
-            this.c = g57Var;
-            this.a = list;
-            this.b = list2;
+            this.a = g57Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.a.h(this.a, false, new a(this));
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                vv4 item = this.a.d.getItem(i);
+                if ((item instanceof vv4) && this.a.f != null) {
+                    this.a.f.b(i, item);
+                }
+                this.a.h();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a implements f57.k {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ Map b;
-        public final /* synthetic */ g57 c;
+        public final /* synthetic */ g57 a;
 
-        public a(g57 g57Var, List list, Map map) {
+        public b(g57 g57Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g57Var, list, map};
+                Object[] objArr = {g57Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -121,24 +103,37 @@ public class g57 {
                     return;
                 }
             }
-            this.c = g57Var;
-            this.a = list;
-            this.b = map;
+            this.a = g57Var;
         }
 
-        @Override // com.baidu.tieba.f57.k
-        public void a(int i, int i2, int i3, @Nullable Object obj) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
-                this.c.d(this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.h();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements f57.k {
+    public class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g57 a;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
 
         public c(g57 g57Var) {
             Interceptable interceptable = $ic;
@@ -152,136 +147,189 @@ public class g57 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = g57Var;
         }
 
-        @Override // com.baidu.tieba.f57.k
-        public void a(int i, int i2, int i3, @Nullable Object obj) {
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
-                if (i2 > 0) {
-                    BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
-                    ke9.v(System.currentTimeMillis());
-                }
-                ke9.o().x(false);
+            if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
+                return;
             }
+            this.a.f();
         }
     }
 
-    public g57() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g57(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f57.q();
-        this.b = new Handler(Looper.getMainLooper());
+        this.a = context;
+        setWidth(-1);
+        setHeight(-1);
+        setContentView(e(new ArrayList(), vv4.f));
+        GreyUtil.grey(this);
+        setFocusable(true);
+        setTouchable(true);
+        setOutsideTouchable(true);
+        setAnimationStyle(0);
+        setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    public final void g(List<DiyEmotionData> list) {
+    public void j(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            he9.a("【表情云同步】：5 - DIY表情：根据云端数据进行排序");
-            this.a.r(list, false, new c(this));
+        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
+            this.f = dVar;
         }
     }
 
-    public final void d(List<DiyEmotionData> list, Map<String, DiyEmotionData> map) {
+    public final int d(List<vv4> list, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, list, map) == null) {
-            ArrayList<DiyEmotionData> arrayList = new ArrayList();
-            for (DiyEmotionData diyEmotionData : list) {
-                if (diyEmotionData != null && !map.containsKey(diyEmotionData.getPid()) && !TextUtils.isEmpty(diyEmotionData.getPicUrl())) {
-                    arrayList.add(diyEmotionData);
-                }
-            }
-            if (!arrayList.isEmpty()) {
-                he9.a("【表情云同步】：4 - DIY表情：下载本地没有的表情");
-                ArrayList arrayList2 = new ArrayList();
-                for (DiyEmotionData diyEmotionData2 : arrayList) {
-                    bn5 bn5Var = new bn5();
-                    bn5Var.f = diyEmotionData2.getPkgId();
-                    bn5Var.a = diyEmotionData2.getPid();
-                    bn5Var.d = diyEmotionData2.getPicUrl();
-                    bn5Var.b = diyEmotionData2.getWidth();
-                    bn5Var.c = diyEmotionData2.getHeight();
-                    bn5Var.e = diyEmotionData2.getThumbnail();
-                    arrayList2.add(bn5Var);
-                }
-                this.b.post(new b(this, arrayList2, list));
-                return;
-            }
-            g(list);
-        }
-    }
-
-    public final void e(List<DiyEmotionData> list, List<DiyEmotionData> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            ArrayList arrayList = new ArrayList();
-            Map<String, DiyEmotionData> h = h(list2);
-            Map<String, DiyEmotionData> h2 = h(list);
-            for (Map.Entry<String, DiyEmotionData> entry : h.entrySet()) {
-                if (!h2.containsKey(entry.getKey())) {
-                    arrayList.add(entry.getValue());
-                }
-            }
-            if (!arrayList.isEmpty()) {
-                he9.a("【表情云同步】：4 - DIY表情：删除云端没有的表情");
-                this.a.t(arrayList, false, new a(this, list, h));
-                return;
-            }
-            d(list, h);
-        }
-    }
-
-    public void f(List<DiyEmotionData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            f57.q().j(true);
-            List<DiyEmotionData> r = r47.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
-            for (DiyEmotionData diyEmotionData : r) {
-                String n = f57.n(diyEmotionData.getPid(), false);
-                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.setFilePath(n);
-                diyEmotionData.imageFileInfo = imageFileInfo;
-            }
-            BdLog.e("NewFaceSyncUtil MergeCollectFace Called CloudList:");
-            Iterator<DiyEmotionData> it = list.iterator();
-            while (it.hasNext()) {
-                BdLog.e("NewFaceSyncUtil Cloud data:" + it.next().getPkgId());
-            }
-            BdLog.e("NewFaceSyncUtil MergeCollectFace Called localList:");
-            Iterator<DiyEmotionData> it2 = r.iterator();
-            while (it2.hasNext()) {
-                BdLog.e("NewFaceSyncUtil Local data:" + it2.next().getPkgId());
-            }
-            e(list, r);
-        }
-    }
-
-    public final Map<String, DiyEmotionData> h(List<DiyEmotionData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            HashMap hashMap = new HashMap();
-            if (list != null) {
-                for (DiyEmotionData diyEmotionData : list) {
-                    if (diyEmotionData != null && !TextUtils.isEmpty(diyEmotionData.getPid())) {
-                        hashMap.put(diyEmotionData.getPid(), diyEmotionData);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, str)) == null) {
+            if (list != null && list.size() != 0 && !TextUtils.isEmpty(str)) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    vv4 vv4Var = list.get(i);
+                    if (vv4Var != null && str.equals(vv4Var.b())) {
+                        return i;
                     }
                 }
             }
-            return hashMap;
+            return -1;
         }
-        return (Map) invokeL.objValue;
+        return invokeLL.intValue;
+    }
+
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.dismiss();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            g();
+        }
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public final View e(List<vv4> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
+            BdListView bdListView = new BdListView(this.a);
+            this.b = bdListView;
+            bdListView.setCacheColorHint(this.a.getResources().getColor(17170445));
+            bdListView.setDivider(null);
+            bdListView.setDividerHeight(0);
+            bdListView.setFadingEdgeLength(0);
+            l57 l57Var = new l57(this.a);
+            this.d = l57Var;
+            l57Var.b(list, str);
+            bdListView.setAdapter((ListAdapter) this.d);
+            bdListView.setOnItemClickListener(new a(this));
+            FrameLayout frameLayout = new FrameLayout(this.a);
+            FrameLayout frameLayout2 = new FrameLayout(this.a);
+            this.c = frameLayout2;
+            frameLayout2.setBackgroundColor(this.a.getResources().getColor(R.color.common_color_10175));
+            frameLayout2.setOnClickListener(new b(this));
+            frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
+            frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
+            return frameLayout;
+        }
+        return (View) invokeLL.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
+            translateAnimation.setDuration(350L);
+            translateAnimation.setFillAfter(true);
+            translateAnimation.setInterpolator(new AccelerateInterpolator());
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(350L);
+            alphaAnimation.setInterpolator(new LinearInterpolator());
+            alphaAnimation.setAnimationListener(new c(this));
+            this.b.startAnimation(translateAnimation);
+            this.c.startAnimation(alphaAnimation);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
+            translateAnimation.setDuration(350L);
+            translateAnimation.setInterpolator(new DecelerateInterpolator());
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(350L);
+            alphaAnimation.setInterpolator(new LinearInterpolator());
+            this.b.startAnimation(translateAnimation);
+            this.c.startAnimation(alphaAnimation);
+        }
+    }
+
+    public void i(List<vv4> list, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, list, str) != null) || list == null) {
+            return;
+        }
+        this.e = d(list, str);
+        int i = -2;
+        if (list.size() > 5) {
+            i = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070406);
+        }
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new FrameLayout.LayoutParams(-1, i);
+        } else {
+            layoutParams.height = i;
+        }
+        this.b.setLayoutParams(layoutParams);
+        this.d.b(list, str);
+        this.d.notifyDataSetChanged();
+    }
+
+    public void l(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.b.setSelection(this.e);
+            if (Build.VERSION.SDK_INT < 24) {
+                if (jg.k(this, view2)) {
+                    k();
+                }
+            } else if (jg.m(this, view2, 0, 0, view2.getHeight())) {
+                k();
+            }
+        }
     }
 }

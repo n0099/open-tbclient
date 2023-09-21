@@ -1,42 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.text.SpannableStringBuilder;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
+import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class bo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public RelativeLayout c;
-    public EMTextView d;
-    public EMTextView e;
-    public final int f;
+    public final List<om> a;
+    public BdTypeRecyclerView b;
+    public eo7 c;
+    public do7 d;
+    public co7 e;
 
-    public bo7(Context context) {
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    public bo7(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {forumRulesShowActivity, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,66 +40,49 @@ public class bo7 {
                 return;
             }
         }
-        this.f = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
-        this.a = context;
-        b(context);
+        this.a = new ArrayList();
+        a(forumRulesShowActivity, bdTypeRecyclerView);
     }
 
-    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        RelativeLayout relativeLayout;
+    public final void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (relativeLayout = this.c) != null) {
-            relativeLayout.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.c);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, forumRulesShowActivity, bdTypeRecyclerView) == null) {
+            this.b = bdTypeRecyclerView;
+            this.c = new eo7(forumRulesShowActivity, io7.m);
+            this.d = new do7(forumRulesShowActivity, jo7.d);
+            this.e = new co7(forumRulesShowActivity, ho7.f);
+            this.a.add(this.c);
+            this.a.add(this.d);
+            this.a.add(this.e);
+            bdTypeRecyclerView.addAdapters(this.a);
         }
     }
 
-    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
-        RelativeLayout relativeLayout;
+    public void c(List<bn> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (relativeLayout = this.c) != null) {
-            relativeLayout.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.c);
-        }
-    }
-
-    public void e(String str) {
-        EMTextView eMTextView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.e) != null) {
-            eMTextView.setText(str);
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
-            return;
-        }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0313, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09283b);
-        this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09283d);
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.obfuscated_res_0x7f0f07de));
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_barrules_careful12, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
-        eMRichTextAnyIconSpan.f(BdUtilHelper.getDimens(context, R.dimen.tbds0));
-        eMRichTextAnyIconSpan.j(BdUtilHelper.getDimens(context, R.dimen.M_W_X002));
-        spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-        this.d.setText(spannableStringBuilder);
-        this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09283c);
-        c(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{DrawableSelector.make().setShape(0).radius(this.f).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0212, R.color.CAM_X0212).build(), DrawableSelector.make().setShape(0).radius(this.f).defaultColor("#4D000000").build()});
-            if (layerDrawable.getDrawable(1) != null) {
-                layerDrawable.getDrawable(1).setAlpha(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.b;
+            if (bdTypeRecyclerView != null) {
+                bdTypeRecyclerView.setData(list);
             }
-            this.c.setBackgroundDrawable(layerDrawable);
-            EMManager.from(this.d).setTextColor(R.color.CAM_X0109);
-            EMManager.from(this.e).setTextColor(R.color.CAM_X0109);
+            do7 do7Var = this.d;
+            if (do7Var != null) {
+                do7Var.y(list);
+            }
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            eo7 eo7Var = this.c;
+            if (eo7Var != null) {
+                eo7Var.setFrom(str);
+            }
+            co7 co7Var = this.e;
+            if (co7Var != null) {
+                co7Var.setFrom(str);
+            }
         }
     }
 }

@@ -148,7 +148,7 @@ public class gc implements nc {
                 }
                 if (componentType == Byte.TYPE) {
                     try {
-                        xh.k((byte[]) this.a, 0);
+                        wh.k((byte[]) this.a, 0);
                     } catch (Exception unused) {
                         return null;
                     }

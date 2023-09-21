@@ -1,167 +1,582 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Vibrator;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.Config;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.passaccount.app.LoginDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.RobotEntrance;
-import tbclient.RobotSkill;
-import tbclient.RobotSkillInfo;
 /* loaded from: classes5.dex */
-public final class bi9 implements t65 {
+public class bi9 implements ai9, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int A;
+    public String B;
+    public String C;
+    public LoginDialogActivity a;
+    public View b;
+    public View c;
+    public View d;
+    public ImageView e;
+    public ImageView f;
+    public LinearLayout g;
+    public LinearLayout h;
+    public Animation i;
+    public Vibrator j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public View o;
+    public View p;
+    public View q;
+    public View r;
+    public View s;
+    public TextView t;
+    public TextView u;
+    public TextView v;
+    public TextView w;
+    public TextView x;
+    public TextView y;
+    public TextView z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947646071, "Lcom/baidu/tieba/bi9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947646071, "Lcom/baidu/tieba/bi9;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final void c() {
+    @Override // com.baidu.tieba.ai9
+    public Intent getResultIntent() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
         }
+        return (Intent) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bi9 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(bi9 bi9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bi9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = bi9Var;
         }
 
-        @JvmStatic
-        public final void a() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SharedPrefHelper.getInstance().putLong("pb_friend_bot_bottom_no_use_time", System.currentTimeMillis());
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
+                if (((Boolean) view2.getTag()).booleanValue()) {
+                    this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324_select, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                } else {
+                    this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                }
             }
         }
     }
 
-    public bi9() {
+    /* loaded from: classes5.dex */
+    public class b extends OneKeyLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bi9 a;
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
+            }
+        }
+
+        public b(bi9 bi9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bi9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bi9Var;
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
+                this.a.a.R1();
+                this.a.a.I1(DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
+                ck.a().i(Config.DEVICE_PART, "login success from one key");
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
+                this.a.a.closeLoadingDialog();
+                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0f03), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+                this.a.a.Q1();
+                ck.a().e(Config.DEVICE_PART, "login fail from one key");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends WebAuthListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SocialType a;
+        public final /* synthetic */ bi9 b;
+
+        public c(bi9 bi9Var, SocialType socialType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bi9Var, socialType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bi9Var;
+            this.a = socialType;
+        }
+
+        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
+        public void beforeSuccess(SapiAccount sapiAccount) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
+                this.b.a.T1();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
+                this.b.a.closeLoadingDialog();
+                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f1659), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.b.a.Q1();
+                TbLog a = ck.a();
+                a.e(Config.DEVICE_PART, "login fail from third. ThirdType: " + this.a.name().toLowerCase());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
+                this.b.a.R1();
+                this.b.a.I1(this.a.name().toLowerCase());
+                TbLog a = ck.a();
+                a.i(Config.DEVICE_PART, "login success from third. ThirdType: " + this.a.name().toLowerCase());
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x002f, code lost:
+        if (r7.equals("CU") == false) goto L23;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public bi9(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.t65
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", "pbFriendBotBottomNoUse");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        char c2 = 0;
+        this.A = 0;
+        this.B = str;
+        this.C = str3;
+        if (TextUtils.isEmpty(str2)) {
+            return;
         }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.t65
-    public boolean b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
-        List<RobotSkillInfo> list;
-        aj9 r1;
-        RobotEntrance K;
-        aj9 r12;
-        RobotEntrance K2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof PbActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部N天未点击引导策略校验失败：当前Activity非PbActivity");
-                return false;
-            }
-            long j = SharedPrefHelper.getInstance().getLong("pb_friend_bot_bottom_no_use_time", -1L);
-            if (j == -1) {
-                a.a();
-                return false;
-            }
-            PbActivity pbActivity = (PbActivity) currentActivity;
-            PbModel J1 = pbActivity.J1();
-            List<RobotSkill> list2 = null;
-            if (J1 != null && (r12 = J1.r1()) != null && (K2 = r12.K()) != null) {
-                list = K2.robot_skill_info;
-            } else {
-                list = null;
-            }
-            PbModel J12 = pbActivity.J1();
-            if (J12 != null && (r1 = J12.r1()) != null && (K = r1.K()) != null) {
-                list2 = K.bottom_bar_robot_skill;
-            }
-            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
-                if (TimeHelper.getDayDifference(System.currentTimeMillis(), j) < 7 || SharedPrefHelper.getInstance().getInt("pb_friend_bot_bottom_no_use_count", 0) >= 3) {
-                    return false;
+        int hashCode = str2.hashCode();
+        if (hashCode != 2154) {
+            if (hashCode != 2161) {
+                if (hashCode == 2162) {
                 }
-                return true;
+                c2 = 65535;
+            } else {
+                if (str2.equals("CT")) {
+                    c2 = 1;
+                }
+                c2 = 65535;
             }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部N天未点击引导此时没有数据");
-            return false;
+        } else {
+            if (str2.equals("CM")) {
+                c2 = 2;
+            }
+            c2 = 65535;
         }
-        return invokeL.booleanValue;
+        if (c2 != 0) {
+            if (c2 != 1) {
+                this.A = 3;
+                return;
+            } else {
+                this.A = 2;
+                return;
+            }
+        }
+        this.A = 1;
+    }
+
+    public final void o(SocialType socialType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, socialType) == null) {
+            PassportSDK.getInstance().loadThirdPartyLogin(new c(this, socialType), socialType);
+        }
+    }
+
+    public static String j(Activity activity, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, activity, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() > 7) {
+                String substring = str.substring(0, 8);
+                String substring2 = str.substring(8, str.length());
+                String upperCase = SapiUtils.getClientId(activity).toUpperCase();
+                return substring + MD5Util.toMd5((substring2 + MD5Util.toMd5(upperCase.getBytes(), false)).getBytes(), false);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ai9
+    public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
+            this.a = loginDialogActivity;
+            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d0769, viewGroup, true);
+            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090890);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0908aa);
+            this.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0908b6);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090726);
+            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090727);
+            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908b7);
+            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908b5);
+            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092869);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091667);
+            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f091df3);
+            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f092a31);
+            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f092a34);
+            this.r = inflate.findViewById(R.id.obfuscated_res_0x7f092aaf);
+            this.s = inflate.findViewById(R.id.obfuscated_res_0x7f0917a2);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906d9);
+            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0906d5);
+            this.t = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092574);
+            this.u = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a0b);
+            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092575);
+            this.w = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090175);
+            this.x = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092576);
+            this.y = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d53);
+            this.z = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092577);
+            this.b.setOnClickListener(this);
+            this.d.setOnClickListener(this);
+            this.e.setOnClickListener(this);
+            this.c.setOnClickListener(this);
+            this.n.setOnClickListener(this);
+            this.o.setOnClickListener(this);
+            this.p.setOnClickListener(this);
+            this.q.setOnClickListener(this);
+            this.r.setOnClickListener(this);
+            this.s.setOnClickListener(this);
+            this.u.setOnClickListener(this);
+            this.w.setOnClickListener(this);
+            this.y.setOnClickListener(this);
+            this.j = (Vibrator) loginDialogActivity.getSystemService("vibrator");
+            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+            this.h.setTag(Boolean.FALSE);
+            this.h.setOnClickListener(new a(this));
+            g();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LoginDialogActivity loginDialogActivity = this.a;
+            BrowserHelper.startWebActivity((Context) loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0efa), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.P1();
+            this.a.finish();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.m.setText(this.B);
+            h(this.A);
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.T1();
+            PassportSDK passportSDK = PassportSDK.getInstance();
+            LoginDialogActivity loginDialogActivity = this.a;
+            passportSDK.loadOneKeyLogin(loginDialogActivity, j(loginDialogActivity, this.C), new b(this));
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            LoginDialogActivity loginDialogActivity = this.a;
+            BrowserHelper.startWebActivity((Context) loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0efe), "http://privacy.baidu.com/mdetail?id=288", false);
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            o(SocialType.QQ_SSO);
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            o(SocialType.WEIXIN);
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            o(SocialType.SINA_WEIBO_SSO);
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            o(SocialType.YY);
+        }
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!((Boolean) this.h.getTag()).booleanValue()) {
+                this.j.vibrate(300L);
+                Animation loadAnimation = AnimationUtils.loadAnimation(SelectorHelper.getContext(), R.anim.obfuscated_res_0x7f010113);
+                this.i = loadAnimation;
+                this.g.startAnimation(loadAnimation);
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.finish();
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.a, true);
+            loginActivityConfig.setLoginListener(this.a.M1());
+            loginActivityConfig.setJumpUrl(this.a.L1());
+            loginActivityConfig.setFrom(this.a.getPreExtraPageKey());
+            loginActivityConfig.setFromDialog("onkey_more");
+            loginActivityConfig.start();
+        }
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        this.u.setText(R.string.obfuscated_res_0x7f0f0efd);
+                        return;
+                    }
+                    return;
+                }
+                this.u.setText(R.string.obfuscated_res_0x7f0f0efc);
+                return;
+            }
+            this.u.setText(R.string.obfuscated_res_0x7f0f0efb);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            int i = this.A;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        LoginDialogActivity loginDialogActivity = this.a;
+                        BrowserHelper.startWebActivity((Context) loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0efd), "https://wap.cmpassport.com/resources/html/contract.html", false);
+                        return;
+                    }
+                    return;
+                }
+                LoginDialogActivity loginDialogActivity2 = this.a;
+                BrowserHelper.startWebActivity((Context) loginDialogActivity2, loginDialogActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0efc), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false);
+                return;
+            }
+            LoginDialogActivity loginDialogActivity3 = this.a;
+            BrowserHelper.startWebActivity((Context) loginDialogActivity3, loginDialogActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0efb), "https://ms.zzx9.cn/html/oauth/protocol2.html", false);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+            int id = view2.getId();
+            if (id != R.id.obfuscated_res_0x7f090890 && id != R.id.obfuscated_res_0x7f090726 && id != R.id.obfuscated_res_0x7f090727) {
+                if (id == R.id.obfuscated_res_0x7f091667) {
+                    if (f()) {
+                        i();
+                        return;
+                    }
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f091df3) {
+                    if (f()) {
+                        n();
+                        return;
+                    }
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f092a31) {
+                    if (f()) {
+                        p();
+                        return;
+                    }
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f092a34) {
+                    if (f()) {
+                        q();
+                        return;
+                    }
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f092aaf) {
+                    if (f()) {
+                        r();
+                        return;
+                    }
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f0917a2) {
+                    l();
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f091a0b) {
+                    k();
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f090175) {
+                    d();
+                    return;
+                } else if (id == R.id.obfuscated_res_0x7f091d53) {
+                    m();
+                    return;
+                } else {
+                    return;
+                }
+            }
+            e();
+        }
+    }
+
+    @Override // com.baidu.tieba.ai9
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            EMManager.from(this.c).setCardType(1).setCorner(R.string.J_X14).setBackGroundColor(R.color.CAM_X0207);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            EMManager.from(this.k).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X02);
+            EMManager.from(this.l).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
+            EMManager.from(this.m).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X03).setTextStyle(R.string.F_X02);
+            EMManager.from(this.n).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0302);
+            EMManager.from(this.t).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
+            EMManager.from(this.v).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
+            EMManager.from(this.x).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
+            EMManager.from(this.z).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
+            EMManager.from(this.u).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X02);
+            EMManager.from(this.w).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X02);
+            EMManager.from(this.y).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X02);
+        }
     }
 }

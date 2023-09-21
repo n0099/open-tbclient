@@ -34,7 +34,7 @@ public final class NewCapturedTypeConstructor implements CapturedTypeConstructor
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public ClassifierDescriptor mo2105getDeclarationDescriptor() {
+    public ClassifierDescriptor mo2107getDeclarationDescriptor() {
         return null;
     }
 
@@ -179,7 +179,7 @@ public final class NewCapturedTypeConstructor implements CapturedTypeConstructor
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getSupertypes */
-    public List<UnwrappedType> mo2106getSupertypes() {
+    public List<UnwrappedType> mo2108getSupertypes() {
         List<UnwrappedType> list = get_supertypes();
         if (list == null) {
             return CollectionsKt__CollectionsKt.emptyList();
@@ -204,9 +204,9 @@ public final class NewCapturedTypeConstructor implements CapturedTypeConstructor
                 /* JADX DEBUG: Return type fixed from 'java.util.List<kotlin.reflect.jvm.internal.impl.types.UnwrappedType>' to match base method */
                 @Override // kotlin.jvm.functions.Function0
                 public final List<? extends UnwrappedType> invoke() {
-                    List<UnwrappedType> mo2106getSupertypes = NewCapturedTypeConstructor.this.mo2106getSupertypes();
-                    ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2106getSupertypes, 10));
-                    for (UnwrappedType unwrappedType : mo2106getSupertypes) {
+                    List<UnwrappedType> mo2108getSupertypes = NewCapturedTypeConstructor.this.mo2108getSupertypes();
+                    ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2108getSupertypes, 10));
+                    for (UnwrappedType unwrappedType : mo2108getSupertypes) {
                         arrayList.add(unwrappedType.refine(kotlinTypeRefiner));
                     }
                     return arrayList;

@@ -1,68 +1,141 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
+import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
+import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imagepipeline.cache.DefaultBitmapMemoryCacheParamsSupplier;
-import com.facebook.imagepipeline.cache.MemoryCacheParams;
 /* loaded from: classes8.dex */
-public class uh7 extends DefaultBitmapMemoryCacheParamsSupplier {
+public class uh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ActivityManager a;
+    public TbPageContext a;
+    public final BdUniqueId b;
+    public b c;
+    public NetMessageListener d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uh7(ActivityManager activityManager) {
-        super(activityManager);
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(boolean z, yh7 yh7Var);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends NetMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uh7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(uh7 uh7Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uh7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uh7Var;
+        }
+
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                yh7 yh7Var = null;
+                boolean z = false;
+                if (responsedMessage != null && !responsedMessage.hasError() && responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() == this.a.b) {
+                    if (responsedMessage instanceof SearchPostForumHttpResponseMessage) {
+                        yh7Var = ((SearchPostForumHttpResponseMessage) responsedMessage).getSearchData();
+                    }
+                    if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
+                        yh7Var = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
+                    }
+                    if (this.a.c != null) {
+                        b bVar = this.a.c;
+                        if (yh7Var != null) {
+                            z = true;
+                        }
+                        bVar.a(z, yh7Var);
+                    }
+                } else if (this.a.c != null) {
+                    this.a.c.a(false, null);
+                }
+            }
+        }
+    }
+
+    public uh7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activityManager};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ActivityManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = activityManager;
+        a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public void e(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int min = Math.min(this.a.getMemoryClass() * 1048576, Integer.MAX_VALUE);
-            if (min < 33554432) {
-                return 4194304;
-            }
-            if (min < 67108864) {
-                return TbConfig.THREAD_GIF_MIN_USE_MEMORY;
-            }
-            return min / 8;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
         }
-        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.facebook.imagepipeline.cache.DefaultBitmapMemoryCacheParamsSupplier, com.facebook.common.internal.Supplier
-    public MemoryCacheParams get() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MemoryCacheParams memoryCacheParams = super.get();
-            return new MemoryCacheParams(a(), memoryCacheParams.maxCacheEntries, memoryCacheParams.maxEvictionQueueSize, memoryCacheParams.maxEvictionQueueEntries, memoryCacheParams.maxCacheEntrySize, memoryCacheParams.paramsCheckIntervalMs);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
         }
-        return (MemoryCacheParams) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (!BdUtilHelper.isNetOk()) {
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0e42);
+            return;
+        }
+        c();
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
+        SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
+        searchPostForumRequestMessage.setTag(this.b);
+        searchPostForumRequestMessage.set_word(str);
+        MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
 }

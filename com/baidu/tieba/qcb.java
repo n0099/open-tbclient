@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
 /* loaded from: classes7.dex */
 public class qcb {
     public static /* synthetic */ Interceptable $ic;
@@ -26,34 +24,6 @@ public class qcb {
                 return;
             }
         }
-        a = pbb.m();
-    }
-
-    public static void a(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
-            try {
-                if (!cursor.isClosed()) {
-                    cursor.close();
-                }
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        a = hdb.m();
     }
 }

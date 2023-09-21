@@ -1,49 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.common.config.AppIdentityManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes5.dex */
-public class eaa implements IDeviceInfoAppHost {
+public class eaa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IDeviceInfoAppHost.OAIDResult a;
-
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    public long getForceMappingCacheInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 86400000L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    public boolean useMapping() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public String q;
+    public String r;
+    public long s;
+    public long t;
 
     public eaa() {
         Interceptable interceptable = $ic;
@@ -55,79 +40,43 @@ public class eaa implements IDeviceInfoAppHost {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = "";
     }
 
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public String getAppName() {
-        InterceptResult invokeV;
+    public eaa(MsgContent msgContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return AppIdentityManager.getInstance().getAppName();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public String getEnUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                return AppCuidRuntime.getAppCuidManager().getEnCuid();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msgContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return "";
         }
-        return (String) invokeV.objValue;
+        this.k = "";
+        this.d = msgContent.title;
+        this.q = msgContent.url;
+        this.f = msgContent.src;
+        this.e = msgContent.text;
+        a(this);
     }
 
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public String getUA() {
-        InterceptResult invokeV;
+    public static void a(eaa eaaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DeviceInfoHelper.getUA();
+        if (interceptable == null || interceptable.invokeL(65538, null, eaaVar) == null) {
+            eaaVar.i = 0;
+            eaaVar.g = 4;
+            eaaVar.h = 4;
+            eaaVar.l = System.currentTimeMillis();
+            eaaVar.n = true;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String a(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && !TextUtils.isEmpty(str)) {
-                return new z40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(str.getBytes());
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public IDeviceInfoAppHost.OAIDResult getOAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            IDeviceInfoAppHost.OAIDResult oAIDResult = this.a;
-            if (oAIDResult != null) {
-                return oAIDResult;
-            }
-            if (PermissionUtil.isBrowseMode()) {
-                IDeviceInfoAppHost.OAIDResult oAIDResult2 = new IDeviceInfoAppHost.OAIDResult(true, "", "");
-                this.a = oAIDResult2;
-                return oAIDResult2;
-            }
-            String g = o20.f(AppRuntime.getAppContext()).g();
-            IDeviceInfoAppHost.OAIDResult oAIDResult3 = new IDeviceInfoAppHost.OAIDResult(true, g, a(g));
-            this.a = oAIDResult3;
-            return oAIDResult3;
-        }
-        return (IDeviceInfoAppHost.OAIDResult) invokeV.objValue;
     }
 }

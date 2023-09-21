@@ -9,12 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fc4 extends ic4 {
+public class fc4 extends hc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String b;
-    public int c;
-    public int d;
 
     public fc4() {
         Interceptable interceptable = $ic;
@@ -30,16 +28,14 @@ public class fc4 extends ic4 {
         }
     }
 
-    @Override // com.baidu.tieba.ic4
+    @Override // com.baidu.tieba.hc4
     public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("url", this.b);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
-                jSONObject.put("net", this.d);
+                jSONObject.put("key", this.b);
                 jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
             } catch (JSONException unused) {
             }

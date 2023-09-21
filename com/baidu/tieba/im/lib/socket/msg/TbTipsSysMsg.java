@@ -43,7 +43,7 @@ public class TbTipsSysMsg extends TbSysMsg {
                 return;
             }
         }
-        MSG_TYPE_LIST = Arrays.asList(-7014, Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_TIPS));
+        MSG_TYPE_LIST = Arrays.asList(Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MANAGER_TIPS), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_TIPS));
     }
 
     public TbTipsSysMsg() {
@@ -66,7 +66,7 @@ public class TbTipsSysMsg extends TbSysMsg {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             TbTipsSysMsg tbTipsSysMsg = new TbTipsSysMsg();
-            tbTipsSysMsg.setType(-7014);
+            tbTipsSysMsg.setType(TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MANAGER_TIPS);
             tbTipsSysMsg.tips = str;
             return tbTipsSysMsg;
         }

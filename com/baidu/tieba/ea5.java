@@ -1,69 +1,233 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PullViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ea5 extends ca5 {
+public class ea5 extends da5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public boolean A;
+    public boolean B;
+    public boolean C;
+    public CustomMessageListener D;
+    public CustomMessageListener E;
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ea5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ea5 ea5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ea5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ea5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                ea5 ea5Var = this.a;
+                if (ea5Var.B) {
+                    ea5Var.C(TbadkCoreApplication.getInst().getSkinType());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ea5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ea5 ea5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ea5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ea5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.h.setBackgroundColor(PullViewHelper.getInstance().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ea5(Drawable drawable, int i, int i2, int i3) {
-        super(drawable, i);
+    public ea5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.a = i2;
-        this.b = i3;
+        this.B = true;
+        this.C = false;
+        this.D = new a(this, 2016203);
+        this.E = new b(this, 2016204);
+        S(tbPageContext);
     }
 
-    @Override // com.baidu.tieba.ca5, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    @Override // com.baidu.tieba.da5
+    public void C(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            canvas.save();
-            canvas.translate(0.0f, this.c);
-            super.draw(canvas, charSequence, i, i2, f + this.a, i3, i4, i5, paint);
-            canvas.restore();
-        }
-    }
-
-    @Override // com.baidu.tieba.ca5, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            if (this.a == 0 && this.b == 0) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.C(i);
+            if (this.h != null && this.i != null) {
+                this.A = false;
+                if (!H()) {
+                    AnimationDrawable animationDrawable = PullViewHelper.getInstance().getAnimationDrawable(i);
+                    this.n = animationDrawable;
+                    if (animationDrawable != null) {
+                        this.A = true;
+                    } else {
+                        this.n = new AnimationDrawable();
+                    }
+                    if (!this.A) {
+                        this.n = PullViewHelper.getInstance().getDefaultAnimationDrawable(i);
+                    }
+                    this.n.setOneShot(false);
+                    this.i.setBackgroundDrawable(this.n);
+                }
+                if (this.C) {
+                    this.h.setBackgroundColor(0);
+                }
             }
-            return getDrawable().getBounds().width() + this.a + this.b;
         }
-        return invokeCommon.intValue;
+    }
+
+    public final void S(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            this.D.setTag(tbPageContext.getUniqueId());
+            this.E.setTag(tbPageContext.getUniqueId());
+            tbPageContext.registerListener(this.D);
+            tbPageContext.registerListener(this.E);
+        }
+    }
+
+    public void U(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.C = z;
+        }
+    }
+
+    public void V(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            CustomMessageListener customMessageListener = this.D;
+            if (customMessageListener != null) {
+                customMessageListener.setTag(bdUniqueId);
+            }
+            CustomMessageListener customMessageListener2 = this.E;
+            if (customMessageListener2 != null) {
+                customMessageListener2.setTag(bdUniqueId);
+            }
+            MessageManager.getInstance().registerListener(this.D);
+            MessageManager.getInstance().registerListener(this.E);
+        }
+    }
+
+    @Override // com.baidu.tieba.da5, com.baidu.tieba.qm
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.i.setBackgroundDrawable(null);
+            super.g(z);
+            this.B = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.da5, com.baidu.tieba.qm
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            super.r(z);
+            this.B = false;
+            if (!this.A) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                int i = this.p;
+                if (i != Integer.MIN_VALUE) {
+                    skinType = i;
+                }
+                C(skinType);
+            }
+        }
+    }
+
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.D);
+            MessageManager.getInstance().unRegisterListener(this.E);
+        }
+    }
+
+    @Override // com.baidu.tieba.da5, com.baidu.tieba.qm
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.s();
+            this.B = false;
+        }
     }
 }

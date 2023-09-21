@@ -51,42 +51,42 @@ import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.switchs.PbPreloadSwitch;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.a9b;
-import com.baidu.tieba.af5;
-import com.baidu.tieba.be5;
+import com.baidu.tieba.ae5;
 import com.baidu.tieba.ce5;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.ee5;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.ew4;
+import com.baidu.tieba.di;
+import com.baidu.tieba.dw4;
+import com.baidu.tieba.ef5;
+import com.baidu.tieba.er6;
+import com.baidu.tieba.fe5;
+import com.baidu.tieba.fra;
 import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.gd5;
-import com.baidu.tieba.gh5;
-import com.baidu.tieba.hd5;
-import com.baidu.tieba.id5;
-import com.baidu.tieba.j2a;
+import com.baidu.tieba.ge5;
+import com.baidu.tieba.h4a;
+import com.baidu.tieba.ie5;
 import com.baidu.tieba.j35;
-import com.baidu.tieba.jga;
-import com.baidu.tieba.lc5;
+import com.baidu.tieba.kd5;
+import com.baidu.tieba.kh5;
 import com.baidu.tieba.ld5;
-import com.baidu.tieba.lh5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.mc5;
-import com.baidu.tieba.nc5;
-import com.baidu.tieba.nh5;
+import com.baidu.tieba.md5;
+import com.baidu.tieba.o1a;
+import com.baidu.tieba.pc5;
 import com.baidu.tieba.pd5;
-import com.baidu.tieba.pe5;
-import com.baidu.tieba.qz9;
+import com.baidu.tieba.ph5;
+import com.baidu.tieba.pia;
+import com.baidu.tieba.qc5;
+import com.baidu.tieba.rc5;
+import com.baidu.tieba.rh5;
+import com.baidu.tieba.sab;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.tieba.td5;
-import com.baidu.tieba.uc5;
-import com.baidu.tieba.vd5;
+import com.baidu.tieba.te5;
 import com.baidu.tieba.wallet.YYLiveConfig;
-import com.baidu.tieba.wd5;
-import com.baidu.tieba.yd5;
-import com.baidu.tieba.yq6;
-import com.baidu.tieba.zoa;
+import com.baidu.tieba.xd5;
+import com.baidu.tieba.yc5;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,7 +134,7 @@ public final class TbSingleton {
     public PkgNameAndNodeInfoData acceleratorData;
     public long acceleratorItemId;
     public long activeTimeStamp;
-    public lc5 adFloatViewData;
+    public pc5 adFloatViewData;
     public long appFirstInstallTime;
     public long appLastUpdateTime;
     public int autoInLiveRoomTimes;
@@ -153,7 +153,7 @@ public final class TbSingleton {
     public Map<String, ItemInfo> frsItemInfoCache;
     public String funnySpriteAvatar;
     @Nullable
-    public gd5 funnySpriteConfig;
+    public kd5 funnySpriteConfig;
     public String funnySpriteName;
     @Nullable
     public GroupChatDisturbText groupChatDisturbText;
@@ -162,7 +162,7 @@ public final class TbSingleton {
     public boolean hasPerformInterestPanelShow;
     public boolean hasPerformedFirstLoginTest;
     public boolean hasShowPermDlg;
-    public id5 hotNotifyConfigData;
+    public md5 hotNotifyConfigData;
     public IconPopData iconPopData;
     public String invokeSource;
     public boolean isAddBanner;
@@ -191,7 +191,7 @@ public final class TbSingleton {
     public boolean isVideoChannelRelogin;
     public Boolean isYYLive;
     public int keyboardHeight;
-    public HashMap<String, gh5> lastColourHeaderConfigs;
+    public HashMap<String, kh5> lastColourHeaderConfigs;
     public long lastResumeTime;
     public LevePopData levePopData;
     public ArrayList<LightEmotionData> lightEmotionInfo;
@@ -203,20 +203,20 @@ public final class TbSingleton {
     public String mActivityId;
     public int mAdFloatTipsAppLimitCount;
     public int mAdFloatTipsDayLimitCount;
-    public nc5 mAdVertiSementConfigData;
+    public rc5 mAdVertiSementConfigData;
     public HashMap mAiBotDraft;
     public int mAnimFpsSyncThreshold;
     public String mBannerText;
     public final String mBaseActivity;
     public final String mBaseFragmentActivity;
-    public uc5 mBearSidConfigData;
+    public yc5 mBearSidConfigData;
     public String mCallFansTid;
     public boolean mCanCallFans;
     public boolean mCanWebViewActivityShowProgress;
     public ChannelConfigModel mChannelConfigModel;
     public int mChatGroupThreadHold;
     public boolean mClipboardDelayTime;
-    public HashMap<String, gh5> mColourHeaderConfigs;
+    public HashMap<String, kh5> mColourHeaderConfigs;
     public int mCpuFlopsDur;
     public int mCpuThreshold;
     public boolean mEnableBenchmark;
@@ -224,15 +224,15 @@ public final class TbSingleton {
     public boolean mForceRefreshHomeRecommend;
     public boolean mFrsContentViewLoadingShow;
     public int mFrsCurTabType;
-    public jga mFrsResponseData;
+    public pia mFrsResponseData;
     public boolean mFrsRootViewLoadingShow;
     public boolean mHasAgreeToPlay;
     public Map<Long, Integer> mHasClickRedPot;
     public Map<String, Date> mHasShowFid;
     public Map<Long, Date> mHasShowRedPot;
     public final BroadcastReceiver mHeadSetStateReceiver;
-    public hd5 mHomeInsertAdData;
-    public lh5 mHomeOperateData;
+    public ld5 mHomeInsertAdData;
+    public ph5 mHomeOperateData;
     public int mHomePageStyleAbTest;
     public List<String> mHostWhiteList;
     public String mHotSearch;
@@ -247,16 +247,15 @@ public final class TbSingleton {
     public int mIsNotchScreen;
     public boolean mIsOpenTrack;
     public boolean mIsOutNeedReuseVideoPlayer;
-    public boolean mIsShowVoiceFloat;
     public boolean mIsSplashClick;
     public boolean mIsVideoCardMute;
     public boolean mIsVisitPreviewServer;
     public String mLFUser;
     public String mLFUserTaskId;
-    public nh5 mLiveActivityGuide;
+    public rh5 mLiveActivityGuide;
     public int mLoopChatroomFrequency;
     public String mLoopRoomMsgId;
-    public pd5 mMainTabPopConfig;
+    public td5 mMainTabPopConfig;
     public MercatorModel.MercatorData mMercatorData;
     public String mMissionEntranceIcon;
     public String mMissionEntranceObjSource;
@@ -264,15 +263,15 @@ public final class TbSingleton {
     public NewGodData mNewGodData;
     public NewUserRedPackageData mNewUserRedPackageData;
     public j35 mPbToHomeUpdateData;
-    public qz9 mPcdnConfigData;
+    public o1a mPcdnConfigData;
     public String mProfileGameCenterKey;
     public String mPubEnvValue;
     public RobotMallConfig mRobotMallConfig;
     public HashMap mRoomDraft;
     public String mSampleId;
     public int mSendMsgCountToRemindSubscribe;
-    public vd5 mShakeData;
-    public wd5 mSharePanelConfData;
+    public zd5 mShakeData;
+    public ae5 mSharePanelConfData;
     public String mSharePanelText;
     public boolean mShowCallFans;
     public boolean mShowShoubaiDynamicGuide;
@@ -284,13 +283,13 @@ public final class TbSingleton {
     public boolean mTipsAutoPlayInVideoChannel;
     public boolean mTipsAutoPlayInVideoMiddle;
     public JSONArray mUbsABTestJsonArray;
-    public j2a mUploadAndClearModule;
-    public yq6 mVideoCover;
-    public LinkedList<ew4> mVideoWatchTimeRecord;
+    public h4a mUploadAndClearModule;
+    public er6 mVideoCover;
+    public LinkedList<dw4> mVideoWatchTimeRecord;
     public String mWalletSignLink;
-    public ee5 mWlConfigData;
+    public ie5 mWlConfigData;
     public YYLiveConfig mYYLiveConfig;
-    public a9b mYYLiveTabConfig;
+    public sab mYYLiveTabConfig;
     public String msgCount;
     public boolean needRefreshForumSquare;
     public JSONObject newGodDataJson;
@@ -298,7 +297,7 @@ public final class TbSingleton {
     public boolean personalizedRecSwitchChanged;
     public long pushDialogLoopTime;
     public long pushDialogShowTime;
-    public td5 pushStrategyConfig;
+    public xd5 pushStrategyConfig;
     public String pushTid;
     public Bundle reloginVideoMiddleBundle;
     public String schemaForStartOtherAppAfterSwanApp;
@@ -310,19 +309,19 @@ public final class TbSingleton {
     public String singleSendMessageTips;
     public int spriteDelayFirst;
     public volatile JSONObject syncJson;
-    public af5 syncModel;
+    public ef5 syncModel;
     public HashMap<String, String> tempStrings;
     public boolean triggerInterestPanelYDaysConfig;
-    public yd5 upgradePopWindowConfig;
+    public ce5 upgradePopWindowConfig;
     public UserGrowthTaskListData userGrowthTaskListData;
     public UserPendantData userPendantData;
     public RedIcon videoChannelAttentionRedIcon;
     public RedIcon videoChannelRecommendRedIcon;
-    public be5 videoEventsConfig;
+    public fe5 videoEventsConfig;
     public int videoRedIconInterval;
     public String videoTestType;
     @Nullable
-    public ce5 voiceRoomConfig;
+    public ge5 voiceRoomConfig;
     public int worksAddTopicMaxNum;
     public String yyCloudSwitch;
 
@@ -472,7 +471,7 @@ public final class TbSingleton {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, null) == null) {
                 SharedPrefHelper.getInstance().putBoolean(KEY_SHOW_MESSAGE_NOTIFY_UPGRADE, false);
-                ((pe5) ServiceManager.getService(pe5.a)).b(false);
+                ((te5) ServiceManager.getService(te5.a)).b(false);
             }
         }
 
@@ -568,6 +567,7 @@ public final class TbSingleton {
         this.enableVideoVerticalPreload = false;
         this.fromWhichSearchSource = "";
         this.isItemTabVisible = false;
+        this.mRobotMallConfig = RobotMallConfig.DEFAULT;
         this.isDanmuSwitchOpen = true;
         this.isMercatorRequestFromHomePageTabFeedFragment = false;
         this.shouldShowHomeLocalCompleteInfoCard = true;
@@ -709,7 +709,7 @@ public final class TbSingleton {
         String string = SharedPrefHelper.getInstance().getString("key_home_color_header_config", "");
         if (!TextUtils.isEmpty(string)) {
             try {
-                setColourHeaderConfig(gh5.s(new JSONObject(string)));
+                setColourHeaderConfig(kh5.s(new JSONObject(string)));
             } catch (JSONException unused) {
             }
         }
@@ -717,13 +717,13 @@ public final class TbSingleton {
 
     private String getAdStrWithLimit() {
         InterceptResult invokeV;
-        nc5 nc5Var;
+        rc5 rc5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (StringHelper.isTaday(SharedPrefHelper.getInstance().getLong("key_pb_falling_ad_feedback_click_time", 0L)) || (nc5Var = this.mAdVertiSementConfigData) == null) {
+            if (StringHelper.isTaday(SharedPrefHelper.getInstance().getLong("key_pb_falling_ad_feedback_click_time", 0L)) || (rc5Var = this.mAdVertiSementConfigData) == null) {
                 return "";
             }
-            return nc5Var.c();
+            return rc5Var.c();
         }
         return (String) invokeV.objValue;
     }
@@ -775,7 +775,7 @@ public final class TbSingleton {
     }
 
     public void clearVideoRecord() {
-        LinkedList<ew4> linkedList;
+        LinkedList<dw4> linkedList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (linkedList = this.mVideoWatchTimeRecord) != null) {
             linkedList.clear();
@@ -812,13 +812,13 @@ public final class TbSingleton {
         return (String) invokeV.objValue;
     }
 
-    public nc5 getAdVertiSementData() {
+    public rc5 getAdVertiSementData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mAdVertiSementConfigData;
         }
-        return (nc5) invokeV.objValue;
+        return (rc5) invokeV.objValue;
     }
 
     public int getAnimFpsSyncThreshold() {
@@ -915,7 +915,7 @@ public final class TbSingleton {
         return invokeV.booleanValue;
     }
 
-    public HashMap<String, gh5> getColourHeaderConfig() {
+    public HashMap<String, kh5> getColourHeaderConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
@@ -1039,13 +1039,13 @@ public final class TbSingleton {
         return (Map) invokeV.objValue;
     }
 
-    public jga getFrsResponseData() {
+    public pia getFrsResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             return this.mFrsResponseData;
         }
-        return (jga) invokeV.objValue;
+        return (pia) invokeV.objValue;
     }
 
     public String getFunnySpriteAvatar() {
@@ -1058,13 +1058,13 @@ public final class TbSingleton {
     }
 
     @Nullable
-    public gd5 getFunnySpriteConfig() {
+    public kd5 getFunnySpriteConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.funnySpriteConfig;
         }
-        return (gd5) invokeV.objValue;
+        return (kd5) invokeV.objValue;
     }
 
     public String getFunnySpriteName() {
@@ -1122,35 +1122,35 @@ public final class TbSingleton {
         return (Map) invokeV.objValue;
     }
 
-    public mc5 getHomeAdFloatViewItemData() {
+    public qc5 getHomeAdFloatViewItemData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            lc5 lc5Var = this.adFloatViewData;
-            if (lc5Var != null) {
-                return lc5Var.a();
+            pc5 pc5Var = this.adFloatViewData;
+            if (pc5Var != null) {
+                return pc5Var.a();
             }
             return null;
         }
-        return (mc5) invokeV.objValue;
+        return (qc5) invokeV.objValue;
     }
 
-    public hd5 getHomeInsertAdData() {
+    public ld5 getHomeInsertAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             return this.mHomeInsertAdData;
         }
-        return (hd5) invokeV.objValue;
+        return (ld5) invokeV.objValue;
     }
 
-    public lh5 getHomeOperateData() {
+    public ph5 getHomeOperateData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             return this.mHomeOperateData;
         }
-        return (lh5) invokeV.objValue;
+        return (ph5) invokeV.objValue;
     }
 
     public int getHomePageStyleAbTest() {
@@ -1171,13 +1171,13 @@ public final class TbSingleton {
         return (List) invokeV.objValue;
     }
 
-    public id5 getHotNotifyConfig() {
+    public md5 getHotNotifyConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             return this.hotNotifyConfigData;
         }
-        return (id5) invokeV.objValue;
+        return (md5) invokeV.objValue;
     }
 
     public String getHotSearch() {
@@ -1279,7 +1279,7 @@ public final class TbSingleton {
         return (String) invokeV.objValue;
     }
 
-    public HashMap<String, gh5> getLastColourHeaderConfigs() {
+    public HashMap<String, kh5> getLastColourHeaderConfigs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
@@ -1354,13 +1354,13 @@ public final class TbSingleton {
         return (String) invokeV.objValue;
     }
 
-    public pd5 getMainTabPopConfig() {
+    public td5 getMainTabPopConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
             return this.mMainTabPopConfig;
         }
-        return (pd5) invokeV.objValue;
+        return (td5) invokeV.objValue;
     }
 
     public MercatorModel.MercatorData getMercatorData() {
@@ -1403,11 +1403,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
-            j2a j2aVar = this.mUploadAndClearModule;
-            if (j2aVar == null) {
+            h4a h4aVar = this.mUploadAndClearModule;
+            if (h4aVar == null) {
                 return null;
             }
-            return j2aVar.a();
+            return h4aVar.a();
         }
         return (String) invokeV.objValue;
     }
@@ -1457,17 +1457,17 @@ public final class TbSingleton {
         return invokeV.intValue;
     }
 
-    public mc5 getPbAdFloatViewItemData() {
+    public qc5 getPbAdFloatViewItemData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) {
-            lc5 lc5Var = this.adFloatViewData;
-            if (lc5Var != null) {
-                return lc5Var.b();
+            pc5 pc5Var = this.adFloatViewData;
+            if (pc5Var != null) {
+                return pc5Var.b();
             }
             return null;
         }
-        return (mc5) invokeV.objValue;
+        return (qc5) invokeV.objValue;
     }
 
     public j35 getPbToHomeUpdateData() {
@@ -1479,13 +1479,13 @@ public final class TbSingleton {
         return (j35) invokeV.objValue;
     }
 
-    public qz9 getPcdnConfigData() {
+    public o1a getPcdnConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
             return this.mPcdnConfigData;
         }
-        return (qz9) invokeV.objValue;
+        return (o1a) invokeV.objValue;
     }
 
     public int getPersonalizedRecSwitch() {
@@ -1535,17 +1535,17 @@ public final class TbSingleton {
     }
 
     @NonNull
-    public td5 getPushStrategyConfig() {
+    public xd5 getPushStrategyConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
-            td5 td5Var = this.pushStrategyConfig;
-            if (td5Var != null) {
-                return td5Var;
+            xd5 xd5Var = this.pushStrategyConfig;
+            if (xd5Var != null) {
+                return xd5Var;
             }
-            return td5.d;
+            return xd5.d;
         }
-        return (td5) invokeV.objValue;
+        return (xd5) invokeV.objValue;
     }
 
     public String getPushTid() {
@@ -1566,6 +1566,7 @@ public final class TbSingleton {
         return (Bundle) invokeV.objValue;
     }
 
+    @NonNull
     public RobotMallConfig getRobotMallConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1611,22 +1612,22 @@ public final class TbSingleton {
         return invokeV.intValue;
     }
 
-    public vd5 getShakeData() {
+    public zd5 getShakeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048676, this)) == null) {
             return this.mShakeData;
         }
-        return (vd5) invokeV.objValue;
+        return (zd5) invokeV.objValue;
     }
 
-    public wd5 getSharePanelConfData() {
+    public ae5 getSharePanelConfData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
             return this.mSharePanelConfData;
         }
-        return (wd5) invokeV.objValue;
+        return (ae5) invokeV.objValue;
     }
 
     public String getSharePanelText() {
@@ -1678,13 +1679,13 @@ public final class TbSingleton {
         return (JSONObject) invokeV.objValue;
     }
 
-    public af5 getSyncModel() {
+    public ef5 getSyncModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) {
             return this.syncModel;
         }
-        return (af5) invokeV.objValue;
+        return (ef5) invokeV.objValue;
     }
 
     public TiebaPlusConfigData getTiebaPlusConfigData() {
@@ -1717,17 +1718,17 @@ public final class TbSingleton {
         return (JSONArray) invokeV.objValue;
     }
 
-    public yd5 getUpgradePopWindowConfig() {
+    public ce5 getUpgradePopWindowConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) {
-            yd5 yd5Var = this.upgradePopWindowConfig;
-            if (yd5Var != null) {
-                return yd5Var;
+            ce5 ce5Var = this.upgradePopWindowConfig;
+            if (ce5Var != null) {
+                return ce5Var;
             }
-            return yd5.i;
+            return ce5.i;
         }
-        return (yd5) invokeV.objValue;
+        return (ce5) invokeV.objValue;
     }
 
     public UserGrowthTaskListData getUserGrowthTaskListData() {
@@ -1782,25 +1783,25 @@ public final class TbSingleton {
         return (RedIcon) invokeV.objValue;
     }
 
-    public yq6 getVideoCover() {
+    public er6 getVideoCover() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) {
             return this.mVideoCover;
         }
-        return (yq6) invokeV.objValue;
+        return (er6) invokeV.objValue;
     }
 
-    public be5 getVideoEventsConfig() {
+    public fe5 getVideoEventsConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
             return this.videoEventsConfig;
         }
-        return (be5) invokeV.objValue;
+        return (fe5) invokeV.objValue;
     }
 
-    public LinkedList<ew4> getVideoRecordList() {
+    public LinkedList<dw4> getVideoRecordList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048697, this)) == null) {
@@ -1828,17 +1829,17 @@ public final class TbSingleton {
     }
 
     @NonNull
-    public ce5 getVoiceRoomConfig() {
+    public ge5 getVoiceRoomConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) {
-            ce5 ce5Var = this.voiceRoomConfig;
-            if (ce5Var != null) {
-                return ce5Var;
+            ge5 ge5Var = this.voiceRoomConfig;
+            if (ge5Var != null) {
+                return ge5Var;
             }
-            return ce5.a;
+            return ge5.a;
         }
-        return (ce5) invokeV.objValue;
+        return (ge5) invokeV.objValue;
     }
 
     public String getWalletSignLink() {
@@ -1850,13 +1851,13 @@ public final class TbSingleton {
         return (String) invokeV.objValue;
     }
 
-    public ee5 getWlConfigData() {
+    public ie5 getWlConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048702, this)) == null) {
             return this.mWlConfigData;
         }
-        return (ee5) invokeV.objValue;
+        return (ie5) invokeV.objValue;
     }
 
     public int getWorksAddTopicMaxNum() {
@@ -1877,13 +1878,13 @@ public final class TbSingleton {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public a9b getYYLiveTabConfig() {
+    public sab getYYLiveTabConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) {
             return this.mYYLiveTabConfig;
         }
-        return (a9b) invokeV.objValue;
+        return (sab) invokeV.objValue;
     }
 
     public boolean hasAgreeToPlay() {
@@ -1953,11 +1954,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048717, this)) == null) {
-            j2a j2aVar = this.mUploadAndClearModule;
-            if (j2aVar == null) {
+            h4a h4aVar = this.mUploadAndClearModule;
+            if (h4aVar == null) {
                 return false;
             }
-            return j2aVar.b();
+            return h4aVar.b();
         }
         return invokeV.booleanValue;
     }
@@ -1975,7 +1976,7 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048720, this)) == null) {
-            return zoa.a(AppRuntime.getAppContext(), "DEBUG_TOOL_MODE");
+            return fra.a(AppRuntime.getAppContext(), "DEBUG_TOOL_MODE");
         }
         return invokeV.booleanValue;
     }
@@ -2161,19 +2162,10 @@ public final class TbSingleton {
         return invokeV.booleanValue;
     }
 
-    public boolean isShowVoiceFloat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048742, this)) == null) {
-            return this.mIsShowVoiceFloat;
-        }
-        return invokeV.booleanValue;
-    }
-
     public boolean isSlideAnimLocalSwitchOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048744, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048743, this)) == null) {
             return SharedPrefHelper.getInstance().getBoolean("local_slide_animation__switch", false);
         }
         return invokeV.booleanValue;
@@ -2182,7 +2174,7 @@ public final class TbSingleton {
     public boolean isSplashShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048745, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048744, this)) == null) {
             if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !LogoActivityConfig.IS_HOT_SPLASH_SHOW) {
                 return false;
             }
@@ -2194,7 +2186,7 @@ public final class TbSingleton {
     public boolean isTipsAutoPlayInVideoChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048746, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048745, this)) == null) {
             return this.mTipsAutoPlayInVideoChannel;
         }
         return invokeV.booleanValue;
@@ -2203,7 +2195,7 @@ public final class TbSingleton {
     public boolean isTipsAutoPlayInVideoMiddle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048747, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048746, this)) == null) {
             return this.mTipsAutoPlayInVideoMiddle;
         }
         return invokeV.booleanValue;
@@ -2212,12 +2204,12 @@ public final class TbSingleton {
     public boolean isUploadOffPack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048748, this)) == null) {
-            j2a j2aVar = this.mUploadAndClearModule;
-            if (j2aVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048747, this)) == null) {
+            h4a h4aVar = this.mUploadAndClearModule;
+            if (h4aVar == null) {
                 return false;
             }
-            return j2aVar.c();
+            return h4aVar.c();
         }
         return invokeV.booleanValue;
     }
@@ -2225,7 +2217,7 @@ public final class TbSingleton {
     public boolean isUserBan() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048749, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048748, this)) == null) {
             return this.isUserBan;
         }
         return invokeV.booleanValue;
@@ -2234,7 +2226,7 @@ public final class TbSingleton {
     public boolean isUserGrowthOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048750, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048749, this)) == null) {
             if (getUserGrowthTaskListData() == null || getUserGrowthTaskListData().getGrowthSwitch() != 1) {
                 return false;
             }
@@ -2246,7 +2238,7 @@ public final class TbSingleton {
     public boolean isVideoCardMute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048752, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048751, this)) == null) {
             return this.mIsVideoCardMute;
         }
         return invokeV.booleanValue;
@@ -2255,7 +2247,7 @@ public final class TbSingleton {
     public boolean isVideoChannelRelogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048753, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048752, this)) == null) {
             return this.isVideoChannelRelogin;
         }
         return invokeV.booleanValue;
@@ -2265,7 +2257,7 @@ public final class TbSingleton {
     public boolean isVisitPreviewServer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048754, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048753, this)) == null) {
             return this.mIsVisitPreviewServer;
         }
         return invokeV.booleanValue;
@@ -2274,7 +2266,7 @@ public final class TbSingleton {
     public boolean isYYSwitchStatusIsOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048755, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048754, this)) == null) {
             getYYSwitchStatus();
             return StringHelper.equals(this.yyCloudSwitch, "yy");
         }
@@ -2284,7 +2276,7 @@ public final class TbSingleton {
     public boolean needUploadMoreLog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048756, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048755, this)) == null) {
             if (SwitchManager.getInstance().findType("need_more_logs") == 1) {
                 return true;
             }
@@ -2295,7 +2287,7 @@ public final class TbSingleton {
 
     public void registerScreenSizeChangeTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048761, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048760, this) == null) {
             SafeHandler.getInst().post(new Runnable(this) { // from class: com.baidu.tbadk.TbSingleton.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -2366,14 +2358,14 @@ public final class TbSingleton {
 
     public void saveHomeRecommendItemClickTime() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048764, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048763, this) == null) {
             SharedPrefHelper.getInstance().putLong("key_home_recommend_item_click_time", System.currentTimeMillis());
         }
     }
 
     public void setActiveTimeStamp() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048765, this) == null) && getActiveTimeStamp() == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048764, this) == null) && getActiveTimeStamp() == 0) {
             SharedPrefHelper.getInstance().putLong("key_active_timestamp", System.currentTimeMillis());
         }
     }
@@ -2540,7 +2532,7 @@ public final class TbSingleton {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (ei.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return -1;
             }
             return SharedPrefHelper.getInstance().getInt(str, -1);
@@ -2575,7 +2567,7 @@ public final class TbSingleton {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048712, this, str)) == null) {
-            if (ei.isEmpty(str) || getAnimComputedFps(str) < 0) {
+            if (di.isEmpty(str) || getAnimComputedFps(str) < 0) {
                 return false;
             }
             return true;
@@ -2617,7 +2609,7 @@ public final class TbSingleton {
         InterceptResult invokeL;
         UserGrowthTaskListData.UserGrowthTaskData userGrowthTaskData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048751, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048750, this, str)) == null) {
             if (StringUtils.isNull(str) || !isUserGrowthOpen() || (userGrowthTaskData = getUserGrowthTaskData(str)) == null || userGrowthTaskData.getDotaskStatus() == 2) {
                 return true;
             }
@@ -2628,7 +2620,7 @@ public final class TbSingleton {
 
     public void parseGroupChatDisturbText(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048758, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048757, this, jSONObject) == null) {
             try {
                 String optString = jSONObject.optString(KEY_CHATROOM_MASK_SWITCH);
                 if (!TextUtils.isEmpty(optString)) {
@@ -2642,42 +2634,42 @@ public final class TbSingleton {
 
     public void removeAcceleratorServer(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048762, this, str) == null) && this.mAcceleratorMap.containsKey(str)) {
+        if ((interceptable == null || interceptable.invokeL(1048761, this, str) == null) && this.mAcceleratorMap.containsKey(str)) {
             this.mAcceleratorMap.remove(str);
         }
     }
 
     public void removeTempString(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048763, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048762, this, str) == null) {
             this.tempStrings.remove(str);
         }
     }
 
     public void setActivityId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048766, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048765, this, str) == null) {
             this.mActivityId = str;
         }
     }
 
-    public void setAdFloatViewData(lc5 lc5Var) {
+    public void setAdFloatViewData(pc5 pc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048767, this, lc5Var) == null) {
-            this.adFloatViewData = lc5Var;
+        if (interceptable == null || interceptable.invokeL(1048766, this, pc5Var) == null) {
+            this.adFloatViewData = pc5Var;
         }
     }
 
-    public void setAdVertiSementData(nc5 nc5Var) {
+    public void setAdVertiSementData(rc5 rc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048768, this, nc5Var) == null) {
-            this.mAdVertiSementConfigData = nc5Var;
+        if (interceptable == null || interceptable.invokeL(1048767, this, rc5Var) == null) {
+            this.mAdVertiSementConfigData = rc5Var;
         }
     }
 
     public void setAnimAverageFpsThreshold(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048770, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048769, this, i) == null) {
             this.mAnimFpsSyncThreshold = i;
             SharedPrefHelper.getInstance().putInt("anim_avg_fps_threshold", i);
         }
@@ -2685,14 +2677,14 @@ public final class TbSingleton {
 
     public void setAuditPackageSwitch(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048774, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048773, this, z) == null) {
             this.mIsAuditPackageSwitchOn = z;
         }
     }
 
     public void setBaiduIdForAnti(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048775, this, str) == null) && SharedPrefHelper.getInstance().getString("key_baiduid_for_anti", null) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048774, this, str) == null) && SharedPrefHelper.getInstance().getString("key_baiduid_for_anti", null) == null) {
             SharedPrefHelper.getInstance().putString("key_baiduid_for_anti", str);
             this.baiduIdForAnti = str;
         }
@@ -2700,7 +2692,7 @@ public final class TbSingleton {
 
     public void setBaiduidCookieSwitch(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048776, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048775, this, i) == null) {
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -2711,77 +2703,77 @@ public final class TbSingleton {
 
     public void setBannerText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048778, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048777, this, str) == null) {
             this.mBannerText = str;
         }
     }
 
     public void setBusinessAccount(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048779, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048778, this, z) == null) {
             this.isBusinessAccount = z;
         }
     }
 
     public void setCanShowPermDlg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048780, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048779, this, z) == null) {
             this.canShowPermDlg = z;
         }
     }
 
     public void setCanWebViewActivityShowProgress(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048781, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048780, this, z) == null) {
             this.mCanWebViewActivityShowProgress = z;
         }
     }
 
     public void setChannelConfigModel(ChannelConfigModel channelConfigModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048782, this, channelConfigModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048781, this, channelConfigModel) == null) {
             this.mChannelConfigModel = channelConfigModel;
         }
     }
 
     public void setChatGroupThreadHold(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048783, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048782, this, i) == null) {
             this.mChatGroupThreadHold = i;
         }
     }
 
     public void setChatTabPage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048784, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048783, this, z) == null) {
             this.isChatTabPage = z;
         }
     }
 
     public void setClipboardDelayTime(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048785, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048784, this, z) == null) {
             this.mClipboardDelayTime = z;
         }
     }
 
-    public void setColourHeaderConfig(HashMap<String, gh5> hashMap) {
+    public void setColourHeaderConfig(HashMap<String, kh5> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048786, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048785, this, hashMap) == null) {
             this.mColourHeaderConfigs = hashMap;
         }
     }
 
     public void setContinuousAccessTips(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048787, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048786, this, str) == null) {
             this.continuousAccessTips = str;
         }
     }
 
     public void setCpuFlopsDuration(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048788, this, i) != null) || i < 0) {
+        if ((interceptable != null && interceptable.invokeI(1048787, this, i) != null) || i < 0) {
             return;
         }
         this.mCpuFlopsDur = i;
@@ -2790,7 +2782,7 @@ public final class TbSingleton {
 
     public void setCpuThreshold(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048789, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048788, this, i) == null) {
             this.mCpuThreshold = i;
             SharedPrefHelper.getInstance().putInt("cpu_flops_dura_threshold", i);
         }
@@ -2798,14 +2790,14 @@ public final class TbSingleton {
 
     public void setCurrentClickTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048790, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048789, this, j) == null) {
             this.currentClickTime = j;
         }
     }
 
     public void setDanmuSwitchOpen(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048791, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048790, this, z) == null) {
             this.isDanmuSwitchOpen = z;
             SharedPrefHelper.getInstance().putBoolean("key_video_danmu_switch", z);
         }
@@ -2813,14 +2805,14 @@ public final class TbSingleton {
 
     public void setDayCount(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048792, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048791, this, str) == null) {
             this.dayCount = str;
         }
     }
 
     public void setDuXiaoManActivityTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048793, this, j) == null) && j != this.duXiaoManActivityTimestamp) {
+        if ((interceptable == null || interceptable.invokeJ(1048792, this, j) == null) && j != this.duXiaoManActivityTimestamp) {
             this.duXiaoManActivityTimestamp = j;
             SharedPrefHelper.getInstance().putLong("key_doxiaoman_activity_timestamp", j);
         }
@@ -2828,7 +2820,7 @@ public final class TbSingleton {
 
     public void setEnableBenchmark(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048794, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048793, this, z) == null) {
             this.mEnableBenchmark = z;
             SharedPrefHelper.getInstance().putBoolean("enable_benchmark", z);
         }
@@ -2836,126 +2828,126 @@ public final class TbSingleton {
 
     public void setEnableVideoVerticalPreload(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048795, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048794, this, z) == null) {
             this.enableVideoVerticalPreload = z;
         }
     }
 
     public void setFirstEnterBigPicPage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048796, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048795, this, z) == null) {
             this.isFirstEnterBigPicPage = z;
         }
     }
 
     public void setFirstOpenScheme(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048797, this, uri) == null) {
+        if (interceptable == null || interceptable.invokeL(1048796, this, uri) == null) {
             this.firstOpenScheme = uri;
         }
     }
 
     public void setFlutterPluginLoadSuccess(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048798, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048797, this, z) == null) {
             this.mIsFlutterPluginLoadSuccess = z;
         }
     }
 
     public void setForceRefreshHomeRecommend(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048799, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048798, this, z) == null) {
             this.mForceRefreshHomeRecommend = z;
         }
     }
 
     public void setFriendBotPostConfigData(@Nullable FriendBotPostConfigData friendBotPostConfigData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048800, this, friendBotPostConfigData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048799, this, friendBotPostConfigData) == null) {
             this.friendBotPostConfigData = friendBotPostConfigData;
         }
     }
 
     public void setFromWhichSearchSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048801, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048800, this, str) == null) {
             this.fromWhichSearchSource = str;
         }
     }
 
     public void setFrsContentViewLoadingShow(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048802, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048801, this, z) == null) {
             this.mFrsContentViewLoadingShow = z;
         }
     }
 
     public void setFrsCurTabType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048803, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048802, this, i) == null) {
             this.mFrsCurTabType = i;
         }
     }
 
     public void setFrsRootViewLoadingShow(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048805, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048804, this, z) == null) {
             this.mFrsRootViewLoadingShow = z;
         }
     }
 
     public void setFunnySpriteAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048806, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048805, this, str) == null) {
             this.funnySpriteAvatar = str;
         }
     }
 
-    public void setFunnySpriteConfig(@NonNull gd5 gd5Var) {
+    public void setFunnySpriteConfig(@NonNull kd5 kd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048807, this, gd5Var) == null) {
-            this.funnySpriteConfig = gd5Var;
+        if (interceptable == null || interceptable.invokeL(1048806, this, kd5Var) == null) {
+            this.funnySpriteConfig = kd5Var;
         }
     }
 
     public void setFunnySpriteName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048808, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048807, this, str) == null) {
             this.funnySpriteName = str;
         }
     }
 
     public void setGuideTips(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048809, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048808, this, str) == null) {
             this.guideTips = str;
         }
     }
 
     public void setHasAgreeToPlay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048810, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048809, this, z) == null) {
             this.mHasAgreeToPlay = z;
         }
     }
 
     public void setHasClickRedPot(Map<Long, Integer> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048811, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048810, this, map) == null) {
             this.mHasClickRedPot = map;
         }
     }
 
     public void setHasDownloadEmotion(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048812, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048811, this, z) == null) {
             this.hasDownloadEmotion = z;
         }
     }
 
     public void setHasPerformedFirstLoginTest(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048813, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048812, this, z) == null) {
             this.hasPerformedFirstLoginTest = z;
             SharedPrefHelper.getInstance().putBoolean("has_performed_first_login_test", z);
         }
@@ -2963,175 +2955,175 @@ public final class TbSingleton {
 
     public void setHasShowPermDlg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048814, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048813, this, z) == null) {
             this.hasShowPermDlg = z;
         }
     }
 
     public void setHasShowRedPot(Map<Long, Date> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048815, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048814, this, map) == null) {
             this.mHasShowRedPot = map;
         }
     }
 
     public void setHasShowTip(Map<String, Date> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048816, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048815, this, map) == null) {
             this.mHasShowFid = map;
         }
     }
 
-    public void setHomeInsertAdData(hd5 hd5Var) {
+    public void setHomeInsertAdData(ld5 ld5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048817, this, hd5Var) == null) {
-            this.mHomeInsertAdData = hd5Var;
+        if (interceptable == null || interceptable.invokeL(1048816, this, ld5Var) == null) {
+            this.mHomeInsertAdData = ld5Var;
         }
     }
 
-    public void setHomeOperateData(lh5 lh5Var) {
+    public void setHomeOperateData(ph5 ph5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048818, this, lh5Var) == null) {
-            this.mHomeOperateData = lh5Var;
+        if (interceptable == null || interceptable.invokeL(1048817, this, ph5Var) == null) {
+            this.mHomeOperateData = ph5Var;
         }
     }
 
     public void setHomePageStyleAbTest(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048819, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048818, this, i) == null) {
             this.mHomePageStyleAbTest = i;
         }
     }
 
     public void setHostWhiteList(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048820, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048819, this, list) == null) {
             this.mHostWhiteList = list;
         }
     }
 
-    public void setHotNotifyConfig(id5 id5Var) {
+    public void setHotNotifyConfig(md5 md5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048821, this, id5Var) == null) {
-            this.hotNotifyConfigData = id5Var;
+        if (interceptable == null || interceptable.invokeL(1048820, this, md5Var) == null) {
+            this.hotNotifyConfigData = md5Var;
         }
     }
 
     public void setHotSearch(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048822, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048821, this, str) == null) {
             this.mHotSearch = str;
         }
     }
 
     public void setIconPopData(IconPopData iconPopData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048823, this, iconPopData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048822, this, iconPopData) == null) {
             this.iconPopData = iconPopData;
         }
     }
 
     public void setInvokeSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048824, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048823, this, str) == null) {
             this.invokeSource = str;
         }
     }
 
     public void setIsJumpFromVideoMiddleView(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048825, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048824, this, z) == null) {
             this.mIsJumpFromVideoMiddleView = z;
         }
     }
 
     public void setIsNeedRemindLiveRoom(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048826, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048825, this, z) == null) {
             this.mIsNeedRemindLiveRoom = z;
         }
     }
 
     public void setIsNeedReuseVideoPlayer(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048827, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048826, this, z) == null) {
             this.mIsInNeedReuseVideoPlayer = z;
         }
     }
 
     public void setIsNeedShowPbCommentThreadId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048828, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048827, this, str) == null) {
             this.mIsNeedShowCommentThreadId = str;
         }
     }
 
     public void setIsOpenTrack(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048829, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048828, this, z) == null) {
             this.mIsOpenTrack = z;
         }
     }
 
     public void setIsOutNeedReuseVideoPlayer(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048830, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048829, this, z) == null) {
             this.mIsOutNeedReuseVideoPlayer = z;
         }
     }
 
     public void setIsRecommendPage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048831, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048830, this, z) == null) {
             this.isRecommendPage = z;
         }
     }
 
     public void setKeyboardHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048832, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048831, this, i) == null) {
             this.keyboardHeight = i;
         }
     }
 
     public void setLFUser(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048833, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048832, this, str) == null) {
             this.mLFUser = str;
         }
     }
 
     public void setLFUserTaskId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048834, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048833, this, str) == null) {
             this.mLFUserTaskId = str;
         }
     }
 
-    public void setLastColourHeaderConfigs(HashMap<String, gh5> hashMap) {
+    public void setLastColourHeaderConfigs(HashMap<String, kh5> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048835, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048834, this, hashMap) == null) {
             this.lastColourHeaderConfigs = hashMap;
         }
     }
 
     public void setLastResumeTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048836, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048835, this, j) == null) {
             this.lastResumeTime = j;
         }
     }
 
     public void setLevePopData(LevePopData levePopData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048837, this, levePopData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048836, this, levePopData) == null) {
             this.levePopData = levePopData;
         }
     }
 
     public void setLightEmotionInfo(ArrayList<LightEmotionData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048838, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048837, this, arrayList) == null) {
             this.lightEmotionInfo.clear();
             this.lightEmotionInfo.addAll(arrayList);
         }
@@ -3139,14 +3131,14 @@ public final class TbSingleton {
 
     public void setLightEmotionJsonStr(JSONLikeSerializable jSONLikeSerializable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048839, this, jSONLikeSerializable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048838, this, jSONLikeSerializable) == null) {
             this.lightEmotionJsonStr = jSONLikeSerializable;
         }
     }
 
     public void setLiveFollowSecondFloor(List<AlaLiveInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048840, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048839, this, list) == null) {
             this.liveFollowSecondFloor.clear();
             this.liveFollowSecondFloor.addAll(list);
         }
@@ -3154,14 +3146,14 @@ public final class TbSingleton {
 
     public void setLiveForumMap(HashMap<Long, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048841, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048840, this, hashMap) == null) {
             this.liveForumMap = hashMap;
         }
     }
 
     public void setLiveIndexSecondFloor(List<AlaLiveInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048842, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048841, this, list) == null) {
             this.liveIndexSecondFloor.clear();
             this.liveIndexSecondFloor.addAll(list);
         }
@@ -3169,112 +3161,112 @@ public final class TbSingleton {
 
     public void setLoopChatroomFrequency(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048843, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048842, this, i) == null) {
             this.mLoopChatroomFrequency = i;
         }
     }
 
     public void setLoopMsgRoomMsgId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048844, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048843, this, str) == null) {
             this.mLoopRoomMsgId = str;
         }
     }
 
-    public void setMainTabPopConfig(pd5 pd5Var) {
+    public void setMainTabPopConfig(td5 td5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048845, this, pd5Var) == null) {
-            this.mMainTabPopConfig = pd5Var;
+        if (interceptable == null || interceptable.invokeL(1048844, this, td5Var) == null) {
+            this.mMainTabPopConfig = td5Var;
         }
     }
 
     public void setMercatorData(MercatorModel.MercatorData mercatorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048846, this, mercatorData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048845, this, mercatorData) == null) {
             this.mMercatorData = mercatorData;
         }
     }
 
     public void setMercatorRequestFromHomePageTabFeedFragment(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048847, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048846, this, z) == null) {
             this.isMercatorRequestFromHomePageTabFeedFragment = z;
         }
     }
 
     public void setMissionEntranceIcon(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048848, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048847, this, str) == null) {
             this.mMissionEntranceIcon = str;
         }
     }
 
     public void setMissionEntranceObjSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048849, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048848, this, str) == null) {
             this.mMissionEntranceObjSource = str;
         }
     }
 
     public void setMissionEntranceUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048850, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048849, this, str) == null) {
             this.mMissionEntranceUrl = str;
         }
     }
 
     public void setMsgCount(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048851, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048850, this, str) == null) {
             this.msgCount = str;
         }
     }
 
     public void setMyTabClicked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048852, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048851, this, z) == null) {
             this.isMyTabClicked = z;
         }
     }
 
     public void setNeedJoinChatRoom(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048853, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048852, this, z) == null) {
             this.isNeedJoinChatRoom = z;
         }
     }
 
     public void setNewGodData(NewGodData newGodData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048854, this, newGodData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048853, this, newGodData) == null) {
             this.mNewGodData = newGodData;
         }
     }
 
     public void setNewGodDataJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048855, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048854, this, jSONObject) == null) {
             this.newGodDataJson = jSONObject;
         }
     }
 
     public void setNewUser(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048856, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048855, this, z) == null) {
             this.isNewUser = z;
         }
     }
 
     public void setNewUserRedPackageData(NewUserRedPackageData newUserRedPackageData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048857, this, newUserRedPackageData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048856, this, newUserRedPackageData) == null) {
             this.mNewUserRedPackageData = newUserRedPackageData;
         }
     }
 
     public void setNewUserRedPackageShowed(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048858, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048857, this, z) == null) {
             this.isNewUserRedPackageShowed = z;
             SharedPrefHelper.getInstance().putBoolean("key_task_system_new_user_popup_show_number", z);
         }
@@ -3282,23 +3274,23 @@ public final class TbSingleton {
 
     public void setPageCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048859, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048858, this, i) == null) {
             this.pageCount = i;
         }
     }
 
     public void setPbToHomeUpdateData(j35 j35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048860, this, j35Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048859, this, j35Var) == null) {
             this.mPbToHomeUpdateData = j35Var;
         }
     }
 
     public void setPcdnConfigData(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048861, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048860, this, jSONObject) == null) {
             if (this.mPcdnConfigData == null) {
-                this.mPcdnConfigData = new qz9();
+                this.mPcdnConfigData = new o1a();
             }
             this.mPcdnConfigData.d(jSONObject);
         }
@@ -3306,168 +3298,161 @@ public final class TbSingleton {
 
     public void setProfileGameCenterKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048862, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048861, this, str) == null) {
             this.mProfileGameCenterKey = str;
         }
     }
 
     public void setPubEnvValue(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048863, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048862, this, str) == null) {
             this.mPubEnvValue = str;
         }
     }
 
     public void setPushDialogLoopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048864, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048863, this, j) == null) {
             this.pushDialogLoopTime = j;
         }
     }
 
     public void setPushDialogShowTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048865, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048864, this, j) == null) {
             this.pushDialogShowTime = j;
         }
     }
 
     public void setPushOrSchemeLog(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048866, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048865, this, z) == null) {
             this.isPushOrSchemeLog = z;
         }
     }
 
-    public void setPushStrategyConfig(td5 td5Var) {
+    public void setPushStrategyConfig(xd5 xd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048867, this, td5Var) == null) {
-            this.pushStrategyConfig = td5Var;
+        if (interceptable == null || interceptable.invokeL(1048866, this, xd5Var) == null) {
+            this.pushStrategyConfig = xd5Var;
         }
     }
 
     public void setPushTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048868, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048867, this, str) == null) {
             this.pushTid = str;
         }
     }
 
     public void setReloginVideoMiddleBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048869, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048868, this, bundle) == null) {
             this.reloginVideoMiddleBundle = bundle;
         }
     }
 
-    public void setRotMallConfig(RobotMallConfig robotMallConfig) {
+    public void setRotMallConfig(@NonNull RobotMallConfig robotMallConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048871, this, robotMallConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(1048870, this, robotMallConfig) == null) {
             this.mRobotMallConfig = robotMallConfig;
         }
     }
 
     public void setSampleId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048872, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048871, this, str) == null) {
             this.mSampleId = str;
         }
     }
 
     public void setSchemaForStartOtherAppAfterSwanApp(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048873, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048872, this, str) == null) {
             this.schemaForStartOtherAppAfterSwanApp = str;
         }
     }
 
     public void setSecond(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048874, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048873, this, i) == null) {
             this.second = i;
         }
     }
 
     public void setSendMsgCountToRemindSubscribe(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048875, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048874, this, i) == null) {
             this.mSendMsgCountToRemindSubscribe = i;
         }
     }
 
-    public void setShakeData(vd5 vd5Var) {
+    public void setShakeData(zd5 zd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048876, this, vd5Var) == null) {
-            this.mShakeData = vd5Var;
+        if (interceptable == null || interceptable.invokeL(1048875, this, zd5Var) == null) {
+            this.mShakeData = zd5Var;
         }
     }
 
-    public void setSharePanelConfData(wd5 wd5Var) {
+    public void setSharePanelConfData(ae5 ae5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048877, this, wd5Var) == null) {
-            this.mSharePanelConfData = wd5Var;
+        if (interceptable == null || interceptable.invokeL(1048876, this, ae5Var) == null) {
+            this.mSharePanelConfData = ae5Var;
         }
     }
 
     public void setSharePanelText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048878, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048877, this, str) == null) {
             this.mSharePanelText = str;
         }
     }
 
     public void setShouldShowHomeLocalCompleteInfoCard(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048879, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048878, this, z) == null) {
             this.shouldShowHomeLocalCompleteInfoCard = z;
         }
     }
 
     public void setShowConcernLiveSecondFloor(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048880, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048879, this, z) == null) {
             this.isShowConcernLiveSecondFloor = z;
         }
     }
 
     public void setShowRecommendLiveSecondFloor(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048881, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048880, this, z) == null) {
             this.isShowRecommendLiveSecondFloor = z;
         }
     }
 
     public void setShowShoubaiDynamicGuide(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048882, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048881, this, z) == null) {
             this.mShowShoubaiDynamicGuide = z;
-        }
-    }
-
-    public void setShowVoiceFloat(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048883, this, z) == null) {
-            this.mIsShowVoiceFloat = z;
         }
     }
 
     public void setShowedInterestGuide(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048884, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048882, this, z) == null) {
             this.showedInterestGuide = z;
         }
     }
 
     public void setSingleSendMessageTips(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048885, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048883, this, str) == null) {
             this.singleSendMessageTips = str;
         }
     }
 
     public void setSlideAnimLocalSwitch(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048886, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048884, this, z) == null) {
             SharedPrefHelper.getInstance().putBoolean("local_slide_animation__switch", z);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156674, Boolean.valueOf(z)));
         }
@@ -3475,21 +3460,21 @@ public final class TbSingleton {
 
     public void setSyncJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048887, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048885, this, jSONObject) == null) {
             this.syncJson = jSONObject;
         }
     }
 
-    public void setSyncModel(af5 af5Var) {
+    public void setSyncModel(ef5 ef5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048888, this, af5Var) == null) {
-            this.syncModel = af5Var;
+        if (interceptable == null || interceptable.invokeL(1048886, this, ef5Var) == null) {
+            this.syncModel = ef5Var;
         }
     }
 
     public void setSyncYYSwitch(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048889, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048887, this, z) == null) {
             this.isYYLive = Boolean.valueOf(z);
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
             sharedPrefHelper.putBoolean("key_is_yy_live" + TbadkCoreApplication.getCurrentAccount(), z);
@@ -3498,63 +3483,63 @@ public final class TbSingleton {
 
     public void setTiebaPlusConfigData(TiebaPlusConfigData tiebaPlusConfigData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048891, this, tiebaPlusConfigData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048889, this, tiebaPlusConfigData) == null) {
             this.mTiebaPlusConfigData = tiebaPlusConfigData;
         }
     }
 
     public void setTimeMap(Map<String, Date> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048892, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048890, this, map) == null) {
             this.mTimeMap = map;
         }
     }
 
     public void setTipsAutoPlayInVideoChannel(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048893, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048891, this, z) == null) {
             this.mTipsAutoPlayInVideoChannel = z;
         }
     }
 
     public void setTipsAutoPlayInVideoMiddle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048894, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048892, this, z) == null) {
             this.mTipsAutoPlayInVideoMiddle = z;
         }
     }
 
     public void setUbsABTestJsonArray(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048895, this, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeL(1048893, this, jSONArray) == null) {
             this.mUbsABTestJsonArray = jSONArray;
         }
     }
 
-    public void setUpgradePopWindowConfig(yd5 yd5Var) {
+    public void setUpgradePopWindowConfig(ce5 ce5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048896, this, yd5Var) == null) {
-            this.upgradePopWindowConfig = yd5Var;
+        if (interceptable == null || interceptable.invokeL(1048894, this, ce5Var) == null) {
+            this.upgradePopWindowConfig = ce5Var;
         }
     }
 
-    public void setUploadAndClearModule(j2a j2aVar) {
+    public void setUploadAndClearModule(h4a h4aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048897, this, j2aVar) == null) {
-            this.mUploadAndClearModule = j2aVar;
+        if (interceptable == null || interceptable.invokeL(1048895, this, h4aVar) == null) {
+            this.mUploadAndClearModule = h4aVar;
         }
     }
 
     public void setUserBan(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048898, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048896, this, z) == null) {
             this.isUserBan = z;
         }
     }
 
     public void setUserGrowthTaskListData(UserGrowthTaskListData userGrowthTaskListData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048899, this, userGrowthTaskListData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048897, this, userGrowthTaskListData) == null) {
             this.userGrowthTaskListData = userGrowthTaskListData;
             if (userGrowthTaskListData != null) {
                 SharedPrefHelper.getInstance().putInt("key_person_growth_switch", userGrowthTaskListData.getGrowthSwitch());
@@ -3566,117 +3551,117 @@ public final class TbSingleton {
 
     public void setUserPendantData(@NonNull UserPendantData userPendantData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048900, this, userPendantData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048898, this, userPendantData) == null) {
             this.userPendantData = userPendantData;
         }
     }
 
     public void setUserSmallTheme(SmallTailThemeData smallTailThemeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048901, this, smallTailThemeData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048899, this, smallTailThemeData) == null) {
             this.mSmallTailThemeData = smallTailThemeData;
         }
     }
 
     public void setVideoCardMute(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048902, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048900, this, z) == null) {
             this.mIsVideoCardMute = z;
         }
     }
 
     public void setVideoChannelRelogin(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048905, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048903, this, z) == null) {
             this.isVideoChannelRelogin = z;
         }
     }
 
-    public void setVideoCover(yq6 yq6Var) {
+    public void setVideoCover(er6 er6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048906, this, yq6Var) == null) {
-            this.mVideoCover = yq6Var;
+        if (interceptable == null || interceptable.invokeL(1048904, this, er6Var) == null) {
+            this.mVideoCover = er6Var;
         }
     }
 
-    public void setVideoEventsConfig(be5 be5Var) {
+    public void setVideoEventsConfig(fe5 fe5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048907, this, be5Var) == null) {
-            be5 be5Var2 = this.videoEventsConfig;
-            if (be5Var2 == null) {
-                this.videoEventsConfig = be5Var;
-            } else if (!be5Var2.a(be5Var)) {
-                this.videoEventsConfig = be5Var;
+        if (interceptable == null || interceptable.invokeL(1048905, this, fe5Var) == null) {
+            fe5 fe5Var2 = this.videoEventsConfig;
+            if (fe5Var2 == null) {
+                this.videoEventsConfig = fe5Var;
+            } else if (!fe5Var2.a(fe5Var)) {
+                this.videoEventsConfig = fe5Var;
             }
         }
     }
 
     public void setVideoRedIconInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048908, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048906, this, i) == null) {
             this.videoRedIconInterval = i;
         }
     }
 
     public void setVideoTestType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048909, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048907, this, str) == null) {
             this.videoTestType = str;
         }
     }
 
     public void setVisitPreviewServer(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048910, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048908, this, z) == null) {
             this.mIsVisitPreviewServer = z;
         }
     }
 
-    public void setVoiceRoomConfig(@Nullable ce5 ce5Var) {
+    public void setVoiceRoomConfig(@Nullable ge5 ge5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048911, this, ce5Var) == null) {
-            this.voiceRoomConfig = ce5Var;
+        if (interceptable == null || interceptable.invokeL(1048909, this, ge5Var) == null) {
+            this.voiceRoomConfig = ge5Var;
         }
     }
 
     public void setWalletSignLink(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048912, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048910, this, str) == null) {
             this.mWalletSignLink = str;
         }
     }
 
-    public void setWlConfigData(ee5 ee5Var) {
+    public void setWlConfigData(ie5 ie5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048913, this, ee5Var) == null) {
-            this.mWlConfigData = ee5Var;
+        if (interceptable == null || interceptable.invokeL(1048911, this, ie5Var) == null) {
+            this.mWlConfigData = ie5Var;
         }
     }
 
     public void setWorksAddTopicMaxNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048914, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048912, this, i) == null) {
             this.worksAddTopicMaxNum = i;
         }
     }
 
     public void setYYLiveConfig(YYLiveConfig yYLiveConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048915, this, yYLiveConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(1048913, this, yYLiveConfig) == null) {
             this.mYYLiveConfig = yYLiveConfig;
         }
     }
 
-    public void setYYLiveTabConfig(a9b a9bVar) {
+    public void setYYLiveTabConfig(sab sabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048916, this, a9bVar) == null) {
-            this.mYYLiveTabConfig = a9bVar;
+        if (interceptable == null || interceptable.invokeL(1048914, this, sabVar) == null) {
+            this.mYYLiveTabConfig = sabVar;
         }
     }
 
     public void setYyCloudSwitch(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048917, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048915, this, str) == null) {
             this.yyCloudSwitch = str;
             SharedPrefHelper.getInstance().putString("key_yy_cloud_switch", str);
         }
@@ -3727,7 +3712,7 @@ public final class TbSingleton {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048743, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048742, this)) == null) {
             boolean z2 = false;
             if (SharedPrefHelper.getInstance().getInt("slide_local_switch_is_clicked", 0) == 1) {
                 z = true;
@@ -3751,7 +3736,7 @@ public final class TbSingleton {
 
     public void onAccountChange() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048757, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048756, this) == null) {
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
             this.isYYLive = Boolean.valueOf(sharedPrefHelper.getBoolean("key_is_yy_live" + TbadkCoreApplication.getCurrentAccount(), true));
         }
@@ -3787,7 +3772,7 @@ public final class TbSingleton {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (ei.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return 0;
             }
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
@@ -3800,7 +3785,7 @@ public final class TbSingleton {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (ei.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return 0;
             }
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
@@ -3829,7 +3814,7 @@ public final class TbSingleton {
 
     public void setVideoChannelRecommendRedIcon(RedIcon redIcon) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048904, this, redIcon) == null) {
+        if (interceptable == null || interceptable.invokeL(1048902, this, redIcon) == null) {
             this.videoChannelRecommendRedIcon = redIcon;
             if (redIcon != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921577, redIcon.text));
@@ -3839,11 +3824,11 @@ public final class TbSingleton {
         }
     }
 
-    public boolean interestGuideShowCountInLimit(String str, ld5 ld5Var) {
+    public boolean interestGuideShowCountInLimit(String str, pd5 pd5Var) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048710, this, str, ld5Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048710, this, str, pd5Var)) == null) {
             if (StringUtils.isNull(str)) {
                 return true;
             }
@@ -3857,12 +3842,12 @@ public final class TbSingleton {
                     e.printStackTrace();
                     i = 0;
                 }
-                if (i <= ld5Var.c) {
-                    if (i2 >= ld5Var.d - 1) {
+                if (i <= pd5Var.c) {
+                    if (i2 >= pd5Var.d - 1) {
                         return false;
                     }
                     i2++;
-                } else if (i2 < ld5Var.d) {
+                } else if (i2 < pd5Var.d) {
                     return true;
                 } else {
                     return false;
@@ -3880,7 +3865,7 @@ public final class TbSingleton {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048730, this)) == null) {
-            ld5 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
+            pd5 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
             if (interestBoardConfigData == null) {
                 return false;
             }
@@ -3924,7 +3909,7 @@ public final class TbSingleton {
 
     public void putVideoRecord(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048759, this, str, i) != null) || ei.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLI(1048758, this, str, i) != null) || di.isEmpty(str)) {
             return;
         }
         if (this.mVideoWatchTimeRecord == null) {
@@ -3932,54 +3917,54 @@ public final class TbSingleton {
         }
         int size = this.mVideoWatchTimeRecord.size();
         boolean z = false;
-        ew4 ew4Var = null;
+        dw4 dw4Var = null;
         int i2 = size - 1;
         int i3 = i2;
         while (true) {
             if (i3 < 0) {
                 break;
             }
-            ew4 ew4Var2 = this.mVideoWatchTimeRecord.get(i3);
-            if (str.equals(ew4Var2.a())) {
-                if (ew4Var2.b() == i) {
+            dw4 dw4Var2 = this.mVideoWatchTimeRecord.get(i3);
+            if (str.equals(dw4Var2.a())) {
+                if (dw4Var2.b() == i) {
                     return;
                 }
                 if (i3 == i2) {
                     z = true;
                 }
-                ew4Var = ew4Var2;
+                dw4Var = dw4Var2;
             } else {
                 i3--;
             }
         }
-        if (ew4Var != null) {
-            ew4Var.c(i);
+        if (dw4Var != null) {
+            dw4Var.c(i);
             if (!z) {
-                this.mVideoWatchTimeRecord.remove(ew4Var);
-                this.mVideoWatchTimeRecord.addLast(ew4Var);
+                this.mVideoWatchTimeRecord.remove(dw4Var);
+                this.mVideoWatchTimeRecord.addLast(dw4Var);
                 return;
             }
             return;
         }
-        ew4 ew4Var3 = new ew4(str, i);
+        dw4 dw4Var3 = new dw4(str, i);
         if (size >= 10) {
             this.mVideoWatchTimeRecord.pollFirst();
-            this.mVideoWatchTimeRecord.addLast(ew4Var3);
+            this.mVideoWatchTimeRecord.addLast(dw4Var3);
             return;
         }
-        this.mVideoWatchTimeRecord.addLast(ew4Var3);
+        this.mVideoWatchTimeRecord.addLast(dw4Var3);
     }
 
     public void recordAcceleratorServer(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048760, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048759, this, str, str2) == null) {
             this.mAcceleratorMap.put(str, str2);
         }
     }
 
     public void setAiBotDraft(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048769, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048768, this, str, str2) == null) {
             if (this.mAiBotDraft == null) {
                 this.mAiBotDraft = new HashMap();
             }
@@ -3989,7 +3974,7 @@ public final class TbSingleton {
 
     public void setAnimAvgFps(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048771, this, str, i) == null) && !ei.isEmpty(str) && i >= 0) {
+        if ((interceptable == null || interceptable.invokeLI(1048770, this, str, i) == null) && !di.isEmpty(str) && i >= 0) {
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
             sharedPrefHelper.putInt(str + "_anim_benchmark_avg_suffix", i);
         }
@@ -3997,7 +3982,7 @@ public final class TbSingleton {
 
     public void setAnimAvgFpsCount(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048772, this, str, i) == null) && !ei.isEmpty(str) && i >= 0) {
+        if ((interceptable == null || interceptable.invokeLI(1048771, this, str, i) == null) && !di.isEmpty(str) && i >= 0) {
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
             sharedPrefHelper.putInt(str + "_anim_benchmark_times_suffix", i);
         }
@@ -4005,7 +3990,7 @@ public final class TbSingleton {
 
     public void setAnimComputedFps(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048773, this, str, i) != null) || ei.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLI(1048772, this, str, i) != null) || di.isEmpty(str)) {
             return;
         }
         SharedPrefHelper.getInstance().putInt(str, i);
@@ -4016,7 +4001,7 @@ public final class TbSingleton {
 
     public void setRoomDraft(Long l, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048870, this, l, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048869, this, l, str) == null) {
             if (this.mRoomDraft == null) {
                 this.mRoomDraft = new HashMap();
             }
@@ -4026,27 +4011,27 @@ public final class TbSingleton {
 
     public void setTempString(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048890, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048888, this, str, str2) == null) {
             this.tempStrings.put(str, str2);
         }
     }
 
     public void setBaiduidCookieSwitch(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048777, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048776, this, z) == null) {
             this.isBaiduidCookieSwitch = z;
         }
     }
 
-    public void setFrsResponseData(jga jgaVar) {
+    public void setFrsResponseData(pia piaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048804, this, jgaVar) == null) {
-            this.mFrsResponseData = jgaVar;
-            if (jgaVar != null && jgaVar.getForum() != null && !TextUtils.isEmpty(jgaVar.getForum().getName())) {
-                if (jgaVar.itemInfo != null) {
-                    this.frsItemInfoCache.put(jgaVar.getForum().getName(), jgaVar.itemInfo);
+        if (interceptable == null || interceptable.invokeL(1048803, this, piaVar) == null) {
+            this.mFrsResponseData = piaVar;
+            if (piaVar != null && piaVar.getForum() != null && !TextUtils.isEmpty(piaVar.getForum().getName())) {
+                if (piaVar.itemInfo != null) {
+                    this.frsItemInfoCache.put(piaVar.getForum().getName(), piaVar.itemInfo);
                 } else {
-                    this.frsItemInfoCache.remove(jgaVar.getForum().getName());
+                    this.frsItemInfoCache.remove(piaVar.getForum().getName());
                 }
             }
         }
@@ -4055,7 +4040,7 @@ public final class TbSingleton {
     public void setVideoChannelAttentionRedIcon(RedIcon redIcon) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048903, this, redIcon) == null) {
+        if (interceptable == null || interceptable.invokeL(1048901, this, redIcon) == null) {
             if (redIcon == null && this.videoChannelAttentionRedIcon == null) {
                 z = false;
             } else {
@@ -4076,7 +4061,7 @@ public final class TbSingleton {
 
     public void startOneGame() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048918, this) != null) || !this.mStartGameClicked) {
+        if ((interceptable != null && interceptable.invokeV(1048916, this) != null) || !this.mStartGameClicked) {
             return;
         }
         this.mStartGameClicked = false;

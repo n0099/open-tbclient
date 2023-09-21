@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardPicView;
+import com.baidu.tieba.feed.component.CardAbstractView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jd7 extends yb7<CardPicView, j77> {
+public class jd7 extends hc7<CardAbstractView, h77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class jd7 extends yb7<CardPicView, j77> {
         }
     }
 
-    @Override // com.baidu.tieba.yb7, com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.hc7, com.baidu.tieba.xc7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            de7.j(a);
+            me7.l(a, null, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.xc7
     /* renamed from: e */
-    public void b(@NonNull CardPicView cardPicView, @NonNull j77 j77Var) {
+    public void b(@NonNull CardAbstractView cardAbstractView, @NonNull h77 h77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPicView, j77Var) == null) {
-            cardPicView.f(j77Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAbstractView, h77Var) == null) {
+            cardAbstractView.f(h77Var);
         }
     }
 }

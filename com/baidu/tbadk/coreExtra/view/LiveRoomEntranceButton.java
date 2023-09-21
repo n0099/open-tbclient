@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.view.LiveRoomEntranceButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ul5;
+import com.baidu.tieba.yl5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import kotlin.Metadata;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u0001:\u0002'(B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\b\u0010!\u001a\u00020\"H\u0002J\b\u0010#\u001a\u00020\"H\u0002J\b\u0010$\u001a\u00020\"H\u0002J\b\u0010%\u001a\u00020\"H\u0002J\b\u0010&\u001a\u00020\"H\u0002R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\t\u001a\u0004\u0018\u00010\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R(\u0010\u0014\u001a\u0004\u0018\u00010\u00132\b\u0010\u0012\u001a\u0004\u0018\u00010\u0013@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u001c\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006)"}, d2 = {"Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton;", "Landroid/widget/RelativeLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "centerContainer", "Landroid/widget/LinearLayout;", "clickCallBack", "Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;", "getClickCallBack", "()Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;", "setClickCallBack", "(Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;)V", "closeImg", "Landroid/widget/ImageView;", "iconImg", "value", "Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$LiveRoomEntranceData;", "liveRoomEntranceData", "getLiveRoomEntranceData", "()Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$LiveRoomEntranceData;", "setLiveRoomEntranceData", "(Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$LiveRoomEntranceData;)V", "logData", "", "getLogData", "()Ljava/lang/Object;", "setLogData", "(Ljava/lang/Object;)V", "tipTextView", "Landroid/widget/TextView;", "initCenterContainer", "", "initCloseImg", "initIconImg", "initRoot", "initTipText", "ClickCallBack", "LiveRoomEntranceData", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\b\u0018\u00002\u00020\u0001:\u0002()B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010!\u001a\u00020\"J\b\u0010#\u001a\u00020\"H\u0002J\b\u0010$\u001a\u00020\"H\u0002J\b\u0010%\u001a\u00020\"H\u0002J\b\u0010&\u001a\u00020\"H\u0002J\b\u0010'\u001a\u00020\"H\u0002R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\t\u001a\u0004\u0018\u00010\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R(\u0010\u0014\u001a\u0004\u0018\u00010\u00132\b\u0010\u0012\u001a\u0004\u0018\u00010\u0013@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u001c\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006*"}, d2 = {"Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton;", "Landroid/widget/RelativeLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "centerContainer", "Landroid/widget/LinearLayout;", "clickCallBack", "Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;", "getClickCallBack", "()Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;", "setClickCallBack", "(Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$ClickCallBack;)V", "closeImg", "Landroid/widget/ImageView;", "iconImg", "value", "Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$LiveRoomEntranceData;", "liveRoomEntranceData", "getLiveRoomEntranceData", "()Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$LiveRoomEntranceData;", "setLiveRoomEntranceData", "(Lcom/baidu/tbadk/coreExtra/view/LiveRoomEntranceButton$LiveRoomEntranceData;)V", "logData", "", "getLogData", "()Ljava/lang/Object;", "setLogData", "(Ljava/lang/Object;)V", "tipTextView", "Landroid/widget/TextView;", "hideCloseBtn", "", "initCenterContainer", "initCloseImg", "initIconImg", "initRoot", "initTipText", "ClickCallBack", "LiveRoomEntranceData", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
 public final class LiveRoomEntranceButton extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -238,18 +238,18 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
         this.b = new ImageView(context);
         this.c = new TextView(context);
         this.d = new ImageView(context);
-        e();
-        a();
-        d();
-        g();
+        f();
         b();
+        e();
+        h();
+        c();
     }
 
     public /* synthetic */ LiveRoomEntranceButton(Context context, AttributeSet attributeSet, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void c(LiveRoomEntranceButton this$0, View view2) {
+    public static final void d(LiveRoomEntranceButton this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -260,7 +260,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
         }
     }
 
-    public static final void f(LiveRoomEntranceButton this$0, View view2) {
+    public static final void g(LiveRoomEntranceButton this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -274,6 +274,13 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.setVisibility(8);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             this.a.setLayoutParams(layoutParams);
@@ -282,10 +289,10 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
         }
     }
 
-    public final void d() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ul5.a(this.b, "enter_live_room_animation.png");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            yl5.a(this.b, "enter_live_room_animation.png");
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
             this.a.addView(this.b, new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize));
         }
@@ -318,9 +325,9 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
         return invokeV.objValue;
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0103), WebPManager.ResourceStateType.NORMAL_PRESS));
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds52);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
@@ -328,7 +335,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
             layoutParams.addRule(15);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             addView(this.d, layoutParams);
-            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ng5
+            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rg5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -336,16 +343,16 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        LiveRoomEntranceButton.c(LiveRoomEntranceButton.this, view2);
+                        LiveRoomEntranceButton.d(LiveRoomEntranceButton.this, view2);
                     }
                 }
             });
         }
     }
 
-    public final void g() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
             this.a.addView(this.c, layoutParams);
@@ -355,11 +362,11 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
         }
     }
 
-    public final void e() {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             EMManager.from(this).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0619).setBackGroundColor(R.color.CAM_X0604);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.og5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sg5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -367,7 +374,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        LiveRoomEntranceButton.f(LiveRoomEntranceButton.this, view2);
+                        LiveRoomEntranceButton.g(LiveRoomEntranceButton.this, view2);
                     }
                 }
             });
@@ -376,14 +383,14 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
 
     public final void setClickCallBack(ClickCallBack clickCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, clickCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, clickCallBack) == null) {
             this.e = clickCallBack;
         }
     }
 
     public final void setLiveRoomEntranceData(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.f = aVar;
             if (aVar != null) {
                 this.c.setText(aVar.b());
@@ -393,7 +400,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
 
     public final void setLogData(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, obj) == null) {
             this.g = obj;
         }
     }

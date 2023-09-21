@@ -1,95 +1,220 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.view.MotionEvent;
+import android.content.res.Resources;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
+import androidx.annotation.IdRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.videoplay.danmu.VideoDanmuController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vva implements View.OnTouchListener {
-    public static /* synthetic */ Interceptable $ic;
+public class vva {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int e = 2131233327;
+    public static final int f = 2131233326;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Spannable a;
-    public e26 b;
+    public View a;
+    public ImageView b;
+    public b c;
+    public CustomMessageListener d;
 
-    public vva(Spannable spannable) {
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948255624, "Lcom/baidu/tieba/vva;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948255624, "Lcom/baidu/tieba/vva;");
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vva a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vva vvaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vvaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vvaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+                return;
+            }
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            if (this.a.c != null) {
+                this.a.c.a(booleanValue);
+            }
+        }
+    }
+
+    public vva(View view2, @IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spannable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {view2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.a = spannable;
+        this.d = new a(this, 2921647);
+        MessageManager.getInstance().registerListener(this.d);
+        this.a = view2;
+        if (view2 != null) {
+            ImageView imageView = (ImageView) view2.findViewById(i);
+            this.b = imageView;
+            if (imageView != null) {
+                imageView.setVisibility(0);
+            }
+        }
+        j(d());
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        e26 e26Var;
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (!(view2 instanceof TextView)) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i != VideoDanmuController.N && i != VideoDanmuController.M) {
+                return "1";
             }
-            TextView textView = (TextView) view2;
-            if (action == 3 && (e26Var = this.b) != null) {
-                e26Var.m(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                view2.invalidate();
-                this.b = null;
-                return false;
-            }
-            if (action == 1 || action == 0) {
-                int x = (int) motionEvent.getX();
-                int y = (int) motionEvent.getY();
-                Layout layout = textView.getLayout();
-                if (layout == null) {
-                    return false;
-                }
-                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                Spannable spannable = this.a;
-                if (spannable == null) {
-                    return false;
-                }
-                e26[] e26VarArr = (e26[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, e26.class);
-                if (e26VarArr != null && e26VarArr.length != 0 && e26VarArr[0] != null) {
-                    if (action == 1) {
-                        e26VarArr[0].m(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                        e26VarArr[0].onClick(textView);
-                        view2.invalidate();
-                    } else {
-                        this.b = e26VarArr[0];
-                        Spannable spannable2 = this.a;
-                        Selection.setSelection(spannable2, spannable2.getSpanStart(e26VarArr[0]), this.a.getSpanEnd(e26VarArr[0]));
-                        view2.invalidate();
-                    }
-                    return true;
-                }
-                e26 e26Var2 = this.b;
-                if (e26Var2 != null) {
-                    e26Var2.m(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                    view2.invalidate();
-                }
-                Selection.removeSelection(this.a);
-            }
-            return false;
+            return "2";
         }
-        return invokeLL.booleanValue;
+        return (String) invokeI.objValue;
+    }
+
+    public void g(View.OnClickListener onClickListener) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && (imageView = this.b) != null) {
+            imageView.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void h(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    public void j(boolean z) {
+        ImageView imageView;
+        View view2;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (imageView = this.b) != null && (view2 = this.a) != null) {
+            Resources resources = view2.getResources();
+            if (z) {
+                i = e;
+            } else {
+                i = f;
+            }
+            imageView.setImageDrawable(resources.getDrawable(i));
+        }
+    }
+
+    public static StatisticItem b(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
+            return new StatisticItem(str).param("obj_locate", c(i)).param("tid", str2).param("uid", TbadkCoreApplication.getCurrentAccountId());
+        }
+        return (StatisticItem) invokeLLI.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbSingleton.getInstance().isDanmuSwitchOpen();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+            ImageView imageView = this.b;
+            if (imageView != null) {
+                imageView.setOnClickListener(null);
+            }
+            this.c = null;
+        }
+    }
+
+    public void e(String str, int i) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+            StatisticItem b2 = b("c14474", str, i);
+            if (d()) {
+                str2 = "1";
+            } else {
+                str2 = "0";
+            }
+            TiebaStatic.log(b2.param("obj_type", str2));
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            boolean z = !d();
+            TbSingleton.getInstance().setDanmuSwitchOpen(z);
+            j(z);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921647, Boolean.valueOf(z)));
+        }
     }
 }

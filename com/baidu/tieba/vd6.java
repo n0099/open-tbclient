@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,6 +11,8 @@ import org.json.JSONObject;
 public class vd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public UserData a;
+    public AlaInfoData b;
 
     public vd6() {
         Interceptable interceptable = $ic;
@@ -20,22 +24,18 @@ public class vd6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new UserData();
+        this.b = new AlaInfoData();
     }
 
-    public void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, jSONObject2) == null) {
+            this.a.parserJson(jSONObject);
+            this.b.parserJson(jSONObject2);
         }
-        jSONObject.optLong("user_id");
-        jSONObject.optInt("sign_time");
-        jSONObject.optInt("cont_sign_num");
-        jSONObject.optInt("cout_total_sign_num");
-        jSONObject.optInt("total_resign_num");
-        jSONObject.optInt("miss_sign_num");
-        jSONObject.optInt("is_sign_in");
-        jSONObject.optInt("user_sign_rank");
     }
 }

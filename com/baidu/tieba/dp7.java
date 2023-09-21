@@ -1,71 +1,41 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class dp7 {
+public class dp7 extends fp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<pm> c;
-    public String d;
-    public String e;
-    public mp6 f;
+    public LabelDataList c;
+    public Context d;
+    public int e;
+    public final int f;
 
-    /* loaded from: classes5.dex */
-    public class a extends mp6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dp7 b;
-
-        public a(dp7 dp7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dp7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dp7Var;
-        }
-
-        @Override // com.baidu.tieba.mp6
-        public void a(View view2, BaseCardInfo baseCardInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) {
-                super.a(view2, baseCardInfo);
-                this.b.b();
-            }
-        }
+    @Override // com.baidu.tieba.fp7
+    public long e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    public dp7(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
+    public dp7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, str, str2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,60 +45,109 @@ public class dp7 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        this.d = str;
-        this.e = str2;
-        this.c = new ArrayList();
-        a();
+        this.e = 0;
+        this.d = context;
+        this.f = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070258);
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.fp7
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ep7 ep7Var = new ep7(this.a, this.d, this.e);
-            ep7Var.z(this.f);
-            this.c.add(ep7Var);
-            fp7 fp7Var = new fp7(this.a, this.d);
-            fp7Var.z(this.f);
-            this.c.add(fp7Var);
-            this.c.add(new ip7(this.a, this.d));
-            this.c.add(new hp7(this.a, this.d));
-            List<pm> list = this.c;
-            TbPageContext tbPageContext = this.a;
-            list.add(new GameSpecialTopicAdapter(tbPageContext, ay6.b, tbPageContext.getUniqueId(), this.d));
-            gp7 gp7Var = new gp7(this.a, this.d);
-            gp7Var.x(this.f);
-            this.c.add(gp7Var);
-            List<pm> list2 = this.c;
-            TbPageContext tbPageContext2 = this.a;
-            list2.add(new GameCompetitionAdapter(tbPageContext2, vx6.b, tbPageContext2.getUniqueId(), this.d));
-            List<pm> list3 = this.c;
-            TbPageContext tbPageContext3 = this.a;
-            list3.add(new GameRecommendGameAdapter(tbPageContext3, yx6.b, tbPageContext3.getUniqueId(), this.d));
-            TbPageContext tbPageContext4 = this.a;
-            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(tbPageContext4, si7.e, tbPageContext4.getUniqueId());
-            frsUserRecommendAdapter.K();
-            frsUserRecommendAdapter.J(this.d);
-            this.c.add(frsUserRecommendAdapter);
-            this.b.addAdapters(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ListUtils.getCount(this.c);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.fp7
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.fp7
+    public Object c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return ListUtils.getItem(this.c, i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.fp7
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.e = i;
+            this.c.setSelectedIndex(i);
+            notifyDataSetChanged();
         }
     }
 
-    public void b() {
+    public void n(LabelDataList labelDataList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof tm)) {
-            this.b.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, labelDataList) == null) {
+            this.c = labelDataList;
+            notifyDataSetChanged();
         }
     }
 
-    public void c(List<cn> list) {
-        BdTypeListView bdTypeListView;
+    @Override // com.baidu.tieba.fp7
+    public View g(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        TextView m;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || (bdTypeListView = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 instanceof TextView) {
+                m = (TextView) view2;
+            } else {
+                m = m();
+            }
+            uo7 uo7Var = (uo7) ListUtils.getItem(this.c, i);
+            if (uo7Var != null) {
+                m.setText(uo7Var.b);
+            }
+            if (this.e == i) {
+                z = true;
+            } else {
+                z = false;
+            }
+            l(m, z);
+            return m;
         }
-        bdTypeListView.setData(list);
+        return (View) invokeILL.objValue;
+    }
+
+    public void l(TextView textView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, textView, z) == null) {
+            if (z) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+                SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_s);
+                return;
+            }
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
+            SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_n);
+        }
+    }
+
+    public final TextView m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            TextView textView = new TextView(this.d);
+            textView.setTextSize(0, this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07045d));
+            textView.setGravity(17);
+            textView.setHeight(d());
+            return textView;
+        }
+        return (TextView) invokeV.objValue;
     }
 }

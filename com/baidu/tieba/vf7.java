@@ -1,27 +1,172 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.forumMember.manito.ManitoHeaderItemViewHolder;
+import com.baidu.tbadk.core.util.RemoveFansController;
+import com.baidu.tieba.dxa;
+import com.baidu.tieba.uf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class vf7 extends fi7<wf7, ManitoHeaderItemViewHolder> {
+public class vf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public RemoveFansController b;
+    public uf7 c;
+    public nu9 d;
+    public dxa e;
+    public e f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vf7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes8.dex */
+    public interface e {
+        void a();
+
+        void b(int i, String str, boolean z, int i2, long j);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements uf7.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vf7 a;
+
+        public a(vf7 vf7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vf7Var;
+        }
+
+        @Override // com.baidu.tieba.uf7.b
+        public void a(int i, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) && this.a.f != null) {
+                this.a.f.b(i, str, z, 0, 0L);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements RemoveFansController.IResultCallBack {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vf7 a;
+
+        public b(vf7 vf7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vf7Var;
+        }
+
+        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
+        public void onResultCallBack(int i, String str, long j, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && this.a.f != null) {
+                this.a.f.b(i, str, z, 1, j);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements dxa.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vf7 a;
+
+        public c(vf7 vf7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vf7Var;
+        }
+
+        @Override // com.baidu.tieba.dxa.d
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d.dismiss();
+                if (this.a.f != null) {
+                    this.a.f.a();
+                }
+                this.a.c.d();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements dxa.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vf7 a;
+
+        public d(vf7 vf7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vf7Var;
+        }
+
+        @Override // com.baidu.tieba.dxa.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
+                return;
+            }
+            this.a.d.dismiss();
+        }
+    }
+
+    public vf7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,46 +176,67 @@ public class vf7 extends fi7<wf7, ManitoHeaderItemViewHolder> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tbPageContext;
+        uf7 uf7Var = new uf7(tbPageContext, bdUniqueId);
+        this.c = uf7Var;
+        uf7Var.e(new a(this));
+        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
+        this.b = removeFansController;
+        removeFansController.setResultCallBack(new b(this));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: G */
-    public ManitoHeaderItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new ManitoHeaderItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0613, (ViewGroup) null));
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.b.removeFans(j);
         }
-        return (ManitoHeaderItemViewHolder) invokeL.objValue;
     }
 
-    public View H(int i, View view2, ViewGroup viewGroup, wf7 wf7Var, ManitoHeaderItemViewHolder manitoHeaderItemViewHolder) {
-        InterceptResult invokeCommon;
+    public void g(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wf7Var, manitoHeaderItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) wf7Var, (wf7) manitoHeaderItemViewHolder);
-            if (manitoHeaderItemViewHolder.b != this.f) {
-                SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.getView(), R.color.CAM_X0201);
-                SkinManager.setViewTextColor(manitoHeaderItemViewHolder.a, R.color.CAM_X0105, 1);
+        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
+            this.f = eVar;
+        }
+    }
+
+    public void d() {
+        dxa dxaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dxaVar = this.e) != null) {
+            dxaVar.e();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h();
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.d == null) {
+                dxa dxaVar = new dxa(this.a.getContext());
+                this.e = dxaVar;
+                dxaVar.h(this.a.getString(R.string.obfuscated_res_0x7f0f04cb));
+                ArrayList arrayList = new ArrayList();
+                dxa.b bVar = new dxa.b(this.a.getString(R.string.obfuscated_res_0x7f0f04c4), this.e);
+                bVar.h(new c(this));
+                arrayList.add(bVar);
+                this.e.g(new d(this));
+                this.e.f(arrayList);
+                nu9 nu9Var = new nu9(this.a.getPageActivity(), this.e.b());
+                this.d = nu9Var;
+                nu9Var.a(0.7f);
             }
-            manitoHeaderItemViewHolder.a.setText(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f07ab), Integer.valueOf(wf7Var.a())));
-            manitoHeaderItemViewHolder.b = this.f;
-            return view2;
+            this.d.show();
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.fi7, com.baidu.tieba.pm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (wf7) obj, (ManitoHeaderItemViewHolder) viewHolder);
-        return view2;
     }
 }

@@ -5,7 +5,6 @@ import com.baidu.adp.framework.controller.CustomRule;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.WorkPublishActivityConfig;
 import com.baidu.tbadk.core.atomData.WorkPublishManager;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -65,7 +64,7 @@ public class WriteActivityImmediateStatic {
                         try {
                             Class<?> cls = data.getClass();
                             boolean z2 = false;
-                            if (WriteActivityConfig.class == cls || WorkPublishActivityConfig.class == cls || RecordVideoActivityConfig.class == cls || WriteVoteActivityConfig.class == cls || AlbumFloatActivityConfig.class == cls) {
+                            if (WriteActivityConfig.class == cls || WorkPublishActivityConfig.class == cls || WriteVoteActivityConfig.class == cls || AlbumFloatActivityConfig.class == cls) {
                                 if (data instanceof WriteActivityConfig) {
                                     z = ((WriteActivityConfig) data).getIntent().getBooleanExtra(WriteActivityConfig.KEY_NOT_SHOW_VIDEO_WORK_LIST_PAGE, false);
                                 } else {

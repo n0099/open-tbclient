@@ -272,7 +272,7 @@ public class DesignTool implements ProxyInterface {
         if (str != null) {
             i = this.mMotionLayout.lookUpConstraintId(str);
         } else {
-            i = R.id.obfuscated_res_0x7f0917bf;
+            i = R.id.obfuscated_res_0x7f0917ac;
         }
         this.mLastStartStateId = i;
         if (i != 0) {

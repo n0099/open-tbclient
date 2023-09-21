@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.io.JSONUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class go3 {
+public final class go3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,160 +32,114 @@ public class go3 {
                 return;
             }
         }
-        a = rr1.a;
+        a = qr1.a;
     }
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null && b(activity.getIntent())) {
-                try {
-                    qn3.j(activity);
-                } catch (Exception unused) {
-                }
-                return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, cls)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            if (intent != null) {
-                try {
-                    Bundle extras = intent.getExtras();
-                    if (extras != null) {
-                        extras.isEmpty();
-                        return false;
+            T t = (T) jSONObject.opt(str);
+            if (cls.isInstance(t)) {
+                if (a) {
+                    String obj = t.toString();
+                    if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
+                        obj = obj.substring(0, 30) + "...";
                     }
-                    return false;
-                } catch (Throwable unused) {
-                    return true;
+                    if (a) {
+                        Log.d(JSONUtils.TAG, "json: " + str + "=" + obj);
+                    }
+                }
+                return t;
+            }
+            if (a) {
+                if (t == null) {
+                    Log.w(JSONUtils.TAG, "Json has no value by name: '" + str + "'!");
+                } else {
+                    Log.w(JSONUtils.TAG, "Value of '" + str + "' is not a instance of '" + cls.getSimpleName() + "'!");
                 }
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (T) invokeLLL.objValue;
     }
 
-    public static boolean c(Bundle bundle, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static float b(JSONObject jSONObject, String str, float f) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bundle, str, z)) == null) {
-            try {
-                return bundle.getBoolean(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e("IntentUtils", "getBoolean failed on bundle " + bundle);
-                }
-                return z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) {
+            if (jSONObject == null) {
+                return f;
             }
+            return (float) jSONObject.optDouble(str, f);
         }
-        return invokeLLZ.booleanValue;
+        return invokeCommon.floatValue;
     }
 
-    public static int f(Bundle bundle, String str, int i) {
-        InterceptResult invokeLLI;
+    public static JSONObject f(JSONObject jSONObject, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bundle, str, i)) == null) {
-            try {
-                return bundle.getInt(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e("IntentUtils", "getInt failed on bundle " + bundle);
-                }
-                return i;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, str, obj)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
             }
+            try {
+                jSONObject.put(str, obj);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        return invokeLLI.intValue;
+        return (JSONObject) invokeLLL.objValue;
     }
 
-    public static Bundle d(Bundle bundle, String str) {
+    public static JSONArray c(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, str)) == null) {
-            try {
-                return bundle.getBundle(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e("IntentUtils", "getBundle failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, str)) == null) {
+            return (JSONArray) a(jSONObject, str, JSONArray.class);
         }
-        return (Bundle) invokeLL.objValue;
+        return (JSONArray) invokeLL.objValue;
     }
 
-    public static Bundle e(Intent intent, String str) {
-        InterceptResult invokeLL;
+    @NonNull
+    public static JSONObject d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, intent, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
             try {
-                return intent.getBundleExtra(str);
-            } catch (Throwable unused) {
+                return new JSONObject(str);
+            } catch (JSONException e) {
                 if (a) {
-                    Log.e("IntentUtils", "getBundleExtra failed on intent " + intent);
-                    return null;
+                    Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e);
                 }
-                return null;
+                return new JSONObject();
             }
         }
-        return (Bundle) invokeLL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static String g(Bundle bundle, String str) {
-        InterceptResult invokeLL;
+    public static JSONArray e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bundle, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONArray();
+            }
             try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
+                return new JSONArray(str);
+            } catch (JSONException e) {
                 if (a) {
-                    Log.e("IntentUtils", "getString failed on bundle " + bundle);
-                    return null;
+                    Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e);
                 }
-                return null;
+                return new JSONArray();
             }
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String h(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, intent, str)) == null) {
-            try {
-                return intent.getStringExtra(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e("IntentUtils", "getStringExtra failed on intent " + intent);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String i(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bundle, str)) == null) {
-            try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e("IntentUtils", "getStringExtra failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (JSONArray) invokeL.objValue;
     }
 }

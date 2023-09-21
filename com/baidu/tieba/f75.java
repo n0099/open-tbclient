@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.dialog.yun.strategy.FrequenceDialogStrategy;
-import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class f75 implements t65 {
+public final class f75 implements w65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public final class f75 implements t65 {
         }
     }
 
-    @Override // com.baidu.tieba.t65
+    @Override // com.baidu.tieba.w65
     public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -43,50 +43,42 @@ public final class f75 implements t65 {
             Intrinsics.checkNotNullParameter(dialogData, "dialogData");
             Intrinsics.checkNotNullParameter(strategyData, "strategyData");
             Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", dialogData.getDialogName());
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "updateDialog");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
             return hashMap;
         }
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.t65
+    @Override // com.baidu.tieba.w65
     public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
-            boolean z = false;
-            try {
-                FrequenceDialogStrategy.Data data = (FrequenceDialogStrategy.Data) DataExt.toEntity(map, FrequenceDialogStrategy.Data.class);
-                long currentTimeMillis = System.currentTimeMillis() / 1000;
-                if (currentTimeMillis >= data.startTimestamp && currentTimeMillis <= data.endTimestamp) {
-                    if (data.frequence == 0) {
+            JSONObject syncJson = TbSingleton.getInstance().getSyncJson();
+            if (syncJson == null) {
+                return false;
+            }
+            VersionData versionData = new VersionData();
+            versionData.parserJson(syncJson.optJSONObject("version"));
+            if (versionData.hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (versionData.forceUpdate()) {
+                    if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
                         return true;
                     }
-                    g75 g75Var = g75.a;
-                    String str = data.dialogName;
-                    Intrinsics.checkNotNullExpressionValue(str, "data.dialogName");
-                    int a = g75Var.a(str);
-                    if (a < data.frequence) {
-                        z = true;
+                } else {
+                    long updateNotifyTime = TbadkCoreApplication.getInst().getUpdateNotifyTime();
+                    long time = new Date().getTime();
+                    if (time - updateNotifyTime > 86400000 && versionData.getStrategy() == 0 && TbadkCoreApplication.getInst().getResumeNum() > 0 && TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+                        TbadkCoreApplication.getInst().setUpdateNotifyTime(time);
+                        return true;
                     }
-                    if (!z) {
-                        TbLog yunDialogLog = YunDialogLog.getInstance();
-                        yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.dialogName + " 命中频次超限限制，当前已展示次数：" + a + "，配置展现次数：" + data.frequence);
-                    }
-                    return z;
                 }
-                TbLog yunDialogLog2 = YunDialogLog.getInstance();
-                yunDialogLog2.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.dialogName + " 命中频次时间限制，当前时间戳：" + currentTimeMillis + " 配置时间：" + data.startTimestamp + " - " + data.endTimestamp);
-                return false;
-            } catch (Exception e) {
-                if (!TbadkApplication.getInst().isDebugMode()) {
-                    YunDialogLog.getInstance().i(YunDialogManager.LOG_KEY, "云弹窗频次策略解析失败");
-                    return false;
-                }
-                throw e;
             }
+            return false;
         }
         return invokeL.booleanValue;
     }

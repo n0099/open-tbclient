@@ -10,7 +10,7 @@ public class uo7 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public Object c;
+    public boolean c;
 
     public uo7() {
         Interceptable interceptable = $ic;

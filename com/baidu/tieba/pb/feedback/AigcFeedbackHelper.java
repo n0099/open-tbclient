@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.h95;
+import com.baidu.tieba.l95;
 import com.baidu.tieba.lz4;
-import com.baidu.tieba.ms5;
+import com.baidu.tieba.ns5;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tha;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,13 +70,13 @@ public final class AigcFeedbackHelper {
         }
     }
 
-    public final h95 c() {
+    public final l95 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (h95) b.getValue();
+            return (l95) b.getValue();
         }
-        return (h95) invokeV.objValue;
+        return (l95) invokeV.objValue;
     }
 
     @JvmStatic
@@ -112,11 +112,11 @@ public final class AigcFeedbackHelper {
             } else {
                 activity = null;
             }
-            ms5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
+            ns5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
             if (currentVisiblePageExtra != null) {
                 agreeData.objSource = currentVisiblePageExtra.a();
             }
-            h95 c = a.c();
+            l95 c = a.c();
             if (tbPageContext != null) {
                 bdUniqueId = tbPageContext.getUniqueId();
             }
@@ -157,11 +157,11 @@ public final class AigcFeedbackHelper {
             } else {
                 activity = null;
             }
-            ms5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
+            ns5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
             if (currentVisiblePageExtra != null) {
                 agreeData.objSource = currentVisiblePageExtra.a();
             }
-            h95 c = a.c();
+            l95 c = a.c();
             if (tbPageContext != null) {
                 bdUniqueId = tbPageContext.getUniqueId();
             }
@@ -170,22 +170,22 @@ public final class AigcFeedbackHelper {
     }
 
     @JvmStatic
-    public static final void d(tha thaVar) {
+    public static final void d(zja zjaVar) {
         String str;
         AigcFeedbackInfo s;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, thaVar) == null) {
-            if (thaVar != null && (s = thaVar.s()) != null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zjaVar) == null) {
+            if (zjaVar != null && (s = zjaVar.s()) != null) {
                 str = s.feedback_url;
             } else {
                 str = null;
             }
             if (str != null && !TextUtils.isEmpty(str)) {
                 HashMap<String, Serializable> hashMap = new HashMap<>();
-                String U = thaVar.U();
+                String U = zjaVar.U();
                 Intrinsics.checkNotNullExpressionValue(U, "postData.id");
                 hashMap.put("post_id", U);
-                String u = thaVar.u();
+                String u = zjaVar.u();
                 Intrinsics.checkNotNullExpressionValue(u, "postData.authorId");
                 hashMap.put("bot_uid", u);
                 Bundle bundle = new Bundle();

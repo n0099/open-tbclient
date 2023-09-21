@@ -50,7 +50,6 @@ public final class LocalVideoActivityStaticAutoGenerateUrlCollectorImpl implemen
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
-            arrayList.add("RecordVideoActivityConfig");
             arrayList.add("EditVideoActivityConfig");
             arrayList.add("CloudMusicActivityConfig");
             hashMap.put("com.baidu.tieba.video.localvideo.LocalVideoActivityStatic", arrayList);

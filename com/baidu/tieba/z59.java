@@ -1,79 +1,31 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.MeasureTextLength;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestForumViewHolder;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class z59 extends pm<e69, SearchSuggestForumViewHolder> {
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class z59 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
+    public static final List<f69> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-
-    /* loaded from: classes9.dex */
-    public class a implements mn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ z59 b;
-
-        public a(z59 z59Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z59Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = z59Var;
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.mn
-        public void b(View view2, cn cnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cnVar instanceof e69)) {
-                return;
-            }
-            e69 e69Var = (e69) cnVar;
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a).createNormalCfg(e69Var.c(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
-            createNormalCfg.setCallFrom(16);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
-            this.b.u(e69Var);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -88,132 +40,301 @@ public class z59 extends pm<e69, SearchSuggestForumViewHolder> {
                 return;
             }
         }
-        b = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds370);
+        a = new ArrayList();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z59(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public static void a(Context context, String str, HashMap<String, Object> hashMap) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, hashMap) == null) {
+            if (hashMap != null) {
+                String str3 = (String) hashMap.get("enterroom_type");
+                String str4 = (String) hashMap.get("live_activity_type");
+                String str5 = (String) hashMap.get("extra");
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("live_activity_type", str4);
+                    jSONObject.put("extra", str5);
+                    str2 = jSONObject.toString();
+                } catch (JSONException unused) {
+                    str2 = "";
+                }
+                if ("1".equals(str3)) {
+                    z79.j().H(context, str2);
+                    return;
+                } else {
+                    z79.j().D(context, "");
+                    return;
+                }
+            }
+            z79.j().D(context, "");
+        }
+    }
+
+    public static void d(Context context, k69 k69Var, f69 f69Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, k69Var, f69Var) != null) || context == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        if (k69Var != null) {
+            try {
+                if (!TextUtils.isEmpty(k69Var.a)) {
+                    jSONObject.put(WebChromeClient.KEY_ARG_CALLBACK, k69Var.a);
+                    if (f69Var != null) {
+                        a.add(f69Var);
+                    }
+                }
+                jSONObject.put("isTranslucent", k69Var.b);
+                if (!TextUtils.isEmpty(k69Var.c)) {
+                    jSONObject.put("from", k69Var.c);
+                }
+            } catch (JSONException unused) {
+            }
+        }
+        z79.j().B(context, jSONObject.toString());
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:58:0x017e  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0190  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void b(Context context, String str, Map<String, Object> map) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, map) == null) {
+            String str3 = (String) map.get("enterroom_type");
+            String str4 = (String) map.get("room_id");
+            String str5 = (String) map.get("live_id");
+            String str6 = (String) map.get("username");
+            String str7 = (String) map.get("userrec");
+            String str8 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+            String str9 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY);
+            String str10 = (String) map.get("screen_direction");
+            String str11 = (String) map.get("open_giftlist");
+            String str12 = (String) map.get("tab");
+            String str13 = (String) map.get("tag");
+            String str14 = (String) map.get("source");
+            String str15 = (String) map.get("from");
+            String str16 = (String) map.get("extra");
+            String str17 = (String) map.get("audioUrl");
+            String str18 = (String) map.get("audio_bg");
+            String str19 = (String) map.get("chat_mcast_id");
+            String str20 = (String) map.get("open_msgpanel");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str12)) {
+                    jSONObject.put("tab", str12);
+                }
+                if (!TextUtils.isEmpty(str13)) {
+                    jSONObject.put("tag", str13);
+                }
+                if (!TextUtils.isEmpty(str14)) {
+                    jSONObject.put("source", str14);
+                }
+                if (!TextUtils.isEmpty(str15)) {
+                    jSONObject.put("from", str15);
+                }
+                if (!TextUtils.isEmpty(str8)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str8);
+                }
+                if (!TextUtils.isEmpty(str9)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, str9);
+                }
+                if (!TextUtils.isEmpty(str10)) {
+                    jSONObject.put("screen_direction", str10);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_ROOM_ID_KEY, str4);
+                }
+                if (!TextUtils.isEmpty(str5)) {
+                    str2 = str5;
+                    try {
+                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, str2);
+                    } catch (JSONException e) {
+                        e = e;
+                        e.printStackTrace();
+                        if (!"1".equals(str3)) {
+                        }
+                    }
+                } else {
+                    str2 = str5;
+                }
+                if (!TextUtils.isEmpty(str16)) {
+                    jSONObject.put("extra", str16);
+                }
+                if (!TextUtils.isEmpty(str17)) {
+                    jSONObject.put("audioUrl", str17);
+                }
+                if (!TextUtils.isEmpty(str18)) {
+                    jSONObject.put("audio_bg", str18);
+                }
+                if (!TextUtils.isEmpty(str19)) {
+                    jSONObject.put("chat_mcast_id", str19);
+                }
+                if (!TextUtils.isEmpty(str20)) {
+                    jSONObject.put("open_msgpanel", str20);
+                }
+            } catch (JSONException e2) {
+                e = e2;
+                str2 = str5;
+            }
+            if (!"1".equals(str3)) {
+                z79.j().y(context, str, jSONObject.toString(), map);
                 return;
             }
-        }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
-    }
-
-    public final void t(StatisticItem statisticItem, e69 e69Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, statisticItem, e69Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", e69Var.b().longValue());
-            statisticItem.param("fname", e69Var.c());
-        }
-    }
-
-    public final void A(e69 e69Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, e69Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_SHOW);
-            t(statisticItem, e69Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void u(e69 e69Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e69Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_CLICK);
-            t(statisticItem, e69Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: x */
-    public SearchSuggestForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new SearchSuggestForumViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a2, viewGroup, false));
-        }
-        return (SearchSuggestForumViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.pm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e69 e69Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
-        y(i, view2, viewGroup, e69Var, searchSuggestForumViewHolder);
-        return view2;
-    }
-
-    public View y(int i, View view2, ViewGroup viewGroup, e69 e69Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e69Var, searchSuggestForumViewHolder})) == null) {
-            if (e69Var == null) {
-                return view2;
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("user_name", str6);
+                jSONObject2.put("open_giftlist", str11);
+            } catch (JSONException e3) {
+                e3.printStackTrace();
             }
-            z(searchSuggestForumViewHolder);
-            searchSuggestForumViewHolder.b.setConrers(15);
-            searchSuggestForumViewHolder.b.setRadiusById(R.string.J_X06);
-            searchSuggestForumViewHolder.b.startLoad(e69Var.a(), 10, false);
-            String str = e69Var.c() + this.a.getString(R.string.obfuscated_res_0x7f0f077f);
-            searchSuggestForumViewHolder.c.setText(str);
-            if (!StringUtils.isNull(e69Var.g())) {
-                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f132a, e69Var.g()));
-            } else {
-                Context context = this.a;
-                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f132a, context.getString(R.string.obfuscated_res_0x7f0f132b)));
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("live_id", str2);
+                jSONObject3.put("useRecommend", true);
+                jSONObject3.put("otherParams", jSONObject);
+            } catch (JSONException e4) {
+                e4.printStackTrace();
             }
-            searchSuggestForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f04b8), StringHelper.numberUniformFormatExtraWithRoundInt(e69Var.f().intValue())));
-            searchSuggestForumViewHolder.f.setText(String.format(this.a.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(e69Var.h().intValue())));
-            if (e69Var.e()) {
-                if (!StringUtils.isNull(e69Var.g())) {
-                    searchSuggestForumViewHolder.d.setText(e69Var.g());
-                } else {
-                    searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f132b));
-                }
-                if (e69Var.d() == 1) {
-                    searchSuggestForumViewHolder.h.setVisibility(0);
-                    searchSuggestForumViewHolder.c.setText(MeasureTextLength.fitTextLabel(str, "...", MeasureTextLength.spaceLength(b), searchSuggestForumViewHolder.c.getPaint(), ""));
-                } else {
-                    searchSuggestForumViewHolder.h.setVisibility(8);
-                }
-            }
-            A(e69Var);
-            return view2;
+            z79.j().x(context, jSONObject3.toString());
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public final void z(SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, searchSuggestForumViewHolder) == null) {
-            EMManager.from(searchSuggestForumViewHolder.c).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X06).setTextColor(R.color.CAM_X0105);
-            EMManager.from(searchSuggestForumViewHolder.d).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
-            EMManager.from(searchSuggestForumViewHolder.e).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
-            EMManager.from(searchSuggestForumViewHolder.f).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
-            SkinManager.setBackgroundResource(searchSuggestForumViewHolder.a, R.drawable.addresslist_item_bg);
-            EMManager.from(searchSuggestForumViewHolder.g).setBackGroundColor(R.color.CAM_X0203);
-            TextView textView = searchSuggestForumViewHolder.h;
-            if (textView != null) {
-                EMManager.from(textView).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X01).setTextColor(R.color.msg_chat_friend_text_color).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0204);
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            z79.j().h(context, str);
+        }
+    }
+
+    public static void i(Activity activity, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, activity, map) == null) {
+            az7.i().o(activity, map);
+        }
+    }
+
+    public static void m(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
+            z79.j().A(context, str);
+        }
+    }
+
+    public static void p(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uid", str);
+            hashMap.put("isSubscribe", Boolean.valueOf(z));
+            z79.j().g(TbadkCoreApplication.getInst(), "setAttentionChanged", hashMap);
+        }
+    }
+
+    public static void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            z79.j().q(context);
+        }
+    }
+
+    public static void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            z79.j().t(context);
+        }
+    }
+
+    public static void l(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
+            z79.j().z(context);
+        }
+    }
+
+    public static void o(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
+            for (int i = 0; i < a.size(); i++) {
+                a.get(i).onCallback(jSONObject);
             }
+            a.clear();
+        }
+    }
+
+    public static void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65553, null, j) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uid", Long.valueOf(j));
+            z79.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
+        }
+    }
+
+    public static void f(Context context, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            z79.j().v(context, j, i);
+        }
+    }
+
+    public static void g(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, null, context, str, i) == null) {
+            z79.j().s(context, str, i);
+        }
+    }
+
+    public static void j(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
+            z79.j().u(context, str, str2);
+        }
+    }
+
+    public static void n(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
+            z79.j().C(context, str, str2);
+        }
+    }
+
+    public static void r(Application application, String str, Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65554, null, application, str, uri) == null) {
+            z79.j().r(application, str, uri);
+        }
+    }
+
+    public static void k(Context context, String str, AlaLiveInfoCoreData alaLiveInfoCoreData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65547, null, context, str, alaLiveInfoCoreData) == null) && alaLiveInfoCoreData != null) {
+            long j = alaLiveInfoCoreData.liveID;
+            String str2 = alaLiveInfoCoreData.userName;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, alaLiveInfoCoreData.liveCover);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, j);
+                jSONObject.put("user_name", str2);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, alaLiveInfoCoreData.rtmpUrl);
+                jSONObject.put("screen_direction", alaLiveInfoCoreData.screenDirection);
+                jSONObject.put("open_giftlist", "0");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("live_id", j);
+                jSONObject2.put("useRecommend", true);
+                jSONObject2.put("otherParams", jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            z79.j().x(context, jSONObject2.toString());
         }
     }
 }

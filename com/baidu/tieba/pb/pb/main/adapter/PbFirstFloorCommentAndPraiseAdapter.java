@@ -23,16 +23,16 @@ import com.baidu.tbadk.core.view.FriendBotView;
 import com.baidu.tbadk.core.view.PbThreadCommentAndPraiseInfoLayout;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bl9;
+import com.baidu.tieba.do9;
+import com.baidu.tieba.gq9;
 import com.baidu.tieba.h15;
-import com.baidu.tieba.lm9;
-import com.baidu.tieba.no9;
-import com.baidu.tieba.oh9;
+import com.baidu.tieba.ot9;
 import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.qj9;
-import com.baidu.tieba.rr9;
-import com.baidu.tieba.wp9;
-import com.baidu.tieba.xp9;
-import com.baidu.tieba.xw5;
+import com.baidu.tieba.tr9;
+import com.baidu.tieba.ur9;
+import com.baidu.tieba.yw5;
+import com.baidu.tieba.zi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,22 +44,22 @@ import java.util.LinkedList;
 import tbclient.AbilityConf;
 import tbclient.CallRobotEntrance;
 /* loaded from: classes7.dex */
-public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCommentAndPraiseViewHolder> {
+public class PbFirstFloorCommentAndPraiseAdapter extends do9<bl9, PbFirstFloorCommentAndPraiseViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int m;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener g;
-    public no9 h;
+    public gq9 h;
     public Runnable i;
     public final LinkedList<PbFirstFloorCommentAndPraiseViewHolder> j;
     public boolean k;
-    public rr9 l;
+    public ot9 l;
 
     /* loaded from: classes7.dex */
     public class a implements FriendBotView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qj9 a;
+        public final /* synthetic */ bl9 a;
         public final /* synthetic */ PbFirstFloorCommentAndPraiseAdapter b;
 
         @Override // com.baidu.tbadk.core.view.FriendBotView.f
@@ -71,14 +71,14 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
 
         /* renamed from: com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorCommentAndPraiseAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0448a extends FastRequest.b<Void> {
+        public class C0428a extends FastRequest.b<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String b;
             public final /* synthetic */ String c;
-            public final /* synthetic */ a d;
+            public final /* synthetic */ String d;
+            public final /* synthetic */ a e;
 
-            public C0448a(a aVar, String str, String str2) {
+            public C0428a(a aVar, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,54 +93,54 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
                         return;
                     }
                 }
-                this.d = aVar;
-                this.b = str;
-                this.c = str2;
+                this.e = aVar;
+                this.c = str;
+                this.d = str2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.net.FastRequest.b
-            /* renamed from: g */
-            public void b(int i, @NonNull String str, @Nullable Void r7) {
+            /* renamed from: i */
+            public void d(int i, @NonNull String str, @Nullable Void r7) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
-                    super.b(i, str, r7);
-                    if (this.d.b.b == null) {
+                    super.d(i, str, r7);
+                    if (this.e.b.b == null) {
                         return;
                     }
-                    this.d.b.b.showToast(str);
-                    if (this.d.b.b.X() != null && this.d.b.b.H6() != null && this.d.b.b.H6().T0() != null) {
-                        this.d.b.b.X().n3();
-                        this.d.b.b.H6().T0().f0();
+                    this.e.b.b.showToast(str);
+                    if (this.e.b.b.f0() != null && this.e.b.b.G6() != null && this.e.b.b.G6().T0() != null) {
+                        this.e.b.b.f0().n3();
+                        this.e.b.b.G6().T0().f0();
                     }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.net.FastRequest.b
-            /* renamed from: h */
-            public void f(@NonNull Void r5) {
+            /* renamed from: j */
+            public void g(@NonNull Void r5) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                    super.f(r5);
-                    xp9.e(this.b);
-                    xp9.b(this.d.b.b.X(), this.c);
-                    if (this.d.b.i != null) {
-                        SafeHandler.getInst().removeCallbacks(this.d.b.i);
+                    super.g(r5);
+                    ur9.e(this.c);
+                    ur9.b(this.e.b.b.f0(), this.d);
+                    if (this.e.b.i != null) {
+                        SafeHandler.getInst().removeCallbacks(this.e.b.i);
                     }
-                    PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter = this.d.b;
-                    pbFirstFloorCommentAndPraiseAdapter.i = new oh9(this.c, pbFirstFloorCommentAndPraiseAdapter.b);
-                    SafeHandler.getInst().postDelayed(this.d.b.i, 30000L);
+                    PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter = this.e.b;
+                    pbFirstFloorCommentAndPraiseAdapter.i = new zi9(this.d, pbFirstFloorCommentAndPraiseAdapter.b);
+                    SafeHandler.getInst().postDelayed(this.e.b.i, 30000L);
                 }
             }
         }
 
-        public a(PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter, qj9 qj9Var) {
+        public a(PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter, bl9 bl9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbFirstFloorCommentAndPraiseAdapter, qj9Var};
+                Object[] objArr = {pbFirstFloorCommentAndPraiseAdapter, bl9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -151,7 +151,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
                 }
             }
             this.b = pbFirstFloorCommentAndPraiseAdapter;
-            this.a = qj9Var;
+            this.a = bl9Var;
         }
 
         @Override // com.baidu.tbadk.core.view.FriendBotView.f
@@ -159,7 +159,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
             String str2;
             String str3;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) != null) || xw5.a()) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) != null) || yw5.a()) {
                 return;
             }
             if (!TbadkCoreApplication.isLogin()) {
@@ -182,13 +182,13 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
             }
             CommonStatisticUtils.statisticFriendBotView(2, str2, 1, z, str3, str4);
             if (!z) {
-                xp9.e(str);
+                ur9.e(str);
             } else if (this.a.c() != null && this.a.c().getCallRobotEntrance() != null && this.a.c().getCallRobotEntrance().ability_conf != null) {
                 CallRobotEntrance callRobotEntrance = this.a.c().getCallRobotEntrance();
-                String c = xp9.c(this.a.c().getFirstPostId(), TbadkCoreApplication.getCurrentPortrait(), System.currentTimeMillis());
+                String c = ur9.c(this.a.c().getFirstPostId(), TbadkCoreApplication.getCurrentPortrait(), System.currentTimeMillis());
                 TbPageContext<BaseFragmentActivity> pageContext = this.b.b.getPageContext();
                 AbilityConf abilityConf = callRobotEntrance.ability_conf;
-                xp9.a(pageContext, abilityConf.bot_uk, abilityConf.skill_id.intValue(), this.a.c().tid, this.a.c().getFirstPostId(), c, new C0448a(this, str, c));
+                ur9.a(pageContext, abilityConf.bot_uk, abilityConf.skill_id.intValue(), this.a.c().tid, this.a.c().getFirstPostId(), c, new C0428a(this, str, c));
             }
         }
     }
@@ -202,16 +202,16 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
         public int c;
         @NonNull
         public h15 d;
-        public final WeakReference<rr9> e;
+        public final WeakReference<ot9> e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PbFirstFloorCommentAndPraiseViewHolder(View view2, rr9 rr9Var) {
+        public PbFirstFloorCommentAndPraiseViewHolder(View view2, ot9 ot9Var) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, rr9Var};
+                Object[] objArr = {view2, ot9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -223,11 +223,11 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
                 }
             }
             this.d = new h15();
-            this.e = new WeakReference<>(rr9Var);
+            this.e = new WeakReference<>(ot9Var);
             if (view2 == null) {
                 return;
             }
-            this.a = (PbThreadCommentAndPraiseInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f090581);
+            this.a = (PbThreadCommentAndPraiseInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f090579);
             h15 h15Var = this.d;
             h15Var.b = 4;
             h15Var.h = 7;
@@ -240,11 +240,11 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
             findViewById.setVisibility(0);
         }
 
-        public void a(qj9 qj9Var) {
+        public void a(bl9 bl9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, qj9Var) == null) {
-                if (qj9Var != null && qj9Var.c() != null) {
-                    ThreadData c = qj9Var.c();
+            if (interceptable == null || interceptable.invokeL(1048576, this, bl9Var) == null) {
+                if (bl9Var != null && bl9Var.c() != null) {
+                    ThreadData c = bl9Var.c();
                     int i = 8;
                     if (c.isQuestionThread()) {
                         this.a.setVisibility(8);
@@ -256,13 +256,13 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
                     if (c.getAgreeData() != null) {
                         c.getAgreeData().postId = c.getFirstPostId();
                     }
-                    rr9 rr9Var = this.e.get();
-                    if (rr9Var != null && rr9Var.X() != null && rr9Var.X().r1() != null) {
-                        this.a.C = !wp9.c(rr9Var.X().r1());
+                    ot9 ot9Var = this.e.get();
+                    if (ot9Var != null && ot9Var.f0() != null && ot9Var.f0().r1() != null) {
+                        this.a.C = !tr9.c(ot9Var.f0().r1());
                     }
-                    this.a.c0(c, qj9Var.b());
+                    this.a.e0(c, bl9Var.b());
                     View view2 = this.b;
-                    if (qj9Var.e()) {
+                    if (bl9Var.e()) {
                         i = 0;
                     }
                     view2.setVisibility(i);
@@ -271,10 +271,10 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
                     } else {
                         this.c = 1;
                     }
-                    if (qj9Var.b) {
+                    if (bl9Var.b) {
                         getView().setPadding(0, 0, 0, BdUtilHelper.getDimens(getView().getContext(), R.dimen.tbds32));
                     }
-                    this.a.showOperationMaskView(qj9Var.f());
+                    this.a.showOperationMaskView(bl9Var.f());
                     this.a.setUseDynamicLikeRes();
                 }
                 onChangeSkinType();
@@ -312,19 +312,19 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbFirstFloorCommentAndPraiseAdapter(rr9 rr9Var, BdUniqueId bdUniqueId) {
-        super(rr9Var, bdUniqueId);
+    public PbFirstFloorCommentAndPraiseAdapter(ot9 ot9Var, BdUniqueId bdUniqueId) {
+        super(ot9Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rr9Var, bdUniqueId};
+            Object[] objArr = {ot9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((rr9) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((ot9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -332,11 +332,11 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
         }
         this.j = new LinkedList<>();
         this.k = false;
-        if (rr9Var != null && rr9Var.X() != null) {
-            m = rr9Var.X().q1();
+        if (ot9Var != null && ot9Var.f0() != null) {
+            m = ot9Var.f0().q1();
         }
-        this.l = rr9Var;
-        this.h = new no9(rr9Var);
+        this.l = ot9Var;
+        this.h = new gq9(ot9Var);
     }
 
     public void K(String str, String str2) {
@@ -348,7 +348,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
                 while (it.hasNext()) {
                     PbFirstFloorCommentAndPraiseViewHolder next = it.next();
                     if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.a) != null) {
-                        pbThreadCommentAndPraiseInfoLayout.W(str, str2);
+                        pbThreadCommentAndPraiseInfoLayout.X(str, str2);
                     }
                 }
             } else if (N() == null) {
@@ -356,7 +356,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
                 this.h.b(N().getAgreeData());
                 PbFragment pbFragment = this.b;
                 if (pbFragment != null) {
-                    pbFragment.s7();
+                    pbFragment.r7();
                 }
             }
         }
@@ -366,8 +366,8 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.X() != null) {
-                return this.a.X().getForumId();
+            if (this.a.f0() != null) {
+                return this.a.f0().getForumId();
             }
             return "";
         }
@@ -378,8 +378,8 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a.X() != null) {
-                return this.a.X().getFromForumId();
+            if (this.a.f0() != null) {
+                return this.a.f0().getFromForumId();
             }
             return "";
         }
@@ -403,9 +403,9 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            rr9 rr9Var = this.l;
-            if (rr9Var != null && rr9Var.X() != null) {
-                return this.l.X().getTopicId();
+            ot9 ot9Var = this.l;
+            if (ot9Var != null && ot9Var.f0() != null) {
+                return this.l.f0().getTopicId();
             }
             return "";
         }
@@ -416,9 +416,9 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            rr9 rr9Var = this.l;
-            if (rr9Var != null && rr9Var.X() != null) {
-                return this.l.X().P1();
+            ot9 ot9Var = this.l;
+            if (ot9Var != null && ot9Var.f0() != null) {
+                return this.l.f0().P1();
             }
             return "";
         }
@@ -443,22 +443,22 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             S();
-            no9 no9Var = this.h;
-            if (no9Var != null) {
-                no9Var.d();
+            gq9 gq9Var = this.h;
+            if (gq9Var != null) {
+                gq9Var.d();
             }
             SafeHandler.getInst().removeCallbacks(this.i);
         }
     }
 
-    public void W(boolean z) {
+    public void V(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.k = z;
         }
     }
 
-    public void X(View.OnClickListener onClickListener) {
+    public void W(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
             this.g = onClickListener;
@@ -469,8 +469,8 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.X() != null && this.a.X().r1() != null) {
-                return this.a.X().r1().O();
+            if (this.a.f0() != null && this.a.f0().r1() != null) {
+                return this.a.f0().r1().O();
             }
             return null;
         }
@@ -478,13 +478,13 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: R */
     public PbFirstFloorCommentAndPraiseViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0548, viewGroup, false), this.l);
+            PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d054a, viewGroup, false), this.l);
             pbFirstFloorCommentAndPraiseViewHolder.c(P());
             pbFirstFloorCommentAndPraiseViewHolder.d(Q());
             this.j.add(pbFirstFloorCommentAndPraiseViewHolder);
@@ -501,35 +501,35 @@ public class PbFirstFloorCommentAndPraiseAdapter extends lm9<qj9, PbFirstFloorCo
             while (it.hasNext()) {
                 PbFirstFloorCommentAndPraiseViewHolder next = it.next();
                 if (next != null && (pbThreadCommentAndPraiseInfoLayout = next.a) != null) {
-                    pbThreadCommentAndPraiseInfoLayout.b0(animatorListener);
+                    pbThreadCommentAndPraiseInfoLayout.d0(animatorListener);
                 }
             }
         }
     }
 
-    public View T(int i, View view2, ViewGroup viewGroup, qj9 qj9Var, PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder) {
+    public View T(int i, View view2, ViewGroup viewGroup, bl9 bl9Var, PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qj9Var, pbFirstFloorCommentAndPraiseViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) qj9Var, (qj9) pbFirstFloorCommentAndPraiseViewHolder);
-            if (qj9Var != null && pbFirstFloorCommentAndPraiseViewHolder != null) {
-                qj9Var.c().statFloor = getPositionByType(i) + 1;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bl9Var, pbFirstFloorCommentAndPraiseViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) bl9Var, (bl9) pbFirstFloorCommentAndPraiseViewHolder);
+            if (bl9Var != null && pbFirstFloorCommentAndPraiseViewHolder != null) {
+                bl9Var.c().statFloor = getPositionByType(i) + 1;
                 pbFirstFloorCommentAndPraiseViewHolder.a.setOnClickOutListener(this.g);
-                pbFirstFloorCommentAndPraiseViewHolder.a.setOnClickBotListener(new a(this, qj9Var));
+                pbFirstFloorCommentAndPraiseViewHolder.a.setOnClickBotListener(new a(this, bl9Var));
                 pbFirstFloorCommentAndPraiseViewHolder.a.setPostId(O());
                 pbFirstFloorCommentAndPraiseViewHolder.a.setForumId(L());
-                qj9Var.h(this.k);
+                bl9Var.h(this.k);
                 pbFirstFloorCommentAndPraiseViewHolder.b(M());
-                pbFirstFloorCommentAndPraiseViewHolder.a(qj9Var);
+                pbFirstFloorCommentAndPraiseViewHolder.a(bl9Var);
             }
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.lm9, com.baidu.tieba.pm
+    @Override // com.baidu.tieba.do9, com.baidu.tieba.om
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        T(i, view2, viewGroup, (qj9) obj, (PbFirstFloorCommentAndPraiseViewHolder) viewHolder);
+        T(i, view2, viewGroup, (bl9) obj, (PbFirstFloorCommentAndPraiseViewHolder) viewHolder);
         return view2;
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dc8;
+import com.baidu.tieba.hc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,14 +30,14 @@ public class SelectTopicToolItem extends RelativeLayout {
     public EMTextView b;
     public ImageView c;
     public LinearLayout d;
-    public dc8 e;
+    public hc8 e;
     public b f;
     public boolean g;
     public boolean h;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(@NonNull dc8 dc8Var);
+        void a(@NonNull hc8 hc8Var);
     }
 
     /* loaded from: classes8.dex */
@@ -159,11 +159,11 @@ public class SelectTopicToolItem extends RelativeLayout {
         }
     }
 
-    public void c(dc8 dc8Var) {
+    public void c(hc8 hc8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, dc8Var) == null) && dc8Var != null) {
-            this.e = dc8Var;
-            if (dc8Var.j()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, hc8Var) == null) && hc8Var != null) {
+            this.e = hc8Var;
+            if (hc8Var.j()) {
                 this.b.setText("#");
                 this.a.setText(this.e.e() + "#");
             } else {
@@ -174,12 +174,12 @@ public class SelectTopicToolItem extends RelativeLayout {
     }
 
     public void d() {
-        dc8 dc8Var;
-        dc8 dc8Var2;
+        hc8 hc8Var;
+        hc8 hc8Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.g && (dc8Var2 = this.e) != null) {
-                if (dc8Var2.j()) {
+            if (!this.g && (hc8Var2 = this.e) != null) {
+                if (hc8Var2.j()) {
                     this.b.setVisibility(0);
                     this.c.setVisibility(0);
                 } else {
@@ -197,7 +197,7 @@ public class SelectTopicToolItem extends RelativeLayout {
                 this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0103));
                 this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_post_topic12, SkinManager.getColor(R.color.CAM_X0109), null));
             }
-            if (!this.g && (dc8Var = this.e) != null && dc8Var.h()) {
+            if (!this.g && (hc8Var = this.e) != null && hc8Var.h()) {
                 EMManager.from(this.a).setTextColor(R.color.CAM_X0304);
                 EMManager.from(this.b).setTextColor(R.color.CAM_X0304);
                 EMManager.from(this.d).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304).setBackGroundColor(R.color.CAM_X0905);
@@ -216,11 +216,11 @@ public class SelectTopicToolItem extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08b9, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0926d6);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0926d8);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0926d7);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091634);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08b5, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0926a2);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0926a4);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0926a3);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09161d);
             setOnClickListener(new a(this));
             d();
         }

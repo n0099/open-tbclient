@@ -10,11 +10,11 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av6;
-import com.baidu.tieba.b67;
+import com.baidu.tieba.gv6;
 import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
 import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
-import com.baidu.tieba.ic7;
+import com.baidu.tieba.i67;
+import com.baidu.tieba.rc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\n\u001a\u00020\u000bH\u0016J\u000e\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u000eR\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/compact/RecommendBarCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "recommendBar", "Lcom/baidu/tieba/homepage/concern/view/RecommendBarLayout;", "onChangeSkin", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/card/uistate/OtherTemplateUiState;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RecommendBarCardView extends LinearLayout implements ic7 {
+public final class RecommendBarCardView extends LinearLayout implements rc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendBarLayout a;
@@ -81,11 +81,11 @@ public final class RecommendBarCardView extends LinearLayout implements ic7 {
         } else {
             tbPageContext = null;
         }
-        if (context instanceof av6) {
-            av6 av6Var = (av6) context;
-            Activity pageActivity = av6Var.getPageContext().getPageActivity();
+        if (context instanceof gv6) {
+            gv6 gv6Var = (gv6) context;
+            Activity pageActivity = gv6Var.getPageContext().getPageActivity();
             Intrinsics.checkNotNullExpressionValue(pageActivity, "context.pageContext.pageActivity");
-            tbPageContext = av6Var.getPageContext();
+            tbPageContext = gv6Var.getPageContext();
             context = pageActivity;
         }
         if (tbPageContext != null) {
@@ -100,7 +100,7 @@ public final class RecommendBarCardView extends LinearLayout implements ic7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    @Override // com.baidu.tieba.ic7
+    @Override // com.baidu.tieba.rc7
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -112,7 +112,7 @@ public final class RecommendBarCardView extends LinearLayout implements ic7 {
         }
     }
 
-    public final void update(b67 state) {
+    public final void update(i67 state) {
         RecommendBarLayout recommendBarLayout;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state) == null) {

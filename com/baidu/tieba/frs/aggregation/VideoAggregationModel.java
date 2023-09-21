@@ -18,7 +18,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al7;
+import com.baidu.tieba.kl7;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,7 +47,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public interface c {
         void a(String str);
 
-        void b(List<al7> list, boolean z, boolean z2);
+        void b(List<kl7> list, boolean z, boolean z2);
     }
 
     /* loaded from: classes5.dex */
@@ -57,7 +57,7 @@ public class VideoAggregationModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public LiveConfig liveConfig;
-        public List<al7> mDataList;
+        public List<kl7> mDataList;
         public boolean mHasMore;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,10 +97,10 @@ public class VideoAggregationModel extends BdBaseModel {
                         this.mDataList = new ArrayList();
                         JSONArray jSONArray = new JSONArray(optString);
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                            al7 al7Var = new al7();
-                            al7Var.d(jSONArray.optString(i2));
-                            if (al7Var.n != null) {
-                                this.mDataList.add(al7Var);
+                            kl7 kl7Var = new kl7();
+                            kl7Var.d(jSONArray.optString(i2));
+                            if (kl7Var.n != null) {
+                                this.mDataList.add(kl7Var);
                             }
                         }
                     }
@@ -149,7 +149,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.a.f = false;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                        List<al7> list = videoAggregationResponseMessage.mDataList;
+                        List<kl7> list = videoAggregationResponseMessage.mDataList;
                         if (this.a.a == 1) {
                             z = true;
                         }
@@ -206,7 +206,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.a.f = false;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                        List<al7> list = videoAggregationResponseMessage.mDataList;
+                        List<kl7> list = videoAggregationResponseMessage.mDataList;
                         if (this.a.a == 1) {
                             z = true;
                         }

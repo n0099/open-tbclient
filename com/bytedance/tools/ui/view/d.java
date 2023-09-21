@@ -15,10 +15,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gmb;
-import com.baidu.tieba.hmb;
-import com.baidu.tieba.vlb;
-import com.baidu.tieba.wlb;
+import com.baidu.tieba.nnb;
+import com.baidu.tieba.onb;
+import com.baidu.tieba.ynb;
+import com.baidu.tieba.znb;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
@@ -27,8 +27,8 @@ public class d extends com.bytedance.tools.ui.view.c {
     public View h;
     public TextView i;
     public TextView j;
-    public vlb k;
-    public wlb l;
+    public nnb k;
+    public onb l;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -36,11 +36,11 @@ public class d extends com.bytedance.tools.ui.view.c {
 
         /* renamed from: com.bytedance.tools.ui.view.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0572a implements AdapterView.OnItemClickListener {
-            public final /* synthetic */ gmb a;
+        public class C0565a implements AdapterView.OnItemClickListener {
+            public final /* synthetic */ ynb a;
 
-            public C0572a(a aVar, gmb gmbVar) {
-                this.a = gmbVar;
+            public C0565a(a aVar, ynb ynbVar) {
+                this.a = ynbVar;
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -51,10 +51,10 @@ public class d extends com.bytedance.tools.ui.view.c {
 
         /* loaded from: classes9.dex */
         public class b implements View.OnClickListener {
-            public final /* synthetic */ gmb a;
+            public final /* synthetic */ ynb a;
 
-            public b(gmb gmbVar) {
-                this.a = gmbVar;
+            public b(ynb ynbVar) {
+                this.a = ynbVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -76,8 +76,8 @@ public class d extends com.bytedance.tools.ui.view.c {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            gmb gmbVar = new gmb(d.this.getContext(), this.a);
-            d.this.i(gmbVar, new C0572a(this, gmbVar), new b(gmbVar));
+            ynb ynbVar = new ynb(d.this.getContext(), this.a);
+            d.this.i(ynbVar, new C0565a(this, ynbVar), new b(ynbVar));
         }
     }
 
@@ -87,10 +87,10 @@ public class d extends com.bytedance.tools.ui.view.c {
 
         /* loaded from: classes9.dex */
         public class a implements AdapterView.OnItemClickListener {
-            public final /* synthetic */ hmb a;
+            public final /* synthetic */ znb a;
 
-            public a(b bVar, hmb hmbVar) {
-                this.a = hmbVar;
+            public a(b bVar, znb znbVar) {
+                this.a = znbVar;
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -101,11 +101,11 @@ public class d extends com.bytedance.tools.ui.view.c {
 
         /* renamed from: com.bytedance.tools.ui.view.d$b$b  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class View$OnClickListenerC0573b implements View.OnClickListener {
-            public final /* synthetic */ hmb a;
+        public class View$OnClickListenerC0566b implements View.OnClickListener {
+            public final /* synthetic */ znb a;
 
-            public View$OnClickListenerC0573b(hmb hmbVar) {
-                this.a = hmbVar;
+            public View$OnClickListenerC0566b(znb znbVar) {
+                this.a = znbVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -123,11 +123,11 @@ public class d extends com.bytedance.tools.ui.view.c {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            hmb hmbVar = new hmb(d.this.getContext(), new ArrayList());
+            znb znbVar = new znb(d.this.getContext(), new ArrayList());
             for (int i = 0; i < this.a.size(); i++) {
-                if (((vlb) this.a.get(i)).b(d.this.k)) {
-                    hmbVar.c(((vlb) this.a.get(i)).e());
-                    d.this.i(hmbVar, new a(this, hmbVar), new View$OnClickListenerC0573b(hmbVar));
+                if (((nnb) this.a.get(i)).b(d.this.k)) {
+                    znbVar.c(((nnb) this.a.get(i)).e());
+                    d.this.i(znbVar, new a(this, znbVar), new View$OnClickListenerC0566b(znbVar));
                     return;
                 }
             }
@@ -151,11 +151,11 @@ public class d extends com.bytedance.tools.ui.view.c {
 
     /* renamed from: com.bytedance.tools.ui.view.d$d  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class View$OnClickListenerC0574d implements View.OnClickListener {
+    public class View$OnClickListenerC0567d implements View.OnClickListener {
         public final /* synthetic */ View.OnClickListener a;
         public final /* synthetic */ Dialog b;
 
-        public View$OnClickListenerC0574d(View.OnClickListener onClickListener, Dialog dialog) {
+        public View$OnClickListenerC0567d(View.OnClickListener onClickListener, Dialog dialog) {
             this.a = onClickListener;
             this.b = dialog;
         }
@@ -170,20 +170,20 @@ public class d extends com.bytedance.tools.ui.view.c {
         }
     }
 
-    public d(Context context, RadioGroup radioGroup, vlb vlbVar, List<vlb> list) {
-        super(context, radioGroup, vlbVar, list);
+    public d(Context context, RadioGroup radioGroup, nnb nnbVar, List<nnb> list) {
+        super(context, radioGroup, nnbVar, list);
         setTitle("选择广告类型");
         setId(66666688);
     }
 
     @Override // com.bytedance.tools.ui.view.c
-    public void b(RadioGroup radioGroup, vlb vlbVar, List<vlb> list) {
-        super.b(radioGroup, vlbVar, list);
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d055f, this.d);
-        this.g = findViewById(R.id.obfuscated_res_0x7f091f91);
-        this.h = findViewById(R.id.obfuscated_res_0x7f091f93);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091f92);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091f94);
+    public void b(RadioGroup radioGroup, nnb nnbVar, List<nnb> list) {
+        super.b(radioGroup, nnbVar, list);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0561, this.d);
+        this.g = findViewById(R.id.obfuscated_res_0x7f091f5a);
+        this.h = findViewById(R.id.obfuscated_res_0x7f091f5c);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5b);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5d);
         o();
         this.g.setOnClickListener(new a(list));
         this.h.setOnClickListener(new b(list));
@@ -192,16 +192,16 @@ public class d extends com.bytedance.tools.ui.view.c {
     @Override // com.bytedance.tools.ui.view.c
     public boolean d() {
         String str;
-        vlb vlbVar = this.k;
+        nnb nnbVar = this.k;
         String str2 = "";
-        if (vlbVar == null) {
+        if (nnbVar == null) {
             str = "";
         } else {
-            str = vlbVar.a();
+            str = nnbVar.a();
         }
-        wlb wlbVar = this.l;
-        if (wlbVar != null) {
-            str2 = wlbVar.a();
+        onb onbVar = this.l;
+        if (onbVar != null) {
+            str2 = onbVar.a();
         }
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && TextUtils.getTrimmedLength(str) == 16 && TextUtils.getTrimmedLength(str2) == 16) {
             return false;
@@ -210,20 +210,20 @@ public class d extends com.bytedance.tools.ui.view.c {
     }
 
     @Override // com.bytedance.tools.ui.view.c
-    public vlb getConfigModel() {
+    public nnb getConfigModel() {
         String str;
-        vlb vlbVar = this.k;
+        nnb nnbVar = this.k;
         String str2 = "";
-        if (vlbVar == null) {
+        if (nnbVar == null) {
             str = "";
         } else {
-            str = vlbVar.a();
+            str = nnbVar.a();
         }
-        wlb wlbVar = this.l;
-        if (wlbVar != null) {
-            str2 = wlbVar.a();
+        onb onbVar = this.l;
+        if (onbVar != null) {
+            str2 = onbVar.a();
         }
-        return new vlb(str, str2);
+        return new nnb(str, str2);
     }
 
     public void h() {
@@ -232,7 +232,7 @@ public class d extends com.bytedance.tools.ui.view.c {
     }
 
     public boolean m() {
-        List<vlb> list = this.f;
+        List<nnb> list = this.f;
         if (list != null && list.size() != 0) {
             for (int i = 0; i < this.f.size(); i++) {
                 if (this.f.get(i).b(this.e)) {
@@ -245,35 +245,35 @@ public class d extends com.bytedance.tools.ui.view.c {
 
     public final void i(BaseAdapter baseAdapter, AdapterView.OnItemClickListener onItemClickListener, View.OnClickListener onClickListener) {
         Dialog dialog = new Dialog(getContext(), R.style.obfuscated_res_0x7f1000fb);
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0560, (ViewGroup) null);
-        ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f091d6b);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0562, (ViewGroup) null);
+        ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f091d39);
         listView.setAdapter((ListAdapter) baseAdapter);
         listView.setOnItemClickListener(onItemClickListener);
-        inflate.findViewById(R.id.obfuscated_res_0x7f091d69).setOnClickListener(new c(dialog));
-        inflate.findViewById(R.id.obfuscated_res_0x7f091d6a).setOnClickListener(new View$OnClickListenerC0574d(onClickListener, dialog));
+        inflate.findViewById(R.id.obfuscated_res_0x7f091d37).setOnClickListener(new c(dialog));
+        inflate.findViewById(R.id.obfuscated_res_0x7f091d38).setOnClickListener(new View$OnClickListenerC0567d(onClickListener, dialog));
         dialog.setContentView(inflate);
         ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
         layoutParams.width = getResources().getDisplayMetrics().widthPixels;
         inflate.setLayoutParams(layoutParams);
         dialog.getWindow().setGravity(80);
-        dialog.getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003ce);
+        dialog.getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003d0);
         dialog.show();
     }
 
     public final void o() {
-        List<vlb> list = this.f;
+        List<nnb> list = this.f;
         if (list != null && list.size() != 0) {
             for (int i = 0; i < this.f.size(); i++) {
                 if (this.f.get(i).b(this.e)) {
-                    vlb vlbVar = this.f.get(i);
-                    this.k = vlbVar;
-                    this.i.setText(vlbVar.f());
+                    nnb nnbVar = this.f.get(i);
+                    this.k = nnbVar;
+                    this.i.setText(nnbVar.f());
                     if (this.k.e() != null && this.k.e().size() != 0) {
                         for (int i2 = 0; i2 < this.k.e().size(); i2++) {
                             if (this.k.e().get(i2).a().equals(this.e.d())) {
-                                wlb wlbVar = this.k.e().get(i2);
-                                this.l = wlbVar;
-                                this.j.setText(wlbVar.c());
+                                onb onbVar = this.k.e().get(i2);
+                                this.l = onbVar;
+                                this.j.setText(onbVar.c());
                                 return;
                             }
                         }

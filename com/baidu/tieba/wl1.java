@@ -1,13 +1,11 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes8.dex */
 public interface wl1 {
-    void a(xl1 xl1Var);
+    void d();
 
-    void c(vl1 vl1Var);
+    void g();
 
-    View getAdView();
+    void h(String str);
 
-    void load();
+    void onAdError(String str);
 }

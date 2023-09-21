@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.log.DefaultLog;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.widget.ImageView;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.n55;
-import com.baidu.tieba.tn9;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class un9 extends n55 {
-    public static /* synthetic */ Interceptable $ic;
+public class un9 extends a26 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static double O = 0.5d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tn9 c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,83 +39,138 @@ public final class un9 extends n55 {
         }
     }
 
+    /* loaded from: classes8.dex */
+    public class a implements TbImageView.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ un9 a;
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void a(TbImageView tbImageView, Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
+            }
+        }
+
+        public a(un9 un9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {un9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = un9Var;
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void b(TbImageView tbImageView, Canvas canvas) {
+            int i;
+            int i2;
+            float f;
+            float f2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                Matrix imageMatrix = tbImageView.getImageMatrix();
+                if (this.a.u) {
+                    i = 17;
+                } else {
+                    i = 18;
+                }
+                BdImage C = TbImageMemoryCache.A().C(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
+                int i3 = 0;
+                if (C != null) {
+                    i3 = C.getWidth();
+                    i2 = C.getHeight();
+                } else {
+                    i2 = 0;
+                }
+                if (i3 != 0 && i2 != 0) {
+                    int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
+                    int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
+                    if (i3 * height > width * i2) {
+                        f = height;
+                        f2 = i2;
+                    } else {
+                        f = width;
+                        f2 = i3;
+                    }
+                    float f3 = f / f2;
+                    imageMatrix.setScale(f3, f3);
+                    imageMatrix.postTranslate(0.0f, 0.0f);
+                }
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public un9(Activity activity, tn9 pbTopicRecommendTipController) {
-        super(activity);
+    public un9(a26 a26Var) {
+        super(a26Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, pbTopicRecommendTipController};
+            Object[] objArr = {a26Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+                super((a26) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(pbTopicRecommendTipController, "pbTopicRecommendTipController");
-        this.c = pbTopicRecommendTipController;
+        l(true);
+        v();
+        p(TbConfig.getPostLineSpace(), 1.0f);
+        A(0);
+        m(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+        n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
+        j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        t(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        this.J = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.K = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.M = new a(this);
     }
 
-    public static final void g(un9 this$0) {
+    @Override // com.baidu.tieba.a26
+    public int[] f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.n55
-    public void d(n55.a shouldShowCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            shouldShowCallback.callback(this.c.f());
-        }
-    }
-
-    @Override // com.baidu.tieba.n55
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.j();
-        }
-    }
-
-    @Override // com.baidu.tieba.n55
-    public void e() {
-        boolean s;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.p(new tn9.f() { // from class: com.baidu.tieba.xl9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.tn9.f
-                public final void onDismiss() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        un9.g(un9.this);
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            if (i2 > 0 && i > 0 && i3 > 0 && i4 > 0) {
+                if (this.v) {
+                    float f = a26.N;
+                    if (f > 1.0f) {
+                        float f2 = i;
+                        if (f2 * f <= i3 * O) {
+                            i3 = (int) (f2 * f);
+                        }
+                        i2 = (i2 * i3) / i;
+                        if (i2 > 4096) {
+                            this.s = ImageView.ScaleType.MATRIX;
+                            i = i3;
+                            i2 = 4096;
+                        } else {
+                            this.s = ImageView.ScaleType.CENTER_CROP;
+                            i = i3;
+                        }
                     }
                 }
-            });
-            if (co5.g(false, 1, null)) {
-                DefaultLog.getInstance().i("PbTopicTip", "开始展示精灵动画提示控件");
-                s = this.c.t();
-            } else {
-                DefaultLog.getInstance().i("PbTopicTip", "开始展示线上动画提示控件");
-                s = this.c.s();
+                return new int[]{i, i2};
             }
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("PbTopicTip", "pb相关话题引导tip触发展示：" + s);
-            if (!s) {
-                c();
-            }
+            return null;
         }
+        return (int[]) invokeIIII.objValue;
     }
 }

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,38 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class rm2 implements qm2 {
+public class rm2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final boolean c;
+    public static rm2 d;
+    public static rm2 e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.qm2
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aiapps/extcore/extension-core.zip" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qm2
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.qm2
-    @NonNull
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "aiapps/extcore/extension-config.json" : (String) invokeV.objValue;
-    }
+    public String a;
+    public long b;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +38,7 @@ public abstract class rm2 implements qm2 {
                 return;
             }
         }
-        a = du2.g() + File.separator + "extension_core";
+        c = qr1.a;
     }
 
     public rm2() {
@@ -72,14 +55,88 @@ public abstract class rm2 implements qm2 {
         }
     }
 
-    @Override // com.baidu.tieba.qm2
     @NonNull
-    public File f() {
-        InterceptResult invokeV;
+    public static rm2 a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (d == null) {
+                d = d(e(str));
+            }
+            return d;
         }
-        return (File) invokeV.objValue;
+        return (rm2) invokeL.objValue;
+    }
+
+    @NonNull
+    public static rm2 b(@NonNull pm2 pm2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pm2Var)) == null) {
+            if (pm2Var.c() == 1) {
+                return c(pm2Var.d());
+            }
+            return a(pm2Var.d());
+        }
+        return (rm2) invokeL.objValue;
+    }
+
+    @NonNull
+    public static rm2 c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (e == null) {
+                e = d(e(str));
+            }
+            return e;
+        }
+        return (rm2) invokeL.objValue;
+    }
+
+    @NonNull
+    public static rm2 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
+            rm2 rm2Var = new rm2();
+            if (jSONObject != null) {
+                rm2Var.a = jSONObject.optString("extension-core-version-name");
+                rm2Var.b = jSONObject.optLong("extension-core-version-code");
+            }
+            return rm2Var;
+        }
+        return (rm2) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static JSONObject e(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (c) {
+                Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
+            }
+            String D = kr4.D(AppRuntime.getAppContext(), str);
+            if (TextUtils.isEmpty(D)) {
+                if (c) {
+                    Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
+                }
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(D);
+                if (c) {
+                    Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
+                }
+                return jSONObject;
+            } catch (JSONException e2) {
+                if (!c) {
+                    return null;
+                }
+                throw new RuntimeException(e2);
+            }
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

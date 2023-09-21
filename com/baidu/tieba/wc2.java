@@ -1,7 +1,62 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface wc2 {
-    void a(qx1 qx1Var);
 
-    void b(qx1 qx1Var);
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes8.dex */
+public class wc2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static AtomicInteger b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948265699, "Lcom/baidu/tieba/wc2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948265699, "Lcom/baidu/tieba/wc2;");
+                return;
+            }
+        }
+        a = qr1.a;
+        b = new AtomicInteger(0);
+    }
+
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && str.startsWith("localDebug")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            int andIncrement = b.getAndIncrement();
+            String str = "localDebug";
+            if (andIncrement >= 1) {
+                str = "localDebug" + andIncrement;
+            }
+            if (a) {
+                Log.i("DaemonIdGenerator", "next daemon id - " + str);
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
 }

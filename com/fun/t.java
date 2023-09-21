@@ -9,15 +9,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eub;
-import com.baidu.tieba.fub;
-import com.baidu.tieba.hub;
-import com.baidu.tieba.lob;
-import com.baidu.tieba.rnb;
-import com.baidu.tieba.snb;
-import com.baidu.tieba.tnb;
-import com.baidu.tieba.ynb;
-import com.baidu.tieba.ztb;
+import com.baidu.tieba.dqb;
+import com.baidu.tieba.jpb;
+import com.baidu.tieba.kpb;
+import com.baidu.tieba.lpb;
+import com.baidu.tieba.qpb;
+import com.baidu.tieba.rvb;
+import com.baidu.tieba.wvb;
+import com.baidu.tieba.xvb;
+import com.baidu.tieba.zvb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,26 +52,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 /* loaded from: classes9.dex */
-public class t extends lob<b> {
+public class t extends dqb<b> {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int d = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ynb e;
+    public final qpb e;
     public final Map<Ssp.Pid, PidLoader> f;
     public final Random g;
     public FunAdInteractionListener h;
     public final boolean i;
     public final List<PidLoader> j;
     public final List<PidLoader> k;
-    public final List<ynb.a> l;
+    public final List<qpb.a> l;
     public final Handler m;
 
-    public t(ynb ynbVar, fub fubVar) {
+    public t(qpb qpbVar, xvb xvbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ynbVar, fubVar};
+            Object[] objArr = {qpbVar, xvbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,15 +83,15 @@ public class t extends lob<b> {
         }
         this.g = new Random();
         this.m = new a(this, Looper.getMainLooper());
-        this.e = ynbVar;
+        this.e = qpbVar;
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         ArrayList arrayList3 = new ArrayList();
         HashMap hashMap2 = new HashMap();
-        for (ynb.b bVar : ynbVar.b) {
-            for (ynb.a aVar : bVar.b) {
-                PidLoader a2 = fubVar.a(aVar.c);
+        for (qpb.b bVar : qpbVar.b) {
+            for (qpb.a aVar : bVar.b) {
+                PidLoader a2 = xvbVar.a(aVar.c);
                 if (a2 != null) {
                     if (aVar.c.isBidding) {
                         arrayList2.add(a2);
@@ -116,35 +116,35 @@ public class t extends lob<b> {
         Collections.unmodifiableMap(hashMap2);
     }
 
-    public static /* synthetic */ Object a(tnb tnbVar, PidLoader pidLoader, String str) {
-        Object a2 = tnbVar.a(pidLoader);
-        if (a2 == null || !tnbVar.a((tnb) a2)) {
+    public static /* synthetic */ Object a(lpb lpbVar, PidLoader pidLoader, String str) {
+        Object a2 = lpbVar.a(pidLoader);
+        if (a2 == null || !lpbVar.a((lpb) a2)) {
             return null;
         }
         return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ boolean a(List list, ynb.a aVar) {
+    public /* synthetic */ boolean a(List list, qpb.a aVar) {
         PidLoader pidLoader = this.f.get(aVar.c);
         return (list == null || !list.contains(pidLoader)) && pidLoader != null && pidLoader.isLoaded();
     }
 
-    public final PidLoader a(ynb.b bVar, final List<PidLoader> list) {
+    public final PidLoader a(qpb.b bVar, final List<PidLoader> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, list)) == null) {
-            ynb.a aVar = (ynb.a) rnb.a(this.g, bVar.b, new snb() { // from class: com.baidu.tieba.lnb
+            qpb.a aVar = (qpb.a) jpb.a(this.g, bVar.b, new kpb() { // from class: com.baidu.tieba.dpb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.snb
+                @Override // com.baidu.tieba.kpb
                 public final boolean a(Object obj) {
                     InterceptResult invokeL;
                     boolean a2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
-                        a2 = com.fun.t.this.a(list, (ynb.a) obj);
+                        a2 = com.fun.t.this.a(list, (qpb.a) obj);
                         return a2;
                     }
                     return invokeL.booleanValue;
@@ -158,20 +158,20 @@ public class t extends lob<b> {
         return (PidLoader) invokeLL.objValue;
     }
 
-    public final <Result> Result a(FunAdInteractionListener funAdInteractionListener, final tnb<Result> tnbVar) {
+    public final <Result> Result a(FunAdInteractionListener funAdInteractionListener, final lpb<Result> lpbVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, funAdInteractionListener, tnbVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, funAdInteractionListener, lpbVar)) == null) {
             this.h = funAdInteractionListener;
-            if (a(new hub() { // from class: com.baidu.tieba.vmb
+            if (a(new zvb() { // from class: com.baidu.tieba.nob
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.hub
+                @Override // com.baidu.tieba.zvb
                 public final Object a(PidLoader pidLoader, String str) {
                     InterceptResult invokeLL2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, pidLoader, str)) == null) ? com.fun.t.a(tnb.this, pidLoader, str) : invokeLL2.objValue;
+                    return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, pidLoader, str)) == null) ? com.fun.t.a(lpb.this, pidLoader, str) : invokeLL2.objValue;
                 }
             }) == null) {
                 funAdInteractionListener.onAdError(this.e.a);
@@ -183,7 +183,7 @@ public class t extends lob<b> {
         return (Result) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.lob, com.fun.ad.sdk.FunAdLoader
+    @Override // com.baidu.tieba.dqb, com.fun.ad.sdk.FunAdLoader
     public synchronized void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -192,8 +192,8 @@ public class t extends lob<b> {
                 this.m.removeMessages(100);
                 super.destroy();
                 this.h = null;
-                for (ynb.b bVar : this.e.b) {
-                    for (ynb.a aVar : bVar.b) {
+                for (qpb.b bVar : this.e.b) {
+                    for (qpb.a aVar : bVar.b) {
                         PidLoader pidLoader = this.f.get(aVar.c);
                         if (pidLoader != null) {
                             pidLoader.destroy();
@@ -220,8 +220,8 @@ public class t extends lob<b> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                for (ynb.b bVar : this.e.b) {
-                    for (ynb.a aVar : bVar.b) {
+                for (qpb.b bVar : this.e.b) {
+                    for (qpb.a aVar : bVar.b) {
                         if (aVar != null && (pidLoader = this.f.get(aVar.c)) != null && pidLoader.isLoaded()) {
                             arrayList.add(new CacheStatistic(pidLoader.getAdType(), pidLoader.getPid().pid, pidLoader.getAdCount(), pidLoader.getBiddingOrBasePrices()));
                         }
@@ -238,11 +238,11 @@ public class t extends lob<b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) a(new hub() { // from class: com.baidu.tieba.zmb
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) a(new zvb() { // from class: com.baidu.tieba.rob
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.hub
+                @Override // com.baidu.tieba.zvb
                 public final Object a(PidLoader pidLoader, String str) {
                     InterceptResult invokeLL;
                     FunNativeAd2 nativeAd2;
@@ -269,13 +269,13 @@ public class t extends lob<b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
-                Iterator<ynb.b> it = this.e.b.iterator();
+                Iterator<qpb.b> it = this.e.b.iterator();
                 loop0: while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
-                    for (ynb.a aVar : it.next().b) {
+                    for (qpb.a aVar : it.next().b) {
                         PidLoader pidLoader = this.f.get(aVar.c);
                         if (pidLoader != null && pidLoader.isLoaded()) {
                             z = true;
@@ -289,7 +289,7 @@ public class t extends lob<b> {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lob, com.fun.ad.sdk.FunAdLoader
+    @Override // com.baidu.tieba.dqb, com.fun.ad.sdk.FunAdLoader
     public void recycleListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -299,14 +299,14 @@ public class t extends lob<b> {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends lob.a {
+    public class b extends dqb.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context d;
         public FunAdSlot e;
-        public Iterator<ynb.b> f;
-        public final HashSet<ynb.a> g;
-        public final LinkedHashMap<ynb.a, Integer> h;
+        public Iterator<qpb.b> f;
+        public final HashSet<qpb.a> g;
+        public final LinkedHashMap<qpb.a, Integer> h;
         public final List<PidLoader> i;
         public boolean j;
         public boolean k;
@@ -373,7 +373,7 @@ public class t extends lob<b> {
         }
 
         /* loaded from: classes9.dex */
-        public class a implements tnb<Boolean> {
+        public class a implements lpb<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
@@ -402,7 +402,7 @@ public class t extends lob<b> {
 
             /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, java.lang.Object] */
-            @Override // com.baidu.tieba.tnb
+            @Override // com.baidu.tieba.lpb
             public Boolean a(PidLoader pidLoader) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -414,7 +414,7 @@ public class t extends lob<b> {
             }
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.baidu.tieba.tnb
+            @Override // com.baidu.tieba.lpb
             public boolean a(Boolean bool) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -427,14 +427,14 @@ public class t extends lob<b> {
 
         /* renamed from: com.fun.t$b$b  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0582b implements tnb<FunSplashAd> {
+        public class C0575b implements lpb<FunSplashAd> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ ViewGroup b;
             public final /* synthetic */ b c;
 
-            public C0582b(b bVar, Activity activity, ViewGroup viewGroup) {
+            public C0575b(b bVar, Activity activity, ViewGroup viewGroup) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -455,7 +455,7 @@ public class t extends lob<b> {
             }
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.baidu.tieba.tnb
+            @Override // com.baidu.tieba.lpb
             public boolean a(FunSplashAd funSplashAd) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -467,7 +467,7 @@ public class t extends lob<b> {
 
             /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.FunSplashAd, java.lang.Object] */
-            @Override // com.baidu.tieba.tnb
+            @Override // com.baidu.tieba.lpb
             public FunSplashAd a(PidLoader pidLoader) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -479,7 +479,7 @@ public class t extends lob<b> {
             }
         }
 
-        @Override // com.baidu.tieba.lob.a
+        @Override // com.baidu.tieba.dqb.a
         public void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, context, funAdSlot, funAdLoadListener) == null) {
@@ -501,7 +501,7 @@ public class t extends lob<b> {
                     long j = 0;
                     synchronized (tVar) {
                         ArrayList arrayList = new ArrayList();
-                        for (ynb.a aVar : this.p.l) {
+                        for (qpb.a aVar : this.p.l) {
                             long j2 = aVar.d.a;
                             if (j2 > j) {
                                 j = j2;
@@ -535,7 +535,7 @@ public class t extends lob<b> {
             }
         }
 
-        public void a(ynb.a aVar) {
+        public void a(qpb.a aVar) {
             PidLoader pidLoader;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
@@ -587,7 +587,7 @@ public class t extends lob<b> {
             }
         }
 
-        @Override // com.baidu.tieba.lob.a
+        @Override // com.baidu.tieba.dqb.a
         public boolean a(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -601,21 +601,21 @@ public class t extends lob<b> {
             return invokeLLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.lob.a
+        @Override // com.baidu.tieba.dqb.a
         public FunSplashAd b(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, activity, viewGroup, funAdInteractionListener)) == null) {
                 t tVar = this.p;
-                C0582b c0582b = new C0582b(this, activity, viewGroup);
+                C0575b c0575b = new C0575b(this, activity, viewGroup);
                 int i = t.d;
-                tVar.a(funAdInteractionListener, c0582b);
+                tVar.a(funAdInteractionListener, c0575b);
                 return null;
             }
             return (FunSplashAd) invokeLLL.objValue;
         }
 
-        @Override // com.baidu.tieba.lob.a
+        @Override // com.baidu.tieba.dqb.a
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -639,7 +639,7 @@ public class t extends lob<b> {
                 return;
             }
             PidLoader pidLoader = null;
-            Collections.sort(this.i, new Comparator() { // from class: com.baidu.tieba.bnb
+            Collections.sort(this.i, new Comparator() { // from class: com.baidu.tieba.tob
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -666,7 +666,7 @@ public class t extends lob<b> {
                 d = 0.0d;
                 d2 = 0.0d;
             }
-            for (Map.Entry<ynb.a, Integer> entry : this.h.entrySet()) {
+            for (Map.Entry<qpb.a, Integer> entry : this.h.entrySet()) {
                 entry.getValue().intValue();
                 PidLoader pidLoader2 = this.p.f.get(entry.getKey().c);
                 if (pidLoader2 != null && pidLoader2 != pidLoader) {
@@ -685,7 +685,7 @@ public class t extends lob<b> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 if (!this.j) {
-                    Iterator<Map.Entry<ynb.a, Integer>> it = this.h.entrySet().iterator();
+                    Iterator<Map.Entry<qpb.a, Integer>> it = this.h.entrySet().iterator();
                     while (true) {
                         if (it.hasNext()) {
                             if (it.next().getValue().intValue() != -1) {
@@ -755,7 +755,7 @@ public class t extends lob<b> {
                     } else if (!this.f.hasNext()) {
                         LogPrinter.d("All loader already started, just wait for the loader callback", new Object[0]);
                     } else {
-                        ynb.b next = this.f.next();
+                        qpb.b next = this.f.next();
                         this.n = true;
                         if (next.b.isEmpty()) {
                             LogPrinter.e("There is an empty group in SerialSid(%s)", this.p.e.a);
@@ -764,10 +764,10 @@ public class t extends lob<b> {
                         }
                         double d = 0.0d;
                         boolean z = true;
-                        for (ynb.a aVar : next.b) {
+                        for (qpb.a aVar : next.b) {
                             Ssp.Pid pid = aVar.c;
                             if (!pid.isBidding) {
-                                double a2 = ztb.a(pid.pid) * 1000.0d;
+                                double a2 = rvb.a(pid.pid) * 1000.0d;
                                 if (d < a2) {
                                     d = a2;
                                 }
@@ -786,7 +786,7 @@ public class t extends lob<b> {
                             }
                         }
                         ArrayList arrayList = new ArrayList();
-                        for (ynb.a aVar2 : next.b) {
+                        for (qpb.a aVar2 : next.b) {
                             Ssp.Pid pid2 = aVar2.c;
                             if (!pid2.isBidding && (pidLoader = this.p.f.get(pid2)) != null && ((shouldIntercept = Flavors.PLUGIN_RC.shouldIntercept(pidLoader.getPid().pid, pidLoader.getAdType())) == null || !shouldIntercept.shouldInterceptLoad())) {
                                 this.g.add(aVar2);
@@ -868,11 +868,11 @@ public class t extends lob<b> {
     }
 
     /* loaded from: classes9.dex */
-    public class c implements eub {
+    public class c implements wvb {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ boolean a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ynb.a b;
+        public final qpb.a b;
         public final PidLoader c;
         public final /* synthetic */ t d;
 
@@ -892,7 +892,7 @@ public class t extends lob<b> {
             a = !t.class.desiredAssertionStatus();
         }
 
-        public c(t tVar, ynb.a aVar, PidLoader pidLoader) {
+        public c(t tVar, qpb.a aVar, PidLoader pidLoader) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -912,14 +912,14 @@ public class t extends lob<b> {
             this.c = pidLoader;
         }
 
-        @Override // com.baidu.tieba.eub
+        @Override // com.baidu.tieba.wvb
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.eub
+        @Override // com.baidu.tieba.wvb
         public void a() {
             b bVar;
             Interceptable interceptable = $ic;
@@ -928,12 +928,12 @@ public class t extends lob<b> {
             }
         }
 
-        @Override // com.baidu.tieba.eub
+        @Override // com.baidu.tieba.wvb
         public void a(int i, String str) {
             b bVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (bVar = (b) this.d.c) != null) {
-                ynb.a aVar = this.b;
+                qpb.a aVar = this.b;
                 synchronized (bVar.p) {
                     if (bVar.g()) {
                         if (aVar.c.isBidding) {
@@ -964,7 +964,7 @@ public class t extends lob<b> {
             }
         }
 
-        @Override // com.baidu.tieba.eub
+        @Override // com.baidu.tieba.wvb
         public void a(RippedAd rippedAd, Map<String, String> map) {
             FunAdInteractionListener funAdInteractionListener;
             Interceptable interceptable = $ic;
@@ -983,7 +983,7 @@ public class t extends lob<b> {
             }
         }
 
-        @Override // com.baidu.tieba.eub
+        @Override // com.baidu.tieba.wvb
         public void b(RippedAd rippedAd, Map<String, String> map) {
             FunAdInteractionListener funAdInteractionListener;
             Interceptable interceptable = $ic;
@@ -1002,7 +1002,7 @@ public class t extends lob<b> {
             }
         }
 
-        @Override // com.baidu.tieba.eub
+        @Override // com.baidu.tieba.wvb
         public void a(Map<String, String> map) {
             t tVar;
             FunAdInteractionListener funAdInteractionListener;
@@ -1015,7 +1015,7 @@ public class t extends lob<b> {
             }
         }
 
-        @Override // com.baidu.tieba.eub
+        @Override // com.baidu.tieba.wvb
         public void a(boolean z, int i, Map<String, String> map) {
             t tVar;
             FunAdInteractionListener funAdInteractionListener;
@@ -1028,7 +1028,7 @@ public class t extends lob<b> {
             }
         }
 
-        @Override // com.baidu.tieba.eub
+        @Override // com.baidu.tieba.wvb
         public void b(int i, String str) {
             t tVar;
             FunAdInteractionListener funAdInteractionListener;
@@ -1039,19 +1039,19 @@ public class t extends lob<b> {
         }
     }
 
-    public final <N> N a(hub<N> hubVar) {
+    public final <N> N a(zvb<N> zvbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hubVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zvbVar)) == null) {
             if (this.i) {
-                return (N) a(this.k, this.j, hubVar, this.e.a);
+                return (N) a(this.k, this.j, zvbVar, this.e.a);
             }
-            for (ynb.b bVar : this.e.b) {
+            for (qpb.b bVar : this.e.b) {
                 ArrayList arrayList = new ArrayList();
                 while (true) {
                     PidLoader a2 = a(bVar, arrayList);
                     if (a2 != null) {
-                        N a3 = hubVar.a(a2, this.e.a);
+                        N a3 = zvbVar.a(a2, this.e.a);
                         if (a3 == null) {
                             arrayList.add(a2);
                         } else {
@@ -1065,12 +1065,12 @@ public class t extends lob<b> {
         return (N) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.lob
+    @Override // com.baidu.tieba.dqb
     public void a(String str) {
         PidLoader pidLoader;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            for (ynb.a aVar : this.l) {
+            for (qpb.a aVar : this.l) {
                 if (!aVar.c.pid.equals(str) && (pidLoader = this.f.get(aVar.c)) != null && pidLoader.isLoaded()) {
                     LogPrinter.d("destroy bid : %s ", aVar.c.pid);
                     pidLoader.destroy(true);
@@ -1079,15 +1079,15 @@ public class t extends lob<b> {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.lob$a' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.lob$a, com.fun.t$b] */
-    @Override // com.baidu.tieba.lob
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.dqb$a' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.dqb$a, com.fun.t$b] */
+    @Override // com.baidu.tieba.dqb
     public b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return new b(this);
         }
-        return (lob.a) invokeV.objValue;
+        return (dqb.a) invokeV.objValue;
     }
 }

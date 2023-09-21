@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FRIEND_AND_STRANGER_MASK_TYPE = -1;
@@ -50,7 +50,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

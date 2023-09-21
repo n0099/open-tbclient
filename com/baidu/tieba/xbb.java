@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class xbb {
+public class xbb extends InputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
+    public InputStream a;
+    public ybb b;
+    public long c;
+    public boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -31,68 +34,180 @@ public class xbb {
                 return;
             }
         }
-        a = pbb.m();
+        e = xbb.class.getName();
     }
 
-    @SuppressLint({"MissingPermission"})
-    public static boolean a(Context context) {
+    @Override // java.io.InputStream
+    public int available() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return this.a.available();
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                try {
+                    this.a.reset();
+                } catch (IOException e2) {
+                    this.b.b(e2, this.c);
+                    throw e2;
+                }
+            }
+        }
+    }
+
+    public xbb(InputStream inputStream, ybb ybbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, ybbVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = inputStream;
+        this.b = ybbVar;
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d) {
+            this.d = true;
+            try {
+                try {
+                    if (this.a.read() == -1) {
+                        this.b.onComplete(this.c);
+                    } else {
+                        this.b.a(this.c);
+                    }
+                    this.a.close();
+                } catch (Exception unused) {
+                    this.a.close();
+                } catch (Throwable th) {
+                    try {
+                        this.a.close();
+                    } catch (Exception e2) {
+                        this.b.b(e2, this.c);
+                    }
+                    throw th;
+                }
+            } catch (Exception e3) {
+                this.b.b(e3, this.c);
+            }
+        }
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d) {
+                return -1;
+            }
+            try {
+                int read = this.a.read();
+                if (read >= 0) {
+                    this.c += read;
+                } else {
+                    this.d = true;
+                    this.b.onComplete(this.c);
+                }
+                return read;
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            } catch (IllegalStateException e3) {
+                Log.e(e, "Exception reading data from InputStream", e3);
+                return -1;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            if (connectivityManager == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            if (this.d) {
+                return -1;
             }
-            NetworkInfo networkInfo = null;
             try {
-                networkInfo = connectivityManager.getActiveNetworkInfo();
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("UBCUtil", "get network info error! " + Log.getStackTraceString(e));
+                int read = this.a.read(bArr, 0, bArr.length);
+                if (read >= 0) {
+                    this.c += read;
+                } else {
+                    this.d = true;
+                    this.b.onComplete(this.c);
                 }
+                return read;
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            } catch (IllegalStateException e3) {
+                Log.e(e, "Exception reading data from InputStream", e3);
+                return -1;
             }
-            if (networkInfo == null || !networkInfo.isConnectedOrConnecting()) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public static String b(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            if (this.d) {
+                return -1;
             }
-            return sb.toString();
+            try {
+                int read = this.a.read(bArr, i, i2);
+                if (read >= 0) {
+                    this.c += read;
+                } else {
+                    this.d = true;
+                    this.b.onComplete(this.c);
+                }
+                return read;
+            } catch (IOException e2) {
+                this.b.b(e2, this.c);
+                throw e2;
+            } catch (IllegalStateException e3) {
+                Log.e(e, "Exception reading data from InputStream", e3);
+                return -1;
+            }
         }
-        return (String) invokeLLZ.objValue;
+        return invokeLII.intValue;
     }
 
-    public static String c(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return b(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            long skip = this.a.skip(j);
+            this.c += skip;
+            return skip;
         }
-        return (String) invokeLZ.objValue;
+        return invokeJ.longValue;
     }
 }

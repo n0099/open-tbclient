@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class gr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,6 +25,15 @@ public class gr4 {
                 return;
             }
         }
-        String str = nq4.g().t() + "/ma/log/token";
+        a = er4.e().getString("openstat_switch", "1");
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return TextUtils.equals(a, "1");
+        }
+        return invokeV.booleanValue;
     }
 }

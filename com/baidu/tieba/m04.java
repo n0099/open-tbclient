@@ -1,66 +1,13 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class m04 extends k04 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
+public interface m04 {
+    void a(boolean z, String str);
 
-    @Override // com.baidu.tieba.k04
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-    }
+    void b(boolean z, String str);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m04(Context context, i04 i04Var) {
-        super(context, i04Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, i04Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (i04) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.q = "rvideo";
-        this.r = "10";
-        this.s = "MSSP,ANTI,VIDEO,NMON";
-        this.t = "LP,DL";
-    }
+    void c(boolean z, int i);
 
-    @Override // com.baidu.tieba.k04
-    public HashMap<String, String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("act", this.t);
-            hashMap.put("prod", this.q);
-            hashMap.put("at", this.r);
-            hashMap.put("fet", this.s);
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
+    void onClick(int i);
+
+    void onError(String str);
 }

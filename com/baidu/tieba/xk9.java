@@ -1,58 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import androidx.annotation.DrawableRes;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class xk9<D extends IBaseDialogData> implements cl9<D> {
+public class xk9 extends zja {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId k1;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ViewGroup b;
+    @DrawableRes
+    public int g1;
+    public String h1;
+    public int i1;
+    public int j1;
 
-    public xk9(TbPageContext<?> tbPageContext) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303395, "Lcom/baidu/tieba/xk9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948303395, "Lcom/baidu/tieba/xk9;");
+                return;
+            }
+        }
+        k1 = BdUniqueId.gen();
+    }
+
+    public xk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a(), (ViewGroup) null, false);
-        b();
+        this.j1 = 0;
     }
 
-    public TbPageContext<?> d() {
+    @Override // com.baidu.tieba.zja, com.baidu.tieba.bn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return k1;
         }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cl9
-    public ViewGroup getViewGroup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ViewGroup) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,39 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.hardware.SensorManager;
-import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetThemeList.ThemeCarousel;
 /* loaded from: classes8.dex */
-public class wqa {
+public class wqa implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    public static int a() {
-        InterceptResult invokeV;
+    public wqa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                return Integer.valueOf(Build.VERSION.SDK).intValue();
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeV.intValue;
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u75
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.u75
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void a(ThemeCarousel themeCarousel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, themeCarousel) != null) || themeCarousel == null) {
+            return;
+        }
+        this.a = themeCarousel.pic_url;
+        this.b = themeCarousel.active_url;
     }
 }

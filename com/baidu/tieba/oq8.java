@@ -1,62 +1,58 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.RoundTbImageView;
+import com.baidu.tieba.immessagecenter.arch.view.BaseView;
+import com.baidu.tieba.immessagecenter.arch.vm.StatelessViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class oq8 {
+public abstract class oq8 extends BaseView<qq8, pq8, StatelessViewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public RoundTbImageView b;
 
-    public oq8() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
+    /* renamed from: O */
+    public void H(qq8 state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
+            Intrinsics.checkNotNullParameter(state, "state");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oq8(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public RoundTbImageView a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (RoundTbImageView) invokeV.objValue;
-    }
-
-    public String b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
+    /* renamed from: N */
+    public StatelessViewModel r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return new StatelessViewModel();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(RoundTbImageView roundTbImageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, roundTbImageView) == null) {
-            this.b = roundTbImageView;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
+        return (StatelessViewModel) invokeV.objValue;
     }
 }

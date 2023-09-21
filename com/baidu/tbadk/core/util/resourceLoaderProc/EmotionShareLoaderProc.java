@@ -7,8 +7,8 @@ import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tieba.dg;
 import com.baidu.tieba.eg;
-import com.baidu.tieba.fg;
 import com.baidu.tieba.sb;
 import com.baidu.tieba.vb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,14 +18,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes4.dex */
-public class EmotionShareLoaderProc implements fg<EmotionShare> {
+public class EmotionShareLoaderProc implements eg<EmotionShare> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MemeLoaderProc2 impl;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public EmotionShare m123decodeToResource(byte[] bArr, Object... objArr) {
+    public EmotionShare m124decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
@@ -36,7 +36,7 @@ public class EmotionShareLoaderProc implements fg<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.fg
+    @Override // com.baidu.tieba.eg
     public EmotionShare getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class EmotionShareLoaderProc implements fg<EmotionShare> {
         return (EmotionShare) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.fg
+    @Override // com.baidu.tieba.eg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public class EmotionShareLoaderProc implements fg<EmotionShare> {
         }
     }
 
-    @Override // com.baidu.tieba.fg
+    @Override // com.baidu.tieba.eg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class EmotionShareLoaderProc implements fg<EmotionShare> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fg
+    @Override // com.baidu.tieba.eg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -193,13 +193,13 @@ public class EmotionShareLoaderProc implements fg<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.fg
-    public EmotionShare getFromLocal(String str, String str2, int i, int i2, eg egVar, Object... objArr) {
+    @Override // com.baidu.tieba.eg
+    public EmotionShare getFromLocal(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), egVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
             clearShareHub();
-            BdImage fromLocal = this.impl.getFromLocal(str, str2, i, i2, egVar, objArr);
+            BdImage fromLocal = this.impl.getFromLocal(str, str2, i, i2, dgVar, objArr);
             if (fromLocal != null && fromLocal.getByteData() != null) {
                 DiskFileOperate buildExtractToShareHubDiskOp = buildExtractToShareHubDiskOp(fromLocal, str2);
                 if (vb.f().call(buildExtractToShareHubDiskOp) && buildExtractToShareHubDiskOp.getFileInfo() != null) {
@@ -214,13 +214,13 @@ public class EmotionShareLoaderProc implements fg<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.fg
-    public EmotionShare getFromRemote(String str, String str2, int i, int i2, eg egVar, Object... objArr) {
+    @Override // com.baidu.tieba.eg
+    public EmotionShare getFromRemote(String str, String str2, int i, int i2, dg dgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), egVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), dgVar, objArr})) == null) {
             clearShareHub();
-            BdImage fromRemote = this.impl.getFromRemote(str, str2, i, i2, egVar, objArr);
+            BdImage fromRemote = this.impl.getFromRemote(str, str2, i, i2, dgVar, objArr);
             if (fromRemote != null && fromRemote.getByteData() != null) {
                 DiskFileOperate buildExtractToShareHubDiskOp = buildExtractToShareHubDiskOp(fromRemote, str2);
                 if (vb.f().call(buildExtractToShareHubDiskOp) && buildExtractToShareHubDiskOp.getFileInfo() != null) {
@@ -233,7 +233,7 @@ public class EmotionShareLoaderProc implements fg<EmotionShare> {
         return (EmotionShare) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.fg
+    @Override // com.baidu.tieba.eg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {

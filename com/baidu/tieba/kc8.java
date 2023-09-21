@@ -1,92 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.task.TbSocketMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsJVMKt;
-import kotlin.collections.SetsKt__SetsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class kc8 {
+public class kc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jc8 a;
 
-    public abstract void c(AbilityItem abilityItem, TbBaseMsg tbBaseMsg, Object obj);
-
-    public boolean d() {
-        InterceptResult invokeV;
+    public static bu5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public kc8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
+            try {
+                bu5 bu5Var = new bu5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(bu5Var);
+                return bu5Var;
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
+        return (bu5) invokeIL.objValue;
     }
 
-    public Set<String> f() {
-        InterceptResult invokeV;
-        boolean z;
+    public static TbSocketMessageTask b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String e = e();
-            if (e.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return SetsKt__SetsKt.emptySet();
-            }
-            return SetsKt__SetsJVMKt.setOf(e);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
+            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(i);
+            tbSocketMessageTask.setResponsedClass(cls);
+            tbSocketMessageTask.setNeedCompress(z);
+            tbSocketMessageTask.setParallel(TiebaIMConfig.getParallel());
+            MessageManager.getInstance().registerTask(tbSocketMessageTask);
+            return tbSocketMessageTask;
         }
-        return (Set) invokeV.objValue;
-    }
-
-    public static /* synthetic */ void b(kc8 kc8Var, AbilityItem abilityItem, TbBaseMsg tbBaseMsg, int i, Object obj) {
-        if (obj == null) {
-            if ((i & 2) != 0) {
-                tbBaseMsg = null;
-            }
-            kc8Var.a(abilityItem, tbBaseMsg);
-            return;
-        }
-        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: doDefaultHandle");
-    }
-
-    public final void a(AbilityItem abilityItem, TbBaseMsg tbBaseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, tbBaseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            jc8 jc8Var = this.a;
-            if (jc8Var != null) {
-                jc8Var.b(abilityItem, tbBaseMsg);
-            }
-        }
+        return (TbSocketMessageTask) invokeCommon.objValue;
     }
 }

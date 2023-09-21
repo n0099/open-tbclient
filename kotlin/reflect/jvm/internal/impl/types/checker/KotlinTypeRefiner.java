@@ -66,9 +66,9 @@ public abstract class KotlinTypeRefiner {
         public Collection<KotlinType> refineSupertypes(ClassDescriptor classDescriptor) {
             TypeConstructor typeConstructor = classDescriptor.getTypeConstructor();
             Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "classDescriptor.typeConstructor");
-            Collection<KotlinType> mo2106getSupertypes = typeConstructor.mo2106getSupertypes();
-            Intrinsics.checkExpressionValueIsNotNull(mo2106getSupertypes, "classDescriptor.typeConstructor.supertypes");
-            return mo2106getSupertypes;
+            Collection<KotlinType> mo2108getSupertypes = typeConstructor.mo2108getSupertypes();
+            Intrinsics.checkExpressionValueIsNotNull(mo2108getSupertypes, "classDescriptor.typeConstructor.supertypes");
+            return mo2108getSupertypes;
         }
     }
 }

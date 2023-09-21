@@ -1,19 +1,7 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import android.os.Message;
 /* loaded from: classes6.dex */
-public interface gw1 extends y43 {
-    File a();
-
-    void e(String str, String str2);
-
-    void e(String str, String str2, Throwable th);
-
-    void flush(boolean z);
-
-    void i(String str, String str2);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+public interface gw1 {
+    boolean a(Message message);
 }

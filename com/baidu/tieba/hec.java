@@ -3,48 +3,46 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.producers.SingleProducer;
 /* loaded from: classes6.dex */
-public abstract class hec<E> extends fec<E> {
+public final class hec<T> extends pcc<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long h;
+    public final qcc<? super T> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hec(int i) {
-        super(i);
+    public hec(qcc<? super T> qccVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {qccVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = qccVar;
     }
 
-    public final long l() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.pcc
+    public void b(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+            this.b.onError(th);
         }
-        return invokeV.longValue;
     }
 
-    public final void m(long j) {
+    @Override // com.baidu.tieba.pcc
+    public void c(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.h = j;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b.f(new SingleProducer(this.b, t));
         }
     }
 }

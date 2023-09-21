@@ -1,116 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class do5 {
+public class do5 extends un5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+    public ImageView a;
+    public EMTextView b;
+    public EMTextView c;
+    public TBSpecificationBtn d;
 
-    public do5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public do5(Context context) {
+        super(LayoutInflater.from(context).inflate(R.layout.loaction_view_layout, (ViewGroup) null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a(context);
+    }
+
+    public final void a(Context context) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && (view2 = this.attachedView) != null) {
+            this.a = (ImageView) view2.findViewById(R.id.location_view_emotion);
+            EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.location_view_title);
+            this.b = eMTextView;
+            eMTextView.setText(context.getResources().getString(R.string.location_view_title));
+            EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.location_view_desc);
+            this.c = eMTextView2;
+            eMTextView2.setText(context.getResources().getString(R.string.location_view_desc));
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.locatin_view_button);
+            this.d = tBSpecificationBtn;
+            tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0b39));
+            this.d.setTextSize(R.dimen.T_X05);
+            this.d.setConfig(new ra5());
+        }
+    }
+
+    public void b(View.OnClickListener onClickListener) {
+        TBSpecificationBtn tBSpecificationBtn;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && (tBSpecificationBtn = this.d) != null) {
+            tBSpecificationBtn.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            EMManager.from(this.b).setTextSize(R.dimen.T_X06).setTextColor(R.color.CAM_X0107);
+            EMManager.from(this.c).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
+            WebPManager.setMaskDrawable(this.a, R.drawable.new_pic_emotion_location, null);
+            TBSpecificationBtn tBSpecificationBtn = this.d;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.un5
+    public void onViewAttached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.e)) {
-                return this.d;
-            }
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) && jSONObject != null) {
-            this.a = jSONObject.optString("background_day_img");
-            this.b = jSONObject.optString("background_night_img");
-            this.c = jSONObject.optString("background_dark_img");
-            this.d = jSONObject.optString("nav_bar_day_color");
-            jSONObject.optString("nav_bar_night_color");
-            this.e = jSONObject.optString("nav_bar_dark_color");
-            this.f = jSONObject.optString("text_normal_color");
-            this.g = jSONObject.optString("text_selected_color");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onViewAttached();
+            onChangeSkinType();
         }
     }
 }

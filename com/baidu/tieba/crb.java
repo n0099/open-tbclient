@@ -1,113 +1,71 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Pair;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tieba.zqb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.NativeExpressADView;
-import com.qq.e.ads.nativ.NativeExpressMediaListener;
-import com.qq.e.comm.util.AdError;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.fun.ad.sdk.internal.api.utils.MD5Utils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class crb implements NativeExpressMediaListener {
+public class crb<A extends zqb> extends AdReporter<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean e;
+    public final String f;
 
-    public crb(zqb zqbVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public crb(Ssp.Pid pid) {
+        super(pid.pid, pid.type, pid.ssp.type);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zqbVar};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = pid.isBidding;
+        this.f = pid.pid;
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoCached(NativeExpressADView nativeExpressADView) {
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReport(Object obj, String str) {
+        InterceptResult invokeLL;
+        double a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
+            zqb zqbVar = (zqb) obj;
+            if (zqbVar != null && zqbVar.a != 0) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Pair.create("csj_rq_id", zqbVar.c()));
+                if (!this.e) {
+                    a = FunAdSdk.getARPU(this.f);
+                } else {
+                    a = zqbVar.a() / 1000.0d;
+                }
+                arrayList.add(Pair.create("rvn", Double.valueOf(a)));
+                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * a)))));
+                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
+                return arrayList;
+            }
+            return null;
         }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoComplete(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoError(NativeExpressADView nativeExpressADView, AdError adError) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView, adError) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoInit(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoLoading(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageClose(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageOpen(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPause(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoReady(NativeExpressADView nativeExpressADView, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView, j) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoStart(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
+        return (List) invokeLL.objValue;
     }
 }

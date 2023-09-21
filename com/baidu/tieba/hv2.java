@@ -1,29 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface hv2 {
+    boolean a(Context context, wx2 wx2Var, px2 px2Var, gb3 gb3Var);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(ge3 ge3Var);
+    boolean b(Context context, rx2 rx2Var, px2 px2Var, gb3 gb3Var);
 
-        void onFailed(int i);
-    }
+    boolean c(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var);
 
-    void a();
+    void d(mx1 mx1Var);
 
-    void b(String str, boolean z, boolean z2, a aVar);
+    boolean e(Context context, qx2 qx2Var, px2 px2Var, gb3 gb3Var);
 
-    void c();
+    void f(mx1 mx1Var);
 
-    void d();
+    boolean g(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var);
 
-    void e();
+    boolean h(Context context, ux2 ux2Var, px2 px2Var, gb3 gb3Var);
 
-    void f(a aVar);
+    void i(mx1 mx1Var);
 
-    double[] g(@NonNull ge3 ge3Var, @NonNull String str);
+    boolean j(Context context, vx2 vx2Var, px2 px2Var, gb3 gb3Var);
 
-    ge3 h();
+    boolean k(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var);
+
+    boolean l(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var);
+
+    boolean m(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var);
+
+    boolean n(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var);
+
+    boolean update(Context context, sx2 sx2Var, px2 px2Var, gb3 gb3Var);
 }

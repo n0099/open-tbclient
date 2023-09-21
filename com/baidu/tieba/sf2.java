@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.facebook.cache.common.CacheKey;
+import com.facebook.imagepipeline.listener.RequestListener;
 /* loaded from: classes8.dex */
 public interface sf2 {
-    CacheKey a(String str);
+    RequestListener a(tf2 tf2Var);
 }

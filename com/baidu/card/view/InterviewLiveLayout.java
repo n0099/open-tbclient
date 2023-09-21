@@ -36,8 +36,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
 import com.baidu.tieba.f45;
 import com.baidu.tieba.m05;
-import com.baidu.tieba.mp6;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.sp6;
+import com.baidu.tieba.tx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,12 +45,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class InterviewLiveLayout extends FrameLayout implements ux<b15> {
+public class InterviewLiveLayout extends FrameLayout implements tx<b15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public mp6<b15> c;
+    public sp6<b15> c;
     public b15 d;
     public TbImageView e;
     public LinearLayout f;
@@ -181,11 +181,11 @@ public class InterviewLiveLayout extends FrameLayout implements ux<b15> {
                 } else {
                     i = 14;
                 }
-                BdImage D = TbImageMemoryCache.A().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
+                BdImage C = TbImageMemoryCache.A().C(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (D != null) {
-                    i3 = D.getWidth();
-                    i2 = D.getHeight();
+                if (C != null) {
+                    i3 = C.getWidth();
+                    i2 = C.getHeight();
                 } else {
                     i2 = 0;
                 }
@@ -299,10 +299,10 @@ public class InterviewLiveLayout extends FrameLayout implements ux<b15> {
         }
     }
 
-    public void setSubClickListener(mp6<b15> mp6Var) {
+    public void setSubClickListener(sp6<b15> sp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mp6Var) == null) {
-            this.c = mp6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, sp6Var) == null) {
+            this.c = sp6Var;
         }
     }
 
@@ -323,7 +323,7 @@ public class InterviewLiveLayout extends FrameLayout implements ux<b15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: j */
     public void onBindDataToView(b15 b15Var) {
         int i;

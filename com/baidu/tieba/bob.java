@@ -1,46 +1,186 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bob {
+public class bob extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static Boolean a;
-    public static final /* synthetic */ boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public List<mnb> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947653108, "Lcom/baidu/tieba/bob;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947653108, "Lcom/baidu/tieba/bob;");
-                return;
-            }
-        }
-        b = !bob.class.desiredAssertionStatus();
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    public bob() {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public com.bytedance.tools.ui.view.b a;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (com.bytedance.tools.ui.view.b) view2;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public ImageView b;
+
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911e5);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926d4);
+        }
+    }
+
+    public bob(Context context, List<mnb> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        this.b = list;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.b.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return this.b.get(i).a();
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            int itemViewType = getItemViewType(i);
+            mnb mnbVar = this.b.get(i);
+            if (view2 == null) {
+                if (itemViewType != 0) {
+                    if (itemViewType == 1) {
+                        com.bytedance.tools.ui.view.b bVar = new com.bytedance.tools.ui.view.b(this.a, mnbVar.f(), mnbVar, mnbVar.j());
+                        bVar.setTag(new a(bVar));
+                        return bVar;
+                    }
+                    return view2;
+                }
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05ac, viewGroup, false);
+                b bVar2 = new b(inflate);
+                bVar2.a.setText(mnbVar.f());
+                if ("1".equals(mnbVar.h())) {
+                    bVar2.b.setImageResource(R.drawable.obfuscated_res_0x7f080e3a);
+                } else {
+                    bVar2.b.setImageResource(R.drawable.obfuscated_res_0x7f080e3b);
+                }
+                inflate.setTag(bVar2);
+                return inflate;
+            } else if (itemViewType != 0) {
+                if (itemViewType == 1) {
+                    ((a) view2.getTag()).a.f(mnbVar.f(), mnbVar, mnbVar.j());
+                    return view2;
+                }
+                return view2;
+            } else {
+                b bVar3 = (b) view2.getTag();
+                if ("1".equals(mnbVar.h())) {
+                    bVar3.b.setImageDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e3a));
+                    return view2;
+                }
+                bVar3.b.setImageDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e3b));
+                return view2;
+            }
+        }
+        return (View) invokeILL.objValue;
     }
 }

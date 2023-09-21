@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.tx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SmartAppBottomLayout extends LinearLayout implements ux<b15> {
+public class SmartAppBottomLayout extends LinearLayout implements tx<b15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class SmartAppBottomLayout extends LinearLayout implements ux<b15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: b */
     public void onBindDataToView(b15 b15Var) {
         ThreadData threadData;

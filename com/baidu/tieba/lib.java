@@ -1,204 +1,253 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.NinePatch;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.Shader;
-import android.text.TextPaint;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.Surface;
+import com.baidu.tieba.mib;
+import com.baidu.tieba.pib;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.Div;
-import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class lib {
+public class lib extends mib {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(TextWordsEntity.TextStyleEntity textStyleEntity) {
-        InterceptResult invokeL;
-        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lib(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, textStyleEntity)) == null) {
-            if (textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null || !styleBackgroudInfoEntity.isLoaded()) {
-                return null;
-            }
-            return jib.f(styleBackgroudInfoEntity.getSourceFile().getAbsolutePath());
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static void b(Bitmap bitmap, NinePatchChunk ninePatchChunk, Canvas canvas, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, bitmap, ninePatchChunk, canvas, i) == null) || bitmap == null || ninePatchChunk == null || !NinePatch.isNinePatchChunk(ninePatchChunk.toBytes())) {
-            return;
-        }
-        new NinePatch(bitmap, ninePatchChunk.toBytes(), null).draw(canvas, new Rect(i, i, canvas.getWidth() - i, canvas.getHeight() - i));
-        bitmap.recycle();
-    }
-
-    public static void c(TextPaint textPaint, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        TextWordsEntity.StyleShadowInfoEntity styleShadowInfoEntity;
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, textPaint, textStyleEntity, textColorEntity) == null) || textStyleEntity == null) {
-            return;
-        }
-        List<TextWordsEntity.StyleShadowInfoEntity> list = textStyleEntity.mShadowInfoList;
-        if (nib.e(list) || (styleShadowInfoEntity = list.get(0)) == null) {
-            return;
-        }
-        int i2 = i(styleShadowInfoEntity.mShadowColor, styleShadowInfoEntity.mShadowAlpha);
-        if (textColorEntity != null && ((i = textStyleEntity.mTextStyleType) == 1 || i == 5)) {
-            i2 = textColorEntity.mColorInfo;
-        }
-        textPaint.setShadowLayer(bjb.a(Integer.parseInt(styleShadowInfoEntity.mShadowBlur)), bjb.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetX)), bjb.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetY)), i2);
-    }
-
-    public static int[] d(TextPaint textPaint, TextPaint textPaint2, TextPaint textPaint3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, textPaint, textPaint2, textPaint3, textStyleEntity, textColorEntity)) == null) {
-            int[] iArr = new int[2];
-            if (textStyleEntity == null) {
-                return iArr;
-            }
-            List<TextWordsEntity.StyleStrokeInfoEntity> list = textStyleEntity.mStrokeInfoList;
-            if (nib.e(list)) {
-                return iArr;
-            }
-            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity = list.get(0);
-            if (styleStrokeInfoEntity != null) {
-                textPaint2.setTextSize(textPaint.getTextSize());
-                textPaint2.setFlags(textPaint.getFlags());
-                textPaint2.setAlpha(textPaint.getAlpha());
-                textPaint2.setFakeBoldText(textPaint.isFakeBoldText());
-                textPaint2.setTextSkewX(textPaint.getTextSkewX());
-                int i = i(styleStrokeInfoEntity.mStrokeColor, styleStrokeInfoEntity.mStrokeAlpha);
-                if (textColorEntity != null && textStyleEntity.mTextStyleType == 2) {
-                    i = textColorEntity.mColorInfo;
-                }
-                textPaint2.setStyle(Paint.Style.STROKE);
-                textPaint2.setColor(i);
-                textPaint2.setStrokeWidth(bjb.a(Integer.parseInt(styleStrokeInfoEntity.mStrokeWidth)));
-            }
-            iArr[0] = 1;
-            if (list.size() <= 1) {
-                return iArr;
-            }
-            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity2 = list.get(1);
-            if (styleStrokeInfoEntity2 != null) {
-                textPaint3.setTextSize(textPaint.getTextSize());
-                textPaint3.setFlags(textPaint.getFlags());
-                textPaint3.setAlpha(textPaint.getAlpha());
-                textPaint3.setFakeBoldText(textPaint.isFakeBoldText());
-                textPaint3.setTextSkewX(textPaint.getTextSkewX());
-                textPaint3.setStyle(Paint.Style.STROKE);
-                textPaint3.setColor(i(styleStrokeInfoEntity2.mStrokeColor, styleStrokeInfoEntity2.mStrokeAlpha));
-                textPaint3.setStrokeWidth(bjb.a(Integer.parseInt(styleStrokeInfoEntity2.mStrokeWidth)));
-            }
-            iArr[1] = 1;
-            return iArr;
-        }
-        return (int[]) invokeLLLLL.objValue;
-    }
-
-    public static void e(Canvas canvas, TextPaint textPaint, int i, int i2, int i3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        int i4;
-        LinearGradient linearGradient;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{canvas, textPaint, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textStyleEntity, textColorEntity}) == null) || textStyleEntity == null) {
-            return;
-        }
-        List<TextWordsEntity.StyleTextInfoEntity> list = textStyleEntity.mTextInfoList;
-        if (nib.e(list)) {
-            return;
-        }
-        if (TextUtils.equals(textStyleEntity.mTextType, "0") || list.size() > 1) {
-            if (TextUtils.equals(textStyleEntity.mTextType, "1")) {
-                linearGradient = new LinearGradient(0.0f, i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
-            } else if (!TextUtils.equals(textStyleEntity.mTextType, "2")) {
-                int h = h(list.get(0));
-                if (textColorEntity != null && ((i4 = textStyleEntity.mTextStyleType) == 1 || i4 == 2 || i4 == 3)) {
-                    h = textColorEntity.mColorInfo;
-                }
-                textPaint.setColor(h);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            } else {
-                linearGradient = new LinearGradient(canvas.getWidth(), i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
             }
-            textPaint.setShader(linearGradient);
         }
     }
 
-    public static NinePatchChunk f(Bitmap bitmap, TextWordsEntity.TextStyleEntity textStyleEntity) {
-        InterceptResult invokeLL;
-        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
+    /* JADX WARN: Removed duplicated region for block: B:49:0x015c A[Catch: all -> 0x0282, TryCatch #0 {all -> 0x0282, blocks: (B:27:0x00e3, B:29:0x00e9, B:31:0x00f2, B:47:0x0156, B:49:0x015c, B:51:0x0162, B:52:0x016f, B:55:0x0175, B:57:0x0178, B:59:0x0192, B:61:0x0198, B:63:0x01a6, B:65:0x01ac, B:69:0x01b9, B:76:0x01c9, B:78:0x01d0, B:79:0x01d9, B:81:0x01f7, B:83:0x0201, B:86:0x020f, B:89:0x021c, B:33:0x010d, B:35:0x0115, B:39:0x0126, B:44:0x0143, B:42:0x0131, B:93:0x0240, B:95:0x0246, B:96:0x024e), top: B:108:0x00e3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0209  */
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public mib.b a(String str, boolean z, pib.f fVar, pib.f fVar2, long j, long j2, long j3) throws Exception {
+        InterceptResult invokeCommon;
+        MediaFormat mediaFormat;
+        ByteBuffer[] byteBufferArr;
+        long j4;
+        int dequeueOutputBuffer;
+        ByteBuffer[] byteBufferArr2;
+        byte[] bArr;
+        byte[] bArr2;
+        byte[] bArr3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bitmap, textStyleEntity)) == null) {
-            if (bitmap == null || textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), fVar, fVar2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            pib.f fVar3 = fVar2;
+            long j5 = j2;
+            if (!TextUtils.isEmpty(str) && fVar != null && fVar3 != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                String str2 = this.a;
+                MediaExtractor mediaExtractor = new MediaExtractor();
+                mediaExtractor.setDataSource(str2);
+                int i = 0;
+                while (true) {
+                    if (i < mediaExtractor.getTrackCount()) {
+                        mediaFormat = mediaExtractor.getTrackFormat(i);
+                        if (mediaFormat.getString("mime").startsWith("audio/")) {
+                            mediaExtractor.selectTrack(i);
+                            break;
+                        }
+                        i++;
+                    } else {
+                        mediaFormat = null;
+                        break;
+                    }
+                }
+                akb.c("AndroidAudioDecoder", "startTime:" + j + ",endTime:" + j5);
+                if (j > 0) {
+                    mediaExtractor.seekTo(j * 1000, 0);
+                }
+                if (mediaFormat == null) {
+                    akb.b("not a valid file with audio track..");
+                    mediaExtractor.release();
+                    return null;
+                }
+                akb.b("mediaFormat " + mediaFormat);
+                mib.b bVar = new mib.b();
+                int i2 = fVar3.b;
+                int i3 = fVar3.a;
+                int i4 = fVar3.c;
+                bVar.a = str;
+                FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
+                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
+                createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
+                createDecoderByType.start();
+                ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
+                ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
+                double d = mediaFormat.getLong("durationUs");
+                MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                boolean z2 = false;
+                boolean z3 = false;
+                ByteBuffer[] byteBufferArr3 = outputBuffers;
+                while (!z2) {
+                    long j6 = currentTimeMillis;
+                    if (!z3) {
+                        try {
+                            int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
+                            if (dequeueInputBuffer >= 0) {
+                                int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], 0);
+                                if (readSampleData < 0) {
+                                    akb.b("saw input EOS.");
+                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                    byteBufferArr = inputBuffers;
+                                    j4 = 5000;
+                                } else {
+                                    long sampleTime = mediaExtractor.getSampleTime();
+                                    if (j3 != 0) {
+                                        byteBufferArr = inputBuffers;
+                                        mediaExtractor.seekTo(sampleTime + j3, 0);
+                                    } else {
+                                        byteBufferArr = inputBuffers;
+                                    }
+                                    if (j5 != -1 && sampleTime + j3 >= j5 * 1000) {
+                                        createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                        j4 = 5000;
+                                    }
+                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime, 0);
+                                    mediaExtractor.advance();
+                                    j4 = 5000;
+                                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                                    if (dequeueOutputBuffer >= 0) {
+                                        if ((bufferInfo.flags & 2) != 0) {
+                                            akb.b("audio encoder: codec config buffer");
+                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            inputBuffers = byteBufferArr;
+                                            currentTimeMillis = j6;
+                                        } else {
+                                            if (bufferInfo.size != 0 && dequeueOutputBuffer >= 0 && byteBufferArr3.length > dequeueOutputBuffer) {
+                                                ByteBuffer byteBuffer = byteBufferArr3[dequeueOutputBuffer];
+                                                byteBuffer.position(bufferInfo.offset);
+                                                byteBufferArr2 = byteBufferArr3;
+                                                byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
+                                                byte[] bArr4 = new byte[bufferInfo.size];
+                                                byteBuffer.get(bArr4);
+                                                if (!z) {
+                                                    if (fVar2.a()) {
+                                                        bArr2 = pib.c(fVar3.c / 8, fVar.c / 8, bArr4);
+                                                    } else {
+                                                        bArr2 = null;
+                                                    }
+                                                    if (fVar2.b()) {
+                                                        int i5 = fVar3.b;
+                                                        int i6 = fVar.b;
+                                                        int i7 = fVar.c / 8;
+                                                        if (bArr2 == null) {
+                                                            bArr3 = bArr4;
+                                                        } else {
+                                                            bArr3 = bArr2;
+                                                        }
+                                                        bArr = pib.d(i5, i6, i7, bArr3);
+                                                    } else {
+                                                        bArr = null;
+                                                    }
+                                                } else {
+                                                    bArr = null;
+                                                    bArr2 = null;
+                                                }
+                                                if (bArr == null) {
+                                                    if (bArr2 == null) {
+                                                        bArr = bArr4;
+                                                    } else {
+                                                        bArr = bArr2;
+                                                    }
+                                                }
+                                                fileOutputStream.write(bArr);
+                                                if (this.b != null) {
+                                                    this.b.a(bArr4, bufferInfo.presentationTimeUs / d);
+                                                }
+                                                akb.b(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                            } else {
+                                                byteBufferArr2 = byteBufferArr3;
+                                            }
+                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            if ((bufferInfo.flags & 4) != 0) {
+                                                akb.b("saw output EOS.");
+                                                z2 = true;
+                                            }
+                                        }
+                                    } else {
+                                        byteBufferArr2 = byteBufferArr3;
+                                        if (dequeueOutputBuffer == -3) {
+                                            byteBufferArr3 = createDecoderByType.getOutputBuffers();
+                                            akb.b("output buffers have changed.");
+                                            fVar3 = fVar2;
+                                            inputBuffers = byteBufferArr;
+                                            j5 = j2;
+                                            currentTimeMillis = j6;
+                                        } else if (dequeueOutputBuffer == -2) {
+                                            akb.b("output format has changed to " + createDecoderByType.getOutputFormat());
+                                        }
+                                    }
+                                    byteBufferArr3 = byteBufferArr2;
+                                    fVar3 = fVar2;
+                                    inputBuffers = byteBufferArr;
+                                    j5 = j2;
+                                    currentTimeMillis = j6;
+                                }
+                                z3 = true;
+                                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                                if (dequeueOutputBuffer >= 0) {
+                                }
+                                byteBufferArr3 = byteBufferArr2;
+                                fVar3 = fVar2;
+                                inputBuffers = byteBufferArr;
+                                j5 = j2;
+                                currentTimeMillis = j6;
+                            }
+                        } finally {
+                            fileOutputStream.close();
+                            createDecoderByType.stop();
+                            createDecoderByType.release();
+                            mediaExtractor.release();
+                        }
+                    }
+                    byteBufferArr = inputBuffers;
+                    j4 = 5000;
+                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                    if (dequeueOutputBuffer >= 0) {
+                    }
+                    byteBufferArr3 = byteBufferArr2;
+                    fVar3 = fVar2;
+                    inputBuffers = byteBufferArr;
+                    j5 = j2;
+                    currentTimeMillis = j6;
+                }
+                long j7 = currentTimeMillis;
+                if (this.b != null) {
+                    this.b.a(null, 1.0d);
+                }
+                akb.b("decode " + str + " cost " + (System.currentTimeMillis() - j7) + " milliseconds !");
+                return bVar;
             }
-            NinePatchChunk ninePatchChunk = new NinePatchChunk();
-            ArrayList<Div> arrayList = styleBackgroudInfoEntity.mStretchableX;
-            ArrayList<Div> arrayList2 = styleBackgroudInfoEntity.mStretchableY;
-            ninePatchChunk.xDivs = arrayList;
-            ninePatchChunk.yDivs = arrayList2;
-            Rect rect = new Rect();
-            ninePatchChunk.padding = rect;
-            rect.left = styleBackgroudInfoEntity.mBackgroudLeft;
-            rect.top = styleBackgroudInfoEntity.mBackgroudTop;
-            rect.right = styleBackgroudInfoEntity.mBackgroudRight;
-            rect.bottom = styleBackgroudInfoEntity.mBackgroudBottom;
-            NinePatchChunk.createColors(bitmap, ninePatchChunk);
-            return ninePatchChunk;
+            return null;
         }
-        return (NinePatchChunk) invokeLL.objValue;
-    }
-
-    public static int g(TextPaint textPaint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, textPaint)) == null) {
-            Paint.FontMetricsInt fontMetricsInt = textPaint.getFontMetricsInt();
-            return Math.abs(fontMetricsInt.ascent) + Math.abs(fontMetricsInt.descent);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int h(TextWordsEntity.StyleTextInfoEntity styleTextInfoEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, styleTextInfoEntity)) == null) {
-            if (styleTextInfoEntity == null) {
-                return 0;
-            }
-            return i(styleTextInfoEntity.mTextColor, styleTextInfoEntity.mTextAlpha);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
-            }
-        }
-        return invokeLL.intValue;
+        return (mib.b) invokeCommon.objValue;
     }
 }

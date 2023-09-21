@@ -1,29 +1,38 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.crashpad.ZeusLogUploader;
+import com.baidu.crashpad.ZwCrashpad;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class t10 {
+public final class t10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = str.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
-                if (charAt > 31 && charAt < 127) {
-                    sb.append(charAt);
-                } else {
-                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            ZwCrashpad.setEnabled(true);
+            File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir();
+            Context appContext = AppRuntime.getAppContext();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("clientDir", appContext.getApplicationInfo().nativeLibraryDir);
+                jSONObject.put("handlerDir", appContext.getApplicationInfo().nativeLibraryDir);
+                jSONObject.put("dumpCopyDir", processCrashpadDir.getAbsolutePath());
+            } catch (JSONException unused) {
             }
-            return sb.toString();
+            if (jSONObject.length() == 0) {
+                return;
+            }
+            ZwCrashpad.doInitGeneric(appContext, jSONObject.toString());
+            ZeusLogUploader.setEnabled(false);
         }
-        return (String) invokeL.objValue;
     }
 }

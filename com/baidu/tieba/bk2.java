@@ -1,16 +1,68 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.ew2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class bk2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static long b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+
+        public a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bundle;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ew2.a aVar = (ew2.a) new ew2.a().s(this.a);
+                ji3 ji3Var = new ji3();
+                ji3Var.a = zh3.n(0);
+                ji3Var.b = "launch";
+                ji3Var.e = "repeatlaunch";
+                ji3Var.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
+                ji3Var.j(aVar);
+                ji3Var.d(aVar.s0().getString("ubc"));
+                ji3Var.b(zh3.k(aVar.W()));
+                zh3.onEvent(ji3Var);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -25,40 +77,56 @@ public class bk2 {
                 return;
             }
         }
-        a = rr1.a;
+        a = qr1.a;
     }
 
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            return "frame_type_" + i + "_" + str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return System.currentTimeMillis() - b;
         }
-        return (String) invokeIL.objValue;
+        return invokeV.longValue;
     }
 
-    public static long b(int i) {
-        InterceptResult invokeI;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            long j = vj3.a().getLong(a(i, "launch_time"), 0L);
-            if (a) {
-                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + j);
-            }
-            return j;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            b = System.currentTimeMillis();
         }
-        return invokeI.longValue;
     }
 
-    public static void c(int i) {
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            String a2 = a(i, "launch_time");
-            long currentTimeMillis = System.currentTimeMillis();
-            vj3.a().putLong(a2, currentTimeMillis);
-            if (a) {
-                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + currentTimeMillis);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            if (currentTimeMillis < 800 && TextUtils.equals(c, str) && TextUtils.equals(d, str2)) {
+                z = true;
+            } else {
+                z = false;
             }
+            if (a && z) {
+                Log.d("SeriesLaunchChecker", "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800");
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(bundle), "SeriesLaunchChecker", 3);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c = str;
+            d = str2;
         }
     }
 }

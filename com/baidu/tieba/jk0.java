@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class jk0 {
     public static /* synthetic */ Interceptable $ic;
-    public static gk0 a;
+    public static ek0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public jk0() {
@@ -26,22 +26,22 @@ public class jk0 {
         }
     }
 
-    public static gk0 a() {
+    public static ek0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (a == null) {
                 synchronized (jk0.class) {
                     if (a == null) {
-                        a = (gk0) ServiceManager.getService(gk0.a);
+                        a = (ek0) ServiceManager.getService(ek0.a);
                     }
                     if (a == null) {
-                        a = gk0.b;
+                        a = ek0.b;
                     }
                 }
             }
             return a;
         }
-        return (gk0) invokeV.objValue;
+        return (ek0) invokeV.objValue;
     }
 }

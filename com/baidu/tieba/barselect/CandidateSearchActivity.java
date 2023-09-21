@@ -29,13 +29,12 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aja;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
-import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.ei6;
-import com.baidu.tieba.pi6;
+import com.baidu.tieba.di;
+import com.baidu.tieba.gla;
+import com.baidu.tieba.ii6;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.ti6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +49,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public NavigationBar a;
     public BdRecyclerView b;
     public CandidateSearchAdapter c;
-    public pi6 d;
+    public ti6 d;
     public String e;
     public View f;
     public View g;
@@ -58,7 +57,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public EditText i;
     public ImageView j;
     public TextView k;
-    public List<ei6> l;
+    public List<ii6> l;
     public View.OnClickListener m;
     public NetMessageListener n;
     public TextView.OnEditorActionListener o;
@@ -140,24 +139,22 @@ public class CandidateSearchActivity extends BaseActivity {
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
-            ei6 ei6Var = null;
+            ii6 ii6Var = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
-                ei6Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
-            } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
-                ei6Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
+                ii6Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             }
-            if (responsedMessage.getError() == 0 && ei6Var != null) {
+            if (responsedMessage.getError() == 0 && ii6Var != null) {
                 this.a.b.setVisibility(0);
                 this.a.f.setVisibility(8);
                 if (this.a.i.getText() != null) {
-                    ei6Var.j = this.a.i.getText().toString();
+                    ii6Var.j = this.a.i.getText().toString();
                 }
                 if (this.a.l == null) {
                     this.a.l = new ArrayList();
                 } else {
                     this.a.l.clear();
                 }
-                this.a.l.add(ei6Var);
+                this.a.l.add(ii6Var);
                 this.a.c.setData(this.a.l);
                 return;
             }
@@ -246,28 +243,28 @@ public class CandidateSearchActivity extends BaseActivity {
             if (error == 0) {
                 BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.bar_manager_vote_success);
                 if (this.a.l != null) {
-                    for (ei6 ei6Var : this.a.l) {
-                        ei6Var.k = true;
+                    for (ii6 ii6Var : this.a.l) {
+                        ii6Var.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                aja.b(error, "", null);
+                gla.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    aja.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    gla.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 BdUtilHelper.showToast(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
             } else {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-                if (ei.isEmpty(httpResponsedMessage.getErrorString())) {
+                if (di.isEmpty(httpResponsedMessage.getErrorString())) {
                     errorString = TbadkCoreApplication.getInst().getString(R.string.block_user_tip);
                 } else {
                     errorString = httpResponsedMessage.getErrorString();
                 }
                 blockPopInfoData.block_info = errorString;
                 blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.block_user_feed);
-                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b59);
+                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b5b);
                 blockPopInfoData.ahead_url = AntiHelper.a;
                 AntiHelper.s(this.a, blockPopInfoData);
             }
@@ -316,7 +313,7 @@ public class CandidateSearchActivity extends BaseActivity {
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.a.B1(!StringUtils.isNull(editable.toString()));
+                this.a.c1(!StringUtils.isNull(editable.toString()));
             }
         }
     }
@@ -378,7 +375,7 @@ public class CandidateSearchActivity extends BaseActivity {
         this.r = new f(this);
     }
 
-    public void B1(boolean z) {
+    public void c1(boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -392,7 +389,7 @@ public class CandidateSearchActivity extends BaseActivity {
         }
     }
 
-    public final void A1() {
+    public final void b1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
@@ -400,13 +397,13 @@ public class CandidateSearchActivity extends BaseActivity {
             navigationBar.showBottomLine();
             View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d019f, (View.OnClickListener) null);
             this.g = addCustomView;
-            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09214e);
-            this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090f79);
-            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090f69);
+            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092118);
+            this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090f6d);
+            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090f5d);
             this.j = imageView;
             imageView.setOnClickListener(this.m);
-            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090f68);
-            B1(false);
+            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090f5c);
+            c1(false);
             this.k.setText(getString(R.string.obfuscated_res_0x7f0f03d0));
             this.k.setOnClickListener(this.m);
             this.i.setOnEditorActionListener(this.o);
@@ -438,17 +435,17 @@ public class CandidateSearchActivity extends BaseActivity {
             if (getIntent() != null) {
                 this.e = getIntent().getStringExtra("forum_id");
             }
-            A1();
+            b1();
             BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.recycler_view);
             this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            this.f = findViewById(R.id.obfuscated_res_0x7f0924f2);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0924be);
             CandidateSearchAdapter candidateSearchAdapter = new CandidateSearchAdapter();
             this.c = candidateSearchAdapter;
             this.b.setAdapter(candidateSearchAdapter);
             registerListener(this.n);
             registerListener(this.p);
-            this.d = new pi6(getPageContext());
+            this.d = new ti6(getPageContext());
             SafeHandler.getInst().postDelayed(this.r, 100L);
         }
     }

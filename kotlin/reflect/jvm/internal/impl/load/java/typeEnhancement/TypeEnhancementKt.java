@@ -118,11 +118,11 @@ public final class TypeEnhancementKt {
         if (!shouldEnhance(typeComponentPosition) && simpleType.getArguments().isEmpty()) {
             return new SimpleResult(simpleType, 1, false);
         }
-        ClassifierDescriptor mo2105getDeclarationDescriptor = simpleType.getConstructor().mo2105getDeclarationDescriptor();
-        if (mo2105getDeclarationDescriptor != null) {
-            Intrinsics.checkExpressionValueIsNotNull(mo2105getDeclarationDescriptor, "constructor.declarationD…pleResult(this, 1, false)");
+        ClassifierDescriptor mo2107getDeclarationDescriptor = simpleType.getConstructor().mo2107getDeclarationDescriptor();
+        if (mo2107getDeclarationDescriptor != null) {
+            Intrinsics.checkExpressionValueIsNotNull(mo2107getDeclarationDescriptor, "constructor.declarationD…pleResult(this, 1, false)");
             JavaTypeQualifiers invoke = function1.invoke(Integer.valueOf(i));
-            EnhancementResult<ClassifierDescriptor> enhanceMutability = enhanceMutability(mo2105getDeclarationDescriptor, invoke, typeComponentPosition);
+            EnhancementResult<ClassifierDescriptor> enhanceMutability = enhanceMutability(mo2107getDeclarationDescriptor, invoke, typeComponentPosition);
             ClassifierDescriptor component1 = enhanceMutability.component1();
             Annotations component2 = enhanceMutability.component2();
             TypeConstructor typeConstructor = component1.getTypeConstructor();

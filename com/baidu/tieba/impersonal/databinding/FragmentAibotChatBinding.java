@@ -67,20 +67,20 @@ public final class FragmentAibotChatBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090490;
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090490);
+            int i = R.id.obfuscated_res_0x7f090488;
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090488);
             if (linearLayout != null) {
-                i = R.id.obfuscated_res_0x7f0906db;
-                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906db);
+                i = R.id.obfuscated_res_0x7f0906d2;
+                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d2);
                 if (frameLayout != null) {
-                    i = R.id.obfuscated_res_0x7f091143;
-                    FragmentContainerView fragmentContainerView = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f091143);
+                    i = R.id.obfuscated_res_0x7f091132;
+                    FragmentContainerView fragmentContainerView = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f091132);
                     if (fragmentContainerView != null) {
-                        i = R.id.obfuscated_res_0x7f0918e1;
-                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918e1);
+                        i = R.id.obfuscated_res_0x7f0918ce;
+                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918ce);
                         if (frameLayout2 != null) {
-                            i = R.id.obfuscated_res_0x7f092357;
-                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092357);
+                            i = R.id.obfuscated_res_0x7f092322;
+                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092322);
                             if (frameLayout3 != null) {
                                 i = R.id.view_bg;
                                 FrameLayout frameLayout4 = (FrameLayout) view2.findViewById(R.id.view_bg);

@@ -2,8 +2,8 @@ package com.huawei.hms.hatool;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.gzb;
-import com.baidu.tieba.mzb;
+import com.baidu.tieba.e1c;
+import com.baidu.tieba.y0c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class d {
             if (str == null || str.length() < 32) {
                 return new Pair<>(new byte[0], str);
             }
-            return new Pair<>(mzb.b(str.substring(0, 32)), str.substring(32));
+            return new Pair<>(e1c.b(str.substring(0, 32)), str.substring(32));
         }
         return (Pair) invokeL.objValue;
     }
@@ -49,7 +49,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             Pair<byte[], String> a2 = a(str);
-            return new String(gzb.i(mzb.b((String) a2.second), mzb.b(str2), (byte[]) a2.first), a);
+            return new String(y0c.i(e1c.b((String) a2.second), e1c.b(str2), (byte[]) a2.first), a);
         }
         return (String) invokeLL.objValue;
     }
@@ -62,9 +62,9 @@ public class d {
             if (bArr == null || bArr.length == 0 || str == null) {
                 str2 = "cbc encrypt(byte) param is not right";
             } else {
-                byte[] b = mzb.b(str);
+                byte[] b = e1c.b(str);
                 if (b.length >= 16) {
-                    return mzb.a(gzb.l(bArr, b));
+                    return e1c.a(y0c.l(bArr, b));
                 }
                 str2 = "key length is not right";
             }
@@ -77,6 +77,6 @@ public class d {
     public static String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? mzb.a(gzb.l(str.getBytes(a), mzb.b(str2))) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? e1c.a(y0c.l(str.getBytes(a), e1c.b(str2))) : (String) invokeLL.objValue;
     }
 }

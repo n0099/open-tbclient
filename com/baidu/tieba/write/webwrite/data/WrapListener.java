@@ -3,7 +3,7 @@ package com.baidu.tieba.write.webwrite.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.hz4;
-import com.baidu.tieba.um6;
+import com.baidu.tieba.ym6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,7 +81,7 @@ public abstract class WrapListener implements hz4.e {
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e, r) == null) {
                     Intrinsics.checkNotNullParameter(e, "e");
                     Intrinsics.checkNotNullParameter(r, "r");
-                    um6.a().i(this.this$0.b(), e, r);
+                    ym6.a().i(this.this$0.b(), e, r);
                 }
             }
         };

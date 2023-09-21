@@ -21,10 +21,10 @@ import com.baidu.tieba.am1;
 import com.baidu.tieba.bm1;
 import com.baidu.tieba.cm1;
 import com.baidu.tieba.dm1;
-import com.baidu.tieba.em1;
-import com.baidu.tieba.j61;
-import com.baidu.tieba.o71;
-import com.baidu.tieba.q61;
+import com.baidu.tieba.i61;
+import com.baidu.tieba.n71;
+import com.baidu.tieba.p61;
+import com.baidu.tieba.zl1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,13 +36,13 @@ import java.lang.ref.SoftReference;
 public class AdVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dm1 A;
+    public cm1 A;
     public SurfaceHolder B;
-    public bm1 C;
+    public am1 C;
     public BaseMediaPlayer a;
-    public am1 b;
-    public am1.a c;
-    public am1.b d;
+    public zl1 b;
+    public zl1.a c;
+    public zl1.b d;
     public Context e;
     public AdVideoProgressBar f;
     public int g;
@@ -50,7 +50,7 @@ public class AdVideoView extends RelativeLayout {
     public boolean i;
     public int j;
     public e k;
-    public cm1 l;
+    public bm1 l;
     public View m;
     public boolean n;
     public String o;
@@ -80,7 +80,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements em1 {
+    public class a implements dm1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -103,7 +103,7 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // com.baidu.tieba.em1
+        @Override // com.baidu.tieba.dm1
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -114,7 +114,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements dm1 {
+    public class b implements cm1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -137,7 +137,7 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // com.baidu.tieba.dm1
+        @Override // com.baidu.tieba.cm1
         public void a(Surface surface) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, surface) != null) {
@@ -148,7 +148,7 @@ public class AdVideoView extends RelativeLayout {
             this.a.w();
         }
 
-        @Override // com.baidu.tieba.dm1
+        @Override // com.baidu.tieba.cm1
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -163,7 +163,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements bm1 {
+    public class c implements am1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -186,7 +186,7 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // com.baidu.tieba.bm1
+        @Override // com.baidu.tieba.am1
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) != null) {
@@ -197,7 +197,7 @@ public class AdVideoView extends RelativeLayout {
             this.a.w();
         }
 
-        @Override // com.baidu.tieba.bm1
+        @Override // com.baidu.tieba.am1
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -246,7 +246,7 @@ public class AdVideoView extends RelativeLayout {
                 String action = intent.getAction();
                 if ("android.intent.action.SCREEN_OFF".equals(action)) {
                     Context context2 = this.this$0.e;
-                    if (j61.d(context2, context2.getPackageName())) {
+                    if (i61.d(context2, context2.getPackageName())) {
                         return;
                     }
                     this.this$0.s = true;
@@ -437,14 +437,14 @@ public class AdVideoView extends RelativeLayout {
         }
     }
 
-    public void setAdVideoViewListener(am1 am1Var) {
+    public void setAdVideoViewListener(zl1 zl1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, am1Var) == null) {
-            this.b = am1Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, zl1Var) == null) {
+            this.b = zl1Var;
         }
     }
 
-    public void setDestroyedListener(am1.a aVar) {
+    public void setDestroyedListener(zl1.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
             this.c = aVar;
@@ -458,7 +458,7 @@ public class AdVideoView extends RelativeLayout {
         }
     }
 
-    public void setPreparedListener(am1.b bVar) {
+    public void setPreparedListener(zl1.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bVar) == null) {
             this.d = bVar;
@@ -677,9 +677,9 @@ public class AdVideoView extends RelativeLayout {
             BaseMediaPlayer baseMediaPlayer = this.a;
             if (baseMediaPlayer != null && baseMediaPlayer.e != BaseMediaPlayer.State.PLAYBACKCOMPLETED) {
                 baseMediaPlayer.g();
-                am1 am1Var = this.b;
-                if (am1Var != null) {
-                    am1Var.b();
+                zl1 zl1Var = this.b;
+                if (zl1Var != null) {
+                    zl1Var.b();
                 }
                 x();
             }
@@ -697,9 +697,9 @@ public class AdVideoView extends RelativeLayout {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            am1 am1Var = this.b;
-            if (am1Var != null) {
-                am1Var.a();
+            zl1 zl1Var = this.b;
+            if (zl1Var != null) {
+                zl1Var.a();
             }
             l();
             B();
@@ -723,9 +723,9 @@ public class AdVideoView extends RelativeLayout {
                     this.v = 0;
                     this.w = false;
                     l();
-                    am1 am1Var = this.b;
-                    if (am1Var != null) {
-                        am1Var.d();
+                    zl1 zl1Var = this.b;
+                    if (zl1Var != null) {
+                        zl1Var.d();
                         return;
                     }
                     return;
@@ -735,7 +735,7 @@ public class AdVideoView extends RelativeLayout {
                     u();
                     return;
                 case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
-                    am1.b bVar = this.d;
+                    zl1.b bVar = this.d;
                     if (bVar != null) {
                         bVar.onPrepared();
                     }
@@ -744,9 +744,9 @@ public class AdVideoView extends RelativeLayout {
                         this.a.k(i2);
                     }
                     setVideoMute(this.n);
-                    cm1 cm1Var = this.l;
-                    if (cm1Var != null) {
-                        cm1Var.onVideoSizeChanged(this.a.d(), this.a.c());
+                    bm1 bm1Var = this.l;
+                    if (bm1Var != null) {
+                        bm1Var.onVideoSizeChanged(this.a.d(), this.a.c());
                     }
                     AdVideoProgressBar adVideoProgressBar = this.f;
                     if (adVideoProgressBar != null) {
@@ -758,7 +758,7 @@ public class AdVideoView extends RelativeLayout {
                             postDelayed(this.k, 200L);
                         }
                     }
-                    if (this.q && o71.c(this)) {
+                    if (this.q && n71.c(this)) {
                         t();
                         return;
                     }
@@ -769,9 +769,9 @@ public class AdVideoView extends RelativeLayout {
                 case 260:
                     this.w = true;
                     l();
-                    am1 am1Var2 = this.b;
-                    if (am1Var2 != null) {
-                        am1Var2.e();
+                    zl1 zl1Var2 = this.b;
+                    if (zl1Var2 != null) {
+                        zl1Var2.e();
                         return;
                     }
                     return;
@@ -813,10 +813,10 @@ public class AdVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && !TextUtils.isEmpty(this.o) && this.q && this.r) {
             Context context = this.e;
-            if ((j61.d(context, context.getPackageName()) || !this.s) && this.w) {
-                am1 am1Var = this.b;
-                if (am1Var != null) {
-                    am1Var.c();
+            if ((i61.d(context, context.getPackageName()) || !this.s) && this.w) {
+                zl1 zl1Var = this.b;
+                if (zl1Var != null) {
+                    zl1Var.c();
                 }
                 if (!this.u) {
                     t();
@@ -854,7 +854,7 @@ public class AdVideoView extends RelativeLayout {
             this.i = z;
             this.h = i;
             this.g = i2;
-            this.j = q61.c.a(getContext(), i3);
+            this.j = p61.c.a(getContext(), i3);
         }
     }
 }

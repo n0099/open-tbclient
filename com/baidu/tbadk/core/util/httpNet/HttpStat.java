@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util.httpNet;
 
-import com.baidu.tieba.of;
+import com.baidu.tieba.nf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class HttpStat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public of stat;
+    public nf stat;
 
     public HttpStat() {
         Interceptable interceptable = $ic;
@@ -24,6 +24,6 @@ public class HttpStat {
                 return;
             }
         }
-        this.stat = new of();
+        this.stat = new nf();
     }
 }

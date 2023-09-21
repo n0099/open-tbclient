@@ -34,8 +34,8 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabNewRankListLayout;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
-import com.baidu.tieba.j48;
-import com.baidu.tieba.r38;
+import com.baidu.tieba.l48;
+import com.baidu.tieba.t38;
 import com.baidu.tieba.util.TopicListUtil;
 import com.baidu.tieba.wz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,13 +134,13 @@ public class HotTopicHeaderView extends LinearLayout {
                 return;
             }
             this.c.h(this.a);
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f090fcd);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f090fc1);
             if (!(tag instanceof Integer)) {
                 return;
             }
             this.c.k(((Integer) tag).intValue());
             View view3 = this.b;
-            if (view3 == null || view3.getTag(R.id.obfuscated_res_0x7f090fcd) != tag) {
+            if (view3 == null || view3.getTag(R.id.obfuscated_res_0x7f090fc1) != tag) {
                 return;
             }
             this.c.m(this.a.name);
@@ -275,7 +275,7 @@ public class HotTopicHeaderView extends LinearLayout {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
-            if ((!"镇吧神贴".equals(str) && !"精选热吧".equals(str)) || !r38.a(j, this.m)) {
+            if ((!"镇吧神贴".equals(str) && !"精选热吧".equals(str)) || !t38.a(j, this.m)) {
                 return null;
             }
             View view3 = new View(getContext());
@@ -284,7 +284,7 @@ public class HotTopicHeaderView extends LinearLayout {
             layoutParams.addRule(1, view2.getId());
             view3.setLayoutParams(layoutParams);
             SkinManager.setBackgroundResource(view3, R.drawable.icon_news_red_dot);
-            view3.setTag(R.id.obfuscated_res_0x7f090fcd, Integer.valueOf(i + 1));
+            view3.setTag(R.id.obfuscated_res_0x7f090fc1, Integer.valueOf(i + 1));
             viewGroup.addView(view3, layoutParams);
             return view3;
         }
@@ -298,7 +298,7 @@ public class HotTopicHeaderView extends LinearLayout {
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setOrientation(0);
-            linearLayout.setId(R.id.obfuscated_res_0x7f09269e);
+            linearLayout.setId(R.id.obfuscated_res_0x7f09266a);
             linearLayout.setGravity(17);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
@@ -316,7 +316,7 @@ public class HotTopicHeaderView extends LinearLayout {
             linearLayout.addView(tbClipImageView, new ViewGroup.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.tbds83), BdUtilHelper.getDimens(getContext(), R.dimen.tbds83)));
             TextView textView = new TextView(getContext());
             EMManager.from(textView).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06).setTextStyle(R.string.F_X01);
-            textView.setId(R.id.obfuscated_res_0x7f09269f);
+            textView.setId(R.id.obfuscated_res_0x7f09266b);
             textView.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), 0, 0, 0);
             textView.setText(innerTabInfo.name);
             linearLayout.addView(textView);
@@ -342,7 +342,7 @@ public class HotTopicHeaderView extends LinearLayout {
                 while (i < size) {
                     View f = f(hotThreadListResIdl.data.inner_tabs.get(i), i);
                     i++;
-                    f.setTag(R.id.obfuscated_res_0x7f090fcd, Integer.valueOf(i));
+                    f.setTag(R.id.obfuscated_res_0x7f090fc1, Integer.valueOf(i));
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds125));
                     layoutParams.weight = 1.0f;
                     this.e.addView(f, layoutParams);
@@ -362,13 +362,13 @@ public class HotTopicHeaderView extends LinearLayout {
                 if (hotTopicTabRankListLayout != null) {
                     hotTopicTabRankListLayout.setVisibility(0);
                     this.c.setOnItemCoverListener(this.j);
-                    this.c.a(new j48(hotThreadListResIdl.data.topic_list));
+                    this.c.a(new l48(hotThreadListResIdl.data.topic_list));
                 }
                 HotTopicTabNewRankListLayout hotTopicTabNewRankListLayout = this.f;
                 if (hotTopicTabNewRankListLayout != null) {
                     hotTopicTabNewRankListLayout.setVisibility(0);
                     this.f.setOnItemCoverListener(this.j);
-                    this.f.a(new j48(hotThreadListResIdl.data.topic_list));
+                    this.f.a(new l48(hotThreadListResIdl.data.topic_list));
                 }
             } else {
                 this.d.setVisibility(8);
@@ -404,14 +404,14 @@ public class HotTopicHeaderView extends LinearLayout {
             LinearLayout linearLayout2 = new LinearLayout(getContext());
             this.e = linearLayout2;
             linearLayout2.setOrientation(0);
-            this.e.setDividerDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0812b4, getContext().getTheme()));
+            this.e.setDividerDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f0812af, getContext().getTheme()));
             this.e.setShowDividers(2);
             addView(this.e, new ViewGroup.LayoutParams(-1, -2));
             TextView textView = new TextView(getContext());
             this.d = textView;
             textView.setId(R.id.title_id);
             EMManager.from(this.d).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X02);
-            this.d.setText(g(R.string.obfuscated_res_0x7f0f121b));
+            this.d.setText(g(R.string.obfuscated_res_0x7f0f121d));
             this.d.setMaxLines(1);
             this.d.setEllipsize(TextUtils.TruncateAt.END);
             this.d.setPadding(dimenPixelSize4, dimenPixelSize5, dimenPixelSize4, dimenPixelSize6);
@@ -424,7 +424,7 @@ public class HotTopicHeaderView extends LinearLayout {
             this.b.addView(relativeLayout, new LinearLayout.LayoutParams(-1, -2));
             TextView textView2 = new TextView(getContext());
             this.g = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f0a25);
+            textView2.setText(R.string.obfuscated_res_0x7f0f0a26);
             this.g.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
             relativeLayout.addView(this.g);
             relativeLayout.setOnClickListener(new a(this));
@@ -438,14 +438,14 @@ public class HotTopicHeaderView extends LinearLayout {
             linearLayout3.setOrientation(0);
             EMTextView eMTextView = new EMTextView(getContext());
             EMManager.from(eMTextView).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X02);
-            eMTextView.setText(g(R.string.obfuscated_res_0x7f0f0a1c));
+            eMTextView.setText(g(R.string.obfuscated_res_0x7f0f0a1d));
             eMTextView.setMaxLines(1);
             eMTextView.setEllipsize(TextUtils.TruncateAt.END);
             eMTextView.setPadding(dimenPixelSize2 - dimenPixelSize, 0, dimenPixelSize3, 0);
             this.k.addView(eMTextView);
             EMTextView eMTextView2 = new EMTextView(getContext());
             EMManager.from(eMTextView2).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01);
-            eMTextView2.setText(g(R.string.obfuscated_res_0x7f0f0a2f));
+            eMTextView2.setText(g(R.string.obfuscated_res_0x7f0f0a30));
             this.k.addView(eMTextView2);
             this.h = eMTextView;
             this.i = eMTextView2;
@@ -466,7 +466,7 @@ public class HotTopicHeaderView extends LinearLayout {
         SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
         EMManager.from(this.b).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-        this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f08076a);
+        this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f080769);
         HotTopicTabRankListLayout hotTopicTabRankListLayout = this.c;
         if (hotTopicTabRankListLayout != null) {
             hotTopicTabRankListLayout.c(i);
@@ -485,7 +485,7 @@ public class HotTopicHeaderView extends LinearLayout {
         }
         if (this.e != null) {
             for (int i2 = 0; i2 < this.e.getChildCount(); i2++) {
-                EMManager.from((TextView) ((ViewGroup) this.e.getChildAt(i2)).findViewById(R.id.obfuscated_res_0x7f09269f)).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06).setTextStyle(R.string.F_X01);
+                EMManager.from((TextView) ((ViewGroup) this.e.getChildAt(i2)).findViewById(R.id.obfuscated_res_0x7f09266b)).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06).setTextStyle(R.string.F_X01);
             }
         }
     }

@@ -1,106 +1,118 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 /* loaded from: classes9.dex */
-public final class zec implements rac, zac {
+public final class zec {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rac a;
-    public zac b;
-    public boolean c;
 
-    public zec(rac racVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {racVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes9.dex */
+    public static class a implements PrivilegedAction<ClassLoader> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.security.PrivilegedAction
+        /* renamed from: a */
+        public ClassLoader run() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return ClassLoader.getSystemClassLoader();
+            }
+            return (ClassLoader) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        boolean z;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948358513, "Lcom/baidu/tieba/zec;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948358513, "Lcom/baidu/tieba/zec;");
                 return;
             }
         }
-        this.a = racVar;
-    }
-
-    @Override // com.baidu.tieba.rac
-    public void onSubscribe(zac zacVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zacVar) == null) {
-            this.b = zacVar;
-            try {
-                this.a.onSubscribe(this);
-            } catch (Throwable th) {
-                ebc.e(th);
-                zacVar.unsubscribe();
-                onError(th);
-            }
+        int d = d();
+        a = d;
+        if (d != 0) {
+            z = true;
+        } else {
+            z = false;
         }
+        b = z;
     }
 
-    @Override // com.baidu.tieba.zac
-    public boolean isUnsubscribed() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.c && !this.b.isUnsubscribed()) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static ClassLoader b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (System.getSecurityManager() == null) {
+                return ClassLoader.getSystemClassLoader();
             }
-            return true;
+            return (ClassLoader) AccessController.doPrivileged(new a());
+        }
+        return (ClassLoader) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rac
-    public void onCompleted() {
+    public static int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
-            return;
-        }
-        this.c = true;
-        try {
-            this.a.onCompleted();
-        } catch (Throwable th) {
-            ebc.e(th);
-            throw new OnCompletedFailedException(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.zac
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.unsubscribe();
-        }
-    }
-
-    @Override // com.baidu.tieba.rac
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            gfc.j(th);
-            if (this.c) {
-                return;
-            }
-            this.c = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
-                this.a.onError(th);
-            } catch (Throwable th2) {
-                ebc.e(th2);
-                throw new OnErrorFailedException(new CompositeException(th, th2));
+                return ((Integer) Class.forName("android.os.Build$VERSION", true, b()).getField("SDK_INT").get(null)).intValue();
+            } catch (Exception unused) {
+                return 0;
             }
         }
+        return invokeV.intValue;
     }
 }

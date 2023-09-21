@@ -1,46 +1,97 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.CookieHelper;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.data.ShareIMCommonCardData;
-import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tieba.im.data.JsonMsgItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ak8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ak8 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ArrayList<JsonMsgItem> b;
+    public c c;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public interface c {
+        void a(String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947618171, "Lcom/baidu/tieba/ak8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947618171, "Lcom/baidu/tieba/ak8;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends TypeToken<List<JsonMsgItem>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ThreadData a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ boolean f;
 
-        public a(ThreadData threadData, long j, String str, String str2, String str3, boolean z) {
+        public a(ak8 ak8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {threadData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                Object[] objArr = {ak8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JsonMsgItem a;
+        public final /* synthetic */ ak8 b;
+
+        public b(ak8 ak8Var, JsonMsgItem jsonMsgItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ak8Var, jsonMsgItem};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,336 +101,154 @@ public class ak8 {
                     return;
                 }
             }
-            this.a = threadData;
-            this.b = j;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = z;
+            this.b = ak8Var;
+            this.a = jsonMsgItem;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.text.style.ClickableSpan
+        public void onClick(@NonNull View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageUtils.createAndSendPersonalThreadChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.c.a(this.a.getUrl());
+            }
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(@NonNull TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                super.updateDrawState(textPaint);
+                textPaint.setColor(this.b.a.getResources().getColor(this.b.d(this.a.getColor())));
+                textPaint.setUnderlineText(false);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ForumData a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ boolean f;
-
-        public b(ForumData forumData, long j, String str, String str2, String str3, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {forumData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = forumData;
-            this.b = j;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageUtils.createAndSendPersonalForumChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GroupInfoData a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ boolean f;
-
-        public c(GroupInfoData groupInfoData, long j, String str, String str2, String str3, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {groupInfoData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = groupInfoData;
-            this.b = j;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageUtils.createAndSendPersonalGroupChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareIMCommonCardData a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ boolean f;
-
-        public d(ShareIMCommonCardData shareIMCommonCardData, long j, String str, String str2, String str3, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {shareIMCommonCardData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = shareIMCommonCardData;
-            this.b = j;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageUtils.createAndSendPersonalCommonCardChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
-            }
-        }
-    }
-
-    public static void a(@Nullable ForumData forumData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
+    public ak8(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{forumData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
-            if (TextUtils.isEmpty(str)) {
-                MessageUtils.createAndSendPersonalForumChatMessage(forumData, j, str2, str3, str4, z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
-            SafeHandler.getInst().postDelayed(new b(forumData, j, str2, str3, str4, z), 500L);
         }
+        this.b = new ArrayList<>();
+        this.a = context;
     }
 
-    public static void b(@Nullable GroupInfoData groupInfoData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
+    public int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{groupInfoData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
-            if (TextUtils.isEmpty(str)) {
-                MessageUtils.createAndSendPersonalGroupChatMessage(groupInfoData, j, str2, str3, str4, z);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                return 0;
             }
-            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
-            SafeHandler.getInst().postDelayed(new c(groupInfoData, j, str2, str3, str4, z), 500L);
-        }
-    }
-
-    public static void c(@Nullable ShareIMCommonCardData shareIMCommonCardData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{shareIMCommonCardData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
-            if (TextUtils.isEmpty(str)) {
-                MessageUtils.createAndSendPersonalCommonCardChatMessage(shareIMCommonCardData, j, str2, str3, str4, z);
-                return;
-            }
-            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
-            SafeHandler.getInst().postDelayed(new d(shareIMCommonCardData, j, str2, str3, str4, z), 500L);
-        }
-    }
-
-    public static void d(@Nullable ThreadData threadData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{threadData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
-            if (TextUtils.isEmpty(str)) {
-                MessageUtils.createAndSendPersonalThreadChatMessage(threadData, j, str2, str3, str4, z);
-                return;
-            }
-            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
-            SafeHandler.getInst().postDelayed(new a(threadData, j, str2, str3, str4, z), 500L);
-        }
-    }
-
-    public static void e(String str, GroupInfoData groupInfoData, @Nullable ShareIMCommonCardData shareIMCommonCardData) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, groupInfoData, shareIMCommonCardData) == null) {
-            if (shareIMCommonCardData != null) {
-                int shareType = shareIMCommonCardData.getShareType();
-                if (shareType != 1) {
-                    if (shareType != 2) {
-                        if (shareType == 3) {
-                            i = 6;
-                        }
-                    } else {
-                        i = 5;
-                    }
-                } else {
-                    i = 4;
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                if (this.b.get(i3) != null) {
+                    i2 += this.b.get(i3).getText().length();
                 }
-                g(str, i, null, null, shareIMCommonCardData, null, groupInfoData);
             }
-            i = Integer.MAX_VALUE;
-            g(str, i, null, null, shareIMCommonCardData, null, groupInfoData);
+            return i2;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            int identifier = this.a.getResources().getIdentifier(str, "color", this.a.getPackageName());
+            if (identifier == 0) {
+                return this.a.getResources().getIdentifier("CAM_X0101", "color", this.a.getPackageName());
+            }
+            return identifier;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int identifier = this.a.getResources().getIdentifier(str, EMABTest.TYPE_DIMEN, this.a.getPackageName());
+            if (identifier == 0) {
+                return this.a.getResources().getIdentifier("T_X09", EMABTest.TYPE_DIMEN, this.a.getPackageName());
+            }
+            return identifier;
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (!ukb.a(str)) {
+                if (str.startsWith("{") && str.endsWith("}")) {
+                    return true;
+                }
+                if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static ak8 f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (d == null) {
+                d = new ak8(context);
+            }
+            return d;
+        }
+        return (ak8) invokeL.objValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = (ArrayList) new Gson().fromJson(str, new a(this).getType());
         }
     }
 
-    public static void f(String str, int i, ThreadData threadData, ForumData forumData, GroupInfoData groupInfoData, GroupInfoData groupInfoData2) {
+    public void j(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), threadData, forumData, groupInfoData, groupInfoData2}) == null) {
-            g(str, i, threadData, forumData, null, groupInfoData, groupInfoData2);
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public static void g(String str, int i, ThreadData threadData, ForumData forumData, @Nullable ShareIMCommonCardData shareIMCommonCardData, GroupInfoData groupInfoData, GroupInfoData groupInfoData2) {
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        long j;
+    public void h(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Integer.valueOf(i), threadData, forumData, shareIMCommonCardData, groupInfoData, groupInfoData2}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
-            String str8 = "";
-            if (threadData == null) {
-                str2 = "";
-            } else {
-                str2 = threadData.getId();
-            }
-            httpMessage.addParam("thread_id", str2);
-            if (forumData == null) {
-                str3 = "";
-            } else {
-                str3 = forumData.getId();
-            }
-            httpMessage.addParam("fid", str3);
-            httpMessage.addParam(GroupInfoData.SHARE_KEY_TYPE, i);
-            if (shareIMCommonCardData == null) {
-                str4 = "";
-            } else {
-                str4 = shareIMCommonCardData.getJumpLink();
-            }
-            httpMessage.addParam("schema", str4);
-            if (!ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
-                str5 = "";
-            } else {
-                str5 = shareIMCommonCardData.getId();
-            }
-            httpMessage.addParam(GroupInfoData.SHARE_KEY_ALBUM_ID, str5);
-            if (!ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
-                str6 = "";
-            } else {
-                str6 = shareIMCommonCardData.getId();
-            }
-            httpMessage.addParam("topic_id", str6);
-            if (!ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
-                str7 = "";
-            } else {
-                str7 = shareIMCommonCardData.getTagName();
-            }
-            httpMessage.addParam("topic_name", str7);
-            if (ShareIMCommonCardData.isValidActive(shareIMCommonCardData)) {
-                str8 = shareIMCommonCardData.getId();
-            }
-            httpMessage.addParam("scene_id", str8);
-            long j2 = 0;
-            if (groupInfoData != null) {
-                j = groupInfoData.getGroupId();
-            } else {
-                j = 0;
-            }
-            httpMessage.addParam(GroupInfoData.SHARE_KEY_FROM_GROUP_ID, j);
-            if (groupInfoData2 != null) {
-                j2 = groupInfoData2.getGroupId();
-            }
-            httpMessage.addParam("chatroom_id", j2);
-            Map<String, String> b2 = CookieHelper.b();
-            if (!mn6.b(b2)) {
-                for (Map.Entry<String, String> entry : b2.entrySet()) {
-                    if (entry != null) {
-                        httpMessage.addCookie(entry.getKey(), entry.getValue());
+        if (interceptable == null || interceptable.invokeL(1048580, this, textView) == null) {
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+            textView.setHighlightColor(0);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            for (int i = 0; i < this.b.size(); i++) {
+                JsonMsgItem jsonMsgItem = this.b.get(i);
+                if (jsonMsgItem != null && !TextUtils.isEmpty(jsonMsgItem.getText())) {
+                    SpannableString spannableString = new SpannableString(jsonMsgItem.getText());
+                    spannableString.setSpan(new ForegroundColorSpan(this.a.getResources().getColor(d(jsonMsgItem.getColor()))), 0, jsonMsgItem.getText().length(), 33);
+                    spannableString.setSpan(new AbsoluteSizeSpan((int) this.a.getResources().getDimension(e(jsonMsgItem.getFont()))), 0, jsonMsgItem.getText().length(), 0);
+                    spannableStringBuilder.append((CharSequence) spannableString);
+                    if (jsonMsgItem.getType().intValue() == 1) {
+                        spannableStringBuilder.setSpan(new b(this, jsonMsgItem), c(i), c(i) + jsonMsgItem.getText().length(), 17);
                     }
                 }
             }
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public static void h(String str, @Nullable GroupInfoData groupInfoData, @NonNull ForumData forumData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, groupInfoData, forumData) == null) {
-            f(str, 2, null, forumData, null, groupInfoData);
-        }
-    }
-
-    public static void i(String str, GroupInfoData groupInfoData, @NonNull GroupInfoData groupInfoData2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, groupInfoData, groupInfoData2) == null) {
-            f(str, 3, null, null, groupInfoData2, groupInfoData);
-        }
-    }
-
-    public static void j(String str, GroupInfoData groupInfoData, @NonNull ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, str, groupInfoData, threadData) == null) {
-            ForumData forumData = new ForumData();
-            if (threadData.getForumData() != null) {
-                forumData.setId(threadData.getForumData().a);
-                forumData.setName(threadData.getForumData().b);
-            }
-            if (TextUtils.isEmpty(forumData.getId())) {
-                forumData.setId(threadData.getFid() + "");
-            }
-            if (TextUtils.isEmpty(forumData.getName())) {
-                forumData.setName(threadData.getForum_name());
-            }
-            f(str, 1, threadData, forumData, null, groupInfoData);
+            textView.setText(spannableStringBuilder);
         }
     }
 }

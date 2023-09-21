@@ -116,7 +116,7 @@ public final class j45 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, post)) == null) {
                 Intrinsics.checkNotNullParameter(post, "post");
-                if (!ei.isEmpty(post.toutiao_card_tag) && !ei.isEmpty(post.toutiao_card_tag_color)) {
+                if (!di.isEmpty(post.toutiao_card_tag) && !di.isEmpty(post.toutiao_card_tag_color)) {
                     String str = post.toutiao_card_tag;
                     Intrinsics.checkNotNullExpressionValue(str, "post.toutiao_card_tag");
                     String str2 = post.toutiao_card_tag_color;

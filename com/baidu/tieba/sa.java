@@ -116,7 +116,7 @@ public class sa {
             } else if (!this.a) {
                 this.a = true;
                 this.c.removeMessages(1);
-                if (dj.h().j()) {
+                if (cj.h().j()) {
                     BdLog.d("启动重连策略失败，  WebSocketClient opened");
                     f("in Opened");
                     return;

@@ -13,29 +13,37 @@ public final class gd4 {
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
     @JvmField
-    public final byte[] message;
+    public final String address;
     @V8JavascriptField
     @JvmField
-    public final Object remoteInfo;
+    public final String family;
+    @V8JavascriptField
+    @JvmField
+    public final int port;
+    @V8JavascriptField
+    @JvmField
+    public final int size;
 
-    public gd4(byte[] message, Object remoteInfo) {
+    public gd4(String address, int i, int i2, String family) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {message, remoteInfo};
+            Object[] objArr = {address, Integer.valueOf(i), Integer.valueOf(i2), family};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(message, "message");
-        Intrinsics.checkNotNullParameter(remoteInfo, "remoteInfo");
-        this.message = message;
-        this.remoteInfo = remoteInfo;
+        Intrinsics.checkNotNullParameter(address, "address");
+        Intrinsics.checkNotNullParameter(family, "family");
+        this.address = address;
+        this.size = i;
+        this.port = i2;
+        this.family = family;
     }
 }

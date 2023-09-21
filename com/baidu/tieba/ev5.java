@@ -1,11 +1,11 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
 /* loaded from: classes5.dex */
 public interface ev5<T> {
-    void a(int i, byte[] bArr) throws Exception;
+    void a(Intent intent);
 
-    int getErrorCode();
+    T b(boolean z);
 
-    String getErrorMsg();
-
-    yu5 getPageInfo();
+    yu5 c();
 }

@@ -1,111 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class jna implements gc7 {
+public class jna {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<Integer> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public TbPageContext b;
-    public String c;
+    public final MainTabActivity a;
+    public final qma b;
+    public final Runnable c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947890444, "Lcom/baidu/tieba/jna;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jna a;
+
+        public a(jna jnaVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947890444, "Lcom/baidu/tieba/jna;");
-                return;
+            this.a = jnaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
+                if (this.a.b != null && this.a.b.A() != null && this.a.b.A().getCurrentTabType() == 22) {
+                    videoRedIconRequest.setCallFrom("video_tab");
+                }
+                this.a.a.sendMessage(videoRedIconRequest);
+                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
+                if (videoRedIconInterval > 5) {
+                    SafeHandler.getInst().postDelayed(this.a.c, videoRedIconInterval * 1000);
+                }
             }
         }
-        ArrayList arrayList = new ArrayList();
-        d = arrayList;
-        arrayList.add(2);
-        d.add(8);
-        d.add(6);
-        d.add(7);
-        d.add(14);
     }
 
-    public jna(int i) {
+    public jna(MainTabActivity mainTabActivity, qma qmaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {mainTabActivity, qmaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.c = new a(this);
+        this.a = mainTabActivity;
+        this.b = qmaVar;
     }
 
-    @Override // com.baidu.tieba.gc7
-    @NonNull
-    public List<oc7<?, ?>> a() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < y29.a.size(); i++) {
-                int keyAt = y29.a.keyAt(i);
-                if (keyAt != 17 && keyAt != 33 && keyAt != 34) {
-                    lna lnaVar = new lna(keyAt, this.a);
-                    lnaVar.f(this.b);
-                    lnaVar.e(this.c);
-                    arrayList.add(lnaVar);
-                } else {
-                    for (Integer num : d) {
-                        lna lnaVar2 = new lna(keyAt, num.intValue(), this.a);
-                        lnaVar2.f(this.b);
-                        lnaVar2.e(this.c);
-                        arrayList.add(lnaVar2);
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.c);
         }
-        return (List) invokeV.objValue;
-    }
-
-    public jna b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (jna) invokeL.objValue;
-    }
-
-    public jna c(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext)) == null) {
-            this.b = tbPageContext;
-            return this;
-        }
-        return (jna) invokeL.objValue;
     }
 }

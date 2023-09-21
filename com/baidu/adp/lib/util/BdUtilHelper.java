@@ -39,8 +39,8 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fi;
-import com.baidu.tieba.ni;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.mi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -549,7 +549,7 @@ public class BdUtilHelper {
                     intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
                     intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
                 }
-                context.startActivity(Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f13dc)));
+                context.startActivity(Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f13dd)));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -602,17 +602,17 @@ public class BdUtilHelper {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns1").getInputStream()));
                 try {
                     String readLine = bufferedReader.readLine();
-                    fi.g(bufferedReader);
+                    ei.g(bufferedReader);
                     return readLine;
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    fi.g(bufferedReader);
+                    ei.g(bufferedReader);
                     return null;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                fi.g(r2);
+                ei.g(r2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -621,7 +621,7 @@ public class BdUtilHelper {
         } catch (Throwable th3) {
             r2 = 0;
             th = th3;
-            fi.g(r2);
+            ei.g(r2);
             throw th;
         }
     }
@@ -648,17 +648,17 @@ public class BdUtilHelper {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns2").getInputStream()));
                 try {
                     String readLine = bufferedReader.readLine();
-                    fi.g(bufferedReader);
+                    ei.g(bufferedReader);
                     return readLine;
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    fi.g(bufferedReader);
+                    ei.g(bufferedReader);
                     return null;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                fi.g(r2);
+                ei.g(r2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -667,7 +667,7 @@ public class BdUtilHelper {
         } catch (Throwable th3) {
             r2 = 0;
             th = th3;
-            fi.g(r2);
+            ei.g(r2);
             throw th;
         }
     }
@@ -1024,7 +1024,7 @@ public class BdUtilHelper {
                 if (dVar4 != null && dVar4.getToastContentView() != null) {
                     Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
                     mToast = toast2;
-                    ni.a(toast2);
+                    mi.a(toast2);
                     if (i == 3500) {
                         mToast.setDuration(1);
                     } else {
@@ -1036,11 +1036,11 @@ public class BdUtilHelper {
                     if (i == 3500) {
                         Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
                         mToast = makeText;
-                        ni.a(makeText);
+                        mi.a(makeText);
                     } else {
                         Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                         mToast = makeText2;
-                        ni.a(makeText2);
+                        mi.a(makeText2);
                     }
                     mToast.setText(str);
                 }

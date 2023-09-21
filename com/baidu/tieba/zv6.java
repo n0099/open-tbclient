@@ -1,30 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class zv6 extends rv6 {
+public final class zv6 implements Comparator<i0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u6<yv6> b;
-    public final PointF c;
-    public float d;
-    public final PointF e;
-    public float f;
-
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
 
     public zv6() {
         Interceptable interceptable = $ic;
@@ -36,85 +22,28 @@ public final class zv6 extends rv6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new u6<>(0);
-        this.c = new PointF();
-        this.e = new PointF(1.0f, 1.0f);
-        this.f = 1.0f;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            g();
-            u6.b<yv6> it = this.b.iterator();
-            Intrinsics.checkNotNullExpressionValue(it, "actions.iterator()");
-            while (it.hasNext()) {
-                it.next().a(j);
             }
         }
     }
 
-    public final void d(yv6 action) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(i0 entity1, i0 entity2) {
+        InterceptResult invokeLL;
+        qv6 a;
+        cw6 b;
+        qv6 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            action.c(this);
-            action.b();
-            this.b.a(action);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
+            Intrinsics.checkNotNullParameter(entity1, "entity1");
+            Intrinsics.checkNotNullParameter(entity2, "entity2");
+            cw6 b2 = ax6.b(entity2);
+            if (b2 == null || (a = b2.a()) == null || (b = ax6.b(entity1)) == null || (a2 = b.a()) == null) {
+                return 0;
+            }
+            return a2.compareTo(a);
         }
-    }
-
-    public final void i(Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
-            Intrinsics.checkNotNullParameter(matrix, "matrix");
-            PointF pointF = this.e;
-            matrix.setScale(pointF.x, pointF.y);
-            matrix.postRotate(this.d);
-            PointF pointF2 = this.c;
-            matrix.postTranslate(pointF2.x, pointF2.y);
-        }
-    }
-
-    public final float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final PointF f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a().f().u();
-            this.c.set(0.0f, 0.0f);
-            this.d = 0.0f;
-            this.e.set(1.0f, 1.0f);
-            this.f = 1.0f;
-        }
-    }
-
-    @Override // com.baidu.tieba.rv6, com.baidu.tieba.t7.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.reset();
-            g();
-            this.b.clear();
-        }
+        return invokeLL.intValue;
     }
 }

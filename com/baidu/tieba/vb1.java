@@ -1,45 +1,15 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Message;
-import android.view.KeyEvent;
-import android.webkit.SslErrorHandler;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import android.webkit.HttpAuthHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class vb1 {
+public final class vb1 extends qb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
-
-    public abstract tb1 b(AbsNadBrowserView absNadBrowserView, String str);
-
-    public abstract void c(AbsNadBrowserView absNadBrowserView, String str);
-
-    public abstract boolean d(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    public abstract boolean e(AbsNadBrowserView absNadBrowserView, String str);
-
-    public abstract void f(AbsNadBrowserView absNadBrowserView, String str);
-
-    public abstract void g(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
-
-    public abstract void h(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
-
-    public abstract void i(AbsNadBrowserView absNadBrowserView, rb1 rb1Var, String str, String str2);
-
-    public abstract void j(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
-
-    public abstract void k(AbsNadBrowserView absNadBrowserView, float f, float f2);
-
-    public abstract void l(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    public abstract void m(AbsNadBrowserView absNadBrowserView, String str, boolean z);
 
     public vb1() {
         Interceptable interceptable = $ic;
@@ -53,5 +23,15 @@ public abstract class vb1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public final qb1 b(HttpAuthHandler httpAuthHandler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpAuthHandler)) == null) {
+            a(httpAuthHandler);
+            return this;
+        }
+        return (qb1) invokeL.objValue;
     }
 }

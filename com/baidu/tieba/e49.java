@@ -1,98 +1,166 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.HashMap;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class e49 implements d49 {
+public class e49 extends gv4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<d49> a;
-    public static final d49 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684511, "Lcom/baidu/tieba/e49;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.gv4
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommandUBCHelper.COMMAND_UBC_SOURCE_SEND : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends BdAsyncTask<Object, Integer, lv4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile NetWork a;
+        public String b;
+        public String c;
+        public HashMap<String, String> d;
+        public i9 e;
+
+        public a(e49 e49Var, String str, String str2, HashMap<String, String> hashMap, i9 i9Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e49Var, str, str2, hashMap, i9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947684511, "Lcom/baidu/tieba/e49;");
-                return;
+            this.a = null;
+            this.b = str;
+            this.c = str2;
+            this.d = hashMap;
+            this.e = i9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public lv4 doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                lv4 lv4Var = new lv4();
+                try {
+                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.c);
+                    Set<String> keySet = this.d.keySet();
+                    if (keySet.size() > 0) {
+                        for (String str : keySet) {
+                            if (!"url".equalsIgnoreCase(str)) {
+                                this.a.addPostData(str, this.d.get(str));
+                            }
+                        }
+                    }
+                    this.a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                    this.a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                    boolean z = true;
+                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                    String postNetData = this.a.postNetData();
+                    if (!this.a.getNetContext().getResponse().isNetSuccess()) {
+                        lv4Var.b = this.a.getNetErrorCode();
+                        lv4Var.c = this.a.getNetString();
+                    } else {
+                        lv4Var.b = this.a.getServerErrorCode();
+                        lv4Var.c = this.a.getErrorString();
+                    }
+                    if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        if (lv4Var.b != 0) {
+                            z = false;
+                        }
+                        lv4Var.a = z;
+                        return lv4Var;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+                lv4Var.a = false;
+                return lv4Var;
+            }
+            return (lv4) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(lv4 lv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lv4Var) == null) {
+                i9 i9Var = this.e;
+                if (i9Var != null) {
+                    i9Var.c(lv4Var);
+                }
+                a49.a().d(this.c, this.d, lv4Var);
             }
         }
-        a = new AtomicReference<>(null);
-        b = new e49();
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a != null) {
+                    this.a.cancelNetConnect();
+                    this.a = null;
+                }
+                super.cancel(true);
+                i9 i9Var = this.e;
+                if (i9Var != null) {
+                    i9Var.c(null);
+                }
+            }
+        }
     }
 
     public e49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static d49 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gv4, com.baidu.tieba.jv4
+    public void a(Object obj, HashMap<String, String> hashMap, String str, i9 i9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            d49 d49Var = a.get();
-            if (d49Var == null) {
-                return b;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, i9Var) == null) && hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
+            String str2 = hashMap.get("url");
+            if (TextUtils.isEmpty(str2)) {
+                return;
             }
-            return d49Var;
+            a aVar = new a(this, str, str2, hashMap, i9Var);
+            aVar.setPriority(2);
+            aVar.execute(new Object[0]);
         }
-        return (d49) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d49
-    public v39 a(z39 z39Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, z39Var)) == null) {
-            BdLog.e("Card project loaded failed.");
-            return null;
-        }
-        return (v39) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d49
-    public a39 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
-            BdLog.e("Card project loaded failed.");
-            return null;
-        }
-        return (a39) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.d49
-    public f49 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
-            BdLog.e("Card project loaded failed.");
-            return null;
-        }
-        return (f49) invokeLL.objValue;
     }
 }

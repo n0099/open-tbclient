@@ -148,10 +148,29 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         }
     }
 
+    public final void R0() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (intent = getIntent()) == null) {
+            return;
+        }
+        Serializable serializableExtra = intent.getSerializableExtra("videoInfo");
+        if (serializableExtra instanceof VideoInfo) {
+            this.c = (VideoInfo) serializableExtra;
+        }
+    }
+
+    public final void S0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
+            this.f = new a(this);
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
         }
     }
@@ -159,7 +178,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             CustomVideoView customVideoView = this.b;
             if (customVideoView != null) {
@@ -171,7 +190,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
             CustomVideoView customVideoView = this.b;
             if (customVideoView != null) {
@@ -184,7 +203,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
             CustomVideoView customVideoView = this.b;
             if (customVideoView != null) {
@@ -195,33 +214,14 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         }
     }
 
-    public final void s1() {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (intent = getIntent()) == null) {
-            return;
-        }
-        Serializable serializableExtra = intent.getSerializableExtra("videoInfo");
-        if (serializableExtra instanceof VideoInfo) {
-            this.c = (VideoInfo) serializableExtra;
-        }
-    }
-
-    public final void t1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f == null) {
-            this.f = new a(this);
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004f);
-            s1();
-            t1();
+            R0();
+            S0();
             initView();
             TiebaStatic.log("c14312");
         }
@@ -229,17 +229,17 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
 
     public final void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091d72);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091d40);
             this.a = navigationBar;
-            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c36));
-            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091d74);
+            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c35));
+            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091d42);
             if (!StringUtils.isNull(this.c.getVideoPath())) {
                 this.b.setVideoPath(this.c.getVideoPath());
             }
             this.b.setOnPreparedListener(new b(this));
             this.b.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091d70);
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091d3e);
             this.d = videoControllerView;
             videoControllerView.setPlayer(this.b);
         }

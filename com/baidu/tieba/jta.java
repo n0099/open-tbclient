@@ -1,467 +1,301 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.media.MediaPlayer;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
-import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
-import com.baidu.tieba.dta;
-import com.baidu.tieba.esa;
-import com.baidu.tieba.ita;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.ThemeColorInfo;
+import tbclient.ThemeElement;
 /* loaded from: classes6.dex */
-public class jta implements ita.b {
+public final class jta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaPlayer a;
-    public int b;
-    public String c;
-    public String d;
-    public boolean e;
-    public Context f;
-    public boolean g;
-    public hc9 h;
 
-    @Override // com.baidu.tieba.ita.b
-    public void a(int i) {
+    public static final iv6 a(ThemeColorInfo themeColorInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeColorInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfo, "themeColorInfo");
+            return new iv6(i(themeColorInfo), h(themeColorInfo), g(themeColorInfo));
         }
+        return (iv6) invokeL.objValue;
     }
 
-    public void t(SelectMusicModel selectMusicModel) {
+    public static final int b(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, selectMusicModel) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            String c = c(themeColorInfoInfo);
+            if (c.length() > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return fia.f(c);
+            }
+            return Integer.MAX_VALUE;
         }
+        return invokeL.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements esa.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dta.a a;
-        public final /* synthetic */ MusicData b;
-        public final /* synthetic */ jta c;
-
-        public a(jta jtaVar, dta.a aVar, MusicData musicData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jtaVar, aVar, musicData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final String c(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.common_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.common_color;
+                }
+                if (str == null) {
+                    return "";
                 }
             }
-            this.c = jtaVar;
-            this.a = aVar;
-            this.b = musicData;
+            return str;
         }
-
-        @Override // com.baidu.tieba.esa.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.d != this.c.b) {
-                return;
-            }
-            this.c.g = false;
-            this.a.b.setVisibility(4);
-            this.a.a.setDrawBorder(true);
-            this.a.a.invalidate();
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
-            if (this.c.h != null) {
-                this.c.h.b(3, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.esa.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.d == this.c.b) {
-                this.c.g = false;
-                this.a.a.setDrawBorder(true);
-                this.a.a.invalidate();
-                this.a.b.setVisibility(4);
-            }
-        }
-
-        @Override // com.baidu.tieba.esa.b
-        public void c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.a.d == this.c.b) {
-                this.c.g = false;
-                if (!TextUtils.isEmpty(str2)) {
-                    str = str2;
-                }
-                this.c.p(str, this.b);
-                this.a.b.setVisibility(4);
-                this.a.a.setDrawBorder(true);
-                this.a.a.invalidate();
-            }
-        }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements esa.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MusicData a;
-        public final /* synthetic */ jta b;
-
-        @Override // com.baidu.tieba.esa.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public b(jta jtaVar, MusicData musicData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jtaVar, musicData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final String d(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.dark_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.dark_color;
+                }
+                if (str == null) {
+                    return "";
                 }
             }
-            this.b = jtaVar;
-            this.a = musicData;
+            return str;
         }
+        return (String) invokeL.objValue;
+    }
 
-        @Override // com.baidu.tieba.esa.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
-                if (this.b.h != null) {
-                    this.b.h.b(3, str);
+    public static final String e(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.font_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.font_color;
+                }
+                if (str == null) {
+                    return "";
                 }
             }
+            return str;
         }
-
-        @Override // com.baidu.tieba.esa.b
-        public void c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                if (!TextUtils.isEmpty(str2)) {
-                    str = str2;
-                }
-                this.b.p(str, this.a);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements MediaPlayer.OnPreparedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jta a;
-
-        public c(jta jtaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jtaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final String f(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.light_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.light_color;
+                }
+                if (str == null) {
+                    return "";
                 }
             }
-            this.a = jtaVar;
+            return str;
         }
-
-        @Override // android.media.MediaPlayer.OnPreparedListener
-        public void onPrepared(MediaPlayer mediaPlayer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.a.a.setLooping(true);
-                this.a.a.start();
-            }
-        }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements MediaPlayer.OnErrorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jta a;
-
-        public d(jta jtaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jtaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final String g(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.pattern_image;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.pattern_image;
+                }
+                if (str == null) {
+                    return "";
                 }
             }
-            this.a = jtaVar;
+            return str;
         }
+        return (String) invokeL.objValue;
+    }
 
-        @Override // android.media.MediaPlayer.OnErrorListener
-        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-                if (this.a.h != null) {
-                    hc9 hc9Var = this.a.h;
-                    hc9Var.b(4, "what-->" + i + "  extra-->" + i2);
-                    return false;
+    public static final int h(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Long l;
+        long longValue;
+        ThemeElement themeElement;
+        Long l2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != 0) {
+                if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (l2 = themeElement.pattern_image_height) == null) {
+                    return 0;
                 }
-                return false;
-            }
-            return invokeLII.booleanValue;
-        }
-    }
-
-    public jta(Activity activity) {
-        lc9 lc9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, lc9.class);
-        if (runTask != null) {
-            lc9Var = (lc9) runTask.getData();
-        } else {
-            lc9Var = null;
-        }
-        if (lc9Var != null) {
-            this.h = lc9Var.get();
-        }
-        this.f = activity;
-    }
-
-    public void g(EditVideoActivityConfig editVideoActivityConfig) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editVideoActivityConfig) == null) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.c)) {
-            editVideoActivityConfig.addMusicInfo(this.d, this.c, this.b);
-        }
-    }
-
-    public void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.e = false;
-            this.d = str;
-            this.c = str2;
-            p(str, null);
-        }
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = true;
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                this.a.pause();
-            }
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.e = false;
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null) {
-                mediaPlayer.start();
-                this.a.seekTo(0);
-            }
-        }
-    }
-
-    public void o() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (mediaPlayer = this.a) != null && mediaPlayer.isPlaying()) {
-            this.a.pause();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null) {
-                if (mediaPlayer.isPlaying()) {
-                    this.a.stop();
+                longValue = l2.longValue();
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 == null || (l = themeElement2.pattern_image_height) == null) {
+                    return 0;
                 }
-                this.a.release();
-                this.a = null;
+                longValue = l.longValue();
             }
-            this.d = null;
-            this.c = null;
+            return (int) longValue;
         }
+        return invokeL.intValue;
     }
 
-    public void k(MusicData musicData, Object obj) {
+    public static final int i(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Long l;
+        long longValue;
+        ThemeElement themeElement;
+        Long l2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, musicData, obj) != null) || musicData == null) {
-            return;
-        }
-        int i = musicData.editMusicType;
-        if (i != 0) {
-            if (i != 1) {
-                if (i == 2) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CloudMusicActivityConfig(this.f, 25032)));
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != 0) {
+                if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (l2 = themeElement.pattern_image_width) == null) {
+                    return 0;
                 }
-                return;
-            }
-            r();
-            return;
-        }
-        q(obj, musicData);
-    }
-
-    public final void s(String str, MusicData musicData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, musicData) == null) {
-            this.d = null;
-            r();
-            if (str.startsWith("/")) {
-                File file = new File(str);
-                if (file.exists()) {
-                    file.delete();
+                longValue = l2.longValue();
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 == null || (l = themeElement2.pattern_image_width) == null) {
+                    return 0;
                 }
-                esa.g().d();
+                longValue = l.longValue();
             }
-            q(null, musicData);
+            return (int) longValue;
         }
+        return invokeL.intValue;
     }
 
-    public void n(int i) {
-        MediaPlayer mediaPlayer;
+    public static final ThemeColorInfo j(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (mediaPlayer = this.a) != null && mediaPlayer.getDuration() > 0) {
-            if (i < 0) {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jSONObject)) == null) {
+            ThemeColorInfo.Builder builder = new ThemeColorInfo.Builder();
+            if (jSONObject != null) {
+                builder.day = k(jSONObject.optJSONObject("day"));
+                builder.dark = k(jSONObject.optJSONObject("dark"));
             }
-            if (i > this.a.getDuration()) {
-                i %= this.a.getDuration();
-            }
-            this.a.seekTo(i);
-            this.a.start();
+            ThemeColorInfo build = builder.build(true);
+            Intrinsics.checkNotNullExpressionValue(build, "colorInfoBuilder.build(true)");
+            return build;
         }
+        return (ThemeColorInfo) invokeL.objValue;
     }
 
-    public final void p(String str, MusicData musicData) {
+    public static final ThemeElement k(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048586, this, str, musicData) != null) || this.e) {
-            return;
-        }
-        if (this.a == null) {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            this.a = mediaPlayer;
-            mediaPlayer.setAudioStreamType(3);
-        }
-        try {
-            this.d = str;
-            this.a.reset();
-            this.a.setDataSource(str);
-            this.a.prepare();
-            this.a.setOnPreparedListener(new c(this));
-            this.a.setOnErrorListener(new d(this));
-        } catch (Exception e) {
-            e.printStackTrace();
-            s(str, musicData);
-        }
-    }
-
-    public final void q(Object obj, MusicData musicData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, obj, musicData) == null) && musicData != null && !TextUtils.isEmpty(musicData.resource)) {
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                this.a.stop();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) {
+            ThemeElement.Builder builder = new ThemeElement.Builder();
+            if (jSONObject != null) {
+                builder.common_color = jSONObject.optString("common_color", "");
+                builder.dark_color = jSONObject.optString("dark_color", "");
+                builder.light_color = jSONObject.optString("light_color", "");
+                builder.pattern_image = jSONObject.optString("pattern_image", "");
+                builder.font_color = jSONObject.optString("font_color", "");
+                Long DEFAULT_PATTERN_IMAGE_HEIGHT = ThemeElement.DEFAULT_PATTERN_IMAGE_HEIGHT;
+                Intrinsics.checkNotNullExpressionValue(DEFAULT_PATTERN_IMAGE_HEIGHT, "DEFAULT_PATTERN_IMAGE_HEIGHT");
+                builder.pattern_image_height = Long.valueOf(jSONObject.optLong("pattern_image_height", DEFAULT_PATTERN_IMAGE_HEIGHT.longValue()));
+                Long DEFAULT_PATTERN_IMAGE_WIDTH = ThemeElement.DEFAULT_PATTERN_IMAGE_WIDTH;
+                Intrinsics.checkNotNullExpressionValue(DEFAULT_PATTERN_IMAGE_WIDTH, "DEFAULT_PATTERN_IMAGE_WIDTH");
+                builder.pattern_image_width = Long.valueOf(jSONObject.optLong("pattern_image_width", DEFAULT_PATTERN_IMAGE_WIDTH.longValue()));
             }
-            this.g = false;
-            this.c = musicData.id;
-            String f = esa.g().f(musicData.resource);
-            if (obj != null && (obj instanceof dta.a)) {
-                this.b = ((dta.a) obj).d;
-            }
-            if (TextUtils.isEmpty(f)) {
-                if (obj instanceof dta.a) {
-                    dta.a aVar = (dta.a) obj;
-                    aVar.b.setVisibility(0);
-                    aVar.a.setDrawBorder(false);
-                    aVar.a.invalidate();
-                    this.g = true;
-                    esa.g().e(musicData.id, musicData.resource, new a(this, aVar, musicData));
-                    return;
-                }
-                esa.g().e(musicData.id, musicData.resource, new b(this, musicData));
-                return;
-            }
-            p(f, musicData);
+            ThemeElement build = builder.build(true);
+            Intrinsics.checkNotNullExpressionValue(build, "elementBuilder.build(true)");
+            return build;
         }
+        return (ThemeElement) invokeL.objValue;
     }
 }

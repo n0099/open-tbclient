@@ -1,17 +1,43 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface s84 {
-    boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull boolean z, @NonNull mo2 mo2Var);
+    String a();
 
-    void b(String str, String str2, String str3, String str4, String str5);
+    String b();
 
-    void c(@NonNull String str);
+    String c();
 
-    void d(@NonNull String str, @NonNull String str2);
+    String d();
 
-    void e(@NonNull String str);
+    String e();
 
-    void f(@NonNull String str);
+    String f();
+
+    String g();
+
+    String h();
+
+    String i();
+
+    String j();
+
+    String k();
+
+    String l();
+
+    String m();
+
+    String n();
+
+    String o();
+
+    String p();
+
+    String q();
+
+    String r();
+
+    String s();
+
+    String t();
 }

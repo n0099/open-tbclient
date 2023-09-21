@@ -10,8 +10,8 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VideoCategoryClassData;
+import com.baidu.tieba.cja;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
-import com.baidu.tieba.wga;
 import com.baidu.tieba.write.write.work.model.WorkPublishViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -154,7 +154,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            wga.B("");
+            cja.B("");
         }
     }
 
@@ -242,11 +242,11 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            wga.q(new wga.i() { // from class: com.baidu.tieba.j8b
+            cja.q(new cja.i() { // from class: com.baidu.tieba.bab
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.wga.i
+                @Override // com.baidu.tieba.cja.i
                 public final void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -260,7 +260,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            wga.B(i());
+            cja.B(i());
         }
     }
 

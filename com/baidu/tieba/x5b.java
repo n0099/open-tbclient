@@ -1,126 +1,93 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class x5b implements z5b {
+public class x5b extends m6b<y6b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final b5b b;
+    public View g;
 
-    public x5b(@NonNull TbPageContext<?> tbPageContext, @NonNull b5b b5bVar) {
+    @Override // com.baidu.tieba.r6b
+    public void a(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.r6b
+    public void c(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.r6b
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x5b(@NonNull TbPageContext<?> tbPageContext) {
+        super(tbPageContext, y6b.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, b5bVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = b5bVar;
     }
 
-    @Override // com.baidu.tieba.ti5
-    public void G(si5 si5Var) {
+    @Override // com.baidu.tieba.r6b
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, si5Var) == null) {
-            int i = si5Var.a;
-            if (i != 14 && i != 48) {
-                if (i == 60) {
-                    this.b.u();
-                    return;
-                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
-                    if (i == 21) {
-                        this.b.i();
-                        x3b.b(this.a.getPageActivity(), 5);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
-                        return;
-                    } else if (i == 24) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 3) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 16) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 43) {
-                        x3b.b(this.a.getPageActivity(), 4);
-                        SharedPrefHelper.getInstance().putBoolean("hot_topic_has_click", true);
-                        this.b.C(new si5(2, 26, null));
-                        this.b.p(true);
-                        this.b.m();
-                        return;
-                    } else if (i == 10) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 11) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 25) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 22) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 59) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 61) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 69) {
-                        this.b.v();
-                        return;
-                    } else if (i == 55) {
-                        Object obj = si5Var.c;
-                        if (obj instanceof Boolean) {
-                            this.b.k(((Boolean) obj).booleanValue());
-                            return;
-                        }
-                        return;
-                    } else if (i == 66) {
-                        Object obj2 = si5Var.c;
-                        if (obj2 instanceof Boolean) {
-                            this.b.y(((Boolean) obj2).booleanValue());
-                            return;
-                        }
-                        return;
-                    } else if (i == 74) {
-                        this.b.z(si5Var);
-                        return;
-                    } else if (i == 77) {
-                        this.b.z(si5Var);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    this.b.x(new int[]{10, 34});
-                    this.b.j();
-                    return;
-                }
-            }
-            x3b.b(this.a.getPageActivity(), 1);
-            this.b.r();
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            EMManager.from(this.g).setBackGroundColor(R.color.CAM_X0210);
         }
+    }
+
+    public void z(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (view2 = this.g) != null) {
+            view2.setVisibility(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.r6b
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            this.g = new View(this.a.getPageActivity());
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.L_X01));
+            marginLayoutParams.setMargins(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.M_W_X007), 0, BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.M_W_X007), 0);
+            this.g.setLayoutParams(marginLayoutParams);
+            return this.g;
+        }
+        return (View) invokeL.objValue;
     }
 }

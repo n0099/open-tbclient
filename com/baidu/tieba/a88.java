@@ -1,115 +1,125 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.App;
-import tbclient.BannerList;
-import tbclient.Personalized.DataRes;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a88 {
-    public static /* synthetic */ Interceptable $ic;
+public final class a88 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final a a;
+    public static long b = -1;
+    public static long c = 1800;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, List<cn> list) {
-        rha rhaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
-            Iterator<cn> it = list.iterator();
-            int i = 0;
-            AdvertAppInfo advertAppInfo = null;
-            int i2 = 0;
-            int i3 = 0;
-            while (it.hasNext()) {
-                i++;
-                cn next = it.next();
-                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof v66)) {
-                    it.remove();
-                }
-                if (next instanceof y68) {
-                    advertAppInfo = ((y68) next).c();
-                } else if (next instanceof u25) {
-                    u25 u25Var = (u25) next;
-                    if (u25Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
-                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) u25Var.c()).getAdvertAppInfo();
-                    }
-                } else if ((next instanceof ThreadData) && (rhaVar = ((ThreadData) next).funAdData) != null && rhaVar.i()) {
-                    it.remove();
-                    i3 = i;
-                }
-                if (advertAppInfo != null && str.equals(advertAppInfo.a)) {
-                    it.remove();
-                    advertAppInfo = null;
-                    i2 = i;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947569160, "Lcom/baidu/tieba/a88;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947569160, "Lcom/baidu/tieba/a88;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
-    }
 
-    public static void b(List<cn> list, DataRes.Builder builder, j58 j58Var, v68 v68Var) {
-        rha rhaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, j58Var, v68Var) == null) {
-            if (list != null && list.size() > 0) {
-                Iterator<cn> it = list.iterator();
-                while (it.hasNext()) {
-                    cn next = it.next();
-                    if (!(next instanceof y68) && !(next instanceof u25) && !(next instanceof v66)) {
-                        if ((next instanceof ThreadData) && (rhaVar = ((ThreadData) next).funAdData) != null) {
-                            rhaVar.p(true);
-                            it.remove();
-                        }
-                    } else {
-                        it.remove();
-                    }
-                }
+        public final void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
             }
-            if (builder != null && ListUtils.getCount(builder.thread_list) > 0) {
-                BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-                List<App> list2 = builder2.app;
-                if (list2 != null) {
-                    list2.clear();
+            a88.b = System.currentTimeMillis();
+        }
+
+        public final boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                long j = a88.b;
+                if (UbsABTestHelper.isExistSid("main_tab_hot_reload_enable_android_a") && j > 0 && System.currentTimeMillis() - j > a88.c * 1000) {
+                    return true;
                 }
-                builder.banner_list = builder2.build(false);
-                DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-                builder3.banner_list = builder2.build(true);
-                if (j58Var != null) {
-                    j58Var.a(builder3);
-                }
+                return false;
             }
-            if (v68Var != null) {
-                v68Var.B(list);
-            }
+            return invokeV.booleanValue;
         }
     }
 
-    public static void c(String str, DataRes.Builder builder, j58 j58Var) {
-        BannerList bannerList;
-        List<App> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, j58Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (App app : builder.banner_list.app) {
-                if (app != null && str.equals(m2a.a(app))) {
-                    arrayList.add(app);
+    @Singleton
+    @Service
+    /* loaded from: classes5.dex */
+    public static final class b implements pf5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-            List<App> list2 = builder2.app;
-            if (list2 != null) {
-                list2.removeAll(arrayList);
-            }
-            builder.banner_list = builder2.build(false);
-            DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-            builder3.banner_list = builder2.build(true);
-            if (j58Var != null) {
-                j58Var.a(builder3);
+        }
+
+        @Override // com.baidu.tieba.pf5
+        public void parseJson(JSONObject json) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+                Intrinsics.checkNotNullParameter(json, "json");
+                try {
+                    a aVar = a88.a;
+                    a88.c = json.optLong("main_tab_hot_reload_interval");
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.i("HomeHotReloadHelper", "首页热启动间隔：" + a88.c);
+                } catch (Exception e) {
+                    TbLog defaultLog2 = DefaultLog.getInstance();
+                    defaultLog2.e("HomeHotReloadHelper", "首页热启动间隔数据数据解析失败" + e.getMessage());
+                }
             }
         }
     }

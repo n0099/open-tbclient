@@ -1,117 +1,260 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.text.style.ReplacementSpan;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class db5 extends ReplacementSpan {
+public class db5 {
     public static /* synthetic */ Interceptable $ic;
+    public static db5 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public boolean k;
+    public final HashMap<String, DownloadData> a;
+    public final HashMap<String, DownloadData> b;
+    public final HashMap<String, String> c;
 
-    public db5(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ db5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(db5 db5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {db5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = db5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage)) {
+                List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
+                if (ListUtils.isEmpty(data)) {
+                    return;
+                }
+                for (DownloadData downloadData : data) {
+                    if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
+                        String str = ((ItemDownloadExtraData) downloadData.getExtra()).pkgName;
+                        int status = downloadData.getStatus();
+                        if (status != 0) {
+                            if (status != 2) {
+                                if (status == 4 && this.a.a.containsKey(str)) {
+                                    this.a.a.remove(str);
+                                    cb5.a(downloadData, 400);
+                                    return;
+                                }
+                                return;
+                            }
+                            cb5.a(downloadData, 600);
+                            return;
+                        } else if (this.a.a.containsKey(str)) {
+                            this.a.b.put(str, (DownloadData) this.a.a.get(str));
+                            this.a.a.remove(str);
+                            cb5.a(downloadData, 700);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ db5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(db5 db5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {db5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = db5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                Object data = customResponsedMessage.getData();
+                if (data instanceof Intent) {
+                    Intent intent = (Intent) data;
+                    String g = sn5.g(intent);
+                    if (!PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) && !"android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
+                        if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
+                            return;
+                        }
+                        this.a.l(g);
+                    } else if (this.a.b.containsKey(g)) {
+                        cb5.a((DownloadData) this.a.b.get(g), 900);
+                        this.a.b.remove(g);
+                    }
+                }
+            }
+        }
+    }
+
+    public db5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = 0;
-        this.j = 0;
-        this.k = true;
-        this.b = i;
-        this.c = i2;
-        this.d = i3;
-        this.e = i4;
-        this.f = i5;
-        this.g = i6;
-        this.h = i7;
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        h();
+        i();
     }
 
-    public void a(boolean z) {
+    public void d(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.k = z;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
         }
     }
 
-    public void b(int i) {
+    public final void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.j = i;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c.remove(str);
+            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+            edit.remove(str);
+            edit.commit();
         }
     }
 
-    public void c(int i) {
+    public static db5 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.i = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d == null) {
+                d = new db5();
+            }
+            return d;
+        }
+        return (db5) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            a aVar = new a(this, 2001118);
+            aVar.setPriority(-1);
+            MessageManager.getInstance().registerListener(aVar);
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            float textSize = paint.getTextSize();
-            int color = paint.getColor();
-            float f2 = f + this.h;
-            paint.setTextSize(this.d);
-            paint.setColor(SkinManager.getColor(this.b));
-            paint.setAntiAlias(this.k);
-            int i6 = i3 + i5;
-            int i7 = this.d;
-            int i8 = this.c;
-            int i9 = this.g;
-            int i10 = this.i;
-            RectF rectF = new RectF(f2, ((((i6 - i7) - i8) - i9) / 2) + i10, (this.a + f2) - this.j, ((((i6 + i7) + i8) + i9) / 2) + i10);
-            int i11 = this.c;
-            canvas.drawRoundRect(rectF, i11, i11, paint);
-            paint.setColor(SkinManager.getColor(this.e));
-            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-            canvas.drawText(charSequence, i, i2, f2 + this.c + this.f, (int) ((rectF.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), paint);
-            paint.setTextSize(textSize);
-            paint.setColor(color);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b bVar = new b(this, 2002504);
+            bVar.setPriority(-1);
+            MessageManager.getInstance().registerListener(bVar);
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public void e(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            float textSize = paint.getTextSize();
-            paint.setTextSize(this.d);
-            this.a = (int) (paint.measureText(charSequence, i, i2) + (this.c * 2) + (this.f * 2) + this.j);
-            paint.setTextSize(textSize);
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
         }
-        return invokeCommon.intValue;
+    }
+
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.c.containsKey(str)) {
+                return this.c.get(str);
+            }
+            String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str, "");
+            this.c.put(str, string);
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void j(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        }
+    }
+
+    public void k(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        }
+    }
+
+    public void m(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || StringHelper.equals(this.c.get(str), str2)) {
+            return;
+        }
+        this.c.put(str, str2);
+        SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+        edit.putString(str, str2);
+        edit.commit();
     }
 }

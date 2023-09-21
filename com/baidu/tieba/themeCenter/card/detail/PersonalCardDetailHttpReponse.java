@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.pna;
+import com.baidu.tieba.vpa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pna cardData;
+    public vpa cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailHttpReponse(int i) {
@@ -57,10 +57,10 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
             personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
         }
-        pna pnaVar = new pna();
-        this.cardData = pnaVar;
+        vpa vpaVar = new vpa();
+        this.cardData = vpaVar;
         if (personalCardDetailRequest != null) {
-            pnaVar.m(personalCardDetailRequest.getCardId());
+            vpaVar.m(personalCardDetailRequest.getCardId());
         }
         this.cardData.v(getCardResIdl.data.title);
         this.cardData.p(getCardResIdl.data.description);
@@ -74,12 +74,12 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         this.cardData.o(getCardResIdl.data.daily_privilege_status.intValue());
     }
 
-    public pna getCardData() {
+    public vpa getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.cardData;
         }
-        return (pna) invokeV.objValue;
+        return (vpa) invokeV.objValue;
     }
 }

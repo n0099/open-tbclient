@@ -1,34 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class j6a extends m6a implements rc7 {
+public class j6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    @Override // com.baidu.tieba.rc7
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TiebaStatic.Params.OBJ_FLOOR : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "common_click" : (String) invokeV.objValue;
-    }
+    public boolean a;
+    public double b;
+    public List<String> c;
+    public int d;
+    public int e;
 
     public j6a() {
         Interceptable interceptable = $ic;
@@ -40,33 +29,41 @@ public final class j6a extends m6a implements rc7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "0";
     }
 
-    @Override // com.baidu.tieba.m6a, com.baidu.tieba.tc7
-    public Map<String, String> a(f87 businessInfo) {
+    public static j6a a(JSONObject jSONObject) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            hashMap.putAll(super.a(businessInfo));
-            hashMap.put("obj_locate", this.a);
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final j6a d(String objLocate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objLocate)) == null) {
-            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
-            this.a = objLocate;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            j6a j6aVar = new j6a();
+            if (jSONObject.optInt("label_measure") == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            j6aVar.a = z;
+            j6aVar.b = jSONObject.optDouble("show_width_scale", 1.0d);
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        t49.a(arrayList, optJSONObject.optString("pic"));
+                    }
+                }
+            }
+            j6aVar.c = arrayList;
+            j6aVar.d = jSONObject.optInt("width");
+            j6aVar.e = jSONObject.optInt("height");
+            return j6aVar;
         }
         return (j6a) invokeL.objValue;
     }

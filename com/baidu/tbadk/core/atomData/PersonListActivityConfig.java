@@ -13,7 +13,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FOLLOW = "follow";
+    public static final String KEY_CALL_FROM = "key_call_from";
     public static final String KEY_FANS_NUMBER = "fans_number";
+    public static final String KEY_PORTRAIT_URL = "key_portrait_url";
     public static final String LAST_PAGE_UNIQUE_ID = "last_page_unique_id";
     public static final String TOTLEFOLLOWNUM = "total_follow_num";
     public transient /* synthetic */ FieldHolder $fh;

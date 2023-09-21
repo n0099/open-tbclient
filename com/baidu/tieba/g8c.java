@@ -1,47 +1,64 @@
 package com.baidu.tieba;
 
+import android.opengl.GLES20;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class g8c {
+public class g8c extends h8c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int[] b;
+    public int l;
+    public f6c m;
 
-    public g8c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g8c(n8c n8cVar) {
+        super(n8cVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {n8cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((n8c) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.l = -1;
+        this.m = new f6c(0.7f, 0.9f, 0.95f, 0.75f);
+    }
+
+    @Override // com.baidu.tieba.h8c
+    public void a(String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, str, str2, i, i2) == null) {
+            super.a(str, str2, i, i2);
+            GLES20.glUseProgram(this.a);
+            this.l = GLES20.glGetUniformLocation(this.a, "u_frontArea");
+            o8c.c("PipUniform", this.j);
+            int i3 = this.l;
+            f6c f6cVar = this.m;
+            GLES20.glUniform4f(i3, f6cVar.b, f6cVar.c, f6cVar.d, f6cVar.e);
+            GLES20.glUseProgram(0);
         }
     }
 
-    public static void a(g8c g8cVar, int i) {
+    @Override // com.baidu.tieba.h8c
+    public void i(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, g8cVar, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = g8cVar.b;
-                byte[] bArr = g8cVar.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && obj != null && this.l != -1) {
+            f6c f6cVar = (f6c) obj;
+            if (!f6cVar.equals(this.m)) {
+                GLES20.glUniform4f(this.l, f6cVar.b, f6cVar.d, f6cVar.c, f6cVar.e);
+                this.m = f6cVar;
             }
-        }
-    }
-
-    public static void b(g8c g8cVar, byte[] bArr, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, g8cVar, bArr, iArr) == null) {
-            g8cVar.a = bArr;
-            g8cVar.b = iArr;
         }
     }
 }

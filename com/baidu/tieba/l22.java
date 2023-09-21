@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ew2;
-import com.baidu.tieba.mg3;
-import com.baidu.tieba.ug3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,32 +13,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l22 extends g22 {
+public class l22 extends f22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.kz1
+    @Override // com.baidu.tieba.jz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "DesktopShortcutApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetPerformanceLevelApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements aq3<kg3<mg3.e>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ hb3 b;
-        public final /* synthetic */ l22 c;
+        public final /* synthetic */ l22 b;
 
-        public a(l22 l22Var, String str, hb3 hb3Var) {
+        public a(l22 l22Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l22Var, str, hb3Var};
+                Object[] objArr = {l22Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,59 +46,16 @@ public class l22 extends g22 {
                     return;
                 }
             }
-            this.c = l22Var;
+            this.b = l22Var;
             this.a = str;
-            this.b = hb3Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
-        /* renamed from: b */
-        public void a(kg3<mg3.e> kg3Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
-                if (!fg3.h(kg3Var)) {
-                    int b = kg3Var.b();
-                    this.c.d(this.a, new h32(b, fg3.f(b)));
-                    return;
-                }
-                if (l22.f) {
-                    Log.d("DesktopShortcutApi", "start add to desktop");
-                }
-                this.c.A(this.b.w(), this.b);
-                this.c.d(this.a, new h32(0));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a, new g32(0, this.b.y()));
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements ug3.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(l22 l22Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l22Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ug3.f
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
-                return;
-            }
-            l22.C(i);
         }
     }
 
@@ -123,22 +72,22 @@ public class l22 extends g22 {
                 return;
             }
         }
-        f = rr1.a;
+        boolean z = qr1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l22(@NonNull iz1 iz1Var) {
-        super(iz1Var);
+    public l22(@NonNull hz1 hz1Var) {
+        super(hz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iz1Var};
+            Object[] objArr = {hz1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((iz1) newInitContext.callArgs[0]);
+                super((hz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -146,61 +95,35 @@ public class l22 extends g22 {
         }
     }
 
-    public static void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            ki3 ki3Var = new ki3();
-            gb3 K = gb3.K();
-            String appId = K.getAppId();
-            String n = ai3.n(K.k());
-            ki3Var.f = appId;
-            ki3Var.b = "api";
-            ki3Var.a = n;
-            ki3Var.e = "addshortcut";
-            ew2.a W = K.q().W();
-            if (W != null) {
-                ki3Var.c = W.T();
-            }
-            ki3Var.a("appid", appId);
-            ki3Var.a("resultstate", Integer.valueOf(i));
-            qh3.b(ki3Var);
-        }
-    }
-
-    public final void A(@NonNull Context context, @NonNull hb3 hb3Var) {
-        ew2.a Y;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, hb3Var) != null) || (Y = hb3Var.Y()) == null) {
-            return;
-        }
-        ug3.k(context, Y, new b(this));
-    }
-
-    public h32 B(String str) {
+    public g32 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#addToDesktop", false);
-            if (f) {
-                Log.d("DesktopShortcutApi", "#addToDesktop params = " + str);
+            q("#getPerformanceLevel", false);
+            Pair<g32, JSONObject> s = s(str);
+            if (!((g32) s.first).isSuccess()) {
+                return (g32) s.first;
             }
-            Pair<h32, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((h32) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new h32(202, "cb is empty");
-                }
-                hb3 b0 = hb3.b0();
-                Context context = getContext();
-                if (!(context instanceof Activity) && (context = b0.w()) == null) {
-                    return new h32(1001, "the context is not an activity");
-                }
-                b0.e0().g(context, "scope_add_to_desktop", new a(this, optString, b0));
-                return h32.f();
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new g32(202, "cb is empty");
             }
-            return (h32) s.first;
+            ao3.k(new a(this, optString), "SWAN_DEVICE_PERFORMANCE_CHECK");
+            return new g32(0);
         }
-        return (h32) invokeL.objValue;
+        return (g32) invokeL.objValue;
+    }
+
+    public JSONObject y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String b = nu2.u0().b();
+            g82.k("GetPerformanceLevelApi", "getPerformanceLevel: " + b);
+            JSONObject jSONObject = new JSONObject();
+            go3.f(jSONObject, "performanceLevel", b);
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

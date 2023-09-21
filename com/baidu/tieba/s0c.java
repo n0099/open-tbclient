@@ -1,129 +1,111 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class s0c {
+public final class s0c {
     public static /* synthetic */ Interceptable $ic;
+    public static final s0c b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final f1c a;
-    public final SVGAVideoEntity b;
+    public final Executor a;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final a1c b;
 
-        public a(s0c s0cVar, String str, a1c a1cVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s0cVar, str, a1cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = str;
-            this.b = a1cVar;
         }
 
-        public final a1c a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (a1c) invokeV.objValue;
+        public /* synthetic */ a(byte b) {
+            this();
         }
 
-        public final String b() {
-            InterceptResult invokeV;
+        @Override // java.util.concurrent.Executor
+        public final void execute(Runnable runnable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                new Handler(Looper.getMainLooper()).post(runnable);
             }
-            return (String) invokeV.objValue;
         }
     }
 
-    public s0c(SVGAVideoEntity sVGAVideoEntity) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948099043, "Lcom/baidu/tieba/s0c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948099043, "Lcom/baidu/tieba/s0c;");
+                return;
+            }
+        }
+        b = new s0c();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        c = availableProcessors;
+        d = availableProcessors + 1;
+        e = (availableProcessors * 2) + 1;
+    }
+
+    public s0c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = sVGAVideoEntity;
-        this.a = new f1c();
+        this.a = new a((byte) 0);
     }
 
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
-        }
-    }
-
-    public final f1c b() {
+    public static ExecutorService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
+            return threadPoolExecutor;
         }
-        return (f1c) invokeV.objValue;
+        return (ExecutorService) invokeV.objValue;
     }
 
-    public final SVGAVideoEntity c() {
+    public static Executor b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (SVGAVideoEntity) invokeV.objValue;
-    }
-
-    public final List<a> d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<z0c> g = this.b.g();
-            ArrayList arrayList = new ArrayList();
-            for (z0c z0cVar : g) {
-                a aVar = null;
-                if (i >= 0 && i < z0cVar.a().size() && z0cVar.a().get(i).a() > 0.0d) {
-                    aVar = new a(this, z0cVar.b(), z0cVar.a().get(i));
-                }
-                if (aVar != null) {
-                    arrayList.add(aVar);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (Executor) invokeV.objValue;
     }
 }

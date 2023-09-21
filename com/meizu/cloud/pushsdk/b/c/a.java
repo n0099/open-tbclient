@@ -11,7 +11,7 @@ public class a implements Executor {
 
     /* renamed from: com.meizu.cloud.pushsdk.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0712a {
+    public static class C0705a {
         public static a a = new a();
     }
 
@@ -20,7 +20,7 @@ public class a implements Executor {
     }
 
     public static a a() {
-        return C0712a.a;
+        return C0705a.a;
     }
 
     @Override // java.util.concurrent.Executor

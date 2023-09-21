@@ -1,22 +1,34 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbDomainConfig;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
+import java.net.HttpURLConnection;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes7.dex */
 public class pf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qf a;
-    public rf b;
-    public LinkedList<of> c;
-    public of d;
+    public String a;
+    public String b;
+    public Enum c;
+    public Map<String, String> d;
+    public LinkedList<BasicNameValuePair> e;
+    public Map<String, String> f;
+    public HashMap<String, byte[]> g;
+    public boolean h;
+    public boolean i;
 
     public pf() {
         Interceptable interceptable = $ic;
@@ -31,59 +43,245 @@ public class pf {
                 return;
             }
         }
-        this.a = new qf();
-        this.b = new rf();
-        this.c = new LinkedList<>();
-        this.d = null;
+        this.a = "";
+        this.b = "";
+        this.d = new HashMap();
+        this.e = new LinkedList<>();
+        this.f = new LinkedHashMap();
+        this.g = new HashMap<>();
+        this.h = false;
+        this.i = false;
     }
 
-    public of a() {
-        InterceptResult invokeV;
+    public void a(String str, String str2) {
+        Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && (map = this.d) != null) {
+            map.put(str, str2);
         }
-        return (of) invokeV.objValue;
     }
 
-    public qf b() {
-        InterceptResult invokeV;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && str2 != null) {
+            this.e.add(new BasicNameValuePair(str, str2));
+            this.f.put(str, str2);
         }
-        return (qf) invokeV.objValue;
     }
 
-    public rf c() {
-        InterceptResult invokeV;
+    public void c(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            this.g.put(str, bArr);
+        }
+    }
+
+    public void d(BasicNameValuePair basicNameValuePair) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, basicNameValuePair) == null) && basicNameValuePair != null && basicNameValuePair.getValue() != null) {
+            this.e.add(basicNameValuePair);
+            this.f.put(basicNameValuePair.getName(), basicNameValuePair.getValue());
+        }
+    }
+
+    public String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            if (z) {
+                return this.a;
+            }
             return this.b;
         }
-        return (rf) invokeV.objValue;
+        return (String) invokeZ.objValue;
     }
 
-    public List<of> d() {
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void p(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, hashMap) == null) {
+            this.d = hashMap;
+        }
+    }
+
+    public void q(Enum r5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, r5) == null) {
+            this.c = r5;
+        }
+    }
+
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Collections.unmodifiableList(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void e(of ofVar) {
+    public Map<String, String> g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, ofVar) == null) && ofVar != null) {
-            this.c.add(ofVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public Enum h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (Enum) invokeV.objValue;
+    }
+
+    public Map<String, String> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public LinkedList<BasicNameValuePair> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            HashMap<String, byte[]> hashMap = this.g;
+            if (hashMap != null && hashMap.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String f(boolean z, nf nfVar) {
+        InterceptResult invokeZL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048581, this, z, nfVar)) == null) {
+            if (z) {
+                str = this.a;
+            } else {
+                str = this.b;
+            }
+            if (this.e.size() == 0) {
+                if (nfVar != null) {
+                    nfVar.a = str.length();
+                }
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(30);
+            sb.append(str);
+            if (str.indexOf("?") < 0) {
+                sb.append("?");
+            } else if (!str.endsWith("?") && !str.endsWith("&")) {
+                sb.append("&");
+            }
+            for (int i = 0; i < this.e.size(); i++) {
+                if (i != 0) {
+                    sb.append("&");
+                }
+                sb.append(this.e.get(i).getName());
+                sb.append("=");
+                sb.append(di.getUrlEncode(this.e.get(i).getValue()));
+            }
+            if (nfVar != null) {
+                nfVar.a = sb.length();
+            }
+            return sb.toString();
+        }
+        return (String) invokeZL.objValue;
+    }
+
+    public void r(List<Map.Entry<String, Object>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, list) == null) && list != null) {
+            for (Map.Entry<String, Object> entry : list) {
+                Object value = entry.getValue();
+                if (value != null) {
+                    if (value instanceof String) {
+                        if (entry.getValue() != null) {
+                            this.e.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                            this.f.put(entry.getKey(), (String) entry.getValue());
+                        }
+                    } else if (value instanceof byte[]) {
+                        this.g.put(entry.getKey(), (byte[]) entry.getValue());
+                    } else {
+                        throw new UnsupportedOperationException("post type is not String and byte[]");
+                    }
+                }
+            }
         }
     }
 
-    public void f(of ofVar) {
+    public void s(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ofVar) == null) {
-            this.d = ofVar;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            if (str == null) {
+                this.a = "";
+            } else {
+                this.a = str;
+            }
+            if (this.a.startsWith("https://tiebac.baidu.com/")) {
+                String[] split = this.a.split(UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
+                if (split != null && split.length == 2) {
+                    this.b = UrlSchemaHelper.SCHEMA_TYPE_HTTP + split[1];
+                }
+            } else if (this.a.contains(TbDomainConfig.DOMAIN_HTTPS_TIEBA)) {
+                String[] split2 = this.a.split(UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
+                if (split2 != null && split2.length == 2) {
+                    this.b = UrlSchemaHelper.SCHEMA_TYPE_HTTP + split2[1];
+                }
+            } else {
+                this.b = this.a;
+            }
+        }
+    }
+
+    public void t(HttpURLConnection httpURLConnection) {
+        Map<String, String> map;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, httpURLConnection) == null) && httpURLConnection != null && (map = this.d) != null) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
+            }
         }
     }
 }

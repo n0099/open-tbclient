@@ -1,27 +1,39 @@
 package com.baidu.tieba;
 
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class nf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile mf4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized mf4 a() {
-        InterceptResult invokeV;
-        mf4 mf4Var;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (nf4.class) {
-                if (a == null) {
-                    a = new mf4();
-                }
-                mf4Var = a;
-            }
-            return mf4Var;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }
-        return (mf4) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000525, "Lcom/baidu/tieba/nf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948000525, "Lcom/baidu/tieba/nf4;");
+                return;
+            }
+        }
+        SDKInitializer.initialize(AppRuntime.getAppContext());
+        SDKInitializer.setCoordType(CoordType.GCJ02);
+        SDKInitializer.setHttpsEnable(true);
     }
 }

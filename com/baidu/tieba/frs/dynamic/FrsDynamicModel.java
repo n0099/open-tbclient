@@ -8,14 +8,14 @@ import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.pl7;
+import com.baidu.tieba.zl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, pl7, T> {
+public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, zl7, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,11 +85,11 @@ public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, pl7,
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<pl7> getResponseDataClass() {
+    public Class<zl7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return pl7.class;
+            return zl7.class;
         }
         return (Class) invokeV.objValue;
     }

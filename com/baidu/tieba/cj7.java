@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.FeatureCardGod;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +12,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPageUserExtend;
+import tbclient.User;
 /* loaded from: classes5.dex */
-public class cj7 {
+public class cj7 implements bn {
     public static /* synthetic */ Interceptable $ic;
-    public static cj7 b;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<String> a;
+    public int a;
+    public List<MetaData> b;
+    public String c;
+    public boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +39,7 @@ public class cj7 {
                 return;
             }
         }
-        b = new cj7();
+        e = BdUniqueId.gen();
     }
 
     public cj7() {
@@ -46,34 +55,88 @@ public class cj7 {
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        this.a = 0;
+        this.c = "本吧都在关注";
+        this.d = false;
     }
 
-    public static cj7 a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (cj7) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public boolean b(int i) {
-        InterceptResult invokeI;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<MetaData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(FeatureCardGod featureCardGod) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, featureCardGod) == null) && featureCardGod != null && !ListUtils.isEmpty(featureCardGod.sub_nodes)) {
+            this.a = featureCardGod.floor.intValue();
+            this.b = featureCardGod.sub_nodes;
+            this.c = featureCardGod.title;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void f(FrsPageUserExtend frsPageUserExtend) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, frsPageUserExtend) == null) && frsPageUserExtend != null && !ListUtils.isEmpty(frsPageUserExtend.data)) {
+            List<User> list = frsPageUserExtend.data;
+            this.a = frsPageUserExtend.user_extend_storey.intValue();
+            this.b = new ArrayList(list.size());
+            for (int i = 0; i < list.size(); i++) {
+                User user = list.get(i);
+                if (user != null && user.id.longValue() != 0) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserProtobuf(list.get(i));
+                    this.b.add(metaData);
+                }
             }
-            return !TextUtils.isEmpty(this.a.get(i));
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.put(i, "1");
+            this.c = frsPageUserExtend.tips;
         }
     }
 }

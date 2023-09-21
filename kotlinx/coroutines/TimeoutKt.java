@@ -34,13 +34,13 @@ public final class TimeoutKt {
     }
 
     /* renamed from: withTimeout-KLykuaI  reason: not valid java name */
-    public static final <T> Object m2292withTimeoutKLykuaI(long j, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeout(DelayKt.m2284toDelayMillisLRDsOJo(j), function2, continuation);
+    public static final <T> Object m2294withTimeoutKLykuaI(long j, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeout(DelayKt.m2286toDelayMillisLRDsOJo(j), function2, continuation);
     }
 
     /* renamed from: withTimeoutOrNull-KLykuaI  reason: not valid java name */
-    public static final <T> Object m2293withTimeoutOrNullKLykuaI(long j, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeoutOrNull(DelayKt.m2284toDelayMillisLRDsOJo(j), function2, continuation);
+    public static final <T> Object m2295withTimeoutOrNullKLykuaI(long j, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeoutOrNull(DelayKt.m2286toDelayMillisLRDsOJo(j), function2, continuation);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */

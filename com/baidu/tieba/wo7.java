@@ -1,67 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class wo7 extends pm<lo7, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder> {
+public class wo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public String a;
+    public int b;
+    public int c;
+    public List<bn> d;
+    public boolean e;
+    public int f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wo7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public wo7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: s */
-    public FrsGameStrategyItemView.FrsGameStrategyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public int a(List<bn> list) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new FrsGameStrategyItemView.FrsGameStrategyItemViewHolder(new FrsGameStrategyItemView(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return 0;
+            }
+            if (ListUtils.isEmpty(this.d)) {
+                LinkedList linkedList = new LinkedList();
+                this.d = linkedList;
+                linkedList.addAll(list);
+                return list.size();
+            }
+            LinkedList linkedList2 = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                bn bnVar = list.get(i);
+                int i2 = 0;
+                while (true) {
+                    if (i2 < this.d.size()) {
+                        bn bnVar2 = this.d.get(i2);
+                        if (bnVar != null && (bnVar instanceof vo7) && bnVar2 != null && (bnVar2 instanceof vo7)) {
+                            ThreadData threadData = ((vo7) bnVar).getThreadData();
+                            ThreadData threadData2 = ((vo7) bnVar2).getThreadData();
+                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
+                                z = true;
+                                break;
+                            }
+                        }
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
+                    }
+                }
+                if (!z) {
+                    ListUtils.add(linkedList2, bnVar);
+                }
+            }
+            if (linkedList2.size() != 0) {
+                ListUtils.addAll(this.d, 0, linkedList2);
+            }
+            return linkedList2.size();
         }
-        return (FrsGameStrategyItemView.FrsGameStrategyItemViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lo7 lo7Var, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder frsGameStrategyItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lo7Var, frsGameStrategyItemViewHolder})) == null) {
-            frsGameStrategyItemViewHolder.a.i(lo7Var);
-            return frsGameStrategyItemViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
+        return invokeL.intValue;
     }
 }

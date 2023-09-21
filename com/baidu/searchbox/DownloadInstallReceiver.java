@@ -31,7 +31,7 @@ public class DownloadInstallReceiver extends OpenDownloadReceiver {
                 Uri.parse(str);
                 IDownloadSetting.Impl.get().installClientUpdateApk(context, str);
             } catch (Exception unused) {
-                UniversalToast.makeText(context.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f17bf).setDuration(3).showToast();
+                UniversalToast.makeText(context.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f17c3).setDuration(3).showToast();
             }
         } catch (Throwable th) {
             if (AppConfig.isDebug()) {
@@ -108,7 +108,7 @@ public class DownloadInstallReceiver extends OpenDownloadReceiver {
                                                 UiThreadUtil.runOnUiThread(new Runnable() { // from class: com.baidu.searchbox.DownloadInstallReceiver.1.2
                                                     @Override // java.lang.Runnable
                                                     public void run() {
-                                                        UniversalToast.makeText(AppRuntime.getAppContext(), AppRuntime.getAppContext().getResources().getText(R.string.obfuscated_res_0x7f0f17c4)).showToast();
+                                                        UniversalToast.makeText(AppRuntime.getAppContext(), AppRuntime.getAppContext().getResources().getText(R.string.obfuscated_res_0x7f0f17c8)).showToast();
                                                     }
                                                 });
                                                 MigrateStatisticUtils.invoke(MigrateStatisticConstants.UB_UDPATE_VALID_FAILED_TYPE, MigrateStatisticUtils.build(md5));

@@ -1,29 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
 import androidx.annotation.NonNull;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public interface rr2 extends tr2 {
+public interface rr2 extends sr2 {
 
     /* loaded from: classes7.dex */
     public interface a {
     }
 
-    void W(long j);
+    void D(int i);
 
-    int getVideoHeight();
+    void E();
 
-    int getVideoWidth();
+    void F(long j);
 
-    void m(String str);
+    void I(int i);
 
-    void o(@NonNull a aVar);
+    void J(int i);
 
-    void onSurfaceChanged(int i, int i2);
+    void K(int i);
 
-    void s(int i, int i2, int i3, int i4);
+    void M(boolean z);
 
-    void setSurface(Surface surface);
+    void R();
 
-    void z(int i);
+    void U(int i);
+
+    void X(int i);
+
+    void Y(@NonNull a aVar);
+
+    void Z();
+
+    void c0(boolean z);
+
+    void d();
+
+    void d0(long j, boolean z);
+
+    void e(int i);
+
+    void exitRoom();
+
+    void f();
+
+    void g(boolean z);
+
+    ArrayList<vr2> h();
+
+    void h0(String str);
+
+    void i(boolean z);
+
+    void j(long j);
+
+    void k0(long j);
+
+    void l0(boolean z);
+
+    void n();
+
+    void p(long j, boolean z);
+
+    void r(String str);
+
+    void setCameraFace(boolean z);
+
+    void t(boolean z);
+
+    void u(ur2 ur2Var);
+
+    ArrayList<tr2> v();
+
+    void x(boolean z);
+
+    void y(boolean z);
 }

@@ -1,97 +1,102 @@
 package com.baidu.tieba;
 
-import android.util.LongSparseArray;
-import android.util.SparseArray;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.text.TextUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.DislikeReason;
-import tbclient.Personalized.ThreadPersonalized;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class o78 {
+public final class o78 implements hz4.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(DataRes.Builder builder, List<cn> list) {
-        up6 up6Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
+    @Override // com.baidu.tieba.hz4.d
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) && builder != null && list != null) {
-            LongSparseArray longSparseArray = new LongSparseArray();
-            for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
-                if (threadPersonalized2 != null) {
-                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSearchGlobalHistory" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a extends yx5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                cn cnVar = (cn) ListUtils.getItem(list, i);
-                if ((cnVar instanceof up6) && (threadData = (up6Var = (up6) cnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(JavaTypesHelper.toLong(threadData.getTid(), 0L))) != null) {
-                    up6Var.C(threadPersonalized.source);
-                    up6Var.F(threadPersonalized.weight);
-                    up6Var.x(threadPersonalized.abtest_tag);
-                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                    threadData.mRecomSource = threadPersonalized.source;
-                    threadData.mRecomWeight = threadPersonalized.weight;
-                    if (threadData.getThreadVideoInfo() != null) {
-                        up6Var.z(threadData.getThreadVideoInfo().is_vertical);
-                    }
-                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
-                    if (list2 != null) {
-                        SparseArray<String> sparseArray = new SparseArray<>();
-                        for (DislikeReason dislikeReason : list2) {
-                            int intValue = dislikeReason.dislike_id.intValue();
-                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                        }
-                        up6Var.feedBackReasonMap = sparseArray;
-                        up6Var.y(threadPersonalized.extra);
-                    }
-                }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.yx5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ala.o(this.a);
+                return Boolean.TRUE;
+            }
+            return (Boolean) invokeV.objValue;
+        }
+    }
+
+    public o78() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(List<cn> list) {
+    @Override // com.baidu.tieba.hz4.c
+    public void a(String data) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
-            return;
-        }
-        int count = ListUtils.getCount(list);
-        int i = 0;
-        while (i < count) {
-            cn cnVar = (cn) ListUtils.getItem(list, i);
-            boolean z = cnVar instanceof jq6;
-            if (z) {
-                ((jq6) cnVar).j(true);
+        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i("BaseActivity", "收到H5通知，记录搜索历史：" + data);
+            try {
+                str = new JSONObject(data).optString("value", data);
+                Intrinsics.checkNotNullExpressionValue(str, "json.optString(\"value\", data)");
+            } catch (Exception e) {
+                TbLog defaultLog2 = DefaultLog.getInstance();
+                defaultLog2.i("BaseActivity", "记录搜索历史失败：" + e);
+                str = "";
             }
-            i++;
-            cn cnVar2 = (cn) ListUtils.getItem(list, i);
-            if (z && (cnVar2 instanceof jq6)) {
-                jq6 jq6Var = (jq6) cnVar;
-                jq6 jq6Var2 = (jq6) cnVar2;
-                if (jq6Var.r()) {
-                    jq6Var2.j(false);
-                    if (jq6Var2 instanceof v78) {
-                        jq6Var.I(false);
-                    }
-                }
+            if (!TextUtils.isEmpty(str)) {
+                cy5.b(new a(str), null);
             }
-            if (cnVar instanceof v78) {
-                ((v78) cnVar).I(false);
-            }
-        }
-    }
-
-    public static void c(DataRes.Builder builder, List<cn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
-            b(list);
-            a(builder, list);
         }
     }
 }

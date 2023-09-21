@@ -1,82 +1,207 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.http.PostRequest;
+import com.fun.ad.sdk.internal.api.http.RequestParams;
+import com.fun.ad.sdk.internal.api.http.Response;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.List;
+import java.io.IOException;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bqb extends ipb<upb> {
+public class bqb implements Reporter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<upb, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> g;
+    public final Handler a;
+    public final String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bqb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
+    /* loaded from: classes5.dex */
+    public interface c {
+        boolean a();
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int f;
+        public final int g;
+        public final int h;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(bqb bqbVar, String str, JSONObject jSONObject, int i, int i2, int i3) {
+            super(bqbVar, str, jSONObject);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bqbVar, str, jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((bqb) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = i;
+            this.g = i2;
+            this.h = i3;
+        }
+
+        @Override // com.baidu.tieba.bqb.b
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                vpb.f(this.f, this.g, this.h);
+            }
+        }
+    }
+
+    public bqb(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new HashMap<>();
+        HandlerThread handlerThread = new HandlerThread("rep");
+        handlerThread.start();
+        f fVar = new f(handlerThread.getLooper());
+        this.a = fVar;
+        this.b = str;
+        fVar.obtainMessage(101, vpb.k(), 0).sendToTarget();
     }
 
-    @Override // com.baidu.tieba.ipb
-    public void f(Context context, FunAdSlot funAdSlot) {
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            int expressWidth = funAdSlot.getExpressWidth();
-            int expressHeight = funAdSlot.getExpressHeight();
-            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(str2, obj);
+            } catch (JSONException unused) {
             }
-            this.e.loadNativeExpressAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build(), new a(this, funAdSlot));
+            logEvent(str, jSONObject);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) {
+            logEvent(str, new JSONObject(map));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements TTAdNative.NativeExpressAdListener {
+    public class a extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FunAdSlot a;
-        public final /* synthetic */ bqb b;
+        public final /* synthetic */ bqb h;
 
-        public a(bqb bqbVar, FunAdSlot funAdSlot) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(bqb bqbVar, String str, JSONObject jSONObject) {
+            super(bqbVar, str, jSONObject);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bqbVar, funAdSlot};
+                Object[] objArr = {bqbVar, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((bqb) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = bqbVar;
+            vpb.o();
+        }
+
+        @Override // com.baidu.tieba.bqb.b
+        public void c() {
+            d dVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                vpb.g("key_rpt_suc_c", vpb.l() + 1);
+                bqb bqbVar = this.h;
+                bqbVar.getClass();
+                int h = vpb.h();
+                int j = vpb.j();
+                if (h <= 0 && j <= 0) {
+                    dVar = null;
+                } else {
+                    int l = vpb.l();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("fai", h);
+                        jSONObject.put("suc", l);
+                        jSONObject.put("mis", j);
+                    } catch (JSONException unused) {
+                    }
+                    dVar = new d(bqbVar, "k_rpt", jSONObject, h, l, j);
+                }
+                if (dVar != null) {
+                    dVar.d();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.bqb.e
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                vpb.e(1);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final JSONObject b;
+        public final long c;
+        public JSONObject d;
+        public final /* synthetic */ bqb e;
+
+        public b(bqb bqbVar, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bqbVar, str, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -86,85 +211,207 @@ public class bqb extends ipb<upb> {
                     return;
                 }
             }
-            this.b = bqbVar;
-            this.a = funAdSlot;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJNativeExpressAd onError code: " + i + ", message: " + str, new Object[0]);
-                this.b.onError(i, str);
+            this.e = bqbVar;
+            this.a = str;
+            this.b = jSONObject;
+            this.c = System.currentTimeMillis();
+            if (FunAdSdk.isLogEnabled()) {
+                LogPrinter.v("report Event:" + this, new Object[0]);
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: com.bytedance.sdk.openadsdk.TTNativeExpressAd */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r4v1, types: [A, com.bytedance.sdk.openadsdk.TTNativeExpressAd$ExpressAdInteractionListener, com.baidu.tieba.eqb] */
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
-        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
+        @Override // com.baidu.tieba.bqb.c
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad", new Object[0]);
-                if (list != null && !list.isEmpty()) {
-                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                    bqb bqbVar = this.b;
-                    upb upbVar = new upb(tTNativeExpressAd);
-                    String sid = this.a.getSid();
-                    bqbVar.getClass();
-                    ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
-                    ?? eqbVar = new eqb(bqbVar, upbVar, expressAdListenerWrapper, sid);
-                    expressAdListenerWrapper.listener = eqbVar;
-                    tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.ExpressAdInteractionListener) eqbVar);
-                    tTNativeExpressAd.setCanInterruptVideoPlay(true);
-                    tTNativeExpressAd.render();
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() : invokeV.booleanValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @NonNull
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return "Event{key=" + this.a + ", content=" + this.b + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:17:0x003b  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x003f  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean d() {
+            boolean z;
+            Response perform;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                try {
+                    if (this.d == null) {
+                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
+                    }
+                    perform = new PostRequest(this.e.b, new RequestParams(this.d)).perform();
+                } catch (IOException e) {
+                    LogPrinter.e(e);
+                }
+                if (perform != null) {
+                    if (perform.getResponseCode() == 200) {
+                        z = true;
+                        if (!z) {
+                            c();
+                        } else {
+                            b();
+                        }
+                        return z;
+                    }
+                }
+                z = false;
+                if (!z) {
+                }
+                return z;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int f;
+        public final /* synthetic */ bqb g;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(bqb bqbVar, String str, JSONObject jSONObject) {
+            super(bqbVar, str, jSONObject);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bqbVar, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((bqb) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
-                this.b.onError(0, "NoFill");
+            }
+            this.g = bqbVar;
+            this.f = 0;
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bqb.b
+        public final void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.f;
+                this.f = i + 1;
+                if (i >= 3) {
+                    LogPrinter.e("Give up report event:" + this, new Object[0]);
+                    e();
+                    return;
+                }
+                try {
+                    if (this.d == null) {
+                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
+                    }
+                    this.d.put(HostAppInfo.RETRY_I, this.f);
+                } catch (JSONException unused) {
+                }
+                bqb bqbVar = this.g;
+                bqbVar.a.sendMessageDelayed(bqbVar.a.obtainMessage(102, this), 2000L);
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            upb upbVar = (upb) obj;
-            this.g.remove(upbVar);
-            if (upbVar != null) {
-                ((TTNativeExpressAd) upbVar.a).destroy();
+    /* loaded from: classes5.dex */
+    public static class f extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(@NonNull Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 101) {
+                    if (i == 102) {
+                        ((c) message.obj).a();
+                        return;
+                    }
+                    return;
+                }
+                int i2 = message.arg1;
+                int l = vpb.l();
+                int h = vpb.h();
+                int i3 = (i2 - l) - h;
+                LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(l), Integer.valueOf(h), Integer.valueOf(i3));
+                if (i3 > 0) {
+                    vpb.g("key_rpt_mis_c", i3);
+                }
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, JSONObject jSONObject) {
+        Object eVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, obj)) == null) {
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (upb) obj, new hqb(this, this));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            upb upbVar = (upb) obj;
-            View expressAdView = ((TTNativeExpressAd) upbVar.a).getExpressAdView();
-            if (expressAdView != null && expressAdView.getParent() != null) {
-                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject) == null) {
+            if (jpb.i(str, jSONObject)) {
+                LogPrinter.d("filter key:%s content:%s", str, jSONObject);
+                return;
             }
-            onShowStart(upbVar);
-            ((TTNativeExpressAd) upbVar.a).setDislikeCallback(activity, new gqb(this, expressAdView, upbVar, null, str));
-            viewGroup.removeAllViews();
-            viewGroup.addView(expressAdView);
-            return true;
+            if ("ad".equals(str)) {
+                eVar = new a(this, str, jSONObject);
+            } else {
+                eVar = new e(this, str, jSONObject);
+            }
+            this.a.sendMessageDelayed(this.a.obtainMessage(102, eVar), 0L);
         }
-        return invokeLLLL.booleanValue;
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.RadiusProgressView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a45;
+import com.baidu.tieba.fia;
 import com.baidu.tieba.z35;
-import com.baidu.tieba.zfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -147,9 +147,9 @@ public class ImageProgressView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a.setSolidColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.a.setProgressColor(zfa.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorRight(zfa.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorLeft(zfa.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
+            this.a.setProgressColor(fia.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorRight(fia.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorLeft(fia.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 this.c.get(i2).c(i);
             }

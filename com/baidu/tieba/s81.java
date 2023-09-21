@@ -1,49 +1,68 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.Window;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes7.dex */
-public interface s81 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
-    public static final s81 b = new a();
+public final class s81 {
+    public static /* synthetic */ Interceptable $ic;
+    public static m81 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull Activity activity);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948105181, "Lcom/baidu/tieba/s81;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948105181, "Lcom/baidu/tieba/s81;");
+        }
+    }
 
-    /* loaded from: classes7.dex */
-    public class a implements s81 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public s81() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @JvmStatic
+    public static final m81 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (s81.class) {
+                    if (a == null) {
+                        a = (m81) ServiceManager.getService(m81.a);
+                    }
+                    if (a == null) {
+                        a = m81.b;
+                    }
+                    Unit unit = Unit.INSTANCE;
                 }
             }
+            return a;
         }
-
-        @Override // com.baidu.tieba.s81
-        public void a(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && Build.VERSION.SDK_INT >= 21) {
-                Window window = activity.getWindow();
-                window.clearFlags(67108864);
-                window.addFlags(Integer.MIN_VALUE);
-                window.setStatusBarColor(activity.getResources().getColor(R.color.nad_white));
-            }
-        }
+        return (m81) invokeV.objValue;
     }
 }

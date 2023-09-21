@@ -1,129 +1,223 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.FrsSpriteNewUserGuide;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
-import com.baidu.tieba.core.widget.SpriteBottomTipView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThemeColorInfo;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class vp7 {
+public class vp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<bn> a;
+    public List<ThreadData> b;
+    public Object[] c;
 
-    public static final void a(SpriteBottomTipView.a aVar, FrsSpriteNewUserGuide.BubbleText bubbleText) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        ThemeColorInfo themeColorInfo;
-        ThemeElement themeElement;
-        ThemeColorInfo themeColorInfo2;
-        ThemeElement themeElement2;
-        FrsSpriteNewUserGuide.ButtonInfo buttonInfo;
+    public vp7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, aVar, bubbleText) == null) {
-            Intrinsics.checkNotNullParameter(aVar, "<this>");
-            ThemeColorInfo themeColorInfo3 = null;
-            if (bubbleText != null) {
-                str = bubbleText.title;
-            } else {
-                str = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (StringUtils.isNull(str)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f087e);
-            }
-            aVar.s(str);
-            if (bubbleText != null) {
-                str2 = bubbleText.text;
-            } else {
-                str2 = null;
-            }
-            aVar.g(str2);
-            if (bubbleText != null && (buttonInfo = bubbleText.buttonInfo) != null) {
-                str3 = buttonInfo.text;
-            } else {
-                str3 = null;
-            }
-            aVar.e(str3);
-            if (bubbleText != null && (themeColorInfo2 = bubbleText.bgUrlTheme) != null && (themeElement2 = themeColorInfo2.day) != null) {
-                str4 = themeElement2.pattern_image;
-            } else {
-                str4 = null;
-            }
-            aVar.c(str4);
-            if (bubbleText != null && (themeColorInfo = bubbleText.bgUrlTheme) != null && (themeElement = themeColorInfo.dark) != null) {
-                str5 = themeElement.pattern_image;
-            } else {
-                str5 = null;
-            }
-            aVar.b(str5);
-            if (bubbleText != null) {
-                themeColorInfo3 = bubbleText.textColor;
-            }
-            b(aVar, themeColorInfo3);
         }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    public static final void b(SpriteBottomTipView.a aVar, ThemeColorInfo themeColorInfo) {
-        String str;
+    public List<bn> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, aVar, themeColorInfo) == null) && themeColorInfo != null) {
-            ThemeElement themeElement = themeColorInfo.day;
-            String str2 = null;
-            if (themeElement != null) {
-                str = themeElement.font_color;
-            } else {
-                str = null;
-            }
-            int f = zfa.f(str);
-            if (!zfa.e(f)) {
-                aVar.t(Integer.valueOf(f));
-                aVar.h(Integer.valueOf(f));
-            }
-            ThemeElement themeElement2 = themeColorInfo.dark;
-            if (themeElement2 != null) {
-                str2 = themeElement2.font_color;
-            }
-            int f2 = zfa.f(str2);
-            if (!zfa.e(f2)) {
-                aVar.v(Integer.valueOf(f2));
-                aVar.j(Integer.valueOf(f2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < this.b.size(); i++) {
+                ThreadData threadData = this.b.get(i);
+                if (threadData != null) {
+                    if (i % 4 == 0) {
+                        zx6 zx6Var = new zx6();
+                        zx6Var.c(threadData);
+                        this.a.add(zx6Var);
+                    } else {
+                        ay6 ay6Var = new ay6();
+                        ay6Var.c(threadData);
+                        this.a.add(ay6Var);
+                    }
+                }
             }
         }
     }
 
-    public static final void c(SpriteBottomTipView.a aVar) {
+    public void c(int i, tp7 tp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            Intrinsics.checkNotNullParameter(aVar, "<this>");
-            oa5 oa5Var = new oa5();
-            oa5Var.s(R.color.CAM_X0601, R.color.CAM_X0920);
-            oa5Var.k(UtilHelper.getDimenPixelSize(R.dimen.tbds10), UtilHelper.getDimenPixelSize(R.dimen.tbds10));
-            oa5Var.p(0);
-            oa5Var.n(0);
-            oa5Var.h(UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-            oa5Var.f(1);
-            oa5Var.j(0, R.drawable.ic_icon_mybar_pure_list_arrow16_right, TBSpecificationButtonConfig.IconType.WEBP);
-            aVar.d(oa5Var);
-            aVar.f(R.dimen.T_X07);
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, tp7Var) != null) || tp7Var == null) {
+            return;
+        }
+        if (1 == i) {
+            this.a.clear();
+            this.b.clear();
+            this.c = new Object[tp7Var.b + 10];
+        }
+        if (!ListUtils.isEmpty(tp7Var.c)) {
+            ArrayList arrayList = new ArrayList(tp7Var.c.size());
+            for (ThreadData threadData : tp7Var.c) {
+                if (threadData != null) {
+                    arrayList.add(threadData);
+                }
+            }
+            this.b.addAll(arrayList);
+        }
+        if (1 == i) {
+            e(tp7Var);
+        }
+        this.a.clear();
+        b();
+        g();
+        f(tp7Var);
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Object[] objArr = this.c;
+            if (i >= objArr.length) {
+                this.c = Arrays.copyOf(objArr, i + 1);
+            }
         }
     }
 
-    public static final void d(SpriteBottomTipView.a aVar) {
+    public final void f(tp7 tp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
-            Intrinsics.checkNotNullParameter(aVar, "<this>");
-            aVar.w(R.dimen.T_X05);
-            aVar.k(R.dimen.T_X07);
-            aVar.u(R.color.CAM_X0610);
-            aVar.i(R.color.CAM_X0610);
+        if (interceptable == null || interceptable.invokeL(1048581, this, tp7Var) == null) {
+            fy6 fy6Var = new fy6();
+            fy6Var.d(tp7Var.d);
+            this.a.add(0, fy6Var);
+        }
+    }
+
+    public final void e(tp7 tp7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tp7Var) == null) {
+            if (!ListUtils.isEmpty(tp7Var.e)) {
+                for (FeatureCardHot featureCardHot : tp7Var.e) {
+                    if (featureCardHot != null && featureCardHot.isValid()) {
+                        d(featureCardHot.floor.intValue());
+                        this.c[featureCardHot.floor.intValue()] = featureCardHot;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(tp7Var.f)) {
+                for (FeatureCardTopic featureCardTopic : tp7Var.f) {
+                    if (featureCardTopic != null && featureCardTopic.isValid()) {
+                        d(featureCardTopic.floor.intValue());
+                        this.c[featureCardTopic.floor.intValue()] = featureCardTopic;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(tp7Var.g)) {
+                for (up7 up7Var : tp7Var.g) {
+                    if (up7Var != null && up7Var.a()) {
+                        d(up7Var.c.intValue());
+                        this.c[up7Var.c.intValue()] = up7Var;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(tp7Var.h)) {
+                for (FeatureCardCompetition featureCardCompetition : tp7Var.h) {
+                    if (featureCardCompetition != null && featureCardCompetition.isValid()) {
+                        d(featureCardCompetition.floor.intValue());
+                        this.c[featureCardCompetition.floor.intValue()] = featureCardCompetition;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(tp7Var.i)) {
+                for (FeatureCardGod featureCardGod : tp7Var.i) {
+                    if (featureCardGod != null && featureCardGod.isValid()) {
+                        d(featureCardGod.floor.intValue());
+                        this.c[featureCardGod.floor.intValue()] = featureCardGod;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(tp7Var.j)) {
+                for (FeatureCardGame featureCardGame : tp7Var.j) {
+                    if (featureCardGame != null && featureCardGame.isValid()) {
+                        d(featureCardGame.floor.intValue());
+                        this.c[featureCardGame.floor.intValue()] = featureCardGame;
+                    }
+                }
+            }
+        }
+    }
+
+    public final void g() {
+        Object[] objArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (objArr = this.c) != null && objArr.length > 0) {
+            int i = 0;
+            while (true) {
+                Object[] objArr2 = this.c;
+                if (i < objArr2.length) {
+                    Object obj = objArr2[i];
+                    if (obj != null) {
+                        int i2 = i - 1;
+                        if (i2 < 0) {
+                            i2 = 0;
+                        } else if (i2 >= this.a.size()) {
+                            i2 = this.a.size();
+                        }
+                        if (obj instanceof FeatureCardHot) {
+                            dy6 dy6Var = new dy6();
+                            dy6Var.d((FeatureCardHot) obj);
+                            this.a.add(i2, dy6Var);
+                        } else if (obj instanceof FeatureCardTopic) {
+                            gy6 gy6Var = new gy6();
+                            gy6Var.b((FeatureCardTopic) obj);
+                            this.a.add(i2, gy6Var);
+                        } else if (obj instanceof up7) {
+                            cy6 cy6Var = new cy6();
+                            cy6Var.d((up7) obj);
+                            this.a.add(i2, cy6Var);
+                        } else if (obj instanceof FeatureCardCompetition) {
+                            by6 by6Var = new by6();
+                            by6Var.b((FeatureCardCompetition) obj);
+                            this.a.add(i2, by6Var);
+                        } else if (obj instanceof FeatureCardGod) {
+                            cj7 cj7Var = new cj7();
+                            cj7Var.e((FeatureCardGod) obj);
+                            this.a.add(i2, cj7Var);
+                        } else if (obj instanceof FeatureCardGame) {
+                            ey6 ey6Var = new ey6();
+                            ey6Var.b((FeatureCardGame) obj);
+                            this.a.add(i2, ey6Var);
+                        }
+                    }
+                    i++;
+                } else {
+                    return;
+                }
+            }
         }
     }
 }

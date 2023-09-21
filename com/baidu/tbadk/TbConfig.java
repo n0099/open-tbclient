@@ -19,7 +19,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vh;
+import com.baidu.tieba.uh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,10 @@ public class TbConfig {
     public static final String API_CLICK_FRS_GAMEPLAY_CARD = "/peiwan/api/index/audio";
     public static final String API_CLICK_TO_CHAT = "/peiwan/api/team/click";
     public static final String API_GOD_CARD = "/peiwan/api/god/card";
+    public static final String API_GOD_CARD_SEND = "/peiwan/api/god/send_card_record";
     public static final String API_GOD_IDENTITY = "/peiwan/api/god/identity";
+    public static final String API_PRIVATE_ROOM_INFO = "/peiwan/api/audio/private/info";
+    public static final String API_PRIVATE_ROOM_SHARE = "/peiwan/api/audio/private/share";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
     public static final long APP_ID = 10773430;
     public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
@@ -1411,7 +1414,7 @@ public class TbConfig {
             if (f5 >= f3 && f5 <= f4) {
                 f2 = f5;
             }
-            if (!vh.a()) {
+            if (!uh.a()) {
                 return f2 * 0.5f;
             }
             return f2;

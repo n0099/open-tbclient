@@ -1,354 +1,219 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.base.BdBaseApplication;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.SocketMessageListener;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountRealNameCallback;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.dto.RealNameDTO;
-import com.baidu.sapi2.result.AccountRealNameResult;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
-import com.baidu.searchbox.live.game.interfaces.GameService;
-import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.MeasureTextLength;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestForumViewHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class k79 implements GameService {
+public class k79 extends om<p79, SearchSuggestForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
-    public SocketMessageListener b;
+    public final Context a;
 
     /* loaded from: classes6.dex */
-    public class a extends SocketMessageListener {
+    public class a implements ln {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameService.MsgSendListener a;
+        public final /* synthetic */ Context a;
         public final /* synthetic */ k79 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(k79 k79Var, int i, GameService.MsgSendListener msgSendListener) {
-            super(i);
+        public a(k79 k79Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k79Var, Integer.valueOf(i), msgSendListener};
+                Object[] objArr = {k79Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.b = k79Var;
-            this.a = msgSendListener;
+            this.a = context;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: g */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        @Override // com.baidu.tieba.ln
+        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(bnVar instanceof p79)) {
                 return;
             }
-            ChatMessage chatMessage = (ChatMessage) ((ResponseCommitPersonalMessage) socketResponsedMessage).getOrginalMessage();
-            if (chatMessage instanceof PersonalChatMessage) {
-                String valueOf = String.valueOf(chatMessage.getRecordId());
-                if (this.b.a.containsKey(valueOf)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("msg_id", this.b.a.get(valueOf));
-                    if (socketResponsedMessage.hasError()) {
-                        this.a.onFailed(hashMap);
-                    } else {
-                        this.a.onSuccess(hashMap);
-                    }
-                }
-            }
+            p79 p79Var = (p79) bnVar;
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a).createNormalCfg(p79Var.c(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
+            createNormalCfg.setCallFrom(16);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
+            this.b.u(p79Var);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements SapiCallback<CheckUserFaceIdResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameService.GameAuthCallback a;
-        public final /* synthetic */ k79 b;
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public b(k79 k79Var, GameService.GameAuthCallback gameAuthCallback) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866140, "Lcom/baidu/tieba/k79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k79Var, gameAuthCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = k79Var;
-            this.a = gameAuthCallback;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
-            GameService.GameAuthCallback gameAuthCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) && (gameAuthCallback = this.a) != null) {
-                gameAuthCallback.onFail(checkUserFaceIdResult.getResultCode(), checkUserFaceIdResult.getResultMsg());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947866140, "Lcom/baidu/tieba/k79;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
-                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
-                    this.b.c(this.a);
-                    return;
-                }
-                GameService.GameAuthCallback gameAuthCallback = this.a;
-                if (gameAuthCallback != null) {
-                    gameAuthCallback.onSuccess();
-                }
-            }
-        }
+        b = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds370);
     }
 
-    /* loaded from: classes6.dex */
-    public class c extends AccountRealNameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameService.GameAuthCallback a;
-
-        public c(k79 k79Var, GameService.GameAuthCallback gameAuthCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k79Var, gameAuthCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gameAuthCallback;
-        }
-
-        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
-        public void onFinish(AccountRealNameResult accountRealNameResult) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
-                super.onFinish(accountRealNameResult);
-                if (accountRealNameResult.getResultCode() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    GameService.GameAuthCallback gameAuthCallback = this.a;
-                    if (gameAuthCallback != null) {
-                        gameAuthCallback.onSuccess();
-                        return;
-                    }
-                    return;
-                }
-                GameService.GameAuthCallback gameAuthCallback2 = this.a;
-                if (gameAuthCallback2 != null) {
-                    gameAuthCallback2.onFail(accountRealNameResult.getResultCode(), accountRealNameResult.getResultMsg());
-                }
-            }
-        }
-    }
-
-    public k79() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k79(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this, context));
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void clearCachedHostMsgSendAPI() {
+    public final void t(StatisticItem statisticItem, p79 p79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.clear();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, statisticItem, p79Var) == null) {
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", p79Var.b().longValue());
+            statisticItem.param("fname", p79Var.c());
         }
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void releaseHostMsgSendAPI() {
+    public final void A(p79 p79Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b != null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-            this.b = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, p79Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_SHOW);
+            t(statisticItem, p79Var);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void initHostMsgSendAPI(@Nullable GameService.MsgSendListener msgSendListener) {
+    public final void u(p79 p79Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, msgSendListener) != null) || msgSendListener == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, p79Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_CLICK);
+            t(statisticItem, p79Var);
+            TiebaStatic.log(statisticItem);
         }
-        if (this.b == null) {
-            this.b = new a(this, 0, msgSendListener);
-        }
-        MessageManager.getInstance().registerListener(205001, this.b);
     }
 
-    public final void c(@Nullable GameService.GameAuthCallback gameAuthCallback) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: x */
+    public SearchSuggestForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gameAuthCallback) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                if (gameAuthCallback != null) {
-                    gameAuthCallback.onFail(-1, "pass没有初始化");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            return new SearchSuggestForumViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d089e, viewGroup, false));
+        }
+        return (SearchSuggestForumViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.om
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, p79 p79Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+        y(i, view2, viewGroup, p79Var, searchSuggestForumViewHolder);
+        return view2;
+    }
+
+    public View y(int i, View view2, ViewGroup viewGroup, p79 p79Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p79Var, searchSuggestForumViewHolder})) == null) {
+            if (p79Var == null) {
+                return view2;
             }
-            RealNameDTO realNameDTO = new RealNameDTO();
-            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
-            realNameDTO.scene = "baidugame";
-            realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(TbadkCoreApplication.getInst().getContext(), new c(this, gameAuthCallback), realNameDTO);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void callHostMsgSendAPI(@Nullable Map<String, String> map) {
-        long parseLong;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) && map != null && !map.isEmpty()) {
-            String str = map.get("msg_id");
-            String str2 = map.get("msg_content");
-            String str3 = map.get("receiver_id");
-            String str4 = map.get("receiver_name");
-            String str5 = map.get("receiver_avatar");
-            String str6 = map.get(DI.FOLLOW_STATUS);
-            try {
-                if (TextUtils.isEmpty(str3)) {
-                    parseLong = -1;
+            z(searchSuggestForumViewHolder);
+            searchSuggestForumViewHolder.b.setConrers(15);
+            searchSuggestForumViewHolder.b.setRadiusById(R.string.J_X06);
+            searchSuggestForumViewHolder.b.startLoad(p79Var.a(), 10, false);
+            String str = p79Var.c() + this.a.getString(R.string.obfuscated_res_0x7f0f077f);
+            searchSuggestForumViewHolder.c.setText(str);
+            if (!StringUtils.isNull(p79Var.g())) {
+                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f132b, p79Var.g()));
+            } else {
+                Context context = this.a;
+                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f132b, context.getString(R.string.obfuscated_res_0x7f0f132c)));
+            }
+            searchSuggestForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f04b8), StringHelper.numberUniformFormatExtraWithRoundInt(p79Var.f().intValue())));
+            searchSuggestForumViewHolder.f.setText(String.format(this.a.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(p79Var.h().intValue())));
+            if (p79Var.e()) {
+                if (!StringUtils.isNull(p79Var.g())) {
+                    searchSuggestForumViewHolder.d.setText(p79Var.g());
                 } else {
-                    parseLong = Long.parseLong(str3);
+                    searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f132c));
                 }
-                boolean equalsIgnoreCase = "1".equalsIgnoreCase(str6);
-                if (parseLong > -1) {
-                    this.a.put(String.valueOf(MessageUtils.createAndSendPersonalText(str2, parseLong, str4, str4, str5, equalsIgnoreCase)), str);
-                }
-            } catch (NumberFormatException unused) {
-                if (BdBaseApplication.getInst().isDebugMode()) {
-                    BdLog.e("NumberFormatException: parse long");
+                if (p79Var.d() == 1) {
+                    searchSuggestForumViewHolder.h.setVisibility(0);
+                    searchSuggestForumViewHolder.c.setText(MeasureTextLength.fitTextLabel(str, "...", MeasureTextLength.spaceLength(b), searchSuggestForumViewHolder.c.getPaint(), ""));
+                } else {
+                    searchSuggestForumViewHolder.h.setVisibility(8);
                 }
             }
+            A(p79Var);
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void dispatchYYLiveRouter(@NonNull Context context, @NonNull String str) {
+    public final void z(SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) && str != null && context != null) {
-            try {
-                o49.c(context, "bdtiebalive://video/yylive/router?url=" + URLEncoder.encode(str, "utf-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048583, this, searchSuggestForumViewHolder) == null) {
+            EMManager.from(searchSuggestForumViewHolder.c).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X06).setTextColor(R.color.CAM_X0105);
+            EMManager.from(searchSuggestForumViewHolder.d).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
+            EMManager.from(searchSuggestForumViewHolder.e).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
+            EMManager.from(searchSuggestForumViewHolder.f).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0108);
+            SkinManager.setBackgroundResource(searchSuggestForumViewHolder.a, R.drawable.addresslist_item_bg);
+            EMManager.from(searchSuggestForumViewHolder.g).setBackGroundColor(R.color.CAM_X0203);
+            TextView textView = searchSuggestForumViewHolder.h;
+            if (textView != null) {
+                EMManager.from(textView).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X01).setTextColor(R.color.msg_chat_friend_text_color).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0204);
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void logTiebaStatic(@NonNull String str, @NonNull Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, str, map) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (map != null) {
-            for (String str2 : map.keySet()) {
-                statisticItem.addParam(str2, map.get(str2));
-            }
-        }
-        TiebaStatic.log(statisticItem);
-    }
-
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void doAuth(@NonNull Map<String, String> map, @Nullable GameService.GameAuthCallback gameAuthCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, map, gameAuthCallback) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                if (gameAuthCallback != null) {
-                    gameAuthCallback.onFail(-1, "pass没有初始化");
-                    return;
-                }
-                return;
-            }
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", "baidugame");
-            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new b(this, gameAuthCallback), session.bduss, hashMap);
         }
     }
 }

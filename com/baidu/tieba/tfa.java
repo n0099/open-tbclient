@@ -1,29 +1,28 @@
 package com.baidu.tieba;
 
-import android.os.Process;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.performance.speed.SpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicLong;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public final class tfa implements rh {
+public class tfa extends BitmapDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public AtomicLong b;
+    @NonNull
+    public final Drawable a;
 
-    public tfa() {
+    public tfa(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,40 +32,38 @@ public final class tfa implements rh {
                 return;
             }
         }
-        this.a = -1L;
-        this.b = new AtomicLong();
+        this.a = drawable;
     }
 
-    @Override // com.baidu.tieba.rh
-    public String a() {
-        InterceptResult invokeV;
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return String.valueOf(Process.myPid());
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        canvas.save();
+        canvas.translate(0.0f, (((canvas.getHeight() / 2) - (this.a.getIntrinsicHeight() / 2)) * 1.0f) / 2.0f);
+        this.a.draw(canvas);
+        canvas.restore();
     }
 
-    @Override // com.baidu.tieba.rh
-    public long b() {
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == -1) {
-                this.a = SpeedStats.getInstance().getAppStartTime();
-            }
-            return this.a;
+            return this.a.getIntrinsicHeight();
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.rh
-    public long c() {
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b.incrementAndGet();
+            return this.a.getIntrinsicWidth();
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 }

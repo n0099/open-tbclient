@@ -1,110 +1,86 @@
 package com.baidu.tieba;
 
+import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBC;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class dba implements NetworkInfoRecord {
+public class dba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gba a;
-    public gba b;
 
-    public String a() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "850" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            int lastIndexOf = str.lastIndexOf(File.separator);
+            if (lastIndexOf == -1) {
+                return "";
+            }
+            return str.substring(0, lastIndexOf);
+        }
+        return (String) invokeL.objValue;
     }
 
-    public String b() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "94" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
+            } catch (Exception e) {
+                BdLog.e(Log.getStackTraceString(e));
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
-    public boolean shouldRecord() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String path = Environment.getExternalStorageDirectory().getPath();
+            int length = path.length() - 1;
+            if (length > 0 && !path.substring(length).equals(File.separator)) {
+                return path + File.separator;
+            }
+            return path;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d() + "tieba/Logs/";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a)) {
+                return false;
+            }
+            File file = new File(a);
+            if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
+                return false;
+            }
             return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public dba() {
-        this(new eba(10, 100));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((gba) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public dba(gba gbaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gbaVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = gbaVar;
-        this.b = new fba();
-    }
-
-    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
-    public void doRecord(NetworkStatRecord networkStatRecord) {
-        JSONObject uBCJson;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord) == null) && networkStatRecord != null && (uBCJson = networkStatRecord.toUBCJson()) != null) {
-            String jSONObject = uBCJson.toString();
-            cba a = cba.a();
-            if (a.g()) {
-                a.c(jSONObject);
-            }
-            if (a.f(networkStatRecord)) {
-                a.b(jSONObject);
-            }
-            gba gbaVar = this.a;
-            if (gbaVar != null && gbaVar.a(networkStatRecord)) {
-                int i = 0;
-                if (qaa.a) {
-                    i = 64;
-                }
-                UBC.onEvent(b(), jSONObject, i);
-            }
-            if (qaa.a && networkStatRecord.from != 3 && networkStatRecord.netEngine < 0) {
-                Log.i("SearchBoxNetRecord", "baidu_networkSearchBoxNetRecord onFinishRecord UBC.onEvent!UbcEventId:" + b() + "，ubcJson:" + uBCJson);
-            }
-            gba gbaVar2 = this.b;
-            if (gbaVar2 != null && gbaVar2.a(networkStatRecord)) {
-                UBC.onEvent(a(), jSONObject);
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

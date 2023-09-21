@@ -1,16 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.Surface;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
-public class qr2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qr2 extends sr2 {
 
-    public static boolean a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) ? j > 0 : invokeJ.booleanValue;
+    /* loaded from: classes7.dex */
+    public interface a {
     }
+
+    void W(long j);
+
+    int getVideoHeight();
+
+    int getVideoWidth();
+
+    void m(String str);
+
+    void o(@NonNull a aVar);
+
+    void onSurfaceChanged(int i, int i2);
+
+    void s(int i, int i2, int i3, int i4);
+
+    void setSurface(Surface surface);
+
+    void z(int i);
 }

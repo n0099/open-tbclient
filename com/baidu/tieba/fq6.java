@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fq6 {
+public class fq6 implements fb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public int a;
     public String b;
-    public int c;
-    public int d;
+    public String c;
+    public long d;
+    public boolean e;
 
     public fq6() {
         Interceptable interceptable = $ic;
@@ -29,19 +31,31 @@ public class fq6 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (!(obj instanceof g06)) {
+                return false;
+            }
+            g06 g06Var = (g06) obj;
+            if (g06Var.d == this.d && g06Var.c.equals(this.c) && g06Var.b.equals(this.b) && g06Var.e == this.e && g06Var.a == this.a) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    public void b(int i) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.b + ",forumName=" + this.c + ",forumId=" + this.d + ",isLiked=" + this.e + "," + PreferencesUtil.RIGHT_MOUNT;
         }
+        return (String) invokeV.objValue;
     }
 }

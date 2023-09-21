@@ -1,17 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+@Service
 /* loaded from: classes7.dex */
-public abstract class pfa {
+public class pfa implements y65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<nfa> a;
+
+    @Override // com.baidu.tieba.y65
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SPRITE_RES_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public pfa() {
         Interceptable interceptable = $ic;
@@ -23,18 +30,17 @@ public abstract class pfa {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public final List<nfa> a() {
+    @Override // com.baidu.tieba.y65
+    public w65 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return new ofa();
         }
-        return (List) invokeV.objValue;
+        return (w65) invokeV.objValue;
     }
 }

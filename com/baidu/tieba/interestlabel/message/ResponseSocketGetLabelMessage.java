@@ -2,7 +2,7 @@ package com.baidu.tieba.interestlabel.message;
 
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.s19;
+import com.baidu.tieba.d39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             GetTagListResIdl getTagListResIdl = (GetTagListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTagListResIdl.class);
-            s19 s19Var = null;
+            d39 d39Var = null;
             if (getTagListResIdl == null) {
                 return null;
             }
@@ -56,10 +56,10 @@ public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
                 requestGetLabelMessage = null;
             }
             if (requestGetLabelMessage != null) {
-                s19Var = requestGetLabelMessage.getLabelDataSet();
+                d39Var = requestGetLabelMessage.getLabelDataSet();
             }
-            if (s19Var != null) {
-                s19Var.c(getTagListResIdl.data);
+            if (d39Var != null) {
+                d39Var.c(getTagListResIdl.data);
             }
             return getTagListResIdl;
         }

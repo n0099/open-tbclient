@@ -1,63 +1,120 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.net.Uri;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class rc2 extends ic2<JSONObject, h32> {
+public class rc2 implements uc2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.uc2
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uc2
+    public void c(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uc2
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uc2
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uc2
+    public void goBack() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948116744, "Lcom/baidu/tieba/rc2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948116744, "Lcom/baidu/tieba/rc2;");
+                return;
+            }
+        }
+        a = qr1.a;
+        HashSet hashSet = new HashSet();
+        b = hashSet;
+        hashSet.add("https");
+        b.add("http");
+        b.add(LoginConstants.SMS_LOGIN);
+        b.add("tel");
+    }
 
     public rc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mc2
-    @NonNull
-    /* renamed from: c */
-    public h32 a(@NonNull JSONObject jSONObject) {
+    @Override // com.baidu.tieba.uc2
+    public boolean a(String str) {
         InterceptResult invokeL;
+        Uri parse;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (b()) {
-                if (ic2.a) {
-                    h82.b("Api-HandleException", "has triggered fmp before remove skeleton");
-                }
-                return new h32(0);
-            } else if (jSONObject == null) {
-                return new h32(202);
-            } else {
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject == null) {
-                    return new h32(202, "data is required");
-                }
-                String optString = optJSONObject.optString("path");
-                if (TextUtils.isEmpty(optString)) {
-                    return new h32(202, "path is required");
-                }
-                gc2 gc2Var = new gc2();
-                gc2Var.g(optString);
-                gc2Var.e();
-                return new h32(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null || (parse = Uri.parse(str)) == null) {
+                return true;
             }
+            boolean contains = b.contains(parse.getScheme());
+            if (a) {
+                StringBuilder sb = new StringBuilder();
+                if (contains) {
+                    str2 = "legal schemes : ";
+                } else {
+                    str2 = "illegal schemes : ";
+                }
+                sb.append(str2);
+                sb.append(parse.getScheme());
+                Log.d("WebViewWidgetListener", sb.toString());
+            }
+            return !contains;
         }
-        return (h32) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

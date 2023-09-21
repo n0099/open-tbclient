@@ -237,6 +237,7 @@ public abstract class TbEnum {
         public static final int MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE = 7004;
         public static final int MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL = 7006;
         public static final int MSG_CONTENT_TYPE_SYSTEM_UPDATE_TXT_GEN_IMAGE = 7014;
+        @Deprecated
         public static final short MSG_CONTENT_TYPE_TEXT = 1;
         public static final short MSG_CONTENT_TYPE_TEXT_GEN_IMAGE = 101;
         public static final short MSG_CONTENT_TYPE_VOICE = 3;

@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,18 +47,19 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
             }
         }
         Bundle bundle = new Bundle();
-        bundle.putString("key_uid", personPostActivity.y1());
-        bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.x1());
-        bundle.putString("key_empty_view_text", personPostActivity.w1());
+        bundle.putString("key_uid", personPostActivity.x1());
+        bundle.putString("key_portrait_url", personPostActivity.t1());
+        bundle.putString("key_empty_view_text", personPostActivity.s1());
+        bundle.putBoolean("key_is_has_tab", !personPostActivity.C1());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
         this.c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.c.n2(personPostActivity);
+        this.c.t2(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
         this.b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.b.m2(personPostActivity);
-        this.b.l2(personPostActivity);
+        this.b.t2(personPostActivity);
+        this.b.s2(personPostActivity);
         this.a = new int[]{0, 1};
     }
 

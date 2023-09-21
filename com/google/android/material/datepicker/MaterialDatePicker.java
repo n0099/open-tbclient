@@ -176,7 +176,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void updateHeader() {
         String headerText = getHeaderText();
-        this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0cee), headerText));
+        this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0cf0), headerText));
         this.headerSelectionText.setText(headerText);
     }
 
@@ -214,8 +214,8 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     @NonNull
     public static Drawable createHeaderToggleDrawable(Context context) {
         StateListDrawable stateListDrawable = new StateListDrawable();
-        stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080fa1));
-        stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080fa3));
+        stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080f9c));
+        stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080f9e));
         return stateListDrawable;
     }
 
@@ -270,9 +270,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     public void updateToggleContentDescription(@NonNull CheckableImageButton checkableImageButton) {
         String string;
         if (this.headerToggleButton.isChecked()) {
-            string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0d07);
-        } else {
             string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0d09);
+        } else {
+            string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0d0b);
         }
         this.headerToggleButton.setContentDescription(string);
     }
@@ -390,7 +390,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         this.pickerFragment = pickerFragment;
         updateHeader();
         FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
-        beginTransaction.replace(R.id.obfuscated_res_0x7f091830, this.pickerFragment);
+        beginTransaction.replace(R.id.obfuscated_res_0x7f09181d, this.pickerFragment);
         beginTransaction.commitNow();
         this.pickerFragment.addOnSelectionChangedListener(new OnSelectionChangedListener<S>() { // from class: com.google.android.material.datepicker.MaterialDatePicker.3
             @Override // com.google.android.material.datepicker.OnSelectionChangedListener
@@ -443,25 +443,25 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     public final View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         int i;
         if (this.fullscreen) {
-            i = R.layout.obfuscated_res_0x7f0d066f;
-        } else {
             i = R.layout.obfuscated_res_0x7f0d066e;
+        } else {
+            i = R.layout.obfuscated_res_0x7f0d066d;
         }
         View inflate = layoutInflater.inflate(i, viewGroup);
         Context context = inflate.getContext();
         if (this.fullscreen) {
-            inflate.findViewById(R.id.obfuscated_res_0x7f091830).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
+            inflate.findViewById(R.id.obfuscated_res_0x7f09181d).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
         } else {
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091831);
-            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091830);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09181e);
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09181d);
             findViewById.setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -1));
             findViewById2.setMinimumHeight(getDialogPickerHeight(requireContext()));
         }
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09183c);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091829);
         this.headerSelectionText = textView;
         ViewCompat.setAccessibilityLiveRegion(textView, 1);
-        this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f09183e);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091842);
+        this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f09182b);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09182f);
         CharSequence charSequence = this.titleText;
         if (charSequence != null) {
             textView2.setText(charSequence);
@@ -469,7 +469,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
             textView2.setText(this.titleTextResId);
         }
         initHeaderToggle(context);
-        this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09079c);
+        this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090793);
         if (this.dateSelector.isSelectionComplete()) {
             this.confirmButton.setEnabled(true);
         } else {
@@ -488,7 +488,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                 MaterialDatePicker.this.dismiss();
             }
         });
-        Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090543);
+        Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09053b);
         button.setTag(CANCEL_BUTTON_TAG);
         button.setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.datepicker.MaterialDatePicker.2
             @Override // android.view.View.OnClickListener

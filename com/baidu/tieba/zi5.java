@@ -1,25 +1,40 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.tbadk.editortools.BLauncher;
-import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zi5 {
+public class zi5 extends ij5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static aj5 a(Context context, ej5 ej5Var, int i) {
-        InterceptResult invokeLLI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zi5(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0494), 33, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, ej5Var, i)) == null) {
-            if (i != 1) {
-                return new DLauncher(context, ej5Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new BLauncher(context, ej5Var);
         }
-        return (aj5) invokeLLI.objValue;
+        this.d = R.drawable.icon_pure_post_more_goods64;
+        this.h = R.drawable.icon_pure_post_more_goods64;
+        this.k = false;
+        this.i = false;
+        this.j = false;
+        this.p = new int[]{59};
     }
 }

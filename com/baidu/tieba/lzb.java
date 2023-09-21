@@ -1,138 +1,56 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.prng.SP800SecureRandomBuilder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class lzb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static boolean b = true;
+public abstract class lzb {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947961589, "Lcom/baidu/tieba/lzb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public lzb() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947961589, "Lcom/baidu/tieba/lzb;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static SecureRandom a() {
+    public static lzb a(mzb mzbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mzbVar)) == null) ? h0c.f(mzbVar) : (lzb) invokeL.objValue;
+    }
+
+    public static lzb b() {
         InterceptResult invokeV;
-        SecureRandom secureRandom;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            pzb.b("EncryptUtil", "generateSecureRandomNew ");
-            try {
-            } catch (NoSuchAlgorithmException unused) {
-                pzb.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                secureRandom = SecureRandom.getInstanceStrong();
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        pzb.c("EncryptUtil", "NoSuchAlgorithmException");
-                        return secureRandom;
-                    } catch (Throwable th) {
-                        if (b) {
-                            pzb.c("EncryptUtil", "exception : " + th.getMessage() + " , you should implementation bcprov-jdk15on library");
-                            b = false;
-                        }
-                        return secureRandom;
-                    }
-                }
-                AESEngine aESEngine = new AESEngine();
-                byte[] bArr = new byte[32];
-                secureRandom.nextBytes(bArr);
-                return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine, 256, bArr, false);
-            }
-            secureRandom = null;
-            if (secureRandom == null) {
-            }
-            AESEngine aESEngine2 = new AESEngine();
-            byte[] bArr2 = new byte[32];
-            secureRandom.nextBytes(bArr2);
-            return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine2, 256, bArr2, false);
-        }
-        return (SecureRandom) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? h0c.e() : (lzb) invokeV.objValue;
     }
 
-    public static byte[] b(int i) {
-        InterceptResult invokeI;
+    public static synchronized void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            SecureRandom a2 = a();
-            if (a2 == null) {
-                return new byte[0];
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (lzb.class) {
+                Log.i("AGConnectInstance", "AGConnectInstance#initialize");
+                h0c.i(context);
             }
-            byte[] bArr = new byte[i];
-            a2.nextBytes(bArr);
-            return bArr;
         }
-        return (byte[]) invokeI.objValue;
     }
 
-    public static String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return mzb.a(c(i));
-        }
-        return (String) invokeI.objValue;
-    }
+    public abstract mzb c();
 
-    public static byte[] c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (!a) {
-                byte[] bArr = new byte[i];
-                SecureRandom secureRandom = null;
-                try {
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        secureRandom = SecureRandom.getInstanceStrong();
-                    }
-                } catch (NoSuchAlgorithmException unused) {
-                    pzb.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
-                }
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        pzb.c("EncryptUtil", "getSecureRandomBytes getInstance: NoSuchAlgorithmException");
-                        return new byte[0];
-                    } catch (Exception e) {
-                        pzb.c("EncryptUtil", "getSecureRandomBytes getInstance: exception : " + e.getMessage());
-                        return new byte[0];
-                    }
-                }
-                secureRandom.nextBytes(bArr);
-                return bArr;
-            }
-            return b(i);
-        }
-        return (byte[]) invokeI.objValue;
-    }
+    public abstract Context getContext();
+
+    public abstract String getIdentifier();
 }

@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bp9;
 import com.baidu.tieba.h35;
-import com.baidu.tieba.jn9;
 import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,13 +47,13 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public h35 o;
     public TbPageContext p;
     public int q;
-    public jn9 r;
+    public bp9 r;
     public b s;
     public View.OnClickListener t;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(jn9 jn9Var);
+        void a(bp9 bp9Var);
     }
 
     /* loaded from: classes7.dex */
@@ -130,18 +130,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.t = new a(this);
         this.p = tbPageContext;
         this.s = bVar;
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b40);
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b6d);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b2c);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b59);
         this.c = (TbImageView) view2.findViewById(R.id.top_code_img);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09265c);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092628);
         this.e = (TextView) view2.findViewById(R.id.top_code_detail_summary_text);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092659);
-        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09196f);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092625);
+        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09195b);
         this.h = (ImageView) view2.findViewById(R.id.news_info_img);
         this.i = (TextView) view2.findViewById(R.id.news_info_text);
-        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dee);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090def);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090df0);
+        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090de8);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090de9);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dea);
         i(this.t);
     }
 
@@ -170,23 +170,23 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(jn9 jn9Var) {
+    public void g(bp9 bp9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jn9Var) != null) || jn9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bp9Var) != null) || bp9Var == null) {
             return;
         }
-        this.r = jn9Var;
-        h35 h35Var = jn9Var.g1;
+        this.r = bp9Var;
+        h35 h35Var = bp9Var.g1;
         this.m = h35Var;
-        this.n = jn9Var.h1;
-        this.o = jn9Var.i1;
+        this.n = bp9Var.h1;
+        this.o = bp9Var.i1;
         if (h35Var != null) {
             this.c.startLoad(h35Var.d, 10, false);
             this.e.setText(this.m.b);
             this.f.setText(this.m.e);
             this.d.setText(this.m.f);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0813ab);
-            SkinManager.setViewTextColor(this.d, (int) R.drawable.obfuscated_res_0x7f0810fd);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0813a6);
+            SkinManager.setViewTextColor(this.d, (int) R.drawable.obfuscated_res_0x7f0810f8);
         } else {
             this.b.setVisibility(8);
         }
@@ -208,6 +208,6 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
             this.l.setVisibility(8);
             this.l.setVisibility(8);
         }
-        this.a.setTag(jn9Var);
+        this.a.setTag(bp9Var);
     }
 }

@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class nd2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,52 +26,56 @@ public class nd2 {
                 return;
             }
         }
-        a = rr1.a;
-        b = new AtomicInteger(0);
+        a = qr1.a;
     }
 
-    public static boolean a(String str) {
+    public static boolean a(ea2 ea2Var, String str) {
+        InterceptResult invokeLL;
+        gb3 b0;
+        id2 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ea2Var, str)) == null) {
+            if (a) {
+                Log.d("MasterIsolationHelper", "JS CALL - " + str);
+            }
+            boolean z = false;
+            if (f73.D()) {
+                return false;
+            }
+            if (ea2Var != null && !TextUtils.isEmpty(ea2Var.getContainerId())) {
+                if (vd2.i().k(ea2Var.getContainerId())) {
+                    return true;
+                }
+                if (!gf2.h()) {
+                    return false;
+                }
+                String containerId = ea2Var.getContainerId();
+                if (!md2.a(containerId) || (b0 = gb3.b0()) == null || !b(ea2Var) || (a2 = pd2.b().a()) == null) {
+                    return false;
+                }
+                String h = a2.h();
+                if (TextUtils.isEmpty(h)) {
+                    return false;
+                }
+                z = (TextUtils.equals(a2.i().a(), ea2Var.getContainerId()) && TextUtils.equals(h, b0.b)) ? true : true;
+                if (a && z) {
+                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
+                }
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(ea2 ea2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.startsWith("master")) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ea2Var)) == null) {
+            if ((ea2Var instanceof oi2) && ((oi2) ea2Var).getInvokeSourceType() == 0) {
                 return true;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = "master";
-            if (!hf2.h()) {
-                return "master";
-            }
-            int andIncrement = b.getAndIncrement();
-            if (andIncrement >= 1) {
-                str = "master" + andIncrement;
-            }
-            if (a) {
-                Log.i("MasterIdGenerator", "next master id - " + str);
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = b.getAndSet(0);
-            if (a) {
-                Log.i("MasterIdGenerator", "last master id - " + andSet);
-            }
-            return andSet;
-        }
-        return invokeV.intValue;
     }
 }

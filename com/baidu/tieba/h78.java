@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,21 +16,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Personalized.LiveAnswer;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class h78 extends BaseCardInfo {
+public class h78 extends b15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
+    public final List<k78> b;
     public int c;
-    public String d;
-    public String e;
-    public List<String> f;
-    public List<String> g;
+    public int d;
+    public boolean e;
+    @Nullable
+    public ThemeColorInfo f;
+
+    @Override // com.baidu.tieba.b15
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (NegativeFeedBackData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.b15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +65,7 @@ public class h78 extends BaseCardInfo {
                 return;
             }
         }
-        h = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public h78() {
@@ -59,55 +81,130 @@ public class h78 extends BaseCardInfo {
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.g = new ArrayList();
+        this.c = Integer.MIN_VALUE;
+        this.d = Integer.MIN_VALUE;
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
-    public BdUniqueId getType() {
+    @Nullable
+    public ThemeColorInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
+    }
+
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return h;
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public List<k78> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return g;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(LiveAnswer liveAnswer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, liveAnswer) != null) || liveAnswer == null) {
-            return;
-        }
-        this.a = liveAnswer.activity_id.toString();
-        this.d = liveAnswer.banner_url;
-        this.b = liveAnswer.banner_high.intValue();
-        this.c = liveAnswer.banner_width.intValue();
-        this.e = liveAnswer.jump_url;
-        this.f.clear();
-        this.f.addAll(liveAnswer.show_statistics_urls);
-        this.g.clear();
-        this.g.addAll(liveAnswer.click_statistics_urls);
-    }
-
-    public String toString() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("activity_id", this.a);
-                jSONObject.put("img_width", this.c);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, this.d);
-                jSONObject.put("img_height", this.b);
-                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.e);
-                jSONObject.put("show_statistics_urls", this.f);
-                jSONObject.put("click_statistics_urls", this.g);
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (!ListUtils.isEmpty(this.b) && !di.isEmpty(this.a)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.b.clear();
+        this.a = jSONObject.optString("sign_scheme");
+        jSONObject.optInt("sample_type");
+        this.f = jta.j(jSONObject.optJSONObject("background_info"));
+        JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    k78 k78Var = new k78();
+                    k78Var.l(optJSONObject);
+                    if (k78Var.k()) {
+                        this.b.add(k78Var);
+                    }
+                }
             }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.e = z;
+        }
     }
 }

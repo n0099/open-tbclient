@@ -9,8 +9,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.rna;
+import com.baidu.tieba.hja;
+import com.baidu.tieba.xpa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,9 +109,9 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
                     this.a.setType(setPersonalCardSocketResponse.getType());
                 }
                 if (this.a.e != null) {
-                    int i = rna.b;
-                    if (responsedMessage.getError() == rna.c) {
-                        i = rna.a;
+                    int i = xpa.b;
+                    if (responsedMessage.getError() == xpa.c) {
+                        i = xpa.a;
                     }
                     this.a.e.a(this.a.c, this.a.a, this.a.b, responsedMessage.getErrorString(), i);
                 }
@@ -135,8 +135,8 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         this.c = false;
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
-        bha.h(309345, SetPersonalCardSocketResponse.class, false, false);
-        bha.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
+        hja.h(309345, SetPersonalCardSocketResponse.class, false, false);
+        hja.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 

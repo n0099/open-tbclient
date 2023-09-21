@@ -1,65 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
-import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.JvmName;
+@JvmName(name = "LayerUtils")
 /* loaded from: classes6.dex */
-public class i21 {
+public final class i21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static AudioManager a(@Nullable Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947801505, "Lcom/baidu/tieba/i21;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947801505, "Lcom/baidu/tieba/i21;");
+                return;
+            }
+        }
+        d81.a(253.0f);
+        d81.a(9.0f);
+    }
+
+    public static final mz0 a(ArrayList<iz0> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
+            if (arrayList != null) {
+                Iterator<iz0> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    iz0 next = it.next();
+                    if (next instanceof mz0) {
+                        return (mz0) next;
+                    }
+                }
                 return null;
             }
-            try {
-                return (AudioManager) context.getSystemService("audio");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+            return null;
         }
-        return (AudioManager) invokeL.objValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamMaxVolume(3);
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamVolume(3);
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void d(Context context, int i) {
-        AudioManager a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) && (a = a(context)) != null) {
-            a.setStreamVolume(3, i, 8);
-        }
+        return (mz0) invokeL.objValue;
     }
 }

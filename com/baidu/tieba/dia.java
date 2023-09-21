@@ -1,43 +1,77 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.Animatable;
+import android.os.Build;
+import android.view.View;
+import android.view.animation.Animation;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class dia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public cia d;
-    public cia e;
-    public cia f;
 
-    public dia(String str, String str2, boolean z) {
+    public static boolean a(@Nullable Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (!(context instanceof Activity)) {
+                return false;
             }
+            Activity activity = (Activity) context;
+            if ((Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) || activity.isFinishing()) {
+                return false;
+            }
+            return true;
         }
-        this.a = false;
-        this.b = null;
-        this.c = null;
-        this.d = new cia();
-        this.e = new cia();
-        this.f = new cia();
-        this.c = str;
-        this.b = str2;
-        this.a = z;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(@Nullable View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 != null && view2.getContext() != null) {
+                if (view2.getContext() instanceof Activity) {
+                    return a(view2.getContext());
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final TbPageContext c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context != null && (context instanceof TbPageContextSupport)) {
+                return ((TbPageContextSupport) context).getPageContext();
+            }
+            return null;
+        }
+        return (TbPageContext) invokeL.objValue;
+    }
+
+    public static final void d(TbPageContextSupport tbPageContextSupport, Animatable animatable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, tbPageContextSupport, animatable) == null) && tbPageContextSupport != null) {
+            tbPageContextSupport.getPageContext().startAnimatable(animatable);
+        }
+    }
+
+    public static final void e(TbPageContextSupport tbPageContextSupport, View view2, Animation animation, Animation.AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContextSupport, view2, animation, animationListener) == null) && tbPageContextSupport != null) {
+            tbPageContextSupport.getPageContext().startAnimation(view2, animation, animationListener);
+        }
     }
 }

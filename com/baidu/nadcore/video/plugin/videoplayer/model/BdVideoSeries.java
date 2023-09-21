@@ -8,13 +8,13 @@ import androidx.annotation.Px;
 import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bu0;
-import com.baidu.tieba.f21;
-import com.baidu.tieba.i31;
-import com.baidu.tieba.n01;
+import com.baidu.tieba.au0;
+import com.baidu.tieba.e21;
+import com.baidu.tieba.h31;
+import com.baidu.tieba.m01;
+import com.baidu.tieba.ru0;
 import com.baidu.tieba.su0;
-import com.baidu.tieba.tu0;
-import com.baidu.tieba.u01;
+import com.baidu.tieba.t01;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Locale;
@@ -45,7 +45,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public String mBrief;
     public ClarityUrlList mClarityList;
     public String mClarityTitle;
-    public List<n01> mCommentList;
+    public List<m01> mCommentList;
     public long mCreateTime;
     public String mDetailId;
     public String mExt;
@@ -166,7 +166,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
 
     public String getClarityTitle() {
         if (TextUtils.isEmpty(this.mClarityTitle)) {
-            return bu0.b().getResources().getString(R.string.nad_clarity_sd);
+            return au0.b().getResources().getString(R.string.nad_clarity_sd);
         }
         return this.mClarityTitle;
     }
@@ -212,7 +212,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         return this.mFrom;
     }
 
-    public List<n01> getHotComments() {
+    public List<m01> getHotComments() {
         return this.mCommentList;
     }
 
@@ -555,7 +555,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     }
 
     public boolean isInteractVideo() {
-        if (RESOURCE_TYPE_INTERACT.equals(getResourceType()) && su0.a()) {
+        if (RESOURCE_TYPE_INTERACT.equals(getResourceType()) && ru0.a()) {
             return true;
         }
         return false;
@@ -592,7 +592,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     }
 
     public void updateClarityUrlListFromMPD() {
-        JSONArray b = u01.b(this.mMPD);
+        JSONArray b = t01.b(this.mMPD);
         if (b != null) {
             updateClarityUrlList(b, true);
         }
@@ -604,8 +604,8 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
         String extLog = bdVideoSeries.getExtLog();
         if (!TextUtils.isEmpty(extLog)) {
-            JSONObject c = i31.c(extLog);
-            i31.f(c, "lastpage_pd", str);
+            JSONObject c = h31.c(extLog);
+            h31.f(c, "lastpage_pd", str);
             bdVideoSeries.setExtLog(c.toString());
         }
     }
@@ -632,7 +632,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         try {
             return Double.parseDouble(str);
         } catch (NumberFormatException e) {
-            f21.a(e.getMessage());
+            e21.a(e.getMessage());
             return d;
         }
     }
@@ -644,14 +644,14 @@ public class BdVideoSeries implements Serializable, Cloneable {
         try {
             return Integer.parseInt(str);
         } catch (NumberFormatException e) {
-            f21.a(e.getMessage());
+            e21.a(e.getMessage());
             return i;
         }
     }
 
     public void setClarityUrlList(String str, boolean z) {
         if (z) {
-            JSONArray b = u01.b(str);
+            JSONArray b = t01.b(str);
             if (b != null) {
                 setClarityUrlList(b);
                 return;
@@ -674,7 +674,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
                 }
                 return getTextWithSecond(parseInt);
             } catch (Exception e) {
-                f21.f("getFormattedLengthString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
+                e21.f("getFormattedLengthString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
             }
         }
         return "";
@@ -777,7 +777,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         try {
             setClarityUrlList(new JSONArray(str));
         } catch (JSONException e) {
-            if (bu0.f()) {
+            if (au0.f()) {
                 e.printStackTrace();
             }
             this.mClarityList = new ClarityUrlList();
@@ -807,7 +807,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public void setExtLog(String str) {
         this.mExtLog = str;
         if (!TextUtils.isEmpty(str)) {
-            searchID = i31.c(str).optString("searchID");
+            searchID = h31.c(str).optString("searchID");
         }
     }
 
@@ -847,7 +847,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         this.mIsHistory = z;
     }
 
-    public void setHotCommentList(List<n01> list) {
+    public void setHotCommentList(List<m01> list) {
         this.mCommentList = list;
     }
 
@@ -1158,7 +1158,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
 
     public boolean clearNewFlag() {
         setIsUpdate(false);
-        f21.a("is update: " + getIsUpdate());
+        e21.a("is update: " + getIsUpdate());
         List<BdVideo> list = this.mVideoList;
         if (list == null) {
             return false;
@@ -1295,7 +1295,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
             ClarityUrlList.c clarityByOriginRank = this.mClarityList.getClarityByOriginRank(clarityUrlList.getCurrentClarityUrl().b);
             if (clarityByOriginRank != null) {
                 this.mClarityList.setCurrentClarityUrl(clarityByOriginRank);
-                if (tu0.b()) {
+                if (su0.b()) {
                     this.mClarityList.setMultiRateSwitchRank(clarityByOriginRank.c);
                     return;
                 }
@@ -1307,7 +1307,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
 
     public void updateClarityUrlList(String str, boolean z, boolean z2) {
         if (z2) {
-            JSONArray b = u01.b(str);
+            JSONArray b = t01.b(str);
             if (b != null) {
                 updateClarityUrlList(b, z);
                 return;

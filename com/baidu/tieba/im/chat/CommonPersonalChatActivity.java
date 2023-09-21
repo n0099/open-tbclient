@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.bp8;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.wj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,11 +71,11 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] C1(int i, boolean z) {
+    public String[] B1(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return super.C1(i, true);
+            return super.B1(i, true);
         }
         return (String[]) invokeCommon.objValue;
     }
@@ -139,14 +139,14 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void y(View view2, int i, int i2, long j) {
+    public void u(View view2, int i, int i2, long j) {
         MsglistModel msglistModel;
         ChatMessage msg;
         String content;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.y(view2, i, i2, j);
-            if (i != 7 || !H1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !wj8.B(msg) || content == null) {
+            super.u(view2, i, i2, j);
+            if (i != 7 || !H1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !bp8.B(msg) || content == null) {
                 return;
             }
             JSONObject jSONObject = null;

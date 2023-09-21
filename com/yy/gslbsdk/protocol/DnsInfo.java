@@ -16,7 +16,7 @@ public class DnsInfo {
     public String uip;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1229view;
+    public String f1226view;
     public LinkedList<String> ips = new LinkedList<>();
     public int source = 0;
     public int status = 0;
@@ -62,13 +62,13 @@ public class DnsInfo {
     }
 
     public String getView() {
-        return this.f1229view;
+        return this.f1226view;
     }
 
     public void cloneDnsInfo(DnsInfo dnsInfo) {
         this.host = dnsInfo.getHost();
         this.uip = dnsInfo.getUip();
-        this.f1229view = dnsInfo.getView();
+        this.f1226view = dnsInfo.getView();
         this.ttl = dnsInfo.getTtl();
         this.probeTime = dnsInfo.getProbeTime();
         this.endTime = dnsInfo.getEndTime();
@@ -172,7 +172,7 @@ public class DnsInfo {
     }
 
     public void setView(String str) {
-        this.f1229view = str;
+        this.f1226view = str;
     }
 
     public void setCmdStr(String str) {

@@ -1,64 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.dc7;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.lang.ref.WeakReference;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wc7 implements dc7.b {
+public class wc7 implements jc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tc7 a;
+    public WeakReference<Runnable> a;
+    public boolean b;
 
-    public wc7(tc7 statStrategy) {
+    public wc7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {statStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
-        this.a = statStrategy;
     }
 
-    @Override // com.baidu.tieba.dc7.b
-    public void a(pc7<?> data, int i) {
-        Map<String, String> a;
+    public final boolean b() {
+        InterceptResult invokeV;
+        Runnable runnable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            zb7 zb7Var = (zb7) data;
-            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
-            f87 f87Var = new f87();
-            f87 f87Var2 = zb7Var.b;
-            if (f87Var2 != null) {
-                f87Var = f87Var2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WeakReference<Runnable> weakReference = this.a;
+            if (weakReference != null) {
+                runnable = weakReference.get();
+            } else {
+                runnable = null;
             }
-            if (zb7Var.b != null) {
-                for (Map.Entry<String, String> entry : this.a.a(f87Var).entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
-                }
+            if (runnable != null) {
+                runnable.run();
             }
-            m97 m97Var = zb7Var.a;
-            if (m97Var != null && (a = m97Var.a()) != null) {
-                for (Map.Entry<String, String> entry2 : a.entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
+            if (runnable != null) {
+                return true;
             }
-            TiebaStatic.log(statisticItem);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jc7
+    public final void a(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            Intrinsics.checkNotNullParameter(runnable, "runnable");
+            this.b = true;
+            this.a = new WeakReference<>(runnable);
+        }
+    }
+
+    public final void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            Intrinsics.checkNotNullParameter(runnable, "runnable");
+            this.a = new WeakReference<>(runnable);
         }
     }
 }

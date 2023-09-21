@@ -1,27 +1,34 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface fc9 {
-    void a(String str);
+public class fc9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public TailData b;
 
-    void b(String str, int i, int i2, String str2);
-
-    void c(String str, int i, String str2);
-
-    boolean d(String str);
-
-    boolean e(String str);
-
-    void f(String str, int i, String str2);
-
-    void g(String str, int i, String str2);
-
-    void h(String str, String str2);
-
-    void i(String str, String str2);
-
-    void j(String str);
-
-    void k(String str);
-
-    void l(String str, int i, String str2);
+    public fc9(int i, TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), tailData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.a = i;
+        this.b = tailData;
+    }
 }

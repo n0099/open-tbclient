@@ -4,29 +4,29 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int download_done_left = 0x7f0805c6;
-        public static final int download_notification_icon_app = 0x7f0805cd;
-        public static final int download_notification_icon_excel = 0x7f0805ce;
-        public static final int download_notification_icon_image = 0x7f0805cf;
-        public static final int download_notification_icon_music = 0x7f0805d0;
-        public static final int download_notification_icon_novel = 0x7f0805d1;
-        public static final int download_notification_icon_offline_web = 0x7f0805d2;
-        public static final int download_notification_icon_others = 0x7f0805d3;
-        public static final int download_notification_icon_pdf = 0x7f0805d4;
-        public static final int download_notification_icon_ppt = 0x7f0805d5;
-        public static final int download_notification_icon_text = 0x7f0805d6;
-        public static final int download_notification_icon_video = 0x7f0805d7;
-        public static final int download_notification_icon_word = 0x7f0805d8;
-        public static final int download_notification_icon_zip = 0x7f0805d9;
+        public static final int download_done_left = 0x7f0805c5;
+        public static final int download_notification_icon_app = 0x7f0805cc;
+        public static final int download_notification_icon_excel = 0x7f0805cd;
+        public static final int download_notification_icon_image = 0x7f0805ce;
+        public static final int download_notification_icon_music = 0x7f0805cf;
+        public static final int download_notification_icon_novel = 0x7f0805d0;
+        public static final int download_notification_icon_offline_web = 0x7f0805d1;
+        public static final int download_notification_icon_others = 0x7f0805d2;
+        public static final int download_notification_icon_pdf = 0x7f0805d3;
+        public static final int download_notification_icon_ppt = 0x7f0805d4;
+        public static final int download_notification_icon_text = 0x7f0805d5;
+        public static final int download_notification_icon_video = 0x7f0805d6;
+        public static final int download_notification_icon_word = 0x7f0805d7;
+        public static final int download_notification_icon_zip = 0x7f0805d8;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
-        public static final int appIcon = 0x7f0902a5;
-        public static final int description = 0x7f090886;
-        public static final int paused_text = 0x7f091a96;
-        public static final int progress_bar = 0x7f091db4;
-        public static final int progress_text = 0x7f091dbd;
+        public static final int appIcon = 0x7f0902a3;
+        public static final int description = 0x7f09087d;
+        public static final int paused_text = 0x7f091a82;
+        public static final int progress_bar = 0x7f091d82;
+        public static final int progress_text = 0x7f091d8a;
     }
 
     /* loaded from: classes3.dex */
@@ -79,23 +79,23 @@ public final class R {
         public static final int downloaded_duplicate_message = 0x7f0f0601;
         public static final int downloaded_duplicate_title = 0x7f0f0602;
         public static final int downloading_duplicate_cancel = 0x7f0f0607;
-        public static final int install_permission_msg = 0x7f0f0aaf;
-        public static final int install_permission_title = 0x7f0f0ab0;
-        public static final int no = 0x7f0f0e5a;
-        public static final int notification_download_complete = 0x7f0f0eb8;
-        public static final int notification_download_failed = 0x7f0f0eb9;
-        public static final int notification_need_wifi_for_size = 0x7f0f0eba;
-        public static final int oppo_install_permission_msg = 0x7f0f0f1f;
-        public static final int picture_save_fail = 0x7f0f10d2;
-        public static final int picture_save_success = 0x7f0f10d3;
-        public static final int teenager_not_download = 0x7f0f1645;
-        public static final int uninstall_more_apk_message = 0x7f0f179e;
-        public static final int uninstall_more_apk_message_button_text = 0x7f0f179f;
-        public static final int uninstall_single_apk_message = 0x7f0f17a0;
-        public static final int update_failed_message = 0x7f0f17bf;
-        public static final int update_sign_match_failed_hint = 0x7f0f17c4;
-        public static final int vivo_install_permission_msg = 0x7f0f1864;
-        public static final int xiaomi_install_permission_msg = 0x7f0f1919;
-        public static final int yes = 0x7f0f191d;
+        public static final int install_permission_msg = 0x7f0f0ab1;
+        public static final int install_permission_title = 0x7f0f0ab2;
+        public static final int no = 0x7f0f0e5c;
+        public static final int notification_download_complete = 0x7f0f0eba;
+        public static final int notification_download_failed = 0x7f0f0ebb;
+        public static final int notification_need_wifi_for_size = 0x7f0f0ebc;
+        public static final int oppo_install_permission_msg = 0x7f0f0f21;
+        public static final int picture_save_fail = 0x7f0f10d4;
+        public static final int picture_save_success = 0x7f0f10d5;
+        public static final int teenager_not_download = 0x7f0f1648;
+        public static final int uninstall_more_apk_message = 0x7f0f17a2;
+        public static final int uninstall_more_apk_message_button_text = 0x7f0f17a3;
+        public static final int uninstall_single_apk_message = 0x7f0f17a4;
+        public static final int update_failed_message = 0x7f0f17c3;
+        public static final int update_sign_match_failed_hint = 0x7f0f17c8;
+        public static final int vivo_install_permission_msg = 0x7f0f1868;
+        public static final int xiaomi_install_permission_msg = 0x7f0f191d;
+        public static final int yes = 0x7f0f1921;
     }
 }

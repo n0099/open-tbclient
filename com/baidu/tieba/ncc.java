@@ -1,107 +1,100 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wac;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
+import java.util.concurrent.TimeUnit;
+import rx.internal.schedulers.SchedulerWhen;
 /* loaded from: classes7.dex */
-public final class ncc<T> implements wac.c<T> {
+public abstract class ncc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wac<T> a;
-    public final gbc<? super T> b;
-    public final gbc<Throwable> c;
+
+    public abstract a createWorker();
 
     /* loaded from: classes7.dex */
-    public static final class a<T> extends xac<T> {
+    public static abstract class a implements rcc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final xac<? super T> b;
-        public final gbc<? super T> c;
-        public final gbc<Throwable> d;
 
-        public a(xac<? super T> xacVar, gbc<? super T> gbcVar, gbc<Throwable> gbcVar2) {
+        public abstract rcc b(xcc xccVar);
+
+        public abstract rcc c(xcc xccVar, long j, TimeUnit timeUnit);
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xacVar, gbcVar, gbcVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = xacVar;
-            this.c = gbcVar;
-            this.d = gbcVar2;
-        }
-
-        @Override // com.baidu.tieba.xac
-        public void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                try {
-                    this.d.call(th);
-                    this.b.b(th);
-                } catch (Throwable th2) {
-                    ebc.e(th2);
-                    this.b.b(new CompositeException(th, th2));
                 }
             }
         }
 
-        @Override // com.baidu.tieba.xac
-        public void c(T t) {
+        public long a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                try {
-                    this.c.call(t);
-                    this.b.c(t);
-                } catch (Throwable th) {
-                    ebc.h(th, this, t);
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return System.currentTimeMillis();
             }
+            return invokeV.longValue;
         }
     }
 
-    public ncc(wac<T> wacVar, gbc<? super T> gbcVar, gbc<Throwable> gbcVar2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947999099, "Lcom/baidu/tieba/ncc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947999099, "Lcom/baidu/tieba/ncc;");
+                return;
+            }
+        }
+        TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15L).longValue());
+    }
+
+    public ncc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wacVar, gbcVar, gbcVar2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = wacVar;
-        this.b = gbcVar;
-        this.c = gbcVar2;
     }
 
-    public void call(xac<? super T> xacVar) {
+    public long now() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xacVar) == null) {
-            a aVar = new a(xacVar, this.b, this.c);
-            xacVar.a(aVar);
-            this.a.j(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return System.currentTimeMillis();
         }
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.wac.c, com.baidu.tieba.gbc
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((xac) ((xac) obj));
+    public <S extends ncc & rcc> S when(ddc<kcc<kcc<icc>>, icc> ddcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ddcVar)) == null) {
+            return new SchedulerWhen(ddcVar, this);
+        }
+        return (S) ((ncc) invokeL.objValue);
     }
 }

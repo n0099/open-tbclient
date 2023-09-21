@@ -14,8 +14,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fbc;
 import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.xcc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +38,7 @@ public class GamePlayServiceView extends RelativeLayout {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void g(int i);
+        void d(int i);
     }
 
     /* loaded from: classes6.dex */
@@ -69,7 +69,7 @@ public class GamePlayServiceView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.g(0);
+                this.a.a.d(0);
             }
         }
     }
@@ -102,7 +102,7 @@ public class GamePlayServiceView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.g(1);
+                this.a.a.d(1);
             }
         }
     }
@@ -195,16 +195,16 @@ public class GamePlayServiceView extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0814, (ViewGroup) this, true);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091617);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091632);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0812, (ViewGroup) this, true);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091600);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09161b);
             this.f = linearLayout;
             linearLayout.setOnClickListener(this.j);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09276e);
-            LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091631);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092739);
+            LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09161a);
             this.h = linearLayout2;
             linearLayout2.setOnClickListener(this.k);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09276d);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092738);
             d();
         }
     }
@@ -228,14 +228,14 @@ public class GamePlayServiceView extends RelativeLayout {
         }
     }
 
-    public void g(boolean z, fbc fbcVar) {
+    public void g(boolean z, xcc xccVar) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048581, this, z, fbcVar) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048581, this, z, xccVar) == null) {
             this.d = z;
             if (z && (linearLayout = this.h) != null) {
                 linearLayout.setVisibility(0);
-                fbcVar.call();
+                xccVar.call();
             }
         }
     }

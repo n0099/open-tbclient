@@ -1,18 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import tbclient.RecomTopicList;
+import android.text.TextUtils;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.LoginPassV6Switch;
+import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface kd9 {
-    void C(@NonNull RecomTopicList recomTopicList);
+public class kd9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void M0(kb8 kb8Var);
+    public kd9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void V0(int i);
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                b(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
 
-    void a0(int i, kb8 kb8Var);
-
-    void f1(int i, long j, long j2, int i2);
-
-    void n(int i, jb8 jb8Var);
+    public void b(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("config");
+            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("switch")) != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                    if (jSONObject2 != null) {
+                        String optString = jSONObject2.optString("name");
+                        Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
+                        if (LoginPassV6Switch.KEY.equals(optString)) {
+                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
+                            jc5.a();
+                        }
+                        if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
+                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
+                            jc5.a();
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
 }

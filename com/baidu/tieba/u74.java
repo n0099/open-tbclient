@@ -1,185 +1,199 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
+import org.apache.http.cookie.ClientCookie;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class u74 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public JSONObject c;
-    public String d;
+    public String a;
+    public String b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163895, "Lcom/baidu/tieba/u74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+
+        public a(boolean z, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948163895, "Lcom/baidu/tieba/u74;");
-                return;
-            }
+            this.a = false;
+            this.a = z;
+            this.b = str;
         }
-        e = rr1.a;
+
+        public static a c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new a(false, "未启用真机调试");
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
-    public u74() {
+    public u74(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
+            this.a = optJSONObject.optString("hostname", null);
+            this.b = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
+            this.c = optJSONObject.optBoolean("breakOnStart", false);
+        }
+        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
+        boolean z = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
+        this.f = z;
+        if (z) {
+            this.a = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.a);
+            this.b = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.b);
+            this.c = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.c);
+            this.d = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.d);
+        }
+        String str = this.a;
+        if (str != null && !str.trim().equals("")) {
+            this.e = true;
         }
     }
 
-    public final boolean b() {
+    public static a f(u74 u74Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, u74Var)) == null) {
+            if (u74Var == null) {
+                return a.c();
+            }
+            return u74Var.e();
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            if (this.b != null) {
+                str = ":" + this.b;
+            } else {
+                str = "";
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public a e() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.f && c()) {
+                return new a(false, "线上包禁用真机调试");
+            }
+            boolean z = this.e;
+            if (!z) {
+                str = "未启用真机调试";
+            } else if (this.f) {
+                str = "使用了 debug 面板配置";
+            } else {
+                str = "启用了真机调试";
+            }
+            return new a(z, str);
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (hb3.M() != null && TextUtils.equals(hb3.g0(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So")) {
-                return true;
-            }
-            return false;
+            return this.d;
         }
         return invokeV.booleanValue;
     }
 
-    public u74 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a = false;
-            this.b = false;
-            this.d = null;
-            this.c = c();
-            boolean b = b();
-            this.a = b;
-            if (b) {
-                return this;
-            }
-            this.b = a();
-            return this;
-        }
-        return (u74) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.a && !this.b) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.c;
-            boolean z3 = false;
-            if (jSONObject == null) {
-                return false;
-            }
-            int optInt = jSONObject.optInt("bbaspg_guide_count", 3);
-            int optInt2 = this.c.optInt("bbaspg_guide_interval", 72);
-            long optLong = this.c.optLong("bbaspg_guide_last_time", 0L);
-            int optInt3 = this.c.optInt("bbaspg_guide_shown_count", 0);
-            int optInt4 = this.c.optInt("bbaspg_guide_image_index", 0);
-            if (System.currentTimeMillis() - optLong > optInt2 * 3600000) {
-                z = true;
-            } else {
-                z = false;
-            }
-            String optString = this.c.optString("filter_channelid");
-            if (!TextUtils.isEmpty(optString)) {
-                String[] split = optString.split(",");
-                String T2 = gb3.K().q().W().T();
-                z2 = true;
-                for (String str : split) {
-                    if (TextUtils.equals(T2, str)) {
-                        z2 = false;
-                    }
-                }
-            } else {
-                z2 = true;
-            }
-            if (optInt3 < optInt && z && z2) {
-                z3 = true;
-            }
-            if (e) {
-                Log.i("SwanGameGuideDialogChecker", "isShow:" + z3 + " maxCount" + optInt + " isOverInterval" + z + "imageUrl " + this.d + UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY + z3);
-            }
-            if (z3) {
-                d(this.c, optInt4, "bbaspg_guide_images");
-            }
-            return z3;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final JSONObject c() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String string = vj3.a().getString("swan_game_guide_toast", "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    return new JSONObject(string);
-                } catch (JSONException e2) {
-                    if (rr1.a) {
-                        e2.printStackTrace();
-                        return null;
-                    }
-                    return null;
-                }
-            }
-            return null;
+            return i32.f(gb3.g0());
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final int d(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        JSONArray optJSONArray;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, jSONObject, i, str)) == null) {
-            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
-                return 0;
-            }
-            if (i >= optJSONArray.length()) {
-                i = 0;
-            }
-            this.d = optJSONArray.optString(i);
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
-        return invokeLIL.intValue;
+        return invokeV.booleanValue;
     }
 }

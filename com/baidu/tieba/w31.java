@@ -1,159 +1,137 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class w31 extends p41 {
+public class w31 {
     public static /* synthetic */ Interceptable $ic;
-    public static final h41 A;
-    public static final h41[] B;
-    public static final h41[][] C;
-    public static final h41[] D;
-    public static final h41 o;
-    public static final h41 p;
-    public static final h41 q;
-    public static final h41 r;
-    public static final h41 s;
-    public static final h41 t;
-    public static final h41 u;
-    public static final h41 v;
-    public static final h41 w;
-    public static final h41 x;
-    public static final h41 y;
-    public static final h41 z;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringColumn a;
-    public final IntegerColumn b;
-    public final IntegerColumn c;
-    public final StringColumn d;
-    public final StringColumn e;
-    public final StringColumn f;
-    public final IntegerColumn g;
-    public final IntegerColumn h;
-    public final LongColumn i;
-    public final LongColumn j;
-    public final StringColumn k;
-    public final StringColumn l;
-    public final StringColumn m;
-    public final Column[] n;
 
-    @Override // com.baidu.tieba.p41
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "t_apk_info" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c41 a;
+        public final /* synthetic */ lt0 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948219540, "Lcom/baidu/tieba/w31;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(c41 c41Var, lt0 lt0Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c41Var, lt0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948219540, "Lcom/baidu/tieba/w31;");
+            this.a = c41Var;
+            this.b = lt0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                w31.g(this.a, this.b);
+            }
+        }
+    }
+
+    public static <T> void f(@NonNull c41 c41Var, @Nullable lt0<T> lt0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, c41Var, lt0Var) == null) {
+            c41Var.a();
+            x41.c(new a(c41Var, lt0Var), "als_async_executor", 2);
+        }
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return sj0.d().z() + "/clog/clog";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sj0.d().z() + "/elog/plog";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static Boolean d() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!t51.a) {
+                return Boolean.FALSE;
+            }
+            v51 v51Var = (v51) s51.a().a(v51.class);
+            if (v51Var != null && v51Var.a()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return Boolean.valueOf(z);
+        }
+        return (Boolean) invokeV.objValue;
+    }
+
+    public static void e(@NonNull c41 c41Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c41Var) == null) {
+            f(c41Var, null);
+        }
+    }
+
+    public static <T> void g(c41 c41Var, @Nullable lt0<T> lt0Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, c41Var, lt0Var) == null) && c41Var != null && c41Var.isValid()) {
+            String c41Var2 = c41Var.toString();
+            if (c41Var instanceof ClogBuilder) {
+                if (d().booleanValue()) {
+                    str = b();
+                } else {
+                    str = "https://als.baidu.com/clog/clog";
+                }
+            } else if (c41Var instanceof d41) {
+                if (d().booleanValue()) {
+                    str = c();
+                } else {
+                    str = "https://als.baidu.com/elog/plog";
+                }
+            } else if (c41Var instanceof a41) {
+                str = "https://afd.baidu.com/afd/close";
+            } else {
                 return;
             }
+            st0 st0Var = new st0();
+            st0Var.h(c41Var2);
+            st0Var.k(BodyStyle.STRING);
+            st0Var.i("application/x-www-form-urlencoded");
+            tt0 tt0Var = new tt0();
+            tt0Var.l(str);
+            tt0Var.f(st0Var);
+            at0.b().a().a(tt0Var, lt0Var);
         }
-        o = p41.b(4, "key", "                   key", 0, 2);
-        p = p41.a(2, "task_id", "               task_id", 1);
-        q = p41.a(2, "status", "                status", 2);
-        r = p41.a(4, "package_name", "          package_name", 3);
-        s = p41.a(4, "url", "                   url", 4);
-        t = p41.a(4, "file", "                  file", 5);
-        u = p41.a(2, "progress", "              progress", 6);
-        v = p41.a(2, "v_progress", "            v_progress", 7);
-        w = p41.a(3, "start_download_time", "   start_download_time", 8);
-        x = p41.a(3, "finished_download_time", "finished_download_time", 9);
-        y = p41.a(4, "mt", "                    mt", 10);
-        z = p41.a(4, "ctrl", "                  ctrl", 11);
-        h41 a = p41.a(4, "extra", "                 extra", 12);
-        A = a;
-        h41 h41Var = o;
-        B = new h41[]{h41Var, p, q, r, s, t, u, v, w, x, y, z, a};
-        C = new h41[0];
-        D = new h41[]{h41Var};
-    }
-
-    public w31() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new StringColumn(o);
-        this.b = new IntegerColumn(p);
-        this.c = new IntegerColumn(q);
-        this.d = new StringColumn(r);
-        this.e = new StringColumn(s);
-        this.f = new StringColumn(t);
-        this.g = new IntegerColumn(u);
-        this.h = new IntegerColumn(v);
-        this.i = new LongColumn(w);
-        this.j = new LongColumn(x);
-        this.k = new StringColumn(y);
-        this.l = new StringColumn(z);
-        StringColumn stringColumn = new StringColumn(A);
-        this.m = stringColumn;
-        this.n = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, stringColumn};
-    }
-
-    @Override // com.baidu.tieba.p41
-    public Column[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
-        }
-        return (Column[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p41
-    public h41[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return B;
-        }
-        return (h41[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p41
-    public h41[][] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return C;
-        }
-        return (h41[][]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p41
-    public h41[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return D;
-        }
-        return (h41[]) invokeV.objValue;
     }
 }

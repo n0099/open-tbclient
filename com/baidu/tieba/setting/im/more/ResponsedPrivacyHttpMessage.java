@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k8a;
+import com.baidu.tieba.qaa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.SimpleUser;
 public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k8a privacyData;
+    public qaa privacyData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsedPrivacyHttpMessage(int i) {
@@ -37,7 +37,7 @@ public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
                 return;
             }
         }
-        this.privacyData = new k8a();
+        this.privacyData = new qaa();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -99,12 +99,12 @@ public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
         }
     }
 
-    public k8a getPrivacyData() {
+    public qaa getPrivacyData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.privacyData;
         }
-        return (k8a) invokeV.objValue;
+        return (qaa) invokeV.objValue;
     }
 }

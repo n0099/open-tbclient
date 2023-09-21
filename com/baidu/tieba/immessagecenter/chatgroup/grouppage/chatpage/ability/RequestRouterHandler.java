@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.b;
-import com.baidu.tieba.cp8;
-import com.baidu.tieba.eo8;
+import com.baidu.tieba.bt8;
+import com.baidu.tieba.et8;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.tieba.ko8;
+import com.baidu.tieba.uf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,9 +30,9 @@ import java.io.Serializable;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u00002\u00020\u0001:\u0003\u001b\u001c\u001dB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J$\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u00102\b\u0010\u0011\u001a\u0004\u0018\u00010\u0012H\u0016J$\u0010\u0013\u001a\u0004\u0018\u00010\u00142\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u00102\u0006\u0010\u0015\u001a\u00020\u0016H\u0003J\b\u0010\u0017\u001a\u00020\nH\u0016J\u0010\u0010\u0018\u001a\u00020\f2\u0006\u0010\u0019\u001a\u00020\u0014H\u0002J$\u0010\u001a\u001a\u0004\u0018\u00010\n2\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u00102\u0006\u0010\u0015\u001a\u00020\u0016H\u0002R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001e"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/RequestRouterHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "fragment", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/GroupChatFragment;", "request", "Lcom/baidu/tbadk/net/FastRequest;", "tips", "", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "payload", "", "getCallRobotRequestData", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/RequestRouterHandler$CallRobotRequest;", "conf", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/RequestRouterHandler$Conf;", "provideType", "requestBotSkill", "item", "tryFindBotSkills", "CallRobotRequest", "CallRobotResponse", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000N\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u00002\u00020\u0001:\u0003\u001c\u001d\u001eB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J,\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0010\u0010\u000f\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0011\u0018\u00010\u00102\b\u0010\u0012\u001a\u0004\u0018\u00010\u0013H\u0016J,\u0010\u0014\u001a\u0004\u0018\u00010\u00152\u0006\u0010\r\u001a\u00020\u000e2\u0010\u0010\u000f\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0011\u0018\u00010\u00102\u0006\u0010\u0016\u001a\u00020\u0017H\u0003J\b\u0010\u0018\u001a\u00020\nH\u0016J\u0010\u0010\u0019\u001a\u00020\f2\u0006\u0010\u001a\u001a\u00020\u0015H\u0002J,\u0010\u001b\u001a\u0004\u0018\u00010\n2\u0006\u0010\r\u001a\u00020\u000e2\u0010\u0010\u000f\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0011\u0018\u00010\u00102\u0006\u0010\u0016\u001a\u00020\u0017H\u0002R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/RequestRouterHandler;", "Lcom/baidu/tieba/im/base/core/uilist/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "fragment", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/GroupChatFragment;", "request", "Lcom/baidu/tbadk/net/FastRequest;", "tips", "", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "payload", "", "getCallRobotRequestData", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/RequestRouterHandler$CallRobotRequest;", "conf", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/RequestRouterHandler$Conf;", "provideType", "requestBotSkill", "item", "tryFindBotSkills", "CallRobotRequest", "CallRobotResponse", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class RequestRouterHandler extends ko8 {
+public final class RequestRouterHandler extends uf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ChatPage b;
@@ -40,7 +40,7 @@ public final class RequestRouterHandler extends ko8 {
     public String d;
     public GroupChatFragment e;
 
-    @Override // com.baidu.tieba.ko8
+    @Override // com.baidu.tieba.uf8
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -386,16 +386,16 @@ public final class RequestRouterHandler extends ko8 {
         }
         Intrinsics.checkNotNullParameter(chatPage, "chatPage");
         this.b = chatPage;
-        GroupChatFragment H0 = chatPage.H0();
-        Intrinsics.checkNotNullExpressionValue(H0, "chatPage.groupChatFragment");
-        this.e = H0;
+        GroupChatFragment J0 = chatPage.J0();
+        Intrinsics.checkNotNullExpressionValue(J0, "chatPage.groupChatFragment");
+        this.e = J0;
     }
 
-    @Override // com.baidu.tieba.ko8
-    public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
+    @Override // com.baidu.tieba.uf8
+    public void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseMsg, obj) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseItem, obj) == null) {
             Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
             Conf conf = (Conf) DataExt.toEntity(abilityItem.getConfMap(), Conf.class);
             AbilityItem.StyleConf styleConf = abilityItem.getStyleConf();
@@ -405,57 +405,68 @@ public final class RequestRouterHandler extends ko8 {
                 str = null;
             }
             this.d = str;
-            CallRobotRequest f = f(abilityItem, baseMsg, conf);
+            CallRobotRequest f = f(abilityItem, baseItem, conf);
             if (f != null) {
                 g(f);
             }
         }
     }
 
-    public final CallRobotRequest f(AbilityItem abilityItem, BaseMsg baseMsg, Conf conf) {
+    public final CallRobotRequest f(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Conf conf) {
         InterceptResult invokeLLL;
-        CommonMsgField commonMsgField;
+        TbBaseMsg tbBaseMsg;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseMsg, conf)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseItem, conf)) == null) {
             CallRobotRequest callRobotRequest = null;
-            if (baseMsg != null) {
-                commonMsgField = baseMsg.getCommonMsgField();
+            if (baseItem != null) {
+                tbBaseMsg = baseItem.getTbMsg();
             } else {
-                commonMsgField = null;
+                tbBaseMsg = null;
             }
-            if (commonMsgField != null) {
-                long roomId = commonMsgField.getRoomId();
-                long forumId = commonMsgField.getForumId();
+            if (tbBaseMsg != null) {
+                long sessionId = tbBaseMsg.getSessionId();
+                TbBaseMsg.c forumExt = tbBaseMsg.getForumExt();
+                if (forumExt != null) {
+                    j = forumExt.a();
+                } else {
+                    j = 0;
+                }
                 String botUk = conf.getBotUk();
                 long skillId = conf.getSkillId();
-                long msgId = commonMsgField.getMsgId();
-                String msgKey = commonMsgField.getMsgKey();
-                Intrinsics.checkNotNullExpressionValue(msgKey, "it.msgKey");
-                String h = h(abilityItem, baseMsg, conf);
+                long msgId = tbBaseMsg.getMsgId();
+                String msgKey = tbBaseMsg.getMsgKey();
+                String h = h(abilityItem, baseItem, conf);
                 if (h == null) {
                     h = "";
                 }
-                callRobotRequest = new CallRobotRequest(roomId, forumId, botUk, skillId, msgId, msgKey, h);
+                callRobotRequest = new CallRobotRequest(sessionId, j, botUk, skillId, msgId, msgKey, h);
             }
             return callRobotRequest;
         }
         return (CallRobotRequest) invokeLLL.objValue;
     }
 
-    public final String h(AbilityItem abilityItem, BaseMsg baseMsg, Conf conf) {
+    public final String h(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Conf conf) {
         InterceptResult invokeLLL;
+        TbBaseMsg tbBaseMsg;
         BotsDTO.BotListDTO botListDTO;
         BotsDTO.BotListDTO.SkillDTO skillDTO;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, abilityItem, baseMsg, conf)) == null) {
-            if (baseMsg instanceof TextMsg) {
-                ((TextMsg) baseMsg).getText();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, abilityItem, baseItem, conf)) == null) {
+            if (baseItem != null) {
+                tbBaseMsg = baseItem.getTbMsg();
+            } else {
+                tbBaseMsg = null;
+            }
+            if (tbBaseMsg instanceof TbTextMsg) {
+                ((TbTextMsg) baseItem.getTbMsg()).getText();
             }
             String botUk = conf.getBotUk();
             long skillId = conf.getSkillId();
-            BotsDTO F0 = this.b.F0();
-            if (F0 != null) {
-                botListDTO = F0.findBotByUk(botUk);
+            BotsDTO H0 = this.b.H0();
+            if (H0 != null) {
+                botListDTO = H0.findBotByUk(botUk);
             } else {
                 botListDTO = null;
             }
@@ -465,7 +476,7 @@ public final class RequestRouterHandler extends ko8 {
                 skillDTO = null;
             }
             if (skillDTO != null) {
-                HashMap<String, Object> g = cp8.g(skillDTO, skillDTO.getItems(), null);
+                HashMap<String, Object> g = et8.g(skillDTO, skillDTO.getItems(), null);
                 Intrinsics.checkNotNullExpressionValue(g, "assembleRobotParams(it, skillDTO.items, null)");
                 return DataExt.toJson(g);
             }
@@ -490,7 +501,7 @@ public final class RequestRouterHandler extends ko8 {
             fastRequest.N("msg_id", Long.valueOf(callRobotRequest.getMsgId()));
             fastRequest.N("msg_key", callRobotRequest.getMsgKey());
             fastRequest.N("robot_params", callRobotRequest.getRobotParams());
-            fastRequest.P(new eo8(this.d, this.b));
+            fastRequest.P(new bt8(this.d, this.b));
             FastRequest fastRequest2 = this.c;
             Intrinsics.checkNotNull(fastRequest2);
             fastRequest2.O();

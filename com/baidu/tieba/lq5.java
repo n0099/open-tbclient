@@ -6,14 +6,53 @@ import com.baidu.tbadk.mutiprocess.IEvent;
 import com.baidu.tbadk.mutiprocess.ParcelableEvent;
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
 import com.baidu.tbadk.mutiprocess.StickyEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class lq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-624325348, "Lcom/baidu/tieba/lq5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-624325348, "Lcom/baidu/tieba/lq5$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[DataType.values().length];
+            a = iArr;
+            try {
+                iArr[DataType.ORM.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[DataType.PARCELABLE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[DataType.SERIALIZABLE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     public lq5() {
         Interceptable interceptable = $ic;
@@ -29,19 +68,26 @@ public class lq5 {
         }
     }
 
-    public void a(Intent intent, IEvent iEvent) {
+    public IEvent a(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, iEvent) == null) {
-            if (iEvent instanceof StickyEvent) {
-                intent.putExtra("value_type", DataType.ORM.ordinal());
-                intent.putExtra("value", (StickyEvent) iEvent);
-            } else if (iEvent instanceof ParcelableEvent) {
-                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
-                intent.putExtra("value", (ParcelableEvent) iEvent);
-            } else if (iEvent instanceof SerializableEvent) {
-                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
-                intent.putExtra("value", (SerializableEvent) iEvent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            int intExtra = intent.getIntExtra("value_type", -1);
+            if (intExtra < 0) {
+                return null;
             }
+            int i = a.a[DataType.values()[intExtra].ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return (SerializableEvent) intent.getSerializableExtra("value");
+                }
+                return (ParcelableEvent) intent.getParcelableExtra("value");
+            }
+            return (StickyEvent) intent.getSerializableExtra("value");
         }
+        return (IEvent) invokeL.objValue;
     }
 }

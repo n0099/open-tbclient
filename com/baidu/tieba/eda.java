@@ -1,17 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
-import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface eda {
-    boolean a();
+public class eda {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile dda a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(ifa ifaVar);
-
-    void c(Activity activity, SpriteTipHttpResponseMessage spriteTipHttpResponseMessage, HomePageSpriteBottomTipView homePageSpriteBottomTipView);
-
-    void d();
-
-    void hide();
+    public static synchronized dda a() {
+        InterceptResult invokeV;
+        dda ddaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (eda.class) {
+                if (a == null) {
+                    a = new dda();
+                }
+                ddaVar = a;
+            }
+            return ddaVar;
+        }
+        return (dda) invokeV.objValue;
+    }
 }

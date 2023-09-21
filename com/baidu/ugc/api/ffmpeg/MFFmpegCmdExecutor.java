@@ -3,27 +3,27 @@ package com.baidu.ugc.api.ffmpeg;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.media.transcoder.FFmpegCmdExecutor;
-import com.baidu.tieba.fib;
-import com.baidu.tieba.leb;
-import com.baidu.tieba.ze0;
+import com.baidu.tieba.dgb;
+import com.baidu.tieba.xjb;
+import com.baidu.tieba.ye0;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
-public class MFFmpegCmdExecutor implements fib {
+public class MFFmpegCmdExecutor implements xjb {
     public static final String TAG = "MFFmpegCmdExecutor_tag";
     public FFmpegCmdExecutor mFFmpegCmdExecutor;
-    public fib.a mFFmpegCmdListener;
+    public xjb.a mFFmpegCmdListener;
 
     /* loaded from: classes9.dex */
     public class a implements FFmpegCmdExecutor.b {
-        public final /* synthetic */ fib.a a;
+        public final /* synthetic */ xjb.a a;
 
-        public a(MFFmpegCmdExecutor mFFmpegCmdExecutor, fib.a aVar) {
+        public a(MFFmpegCmdExecutor mFFmpegCmdExecutor, xjb.a aVar) {
             this.a = aVar;
         }
 
         @Override // com.baidu.media.transcoder.FFmpegCmdExecutor.b
         public void onCompletion() {
-            fib.a aVar = this.a;
+            xjb.a aVar = this.a;
             if (aVar != null) {
                 aVar.onCompletion();
             }
@@ -31,7 +31,7 @@ public class MFFmpegCmdExecutor implements fib {
 
         @Override // com.baidu.media.transcoder.FFmpegCmdExecutor.b
         public boolean onError(int i, int i2, Object obj) {
-            fib.a aVar = this.a;
+            xjb.a aVar = this.a;
             if (aVar != null) {
                 return aVar.onError(i, i2, obj);
             }
@@ -40,7 +40,7 @@ public class MFFmpegCmdExecutor implements fib {
 
         @Override // com.baidu.media.transcoder.FFmpegCmdExecutor.b
         public boolean onInfo(int i, int i2, Object obj) {
-            fib.a aVar = this.a;
+            xjb.a aVar = this.a;
             if (aVar != null) {
                 return aVar.onInfo(i, i2, obj);
             }
@@ -50,16 +50,16 @@ public class MFFmpegCmdExecutor implements fib {
 
     public MFFmpegCmdExecutor() {
         String str;
-        if (ze0.a() == null || TextUtils.isEmpty(ze0.b())) {
-            Context context = leb.c().getContext() != null ? leb.c().getContext() : null;
-            if (!TextUtils.isEmpty(leb.c().b())) {
-                str = leb.c().b();
+        if (ye0.a() == null || TextUtils.isEmpty(ye0.b())) {
+            Context context = dgb.c().getContext() != null ? dgb.c().getContext() : null;
+            if (!TextUtils.isEmpty(dgb.c().b())) {
+                str = dgb.c().b();
             } else {
                 str = "quanmin_unknow";
             }
             if (context != null) {
                 try {
-                    ze0.d(context, str);
+                    ye0.d(context, str);
                 } catch (Exception unused) {
                 }
             }
@@ -67,30 +67,30 @@ public class MFFmpegCmdExecutor implements fib {
         this.mFFmpegCmdExecutor = new FFmpegCmdExecutor();
     }
 
-    @Override // com.baidu.tieba.fib
+    @Override // com.baidu.tieba.xjb
     public void release() {
         this.mFFmpegCmdExecutor.g();
     }
 
-    @Override // com.baidu.tieba.fib
+    @Override // com.baidu.tieba.xjb
     public void start() {
-        if (ze0.a() != null && !TextUtils.isEmpty(ze0.b())) {
+        if (ye0.a() != null && !TextUtils.isEmpty(ye0.b())) {
             this.mFFmpegCmdExecutor.j();
             return;
         }
-        fib.a aVar = this.mFFmpegCmdListener;
+        xjb.a aVar = this.mFFmpegCmdListener;
         if (aVar != null) {
             aVar.onError(-9527, -9527, "TranscoderManager install error");
         }
     }
 
-    @Override // com.baidu.tieba.fib
-    public synchronized void setListener(fib.a aVar) {
+    @Override // com.baidu.tieba.xjb
+    public synchronized void setListener(xjb.a aVar) {
         this.mFFmpegCmdListener = aVar;
         this.mFFmpegCmdExecutor.h(new a(this, aVar));
     }
 
-    @Override // com.baidu.tieba.fib
+    @Override // com.baidu.tieba.xjb
     public void setSource(ArrayList<String> arrayList) {
         this.mFFmpegCmdExecutor.i(arrayList);
     }

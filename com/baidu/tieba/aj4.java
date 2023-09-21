@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import java.util.Set;
+import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes5.dex */
 public interface aj4 {
-    @NonNull
-    Bundle m(@NonNull Bundle bundle, Set<String> set);
+    void a(PMSAppInfo pMSAppInfo);
 }

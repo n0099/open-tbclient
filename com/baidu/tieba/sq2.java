@@ -14,16 +14,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sq2 extends bp2<sr2> {
+public class sq2 extends ap2<rr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteAudioLevels" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteUserList" : (String) invokeV.objValue;
     }
 
     public sq2() {
@@ -40,7 +40,7 @@ public class sq2 extends bp2<sr2> {
         }
     }
 
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     public void c(@NonNull ZeusPlugin.Command command) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
@@ -49,19 +49,19 @@ public class sq2 extends bp2<sr2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull sr2 sr2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
         JSONObject a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, sr2Var) == null) {
-            ArrayList<ur2> v = sr2Var.v();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, rr2Var) == null) {
+            ArrayList<vr2> h = rr2Var.h();
             JSONObject jSONObject = new JSONObject();
             JSONArray jSONArray = new JSONArray();
-            if (v != null) {
-                Iterator<ur2> it = v.iterator();
+            if (h != null) {
+                Iterator<vr2> it = h.iterator();
                 while (it.hasNext()) {
-                    ur2 next = it.next();
+                    vr2 next = it.next();
                     if (next == null) {
                         a = null;
                     } else {
@@ -73,12 +73,12 @@ public class sq2 extends bp2<sr2> {
                 }
             }
             try {
-                jSONObject.put("audioLevels", jSONArray);
+                jSONObject.put("userList", jSONArray);
             } catch (JSONException unused) {
             }
             command.obj = jSONObject;
             String str = command.what;
-            d(sr2Var, str, "" + command.obj, true);
+            d(rr2Var, str, "" + command.obj, true);
         }
     }
 }

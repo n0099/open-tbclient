@@ -1,34 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.log.DefaultLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Service
+import tbclient.EsportRank;
+import tbclient.EsportUser;
 /* loaded from: classes6.dex */
-public class jz7 implements hz4.d {
+public class jz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.hz4.d
-    @NonNull
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "personCenter.sendGif" : (String) invokeV.objValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public jz7() {
         Interceptable interceptable = $ic;
@@ -44,37 +35,95 @@ public class jz7 implements hz4.d {
         }
     }
 
-    @Override // com.baidu.tieba.hz4.c
-    public void a(@NonNull String str) {
-        boolean z;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("picId");
-                String optString2 = jSONObject.optString("url");
-                String optString3 = jSONObject.optString("uid");
-                int optInt = jSONObject.optInt("width");
-                int optInt2 = jSONObject.optInt("height");
-                String optString4 = jSONObject.optString("toUserName");
-                String optString5 = jSONObject.optString("toUserNameShow");
-                String optString6 = jSONObject.optString("toUserPortrait");
-                int optInt3 = jSONObject.optInt("isFriend");
-                if (!TextUtils.equals(optString3, TbadkCoreApplication.getCurrentAccount()) && !TextUtils.equals(optString6, TbadkCoreApplication.getCurrentPortrait())) {
-                    long j = JavaTypesHelper.toLong(optString3, 0L);
-                    if (optInt3 == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    MessageUtils.createAndSendPersonalReactionsPicChatMessage(optString, optString2, optInt, optInt2, j, optString4, optString5, optString6, z);
-                }
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i("SendGifHybridNotify", "发送私聊图片消息失败，uid或头像不一致" + optString3 + " " + TbadkCoreApplication.getCurrentAccount() + " " + optString6 + " " + TbadkCoreApplication.getCurrentPortrait());
-            } catch (Exception e) {
-                TbLog defaultLog2 = DefaultLog.getInstance();
-                defaultLog2.i("SendGifHybridNotify", "发送私聊图片消息失败" + e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h(EsportRank esportRank) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, esportRank) == null) && esportRank != null) {
+            this.a = esportRank.title;
+            this.b = String.valueOf(esportRank.rank);
+            this.c = esportRank.text;
+            this.g = esportRank.url;
+            EsportUser esportUser = esportRank.user;
+            if (esportUser != null) {
+                this.d = esportUser.steam_name;
+                this.e = esportUser.steam_portrait;
             }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.g = str;
         }
     }
 }

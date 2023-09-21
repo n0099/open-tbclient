@@ -1,45 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.style.ClickableSpan;
+import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThreadRecommendInfo;
 /* loaded from: classes6.dex */
-public final class ib7 implements cb7 {
+public final class ib7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ib7() {
+    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<yc7<? extends Object>> mutableList) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, threadRecommendInfo, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            mutableList.add(new r77(b(threadRecommendInfo)));
         }
     }
 
-    @Override // com.baidu.tieba.cb7
-    public SpannableString b(Context context, t97 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
+    public static final ThreadRecommendInfoData b(ThreadRecommendInfo threadRecommendInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString j = d26.j(richTextData.b());
-            Intrinsics.checkNotNullExpressionValue(j, "getFaceSpannableString(richTextData.emoji)");
-            return j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadRecommendInfo)) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
+            threadRecommendInfoData.parseProto(threadRecommendInfo);
+            return threadRecommendInfoData;
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (ThreadRecommendInfoData) invokeL.objValue;
     }
 }

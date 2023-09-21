@@ -1,210 +1,200 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
 import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.q61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class o21 {
+public class o21 extends j21 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980251, "Lcom/baidu/tieba/o21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final o21 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-596738851, "Lcom/baidu/tieba/o21$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-596738851, "Lcom/baidu/tieba/o21$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947980251, "Lcom/baidu/tieba/o21;");
+            a = new o21(null);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o21() {
+        super("com.baidu.nadcore_videoplayer");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = bu0.f();
-        b = -1;
-        c = e81.a(15.0f);
     }
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String c2 = f71.c();
-            if (TextUtils.equals(c2, "EMUI") && b(context)) {
-                return 1;
-            }
-            if (TextUtils.equals(c2, "MIUI") && e(context)) {
-                return 1;
-            }
-            if (TextUtils.equals(c2, "OPPO") && c(context)) {
-                return 1;
-            }
-            if ((TextUtils.equals(c2, "VIVO") && d(context)) || "ONEPLUS A6000".equals(Build.MODEL)) {
-                return 1;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
-                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
-            } catch (Exception e) {
-                if (!a) {
-                    return false;
-                }
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                if (((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() != 1) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                if (!a) {
-                    return false;
-                }
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (a) {
-                tk0.e("VideoNotchUtils", "isNotch start");
-            }
-            if (b == -1) {
-                if (Build.VERSION.SDK_INT < 24) {
-                    b = 0;
-                } else if (b == -1) {
-                    b = a(context);
-                    tk0.e("VideoNotchUtils", "isNotch from getNotchState");
-                }
-            }
-            if (a) {
-                tk0.e("VideoNotchUtils", "isNotch end");
-            }
-            if (b != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
-            } catch (Exception e) {
-                if (!a) {
-                    return false;
-                }
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(@NonNull wz0 wz0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, wz0Var) == null) && wz0Var.getContentView() != null && (wz0Var.getContentView() instanceof ViewGroup)) {
-            ViewGroup viewGroup = (ViewGroup) wz0Var.getContentView();
-            viewGroup.setPadding(0, 0, 0, 0);
-            viewGroup.setLayoutParams(viewGroup.getLayoutParams());
-        }
-    }
-
-    public static void i(@NonNull wz0 wz0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, wz0Var) == null) && g(tj0.b())) {
-            h(wz0Var);
-        }
-    }
-
-    public static void k(@NonNull wz0 wz0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, wz0Var) == null) && g(tj0.b())) {
-            j(wz0Var, q61.c.g(), q61.c.g());
-        }
-    }
-
-    public static boolean f() {
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m"};
-            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
-                for (int i = 0; i < 6; i++) {
-                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new j21("").getString("ad_pcdn_time_config", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new j21("").getString("ad_pcdn_white_list", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return k().getBoolean("clarity1080", false);
         }
         return invokeV.booleanValue;
     }
 
-    public static void j(@NonNull wz0 wz0Var, int i, int i2) {
+    public static int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65546, null, wz0Var, i, i2) == null) {
-            int max = Math.max(i, c);
-            int max2 = Math.max(i2, c);
-            if (wz0Var.getContentView() != null && (wz0Var.getContentView() instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) wz0Var.getContentView();
-                viewGroup.setPadding(max, 0, max2, 0);
-                viewGroup.setLayoutParams(viewGroup.getLayoutParams());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return k().getInt("fast_forward_max_speed", 3);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return k().getInt("fast_forward_speed", 2);
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return TextUtils.equals(k().getString("autoPauseOnDeviceDisconnect", "1"), "1");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static o21 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return b.a;
+        }
+        return (o21) invokeV.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new j21("").getBoolean("video_player_multiple_enable", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return new j21("").getBoolean("video_pcdn_switch_force", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return new j21("").getString("video_pcdn_time_config", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return new j21("").getString("video_pcdn_white_list", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return new j21("").getBoolean("video_player_debug_enable", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return k().getBoolean("show_long_press_guide", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ o21(a aVar) {
+        this();
+    }
+
+    public static void r(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) {
+            if ("https://searchvideo.cdn.bcebos.com/default/default.mp4".equals(str2)) {
+                k().c("key_current_video_nid_ufo", "");
+                k().c("key_current_video_url_ufo", "");
+                return;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                k().c("key_current_video_nid_ufo", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                k().c("key_current_video_url_ufo", str2);
             }
         }
     }

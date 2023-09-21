@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fga;
+import com.baidu.tieba.lia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<fga> g;
+    public List<lia> g;
     public int h;
     public Runnable i;
 
@@ -268,7 +268,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<fga> list) {
+    public void m(List<lia> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -290,13 +290,13 @@ public class FrsAdCommentScrollView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = new LinkedList();
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0349, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090824);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09197b);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090823);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d034a, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090818);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091967);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090817);
             this.c = frameLayout;
             frameLayout.setTag(this.a);
-            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09197a);
+            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091966);
             this.d = frameLayout2;
             frameLayout2.setTag(this.b);
         }
@@ -324,25 +324,25 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        fga fgaVar;
+        lia liaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            fga fgaVar2 = (fga) ListUtils.getItem(this.g, this.h);
+            lia liaVar2 = (lia) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                fgaVar = (fga) ListUtils.getItem(this.g, 0);
+                liaVar = (lia) ListUtils.getItem(this.g, 0);
             } else {
-                fgaVar = (fga) ListUtils.getItem(this.g, this.h + 1);
+                liaVar = (lia) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && fgaVar2 != null) {
-                String a2 = fgaVar2.a();
-                if (fgaVar2.b()) {
+            if ((this.c.getTag() instanceof TextView) && liaVar2 != null) {
+                String a2 = liaVar2.a();
+                if (liaVar2.b()) {
                     a2 = getContext().getString(R.string.obfuscated_res_0x7f0f0884, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if ((this.d.getTag() instanceof TextView) && fgaVar != null) {
-                String a3 = fgaVar.a();
-                if (fgaVar.b()) {
+            if ((this.d.getTag() instanceof TextView) && liaVar != null) {
+                String a3 = liaVar.a();
+                if (liaVar.b()) {
                     a3 = getContext().getString(R.string.obfuscated_res_0x7f0f0884, a3);
                 }
                 ((TextView) this.d.getTag()).setText(a3);

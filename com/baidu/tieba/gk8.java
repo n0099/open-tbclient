@@ -1,45 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class gk8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gk8 {
+    public static final a a = a.a;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String urlDecode = ei.getUrlDecode(str);
-            if (urlDecode == null) {
-                return urlDecode;
-            }
-            int lastIndexOf = urlDecode.lastIndexOf("/");
-            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
-                return null;
-            }
-            return urlDecode.substring(lastIndexOf + 1, indexOf);
-        }
-        return (String) invokeL.objValue;
-    }
+    void a(List<? extends ChatMsg> list);
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
+        public static final gk8 c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-772922856, "Lcom/baidu/tieba/gk8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-772922856, "Lcom/baidu/tieba/gk8$a;");
+                    return;
+                }
             }
-            String urlDecode = ei.getUrlDecode(str);
-            if (StringUtils.isNull(urlDecode) || !urlDecode.contains("?t=")) {
-                return false;
-            }
-            return true;
+            a = new a();
+            ServiceReference serviceReference = new ServiceReference("MessageCenter", "MessageCenterAIBotService");
+            b = serviceReference;
+            Object service = ServiceManager.getService(serviceReference);
+            Intrinsics.checkNotNullExpressionValue(service, "getService<IMessageCente…ervice>(serviceReference)");
+            c = (gk8) service;
         }
-        return invokeL.booleanValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final gk8 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return c;
+            }
+            return (gk8) invokeV.objValue;
+        }
     }
 }

@@ -1,167 +1,163 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.ForumGroup;
+import tbclient.FrsPage.GroupFeedCard;
 /* loaded from: classes7.dex */
-public class on7 extends nn7 {
+public final class on7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout K;
-    public TextView L;
-    public TextView M;
-    public TextView N;
+    public final GroupFeedCard a;
+    public final String b;
 
-    @Override // com.baidu.tieba.nn7, com.baidu.tieba.no6
-    public int d() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final void f(ForumGroup forumGroup, List<bn> list, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d01be : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, forumGroup, list, str) == null) {
+            c.b(forumGroup, list, str);
+        }
     }
 
     /* loaded from: classes7.dex */
-    public class a implements x06 {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ on7 a;
 
-        public a(on7 on7Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {on7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = on7Var;
         }
 
-        @Override // com.baidu.tieba.x06
-        public void a(View view2, int i, boolean z) {
+        public final BdUniqueId a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                on7 on7Var = this.a;
-                if (on7Var.v != null && on7Var.O()) {
-                    UrlManager urlManager = UrlManager.getInstance();
-                    on7 on7Var2 = this.a;
-                    urlManager.dealOneLink(on7Var2.b, new String[]{on7Var2.v.getActUrl()});
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (BdUniqueId) invokeV.objValue;
+            }
+            return on7.d;
+        }
+
+        @JvmStatic
+        public final void b(ForumGroup frsForumGroup, List<bn> newList, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsForumGroup, newList, str) == null) {
+                Intrinsics.checkNotNullParameter(frsForumGroup, "frsForumGroup");
+                Intrinsics.checkNotNullParameter(newList, "newList");
+                int i = 0;
+                int i2 = 0;
+                for (bn bnVar : newList) {
+                    Integer num = frsForumGroup.feed_card.index;
+                    Intrinsics.checkNotNullExpressionValue(num, "frsForumGroup.feed_card.index");
+                    if (i >= num.intValue()) {
+                        break;
+                    }
+                    if (!Intrinsics.areEqual(bnVar.getType(), ThreadData.TYPE_TOP) && !iw5.p(bnVar)) {
+                        i++;
+                    }
+                    i2++;
+                }
+                if (i2 <= newList.size()) {
+                    GroupFeedCard groupFeedCard = frsForumGroup.feed_card;
+                    Intrinsics.checkNotNullExpressionValue(groupFeedCard, "frsForumGroup.feed_card");
+                    newList.add(i2, new on7(groupFeedCard, str));
                 }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public on7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038097, "Lcom/baidu/tieba/on7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948038097, "Lcom/baidu/tieba/on7;");
+                return;
+            }
+        }
+        c = new a(null);
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        d = gen;
+    }
+
+    public on7(GroupFeedCard data, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {data, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        View h = h();
-        this.K = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f09168f);
-        this.L = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091692);
-        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091690);
-        this.N = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091686);
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nn7, com.baidu.tieba.no6
-    /* renamed from: A */
-    public void i(ThreadData threadData) {
+    public final GroupFeedCard d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, threadData) != null) || threadData == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        if (ListUtils.getCount(threadData.getMedias()) > 1) {
-            ArrayList<MediaData> arrayList = new ArrayList<>();
-            arrayList.add(threadData.getMedias().get(0));
-            threadData.setMedias(arrayList);
-        }
-        super.i(threadData);
-        this.z.setImageClickListener(new a(this));
-        c15 c15Var = (c15) ListUtils.getItem(threadData.getActDatas(), 0);
-        if (c15Var != null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-            this.L.setText(StringUtils.string(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3f), GlideException.IndentedAppendable.INDENT, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(c15Var.b()))), "-", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(c15Var.c())))));
-            this.M.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3a), String.valueOf(c15Var.f())));
-            this.N.setText(R.string.obfuscated_res_0x7f0f0c39);
-            this.k.setCommentNumEnable(false);
-        }
+        return (GroupFeedCard) invokeV.objValue;
     }
 
-    public boolean O() {
+    public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TbadkCoreApplication.isLogin()) {
-                return true;
-            }
-            ViewHelper.skipToLoginActivity(this.b.getPageActivity());
-            return false;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nn7
-    public void z(boolean z) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && this.v != null && O()) {
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{this.v.getActUrl()});
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return d;
         }
-    }
-
-    @Override // com.baidu.tieba.nn7, com.baidu.tieba.no6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            if (this.u != i) {
-                SkinManager.setBackgroundColor(this.K, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.L, (int) R.color.CAM_X0106);
-                SkinManager.setViewTextColor(this.M, (int) R.color.CAM_X0106);
-                SkinManager.setViewTextColor(this.N, (int) R.color.CAM_X0302);
-                SkinManager.setBackgroundResource(this.N, R.drawable.bg_card_frs_lottery_btn);
-            }
-            super.j(tbPageContext, i);
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

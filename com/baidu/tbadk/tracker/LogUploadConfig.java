@@ -1,9 +1,11 @@
 package com.baidu.tbadk.tracker;
 
 import androidx.annotation.Keep;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.lf5;
+import com.baidu.tieba.lra;
+import com.baidu.tieba.pf5;
 import com.baidu.tieba.tracker.Tracker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +20,7 @@ import org.json.JSONObject;
 @Service
 @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0007\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016¨\u0006\u0007"}, d2 = {"Lcom/baidu/tbadk/tracker/LogUploadConfig;", "Lcom/baidu/tbadk/coreExtra/parser/WlConfigParseInject;", "()V", "parseJson", "", "json", "Lorg/json/JSONObject;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class LogUploadConfig implements lf5 {
+public final class LogUploadConfig implements pf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,8 +38,11 @@ public final class LogUploadConfig implements lf5 {
         }
     }
 
-    @Override // com.baidu.tieba.lf5
+    @Override // com.baidu.tieba.pf5
     public void parseJson(JSONObject json) {
+        boolean z;
+        Map<String, Object> map;
+        String jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
             Intrinsics.checkNotNullParameter(json, "json");
@@ -46,28 +51,44 @@ public final class LogUploadConfig implements lf5 {
                 if (optJSONObject != null) {
                     int optInt = optJSONObject.optInt("frequency_min");
                     if (optInt > 0) {
-                        Tracker.i.a().r(optInt);
+                        Tracker.i.a().s(optInt);
                     }
                     Tracker a = Tracker.i.a();
-                    boolean z = false;
                     if (optJSONObject.optInt("global", 0) == 1) {
                         z = true;
+                    } else {
+                        z = false;
                     }
-                    a.q(z);
+                    a.r(z);
+                    lra.a.b(optJSONObject.optInt("errlog_switch", 1));
                     JSONArray optJSONArray = optJSONObject.optJSONArray("page");
                     if (optJSONArray != null) {
                         Intrinsics.checkNotNullExpressionValue(optJSONArray, "optJSONArray(\"page\")");
-                        for (Map.Entry<String, Object> entry : DataExt.toMap(optJSONArray).entrySet()) {
-                            if (Intrinsics.areEqual(entry.getValue(), (Object) 1)) {
-                                Tracker.i.a().i().add(entry.getKey());
+                        int length = optJSONArray.length();
+                        for (int i = 0; i < length; i++) {
+                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                            if (jSONObject2 != null && (jSONObject = jSONObject2.toString()) != null) {
+                                Intrinsics.checkNotNullExpressionValue(jSONObject, "toString()");
+                                map = DataExt.toMap(jSONObject);
                             } else {
-                                Tracker.i.a().h().add(entry.getKey());
+                                map = null;
+                            }
+                            if (map != null) {
+                                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                                    String key = entry.getKey();
+                                    Object value = entry.getValue();
+                                    if (Intrinsics.areEqual(value, "0")) {
+                                        Tracker.i.a().i().add(key);
+                                    } else if (Intrinsics.areEqual(value, "1")) {
+                                        Tracker.i.a().j().add(key);
+                                    }
+                                }
                             }
                         }
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                BdLog.e(e);
             }
         }
     }

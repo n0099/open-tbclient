@@ -1,199 +1,138 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.LinkedHashMap;
+import java.security.cert.CertificateParsingException;
+import java.security.cert.X509Certificate;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+import java.util.Locale;
+import java.util.regex.Pattern;
+import javax.net.ssl.SSLException;
+import okhttp3.CertificatePinner;
 /* loaded from: classes7.dex */
-public final class p1c<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
+public class p1c {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<M> a;
-    public final Class<B> b;
-    public final Map<Integer, k1c<M, B>> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p1c(Class<M> cls, Class<B> cls2, Map<Integer, k1c<M, B>> map) {
-        super(FieldEncoding.LENGTH_DELIMITED, cls);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948010631, "Lcom/baidu/tieba/p1c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948010631, "Lcom/baidu/tieba/p1c;");
                 return;
             }
         }
-        this.a = cls;
-        this.b = cls2;
-        this.c = map;
+        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+        String[] strArr = {"ac", "co", FkApkInfoSearchRequestKt.PARAMS_KEY_COM, Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
+        b = strArr;
+        Arrays.sort(strArr);
     }
 
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> p1c<M, B> a(Class<M> cls) {
-        InterceptResult invokeL;
-        Field[] declaredFields;
+    public static final void a(String str, X509Certificate x509Certificate, boolean z) throws SSLException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            Class e = e(cls);
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (Field field : cls.getDeclaredFields()) {
-                WireField wireField = (WireField) field.getAnnotation(WireField.class);
-                if (wireField != null) {
-                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new k1c(wireField, field, e));
+        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, x509Certificate, z) == null) {
+            String[] d = d(x509Certificate);
+            String[] f = f(x509Certificate);
+            v1c.b("", "cn is : " + Arrays.toString(d));
+            v1c.b("", "san is : " + Arrays.toString(f));
+            b(str, d, f, z);
+        }
+    }
+
+    public static final void b(String str, String[] strArr, String[] strArr2, boolean z) throws SSLException {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, strArr, strArr2, Boolean.valueOf(z)}) == null) {
+            LinkedList linkedList = new LinkedList();
+            if (strArr != null && strArr.length > 0 && strArr[0] != null) {
+                linkedList.add(strArr[0]);
+            }
+            if (strArr2 != null) {
+                for (String str2 : strArr2) {
+                    if (str2 != null) {
+                        linkedList.add(str2);
+                    }
                 }
             }
-            return new p1c<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
-        }
-        return (p1c) invokeL.objValue;
-    }
-
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            try {
-                return (Class<B>) Class.forName(cls.getName() + "$Builder");
-            } catch (ClassNotFoundException unused) {
-                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
-            }
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: d */
-    public int encodedSize(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
-            int i = m.cachedSerializedSize;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = 0;
-            for (k1c<M, B> k1cVar : this.c.values()) {
-                Object b = k1cVar.b(m);
-                if (b != null) {
-                    i2 += k1cVar.a().encodedSizeWithTag(k1cVar.c, b);
-                }
-            }
-            int size = i2 + m.unknownFields().size();
-            m.cachedSerializedSize = size;
-            return size;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public M decode(m1c m1cVar) throws IOException {
-        InterceptResult invokeL;
-        ProtoAdapter<?> i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m1cVar)) == null) {
-            B f = f();
-            long c = m1cVar.c();
-            while (true) {
-                int f2 = m1cVar.f();
-                if (f2 != -1) {
-                    k1c<M, B> k1cVar = this.c.get(Integer.valueOf(f2));
-                    if (k1cVar != null) {
-                        try {
-                            if (k1cVar.f()) {
-                                i = k1cVar.a();
+            if (!linkedList.isEmpty()) {
+                StringBuffer stringBuffer = new StringBuffer();
+                String lowerCase = str.trim().toLowerCase(Locale.ENGLISH);
+                Iterator it = linkedList.iterator();
+                boolean z3 = false;
+                while (it.hasNext()) {
+                    String lowerCase2 = ((String) it.next()).toLowerCase(Locale.ENGLISH);
+                    stringBuffer.append(" <");
+                    stringBuffer.append(lowerCase2);
+                    stringBuffer.append('>');
+                    if (it.hasNext()) {
+                        stringBuffer.append(" OR");
+                    }
+                    if (lowerCase2.startsWith(CertificatePinner.Pin.WILDCARD) && lowerCase2.indexOf(46, 2) != -1 && c(lowerCase2) && !g(str)) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z2) {
+                        boolean endsWith = lowerCase.endsWith(lowerCase2.substring(1));
+                        if (endsWith && z) {
+                            if (e(lowerCase) == e(lowerCase2)) {
+                                z3 = true;
+                                continue;
                             } else {
-                                i = k1cVar.i();
+                                z3 = false;
+                                continue;
                             }
-                            k1cVar.j(f, i.decode(m1cVar));
-                        } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                            f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
+                        } else {
+                            z3 = endsWith;
+                            continue;
                         }
                     } else {
-                        FieldEncoding g = m1cVar.g();
-                        f.addUnknownField(f2, g, g.rawProtoAdapter().decode(m1cVar));
+                        z3 = lowerCase.equals(lowerCase2);
+                        continue;
                     }
-                } else {
-                    m1cVar.d(c);
-                    return (M) f.build();
+                    if (z3) {
+                        break;
+                    }
                 }
+                if (z3) {
+                    return;
+                }
+                throw new SSLException("hostname in certificate didn't match: <" + str + "> !=" + ((Object) stringBuffer));
             }
-        } else {
-            return (M) invokeL.objValue;
+            throw new SSLException("Certificate for <" + str + "> doesn't contain CN or DNS subjectAlt");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: h */
-    public String toString(M m) {
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (k1c<M, B> k1cVar : this.c.values()) {
-                Object b = k1cVar.b(m);
-                if (b != null) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(k1cVar.b);
-                    sb.append('=');
-                    if (k1cVar.f) {
-                        b = "██";
-                    }
-                    sb.append(b);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int length = str.length();
+            if (length < 7 || length > 9) {
+                return true;
             }
-            sb.replace(0, 2, this.a.getSimpleName() + '{');
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public void encode(n1c n1cVar, M m) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n1cVar, m) == null) {
-            for (k1c<M, B> k1cVar : this.c.values()) {
-                Object b = k1cVar.b(m);
-                if (b != null) {
-                    k1cVar.a().encodeWithTag(n1cVar, k1cVar.c, b);
-                }
+            int i = length - 3;
+            if (str.charAt(i) != '.') {
+                return true;
             }
-            n1cVar.k(m.unknownFields());
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if ((obj instanceof p1c) && ((p1c) obj).a == this.a) {
+            if (Arrays.binarySearch(b, str.substring(2, i)) < 0) {
                 return true;
             }
             return false;
@@ -201,55 +140,71 @@ public final class p1c<M extends Message<M, B>, B extends Message.a<M, B>> exten
         return invokeL.booleanValue;
     }
 
-    public B f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return this.b.newInstance();
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return (B) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: g */
-    public M redact(M m) {
+    public static String[] d(X509Certificate x509Certificate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
-            Message.a<M, B> newBuilder = m.newBuilder();
-            for (k1c<M, B> k1cVar : this.c.values()) {
-                if (k1cVar.f && k1cVar.a == WireField.Label.REQUIRED) {
-                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", k1cVar.b, this.javaType.getName()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) {
+            List<String> d = new o1c(x509Certificate.getSubjectX500Principal()).d("cn");
+            if (!d.isEmpty()) {
+                String[] strArr = new String[d.size()];
+                d.toArray(strArr);
+                return strArr;
+            }
+            return null;
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public static int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                if (str.charAt(i2) == '.') {
+                    i++;
                 }
-                boolean isAssignableFrom = Message.class.isAssignableFrom(k1cVar.i().javaType);
-                if (!k1cVar.f && (!isAssignableFrom || k1cVar.a.isRepeated())) {
-                    if (isAssignableFrom && k1cVar.a.isRepeated()) {
-                        r1c.k((List) k1cVar.e(newBuilder), k1cVar.i());
-                    }
-                } else {
-                    Object e = k1cVar.e(newBuilder);
-                    if (e != null) {
-                        k1cVar.h(newBuilder, k1cVar.a().redact(e));
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return a.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String[] f(X509Certificate x509Certificate) {
+        InterceptResult invokeL;
+        Collection<List<?>> collection;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, x509Certificate)) == null) {
+            LinkedList linkedList = new LinkedList();
+            try {
+                collection = x509Certificate.getSubjectAlternativeNames();
+            } catch (CertificateParsingException e) {
+                v1c.c("", "Error parsing certificate.", e);
+                collection = null;
+            }
+            if (collection != null) {
+                for (List<?> list : collection) {
+                    if (((Integer) list.get(0)).intValue() == 2) {
+                        linkedList.add((String) list.get(1));
                     }
                 }
             }
-            newBuilder.clearUnknownFields();
-            return newBuilder.build();
+            if (linkedList.isEmpty()) {
+                return null;
+            }
+            String[] strArr = new String[linkedList.size()];
+            linkedList.toArray(strArr);
+            return strArr;
         }
-        return (M) invokeL.objValue;
+        return (String[]) invokeL.objValue;
     }
 }

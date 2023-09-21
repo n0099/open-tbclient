@@ -1,27 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.io.File;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.DeleteTail.ResData;
 /* loaded from: classes5.dex */
-public interface dc9 {
-    public static final String a = File.separator;
-    public static final String b = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String c = b + a + ".tieba_video_monitor";
-    public static final String d = c + a + "v1";
-    public static final String e;
-    public static final String f;
-    public static final String g;
+public class dc9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    static {
-        StringBuilder sb = new StringBuilder();
-        sb.append(d);
-        sb.append(a);
-        e = sb.toString();
-        f = b + a + ".tieba_video_monitor_log";
-        g = f + a + "v1";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(g);
-        sb2.append(a);
-        sb2.toString();
+    public dc9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(ResData resData) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) != null) || resData == null || (l = resData.tailId) == null) {
+            return;
+        }
+        this.a = l.intValue();
     }
 }

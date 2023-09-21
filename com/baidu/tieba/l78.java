@@ -1,32 +1,77 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.personalize.data.RecPersonalizeRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.squareup.wire.Wire;
+import java.io.IOException;
 import tbclient.Personalized.DataRes;
-import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public final class l78 {
+public class l78 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final k78 a(DataRes.Builder builderData, ThreadInfo threadInfo) {
-        InterceptResult invokeLL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, builderData, threadInfo)) == null) {
-            Intrinsics.checkNotNullParameter(builderData, "builderData");
-            Intrinsics.checkNotNullParameter(threadInfo, "threadInfo");
-            Long l = threadInfo.tid;
-            Intrinsics.checkNotNullExpressionValue(l, "threadInfo.tid");
-            k78 k78Var = new k78(l.longValue(), false, 2, null);
-            Integer num2 = builderData.is_need_live_ununiq;
-            if (num2 != null && num2.intValue() == 1 && (num = threadInfo.thread_type) != null && num.intValue() == 69) {
-                k78Var.b(false);
-            }
-            return k78Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947895900, "Lcom/baidu/tieba/l78;")) == null) {
+            return;
         }
-        return (k78) invokeLL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947895900, "Lcom/baidu/tieba/l78;");
+        }
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            y45.k();
+            oe<byte[]> j = y45.j("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+            if (j != null) {
+                j.e("0", new byte[0], 0L);
+            }
+        }
+    }
+
+    public static DataRes b() {
+        InterceptResult invokeV;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            y45.k();
+            oe<byte[]> j = y45.j("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+            if (j != null && (bArr = j.get("0")) != null && bArr.length != 0) {
+                try {
+                    return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+                } catch (IOException e) {
+                    BdLog.e(e);
+                }
+            }
+            return null;
+        }
+        return (DataRes) invokeV.objValue;
+    }
+
+    public static boolean c(ResponsedMessage responsedMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, responsedMessage)) == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest) || ((RecPersonalizeRequest) responsedMessage.getOrginalMessage().getExtra()).getLoadType() != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

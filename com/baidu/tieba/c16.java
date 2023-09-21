@@ -1,125 +1,75 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.view.View;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes5.dex */
-public class c16 implements ImageAssetDelegate {
+public final class c16 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public LocalFileImageLoaderProc b;
-    public boolean c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621953, "Lcom/baidu/tieba/c16;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947621953, "Lcom/baidu/tieba/c16;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947621953, "Lcom/baidu/tieba/c16;")) == null) {
+            return;
         }
-        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    }
-
-    public c16() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.c = false;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d + "/" + TbConfig.getTempDirName() + "/animation/";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947621953, "Lcom/baidu/tieba/c16;");
         }
     }
 
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = a() + str + "/";
-        }
-    }
-
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
+    @JvmStatic
+    public static final Lifecycle a(Context context) {
         InterceptResult invokeL;
+        Context context2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
-            if (ei.isEmpty(this.a)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context instanceof MutableContextWrapper) {
+                context2 = ((MutableContextWrapper) context).getBaseContext();
+            } else {
+                context2 = context;
+            }
+            if (context2 instanceof FragmentActivity) {
+                return ((FragmentActivity) context2).getLifecycle();
+            }
+            if (!GlobalBuildConfig.isDebug()) {
                 return null;
             }
-            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
-            BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResourceFromMemery(str, 36, new Object[0]);
-            if (bdImage == null && b()) {
-                if (this.b == null) {
-                    this.b = new LocalFileImageLoaderProc();
-                }
-                bdImage = this.b.getBitmapFromFile(str, 0, 0);
-            }
-            if (bdImage != null && bdImage.getRawBitmap() != null) {
-                Bitmap rawBitmap = bdImage.getRawBitmap();
-                try {
-                    if (rawBitmap.getConfig() != null) {
-                        return rawBitmap.copy(rawBitmap.getConfig(), false);
-                    }
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    BdLog.e(e);
-                }
-            }
-            BdResourceLoader.getInstance().loadResource(str, 36, null, null);
-            return null;
+            throw new IllegalStateException("context isn't FragmentActivity:" + context);
         }
-        return (Bitmap) invokeL.objValue;
+        return (Lifecycle) invokeL.objValue;
+    }
+
+    @JvmStatic
+    public static final void b(View view2, Context context) {
+        Context context2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, context) == null) {
+            if (view2 != null) {
+                context2 = view2.getContext();
+            } else {
+                context2 = null;
+            }
+            if (context2 instanceof MutableContextWrapper) {
+                ((MutableContextWrapper) context2).setBaseContext(context);
+            } else if (!GlobalBuildConfig.isDebug()) {
+            } else {
+                throw new IllegalStateException("context can't replace :" + context2);
+            }
+        }
     }
 }

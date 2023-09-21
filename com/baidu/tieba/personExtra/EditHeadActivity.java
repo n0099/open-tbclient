@@ -49,7 +49,7 @@ import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zm5;
+import com.baidu.tieba.dn5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,7 +120,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public final /* synthetic */ EditHeadActivity a;
 
         /* loaded from: classes7.dex */
-        public class a implements zm5.d {
+        public class a implements dn5.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ g a;
@@ -143,7 +143,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.a = gVar;
             }
 
-            @Override // com.baidu.tieba.zm5.d
+            @Override // com.baidu.tieba.dn5.d
             public void a(String str, ImageUploadResult imageUploadResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, str, imageUploadResult) == null) {
@@ -151,7 +151,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     Intent intent = this.a.a.getIntent();
                     if (imageUploadResult != null) {
                         if (imageUploadResult.error_code != 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f17d0, false);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f17d4, false);
                         } else {
                             PhotoUrlData photoUrlData = new PhotoUrlData();
                             photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
@@ -174,7 +174,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                                 }
                             }
                             if (EditHeadActivityConfig.FROM_MISSON_SET_COVER.equals(this.a.a.b)) {
-                                this.a.a.Z1(photoUrlData);
+                                this.a.a.B1(photoUrlData);
                             }
                             intent.putExtra(EditHeadActivity.F, String.valueOf(imageUploadResult.picId));
                             intent.putExtra(EditHeadActivity.G, photoUrlData);
@@ -234,27 +234,27 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     z = true;
                 }
                 Bitmap w0 = editHeadsImageView.w0(z);
-                if (w0 == null || !this.a.Y1(str, w0)) {
+                if (w0 == null || !this.a.A1(str, w0)) {
                     return;
                 }
                 if (this.a.h == 0) {
-                    if (!this.a.x) {
-                        Intent intent = this.a.getIntent();
-                        intent.putExtra("upload_image_type", 2);
-                        this.a.setResult(-1, intent);
-                        this.a.closeActivity();
+                    if (this.a.x) {
+                        this.a.v1();
                         return;
                     }
-                    this.a.U1();
+                    Intent intent = this.a.getIntent();
+                    intent.putExtra("upload_image_type", 2);
+                    this.a.setResult(-1, intent);
+                    this.a.closeActivity();
                     return;
                 }
-                zm5 zm5Var = new zm5(FileHelper.getFileDireciory(str), "head");
-                zm5Var.j();
-                zm5Var.l(new a(this));
-                zm5Var.n(this.a.z);
-                zm5Var.g(false);
+                dn5 dn5Var = new dn5(FileHelper.getFileDireciory(str), "head");
+                dn5Var.j();
+                dn5Var.l(new a(this));
+                dn5Var.n(this.a.z);
+                dn5Var.g(false);
                 EditHeadActivity editHeadActivity = this.a;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f17d2));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f17d6));
             }
         }
     }
@@ -530,9 +530,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.m.isShowing()) {
                 return;
             }
-            if ((this.a.g != null || this.a.v != null) && view2.getTag() != null) {
-                this.a.a2(view2.getTag().toString());
+            if ((this.a.g == null && this.a.v == null) || view2.getTag() == null) {
+                return;
             }
+            this.a.C1(view2.getTag().toString());
         }
     }
 
@@ -870,7 +871,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 EditHeadActivity editHeadActivity = this.b;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f17cd));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f17d1));
             }
         }
 
@@ -967,10 +968,42 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         this.y = true;
     }
 
-    public final boolean Y1(String str, Bitmap bitmap) {
+    public final void B1(PhotoUrlData photoUrlData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, photoUrlData) == null) {
+            Intent intent = new Intent(EditHeadActivityConfig.ACTION_UPLOAD_SUCCESS);
+            intent.putExtra(EditHeadActivityConfig.PIC_INFO, photoUrlData);
+            getPageContext().getPageActivity().sendBroadcast(intent);
+        }
+    }
+
+    public final void C1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            j jVar = this.o;
+            if (jVar != null) {
+                jVar.cancel();
+            }
+            j jVar2 = new j(this);
+            this.o = jVar2;
+            jVar2.execute(str);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    @SuppressLint({"ResourceAsColor"})
+    public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            t1();
+        }
+    }
+
+    public final boolean A1(String str, Bitmap bitmap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bitmap)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) {
             try {
                 FileHelper.saveBitmapByRelativelyPath(null, str, bitmap, 80);
                 return true;
@@ -986,7 +1019,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
                 closeLoadingDialog();
                 setResult(0);
@@ -998,48 +1031,16 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         return invokeIL.booleanValue;
     }
 
-    public final void Z1(PhotoUrlData photoUrlData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, photoUrlData) == null) {
-            Intent intent = new Intent(EditHeadActivityConfig.ACTION_UPLOAD_SUCCESS);
-            intent.putExtra(EditHeadActivityConfig.PIC_INFO, photoUrlData);
-            getPageContext().getPageActivity().sendBroadcast(intent);
-        }
-    }
-
-    public final void a2(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            j jVar = this.o;
-            if (jVar != null) {
-                jVar.cancel();
-            }
-            j jVar2 = new j(this);
-            this.o = jVar2;
-            jVar2.execute(str);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    @SuppressLint({"ResourceAsColor"})
-    public void onChangeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            S1();
-        }
-    }
-
     public static void startActivityForResult(Activity activity, int i2, int i3, Uri uri, AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), uri, accountData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), uri, accountData}) == null) {
             startActivityForResult(activity, i2, i3, uri, accountData, 0);
         }
     }
 
     public static void startActivityForResult(Activity activity, int i2, int i3, Uri uri, AccountData accountData, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), uri, accountData, Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), uri, accountData, Integer.valueOf(i4)}) == null) {
             Intent intent = new Intent(activity, EditHeadActivity.class);
             intent.putExtra("request", i2);
             intent.putExtra(EditHeadActivityConfig.ACCOUNTDATA, accountData);
@@ -1051,7 +1052,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
 
     public static void startActivityForResult(Activity activity, int i2, int i3, Uri uri, AccountData accountData, int i4, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), uri, accountData, Integer.valueOf(i4), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), uri, accountData, Integer.valueOf(i4), str}) == null) {
             Intent intent = new Intent(activity, EditHeadActivity.class);
             intent.putExtra("request", i2);
             intent.putExtra(EditHeadActivityConfig.ACCOUNTDATA, accountData);
@@ -1062,21 +1063,9 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    public final void S1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundColor(this.D, R.color.common_color_10222);
-            getLayoutMode().onModeChanged(this.i);
-            getLayoutMode().onModeChanged(this.j);
-            SkinManager.setViewTextColor(this.u, R.color.CAM_X0111, 1);
-            SkinManager.setNavbarIconSrc(this.D.getBackImageView(), R.drawable.icon_topbar_return_s, R.drawable.icon_topbar_return_s, 0);
-            SkinManager.setViewTextColor(this.E, R.color.CAM_X0111, 1);
-        }
-    }
-
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             k kVar = this.n;
             if (kVar != null) {
                 kVar.cancel();
@@ -1091,157 +1080,59 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    public final void T1() {
+    public final void t1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.D = (NavigationBar) findViewById(R.id.navigation_bar);
-            BlueCircleProgressDialog blueCircleProgressDialog = new BlueCircleProgressDialog(getPageContext());
-            this.m = blueCircleProgressDialog;
-            blueCircleProgressDialog.setCancelListener(new a(this));
-            this.m.setDialogVisiable(false);
-            this.d = (EditHeadsImageTopLayerView) findViewById(R.id.obfuscated_res_0x7f0910af);
-            if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.b)) {
-                float f2 = this.a;
-                if (f2 != 1.0f) {
-                    this.d.setmCutHeightScale(f2);
-                }
-            }
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d6d);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d6f);
-            int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
-            this.f.setY((int) (((screenDimensions[1] - screenDimensions[0]) * 0.4d) + screenDimensions[0] + getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041a)));
-            EditHeadsImageView editHeadsImageView = (EditHeadsImageView) findViewById(R.id.obfuscated_res_0x7f09108c);
-            this.c = editHeadsImageView;
-            editHeadsImageView.setCutImageHeightScale(this.a);
-            Bitmap bitmap = this.g;
-            if (bitmap != null) {
-                this.c.setImageBitmap(bitmap);
-            }
-            this.c.setOnSizeChangedListener(new b(this));
-            this.c.setOnImageScrollListener(new c(this));
-            this.i = this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092245);
-            this.l = button;
-            button.setOnClickListener(new e(this));
-            Button button2 = (Button) findViewById(R.id.hide_button);
-            this.k = button2;
-            button2.setVisibility(0);
-            this.k.setOnClickListener(new f(this));
-            View addCustomView = this.D.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, (View.OnClickListener) null);
-            this.j = addCustomView;
-            addCustomView.setOnClickListener(new g(this));
-            this.j.setEnabled(false);
-            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f092119);
-            this.E = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f05ac);
-            if (!EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
-                this.u = this.D.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0349));
-            }
-            if ("from_photo_live".equals(this.b)) {
-                this.u.setText(R.string.obfuscated_res_0x7f0f0447);
-            }
-            this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903d5);
-            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fee);
-            this.p = (RadioButton) findViewById(R.id.beautify_btn);
-            this.q = (RadioButton) findViewById(R.id.rotate_btn);
-            h hVar = new h(this);
-            this.p.setOnCheckedChangeListener(hVar);
-            this.q.setOnCheckedChangeListener(hVar);
-            this.p.setChecked(true);
-            Button button3 = (Button) findViewById(R.id.rotate_left);
-            Button button4 = (Button) findViewById(R.id.rotate_right);
-            Button button5 = (Button) findViewById(R.id.rotate_left_right);
-            Button button6 = (Button) findViewById(R.id.rotate_up_down);
-            button3.setTag(0);
-            button4.setTag(1);
-            button5.setTag(2);
-            button6.setTag(3);
-            i iVar = new i(this);
-            button3.setOnClickListener(iVar);
-            button4.setOnClickListener(iVar);
-            button5.setOnClickListener(iVar);
-            button6.setOnClickListener(iVar);
-            if (EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
-                this.f.setVisibility(0);
-                this.l.setVisibility(8);
-                this.d.setLinePaintColor(getResources().getColor(R.color.white_alpha50));
-                this.d.setLineWidth(2);
-            }
-            if (!this.y) {
-                this.l.setVisibility(8);
-                this.u.setText("");
-            }
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            SkinManager.setBackgroundColor(this.D, R.color.common_color_10222);
+            getLayoutMode().onModeChanged(this.i);
+            getLayoutMode().onModeChanged(this.j);
+            SkinManager.setViewTextColor(this.u, R.color.CAM_X0111, 1);
+            SkinManager.setNavbarIconSrc(this.D.getBackImageView(), R.drawable.icon_topbar_return_s, R.drawable.icon_topbar_return_s, 0);
+            SkinManager.setViewTextColor(this.E, R.color.CAM_X0111, 1);
         }
     }
 
-    public final void U1() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            m mVar = this.t;
-            if (mVar != null) {
-                mVar.cancel();
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            setSwipeBackEnabled(false);
+            TbadkCoreApplication.getInst().addRemoteActivity(this);
+            setContentView(R.layout.obfuscated_res_0x7f0d028a);
+            Intent intent = getIntent();
+            this.h = intent.getIntExtra(EditHeadActivityConfig.EDITTYPE, 0);
+            this.A = intent.getIntExtra("request", 0);
+            this.x = intent.getBooleanExtra("need_upload", true);
+            this.y = intent.getBooleanExtra(EditHeadActivityConfig.NEED_PASTE, true);
+            this.z = intent.getIntExtra(EditHeadActivityConfig.WATERMARK_TYPE, 0);
+            this.a = intent.getFloatExtra(EditHeadActivityConfig.CUT_IMAGE_HEIGHT_SCALE, 1.0f);
+            this.b = intent.getStringExtra(EditHeadActivityConfig.FROM_WHERE);
+            UserGrowthTaskListData userGrowthTaskListData = (UserGrowthTaskListData) intent.getSerializableExtra(EditHeadActivityConfig.USER_GROWTH_TASK);
+            if (userGrowthTaskListData != null) {
+                TbSingleton.getInstance().setUserGrowthTaskListData(userGrowthTaskListData);
             }
-            m mVar2 = new m(this, null);
-            this.t = mVar2;
-            mVar2.execute(new String[0]);
-        }
-    }
-
-    public final void W1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.w = new l(this, null);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(TbConfig.getBroadcastActionImageResized());
-            registerReceiver(this.w, intentFilter);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
-    public void releaseResouce() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            k kVar = this.n;
-            if (kVar != null) {
-                kVar.cancel();
+            String stringExtra = intent.getStringExtra(H);
+            int i2 = this.A;
+            if (i2 != 12002 && i2 != 12001) {
+                u1();
+                initData();
+                return;
             }
-            this.c.setImageDrawable(null);
-            X1();
-        }
-    }
-
-    public final void X1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            HashMap<String, ImageView> hashMap = this.C;
-            if (hashMap != null) {
-                for (Map.Entry<String, ImageView> entry : hashMap.entrySet()) {
-                    ImageView value = entry.getValue();
-                    if (value != null) {
-                        value.setImageDrawable(null);
-                    }
-                }
-                this.C.clear();
-                this.C = null;
+            u1();
+            if (intent.getData() != null) {
+                TiebaPrepareImageService.StartService(this.A, intent.getData(), TbImageHelper.getInstance().getPostImageSize());
+            } else {
+                TiebaPrepareImageService.StartService(this.A, null, TbImageHelper.getInstance().getPostImageSize(), 0, stringExtra);
             }
-            HashMap<String, Bitmap> hashMap2 = this.B;
-            if (hashMap2 != null) {
-                for (Map.Entry<String, Bitmap> entry2 : hashMap2.entrySet()) {
-                    Bitmap value2 = entry2.getValue();
-                    if (value2 != null && !value2.isRecycled()) {
-                        value2.recycle();
-                    }
-                }
-                this.B.clear();
-                this.B = null;
-            }
+            x1();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             releaseResouce();
             super.onDestroy();
             this.c.d0();
@@ -1273,40 +1164,150 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public final void z1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            super.onCreate(bundle);
-            setSwipeBackEnabled(false);
-            TbadkCoreApplication.getInst().addRemoteActivity(this);
-            setContentView(R.layout.obfuscated_res_0x7f0d028a);
-            Intent intent = getIntent();
-            this.h = intent.getIntExtra(EditHeadActivityConfig.EDITTYPE, 0);
-            this.A = intent.getIntExtra("request", 0);
-            this.x = intent.getBooleanExtra("need_upload", true);
-            this.y = intent.getBooleanExtra(EditHeadActivityConfig.NEED_PASTE, true);
-            this.z = intent.getIntExtra(EditHeadActivityConfig.WATERMARK_TYPE, 0);
-            this.a = intent.getFloatExtra(EditHeadActivityConfig.CUT_IMAGE_HEIGHT_SCALE, 1.0f);
-            this.b = intent.getStringExtra(EditHeadActivityConfig.FROM_WHERE);
-            UserGrowthTaskListData userGrowthTaskListData = (UserGrowthTaskListData) intent.getSerializableExtra(EditHeadActivityConfig.USER_GROWTH_TASK);
-            if (userGrowthTaskListData != null) {
-                TbSingleton.getInstance().setUserGrowthTaskListData(userGrowthTaskListData);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            HashMap<String, ImageView> hashMap = this.C;
+            if (hashMap != null) {
+                for (Map.Entry<String, ImageView> entry : hashMap.entrySet()) {
+                    ImageView value = entry.getValue();
+                    if (value != null) {
+                        value.setImageDrawable(null);
+                    }
+                }
+                this.C.clear();
+                this.C = null;
             }
-            String stringExtra = intent.getStringExtra(H);
-            int i2 = this.A;
-            if (i2 != 12002 && i2 != 12001) {
-                T1();
-                initData();
-                return;
+            HashMap<String, Bitmap> hashMap2 = this.B;
+            if (hashMap2 != null) {
+                for (Map.Entry<String, Bitmap> entry2 : hashMap2.entrySet()) {
+                    Bitmap value2 = entry2.getValue();
+                    if (value2 != null && !value2.isRecycled()) {
+                        value2.recycle();
+                    }
+                }
+                this.B.clear();
+                this.B = null;
             }
-            T1();
-            if (intent.getData() != null) {
-                TiebaPrepareImageService.StartService(this.A, intent.getData(), TbImageHelper.getInstance().getPostImageSize());
-            } else {
-                TiebaPrepareImageService.StartService(this.A, null, TbImageHelper.getInstance().getPostImageSize(), 0, stringExtra);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
+    public void releaseResouce() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            k kVar = this.n;
+            if (kVar != null) {
+                kVar.cancel();
             }
-            W1();
+            this.c.setImageDrawable(null);
+            z1();
+        }
+    }
+
+    public final void v1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            m mVar = this.t;
+            if (mVar != null) {
+                mVar.cancel();
+            }
+            m mVar2 = new m(this, null);
+            this.t = mVar2;
+            mVar2.execute(new String[0]);
+        }
+    }
+
+    public final void x1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.w = new l(this, null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(TbConfig.getBroadcastActionImageResized());
+            registerReceiver(this.w, intentFilter);
+        }
+    }
+
+    public final void u1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.D = (NavigationBar) findViewById(R.id.navigation_bar);
+            BlueCircleProgressDialog blueCircleProgressDialog = new BlueCircleProgressDialog(getPageContext());
+            this.m = blueCircleProgressDialog;
+            blueCircleProgressDialog.setCancelListener(new a(this));
+            this.m.setDialogVisiable(false);
+            this.d = (EditHeadsImageTopLayerView) findViewById(R.id.obfuscated_res_0x7f0910a2);
+            if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.b)) {
+                float f2 = this.a;
+                if (f2 != 1.0f) {
+                    this.d.setmCutHeightScale(f2);
+                }
+            }
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d3b);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d3d);
+            int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
+            this.f.setY((int) (((screenDimensions[1] - screenDimensions[0]) * 0.4d) + screenDimensions[0] + getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041a)));
+            EditHeadsImageView editHeadsImageView = (EditHeadsImageView) findViewById(R.id.obfuscated_res_0x7f09107f);
+            this.c = editHeadsImageView;
+            editHeadsImageView.setCutImageHeightScale(this.a);
+            Bitmap bitmap = this.g;
+            if (bitmap != null) {
+                this.c.setImageBitmap(bitmap);
+            }
+            this.c.setOnSizeChangedListener(new b(this));
+            this.c.setOnImageScrollListener(new c(this));
+            this.i = this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09220e);
+            this.l = button;
+            button.setOnClickListener(new e(this));
+            Button button2 = (Button) findViewById(R.id.hide_button);
+            this.k = button2;
+            button2.setVisibility(0);
+            this.k.setOnClickListener(new f(this));
+            View addCustomView = this.D.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, (View.OnClickListener) null);
+            this.j = addCustomView;
+            addCustomView.setOnClickListener(new g(this));
+            this.j.setEnabled(false);
+            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f0920e3);
+            this.E = textView;
+            textView.setText(R.string.obfuscated_res_0x7f0f05ac);
+            if (!EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
+                this.u = this.D.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0349));
+            }
+            if ("from_photo_live".equals(this.b)) {
+                this.u.setText(R.string.obfuscated_res_0x7f0f0447);
+            }
+            this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903cf);
+            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fb8);
+            this.p = (RadioButton) findViewById(R.id.beautify_btn);
+            this.q = (RadioButton) findViewById(R.id.rotate_btn);
+            h hVar = new h(this);
+            this.p.setOnCheckedChangeListener(hVar);
+            this.q.setOnCheckedChangeListener(hVar);
+            this.p.setChecked(true);
+            Button button3 = (Button) findViewById(R.id.rotate_left);
+            Button button4 = (Button) findViewById(R.id.rotate_right);
+            Button button5 = (Button) findViewById(R.id.rotate_left_right);
+            Button button6 = (Button) findViewById(R.id.rotate_up_down);
+            button3.setTag(0);
+            button4.setTag(1);
+            button5.setTag(2);
+            button6.setTag(3);
+            i iVar = new i(this);
+            button3.setOnClickListener(iVar);
+            button4.setOnClickListener(iVar);
+            button5.setOnClickListener(iVar);
+            button6.setOnClickListener(iVar);
+            if (EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
+                this.f.setVisibility(0);
+                this.l.setVisibility(8);
+                this.d.setLinePaintColor(getResources().getColor(R.color.white_alpha50));
+                this.d.setLineWidth(2);
+            }
+            if (!this.y) {
+                this.l.setVisibility(8);
+                this.u.setText("");
+            }
         }
     }
 }

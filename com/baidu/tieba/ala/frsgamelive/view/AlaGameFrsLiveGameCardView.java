@@ -7,23 +7,23 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bf6;
-import com.baidu.tieba.fb6;
-import com.baidu.tieba.no6;
-import com.baidu.tieba.we6;
+import com.baidu.tieba.af6;
+import com.baidu.tieba.ff6;
+import com.baidu.tieba.jb6;
+import com.baidu.tieba.to6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaGameFrsLiveGameCardView extends no6<we6> {
+public class AlaGameFrsLiveGameCardView extends to6<af6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public bf6 j;
+    public ff6 j;
 
-    @Override // com.baidu.tieba.no6
+    @Override // com.baidu.tieba.to6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class AlaGameFrsLiveGameCardView extends no6<we6> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
         }
     }
 
@@ -84,42 +84,42 @@ public class AlaGameFrsLiveGameCardView extends no6<we6> {
             }
         }
         this.i = tbPageContext;
-        r();
+        n();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.no6
+    @Override // com.baidu.tieba.to6
     /* renamed from: s */
-    public void i(we6 we6Var) {
+    public void i(af6 af6Var) {
         ThreadData threadData;
-        bf6 bf6Var;
+        ff6 ff6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, we6Var) == null) && we6Var != null && (threadData = we6Var.a) != null && (bf6Var = this.j) != null) {
-            bf6Var.d(threadData);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, af6Var) == null) && af6Var != null && (threadData = af6Var.a) != null && (ff6Var = this.j) != null) {
+            ff6Var.d(threadData);
         }
     }
 
-    public void t(fb6 fb6Var) {
-        bf6 bf6Var;
+    public void t(jb6 jb6Var) {
+        ff6 ff6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, fb6Var) == null) && (bf6Var = this.j) != null) {
-            bf6Var.g(fb6Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, jb6Var) == null) && (ff6Var = this.j) != null) {
+            ff6Var.g(jb6Var);
         }
     }
 
-    @Override // com.baidu.tieba.no6
+    @Override // com.baidu.tieba.to6
     public void j(TbPageContext<?> tbPageContext, int i) {
-        bf6 bf6Var;
+        ff6 ff6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (bf6Var = this.j) != null) {
-            bf6Var.e(tbPageContext, i);
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (ff6Var = this.j) != null) {
+            ff6Var.e(tbPageContext, i);
         }
     }
 
-    public final void r() {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.j = new bf6(this.i);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.j = new ff6(this.i);
             ((ViewGroup) h()).addView(this.j.c());
         }
     }

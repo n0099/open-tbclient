@@ -31,13 +31,13 @@ public class CommentRedTipLayout extends LinearLayout implements IFontSizeViewLi
     }
 
     private void initLayout(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0217, (ViewGroup) this, true);
-        BadgeView badgeView = (BadgeView) findViewById(R.id.obfuscated_res_0x7f090764);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0216, (ViewGroup) this, true);
+        BadgeView badgeView = (BadgeView) findViewById(R.id.obfuscated_res_0x7f09075b);
         this.mCommentTips = badgeView;
         badgeView.setType(BadgeView.Type.SMALL_TEXT);
-        RedTipImageView redTipImageView = (RedTipImageView) findViewById(R.id.obfuscated_res_0x7f09077c);
+        RedTipImageView redTipImageView = (RedTipImageView) findViewById(R.id.obfuscated_res_0x7f090773);
         this.mCommentsView = redTipImageView;
-        redTipImageView.setIcon(R.drawable.obfuscated_res_0x7f080531);
+        redTipImageView.setIcon(R.drawable.obfuscated_res_0x7f080530);
     }
 
     public void setCommentViewIcon(int i) {

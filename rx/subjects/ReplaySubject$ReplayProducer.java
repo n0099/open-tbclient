@@ -1,41 +1,41 @@
 package rx.subjects;
 
-import com.baidu.tieba.pbc;
-import com.baidu.tieba.uac;
-import com.baidu.tieba.yac;
-import com.baidu.tieba.zac;
+import com.baidu.tieba.hdc;
+import com.baidu.tieba.mcc;
+import com.baidu.tieba.qcc;
+import com.baidu.tieba.rcc;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements uac, zac {
+public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements mcc, rcc {
     public static final long serialVersionUID = -5006209596735204567L;
-    public final yac<? super T> actual;
+    public final qcc<? super T> actual;
     public int index;
     public Object node;
     public final AtomicLong requested = new AtomicLong();
     public final ReplaySubject$ReplayState<T> state;
     public int tailIndex;
 
-    public ReplaySubject$ReplayProducer(yac<? super T> yacVar, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
-        this.actual = yacVar;
+    public ReplaySubject$ReplayProducer(qcc<? super T> qccVar, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
+        this.actual = qccVar;
         this.state = replaySubject$ReplayState;
     }
 
-    @Override // com.baidu.tieba.zac
+    @Override // com.baidu.tieba.rcc
     public boolean isUnsubscribed() {
         return this.actual.isUnsubscribed();
     }
 
-    @Override // com.baidu.tieba.zac
+    @Override // com.baidu.tieba.rcc
     public void unsubscribe() {
         this.state.remove(this);
     }
 
-    @Override // com.baidu.tieba.uac
+    @Override // com.baidu.tieba.mcc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i > 0) {
-            pbc.b(this.requested, j);
+            hdc.b(this.requested, j);
             this.state.buffer.a(this);
         } else if (i >= 0) {
         } else {

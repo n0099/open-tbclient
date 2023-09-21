@@ -1,77 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.media.AudioTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ehb {
+public class ehb extends AudioTrack implements dhb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public boolean g;
-    public String h;
 
-    public ehb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ehb(int i, int i2, int i3, int i4, int i5, int i6) throws IllegalArgumentException {
+        super(i, i2, i3, i4, i5, i6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i7 = newInitContext.flag;
+            if ((i7 & 1) != 0) {
+                int i8 = i7 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
-        JSONObject jSONObject;
-        JSONException e;
+    @Override // com.baidu.tieba.dhb
+    public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", this.a);
-                    jSONObject.put("doReport", this.b);
-                    jSONObject.put("name", this.c);
-                    jSONObject.put("code", this.d);
-                    jSONObject.put("msg", this.e);
-                    jSONObject.put("data", this.f);
-                    jSONObject.put("isShowSpecialToast", this.g);
-                    jSONObject.put("specialToast", this.h);
-                } catch (JSONException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    return jSONObject;
-                }
-            } catch (JSONException e3) {
-                jSONObject = null;
-                e = e3;
-            }
-            return jSONObject;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getState() == 1) {
+            flush();
+            release();
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,62 +1,70 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ds8 {
+public class ds8 extends oc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ChatRoomInfo a;
+    public boolean b;
 
-    public static void a(Activity activity, Boolean bool, String str) {
+    @Override // com.baidu.tieba.oc8
+    public int getViewType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65536, null, activity, bool, str) != null) || activity == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 2;
         }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        new BdTopToast(activity, 3000).setIcon(bool.booleanValue()).setContent(str).show((ViewGroup) findViewById);
+        return invokeV.intValue;
     }
 
-    public static void b(Activity activity) {
+    public ds8(ChatRoomInfo chatRoomInfo, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || activity == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {chatRoomInfo, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.chat_msg_gone_top_excellent_tips)).show((ViewGroup) findViewById);
+        this.a = chatRoomInfo;
+        this.b = z;
     }
 
-    public static void c(Activity activity) {
+    public ChatRoomInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.add_group_success_toast)).show((ViewGroup) findViewById);
+        return (ChatRoomInfo) invokeV.objValue;
     }
 
-    public static void d(Activity activity) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, activity) != null) || activity == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
+        return invokeV.booleanValue;
+    }
+
+    public void c(ChatRoomInfo chatRoomInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatRoomInfo) == null) {
+            this.a = chatRoomInfo;
         }
-        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.delete_group_success_toast)).show((ViewGroup) findViewById);
     }
 }

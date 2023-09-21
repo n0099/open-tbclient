@@ -1,98 +1,78 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HorizontalListView;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.net.URLEncoder;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class b1b extends z0b {
+public final class b1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View c;
-    public HorizontalListView d;
-    public r3b e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b1b(BdPageContext bdPageContext) {
-        super(bdPageContext);
+    public static final String a(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((BdPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imageFileInfo)) == null) {
+            Intrinsics.checkNotNullParameter(imageFileInfo, "<this>");
+            int imageType = imageFileInfo.getImageType();
+            if (imageType != 0) {
+                if (imageType != 1) {
+                    if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                        return "";
+                    }
+                    throw new IllegalStateException(" 暂时不支持的图片类型" + imageFileInfo.getImageType() + StringUtil.ARRAY_ELEMENT_SEPARATOR + imageFileInfo.toJson());
+                }
+                String d = hp5.b.d(imageFileInfo.getFilePath(), imageFileInfo.isGif());
+                Intrinsics.checkNotNullExpressionValue(d, "{\n        EmotionService…lePath, this.isGif)\n    }");
+                return d;
             }
+            if (imageFileInfo.hasActionsWithoutResize()) {
+                filePath = imageFileInfo.toCachedKey(true);
+            } else {
+                filePath = imageFileInfo.getFilePath();
+            }
+            Intrinsics.checkNotNullExpressionValue(filePath, "{\n        // 图片如果有缓存的动作，….filePath\n        }\n    }");
+            return filePath;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void onChangeSkinType() {
+    public static final String b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
-            x();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            Intrinsics.checkNotNullParameter(imageFileInfo, "<this>");
+            int imageType = imageFileInfo.getImageType();
+            if (imageType != 0) {
+                if (imageType != 1) {
+                    return "";
+                }
+                return "/write/emotion/" + URLEncoder.encode(imageFileInfo.getFilePath(), "UTF-8");
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("/write/image/");
+            sb.append(URLEncoder.encode(imageFileInfo.getFilePath(), "UTF-8"));
+            sb.append('_');
+            sb.append(ListUtils.getCount(imageFileInfo.getPageActionsList()));
+            sb.append('_');
+            sb.append(ListUtils.getCount(imageFileInfo.getPersistActionsList()));
+            sb.append('_');
+            String cachedKey = imageFileInfo.toCachedKey(true);
+            if (cachedKey != null) {
+                num = Integer.valueOf(cachedKey.hashCode());
+            } else {
+                num = null;
+            }
+            sb.append(num);
+            return sb.toString();
         }
-    }
-
-    public View u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e.notifyDataSetChanged();
-        }
-    }
-
-    @Override // com.baidu.tieba.z0b
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0818, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (HorizontalListView) inflate.findViewById(R.id.obfuscated_res_0x7f090f93);
-            r3b r3bVar = new r3b();
-            this.e = r3bVar;
-            this.d.setAdapter((ListAdapter) r3bVar);
-        }
-    }
-
-    public void y(List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.e.c(list);
-        this.e.notifyDataSetChanged();
-    }
-
-    public void z(q3b q3bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, q3bVar) == null) {
-            this.e.d(q3bVar);
-        }
+        return (String) invokeL.objValue;
     }
 }

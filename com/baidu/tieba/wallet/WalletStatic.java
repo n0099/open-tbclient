@@ -39,10 +39,10 @@ import com.baidu.tbadk.pay.IyyPayResultCallback;
 import com.baidu.tbadk.pay.PayResult;
 import com.baidu.tbadk.pay.YYPayData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.dh5;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.di;
+import com.baidu.tieba.hh5;
+import com.baidu.tieba.hja;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.wallet.ICertification;
 import com.baidu.tieba.wallet.pay.ResponsedGetOrderHttpMessage;
 import com.baidu.tieba.wallet.pay.ResponsedGetOrderSocketMessage;
@@ -184,7 +184,7 @@ public class WalletStatic {
     public static void registerAliAuthTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921793, new CustomMessageTask.CustomRunnable<dh5>() { // from class: com.baidu.tieba.wallet.WalletStatic.10
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921793, new CustomMessageTask.CustomRunnable<hh5>() { // from class: com.baidu.tieba.wallet.WalletStatic.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -203,11 +203,11 @@ public class WalletStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<String> run(CustomMessage<dh5> customMessage) {
+                public CustomResponsedMessage<String> run(CustomMessage<hh5> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        dh5 data = customMessage.getData();
+                        hh5 data = customMessage.getData();
                         if (data == null) {
                             return null;
                         }
@@ -225,7 +225,7 @@ public class WalletStatic {
     public static void registerAliPayTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921539, new CustomMessageTask.CustomRunnable<rv4>() { // from class: com.baidu.tieba.wallet.WalletStatic.9
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921539, new CustomMessageTask.CustomRunnable<qv4>() { // from class: com.baidu.tieba.wallet.WalletStatic.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -244,7 +244,7 @@ public class WalletStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<String> run(CustomMessage<rv4> customMessage) {
+                public CustomResponsedMessage<String> run(CustomMessage<qv4> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
@@ -579,7 +579,7 @@ public class WalletStatic {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        if (customMessage != null && !ei.isEmpty(customMessage.getData())) {
+                        if (customMessage != null && !di.isEmpty(customMessage.getData())) {
                             WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), customMessage.getData());
                         }
                         return null;
@@ -885,8 +885,8 @@ public class WalletStatic {
     public static void registerHttpAndSocketTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            bha.f(303043, ResponsedGetOrderSocketMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, bha.a(TbConfig.GET_ORDER, 303043));
+            hja.f(303043, ResponsedGetOrderSocketMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, hja.a(TbConfig.GET_ORDER, 303043));
             tbHttpMessageTask.setResponsedClass(ResponsedGetOrderHttpMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

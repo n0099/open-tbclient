@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ig;
+import com.baidu.tieba.fia;
+import com.baidu.tieba.hg;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.zfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public final BdResourceCallback<BdImage> p;
 
     /* loaded from: classes4.dex */
-    public class a extends ig {
+    public class a extends hg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -81,7 +81,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.a = fragmentTabIndicator;
         }
 
-        @Override // com.baidu.tieba.ig
+        @Override // com.baidu.tieba.hg
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
@@ -618,10 +618,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 ThemeColorInfo themeColorInfo = this.mThemeColorInfo;
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                        this.k.setTextColor(zfa.f(this.mThemeColorInfo.dark.font_color));
+                        this.k.setTextColor(fia.f(this.mThemeColorInfo.dark.font_color));
                         return;
                     } else {
-                        this.k.setTextColor(zfa.f(this.mThemeColorInfo.day.font_color));
+                        this.k.setTextColor(fia.f(this.mThemeColorInfo.day.font_color));
                         return;
                     }
                 }

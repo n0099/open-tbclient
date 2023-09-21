@@ -1,73 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class zw6 implements yw6 {
+public final class zw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yw6
-    public void a(kv6 item, long j, kx6 displayer, ev6 config) {
+    public static final <T extends xv6> T a(yv6 yv6Var, Class<T> type, i0 entity, qv6 item) {
+        InterceptResult invokeLLLL;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, yv6Var, type, entity, item)) == null) {
+            Intrinsics.checkNotNullParameter(yv6Var, "<this>");
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(entity, "entity");
             Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-        }
-    }
-
-    @Override // com.baidu.tieba.yw6
-    public void b(kv6 item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-        }
-    }
-
-    @Override // com.baidu.tieba.yw6
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yw6
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yw6
-    public boolean d(kv6 item, long j, kx6 displayer, ev6 config) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public zw6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            h0 f = yv6Var.f();
+            if (f != null && (t = (T) f.h(type)) != null) {
+                entity.a(t);
+                t.b(item);
+                return t;
             }
+            return null;
         }
+        return (T) invokeLLLL.objValue;
+    }
+
+    public static final long b(yv6 yv6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, yv6Var)) == null) {
+            Intrinsics.checkNotNullParameter(yv6Var, "<this>");
+            return d(yv6Var).a();
+        }
+        return invokeL.longValue;
+    }
+
+    public static final qx6 c(yv6 yv6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, yv6Var)) == null) {
+            Intrinsics.checkNotNullParameter(yv6Var, "<this>");
+            return yv6Var.i().d();
+        }
+        return (qx6) invokeL.objValue;
+    }
+
+    public static final tx6 d(yv6 yv6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yv6Var)) == null) {
+            Intrinsics.checkNotNullParameter(yv6Var, "<this>");
+            return yv6Var.i().f();
+        }
+        return (tx6) invokeL.objValue;
+    }
+
+    public static final boolean e(yv6 yv6Var) {
+        InterceptResult invokeL;
+        wv6 wv6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, yv6Var)) == null) {
+            Intrinsics.checkNotNullParameter(yv6Var, "<this>");
+            h0 f = yv6Var.f();
+            if (f instanceof wv6) {
+                wv6Var = (wv6) f;
+            } else {
+                wv6Var = null;
+            }
+            if (wv6Var != null) {
+                return wv6Var.x();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

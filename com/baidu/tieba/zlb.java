@@ -1,133 +1,176 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.SecureRandom;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public class zlb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public long b;
+    public int c;
+    public long d;
+    public int e;
 
-    public static String a() {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public long c;
+        public int d;
+        public long e;
+        public int f;
+
+        public b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = bmb.a;
+            this.c = bmb.g;
+            this.d = bmb.j;
+            this.e = bmb.l;
+            this.f = bmb.m;
+        }
+
+        public zlb g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new zlb(this, null);
+            }
+            return (zlb) invokeV.objValue;
+        }
+    }
+
+    public zlb(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        String unused = bVar.a;
+        this.a = bVar.b;
+        this.b = bVar.c;
+        this.c = bVar.d;
+        this.d = bVar.e;
+        this.e = bVar.f;
+    }
+
+    public /* synthetic */ zlb(b bVar, a aVar) {
+        this(bVar);
+    }
+
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String b = b(16);
-            if (b == null || b.length() != 32) {
-                return null;
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static String f() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String b = b(8);
-            if (b == null || b.length() != 16) {
-                return null;
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static String b(int i) {
-        InterceptResult invokeI;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            try {
-                byte[] bArr = new byte[i];
-                new SecureRandom().nextBytes(bArr);
-                return cmb.a(bArr);
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (String) invokeI.objValue;
+        return invokeV.intValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public long d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String a = a();
-            String d = d(a, 32);
-            String f = f();
-            String str2 = null;
-            if (d != null && f != null) {
-                str2 = ylb.a(str, f, d);
-            }
-            return 3 + a + f + str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        return (String) invokeL.objValue;
+        return invokeV.longValue;
     }
 
-    public static JSONObject e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            if (jSONObject == null) {
-                return jSONObject2;
-            }
-            try {
-                try {
-                    String c = c(jSONObject.toString());
-                    if (!TextUtils.isEmpty(c)) {
-                        jSONObject2.put("message", c);
-                        jSONObject2.put("cypher", 3);
-                    } else {
-                        jSONObject2.put("message", jSONObject.toString());
-                        jSONObject2.put("cypher", 0);
-                    }
-                } catch (Throwable unused) {
-                    jSONObject2.put("message", jSONObject.toString());
-                    jSONObject2.put("cypher", 0);
-                }
-            } catch (Throwable unused2) {
-            }
-            return jSONObject2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static String d(String str, int i) {
-        InterceptResult invokeLI;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            if (str != null && str.length() == i) {
-                int i2 = i / 2;
-                return str.substring(i2, i) + str.substring(0, i2);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.a = z;
         }
-        return (String) invokeLI.objValue;
     }
 
-    public static String g(String str) {
-        InterceptResult invokeL;
+    public void g(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.length() >= 49) {
-                String d = d(str.substring(1, 33), 32);
-                String substring = str.substring(33, 49);
-                if (substring != null && d != null) {
-                    return ylb.b(str.substring(49), substring, d);
-                }
-                return str;
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.b = j;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.d = j;
+        }
     }
 }

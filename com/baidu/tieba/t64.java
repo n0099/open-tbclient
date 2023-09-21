@@ -1,8 +1,14 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.tieba.ol2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,45 +17,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class t64 {
+public class t64 extends sl2<b74, c74> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean d;
+    public static volatile t64 e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements aq3<hg3> {
+    public static class a extends ol2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o32 a;
 
-        public a(o32 o32Var) {
+        @Override // com.baidu.tieba.ol2.a
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o32Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o32Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
-        /* renamed from: b */
-        public void a(hg3 hg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hg3Var) == null) {
-                if (hg3Var == null || hg3Var.d || hg3Var.j != 1) {
-                    t64.c(this.a, false, "system deny");
-                } else {
-                    t64.c(this.a, true, "authorize:ok");
                 }
             }
         }
@@ -68,32 +66,75 @@ public class t64 {
                 return;
             }
         }
-        a = rr1.a;
+        d = qr1.a;
     }
 
-    public static void b(JsObject jsObject) {
-        o32 F;
+    public static t64 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, jsObject) != null) || (F = o32.F(jsObject)) == null) {
-            return;
-        }
-        hb3 b0 = hb3.b0();
-        if (b0 == null) {
-            c(F, false, "authorize:fail internal error");
-        } else {
-            b0.e0().e("mapp_enable_eval", new a(F));
-        }
-    }
-
-    public static void c(o32 o32Var, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{o32Var, Boolean.valueOf(z), str}) == null) {
-            if (a) {
-                Log.i("AuthorizeEvalApi", "callAsyncCallback: " + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (t64.class) {
+                    if (e == null) {
+                        e = new t64();
+                    }
+                }
             }
-            q54 q54Var = new q54();
-            q54Var.errMsg = str;
-            td4.call(o32Var, z, q54Var);
+            return e;
         }
+        return (t64) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t64() {
+        super(new b74(), new c74());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((sm2) objArr[0], (vm2) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sl2
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return v64.b().getPath();
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.sl2
+    @Nullable
+    public ExtensionCore c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return d();
+            }
+            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
+            bundle.setClassLoader(ExtensionCore.class.getClassLoader());
+            ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
+            if (d) {
+                Log.d("ExtCore-GamesManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+                return extensionCore;
+            }
+            return extensionCore;
+        }
+        return (ExtensionCore) invokeV.objValue;
     }
 }

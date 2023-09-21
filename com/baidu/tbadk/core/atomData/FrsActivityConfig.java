@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.dca;
+import com.baidu.tieba.di;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.sw7;
+import com.baidu.tieba.g5a;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tx5;
-import com.baidu.tieba.x9a;
+import com.baidu.tieba.uw7;
+import com.baidu.tieba.ux5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,7 +128,7 @@ public class FrsActivityConfig extends IntentConfig {
         BdUniqueId gen = BdUniqueId.gen();
         this.mPageId = gen;
         intent.putExtra(FRS_PAGE_ID, gen);
-        x9a.b("frs");
+        dca.b("frs");
     }
 
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
@@ -243,19 +243,19 @@ public class FrsActivityConfig extends IntentConfig {
                 i2 = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.Y(sw7.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.Y(uw7.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(sw7.d(i2));
+            frsRequestData.setSortType(uw7.d(i2));
             if (i2 == 5) {
                 frsRequestData.b0(1);
             } else {
                 frsRequestData.b0(0);
             }
-            frsRequestData.M("forum_name", ei.getUrlEncode(stringExtra));
+            frsRequestData.M("forum_name", di.getUrlEncode(stringExtra));
             frsRequestData.M("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            sw7.e(i2, frsRequestData);
+            uw7.e(i2, frsRequestData);
             frsRequestData.j0("2");
             frsRequestData.k0("-2");
             frsRequestData.d0(stringExtra);
@@ -275,18 +275,18 @@ public class FrsActivityConfig extends IntentConfig {
             }
             frsRequestData.f0(null);
             frsRequestData.s0(stringExtra3);
-            frsRequestData.e0(JavaTypesHelper.toLong(tx5.a(), 0L));
+            frsRequestData.e0(JavaTypesHelper.toLong(ux5.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.a0(1);
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
             frsRequestData.Z(longExtra);
-            sw7.e(i2, frsRequestData);
+            uw7.e(i2, frsRequestData);
             frsRequestData.h0(1);
             frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-            if (ThreadData.isRecAppLoaded.get() && i3a.m().b() != null) {
-                int d = i3a.m().b().d(stringExtra, false);
-                int e = i3a.m().b().e(stringExtra, false);
+            if (ThreadData.isRecAppLoaded.get() && g5a.m().b() != null) {
+                int d = g5a.m().b().d(stringExtra, false);
+                int e = g5a.m().b().e(stringExtra, false);
                 if (frsRequestData.R() == 1) {
                     d++;
                 } else if (frsRequestData.R() == 2) {

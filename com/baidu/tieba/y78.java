@@ -1,127 +1,154 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
-public final class y78 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final a a;
-    public static long b = -1;
-    public static long c = 1800;
+public class y78 {
+    public static /* synthetic */ Interceptable $ic;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283183, "Lcom/baidu/tieba/y78;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948283183, "Lcom/baidu/tieba/y78;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
+    public String a;
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public class a extends yx5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ThreadInfo a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(ThreadInfo threadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = threadInfo;
         }
 
-        public final void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
-            }
-            y78.b = System.currentTimeMillis();
-        }
-
-        public final boolean a() {
+        @Override // com.baidu.tieba.yx5
+        public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long j = y78.b;
-                if (UbsABTestHelper.isExistSid("main_tab_hot_reload_enable_android_a") && j > 0 && System.currentTimeMillis() - j > y78.c * 1000) {
-                    return true;
+                String[] split = SharedPrefHelper.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
+                if (split.length != 2) {
+                    return null;
                 }
-                return false;
+                String str = split[0];
+                long j = JavaTypesHelper.toLong(split[1], 0L);
+                if (j != 0 && !StringUtils.isNull(str)) {
+                    SharedPrefHelper.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + j);
+                }
+                return null;
             }
-            return invokeV.booleanValue;
+            return invokeV.objValue;
         }
     }
 
-    @Singleton
-    @Service
-    /* loaded from: classes8.dex */
-    public static final class b implements lf5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public y78() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void d(long j, int i, List<ThreadInfo> list, List<bn> list2) {
+        ThreadInfo threadInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), list, list2}) == null) && j == b && !ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+            if (i == 0) {
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    if (list2.get(i2) instanceof x78) {
+                        list2.remove(i2);
+                        return;
+                    }
+                }
+                return;
+            }
+            int i3 = i + 1;
+            if (ListUtils.getCount(list) > i3 && (threadInfo = list.get(i3)) != null && threadInfo.tid.longValue() != 0) {
+                b = threadInfo.tid.longValue();
+                cy5.b(new a(threadInfo), null);
+            }
+        }
+    }
+
+    public void a(List<bn> list) {
+        aq6 aq6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || !TbadkCoreApplication.isLogin()) {
+            return;
+        }
+        if (this.a == null) {
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            this.a = sharedPrefHelper.getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+        }
+        if (StringUtils.isNull(this.a)) {
+            return;
+        }
+        String[] split = this.a.split(",");
+        if (split.length != 2) {
+            return;
+        }
+        String str = split[0];
+        long j = JavaTypesHelper.toLong(split[1], 0L);
+        if (j != 0 && !StringUtils.isNull(str) && !ListUtils.isEmpty(list)) {
+            for (int i = 0; i < list.size(); i++) {
+                if ((list.get(i) instanceof aq6) && (aq6Var = (aq6) list.get(i)) != null && !StringUtils.isNull(aq6Var.g) && aq6Var.g.equals(str)) {
+                    x78 x78Var = new x78();
+                    x78Var.a = j;
+                    x78Var.b = false;
+                    list.add(i, x78Var);
+                    return;
                 }
             }
         }
+    }
 
-        @Override // com.baidu.tieba.lf5
-        public void parseJson(JSONObject json) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-                Intrinsics.checkNotNullParameter(json, "json");
-                try {
-                    a aVar = y78.a;
-                    y78.c = json.optLong("main_tab_hot_reload_interval", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT);
-                    TbLog defaultLog = DefaultLog.getInstance();
-                    defaultLog.i("HomeHotReloadHelper", "首页热启动间隔：" + y78.c);
-                } catch (Exception e) {
-                    TbLog defaultLog2 = DefaultLog.getInstance();
-                    defaultLog2.e("HomeHotReloadHelper", "首页热启动间隔数据数据解析失败" + e.getMessage());
-                }
-            }
+    public void b(ThreadInfo threadInfo) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) == null) && l78.a && threadInfo != null && threadInfo != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
+            this.a = null;
+            b = threadInfo.tid.longValue();
+            SharedPrefHelper.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+        }
+    }
+
+    public void c(boolean z, List<ThreadInfo> list) {
+        ThreadInfo threadInfo;
+        Long l;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) == null) && TbadkCoreApplication.isLogin() && !ListUtils.isEmpty(list) && z && (threadInfo = (ThreadInfo) ListUtils.getItem(list, 0)) != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
+            this.a = null;
+            b = threadInfo.tid.longValue();
+            SharedPrefHelper.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
         }
     }
 }

@@ -1,124 +1,74 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.concurrent.LinkedBlockingDeque;
+@SuppressLint({"MobilebdThread"})
 /* loaded from: classes6.dex */
-public final class ld4 {
+public final class ld4 extends Thread {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<id4> a;
-    public static ArrayList<Integer> b;
-    public static final ld4 c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947939021, "Lcom/baidu/tieba/ld4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947939021, "Lcom/baidu/tieba/ld4;");
-                return;
-            }
-        }
-        c = new ld4();
-        a = new ArrayList<>();
-        b = new ArrayList<>();
-    }
+    public LinkedBlockingDeque<cd4> a;
+    public volatile boolean b;
 
     public ld4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedBlockingDeque<>(1024);
+    }
+
+    public final LinkedBlockingDeque<cd4> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (LinkedBlockingDeque) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    this.a.take().a();
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                }
             }
         }
     }
 
-    public final void f() {
+    public final void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Iterator<id4> it = a.iterator();
-            while (it.hasNext()) {
-                it.next().close();
-            }
-        }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || b.contains(Integer.valueOf(i))) {
-            return;
-        }
-        b.add(Integer.valueOf(i));
-    }
-
-    public final id4 b(JSRuntime jsRuntime) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
-            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
-            id4 id4Var = new id4(jsRuntime);
-            a.add(id4Var);
-            return id4Var;
-        }
-        return (id4) invokeL.objValue;
-    }
-
-    public final boolean c(id4 socket) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
-            Intrinsics.checkNotNullParameter(socket, "socket");
-            if (a.contains(socket)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return b.contains(Integer.valueOf(i));
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void e(id4 socket) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
-            Intrinsics.checkNotNullParameter(socket, "socket");
-            if (a.contains(socket)) {
-                g(socket.z());
-                a.remove(socket);
-            }
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            b.remove(Integer.valueOf(i));
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
     }
 }

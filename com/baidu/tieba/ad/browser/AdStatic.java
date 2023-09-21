@@ -34,12 +34,12 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a66;
 import com.baidu.tieba.ad.browser.newstyle.AdBrowserActivity;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
-import com.baidu.tieba.f66;
-import com.baidu.tieba.nx5;
-import com.baidu.tieba.v2a;
+import com.baidu.tieba.b66;
+import com.baidu.tieba.g66;
+import com.baidu.tieba.ox5;
+import com.baidu.tieba.t4a;
 import com.baidu.tieba.ze;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -101,12 +101,12 @@ public class AdStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
                 return;
             }
-            f66.c(TbadkCoreApplication.getInst());
+            g66.c(TbadkCoreApplication.getInst());
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements v2a.c {
+    public class b implements t4a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -124,8 +124,8 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.v2a.c
-        public int a(Context context, String str, String str2, boolean z, v2a.d dVar, boolean z2, Bundle bundle) {
+        @Override // com.baidu.tieba.t4a.c
+        public int a(Context context, String str, String str2, boolean z, t4a.d dVar, boolean z2, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -141,7 +141,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements v2a.a {
+    public class c implements t4a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,7 +159,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.v2a.a
+        @Override // com.baidu.tieba.t4a.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             String str;
@@ -196,7 +196,7 @@ public class AdStatic {
                         UtilHelper.smsTo(context, substring, str4);
                         return 0;
                     } else if (str3.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_OUTER)) {
-                        f66.f(context, str3);
+                        g66.f(context, str3);
                         return 1;
                     } else if (str3.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) && (context instanceof Activity)) {
                         ((Activity) context).finish();
@@ -241,10 +241,10 @@ public class AdStatic {
                                 AdStatic.p(context, str2, str3.substring(6), null);
                             }
                         } else {
-                            AdStatic.p(context, f66.d(str3.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str), null, null);
+                            AdStatic.p(context, g66.d(str3.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str), null, null);
                         }
                     } else {
-                        AdStatic.p(context, f66.d(str3.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str), null, null);
+                        AdStatic.p(context, g66.d(str3.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str), null, null);
                     }
                 }
                 return 3;
@@ -254,7 +254,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements v2a.a {
+    public class d implements t4a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -272,7 +272,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.v2a.a
+        @Override // com.baidu.tieba.t4a.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -333,7 +333,7 @@ public class AdStatic {
                                 hotTopicActivityConfig.createNormalConfig(queryParameter7, queryParameter8, queryParameter9, null);
                                 hotTopicActivityConfig.start();
                             } else if (context instanceof BaseActivity) {
-                                nx5.f(((BaseActivity) context).getPageContext(), queryParameter7, queryParameter8);
+                                ox5.f(((BaseActivity) context).getPageContext(), queryParameter7, queryParameter8);
                             } else {
                                 HotTopicActivityConfig hotTopicActivityConfig2 = new HotTopicActivityConfig(context);
                                 hotTopicActivityConfig2.createNormalConfig(queryParameter7, queryParameter8, queryParameter9, null);
@@ -346,7 +346,7 @@ public class AdStatic {
                                 hotTopicActivityConfig3.createNormalConfig(queryParameter7, null, queryParameter9, null);
                                 hotTopicActivityConfig3.start();
                             } else if (context instanceof BaseActivity) {
-                                nx5.f(((BaseActivity) context).getPageContext(), queryParameter7, null);
+                                ox5.f(((BaseActivity) context).getPageContext(), queryParameter7, null);
                             } else {
                                 HotTopicActivityConfig hotTopicActivityConfig4 = new HotTopicActivityConfig(context);
                                 hotTopicActivityConfig4.createNormalConfig(queryParameter7, queryParameter8, queryParameter9, null);
@@ -363,7 +363,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements v2a.a {
+    public class e implements t4a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -381,7 +381,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.v2a.a
+        @Override // com.baidu.tieba.t4a.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -438,7 +438,7 @@ public class AdStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AdWebViewActivityConfig.class, AdWebViewActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AdBrowserActivityConfig.class, AdBrowserActivity.class);
         MessageManager.getInstance().registerListener(2005016, new a(0));
-        a66.l().o(new b());
+        b66.l().o(new b());
         SwitchManager.getInstance().addSwitchData(new ze("switch_mbaidu_startup", 1, null));
         l();
         m();
@@ -474,21 +474,21 @@ public class AdStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            a66.l().e(new c());
+            b66.l().e(new c());
         }
     }
 
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            a66.l().e(new d());
+            b66.l().e(new d());
         }
     }
 
     public static void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            a66.l().e(new e());
+            b66.l().e(new e());
         }
     }
 
@@ -496,7 +496,7 @@ public class AdStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65553, null, context, str, str2, bundle) == null) {
             k(str);
-            f66.g(context, str, str2, bundle);
+            g66.g(context, str, str2, bundle);
         }
     }
 
@@ -659,7 +659,7 @@ public class AdStatic {
     public static void o(Context context, String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65552, null, context, str, str2, bundle) == null) {
-            String d2 = f66.d(str, null);
+            String d2 = g66.d(str, null);
             Intent intent = new Intent();
             intent.setAction(IntentConstants.ACTION_VIEW);
             intent.addCategory("android.intent.category.DEFAULT");

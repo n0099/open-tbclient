@@ -1,109 +1,187 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class c93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629548, "Lcom/baidu/tieba/c93;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public interface c {
+        void onClickSwitch(View view2, boolean z);
+    }
+
+    public static boolean f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z : invokeZ.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ c c;
+
+        public a(View view2, View view3, c cVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947629548, "Lcom/baidu/tieba/c93;");
-                return;
-            }
-        }
-        a = rr1.a;
-    }
-
-    public static JSONObject a(List<String> list, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, list, f)) == null) {
-            if (a) {
-                Log.d("PublisherCompress", "start compress");
-            }
-            ArrayList arrayList = new ArrayList();
-            hb3 M = hb3.M();
-            if (M == null) {
-                return null;
-            }
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    File file = new File(str);
-                    File k = fo3.k(file.getName());
-                    if (fo3.b(file, k, (int) (100.0f * f))) {
-                        arrayList.add(k);
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, view3, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return b(arrayList, M);
+            this.a = view2;
+            this.b = view3;
+            this.c = cVar;
         }
-        return (JSONObject) invokeLF.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && t83.c().e()) {
+                boolean c = c93.c(this.a, this.b);
+                c cVar = this.c;
+                if (cVar != null) {
+                    cVar.onClickSwitch(view2, c);
+                }
+            }
+        }
     }
 
-    public static JSONObject b(ArrayList<File> arrayList, hb3 hb3Var) {
+    /* loaded from: classes5.dex */
+    public static class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (motionEvent.getAction() == 1) {
+                    this.a.setVisibility(4);
+                    return false;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public static boolean c(View view2, View view3) {
         InterceptResult invokeLL;
-        String J;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, hb3Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            boolean w0 = hb3Var.w0();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                Iterator<File> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    File next = it.next();
-                    if (next != null) {
-                        if (w0) {
-                            J = rn2.Z(next.getAbsolutePath());
-                        } else {
-                            J = pi3.J(next.getAbsolutePath(), hb3Var.b);
-                        }
-                        if (a) {
-                            Log.d("PublisherCompress", "isSwanGame: " + w0 + "; path: " + J);
-                        }
-                        jSONArray.put(J);
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("path", J);
-                        jSONObject2.put("size", next.length());
-                        jSONArray2.put(jSONObject2);
-                    }
-                }
-                jSONObject.put("tempFilePaths", jSONArray);
-                jSONObject.put("tempFiles", jSONArray2);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("PublisherCompress", "wrapParams failed");
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, view3)) == null) {
+            if (view2.getVisibility() != 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            if (a) {
-                Log.e("PublisherCompress", jSONObject.toString());
+            if (!z) {
+                h(view2, view3);
+            } else {
+                g(view2, view3);
             }
-            return jSONObject;
+            return z;
         }
-        return (JSONObject) invokeLL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(View view2, View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
+            if (view3 != null) {
+                f93.k(view3);
+                view3.clearFocus();
+            }
+            view2.setVisibility(8);
+        }
+    }
+
+    public static void g(View view2, View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, view2, view3) == null) {
+            view2.setVisibility(0);
+            if (view3 != null) {
+                f93.k(view3);
+            }
+        }
+    }
+
+    public static void h(View view2, View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, view2, view3) == null) {
+            f93.m(view3);
+            if (e(view2.getContext())) {
+                view2.setVisibility(4);
+            }
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public static void b(View view2, View view3, View view4, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, view2, view3, view4, cVar) == null) {
+            if (view3 != null) {
+                view3.setOnClickListener(new a(view2, view4, cVar));
+            }
+            if (e(view2.getContext())) {
+                view4.setOnTouchListener(new b(view2));
+            }
+        }
+    }
+
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context instanceof Activity) {
+                boolean d = h93.d((Activity) context);
+                f(d);
+                return d;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

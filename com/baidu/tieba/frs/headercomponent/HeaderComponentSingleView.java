@@ -21,9 +21,9 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.titletags.TitleTagsView;
-import com.baidu.tieba.dv6;
-import com.baidu.tieba.jq7;
-import com.baidu.tieba.kq7;
+import com.baidu.tieba.jv6;
+import com.baidu.tieba.tq7;
+import com.baidu.tieba.uq7;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -37,7 +37,7 @@ import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 import tbclient.TagLabelInfo;
 /* loaded from: classes5.dex */
-public class HeaderComponentSingleView extends FrameLayout implements kq7 {
+public class HeaderComponentSingleView extends FrameLayout implements uq7 {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
@@ -52,12 +52,12 @@ public class HeaderComponentSingleView extends FrameLayout implements kq7 {
     public HeadImageView g;
     public TbImageAutoSwitch h;
     public List<String> i;
-    public jq7 j;
+    public tq7 j;
     public LiveFuseForumData k;
     public boolean l;
     public TbImageAutoSwitch.b m;
 
-    @Override // com.baidu.tieba.kq7
+    @Override // com.baidu.tieba.uq7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,13 +79,13 @@ public class HeaderComponentSingleView extends FrameLayout implements kq7 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0294a implements View.OnClickListener {
+        public class View$OnClickListenerC0307a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0294a(a aVar, int i) {
+            public View$OnClickListenerC0307a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class HeaderComponentSingleView extends FrameLayout implements kq7 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.startLoad((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0294a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0307a(this, i));
             }
         }
 
@@ -328,16 +328,16 @@ public class HeaderComponentSingleView extends FrameLayout implements kq7 {
         }
     }
 
-    @Override // com.baidu.tieba.kq7
-    public void a(List<LiveFuseForumData> list, jq7 jq7Var) {
+    @Override // com.baidu.tieba.uq7
+    public void a(List<LiveFuseForumData> list, tq7 tq7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, jq7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, tq7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = jq7Var;
+        this.j = tq7Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -372,13 +372,13 @@ public class HeaderComponentSingleView extends FrameLayout implements kq7 {
         }
         b();
         setOnClickListener(new b(this));
-        jq7 jq7Var2 = this.j;
-        if (jq7Var2 != null) {
-            jq7Var2.a(1, this.k);
+        tq7 tq7Var2 = this.j;
+        if (tq7Var2 != null) {
+            tq7Var2.a(1, this.k);
         }
     }
 
-    @Override // com.baidu.tieba.kq7
+    @Override // com.baidu.tieba.uq7
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -411,7 +411,7 @@ public class HeaderComponentSingleView extends FrameLayout implements kq7 {
                     if (tagLabelInfo != null && !ListUtils.isEmpty(tagLabelInfo.labels)) {
                         arrayList = tagLabelInfo.labels;
                     }
-                    titleTagsView.c(new dv6(str, arrayList, true));
+                    titleTagsView.c(new jv6(str, arrayList, true));
                     this.d.addView(titleTagsView, new ViewGroup.LayoutParams(-2, -1));
                 }
                 if (size > 1) {
@@ -426,24 +426,24 @@ public class HeaderComponentSingleView extends FrameLayout implements kq7 {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0372, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0373, this);
             this.a = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090780);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090777);
             this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X06);
             this.e.setPlaceHolder(2);
             this.e.setConrers(15);
-            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09078a);
-            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f090782);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090781);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f090785);
+            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090781);
+            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f090779);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090778);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f09077c);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090788);
+            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09077f);
             this.g = headImageView;
             headImageView.setPlaceHolder(1);
             this.g.setIsRound(true);
@@ -451,7 +451,7 @@ public class HeaderComponentSingleView extends FrameLayout implements kq7 {
             this.g.setBorderColor(R.color.CAM_X0402);
             this.g.setDrawBorder(true);
             this.g.setScaleType(ImageView.ScaleType.FIT_XY);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f090784);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f09077b);
             this.h = tbImageAutoSwitch;
             int i = n;
             tbImageAutoSwitch.l(4, i, i, o);

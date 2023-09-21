@@ -9,7 +9,7 @@ import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes4.dex */
-public class PermissionRequestDialog extends y45 {
+public class PermissionRequestDialog extends z45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -93,8 +93,8 @@ public class PermissionRequestDialog extends y45 {
         }
     }
 
-    @Override // com.baidu.tieba.y45
-    public y45 create(BdPageContext<?> bdPageContext) {
+    @Override // com.baidu.tieba.z45
+    public z45 create(BdPageContext<?> bdPageContext) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -204,7 +204,7 @@ public class PermissionRequestDialog extends y45 {
             });
             return this;
         }
-        return (y45) invokeL.objValue;
+        return (z45) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

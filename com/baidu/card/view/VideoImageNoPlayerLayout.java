@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.ez;
-import com.baidu.tieba.mp6;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.dz;
+import com.baidu.tieba.sp6;
+import com.baidu.tieba.tx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements ux<b15> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements tx<b15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,10 +44,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ux<b15> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public mp6<b15> m;
+    public sp6<b15> m;
     public b15 n;
     public View.OnClickListener o;
-    public ez p;
+    public dz p;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ux<b15> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    mp6 mp6Var = this.a.m;
+                    sp6 sp6Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    mp6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    sp6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -167,18 +167,18 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ux<b15> 
         }
     }
 
-    public void setOnCardSubClickListener(mp6<b15> mp6Var) {
+    public void setOnCardSubClickListener(sp6<b15> sp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, mp6Var) == null) {
-            this.m = mp6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, sp6Var) == null) {
+            this.m = sp6Var;
         }
     }
 
-    public void setVideoAreaClickListener(ez ezVar) {
+    public void setVideoAreaClickListener(dz dzVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ezVar) == null) {
-            this.p = ezVar;
-            if (ezVar != null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, dzVar) == null) {
+            this.p = dzVar;
+            if (dzVar != null) {
                 h();
             }
         }
@@ -209,7 +209,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ux<b15> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: f */
     public void onBindDataToView(b15 b15Var) {
         Interceptable interceptable = $ic;

@@ -1,75 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchPostForum.DataRes;
-import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes7.dex */
-public class oh7 {
+public class oh7 extends om<wh7, CardViewHolder<ai7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SearchForum a;
-    public List<SearchForum> b;
-    public ArrayList<cn> c;
-    public String d;
+    public TbPageContext a;
 
-    public oh7(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oh7(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = str;
+        this.a = tbPageContext;
     }
 
-    public ArrayList<cn> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: s */
+    public CardViewHolder<ai7> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new ai7(this.a));
         }
-        return (ArrayList) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void b(DataRes dataRes) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wh7 wh7Var, CardViewHolder<ai7> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wh7Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(wh7Var);
+            return cardViewHolder.getView();
         }
-        this.a = dataRes.exact_match;
-        this.b = dataRes.fuzzy_match;
-        this.c = new ArrayList<>();
-        nh7 nh7Var = new nh7(this.d);
-        SearchForum searchForum = this.a;
-        if (searchForum != null) {
-            nh7Var.l(searchForum);
-            this.c.add(nh7Var);
-        }
-        List<SearchForum> list = this.b;
-        if (list == null) {
-            return;
-        }
-        for (SearchForum searchForum2 : list) {
-            if (searchForum2 != null) {
-                nh7 nh7Var2 = new nh7(this.d);
-                nh7Var2.l(searchForum2);
-                this.c.add(nh7Var2);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

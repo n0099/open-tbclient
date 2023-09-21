@@ -1,10 +1,4 @@
 package com.baidu.tieba;
-
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface lo2 {
-    void onFail(int i, @Nullable String str);
-
-    void onSuccess(@Nullable JSONObject jSONObject);
 }

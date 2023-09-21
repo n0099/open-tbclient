@@ -1,93 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.view.BdTopToast;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iqa {
+public class iqa extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public jqa b;
+    public DressItemData c;
 
-    public static boolean d(int i) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
-    }
-
-    public static void a(k55 k55Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, k55Var, i) == null) && k55Var != null && i >= 0) {
-            int i2 = 1;
-            int i3 = i + 1;
-            boolean d = k55Var.d();
-            String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
-            if (d) {
-                i2 = 2;
-            }
-            TiebaStatic.log(new StatisticItem("c14633").param("uid", valueOf).param("obj_locate", i3).param("obj_type", i2));
-        }
-    }
-
-    public static boolean b(Activity activity, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
-            if (d(i)) {
-                e(activity, str);
-                return true;
-            }
-            return false;
-        }
-        return invokeLIL.booleanValue;
-    }
-
-    public static void g(ViewGroup viewGroup, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) && viewGroup != null && !TextUtils.isEmpty(str)) {
-            new BdTopToast(viewGroup.getContext()).setIcon(z).setContent(str).show(viewGroup);
-        }
-    }
-
-    public static String c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Object tag = view2.getTag();
-            if (tag instanceof tha) {
-                tha thaVar = (tha) tag;
-                if (thaVar.t() != null) {
-                    return thaVar.t().getUserId();
-                }
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return null;
         }
-        return (String) invokeL.objValue;
+        return invokeI.objValue;
     }
 
-    public static void e(Activity activity, String str) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) && activity != null && !TextUtils.isEmpty(str)) {
-            g((ViewGroup) activity.findViewById(16908290), str, false);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return 0L;
         }
+        return invokeI.longValue;
     }
 
-    public static void f(View view2, tha thaVar) {
+    public iqa(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, view2, thaVar) != null) || view2 == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, dressItemData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        view2.setTag(thaVar);
+        this.a = tbPageContext;
+        this.c = dressItemData;
+        this.b = new jqa(tbPageContext);
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+            this.b.d(this.c);
+            this.a.getLayoutMode().onModeChanged(this.b.a());
+            return this.b.a();
+        }
+        return (View) invokeILL.objValue;
     }
 }

@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,42 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThreadRecommendTag;
-import tbclient.Voice;
 /* loaded from: classes6.dex */
-public final class hq6 extends b15 {
+public class hq6 extends iq6 {
     public static /* synthetic */ Interceptable $ic;
-    @JvmField
-    public static final BdUniqueId j;
+    public static final BdUniqueId S0;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public Voice c;
-    public List<ThreadRecommendTag> d;
-    public String e;
-    public String f;
-    public ThreadData g;
-    public long h;
-    public boolean i;
-
-    @Override // com.baidu.tieba.b15
-    public NegativeFeedBackData getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (NegativeFeedBackData) invokeV.objValue;
-    }
-
-    public final void p(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, num) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -62,15 +30,35 @@ public final class hq6 extends b15 {
                 return;
             }
         }
-        BdUniqueId gen = BdUniqueId.gen();
-        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        j = gen;
+        S0 = BdUniqueId.gen();
     }
 
-    public hq6() {
+    @Override // com.baidu.tieba.iq6, com.baidu.tieba.aq6, com.baidu.tieba.b15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iq6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return S0;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public hq6(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,162 +68,34 @@ public final class hq6 extends b15 {
                 return;
             }
         }
-        this.i = true;
+        this.a = threadData;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public static boolean R(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            if (threadData.getThreadType() != 49 && threadData.getThreadType() != 69) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    public StatisticItem V(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            StatisticItem d = d(str);
+            d.delete("obj_type");
+            d.delete("obj_type");
+            d.param("obj_type", 3);
+            return d;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return invokeV.longValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b15
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    public final String getTid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return j;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final List<ThreadRecommendTag> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final Voice i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (Voice) invokeV.objValue;
-    }
-
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public final void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public final void o(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.h = j2;
-        }
-    }
-
-    public final void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public final void setTid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public final void t(List<ThreadRecommendTag> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
-            this.d = list;
-        }
-    }
-
-    public final void u(ThreadData data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            this.g = data;
-        }
-    }
-
-    public final void v(Voice voice) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, voice) == null) {
-            this.c = voice;
-        }
+        return (StatisticItem) invokeL.objValue;
     }
 }

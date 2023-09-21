@@ -1,7 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface ok1<T> {
-    void a(lk1<T> lk1Var);
+    void a(kk1<List<T>> kk1Var);
 
-    T get();
+    List<T> getList();
 }

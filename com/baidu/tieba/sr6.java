@@ -1,22 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.PollData;
-import com.baidu.tbadk.core.view.VoteView;
-import com.baidu.tieba.c67;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.k67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class sr6 implements c67.k {
+public class sr6 extends al1<k67.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public class a implements k67.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(sr6 sr6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sr6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.k67.a
+        public k67.e a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new as6();
+            }
+            return (k67.e) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.k67.a
+        public k67.c b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new vr6();
+            }
+            return (k67.c) invokeV.objValue;
+        }
+    }
 
     public sr6() {
         Interceptable interceptable = $ic;
@@ -32,45 +69,15 @@ public final class sr6 implements c67.k {
         }
     }
 
-    @Override // com.baidu.tieba.c67.s
-    public void a(ViewGroup view2) {
-        VoteView voteView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.al1
+    /* renamed from: a */
+    public k67.a createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            if (view2 instanceof VoteView) {
-                voteView = (VoteView) view2;
-            } else {
-                voteView = null;
-            }
-            if (voteView == null) {
-                return;
-            }
-            voteView.D(TbadkApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    @Override // com.baidu.tieba.c67.k
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            return new VoteView(context);
-        }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.c67.k
-    public void update(ViewGroup view2, t77 state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, state) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(state, "state");
-            ca7 d = state.d();
-            new PollData();
-            d.a();
-            throw null;
-        }
+        return (k67.a) invokeV.objValue;
     }
 }

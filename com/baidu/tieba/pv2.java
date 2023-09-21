@@ -1,103 +1,119 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.jsbridge.SwanAppGlobalJsBridge;
+import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
+import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
+import com.baidu.swan.apps.jsbridge.SwanAppPreloadJsBridge;
+import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
 public class pv2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> mActivityRef;
-    public CallbackHandler mCallbackHandler;
-    public Context mContext;
-    public fa2 mJsContainer;
-    public UnitedSchemeMainDispatcher mMainDispatcher;
+    public ov2 a;
+    public ov2 b;
+    public SwanAppUtilsJavaScriptInterface c;
+    public ez1 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948075421, "Lcom/baidu/tieba/pv2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948075421, "Lcom/baidu/tieba/pv2;");
-                return;
-            }
-        }
-        DEBUG = rr1.a;
-    }
-
-    public Context getDispatchContext() {
-        InterceptResult invokeV;
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Activity> weakReference = this.mActivityRef;
-            if (weakReference != null) {
-                activity = weakReference.get();
-            } else {
-                activity = null;
-            }
-            if (activity == null) {
-                return this.mContext;
-            }
-            return activity;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public pv2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, fa2 fa2Var) {
+    public pv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, fa2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mContext = context;
-        this.mMainDispatcher = unitedSchemeMainDispatcher;
-        this.mCallbackHandler = callbackHandler;
-        this.mJsContainer = fa2Var;
-        if (DEBUG) {
-            if (context == null || unitedSchemeMainDispatcher == null) {
-                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void setActivityRef(Activity activity) {
+    public void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
-            this.mActivityRef = new WeakReference<>(activity);
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            ov2 ov2Var = this.a;
+            if (ov2Var != null) {
+                ov2Var.setActivityRef(activity);
+            }
+            ov2 ov2Var2 = this.b;
+            if (ov2Var2 != null) {
+                ov2Var2.setActivityRef(activity);
+            }
+            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.c;
+            if (swanAppUtilsJavaScriptInterface != null) {
+                swanAppUtilsJavaScriptInterface.setActivity(activity);
+            }
+            ez1 ez1Var = this.d;
+            if (ez1Var != null) {
+                ez1Var.i(activity);
+            }
         }
     }
 
-    public void setCallbackHandler(CallbackHandler callbackHandler) {
+    public final void d(ea2 ea2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
-            this.mCallbackHandler = callbackHandler;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ea2Var) == null) {
+            ea2Var.addJavascriptInterface(new SwanAppNativeSwanJsBridge(ea2Var), SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        }
+    }
+
+    public final void b(ea2 ea2Var, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, @NonNull ez1 ez1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ea2Var, context, callbackHandler, unitedSchemeMainDispatcher, ez1Var) == null) {
+            SwanAppGlobalJsBridge swanAppGlobalJsBridge = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, ea2Var);
+            this.a = swanAppGlobalJsBridge;
+            ea2Var.addJavascriptInterface(swanAppGlobalJsBridge, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
+            SwanAppJsBridge swanAppJsBridge = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, ea2Var);
+            this.b = swanAppJsBridge;
+            ea2Var.addJavascriptInterface(swanAppJsBridge, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+            ea2Var.addJavascriptInterface(new SwanAppPreloadJsBridge(ea2Var), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
+            ez1Var.b(ea2Var);
+        }
+    }
+
+    public final void c(@NonNull ea2 ea2Var, Context context, @NonNull ez1 ez1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, ea2Var, context, ez1Var) == null) {
+            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, ea2Var);
+            this.c = swanAppUtilsJavaScriptInterface;
+            swanAppUtilsJavaScriptInterface.setSource("swan_");
+            ea2Var.addJavascriptInterface(this.c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+            ez1Var.a(ea2Var);
+        }
+    }
+
+    public void e(ea2 ea2Var, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, ea2Var, context, callbackHandler, unitedSchemeMainDispatcher) == null) && ea2Var != null && context != null && callbackHandler != null && unitedSchemeMainDispatcher != null) {
+            ez1 ez1Var = new ez1(context, callbackHandler, ea2Var);
+            this.d = ez1Var;
+            b(ea2Var, context, callbackHandler, unitedSchemeMainDispatcher, ez1Var);
+            if (ea2Var instanceof qi2) {
+                c(ea2Var, context, this.d);
+            } else {
+                d(ea2Var);
+            }
+        }
+    }
+
+    public void f(Context context, ea2 ea2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, ea2Var) == null) {
+            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, ea2Var);
+            this.c = swanAppUtilsJavaScriptInterface;
+            swanAppUtilsJavaScriptInterface.setSource("swan_");
+            ea2Var.addJavascriptInterface(this.c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+            this.c.setForceShareLight(true);
         }
     }
 }

@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.annotation.TargetApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(9)
 /* loaded from: classes6.dex */
-public class kq1 extends HandlerThread {
+public abstract class kq1 implements iq1<kq1> {
     public static /* synthetic */ Interceptable $ic;
-    public static kq1 a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public abstract void b();
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public kq1() {
-        super("SSOHandlerThread", 10);
+        this(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,8 +25,7 @@ public class kq1 extends HandlerThread {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
+                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,27 +33,41 @@ public class kq1 extends HandlerThread {
         }
     }
 
-    public static void a() {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
-            kq1 kq1Var = new kq1();
-            a = kq1Var;
-            kq1Var.start();
-            b = new Handler(a.getLooper());
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b();
         }
     }
 
-    public static Handler b() {
-        InterceptResult invokeV;
-        Handler handler;
+    public kq1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (kq1.class) {
-                a();
-                handler = b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return handler;
         }
-        return (Handler) invokeV.objValue;
+        this.a = i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(kq1 kq1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kq1Var)) == null) {
+            return kq1Var.a - this.a;
+        }
+        return invokeL.intValue;
     }
 }

@@ -1,220 +1,224 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.IdRes;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.videoplay.danmu.VideoDanmuController;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class dua {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int e = 2131233328;
-    public static final int f = 2131233327;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public b c;
-    public CustomMessageListener d;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947718425, "Lcom/baidu/tieba/dua;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947718425, "Lcom/baidu/tieba/dua;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dua a;
+        public int a;
+        public int b;
+        public int c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(dua duaVar, int i) {
-            super(i);
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {duaVar, Integer.valueOf(i)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = duaVar;
+            this.a = i;
+            this.b = i2;
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-                return;
+    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, arrayList)) == null) {
+            if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
+                return false;
             }
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            if (this.a.c != null) {
-                this.a.c.a(booleanValue);
+            SparseArray sparseArray = new SparseArray();
+            Iterator<a> it = arrayList.iterator();
+            while (it.hasNext()) {
+                a next = it.next();
+                int i = next.a;
+                int i2 = next.b;
+                if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
+                    return false;
+                }
+                int pixel = bitmap.getPixel(i, i2);
+                if (sparseArray.get(pixel) != null) {
+                    return false;
+                }
+                next.c = pixel;
+                sparseArray.put(pixel, next);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Bitmap b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
+            Bitmap bitmap = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
+                bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+                byteArrayOutputStream.close();
+                return bitmap;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return bitmap;
+            }
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            try {
+                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
+                intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
+                context.sendBroadcast(intent);
+            } catch (Exception unused) {
             }
         }
     }
 
-    public dua(View view2, @IdRes int i) {
+    public static void d(byte[] bArr, int[] iArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, bArr, iArr, i, i2) == null) {
+            int i3 = i * i2;
+            int i4 = 0;
+            int i5 = 0;
+            for (int i6 = 0; i6 < i2; i6++) {
+                int i7 = 0;
+                while (i7 < i) {
+                    int i8 = iArr[i5];
+                    int i9 = (iArr[i5] & 16711680) >> 16;
+                    int i10 = (iArr[i5] & 65280) >> 8;
+                    int i11 = 255;
+                    int i12 = (iArr[i5] & 255) >> 0;
+                    int i13 = (((((i9 * 66) + (i10 * 129)) + (i12 * 25)) + 128) >> 8) + 16;
+                    int i14 = (((((i9 * (-38)) - (i10 * 74)) + (i12 * 112)) + 128) >> 8) + 128;
+                    int i15 = (((((i9 * 112) - (i10 * 94)) - (i12 * 18)) + 128) >> 8) + 128;
+                    int i16 = i4 + 1;
+                    if (i13 < 0) {
+                        i13 = 0;
+                    } else if (i13 > 255) {
+                        i13 = 255;
+                    }
+                    bArr[i4] = (byte) i13;
+                    if (i6 % 2 == 0 && i5 % 2 == 0) {
+                        int i17 = i3 + 1;
+                        if (i15 < 0) {
+                            i15 = 0;
+                        } else if (i15 > 255) {
+                            i15 = 255;
+                        }
+                        bArr[i3] = (byte) i15;
+                        i3 = i17 + 1;
+                        if (i14 < 0) {
+                            i11 = 0;
+                        } else if (i14 <= 255) {
+                            i11 = i14;
+                        }
+                        bArr[i17] = (byte) i11;
+                    }
+                    i5++;
+                    i7++;
+                    i4 = i16;
+                }
             }
         }
-        this.d = new a(this, 2921647);
-        MessageManager.getInstance().registerListener(this.d);
-        this.a = view2;
-        if (view2 != null) {
-            ImageView imageView = (ImageView) view2.findViewById(i);
-            this.b = imageView;
-            if (imageView != null) {
-                imageView.setVisibility(0);
+    }
+
+    public static byte[] e(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) {
+            return g(bitmap.getWidth(), bitmap.getHeight(), bitmap);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r10v2, resolved type: java.util.ArrayList<com.baidu.tieba.dua$a> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ArrayList<a> f(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                SparseArray sparseArray = new SparseArray();
+                int i = 0;
+                loop0: for (int i2 = 0; i2 < width; i2++) {
+                    for (int i3 = 0; i3 < height; i3++) {
+                        int pixel = bitmap.getPixel(i2, i3);
+                        a aVar = new a(i2, i3);
+                        if (sparseArray.get(pixel) == null) {
+                            sparseArray.put(pixel, aVar);
+                            i++;
+                        }
+                        if (i == 3) {
+                            break loop0;
+                        }
+                    }
+                }
+                ArrayList<a> arrayList = new ArrayList<>();
+                for (int i4 = 0; i4 < sparseArray.size(); i4++) {
+                    arrayList.add(sparseArray.valueAt(i4));
+                }
+                return arrayList;
+            }
+            return new ArrayList<>();
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public static byte[] g(int i, int i2, Bitmap bitmap) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65542, null, i, i2, bitmap)) == null) {
+            int i3 = i * i2;
+            try {
+                int[] iArr = new int[i3];
+                bitmap.getPixels(iArr, 0, i, 0, 0, i, i2);
+                byte[] bArr = new byte[(i3 * 3) / 2];
+                d(bArr, iArr, i, i2);
+                return bArr;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        j(d());
-    }
-
-    public static String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (i != VideoDanmuController.N && i != VideoDanmuController.M) {
-                return "1";
-            }
-            return "2";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void g(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && (imageView = this.b) != null) {
-            imageView.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void h(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void j(boolean z) {
-        ImageView imageView;
-        View view2;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (imageView = this.b) != null && (view2 = this.a) != null) {
-            Resources resources = view2.getResources();
-            if (z) {
-                i = e;
-            } else {
-                i = f;
-            }
-            imageView.setImageDrawable(resources.getDrawable(i));
-        }
-    }
-
-    public static StatisticItem b(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
-            return new StatisticItem(str).param("obj_locate", c(i)).param("tid", str2).param("uid", TbadkCoreApplication.getCurrentAccountId());
-        }
-        return (StatisticItem) invokeLLI.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbSingleton.getInstance().isDanmuSwitchOpen();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
-            ImageView imageView = this.b;
-            if (imageView != null) {
-                imageView.setOnClickListener(null);
-            }
-            this.c = null;
-        }
-    }
-
-    public void e(String str, int i) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-            StatisticItem b2 = b("c14474", str, i);
-            if (d()) {
-                str2 = "1";
-            } else {
-                str2 = "0";
-            }
-            TiebaStatic.log(b2.param("obj_type", str2));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            boolean z = !d();
-            TbSingleton.getInstance().setDanmuSwitchOpen(z);
-            j(z);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921647, Boolean.valueOf(z)));
-        }
+        return (byte[]) invokeIIL.objValue;
     }
 }

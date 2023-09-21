@@ -1,39 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.hkc;
-import com.baidu.tieba.jkc;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.RevenueConfig;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.IMiddlePayService;
 /* loaded from: classes8.dex */
-public class yhc implements hkc.a {
+public final class yhc implements IMiddleRevenue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public ahc c;
-    public wic d;
-    public sic e;
-    public Dialog f;
-    public ckc g;
-    public AppCustomExpand h;
-    public jkc.b i;
-    public IPayCallback<CurrencyChargeMessage> j;
+    public final String a;
+    public final xhc b;
+    public final IRevenue c;
 
-    public yhc(Activity activity, Dialog dialog, ahc ahcVar, sic sicVar, wic wicVar, Dialog dialog2, ckc ckcVar, AppCustomExpand appCustomExpand, jkc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayEventStatisticsApi getPayEventStatisticApi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (IPayEventStatisticsApi) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayServiceStatisticsApi getPayServiceStatisticsApi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (IPayServiceStatisticsApi) invokeV.objValue;
+    }
+
+    public yhc(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, ahcVar, sicVar, wicVar, dialog2, ckcVar, appCustomExpand, bVar, iPayCallback};
+            Object[] objArr = {middleRevenueConfig, iRevenue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,26 +58,47 @@ public class yhc implements hkc.a {
                 return;
             }
         }
-        RLog.info("PaySignViewCallback", "create PayResultViewCallback");
-        this.a = activity;
-        this.b = dialog;
-        this.c = ahcVar;
-        this.d = wicVar;
-        this.e = sicVar;
-        this.f = dialog2;
-        this.g = ckcVar;
-        this.h = appCustomExpand;
-        this.i = bVar;
-        this.j = iPayCallback;
+        this.c = iRevenue;
+        this.a = "MiddleRevenue";
+        IAppPayService appPayService = this.c.getAppPayService();
+        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
+        this.b = new xhc(middleRevenueConfig, appPayService);
     }
 
-    @Override // com.baidu.tieba.hkc.a
-    public void b() {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IAppPayService getAppPayService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PaySignViewCallback", "onBtnConfirm");
-            this.c.k(this.a, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
-            ljc.a(this.b, PayDialogType.PAY_SIGN_DIALOG);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (IAppPayService) invokeV.objValue;
+    }
+
+    @Override // tv.athena.revenue.api.IMiddleRevenue
+    public IMiddlePayService getMiddlePayService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (IMiddlePayService) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a + hashCode() + " :{revenue:" + this.c + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public void updateConfig(RevenueConfig revenueConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, revenueConfig) == null) {
+            this.c.updateConfig(revenueConfig);
         }
     }
 }

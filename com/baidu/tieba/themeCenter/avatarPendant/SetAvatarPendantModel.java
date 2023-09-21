@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.rna;
+import com.baidu.tieba.hja;
+import com.baidu.tieba.xpa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a1(boolean z, long j, int i, String str, int i2);
+        void w0(boolean z, long j, int i, String str, int i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -105,11 +105,11 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 this.a.c = setPendantSocketResponse.getFreeUseLevel();
             }
             if (this.a.e != null) {
-                int i = rna.b;
-                if (responsedMessage.getError() == rna.c) {
-                    i = rna.a;
+                int i = xpa.b;
+                if (responsedMessage.getError() == xpa.c) {
+                    i = xpa.a;
                 }
-                this.a.e.a1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
+                this.a.e.w0(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
             }
         }
     }
@@ -129,8 +129,8 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        bha.h(309412, SetPendantSocketResponse.class, false, false);
-        bha.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        hja.h(309412, SetPendantSocketResponse.class, false, false);
+        hja.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
     }
 

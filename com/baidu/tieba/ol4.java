@@ -1,84 +1,115 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.Vector;
 /* loaded from: classes7.dex */
-public class ol4 extends tk4 {
+public class ol4 implements el4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final io4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public jl4 a;
-    public boolean b;
+    public Vector<el4> a;
+    public Object b;
 
-    public ol4(jl4 jl4Var, boolean z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948036082, "Lcom/baidu/tieba/ol4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948036082, "Lcom/baidu/tieba/ol4;");
+                return;
+            }
+        }
+        c = io4.e();
+    }
+
+    public ol4(el4 el4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jl4Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {el4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = jl4Var;
-        this.b = z;
+        this.b = new Object();
+        this.a = new Vector<>();
+        c(el4Var);
     }
 
-    @Override // com.baidu.tieba.tk4
-    public jl4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.el4
+    public <T> void a(il4<T> il4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (jl4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tk4
-    public boolean b(jl4 jl4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jl4Var)) == null) {
-            jl4 jl4Var2 = this.a;
-            if (jl4Var2 == jl4Var) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, il4Var) == null) {
+            try {
+                synchronized (this.b) {
+                    Iterator<el4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        it.next().a(il4Var);
+                    }
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
-            return jl4Var2.d(jl4Var);
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.tk4
-    public void c(boolean z) {
+    @Override // com.baidu.tieba.el4
+    public <T> void b(il4<T> il4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, il4Var) == null) {
+            Vector vector = new Vector();
+            try {
+                synchronized (this.b) {
+                    Iterator<el4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        vector.add(it.next());
+                    }
+                }
+                Iterator it2 = vector.iterator();
+                while (it2.hasNext()) {
+                    ((el4) it2.next()).b(il4Var);
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
+            }
         }
-        if (z) {
-            jl4 jl4Var = this.a;
-            jl4Var.a.b.b = 0L;
-            jl4Var.b(0);
-        }
-        hl4.b().f(this.a);
     }
 
-    @Override // com.baidu.tieba.tk4
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public void c(el4 el4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "isAttached=" + this.b + " " + super.toString();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, el4Var) == null) && el4Var != null) {
+            synchronized (this.b) {
+                this.a.add(el4Var);
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void d(el4 el4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, el4Var) == null) && el4Var != null) {
+            synchronized (this.b) {
+                if (!this.a.remove(el4Var)) {
+                    this.a.remove(this.a.indexOf(el4Var));
+                }
+            }
+        }
     }
 }

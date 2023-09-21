@@ -1,45 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sga {
+public class sga implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public e45 a;
 
-    public static boolean a(String str, Boolean bool) {
-        InterceptResult invokeLL;
+    public sga(e45 e45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
-            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e45Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bool.booleanValue();
         }
-        return invokeLL.booleanValue;
+        this.a = e45Var;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
-            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f077f);
-            int length = stringArray.length;
-            for (int i = 0; i < length; i++) {
-                if (!stringArray[i].equals(str)) {
-                    if (str.equals(stringArray[i] + string)) {
-                        return true;
-                    }
-                } else {
-                    return true;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            e45 e45Var = this.a;
+            if (e45Var == null) {
+                return null;
             }
-            return false;
+            return e45Var.c();
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.u75
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            e45 e45Var = this.a;
+            if (e45Var == null) {
+                return null;
+            }
+            return e45Var.b();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.u75
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            e45 e45Var = this.a;
+            if (e45Var == null) {
+                return null;
+            }
+            return e45Var.a();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,26 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class vs6 implements tc7 {
+public class vs6 implements ma7<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.tc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c12351" : (String) invokeV.objValue;
-    }
 
     public vs6() {
         Interceptable interceptable = $ic;
@@ -36,29 +25,18 @@ public final class vs6 implements tc7 {
         }
     }
 
-    @Override // com.baidu.tieba.tc7
-    public Map<String, String> a(f87 businessInfo) {
+    @Override // com.baidu.tieba.ma7
+    public yc7<?> b(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", at6.a.a(businessInfo));
-            String str = a.get("user_id");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof ThreadData)) {
+                return null;
             }
-            hashMap.put("obj_id", str);
-            hashMap.put("obj_param1", "1");
-            String str3 = a.get("live_type");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str2);
-            return hashMap;
+            w97 w97Var = new w97();
+            w97Var.a = obj;
+            return new zc7(new i67(w97Var), "fake_wall");
         }
-        return (Map) invokeL.objValue;
+        return (yc7) invokeL.objValue;
     }
 }

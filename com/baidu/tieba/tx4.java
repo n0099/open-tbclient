@@ -15,18 +15,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tx4 implements tm6 {
+public class tx4 implements xm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        sm6.a(this, webView, str, jSONObject);
+        wm6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public /* synthetic */ void onDestroy() {
-        sm6.b(this);
+        wm6.b(this);
     }
 
     public tx4() {
@@ -43,7 +43,7 @@ public class tx4 implements tm6 {
         }
     }
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -57,12 +57,12 @@ public class tx4 implements tm6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public mia c(WebView webView) {
+    public ska c(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            mia miaVar = new mia();
-            Activity a = im6.a(webView.getContext());
+            ska skaVar = new ska();
+            Activity a = mm6.a(webView.getContext());
             int i = 1;
             if (a instanceof BaseWebViewActivity) {
                 ((BaseWebViewActivity) a).isDisableGoBack = true;
@@ -72,13 +72,13 @@ public class tx4 implements tm6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 }

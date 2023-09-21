@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class xda {
+public class xda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-
-    public abstract void d(JSONObject jSONObject) throws Exception;
+    public String b;
 
     public xda() {
         Interceptable interceptable = $ic;
@@ -33,83 +28,16 @@ public abstract class xda {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                f(new JSONObject(str));
-            } catch (Exception e) {
-                g("网络不给力呀");
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            try {
-                int optInt = jSONObject.optInt("error_code", 0);
-                this.b = optInt;
-                if (optInt != 0) {
-                    g(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络不给力呀"));
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
-                if (optJSONObject != null) {
-                    int optInt2 = optJSONObject.optInt("errno", 0);
-                    this.b = optInt2;
-                    if (optInt2 != 0) {
-                        g(optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG, "网络不给力呀"));
-                        return;
-                    }
-                }
-                long optLong = jSONObject.optLong("ctime", 0L);
-                if (optLong > 0) {
-                    new Date(optLong * 1000);
-                }
-                d(jSONObject);
-            } catch (Exception e) {
-                g("网络不给力呀");
-                e.printStackTrace();
-            }
+        try {
+            this.a = jSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER);
+            this.b = jSONObject.optString("link");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

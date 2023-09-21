@@ -16,7 +16,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.bigday.GetBigdayInfoHttpResMessage;
 import com.baidu.tbadk.core.bigday.GetBigdayInfoReqMessage;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoSocketResMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -99,9 +98,7 @@ public class v05 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && !responsedMessage.hasError()) {
                 this.a.f = true;
                 ArrayList<u05> arrayList = null;
-                if (responsedMessage instanceof GetBigdayInfoSocketResMessage) {
-                    arrayList = ((GetBigdayInfoSocketResMessage) responsedMessage).bigdayInfos;
-                } else if (responsedMessage instanceof GetBigdayInfoHttpResMessage) {
+                if (responsedMessage instanceof GetBigdayInfoHttpResMessage) {
                     arrayList = ((GetBigdayInfoHttpResMessage) responsedMessage).bigdayInfos;
                 }
                 this.a.m(arrayList);
@@ -156,8 +153,8 @@ public class v05 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 ArrayList<u05> arrayList = new ArrayList<>();
-                x45.k();
-                oe<byte[]> i = x45.i("tb.bigday_datas");
+                y45.k();
+                oe<byte[]> i = y45.i("tb.bigday_datas");
                 if (i != null && (bArr = i.get("tb.bigday_datas")) != null) {
                     try {
                         GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
@@ -254,8 +251,7 @@ public class v05 {
         }
         this.f = false;
         this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
-        bha.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
-        bha.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
+        hja.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
         MessageManager.getInstance().registerListener(this.g);
         this.c = new SparseArray<>();
     }

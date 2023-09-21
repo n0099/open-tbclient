@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,26 +11,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class yka {
     public static /* synthetic */ Interceptable $ic;
+    public static yka c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final hla b;
-    public final fla c;
-    public final ila d;
-    public final bla e;
-    public final xka f;
-    public final ala g;
-    public final zka h;
-    public final wka i;
-    public final dla j;
-    public final cla k;
-    public final ela l;
+    public LocationData a;
+    public boolean b;
 
-    public yka(MainTabActivity mainTabActivity, kka kkaVar) {
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+        }
+    }
+
+    public yka() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, kkaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,116 +35,54 @@ public class yka {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = new hla(mainTabActivity, kkaVar);
-        this.c = new fla(mainTabActivity, kkaVar);
-        this.d = new ila();
-        this.e = new bla(mainTabActivity, kkaVar);
-        this.f = new xka(mainTabActivity, kkaVar);
-        this.g = new ala(mainTabActivity, kkaVar);
-        this.h = new zka(mainTabActivity, kkaVar);
-        this.i = new wka(mainTabActivity, kkaVar);
-        this.j = new dla(mainTabActivity, kkaVar);
-        this.k = new cla(mainTabActivity);
-        this.l = new ela(mainTabActivity);
+        this.b = SharedPrefHelper.getInstance().getBoolean("no_longer_show_address", false);
     }
 
-    public wka a() {
+    public static yka a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (yka.class) {
+                    if (c == null) {
+                        c = new yka();
+                    }
+                }
+            }
+            return c;
+        }
+        return (yka) invokeV.objValue;
+    }
+
+    public LocationData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+            return this.a;
         }
-        return (wka) invokeV.objValue;
+        return (LocationData) invokeV.objValue;
     }
 
-    public xka b() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (xka) invokeV.objValue;
-    }
-
-    public zka c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return (zka) invokeV.objValue;
-    }
-
-    public ala d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return (ala) invokeV.objValue;
-    }
-
-    public bla e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (bla) invokeV.objValue;
-    }
-
-    public cla f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
-        }
-        return (cla) invokeV.objValue;
-    }
-
-    public dla g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return (dla) invokeV.objValue;
-    }
-
-    public fla h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (fla) invokeV.objValue;
-    }
-
-    public hla i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
-        return (hla) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ila j() {
-        InterceptResult invokeV;
+    public void d(LocationData locationData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationData) == null) {
+            this.a = locationData;
         }
-        return (ila) invokeV.objValue;
     }
 
-    public ela k() {
-        InterceptResult invokeV;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.l;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
         }
-        return (ela) invokeV.objValue;
     }
 }

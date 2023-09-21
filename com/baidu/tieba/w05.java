@@ -8,7 +8,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +23,7 @@ public class w05 {
     public static /* synthetic */ Interceptable $ic;
     public static w05 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<mu4> a;
+    public ArrayList<lu4> a;
 
     public w05() {
         Interceptable interceptable = $ic;
@@ -65,7 +64,7 @@ public class w05 {
         }
     }
 
-    public final ArrayList<mu4> e() {
+    public final ArrayList<lu4> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -131,25 +130,25 @@ public class w05 {
                         e.printStackTrace();
                     }
                     if (jSONObject != null) {
-                        mu4 mu4Var = new mu4();
-                        mu4Var.a = jSONObject.optInt("active_id");
-                        mu4Var.b = jSONObject.optInt("mission_id");
-                        mu4Var.c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
-                        long d = d("business_update_time" + currentAccount + mu4Var.a);
-                        if (g("business_count_hint" + currentAccount + mu4Var.a) && DateUtils.isToday(d)) {
-                            mu4Var.s = c("business_count_hint" + currentAccount + mu4Var.a);
+                        lu4 lu4Var = new lu4();
+                        lu4Var.a = jSONObject.optInt("active_id");
+                        lu4Var.b = jSONObject.optInt("mission_id");
+                        lu4Var.c = jSONObject.optInt("show_type");
+                        long d = d("business_update_time" + currentAccount + lu4Var.a);
+                        if (g("business_count_hint" + currentAccount + lu4Var.a) && DateUtils.isToday(d)) {
+                            lu4Var.s = c("business_count_hint" + currentAccount + lu4Var.a);
                         } else {
-                            mu4Var.s = jSONObject.optInt("show_num");
+                            lu4Var.s = jSONObject.optInt("show_num");
                             a();
-                            i("business_count_hint" + currentAccount + mu4Var.a, mu4Var.s);
-                            j("business_update_time" + currentAccount + mu4Var.a, System.currentTimeMillis());
+                            i("business_count_hint" + currentAccount + lu4Var.a, lu4Var.s);
+                            j("business_update_time" + currentAccount + lu4Var.a, System.currentTimeMillis());
                         }
-                        mu4Var.t = jSONObject.optInt("show_time_begin");
-                        mu4Var.u = jSONObject.optInt("show_time_end");
+                        lu4Var.t = jSONObject.optInt("show_time_begin");
+                        lu4Var.u = jSONObject.optInt("show_time_end");
                         JSONArray optJSONArray = jSONObject.optJSONArray("forumIds");
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             try {
-                                mu4Var.w.add((String) optJSONArray.get(i2));
+                                lu4Var.w.add((String) optJSONArray.get(i2));
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
@@ -157,12 +156,12 @@ public class w05 {
                         JSONArray optJSONArray2 = jSONObject.optJSONArray("show_page");
                         for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                             try {
-                                mu4Var.v.add((String) optJSONArray2.get(i3));
+                                lu4Var.v.add((String) optJSONArray2.get(i3));
                             } catch (JSONException e3) {
                                 e3.printStackTrace();
                             }
                         }
-                        this.a.add(mu4Var);
+                        this.a.add(lu4Var);
                     }
                 }
             }
@@ -194,7 +193,7 @@ public class w05 {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void l(String str, String str2) {
-        ArrayList<mu4> e;
+        ArrayList<lu4> e;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048586, this, str, str2) != null) || (e = e()) == null || !BdNetTypeUtil.isNetWorkAvailable()) {
             return;

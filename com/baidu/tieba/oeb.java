@@ -1,12 +1,30 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import java.util.AbstractMap;
-import java.util.LinkedList;
-import java.util.List;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes7.dex */
-public interface oeb {
-    void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, List<AbstractMap.SimpleEntry<String, String>> list);
+public class oeb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, LinkedList<Pair<String, Object>> linkedList);
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "process";
+            }
+            try {
+                return new String(Base64.encode(str.getBytes("UTF-8"), 0), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
 }

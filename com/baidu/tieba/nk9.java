@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.feedback.FeedbackButtonStateType;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +9,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.NoWhenBranchMatchedException;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class nk9 {
+public class nk9 implements bn {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+    public boolean e;
+    public String f;
+    public String g;
+    public boolean h;
+    public List<String> i;
+    public k25 j;
 
     static {
         InterceptResult invokeClinit;
@@ -34,99 +39,73 @@ public final class nk9 {
                 return;
             }
         }
-        a = new a(null);
+        k = BdUniqueId.gen();
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return k;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
 
-        /* renamed from: com.baidu.tieba.nk9$a$a */
-        /* loaded from: classes7.dex */
-        public /* synthetic */ class C0416a {
-            public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-406141837, "Lcom/baidu/tieba/nk9$a$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(-406141837, "Lcom/baidu/tieba/nk9$a$a;");
-                        return;
-                    }
-                }
-                int[] iArr = new int[FeedbackButtonStateType.values().length];
-                iArr[FeedbackButtonStateType.UNSELECT_POSITIVE_STATE.ordinal()] = 1;
-                iArr[FeedbackButtonStateType.SELECT_POSITIVE_STATE.ordinal()] = 2;
-                iArr[FeedbackButtonStateType.SELECTING_POSITIVE_STATE.ordinal()] = 3;
-                iArr[FeedbackButtonStateType.UNSELECT_NEGATIVE_STATE.ordinal()] = 4;
-                iArr[FeedbackButtonStateType.SELECT_NEGATIVE_STATE.ordinal()] = 5;
-                $EnumSwitchMapping$0 = iArr;
+    public nk9(ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumData};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        this.e = false;
+        if (forumData == null) {
+            return;
         }
+        this.a = forumData.getName();
+        this.b = forumData.getImage_url();
+        this.c = forumData.getPost_num();
+        this.d = forumData.getMember_num();
+        this.f = forumData.getId();
+        this.h = forumData.isLike() == 1;
+        this.j = forumData.getForumShowInfo();
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public nk9(d45 d45Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d45Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.nk9$a */
-        /* JADX WARN: Multi-variable type inference failed */
-        public static /* synthetic */ mk9 b(a aVar, FeedbackButtonStateType feedbackButtonStateType, String str, Function0 function0, View.OnClickListener onClickListener, int i, Object obj) {
-            if ((i & 4) != 0) {
-                function0 = null;
-            }
-            if ((i & 8) != 0) {
-                onClickListener = null;
-            }
-            return aVar.a(feedbackButtonStateType, str, function0, onClickListener);
+        this.e = false;
+        if (d45Var == null) {
+            return;
         }
-
-        public final mk9 a(FeedbackButtonStateType type, String text, Function0<Unit> function0, View.OnClickListener onClickListener) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, type, text, function0, onClickListener)) == null) {
-                Intrinsics.checkNotNullParameter(type, "type");
-                Intrinsics.checkNotNullParameter(text, "text");
-                int i = C0416a.$EnumSwitchMapping$0[type.ordinal()];
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i == 5) {
-                                    return new mk9(R.drawable.obfuscated_res_0x7f080c93, text, SkinManager.getColor(R.color.CAM_X0601), zfa.a(SkinManager.getColor(R.color.CAM_X0107), 0.08f), R.color.CAM_X0107, false, false, null, onClickListener, 224, null);
-                                }
-                                throw new NoWhenBranchMatchedException();
-                            }
-                            return new mk9(R.drawable.obfuscated_res_0x7f080d2d, text, zfa.a(SkinManager.getColor(R.color.CAM_X0109), 0.5f), SkinManager.getColor(R.color.CAM_X0601), R.color.CAM_X0109, false, false, null, onClickListener, 224, null);
-                        }
-                        return new mk9(R.drawable.obfuscated_res_0x7f0808a9, text, SkinManager.getColor(R.color.CAM_X0601), zfa.a(SkinManager.getColor(R.color.CAM_X0301), 0.08f), R.color.CAM_X0301, true, false, function0, onClickListener);
-                    }
-                    return new mk9(R.drawable.obfuscated_res_0x7f080c94, text, SkinManager.getColor(R.color.CAM_X0601), zfa.a(SkinManager.getColor(R.color.CAM_X0301), 0.08f), R.color.CAM_X0301, false, false, null, onClickListener, 224, null);
-                }
-                return new mk9(R.drawable.obfuscated_res_0x7f080d2e, text, zfa.a(SkinManager.getColor(R.color.CAM_X0109), 0.5f), SkinManager.getColor(R.color.CAM_X0601), R.color.CAM_X0109, false, false, null, onClickListener, 224, null);
-            }
-            return (mk9) invokeLLLL.objValue;
-        }
+        this.a = d45Var.b;
+        this.b = d45Var.c;
+        this.c = d45Var.j;
+        this.d = d45Var.k;
+        this.f = d45Var.a;
+        this.h = d45Var.f();
+        this.i = d45Var.h();
+        this.j = d45Var.e();
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,27 +9,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Pattern;
-import tbclient.NovelInfo;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rh5 {
+public class rh5 implements b06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
     public String b;
     public String c;
-    public String d;
-    public String e;
-    public long f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
+    public boolean d;
+    public boolean e;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rh5 a;
+
+        public a(rh5 rh5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rh5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rh5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                BdResourceLoader.getInstance().loadResource(this.a.b, 10, null, null);
+                BdResourceLoader.getInstance().loadResource(this.a.c, 10, null, null);
+            }
+        }
+    }
 
     public rh5() {
         Interceptable interceptable = $ic;
@@ -44,178 +68,93 @@ public class rh5 {
         }
     }
 
+    @Override // com.baidu.tieba.b06
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
+    @Override // com.baidu.tieba.b06
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.o;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
+    @Override // com.baidu.tieba.b06
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.n;
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public String e() {
+    @Override // com.baidu.tieba.b06
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+            if (this.d && this.e) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isValid()) {
+            SafeHandler.getInst().post(new a(this));
         }
-        return (String) invokeV.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long h() {
+    @Override // com.baidu.tieba.b06
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i = 0;
-            while (Pattern.compile("\\n").matcher(this.j).find()) {
-                i++;
+            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b) && !StringUtils.isNull(this.c)) {
+                return true;
             }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "1".equals(this.e);
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public String k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b06
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.k;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
+        if (!this.d) {
+            this.d = str.equals(this.b);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!StringUtils.isNull(this.b) && !StringUtils.isNull(this.c) && !StringUtils.isNull(this.e) && !StringUtils.isNull(this.d)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void o(NovelInfo novelInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, novelInfo) == null) {
-            this.a = novelInfo.novel_id.longValue();
-            String str = novelInfo.img;
-            this.b = novelInfo.name;
-            String str2 = novelInfo.author;
-            String str3 = novelInfo.desc;
-            this.c = novelInfo.discount_price;
-            novelInfo.percent.longValue();
-            this.d = novelInfo.h5_url;
-            this.e = novelInfo.is_pay;
-            this.f = novelInfo.chapters.longValue();
-            this.g = novelInfo.member_text;
-            this.h = novelInfo.member_img;
-            this.i = novelInfo.buy_url;
-            this.k = novelInfo.story_channel_text;
-            this.l = novelInfo.story_channel_url;
-            this.m = novelInfo.reader_text;
-            this.n = novelInfo.from;
-            this.o = novelInfo.bottom_text;
+        if (!this.e) {
+            this.e = str.equals(this.c);
         }
     }
 
-    public void p(String str) {
+    public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.j = str;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            if (z) {
-                this.e = "1";
-            } else {
-                this.e = "0";
-            }
-        }
+        this.a = jSONObject.optString("url");
+        this.b = jSONObject.optString("fold_lottie");
+        jSONObject.optString("fold_name");
+        this.c = jSONObject.optString("unfold_lottie");
+        jSONObject.optString("unfold_name");
+        g();
     }
 }

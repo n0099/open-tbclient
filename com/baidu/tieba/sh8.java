@@ -1,149 +1,347 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.im.chat.AbsMsglistView;
+import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
+import com.baidu.tieba.im.chat.MsgIceBreakItemAdapter;
+import com.baidu.tieba.im.chat.MsgLeftViewItemAdapter;
+import com.baidu.tieba.im.chat.MsgMidViewItemAdapter;
+import com.baidu.tieba.im.chat.MsgRightViewItemAdapter;
+import com.baidu.tieba.im.chat.MsgStrangerTipItemAdapter;
+import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class sh8 {
     public static /* synthetic */ Interceptable $ic;
-    public static Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<MsglistActivity<?>> a;
+    public List<ChatMessage> b;
+    public BdTypeListView c;
+    public MsgLeftViewItemAdapter d;
+    public MsgRightViewItemAdapter e;
+    public MsgMidViewItemAdapter f;
+    public MsgIceBreakItemAdapter g;
+    public boolean h;
+    public List<MsgCommonItemAdapter> i;
+    public CustomMessageListener j;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public int g;
-        public long h;
-        public String i;
-        public int j;
-        public long k;
-        public long l;
-        public long m;
-        public String n;
-        public int o;
+        public final /* synthetic */ sh8 a;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(sh8 sh8Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sh8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sh8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+                MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
+                if (aVar.b != null && aVar.a != null) {
+                    this.a.i.addAll(aVar.b);
+                    this.a.c.addAdapters(new ArrayList(this.a.i));
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948151526, "Lcom/baidu/tieba/sh8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948151526, "Lcom/baidu/tieba/sh8;");
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public sh8(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView) {
+        this(tbPageContext, bdTypeListView, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((TbPageContext) objArr2[0], (BdTypeListView) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile(UrlSchemaHelper.PB_URL);
     }
 
-    public static List<a> a(String str, String str2, long j, long j2) {
-        InterceptResult invokeCommon;
+    public sh8(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return b(str, str2, null, 0L, j, j2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (List) invokeCommon.objValue;
+        this.b = null;
+        this.i = new ArrayList();
+        this.j = new a(this, 2001275);
+        this.a = tbPageContext;
+        this.c = bdTypeListView;
+        e();
+        this.d.E(i);
+        this.e.E(i);
     }
 
-    public static List<a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        int i;
+    public void i(ChatMessage chatMessage) {
+        rh8 itemView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, chatMessage) == null) && chatMessage != null && (itemView = chatMessage.getItemView()) != null && itemView.h != null && chatMessage.getMsgId() == itemView.h.longValue()) {
+            itemView.R(null, chatMessage);
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d.G(i);
+            this.e.H(i);
+        }
+    }
+
+    public void m(boolean z) {
+        MsgLeftViewItemAdapter msgLeftViewItemAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (msgLeftViewItemAdapter = this.d) != null) {
+            msgLeftViewItemAdapter.I(z);
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            MsgLeftViewItemAdapter msgLeftViewItemAdapter = this.d;
+            if (msgLeftViewItemAdapter != null) {
+                msgLeftViewItemAdapter.y(z);
             }
-            int i2 = -1;
-            if (userData != null) {
-                i = userData.getUserType();
-            } else {
-                i = -1;
+            MsgRightViewItemAdapter msgRightViewItemAdapter = this.e;
+            if (msgRightViewItemAdapter != null) {
+                msgRightViewItemAdapter.y(z);
             }
-            LinkedList linkedList = new LinkedList();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                int i3 = 0;
-                while (i3 < length) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i3);
-                    String optString = optJSONObject.optString("title");
-                    String optString2 = optJSONObject.optString("url");
-                    String optString3 = optJSONObject.optString("src");
-                    String optString4 = optJSONObject.optString("text");
-                    optJSONObject.optLong("picId");
-                    String optString5 = optJSONObject.optString("msg_src");
-                    a aVar = new a();
-                    if (!TextUtils.isEmpty(optString2)) {
-                        optString2 = optString2.trim();
-                        Matcher matcher = a.matcher(optString2);
-                        if (matcher.find()) {
-                            aVar.n = matcher.group(1);
-                        }
-                    }
-                    aVar.d = optString2;
-                    aVar.a = optString;
-                    aVar.b = optString4;
-                    aVar.c = optString3;
-                    aVar.e = str2;
-                    aVar.k = j2;
-                    aVar.l = j3;
-                    aVar.f = optString5;
-                    if (i > i2) {
-                        aVar.g = i;
-                    }
-                    if (userData != null) {
-                        aVar.h = j;
-                        aVar.i = userData.getUserId();
-                        aVar.j = userData.getUserType();
-                    }
-                    linkedList.add(aVar);
-                    i3++;
-                    i2 = -1;
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            MsgLeftViewItemAdapter msgLeftViewItemAdapter = this.d;
+            if (msgLeftViewItemAdapter != null) {
+                msgLeftViewItemAdapter.J(z);
+            }
+            MsgRightViewItemAdapter msgRightViewItemAdapter = this.e;
+            if (msgRightViewItemAdapter != null) {
+                msgRightViewItemAdapter.J(z);
+            }
+        }
+    }
+
+    public void p(boolean z) {
+        MsgRightViewItemAdapter msgRightViewItemAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (msgRightViewItemAdapter = this.e) != null) {
+            msgRightViewItemAdapter.K(z);
+        }
+    }
+
+    public void q(boolean z) {
+        MsgLeftViewItemAdapter msgLeftViewItemAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && (msgLeftViewItemAdapter = this.d) != null) {
+            msgLeftViewItemAdapter.K(z);
+        }
+    }
+
+    public void r(gf gfVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, gfVar) == null) {
+            for (MsgCommonItemAdapter msgCommonItemAdapter : this.i) {
+                if (msgCommonItemAdapter.t()) {
+                    msgCommonItemAdapter.B(gfVar);
                 }
-                return linkedList;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
             }
         }
-        return (List) invokeCommon.objValue;
+    }
+
+    public void s(hf hfVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, hfVar) == null) {
+            for (MsgCommonItemAdapter msgCommonItemAdapter : this.i) {
+                if (msgCommonItemAdapter.u()) {
+                    msgCommonItemAdapter.C(hfVar);
+                }
+            }
+        }
+    }
+
+    public void t(ArrayList<ReportPrivateMsgData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) {
+            this.e.D(arrayList);
+            this.d.D(arrayList);
+        }
+    }
+
+    public void u(AbsMsglistView.j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, jVar) == null) {
+            this.d.F(jVar);
+            this.e.F(jVar);
+        }
+    }
+
+    public List<ChatMessage> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.j.setPriority(Integer.MAX_VALUE);
+            this.a.registerListener(this.j);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (this.c.getAdapter2() instanceof sm)) {
+            this.c.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (this.c.getAdapter2() instanceof sm)) {
+            this.c.getAdapter2().notifyDataSetInvalidated();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MsgLeftViewItemAdapter msgLeftViewItemAdapter = new MsgLeftViewItemAdapter(this.a, ChatMessage.TYPE_MSG_LEFT);
+            this.d = msgLeftViewItemAdapter;
+            msgLeftViewItemAdapter.z(true);
+            this.d.A(true);
+            MsgRightViewItemAdapter msgRightViewItemAdapter = new MsgRightViewItemAdapter(this.a, ChatMessage.TYPE_MSG_RIGHT);
+            this.e = msgRightViewItemAdapter;
+            msgRightViewItemAdapter.z(true);
+            this.e.A(true);
+            this.f = new MsgMidViewItemAdapter(this.a, ChatMessage.TYPE_MSG_MID);
+            MsgIceBreakItemAdapter msgIceBreakItemAdapter = new MsgIceBreakItemAdapter(this.a);
+            this.g = msgIceBreakItemAdapter;
+            msgIceBreakItemAdapter.z(true);
+            this.i.add(this.d);
+            this.i.add(this.e);
+            this.i.add(this.f);
+            this.i.add(this.g);
+            this.i.add(new MsgStrangerTipItemAdapter(this.a));
+            f();
+            MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
+            aVar.b = new ArrayList();
+            aVar.a = this.a;
+            MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.j != null) {
+                MessageManager.getInstance().unRegisterListener(this.j);
+                this.j = null;
+            }
+            List<MsgCommonItemAdapter> list = this.i;
+            if (list != null && list.size() > 0) {
+                for (MsgCommonItemAdapter msgCommonItemAdapter : this.i) {
+                    msgCommonItemAdapter.B(null);
+                    msgCommonItemAdapter.C(null);
+                }
+                this.i.clear();
+            }
+        }
+    }
+
+    public void l(List<ChatMessage> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            this.h = false;
+            this.b = list;
+            ArrayList arrayList = new ArrayList();
+            if (this.b != null) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (i > 0) {
+                        if (list.get(i).getCacheData() == null) {
+                            list.get(i).setCacheData(new MsgCacheData());
+                        }
+                        list.get(i).getCacheData().setLastMsgTime(list.get(i - 1).getTime());
+                    }
+                    if (list.get(i).getMsgType() == 2) {
+                        this.h = true;
+                    }
+                }
+                arrayList.addAll(this.b);
+            }
+            this.c.setData(arrayList);
+        }
     }
 }

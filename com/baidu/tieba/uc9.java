@@ -1,99 +1,39 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.myCollection.CollectUpdateReceiver;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeHttpResponseMessage;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeRequestMessage;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeSocketResponseMessage;
+import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tieba.ml5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.LinkedList;
 /* loaded from: classes8.dex */
-public class uc9 {
+public class uc9 extends ml5 {
     public static /* synthetic */ Interceptable $ic;
-    public static uc9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
+    public LinkedList<ej5> m;
 
-    /* loaded from: classes8.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(uc9 uc9Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc9Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                List<String> list = Collections.EMPTY_LIST;
-                if (responsedMessage instanceof GetStoreRemindTimeHttpResponseMessage) {
-                    list = ((GetStoreRemindTimeHttpResponseMessage) responsedMessage).getTimeList();
-                } else if (responsedMessage instanceof GetStoreRemindTimeSocketResponseMessage) {
-                    list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
-                }
-                if (!list.isEmpty()) {
-                    SharedPrefHelper.getInstance().putString("collect_update_time_key", new JSONArray((Collection) list).toString());
-                    uc9.b().g();
-                }
-            }
+    @Override // com.baidu.tieba.xi5
+    public void O(wi5 wi5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wi5Var) == null) {
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements Comparator<Calendar> {
+    public class a implements ml5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uc9 a;
 
-        public b(uc9 uc9Var) {
+        public a(uc9 uc9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,23 +45,24 @@ public class uc9 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = uc9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Calendar calendar, Calendar calendar2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.ml5.a
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, calendar, calendar2)) == null) {
-                if (calendar.before(calendar2)) {
-                    return -1;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+                DLauncher A = this.a.A(i);
+                if (A.getLayoutParams() == null) {
+                    A.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
-                return 1;
+                return A;
             }
-            return invokeLL.intValue;
+            return (View) invokeILL.objValue;
         }
     }
 
@@ -135,151 +76,64 @@ public class uc9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
-        bha.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, bha.a("c/f/livegroup/getStoreRemindTime", 309117));
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void g() {
-        Calendar c;
-        Context context;
+    @Override // com.baidu.tieba.ml5
+    public void a() {
+        LinkedList<ej5> linkedList;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = c()) == null || (context = TbadkCoreApplication.getInst().getContext()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (linkedList = this.m) != null) {
+            linkedList.clear();
+            this.m = null;
         }
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-        Intent intent = new Intent(CollectUpdateReceiver.ACTION_NAME);
-        intent.setPackage(context.getPackageName());
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(14, 0);
-        if (c.before(calendar)) {
-            c.set(6, calendar.get(6) + 1);
-        }
-        alarmManager.set(1, c.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
     }
 
-    public static uc9 b() {
+    @Override // com.baidu.tieba.ml5
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (uc9.class) {
-                    if (b == null) {
-                        b = new uc9();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LinkedList<ej5> linkedList = this.m;
+            if (linkedList != null) {
+                return linkedList.size();
             }
-            return b;
+            return 0;
         }
-        return (uc9) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void d() {
+    public final DLauncher A(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a()) {
-            MessageManager.getInstance().sendMessage(new GetStoreRemindTimeRequestMessage());
-            h();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < c()) {
+                return (DLauncher) this.m.get(i);
+            }
+            return null;
         }
+        return (DLauncher) invokeI.objValue;
     }
 
-    public void h() {
+    public void z(LinkedList<ej5> linkedList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            SharedPrefHelper.getInstance().putLong("collect_request_time_key", System.currentTimeMillis());
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = SharedPrefHelper.getInstance().getLong("collect_request_time_key", -1L);
-            if (j == -1) {
-                return true;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - j;
-            if (currentTimeMillis > 0 && TimeUnit.MILLISECONDS.toDays(currentTimeMillis) >= 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final Calendar c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String string = SharedPrefHelper.getInstance().getString("collect_update_time_key", null);
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            Calendar calendar = Calendar.getInstance();
-            try {
-                JSONArray jSONArray = new JSONArray(string);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    String optString = jSONArray.optString(i);
-                    if (!TextUtils.isEmpty(optString)) {
-                        Calendar calendar2 = (Calendar) calendar.clone();
-                        calendar2.setTime(simpleDateFormat.parse(optString));
-                        calendar2.set(calendar.get(1), calendar.get(2), calendar.get(5));
-                        arrayList.add(calendar2);
-                    }
-                }
-            } catch (ParseException e) {
-                BdLog.e(e.getMessage());
-                e.printStackTrace();
-                return null;
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
-                return null;
-            } catch (Exception e3) {
-                BdLog.e(e3.getMessage());
-            }
-            if (arrayList.isEmpty()) {
-                return null;
-            }
-            Collections.sort(arrayList, new b(this));
-            Calendar calendar3 = (Calendar) arrayList.get(0);
-            Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
-            if (arrayList.size() != 1 && !calendar3.after(calendar) && !calendar4.before(calendar)) {
-                for (int i2 = 1; i2 < arrayList.size(); i2++) {
-                    Calendar calendar5 = (Calendar) arrayList.get(i2);
-                    if (!calendar5.before(calendar)) {
-                        return calendar5;
-                    }
-                }
-                return null;
-            }
-            return calendar3;
-        }
-        return (Calendar) invokeV.objValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (this.a) {
-                z = false;
-            }
-            SharedPrefHelper.getInstance().putBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
+        if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
+            this.m = linkedList;
         }
     }
 
-    public void f(boolean z) {
+    @Override // com.baidu.tieba.ml5
+    public void n(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            o(4);
+            v(2);
+            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
+            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            x(new a(this));
+            h().b(this);
         }
     }
 }

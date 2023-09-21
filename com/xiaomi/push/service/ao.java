@@ -42,8 +42,8 @@ public class ao {
     }
 
     public static boolean a(Context context) {
-        String m838a = u.m838a(context);
-        return !TextUtils.isEmpty(m838a) && m838a.length() >= 3 && com.xiaomi.push.t.a(m838a.substring(m838a.length() - 3), 1) < 1;
+        String m840a = u.m840a(context);
+        return !TextUtils.isEmpty(m840a) && m840a.length() >= 3 && com.xiaomi.push.t.a(m840a.substring(m840a.length() - 3), 1) < 1;
     }
 
     public static boolean a(Context context, String str, an anVar) {

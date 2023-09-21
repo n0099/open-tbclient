@@ -1,17 +1,17 @@
 package rx.subscriptions;
 
-import com.baidu.tieba.wfc;
-import com.baidu.tieba.zac;
+import com.baidu.tieba.ohc;
+import com.baidu.tieba.rcc;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class RefCountSubscription implements zac {
+public final class RefCountSubscription implements rcc {
     public static final a c = new a(false, 0);
-    public final zac a;
+    public final rcc a;
     public final AtomicReference<a> b = new AtomicReference<>(c);
 
     /* loaded from: classes2.dex */
-    public static final class InnerSubscription extends AtomicInteger implements zac {
+    public static final class InnerSubscription extends AtomicInteger implements rcc {
         public static final long serialVersionUID = 7005765588239987643L;
         public final RefCountSubscription parent;
 
@@ -19,7 +19,7 @@ public final class RefCountSubscription implements zac {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.zac
+        @Override // com.baidu.tieba.rcc
         public boolean isUnsubscribed() {
             if (get() != 0) {
                 return true;
@@ -27,7 +27,7 @@ public final class RefCountSubscription implements zac {
             return false;
         }
 
-        @Override // com.baidu.tieba.zac
+        @Override // com.baidu.tieba.rcc
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
                 this.parent.b();
@@ -58,13 +58,13 @@ public final class RefCountSubscription implements zac {
         }
     }
 
-    public zac a() {
+    public rcc a() {
         a aVar;
         AtomicReference<a> atomicReference = this.b;
         do {
             aVar = atomicReference.get();
             if (aVar.a) {
-                return wfc.c();
+                return ohc.c();
             }
         } while (!atomicReference.compareAndSet(aVar, aVar.a()));
         return new InnerSubscription(this);
@@ -81,12 +81,12 @@ public final class RefCountSubscription implements zac {
         c(b);
     }
 
-    @Override // com.baidu.tieba.zac
+    @Override // com.baidu.tieba.rcc
     public boolean isUnsubscribed() {
         return this.b.get().a;
     }
 
-    @Override // com.baidu.tieba.zac
+    @Override // com.baidu.tieba.rcc
     public void unsubscribe() {
         a aVar;
         a c2;
@@ -101,9 +101,9 @@ public final class RefCountSubscription implements zac {
         c(c2);
     }
 
-    public RefCountSubscription(zac zacVar) {
-        if (zacVar != null) {
-            this.a = zacVar;
+    public RefCountSubscription(rcc rccVar) {
+        if (rccVar != null) {
+            this.a = rccVar;
             return;
         }
         throw new IllegalArgumentException("s");

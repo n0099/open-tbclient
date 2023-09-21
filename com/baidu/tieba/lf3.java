@@ -1,36 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lf3 {
+public class lf3 extends f22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Boolean> a;
-    public static final Map<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.jz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HideCaptureScreenShareDialogApi" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class a implements aq3<hg3> {
+    public class a implements zp3<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ aq3 b;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ lf3 c;
 
-        public a(String str, aq3 aq3Var) {
+        public a(lf3 lf3Var, boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, aq3Var};
+                Object[] objArr = {lf3Var, Boolean.valueOf(z), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,79 +44,61 @@ public class lf3 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = aq3Var;
+            this.c = lf3Var;
+            this.a = z;
+            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
+        @Override // com.baidu.tieba.zp3
         /* renamed from: b */
-        public void a(hg3 hg3Var) {
+        public void a(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hg3Var) == null) {
-                boolean z = true;
-                z = (hg3Var == null || hg3Var.d || hg3Var.j != 1) ? false : false;
-                lf3.a.put(this.a, Boolean.valueOf(z));
-                this.b.a(Boolean.valueOf(z));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                if (bool.booleanValue()) {
+                    kf3.e(this.a);
+                    this.c.d(this.b, new g32(0));
+                    return;
+                }
+                this.c.d(this.b, new g32(10005, "system deny"));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947940912, "Lcom/baidu/tieba/lf3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947940912, "Lcom/baidu/tieba/lf3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lf3(@NonNull hz1 hz1Var) {
+        super(hz1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((hz1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ConcurrentHashMap();
-        b = new ConcurrentHashMap();
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public g32 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Boolean bool = b.get(gb3.K().getAppId());
-            if (bool != null) {
-                return bool.booleanValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#hideCaptureScreenShareDialog", false);
+            Pair<g32, JSONObject> s = s(str);
+            g32 g32Var = (g32) s.first;
+            if (!g32Var.isSuccess()) {
+                return g32Var;
             }
-            return false;
+            JSONObject jSONObject = (JSONObject) s.second;
+            kf3.b(new a(this, jSONObject.optBoolean("hide"), jSONObject.optString("cb")));
+            return new g32(0);
         }
-        return invokeV.booleanValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            b.clear();
-            a.clear();
-        }
-    }
-
-    public static void b(aq3<Boolean> aq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aq3Var) == null) {
-            String appId = gb3.K().getAppId();
-            Boolean bool = a.get(appId);
-            if (bool != null) {
-                aq3Var.a(bool);
-            } else {
-                gb3.K().q().e0().e("mapp_custom_screenshot_image", new a(appId, aq3Var));
-            }
-        }
-    }
-
-    public static void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            b.put(gb3.K().getAppId(), Boolean.valueOf(z));
-        }
+        return (g32) invokeL.objValue;
     }
 }

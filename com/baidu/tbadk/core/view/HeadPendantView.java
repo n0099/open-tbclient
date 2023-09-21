@@ -49,6 +49,7 @@ public class HeadPendantView extends RelativeLayout {
     public boolean k;
     public boolean l;
     public boolean m;
+    public String n;
 
     /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -109,6 +110,7 @@ public class HeadPendantView extends RelativeLayout {
         this.j = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
+        this.n = "";
         this.a = context;
         e();
     }
@@ -122,6 +124,10 @@ public class HeadPendantView extends RelativeLayout {
             }
             if (this.c != null) {
                 if (!StringUtils.isNull(str)) {
+                    if (this.n.equals(str)) {
+                        return;
+                    }
+                    this.n = str;
                     this.c.setVisibility(0);
                     this.c.setController(Fresco.newDraweeControllerBuilder().setUri(str).setAutoPlayAnimations(true).build());
                     return;
@@ -180,6 +186,7 @@ public class HeadPendantView extends RelativeLayout {
         this.j = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
+        this.n = "";
         this.a = context;
         e();
     }
@@ -209,6 +216,7 @@ public class HeadPendantView extends RelativeLayout {
         this.j = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
+        this.n = "";
         this.a = context;
         e();
     }

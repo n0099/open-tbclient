@@ -1,252 +1,245 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.FileUtils;
+import java.io.IOException;
+import java.util.List;
+@TargetApi(18)
 /* loaded from: classes6.dex */
 public class jib {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
+    public String b;
+    public MediaMuxer c;
+    public int d;
+    public int e;
+    public MediaFormat f;
+    public MediaFormat g;
+    public zib h;
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
+    public jib(List<String> list, String str, zib zibVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (cjb.a(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str, zibVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            byte[] decode = Base64.decode(str, 0);
-            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
         }
-        return (Bitmap) invokeL.objValue;
+        akb.e("VideoComposer", list.size() + " composer to " + str);
+        this.a = list;
+        this.b = str;
+        this.h = zibVar;
     }
 
-    public static Bitmap f(String str) {
-        FileInputStream fileInputStream;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                fileInputStream = new FileInputStream(str);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                fileInputStream = null;
-            }
-            return BitmapFactory.decodeStream(fileInputStream);
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static int b(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 > i2 && i7 / i5 > i) {
-                    i5 *= 2;
-                }
-            }
-            return i5;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static Bitmap c(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitmap, compressFormat, i)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(compressFormat, i, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        }
-        return (Bitmap) invokeLLI.objValue;
-    }
-
-    public static Bitmap d(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
-            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap e(String str, int i, int i2, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
-            if (!FileUtils.isExists(str)) {
-                return null;
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            options.inSampleSize = b(options, i, i2);
-            options.inJustDecodeBounds = false;
-            Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
-            if (f % 360.0f == 0.0f) {
-                return decodeFile;
-            }
-            if (decodeFile == null) {
-                return null;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postRotate(f);
-            Bitmap createBitmap = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
-            decodeFile.recycle();
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap h(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i > 0 && i2 > 0 && bitmap != null && !bitmap.isRecycled()) {
-                boolean z3 = true;
-                if (bitmap.getWidth() > bitmap.getHeight()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (i <= i2) {
-                    z3 = false;
-                }
-                if (z2 != z3) {
-                    i2 = i;
-                    i = i2;
-                }
-                if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
-                    return i(bitmap, i, i2, z);
-                }
-                return bitmap;
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap i(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                Matrix matrix = new Matrix();
-                matrix.postScale(i / width, i2 / height);
-                Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-                if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                    bitmap.recycle();
-                }
-                return createBitmap;
-            }
-            return null;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x005f  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0064  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Bitmap g(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    public final long a(long j, String str) throws IOException {
+        InterceptResult invokeJL;
+        boolean z;
+        int i;
+        int i2;
+        iib iibVar;
         int i3;
+        iib iibVar2;
         int i4;
-        int i5;
-        int i6;
+        iib iibVar3;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                if (width == 0 || height == 0 || i == 0 || i2 == 0) {
-                    return bitmap;
-                }
-                float f = width;
-                float f2 = height;
-                float f3 = (f * 1.0f) / f2;
-                float f4 = i * 1.0f;
-                float f5 = i2;
-                float f6 = f4 / f5;
-                if (Math.abs(f3 - f6) < 0.01d) {
-                    i4 = width;
-                } else if (f3 > f6) {
-                    i4 = (i * height) / i2;
-                } else {
-                    i3 = (i2 * width) / i;
-                    i4 = width;
-                    if (width <= i4) {
-                        i5 = (width - i4) / 2;
-                    } else {
-                        i5 = 0;
-                    }
-                    if (height <= i3) {
-                        i6 = (height - i3) / 2;
-                    } else {
-                        i6 = 0;
-                    }
-                    Matrix matrix = new Matrix();
-                    matrix.postScale(f4 / f, (f5 * 1.0f) / f2);
-                    Bitmap createBitmap = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix, true);
-                    if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                        bitmap.recycle();
-                    }
-                    return createBitmap;
-                }
-                i3 = height;
-                if (width <= i4) {
-                }
-                if (height <= i3) {
-                }
-                Matrix matrix2 = new Matrix();
-                matrix2.postScale(f4 / f, (f5 * 1.0f) / f2);
-                Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix2, true);
-                if (z) {
-                    bitmap.recycle();
-                }
-                return createBitmap2;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
+            String str3 = "VideoComposer";
+            akb.e("VideoComposer", j + " compose " + str);
+            iib iibVar4 = new iib();
+            iibVar4.m(str, FileUtils.VIDEO_FILE_START);
+            int d = iibVar4.d();
+            iib iibVar5 = null;
+            if (d < 0) {
+                iibVar4.j();
+                iibVar4 = null;
+            } else {
+                iibVar4.l(this.e);
             }
-            return null;
+            iib iibVar6 = new iib();
+            iibVar6.m(str, "audio/");
+            int d2 = iibVar6.d();
+            if (d2 < 0) {
+                iibVar6.j();
+            } else {
+                iibVar6.l(this.d);
+                iibVar5 = iibVar6;
+            }
+            boolean z2 = false;
+            if (iibVar4 == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (iibVar5 == null) {
+                z2 = true;
+            }
+            long j2 = 0;
+            long j3 = 0;
+            while (true) {
+                if (z && z2) {
+                    break;
+                }
+                if (!z2 && (z || iibVar5.e() - iibVar4.e() <= 50000)) {
+                    i = this.d;
+                    i3 = d2;
+                    i2 = i3;
+                    iibVar = iibVar5;
+                } else {
+                    i = this.e;
+                    i2 = d2;
+                    iibVar = iibVar4;
+                    i3 = d;
+                }
+                MediaCodec.BufferInfo h = iibVar.h();
+                if (h == null) {
+                    i4 = d;
+                    iib iibVar7 = iibVar;
+                    if (iibVar7 == iibVar4) {
+                        j2 = iibVar4.e();
+                        d2 = i2;
+                        d = i4;
+                        z = true;
+                    } else if (iibVar7 == iibVar5) {
+                        j3 = iibVar5.e();
+                        d2 = i2;
+                        d = i4;
+                        z2 = true;
+                    } else {
+                        iibVar2 = iibVar4;
+                        iibVar3 = iibVar5;
+                        str2 = str3;
+                    }
+                } else {
+                    iibVar2 = iibVar4;
+                    i4 = d;
+                    iib iibVar8 = iibVar;
+                    if (iibVar8.f() != i3) {
+                        StringBuilder sb = new StringBuilder();
+                        iibVar3 = iibVar5;
+                        sb.append("WEIRD: got sample from track ");
+                        sb.append(iibVar8.f());
+                        sb.append(", expected ");
+                        sb.append(i3);
+                        akb.e(str3, sb.toString());
+                    } else {
+                        iibVar3 = iibVar5;
+                    }
+                    str2 = str3;
+                    h.presentationTimeUs += j;
+                    this.c.writeSampleData(i, iibVar8.c(), h);
+                    iibVar8.a();
+                }
+                str3 = str2;
+                d2 = i2;
+                d = i4;
+                iibVar4 = iibVar2;
+                iibVar5 = iibVar3;
+            }
+            long max = j + Math.max(j2, j3) + 10000;
+            zib zibVar = this.h;
+            if (zibVar != null) {
+                zibVar.c(max);
+            }
+            akb.e(str3, "finish one file, ptsOffset " + max);
+            if (iibVar4 != null) {
+                iibVar4.j();
+            }
+            if (iibVar5 != null) {
+                iibVar5.j();
+            }
+            return max;
         }
-        return (Bitmap) invokeCommon.objValue;
+        return invokeJL.longValue;
     }
 
-    public static Context getContext() {
-        InterceptResult invokeV;
+    public boolean b(StringBuilder sb) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return leb.c().getContext();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb)) == null) {
+            boolean z = false;
+            boolean z2 = false;
+            for (String str : this.a) {
+                try {
+                    iib iibVar = new iib();
+                    try {
+                        iibVar.m(str, FileUtils.VIDEO_FILE_START);
+                        if (!z) {
+                            MediaFormat mediaFormat = iibVar.g().a;
+                            this.g = mediaFormat;
+                            if (mediaFormat == null) {
+                                akb.e("VideoComposer", "No video track found in " + str);
+                            } else {
+                                z = true;
+                            }
+                        }
+                        if (!z2) {
+                            MediaFormat mediaFormat2 = iibVar.b().a;
+                            this.f = mediaFormat2;
+                            if (mediaFormat2 == null) {
+                                akb.e("VideoComposer", "No audio track found in " + str);
+                            } else {
+                                z2 = true;
+                            }
+                        }
+                    } catch (Exception e) {
+                        akb.e("VideoComposer", e.getMessage());
+                        e.printStackTrace();
+                    }
+                    iibVar.j();
+                    if (z && z2) {
+                        break;
+                    }
+                } catch (Exception e2) {
+                    if (sb != null) {
+                        sb.append("VideoSplicer codec 录制视频拼接过程中发生异常:" + e2.getMessage());
+                    }
+                    e2.printStackTrace();
+                    return false;
+                }
+            }
+            MediaMuxer mediaMuxer = new MediaMuxer(this.b, 0);
+            this.c = mediaMuxer;
+            if (z) {
+                this.e = mediaMuxer.addTrack(this.g);
+            }
+            if (z2) {
+                this.d = this.c.addTrack(this.f);
+            }
+            this.c.start();
+            long j = 0;
+            for (String str2 : this.a) {
+                j = a(j, str2);
+            }
+            if (this.c != null) {
+                try {
+                    this.c.stop();
+                    this.c.release();
+                } catch (Exception unused) {
+                    akb.e("VideoComposer", "Muxer close error. No data was written");
+                }
+                this.c = null;
+            }
+            akb.j("VideoComposer", "video join finished");
+            return true;
         }
-        return (Context) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

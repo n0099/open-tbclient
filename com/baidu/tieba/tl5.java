@@ -1,9 +1,11 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface tl5 {
     void a();
 
-    void d();
+    View getView();
 
-    void onLoadSuccess();
+    void onClick();
 }

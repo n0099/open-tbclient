@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public final class u87 {
+public class u87 extends i87 implements m97, xb7, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ? extends tc7> a;
-    public final f87 b;
-    public final m97 c;
-    public Map<String, String> d;
-    public boolean e;
+
+    @Override // com.baidu.tieba.yc7
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "common_card" : (String) invokeV.objValue;
+    }
 
     public u87() {
         Interceptable interceptable = $ic;
@@ -29,81 +33,48 @@ public final class u87 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap();
-        this.b = new f87();
-        this.c = new m97();
-        this.d = new HashMap();
     }
 
-    public final f87 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xb7
+    public void d(@NonNull Object obj) {
+        n87<?> n87Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (n87Var = this.c) != null) {
+            n87Var.d(obj);
         }
-        return (f87) invokeV.objValue;
     }
 
-    public final boolean b() {
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final m97 c() {
-        InterceptResult invokeV;
+        ArrayList<PreLoadImageInfo> images;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            if (this.c != null) {
+                ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
+                for (yc7<? extends Object> yc7Var : this.c.b()) {
+                    if ((yc7Var instanceof PreLoadImageProvider) && (images = ((PreLoadImageProvider) yc7Var).getImages()) != null && images.size() > 0) {
+                        arrayList.addAll(images);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
         }
-        return (m97) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final Map<String, String> d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m97
+    public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.Map<java.lang.String, ? extends com.baidu.tieba.tc7>, java.util.Map<java.lang.String, com.baidu.tieba.tc7> */
-    public final Map<String, tc7> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public final void g(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "<set-?>");
-            this.d = map;
-        }
-    }
-
-    public final void h(Map<String, ? extends tc7> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "<set-?>");
-            this.a = map;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            for (yc7<? extends Object> yc7Var : this.c.b()) {
+                if (yc7Var.b() instanceof m97) {
+                    ((m97) yc7Var.b()).setPosition(i);
+                }
+            }
         }
     }
 }

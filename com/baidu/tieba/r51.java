@@ -1,79 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.internal.CollapsingTextHelper;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-@Service
 /* loaded from: classes7.dex */
-public final class r51 extends dj0 {
+public class r51 {
     public static /* synthetic */ Interceptable $ic;
+    public static o51 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.dj0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "toast" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948072507, "Lcom/baidu/tieba/r51;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948072507, "Lcom/baidu/tieba/r51;");
+        }
     }
 
     public r51() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.dj0
-    public boolean b(Context context, hj0 schemeModel, Map<String, Object> map, lj0 lj0Var) {
-        InterceptResult invokeLLLL;
-        String c;
+    public static o51 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, lj0Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
-            super.b(context, schemeModel, map, lj0Var);
-            HashMap<String, String> d = schemeModel.d();
-            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
-            q51 q51Var = new q51(d);
-            if (TextUtils.isEmpty(q51Var.c())) {
-                return true;
-            }
-            if (q51Var.b() >= 0 && q51Var.b() < q51Var.c().length()) {
-                StringBuilder sb = new StringBuilder();
-                String c2 = q51Var.c();
-                int b = q51Var.b();
-                if (c2 != null) {
-                    String substring = c2.substring(0, b);
-                    Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                    sb.append(substring);
-                    sb.append(CollapsingTextHelper.ELLIPSIS_NORMAL);
-                    c = sb.toString();
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (r51.class) {
+                    if (a == null) {
+                        a = (o51) ServiceManager.getService(o51.a);
+                    }
+                    if (a == null) {
+                        a = o51.b;
+                    }
                 }
-            } else {
-                c = q51Var.c();
             }
-            s51.a().b(context, c, q51Var.a());
-            return true;
+            return a;
         }
-        return invokeLLLL.booleanValue;
+        return (o51) invokeV.objValue;
     }
 }

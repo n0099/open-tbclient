@@ -1,78 +1,74 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rqb extends BaseAdRipper {
+public class rqb implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public final /* synthetic */ drb b;
+    public final /* synthetic */ oqb c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rqb(Ssp.Pid pid) {
-        super(pid);
+    public rqb(oqb oqbVar, drb drbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {oqbVar, drbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = oqbVar;
+        this.b = drbVar;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object findField;
-        Object findField2;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            try {
-                Object obj2 = ((rrb) obj).a;
-                Field declaredField = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj3 = declaredField.get(obj2);
-                if (obj3 == null) {
-                    return null;
-                }
-                Field declaredField2 = obj3.getClass().getDeclaredField("c");
-                declaredField2.setAccessible(true);
-                Object obj4 = declaredField2.get(obj3);
-                if (obj4 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.intersitial2.a", obj4)) == null || (findField2 = ReflectionUtils.findField("com.qq.e.comm.plugin.B.r", findField)) == null) {
-                    return null;
-                }
-                Field declaredField3 = findField2.getClass().getSuperclass().getDeclaredField("L");
-                declaredField3.setAccessible(true);
-                JSONObject jSONObject = (JSONObject) declaredField3.get(findField2);
-                if (jSONObject == null) {
-                    return null;
-                }
-                return arb.a(jSONObject);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.c.onAdClicked((oqb) this.b, this.a, new String[0]);
+            this.a = true;
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            LogPrinter.d();
+            this.c.onAdShow((oqb) this.b, false, new String[0]);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
+            LogPrinter.e("onRenderFail message: " + str + ", code = " + i, new Object[0]);
+            this.c.onError(i, str);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.c.onAdLoaded(this.b, new String[0]);
+        }
     }
 }

@@ -32,20 +32,20 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wx4 implements tm6 {
+public class wx4 implements xm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ShareItem a;
     public PermissionJudgePolicy b;
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        sm6.a(this, webView, str, jSONObject);
+        wm6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public /* synthetic */ void onDestroy() {
-        sm6.b(this);
+        wm6.b(this);
     }
 
     /* loaded from: classes8.dex */
@@ -120,7 +120,7 @@ public class wx4 implements tm6 {
         }
     }
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -151,12 +151,12 @@ public class wx4 implements tm6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public mia d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+    public ska d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("title", str);
@@ -173,7 +173,7 @@ public class wx4 implements tm6 {
                 BdLog.e(e);
             }
             String jSONObject2 = jSONObject.toString();
-            if (!ei.isEmpty(jSONObject2)) {
+            if (!di.isEmpty(jSONObject2)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016566, jSONObject2));
                 i2 = 1;
             } else {
@@ -182,29 +182,29 @@ public class wx4 implements tm6 {
             try {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("resultCode", i2);
-                miaVar.o(jSONObject3.toString());
-                return miaVar;
+                skaVar.o(jSONObject3.toString());
+                return skaVar;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v10, resolved type: boolean */
     /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: boolean */
     /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    public mia f(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
+    public ska f(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         int i7;
         CustomResponsedMessage runTask;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, str11, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str12, str13, str14, str15, jSONObject})) == null) {
-            mia miaVar = new mia();
-            Activity a2 = im6.a(webView.getContext());
+            ska skaVar = new ska();
+            Activity a2 = mm6.a(webView.getContext());
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("channel", i);
@@ -231,7 +231,7 @@ public class wx4 implements tm6 {
                 BdLog.e(e);
             }
             String jSONObject3 = jSONObject2.toString();
-            if (!ei.isEmpty(jSONObject3) && (runTask = MessageManager.getInstance().runTask(2016568, ShareItem.class, jSONObject3)) != null) {
+            if (!di.isEmpty(jSONObject3) && (runTask = MessageManager.getInstance().runTask(2016568, ShareItem.class, jSONObject3)) != null) {
                 ShareItem shareItem = (ShareItem) runTask.getData();
                 if (shareItem != null) {
                     shareItem.objSource = 17;
@@ -245,21 +245,21 @@ public class wx4 implements tm6 {
                 }
                 if (shareItem != null && shareItem.isShareGroup()) {
                     i(a2, shareItem, i5);
-                    miaVar.o("");
-                    return miaVar;
+                    skaVar.o("");
+                    return skaVar;
                 } else if (shareItem != null && shareItem.isShareAlbum()) {
                     i(a2, shareItem, i5);
-                    miaVar.o("");
-                    return miaVar;
+                    skaVar.o("");
+                    return skaVar;
                 } else if (shareItem != null && shareItem.isShareTopic()) {
                     i(a2, shareItem, i5);
-                    miaVar.o("");
-                    return miaVar;
+                    skaVar.o("");
+                    return skaVar;
                 } else if (shareItem != null && shareItem.isShareActive()) {
                     shareItem.setShowMoreForumIcon("1".equals(str2));
                     i(a2, shareItem, i5);
-                    miaVar.o("");
-                    return miaVar;
+                    skaVar.o("");
+                    return skaVar;
                 } else if ("1".equals(str2) && shareItem != null) {
                     shareItem.imageUrl = str;
                     shareItem.linkUrl = str3;
@@ -271,17 +271,17 @@ public class wx4 implements tm6 {
                     ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) a2, shareItem, true, (SparseArray<String>) null);
                     shareDialogConfig.mShowMoreForumShare = true;
                     TransmitShareController.getInstance().showShareDialog(shareDialogConfig);
-                    miaVar.o("");
-                    return miaVar;
+                    skaVar.o("");
+                    return skaVar;
                 } else if (i == 0) {
-                    if (shareItem != null && !ei.isEmpty(str) && i2 == 1) {
+                    if (shareItem != null && !di.isEmpty(str) && i2 == 1) {
                         e(shareItem);
                         g(a2, str, i);
                     }
                     j(a2, shareItem, "1".equals(str13));
                     i7 = 1;
                 } else {
-                    if (shareItem != null && !ei.isEmpty(str)) {
+                    if (shareItem != null && !di.isEmpty(str)) {
                         z = 1;
                         i7 = 1;
                         if (i2 == 1) {
@@ -300,14 +300,14 @@ public class wx4 implements tm6 {
             try {
                 JSONObject jSONObject4 = new JSONObject();
                 jSONObject4.put("resultCode", i7);
-                miaVar.o(jSONObject4.toString());
-                return miaVar;
+                skaVar.o(jSONObject4.toString());
+                return skaVar;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
     public final void g(Context context, String str, int i) {
@@ -349,11 +349,11 @@ public class wx4 implements tm6 {
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
-    public mia h(WebView webView, HashMap hashMap) {
+    public ska h(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, hashMap)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
             int intValue2 = ((Integer) hashMap.get("shareStatus")).intValue();
             if (intValue2 != 3 && intValue2 != 2) {
@@ -374,13 +374,13 @@ public class wx4 implements tm6 {
                     e.printStackTrace();
                 }
                 a(webView, CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-                miaVar.o(jSONObject.toString());
+                skaVar.o(jSONObject.toString());
             } else {
-                miaVar.p();
+                skaVar.p();
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
     public void i(Context context, ShareItem shareItem, int i) {
@@ -399,7 +399,7 @@ public class wx4 implements tm6 {
         TransmitShareController.getInstance().showShareDialog(new ShareDialogConfig(context, shareItem, true, (SparseArray<String>) null));
         if (shareItem.isShareGroup()) {
             shareItem.obj_type = 11;
-            oj8.b(shareItem.groupData);
+            to8.b(shareItem.groupData);
         }
     }
 }

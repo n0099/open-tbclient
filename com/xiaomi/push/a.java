@@ -28,7 +28,7 @@ public final class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m254a() {
+    public byte[] m256a() {
         byte[] bArr = this.f93a;
         int length = bArr.length;
         byte[] bArr2 = new byte[length];

@@ -4,8 +4,8 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.fra;
 import com.baidu.tieba.ve;
-import com.baidu.tieba.zoa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class UseHttpdnsSdkSwitch extends ve {
 
     @Override // com.baidu.tieba.ve
     /* renamed from: getCrashKeys */
-    public String[] mo129getCrashKeys() {
+    public String[] mo130getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -93,7 +93,7 @@ public class UseHttpdnsSdkSwitch extends ve {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (zoa.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED2") || SwitchManager.getInstance().findType(KEY) != 1) {
+            if (fra.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED2") || SwitchManager.getInstance().findType(KEY) != 1) {
                 return false;
             }
             return true;

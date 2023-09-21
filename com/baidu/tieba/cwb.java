@@ -1,29 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.util.concurrent.Callable;
-import java.util.zip.DataFormatException;
-import java.util.zip.Inflater;
-import org.json.JSONObject;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class cwb implements Callable<bwb> {
+public abstract class cwb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Intent a;
+    public AtomicBoolean a;
+    public long b;
+    public Runnable c;
 
-    public cwb(Intent intent) {
+    public abstract void b();
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cwb a;
+
+        public a(cwb cwbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cwbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cwbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
+                if (this.a.a.get()) {
+                    gwb.a().postDelayed(this.a.c, this.a.b);
+                }
+            }
+        }
+    }
+
+    public cwb(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {intent};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,63 +67,27 @@ public class cwb implements Callable<bwb> {
                 return;
             }
         }
-        this.a = intent;
+        this.a = new AtomicBoolean(false);
+        this.c = new a(this);
+        this.b = 0 == j ? 300L : j;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.bwb, java.lang.Object] */
-    @Override // java.util.concurrent.Callable
-    public bwb call() throws Exception {
-        InterceptResult invokeV;
-        byte[] bArr;
-        String str;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = this.a;
-            if (intent == null) {
-                return null;
-            }
-            long j = 0;
-            try {
-                j = intent.getLongExtra("msg_id", 0L);
-            } catch (Exception e) {
-                fwb.b("PassByMsgIntentParser", "parserMsgId", e);
-            }
-            try {
-                bArr = this.a.getByteArrayExtra("msg_content");
-            } catch (Exception e2) {
-                fwb.b("PassByMsgIntentParser", "parseMsgContent", e2);
-                bArr = null;
-            }
-            Inflater inflater = new Inflater();
-            inflater.setInput(bArr);
-            byte[] bArr2 = new byte[256];
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
-            while (!inflater.finished()) {
-                try {
-                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
-                } catch (DataFormatException unused) {
-                    inflater.end();
-                    str = null;
-                } catch (Throwable th) {
-                    inflater.end();
-                    throw th;
-                }
-            }
-            inflater.end();
-            str = byteArrayOutputStream.toString("utf-8");
-            if (str == null) {
-                return null;
-            }
-            String optString = new JSONObject(str).optString("data");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            bwb bwbVar = new bwb();
-            bwbVar.d(j);
-            bwbVar.c(optString);
-            return bwbVar;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a.get()) {
+            return;
         }
-        return invokeV.objValue;
+        this.a.set(true);
+        gwb.a().removeCallbacks(this.c);
+        gwb.a().postDelayed(this.c, ewb.e().i());
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.a.get()) {
+            return;
+        }
+        this.a.set(false);
+        gwb.a().removeCallbacks(this.c);
     }
 }

@@ -1,125 +1,183 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.util.SparseIntArray;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.SparseArray;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.DeleteThreadInfo;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.pb.pb.sub.SubPbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class cs9 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685472, "Lcom/baidu/tieba/cs9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements g16 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ss9 a;
+        public final /* synthetic */ SubPbModel b;
+
+        public a(ss9 ss9Var, SubPbModel subPbModel) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ss9Var, subPbModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685472, "Lcom/baidu/tieba/cs9;");
+            this.a = ss9Var;
+            this.b = subPbModel;
+        }
+
+        @Override // com.baidu.tieba.g16
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.E0(false);
+            }
+        }
+
+        @Override // com.baidu.tieba.g16
+        public void b(List<String> list) {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || !(this.a.B() instanceof BdTypeListView)) {
                 return;
             }
-        }
-        a = new SparseIntArray();
-    }
-
-    public static void a(SmallTailInfo smallTailInfo, TextView textView, SimpleDraweeView simpleDraweeView, LinearLayout linearLayout, boolean z, boolean z2, boolean z3, SmallTailThemeData smallTailThemeData) {
-        Uri b;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, simpleDraweeView, linearLayout, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), smallTailThemeData}) == null) && smallTailInfo != null && textView != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) simpleDraweeView.getLayoutParams();
-            int b2 = b(R.dimen.obfuscated_res_0x7f070207);
-            if (z2 && z3) {
-                layoutParams.setMargins(b2, 0, b2, b(R.dimen.obfuscated_res_0x7f070389));
-                layoutParams2.setMargins(b2, 0, 0, 0);
-            } else if (z) {
-                layoutParams.setMargins(0, 0, 0, 0);
-                layoutParams2.setMargins(0, 0, 0, 0);
-            } else if (!z2) {
-                layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f07035e), 0, b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
-                layoutParams2.setMargins(b(R.dimen.obfuscated_res_0x7f07035e), 0, 0, 0);
-            } else {
-                layoutParams.setMargins(b2, 0, b2, b(R.dimen.obfuscated_res_0x7f0701b2));
-                layoutParams2.setMargins(b2, 0, 0, 0);
+            List<bn> data = ((BdTypeListView) this.a.B()).getData();
+            if (!ListUtils.isEmpty(data) && !ListUtils.isEmpty(list)) {
+                Iterator<bn> it = data.iterator();
+                while (true) {
+                    i = 0;
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    bn next = it.next();
+                    if (next instanceof zja) {
+                        while (true) {
+                            if (i >= list.size()) {
+                                break;
+                            } else if (TextUtils.equals(list.get(i), ((zja) next).U())) {
+                                it.remove();
+                                if (this.b.x0() != null) {
+                                    this.b.x0().A(this.b.x0().k() - 1);
+                                }
+                            } else {
+                                i++;
+                            }
+                        }
+                    }
+                }
+                while (i < data.size()) {
+                    if (data.get(i) instanceof bt9) {
+                        ((bt9) data.get(i)).b(this.b.x0().k());
+                    }
+                    i++;
+                }
+                ((BdTypeListView) this.a.B()).setData(data);
+                this.a.T();
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-            textView.setLayoutParams(layoutParams);
-            textView.setText(spannableStringBuilder);
-            textView.setTextColor(smallTailInfo.showColorId);
-            if (smallTailThemeData != null && !TextUtils.isEmpty(smallTailThemeData.getTailDynamic())) {
-                b = Uri.parse(smallTailThemeData.getTailDynamic());
-            } else if (smallTailThemeData != null && !TextUtils.isEmpty(smallTailThemeData.getTailUrl())) {
-                b = Uri.parse(smallTailThemeData.getTailUrl());
-            } else {
-                b = qu6.b("pb_icon_tail.webp", "pb_icon_tail");
-            }
-            if (b == null) {
-                return;
-            }
-            if (!b.toString().equals(simpleDraweeView.getTag())) {
-                simpleDraweeView.setController(Fresco.newDraweeControllerBuilder().setUri(b).setAutoPlayAnimations(true).build());
-                simpleDraweeView.setTag(b.toString());
-                simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
-                simpleDraweeView.setLayoutParams(layoutParams2);
-                simpleDraweeView.setPadding(0, 0, b(R.dimen.obfuscated_res_0x7f070201), 0);
-                textView.setVisibility(0);
-                simpleDraweeView.setVisibility(0);
-                linearLayout.setVisibility(0);
-            }
-            StatisticItem param = new StatisticItem("c15026").param("uid", TbadkCoreApplication.getCurrentAccountId());
-            if (smallTailThemeData != null) {
-                str = smallTailThemeData.getPropsId();
-            } else {
-                str = "";
-            }
-            TiebaStatic.log(param.param("obj_id", str));
         }
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = a.get(i, -1);
-            if (i2 == -1) {
-                int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), i);
-                a.put(i, dimens);
-                return dimens;
-            }
-            return i2;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            f16.b().a();
         }
-        return invokeI.intValue;
     }
 
-    public static void c(SmallTailInfo smallTailInfo, TextView textView, SimpleDraweeView simpleDraweeView, LinearLayout linearLayout, boolean z, boolean z2, boolean z3, SmallTailThemeData smallTailThemeData) {
-        SpannableString spannableString;
+    public static i16 b(SubPbModel subPbModel, ss9 ss9Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, simpleDraweeView, linearLayout, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), smallTailThemeData}) == null) && smallTailInfo != null && (spannableString = smallTailInfo.tailSpannable) != null && spannableString.length() != 0 && textView != null) {
-            smallTailInfo.updateShowInfo();
-            a(smallTailInfo, textView, simpleDraweeView, linearLayout, z, z2, z3, smallTailThemeData);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, subPbModel, ss9Var)) == null) {
+            if (subPbModel != null && ss9Var != null) {
+                i16 i16Var = new i16();
+                i16Var.p(subPbModel.z0());
+                i16Var.o(subPbModel.y0());
+                i16Var.n(subPbModel.C0());
+                if (subPbModel.x0() != null && subPbModel.x0().d() != null) {
+                    i16Var.l(subPbModel.x0().d().getId());
+                    i16Var.m(subPbModel.x0().d().getName());
+                    i16Var.k(subPbModel.x0().d().getImage_url());
+                    i16Var.t(subPbModel.x0().d().getUser_level());
+                }
+                UserData userData = new UserData();
+                userData.setIsManager(subPbModel.E0());
+                i16Var.s(userData);
+                i16Var.q(new a(ss9Var, subPbModel));
+                AntiData v0 = subPbModel.v0();
+                SparseArray<String> sparseArray = new SparseArray<>();
+                if (v0 != null && v0.getDelThreadInfoList() != null) {
+                    List<DeleteThreadInfo> delThreadInfoList = v0.getDelThreadInfoList();
+                    for (int i = 0; i < delThreadInfoList.size(); i++) {
+                        if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
+                            sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
+                        }
+                    }
+                }
+                i16Var.r(sparseArray);
+                return i16Var;
+            }
+            return null;
         }
+        return (i16) invokeLL.objValue;
+    }
+
+    public static boolean c(cl9 cl9Var, zja zjaVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cl9Var, zjaVar)) == null) {
+            if (cl9Var != null && zjaVar != null && cl9Var.d() != null && cl9Var.j() != null) {
+                k16 k16Var = new k16();
+                k16Var.d(cl9Var.d().getId());
+                k16Var.f(cl9Var.j().getId());
+                k16Var.e(zjaVar.U());
+                return f16.b().c(k16Var);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(TbPageContext tbPageContext, SubPbModel subPbModel, ss9 ss9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, subPbModel, ss9Var) == null) && tbPageContext != null && ss9Var != null && ss9Var.u() != null && subPbModel != null) {
+            f16.b().e(tbPageContext, (ViewGroup) ss9Var.u(), b(subPbModel, ss9Var));
+            f16.b().d(3);
+        }
+    }
+
+    public static boolean e(zja zjaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, zjaVar)) == null) {
+            if (zjaVar == null) {
+                return false;
+            }
+            return f16.b().f(zjaVar.U());
+        }
+        return invokeL.booleanValue;
     }
 }

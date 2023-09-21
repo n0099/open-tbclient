@@ -1,308 +1,327 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Point;
-import android.hardware.Camera;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ColumnLayout;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public final class b2a {
+public class b2a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern f;
+    public static BdImage p;
+    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public Point b;
-    public Point c;
-    public Point d;
-    public Camera e;
+    public final LinearLayout a;
+    public final LinearLayout b;
+    public final LinearLayout c;
+    public final ColumnLayout d;
+    public final ColumnLayout e;
+    public a f;
+    public int g;
+    public LinearLayout h;
+    public HeadImageView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public ImageView n;
+    public TbPageContext<?> o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947594456, "Lcom/baidu/tieba/b2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947594456, "Lcom/baidu/tieba/b2a;");
-                return;
-            }
-        }
-        f = Pattern.compile(",");
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(View view2);
     }
 
-    public Point e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (Point) invokeV.objValue;
-    }
-
-    public void i() {
-        Camera camera;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (camera = this.e) != null) {
-            try {
-                h(camera);
-                j(this.e);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public b2a(Context context) {
+    public b2a(View view2, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {view2, tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.o = tbPageContext;
+        this.h = (LinearLayout) view2.findViewById(R.id.top_line);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cfa);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092891);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ef2);
+        this.l = (TextView) view2.findViewById(R.id.forum_name);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ee7);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911a0);
+        this.d = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911af);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911aa);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c37);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091bd7);
+        this.n = (ImageView) view2.findViewById(R.id.comment_icon);
+        this.g = BdUtilHelper.dip2px(view2.getContext(), 42.0f);
+        LinearLayout linearLayout = this.c;
+        if (linearLayout != null) {
+            linearLayout.setOnClickListener(this);
+        }
+        this.i.setOnClickListener(this);
+        this.j.setOnClickListener(this);
+        this.l.setOnClickListener(this);
+        this.m.setOnClickListener(this);
+        this.d.setOnClickListener(this);
+        this.e.setOnClickListener(this);
+        this.m.setText(R.string.reply_me);
     }
 
-    public static boolean a(Camera camera) {
-        InterceptResult invokeL;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, camera)) == null) {
-            if (d(camera.getParameters().getSupportedFocusModes(), "auto") != null) {
-                return true;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundResource(this.a, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.b, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
+            WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_card_comment22, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (view2.getId() == R.id.forum_name) {
+                TbPageContext<?> tbPageContext = this.o;
+                if (tbPageContext != null) {
+                    tbPageContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.o.getPageActivity()).createNormalCfg((String) view2.getTag(), "")));
+                    return;
+                }
+                return;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void j(Camera camera) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, camera) == null) {
-            Camera.Parameters parameters = camera.getParameters();
-            Point point = this.d;
-            parameters.setPreviewSize(point.x, point.y);
-            k(parameters);
-            camera.setDisplayOrientation(f());
-            camera.setParameters(parameters);
+            a aVar = this.f;
+            if (aVar != null) {
+                aVar.a(view2);
+            }
         }
     }
 
-    public static int b(CharSequence charSequence, int i) {
-        InterceptResult invokeLI;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i)) == null) {
-            int i2 = 0;
-            for (String str : f.split(charSequence)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            String str2 = q;
+            if (str2 != null && !str2.equals(str)) {
+                p = null;
+            }
+            BdImage bdImage = p;
+            if (bdImage != null) {
+                this.i.setImageBitmap(bdImage.getRawBitmap());
+                q = str;
+                return;
+            }
+            HeadImageView headImageView = this.i;
+            int i = this.g;
+            headImageView.startLoad(str, 12, i, i, false);
+        }
+    }
+
+    public void c(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0008 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0094 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0095  */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v13 */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v15 */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r1v14 */
+    /* JADX WARN: Type inference failed for: r1v16 */
+    /* JADX WARN: Type inference failed for: r1v17 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v7 */
+    /* JADX WARN: Type inference failed for: r9v0, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r9v1 */
+    /* JADX WARN: Type inference failed for: r9v2 */
+    /* JADX WARN: Type inference failed for: r9v20 */
+    /* JADX WARN: Type inference failed for: r9v28 */
+    /* JADX WARN: Type inference failed for: r9v29 */
+    /* JADX WARN: Type inference failed for: r9v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void d(PersonPostModel.PostInfoList postInfoList, boolean z, String str, int i) {
+        ?? r1;
+        CharSequence charSequence;
+        CharSequence charSequence2;
+        CharSequence charSequence3;
+        CharSequence charSequence4;
+        CharSequence charSequence5;
+        CharSequence charSequence6;
+        CharSequence charSequence7;
+        CharSequence charSequence8;
+        CharSequence charSequence9;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r1 = 1048579;
+            if (interceptable.invokeCommon(1048579, this, new Object[]{postInfoList, Boolean.valueOf((boolean) z), str, Integer.valueOf(i)}) != null) {
+                return;
+            }
+        }
+        ?? r0 = 1000;
+        r0 = 1000;
+        boolean z2 = false;
+        CharSequence charSequence10 = null;
+        try {
+            try {
                 try {
-                    double parseDouble = Double.parseDouble(str.trim());
-                    int i3 = (int) (10.0d * parseDouble);
-                    if (Math.abs(i - parseDouble) < Math.abs(i - i2)) {
-                        i2 = i3;
-                    }
-                } catch (NumberFormatException unused) {
-                    return i;
-                }
-            }
-            return i2;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static Point c(List<Camera.Size> list, Point point) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, point)) == null) {
-            Iterator<Camera.Size> it = list.iterator();
-            int i = 0;
-            int i2 = 0;
-            int i3 = Integer.MAX_VALUE;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                Camera.Size next = it.next();
-                int i4 = next.width;
-                int i5 = next.height;
-                int abs = Math.abs(i4 - point.x) + Math.abs(i5 - point.y);
-                if (abs == 0) {
-                    i2 = i5;
-                    i = i4;
-                    break;
-                } else if (abs < i3) {
-                    i2 = i5;
-                    i = i4;
-                    i3 = abs;
-                }
-            }
-            if (i > 0 && i2 > 0) {
-                return new Point(i, i2);
-            }
-            return null;
-        }
-        return (Point) invokeLL.objValue;
-    }
-
-    public static String d(Collection<String> collection, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, collection, strArr)) == null) {
-            if (collection != null) {
-                for (String str : strArr) {
-                    if (collection.contains(str)) {
-                        return str;
-                    }
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static Point g(Camera.Parameters parameters, Point point) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, parameters, point)) == null) {
-            Point c = c(parameters.getSupportedPreviewSizes(), point);
-            if (c == null) {
-                return new Point((point.x >> 3) << 3, (point.y >> 3) << 3);
-            }
-            return c;
-        }
-        return (Point) invokeLL.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            int i = 0;
-            Camera.getCameraInfo(0, cameraInfo);
-            int rotation = ((WindowManager) this.a.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRotation();
-            if (rotation != 0) {
-                if (rotation != 1) {
-                    if (rotation != 2) {
-                        if (rotation == 3) {
-                            i = 270;
+                    try {
+                        if (z != 0) {
+                            if (StringUtils.isNull(postInfoList.name_show)) {
+                                str3 = postInfoList.user_name;
+                            } else {
+                                str3 = postInfoList.name_show;
+                            }
+                            String.valueOf(postInfoList.thread_id);
+                            String.valueOf(postInfoList.post_id);
+                            String formatTime = StringHelper.getFormatTime(postInfoList.create_time * 1000);
+                            String str4 = postInfoList.forum_name;
+                            charSequence10 = String.valueOf(postInfoList.reply_num);
+                            String.valueOf(postInfoList.thread_type);
+                            r0 = formatTime;
+                            r1 = str4;
+                            z = str3;
+                        } else {
+                            if (StringUtils.isNull(postInfoList.name_show)) {
+                                str2 = postInfoList.user_name;
+                            } else {
+                                str2 = postInfoList.name_show;
+                            }
+                            String.valueOf(postInfoList.thread_id);
+                            String.valueOf(postInfoList.content.get(0).post_id);
+                            String.valueOf(postInfoList.content.get(0).post_type);
+                            String.valueOf(postInfoList.thread_type);
+                            String formatTime2 = StringHelper.getFormatTime(postInfoList.create_time * 1000);
+                            String str5 = postInfoList.forum_name;
+                            charSequence10 = String.valueOf(postInfoList.reply_num);
+                            r0 = formatTime2;
+                            r1 = str5;
+                            z = str2;
                         }
-                    } else {
-                        i = 180;
+                        z2 = true;
+                        charSequence9 = r0;
+                        charSequence8 = r1;
+                        charSequence5 = z;
+                    } catch (Exception e) {
+                        e = e;
+                        charSequence = charSequence10;
+                        charSequence7 = r0;
+                        charSequence6 = z;
+                        charSequence10 = charSequence6;
+                        charSequence2 = charSequence;
+                        charSequence3 = charSequence7;
+                        charSequence4 = charSequence;
+                        BdLog.e(e);
+                        CharSequence charSequence11 = charSequence10;
+                        charSequence10 = charSequence2;
+                        charSequence5 = charSequence11;
+                        charSequence9 = charSequence3;
+                        charSequence8 = charSequence4;
+                        if (!z2) {
+                        }
                     }
-                } else {
-                    i = 90;
+                } catch (Exception e2) {
+                    e = e2;
+                    charSequence2 = null;
+                    charSequence3 = null;
+                    charSequence4 = null;
+                    BdLog.e(e);
+                    CharSequence charSequence112 = charSequence10;
+                    charSequence10 = charSequence2;
+                    charSequence5 = charSequence112;
+                    charSequence9 = charSequence3;
+                    charSequence8 = charSequence4;
+                    if (!z2) {
+                    }
+                }
+            } catch (Exception e3) {
+                e = e3;
+                CharSequence charSequence12 = charSequence10;
+                charSequence10 = z;
+                charSequence2 = charSequence12;
+                charSequence3 = r0;
+                charSequence4 = r1;
+                BdLog.e(e);
+                CharSequence charSequence1122 = charSequence10;
+                charSequence10 = charSequence2;
+                charSequence5 = charSequence1122;
+                charSequence9 = charSequence3;
+                charSequence8 = charSequence4;
+                if (!z2) {
                 }
             }
-            if (cameraInfo.facing == 1) {
-                return (360 - ((cameraInfo.orientation + i) % 360)) % 360;
-            }
-            return ((cameraInfo.orientation - i) + 360) % 360;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(Camera camera) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, camera) == null) {
-            this.e = camera;
-            Camera.Parameters parameters = camera.getParameters();
-            if (a(camera)) {
-                parameters.setFocusMode("auto");
-            }
-            this.b = a2a.d(this.a);
-            Point point = new Point();
-            Point point2 = this.b;
-            point.x = point2.x;
-            point.y = point2.y;
-            int c = a2a.c(this.a);
-            if (c == 0) {
-                Point point3 = this.b;
-                point.x = point3.y;
-                point.y = point3.x;
-            }
-            if (UtilHelper.isOppoFoldLargeScreen(this.a)) {
-                this.d = new Point(1792, 1920);
-            } else {
-                this.d = g(parameters, point);
-            }
-            if (c == 0) {
-                Point point4 = this.d;
-                this.c = new Point(point4.y, point4.x);
-                return;
-            }
-            this.c = this.d;
-        }
-    }
-
-    public final void k(Camera.Parameters parameters) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, parameters) == null) {
-            String str = parameters.get("zoom-supported");
-            if (str != null && !Boolean.parseBoolean(str)) {
-                return;
-            }
-            int i = 27;
-            String str2 = parameters.get("max-zoom");
-            if (str2 != null) {
-                try {
-                    int parseDouble = (int) (Double.parseDouble(str2) * 10.0d);
-                    if (27 > parseDouble) {
-                        i = parseDouble;
-                    }
-                } catch (NumberFormatException unused) {
-                }
-            }
-            String str3 = parameters.get("taking-picture-zoom-max");
-            if (str3 != null) {
-                try {
-                    int parseInt = Integer.parseInt(str3);
-                    if (i > parseInt) {
-                        i = parseInt;
-                    }
-                } catch (NumberFormatException unused2) {
-                }
-            }
-            String str4 = parameters.get("mot-zoom-values");
-            if (str4 != null) {
-                i = b(str4, i);
-            }
-            String str5 = parameters.get("mot-zoom-step");
-            if (str5 != null) {
-                try {
-                    int parseDouble2 = (int) (Double.parseDouble(str5.trim()) * 10.0d);
-                    if (parseDouble2 > 1) {
-                        i -= i % parseDouble2;
-                    }
-                } catch (NumberFormatException unused3) {
-                }
-            }
-            if (str2 != null || str4 != null) {
-                parameters.set("zoom", String.valueOf(i / 10.0d));
-            }
-            if (str3 != null) {
-                parameters.set("taking-picture-zoom", i);
+        } catch (Exception e4) {
+            e = e4;
+            CharSequence charSequence13 = charSequence10;
+            charSequence = charSequence13;
+            charSequence7 = charSequence13;
+            charSequence6 = z;
+            charSequence10 = charSequence6;
+            charSequence2 = charSequence;
+            charSequence3 = charSequence7;
+            charSequence4 = charSequence;
+            BdLog.e(e);
+            CharSequence charSequence11222 = charSequence10;
+            charSequence10 = charSequence2;
+            charSequence5 = charSequence11222;
+            charSequence9 = charSequence3;
+            charSequence8 = charSequence4;
+            if (!z2) {
             }
         }
+        if (!z2) {
+            return;
+        }
+        this.j.setText(charSequence5);
+        this.k.setText(charSequence9);
+        this.l.setText(charSequence8);
+        this.l.setTag(charSequence8);
+        this.m.setText(charSequence10);
+        this.m.setTag(Integer.valueOf(i));
+        this.l.setOnClickListener(this);
+        b(str);
+        LinearLayout linearLayout = this.c;
+        if (linearLayout != null) {
+            linearLayout.setTag(Integer.valueOf(i));
+        }
+        this.d.setTag(Integer.valueOf(i));
+        this.e.setTag(Integer.valueOf(i));
     }
 }

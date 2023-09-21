@@ -1,41 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes5.dex */
-public class dh2 extends gk4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String q;
+public interface dh2 {
+    void a(PMSAppInfo pMSAppInfo);
 
-    public dh2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(PMSAppInfo pMSAppInfo);
 
-    @Override // com.baidu.tieba.fk4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (super.a() && !TextUtils.isEmpty(this.q)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void onFailed(int i);
 }

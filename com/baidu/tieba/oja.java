@@ -1,46 +1,54 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class oja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AbsDelegateAdapterList a;
+    public Context b;
 
-    public static VoiceManager a(Context context) {
-        InterceptResult invokeL;
-        TbPageContext tbPageContext;
+    public oja(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context instanceof VoiceManager.i) {
-                return ((VoiceManager.i) context).R0();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, absDelegateAdapterList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if ((m9.a(context) instanceof BdPageContext) && (tbPageContext = (TbPageContext) m9.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.i)) {
-                return ((VoiceManager.i) tbPageContext.getOrignalPage()).R0();
-            }
-            return null;
         }
-        return (VoiceManager) invokeL.objValue;
+        this.b = context;
+        this.a = absDelegateAdapterList;
     }
 
-    public static VoiceManager b(Context context) {
-        InterceptResult invokeL;
-        TbPageContext tbPageContext;
+    public AbsDelegateAdapterList a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).H0();
-            }
-            if ((m9.a(context) instanceof BdPageContext) && (tbPageContext = (TbPageContext) m9.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).H0();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (VoiceManager) invokeL.objValue;
+        return (AbsDelegateAdapterList) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
     }
 }

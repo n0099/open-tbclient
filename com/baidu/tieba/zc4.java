@@ -8,12 +8,17 @@ public class zc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(pi2 pi2Var, String str) {
+    public static void a(oi2 oi2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, pi2Var, str) == null) && pi2Var != null && pi2Var.m().hasEventListener("deviceOrientationChange")) {
-            JSEvent jSEvent = new JSEvent("deviceOrientationChange");
-            jSEvent.data = new bd4(str);
-            pi2Var.dispatchEvent(jSEvent);
+        if ((interceptable == null || interceptable.invokeL(65536, null, oi2Var) == null) && oi2Var != null && oi2Var.m().hasEventListener("audiointerruptionbegin") && j54.h().i()) {
+            oi2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
+        }
+    }
+
+    public static void b(oi2 oi2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, oi2Var) == null) && oi2Var != null && oi2Var.m().hasEventListener("audiointerruptionend")) {
+            oi2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
         }
     }
 }

@@ -1,32 +1,102 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class o0a {
+public class o0a extends to6<lz9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b0a a;
-    public final String b;
+    public TbPageContext i;
+    public View j;
+    public TbImageView k;
+    public TextView l;
 
-    public o0a(b0a b0aVar, String str) {
+    @Override // com.baidu.tieba.to6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0470 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o0a(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b0aVar, str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = b0aVar;
-        this.b = str;
+        View h = h();
+        this.j = h;
+        this.i = tbPageContext;
+        h.setTag(this);
+        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090e40);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090e3e);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.to6
+    /* renamed from: n */
+    public void i(lz9 lz9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lz9Var) == null) {
+            if (lz9Var == null) {
+                this.j.setVisibility(8);
+                return;
+            }
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            this.k.startLoad(lz9Var.a, 10, false);
+            this.j.setOnClickListener(this);
+            if (lz9Var.b > 0) {
+                this.l.setVisibility(0);
+                long j = lz9Var.b;
+                if (j > 99) {
+                    this.l.setText("99");
+                    return;
+                } else {
+                    this.l.setText(String.valueOf(j));
+                    return;
+                }
+            }
+            this.l.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.to6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
+            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
+        }
     }
 }

@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d39;
+import com.baidu.tieba.e39;
+import com.baidu.tieba.g39;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
-import com.baidu.tieba.s19;
-import com.baidu.tieba.t19;
-import com.baidu.tieba.v19;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel a;
-    public v19 b;
+    public g39 b;
     public int c;
-    public t19 d;
+    public e39 d;
 
     /* loaded from: classes6.dex */
-    public class a implements t19 {
+    public class a implements e39 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelRecommendActivity a;
@@ -56,15 +56,15 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             this.a = labelRecommendActivity;
         }
 
-        @Override // com.baidu.tieba.t19
-        public void a(LabelRequestEnum labelRequestEnum, s19 s19Var, int i) {
+        @Override // com.baidu.tieba.e39
+        public void a(LabelRequestEnum labelRequestEnum, d39 d39Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, s19Var, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, d39Var, i) == null) {
                 int i2 = b.a[labelRequestEnum.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2 && i == 0) {
                         SharedPrefHelper.getInstance().putBoolean("set_recommend_label", true);
-                        this.a.s1();
+                        this.a.R0();
                         this.a.finish();
                         return;
                     }
@@ -72,14 +72,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
                 LabelRecommendActivity labelRecommendActivity = this.a;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.b.c());
-                if (s19Var != null && !ListUtils.isEmpty(s19Var.b()) && !ListUtils.isEmpty(s19Var.a())) {
+                if (d39Var != null && !ListUtils.isEmpty(d39Var.b()) && !ListUtils.isEmpty(d39Var.a())) {
                     LabelRecommendActivity labelRecommendActivity2 = this.a;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.b.c());
-                    this.a.b.j(s19Var);
+                    this.a.b.j(d39Var);
                     return;
                 }
                 LabelRecommendActivity labelRecommendActivity3 = this.a;
-                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e40), true);
+                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e42), true);
             }
         }
     }
@@ -132,60 +132,26 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         this.d = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
+    public final void O0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            hideNetRefreshView(this.b.c());
-            q1();
-        }
-    }
-
-    public final void q1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.R();
             showLoadingView(this.b.c(), true);
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            super.onClick(view2);
-            if (view2 == this.b.e()) {
-                TiebaStatic.log(new StatisticItem("c12245").param("obj_type", this.c));
-                finish();
-            } else if (view2 == this.b.f()) {
-                this.a.S(this.b.d());
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            v19 v19Var = new v19(this);
-            this.b = v19Var;
-            v19Var.k(this);
-            LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
-            this.a = labelSettingModel;
-            labelSettingModel.T(this.d);
-            if (getIntent() != null) {
-                this.c = getIntent().getIntExtra("from", -1);
-            }
-            TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.c));
-            q1();
-            SharedPrefHelper.getInstance().putBoolean("show_recommend_label", true);
-        }
-    }
-
-    public final void s1() {
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            hideNetRefreshView(this.b.c());
+            O0();
+        }
+    }
+
+    public final void R0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             List<Integer> d = this.b.d();
             if (ListUtils.isEmpty(d)) {
                 return;
@@ -201,6 +167,40 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
             }
             TiebaStatic.log(new StatisticItem("c12244").param("obj_type", this.c).param("obj_name", sb.toString()));
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            super.onClick(view2);
+            if (view2 == this.b.e()) {
+                TiebaStatic.log(new StatisticItem("c12245").param("obj_type", this.c));
+                finish();
+            } else if (view2 == this.b.f()) {
+                this.a.S(this.b.d());
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            g39 g39Var = new g39(this);
+            this.b = g39Var;
+            g39Var.k(this);
+            LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
+            this.a = labelSettingModel;
+            labelSettingModel.T(this.d);
+            if (getIntent() != null) {
+                this.c = getIntent().getIntExtra("from", -1);
+            }
+            TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.c));
+            O0();
+            SharedPrefHelper.getInstance().putBoolean("show_recommend_label", true);
         }
     }
 }

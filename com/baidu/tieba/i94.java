@@ -12,7 +12,7 @@ public class i94 extends JSEvent {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i94() {
-        super("appLoad");
+        super("appMount");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

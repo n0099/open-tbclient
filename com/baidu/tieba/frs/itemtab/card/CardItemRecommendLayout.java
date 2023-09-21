@@ -33,10 +33,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.jr7;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.va5;
-import com.baidu.tieba.vx;
+import com.baidu.tieba.tr7;
+import com.baidu.tieba.ux;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 /* loaded from: classes5.dex */
-public class CardItemRecommendLayout extends LinearLayout implements vx {
+public class CardItemRecommendLayout extends LinearLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
@@ -119,7 +119,7 @@ public class CardItemRecommendLayout extends LinearLayout implements vx {
                     return;
                 }
             }
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cf6);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ce9);
             this.a = barImageView;
             barImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -127,9 +127,9 @@ public class CardItemRecommendLayout extends LinearLayout implements vx {
             this.a.setShowOuterBorder(true);
             this.a.setPlaceHolder(3);
             this.a.setPageId(m9.a(view2.getContext()).getUniqueId());
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cf7);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cf9);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cf8);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cea);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cec);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ceb);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -247,7 +247,7 @@ public class CardItemRecommendLayout extends LinearLayout implements vx {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new va5(3, i + 1, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new za5(3, i + 1, 2)));
             }
         }
     }
@@ -296,7 +296,7 @@ public class CardItemRecommendLayout extends LinearLayout implements vx {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new va5(3, i + 1, 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new za5(3, i + 1, 1)));
             }
         }
 
@@ -308,7 +308,7 @@ public class CardItemRecommendLayout extends LinearLayout implements vx {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0388, (ViewGroup) null));
+                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0389, (ViewGroup) null));
                 dVar.c(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
@@ -386,10 +386,10 @@ public class CardItemRecommendLayout extends LinearLayout implements vx {
 
     public void setData(b15 b15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, b15Var) == null) && (b15Var instanceof jr7)) {
-            jr7 jr7Var = (jr7) b15Var;
-            if (jr7Var.c() != null) {
-                this.d = jr7Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, b15Var) == null) && (b15Var instanceof tr7)) {
+            tr7 tr7Var = (tr7) b15Var;
+            if (tr7Var.c() != null) {
+                this.d = tr7Var.c();
                 this.c.notifyDataSetChanged();
             }
         }
@@ -419,7 +419,7 @@ public class CardItemRecommendLayout extends LinearLayout implements vx {
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

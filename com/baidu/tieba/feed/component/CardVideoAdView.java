@@ -11,13 +11,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc7;
-import com.baidu.tieba.c67;
-import com.baidu.tieba.eb7;
-import com.baidu.tieba.ic7;
-import com.baidu.tieba.jc7;
-import com.baidu.tieba.p77;
-import com.baidu.tieba.z97;
+import com.baidu.tieba.ha7;
+import com.baidu.tieba.j67;
+import com.baidu.tieba.kc7;
+import com.baidu.tieba.mb7;
+import com.baidu.tieba.rc7;
+import com.baidu.tieba.sc7;
+import com.baidu.tieba.w77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,14 +29,14 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u00012\u00020\u00032\u00020\u0004B\u001b\b\u0007\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tJ\u0010\u0010 \u001a\u00020!2\u0006\u0010\"\u001a\u00020\u0002H\u0014J\b\u0010#\u001a\u00020$H\u0016J\b\u0010%\u001a\u00020!H\u0016R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\f\u001a\n \u000e*\u0004\u0018\u00010\r0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0011\u001a\u00020\u00128BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0013\u0010\u0014R\u0014\u0010\u0015\u001a\u00020\u00128BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0016\u0010\u0014R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u001a\u001a\u00020\u00128BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u001b\u0010\u0014R\u0014\u0010\u001c\u001a\u00020\u00128BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u001d\u0010\u0014R\u000e\u0010\u001e\u001a\u00020\u001fX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006&"}, d2 = {"Lcom/baidu/tieba/feed/component/CardVideoAdView;", "Lcom/baidu/tieba/feed/component/CardRelativeView;", "Lcom/baidu/tieba/feed/component/uistate/CardVideoAdUiState;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "Lcom/baidu/tieba/feed/list/IGetVideoHolder;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "cardVideoView", "Lcom/baidu/tieba/feed/component/CardVideoView;", "guideResolver", "Lcom/baidu/tieba/feed/compat/Resolver$IDownloadGuide;", "kotlin.jvm.PlatformType", "guideView", "Landroid/view/ViewGroup;", "horizontalVideoHeight", "", "getHorizontalVideoHeight", "()I", "horizontalVideoWidth", "getHorizontalVideoWidth", "textBottom", "Landroid/widget/TextView;", "textTopRight", "verticalVideoHeight", "getVerticalVideoHeight", "verticalVideoWidth", "getVerticalVideoWidth", "videoCoverView", "Landroid/view/View;", "doUpdateState", "", "state", "getVideoHolder", "", "onChangeSkin", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardVideoAdView extends CardRelativeView<p77> implements ic7, bc7 {
+public final class CardVideoAdView extends CardRelativeView<w77> implements rc7, kc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CardVideoView c;
     public final View d;
     public final TextView e;
     public final TextView f;
-    public final c67.g g;
+    public final j67.g g;
     public ViewGroup h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -83,7 +83,7 @@ public final class CardVideoAdView extends CardRelativeView<p77> implements ic7,
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        c67.g m = c67.a().m();
+        j67.g m = j67.a().m();
         this.g = m;
         ViewGroup create = m.create(context);
         Intrinsics.checkNotNullExpressionValue(create, "guideResolver.create(context)");
@@ -94,20 +94,20 @@ public final class CardVideoAdView extends CardRelativeView<p77> implements ic7,
         CardVideoView cardVideoView = (CardVideoView) findViewById;
         this.c = cardVideoView;
         cardVideoView.setTopRoundCorner();
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09290a);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0928d7);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.video_cover)");
         this.d = findViewById2;
-        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092503);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0924cf);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.text_top_right)");
         this.e = (TextView) findViewById3;
         View findViewById4 = findViewById(R.id.text_bottom);
         Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.text_bottom)");
         TextView textView = (TextView) findViewById4;
         this.f = textView;
-        textView.setMovementMethod(eb7.a);
+        textView.setMovementMethod(mb7.a);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(3, R.id.video_view);
-        layoutParams.addRule(7, R.id.obfuscated_res_0x7f09290a);
+        layoutParams.addRule(7, R.id.obfuscated_res_0x7f0928d7);
         addView(this.h, layoutParams);
     }
 
@@ -151,7 +151,7 @@ public final class CardVideoAdView extends CardRelativeView<p77> implements ic7,
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bc7
+    @Override // com.baidu.tieba.kc7
     public Object getVideoHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -161,10 +161,10 @@ public final class CardVideoAdView extends CardRelativeView<p77> implements ic7,
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ic7
+    @Override // com.baidu.tieba.rc7
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || jc7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || sc7.a(this)) {
             return;
         }
         this.c.b();
@@ -176,7 +176,7 @@ public final class CardVideoAdView extends CardRelativeView<p77> implements ic7,
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.feed.component.CardRelativeView
     /* renamed from: g */
-    public void e(p77 state) {
+    public void e(w77 state) {
         int horizontalVideoWidth;
         int horizontalVideoHeight;
         Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public final class CardVideoAdView extends CardRelativeView<p77> implements ic7,
             ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
             if (layoutParams != null) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-                z97 l = state.i().l();
+                ha7 l = state.i().l();
                 if (l.d) {
                     horizontalVideoWidth = getVerticalVideoWidth();
                 } else {

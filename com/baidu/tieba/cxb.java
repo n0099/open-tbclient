@@ -1,33 +1,26 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vwb;
-import com.baidu.tieba.zwb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IPushInvoke;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableException;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes5.dex */
-public class cxb implements zwb {
+public class cxb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
-    public volatile IPushInvoke b;
-    public final zwb.a c;
-    public fxb d;
+    public boolean a;
+    public final /* synthetic */ InstallActivity b;
 
-    public cxb(zwb.a aVar) {
+    public cxb(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,36 +30,47 @@ public class cxb implements zwb {
                 return;
             }
         }
-        this.a = new AtomicInteger(1);
-        this.c = aVar;
+        this.b = installActivity;
+        this.a = false;
     }
 
-    public final void a(int i) {
+    public void b(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            Log.i("PushConnectionClient", "notifyFailed result: " + i);
-            zwb.a aVar = this.c;
-            if (aVar != null) {
-                vwb.a aVar2 = (vwb.a) aVar;
-                aVar2.getClass();
-                if (Looper.myLooper() == aVar2.f.a.getLooper()) {
-                    aVar2.b(HonorPushErrorEnum.fromCode(i));
-                } else {
-                    aVar2.f.a.post(new uwb(aVar2, i));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            synchronized (this.b) {
+                if (this.a) {
+                    return;
+                }
+                this.a = true;
+                this.b.d = com.google.ar.core.p.CANCELLED;
+                boolean z = exc instanceof UnavailableException;
+                this.b.j(exc);
+            }
+        }
+    }
+
+    public void a(com.google.ar.core.p pVar) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
+            synchronized (this.b) {
+                if (!this.a) {
+                    this.b.d = pVar;
+                    int ordinal = pVar.ordinal();
+                    if (ordinal != 0) {
+                        if (ordinal == 1) {
+                            this.b.j(new UnavailableUserDeclinedInstallationException());
+                        } else if (ordinal == 2) {
+                            z = this.b.g;
+                            if (!z) {
+                                this.b.i();
+                            }
+                            this.b.j(null);
+                        }
+                        this.a = true;
+                    }
                 }
             }
         }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.get() != 3 && this.a.get() != 4) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

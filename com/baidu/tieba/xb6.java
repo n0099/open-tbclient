@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,38 +12,7 @@ import org.json.JSONObject;
 public class xb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
-
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(xb6 xb6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xb6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            jSONObject.optString("user_id");
-            jSONObject.optString("portrait");
-        }
-    }
+    public ArrayList<SdkLiveInfoData> a;
 
     public xb6() {
         Interceptable interceptable = $ic;
@@ -58,30 +28,19 @@ public class xb6 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject, String str) {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
-        if (optJSONObject != null) {
-            optJSONObject.optInt("has_follow_live");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.a = new ArrayList<>(optJSONArray.length());
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject2 != null) {
-                        a aVar = new a(this);
-                        aVar.a(optJSONObject2);
-                        this.a.add(aVar);
-                    }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("live_list")) != null && optJSONArray.length() > 0) {
+            this.a = new ArrayList<>(optJSONArray.length());
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
+                    sdkLiveInfoData.fromJson(optJSONObject, str);
+                    this.a.add(sdkLiveInfoData);
                 }
             }
-        }
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
-        if (optJSONObject3 != null) {
-            optJSONObject3.optString("url");
         }
     }
 }

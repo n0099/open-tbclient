@@ -2,13 +2,9 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.basic.AdAppStateManager;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadCode;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.tieba.ml0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,20 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class sl0 implements am0 {
+public class sl0 extends rl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final il0 a;
-    public long b;
-    public zl0 c;
-    public xl0 d;
+    @NonNull
+    public final hl0 e;
+    public HashMap<String, b> f;
+    public String g;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
-        public static final /* synthetic */ int[] b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,351 +44,169 @@ public abstract class sl0 implements am0 {
                 }
             }
             int[] iArr = new int[AdDownloadStatus.values().length];
-            b = iArr;
+            a = iArr;
             try {
                 iArr[AdDownloadStatus.NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                b[AdDownloadStatus.FAILED.ordinal()] = 2;
+                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                b[AdDownloadStatus.DOWNLOADING.ordinal()] = 3;
+                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                b[AdDownloadStatus.PAUSE.ordinal()] = 4;
+                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                b[AdDownloadStatus.COMPLETED.ordinal()] = 5;
+                a[AdDownloadStatus.FAILED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                b[AdDownloadStatus.INSTALLED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            int[] iArr2 = new int[AdDownloadAction.values().length];
-            a = iArr2;
-            try {
-                iArr2[AdDownloadAction.START.ordinal()] = 1;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[AdDownloadAction.PAUSE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                a[AdDownloadAction.RESUME.ordinal()] = 3;
-            } catch (NoSuchFieldError unused9) {
-            }
-            try {
-                a[AdDownloadAction.PROGRESS_UPDATE.ordinal()] = 4;
-            } catch (NoSuchFieldError unused10) {
-            }
-            try {
-                a[AdDownloadAction.COMPLETE.ordinal()] = 5;
-            } catch (NoSuchFieldError unused11) {
-            }
-            try {
-                a[AdDownloadAction.INSTALL_FINISH.ordinal()] = 6;
-            } catch (NoSuchFieldError unused12) {
-            }
-            try {
-                a[AdDownloadAction.FAIL.ordinal()] = 7;
-            } catch (NoSuchFieldError unused13) {
-            }
-            try {
-                a[AdDownloadAction.FAIL_PERMISSION_DENY.ordinal()] = 8;
-            } catch (NoSuchFieldError unused14) {
             }
         }
     }
 
-    public sl0(@NonNull il0 il0Var) {
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sl0(@NonNull hl0 hl0Var) {
+        super(hl0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {il0Var};
+            Object[] objArr = {hl0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((hl0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0L;
-        this.c = null;
-        this.a = il0Var;
-        d();
+        this.f = new HashMap<>();
+        this.g = "";
+        this.e = hl0Var;
+        this.c = new xl0(this);
     }
 
-    public void m(@Nullable zl0 zl0Var) {
+    @NonNull
+    public hl0 s() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, zl0Var) == null) {
-            this.c = zl0Var;
-            if (f()) {
-                b(AdDownloadCode.ERROR_FAST_CLICK);
-            } else if (this.a.f()) {
-                b(AdDownloadCode.ERROR_INVALID_DATA);
-            } else {
-                g();
-                b(AdDownloadCode.SUCCESS);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
+        return (hl0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.am0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull il0 il0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, il0Var) == null) {
-            switch (a.a[adDownloadAction.ordinal()]) {
-                case 1:
-                    p();
-                    break;
-                case 2:
-                    q();
-                    break;
-                case 3:
-                    p();
-                    break;
-                case 4:
-                    this.a.i = Math.max(il0Var.i, il0Var.j);
-                    if (this.a.q.w) {
-                        rl0.f().l(this.a);
-                        break;
-                    }
-                    break;
-                case 5:
-                    q();
-                    break;
-                case 6:
-                    q();
-                    break;
-                case 7:
-                    q();
-                    b(AdDownloadCode.ERROR_OTHERS);
-                    return;
-                case 8:
-                    if (sm0.f(il0Var)) {
-                        b(AdDownloadCode.ERROR_PERMISSION_DENIED);
-                        return;
-                    }
-                    break;
-            }
-            b(AdDownloadCode.SUCCESS);
-        }
-    }
-
-    public final void b(AdDownloadCode adDownloadCode) {
-        zl0 zl0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) != null) || (zl0Var = this.c) == null) {
-            return;
-        }
-        if (adDownloadCode == AdDownloadCode.SUCCESS) {
-            zl0Var.a(this.a.c);
-        } else {
-            zl0Var.b(adDownloadCode);
-        }
-    }
-
-    public void n(zl0 zl0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, zl0Var) == null) {
-            this.c = zl0Var;
-        }
-    }
-
-    public void c() {
+    public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vk0.c().a(this.a);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            r();
-            i();
-        }
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - this.b;
-            this.b = currentTimeMillis;
-            if (j > 0 && j < 1000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.am0
-    public il0 getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (il0) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (hm0.c().e(this)) {
-                hm0.c().d();
-                return;
-            }
-            vk0.c().j(this.a);
-            q();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            vk0.c().k(this.a.e(), this);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            vk0.c().p(this.a.e(), this);
-            wl0.b(this.a);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            vk0.c().l(this.a);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             m(this.c);
         }
     }
 
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            vk0.c().n(this.a);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.d == null && this.a.b()) {
-                this.d = wl0.a(this.a);
-            }
-            xl0 xl0Var = this.d;
-            if (xl0Var != null) {
-                xl0Var.a();
-            }
-        }
-    }
-
-    public final void q() {
-        xl0 xl0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (xl0Var = this.d) != null) {
-            xl0Var.d();
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.a.i(zk0.b().query(this.a.e()));
-        }
-    }
-
-    public final boolean e() {
+    public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!sm0.g(this.a.h)) {
-                vk0.c().a(this.a);
-                this.a.g();
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = a.a[this.e.c.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                return "0";
+                            }
+                            return "4";
+                        }
+                        hl0 hl0Var = this.e;
+                        hl0Var.i = 1.0f;
+                        hl0Var.j = 1.0f;
+                        return "3";
+                    }
+                    return "2";
+                }
+                return "1";
             }
-            AdAppStateManager.instance().register(this.a);
-            il0 il0Var = this.a;
-            return sm0.e(il0Var.h, il0Var.a());
+            hl0 hl0Var2 = this.e;
+            hl0Var2.i = 0.0f;
+            hl0Var2.j = 0.0f;
+            return "0";
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void g() {
+    public void x(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            switch (a.b[this.a.c.ordinal()]) {
-                case 1:
-                    o();
-                    break;
-                case 2:
-                    vk0.e(AdDownloadAction.FAIL_RETRY, this.a);
-                    o();
-                    break;
-                case 3:
-                    h();
-                    break;
-                case 4:
-                    k();
-                    break;
-                case 5:
-                    if (e()) {
-                        vk0.e(AdDownloadAction.INSTALL_START, this.a);
-                        break;
-                    } else {
-                        boolean z = false;
-                        if (un0.b().a().a("nad_failed_retry_switch", 0) == 1) {
-                            z = true;
-                        }
-                        if (z) {
-                            il0 il0Var = this.a;
-                            if (il0Var.c == AdDownloadStatus.PAUSE) {
-                                k();
-                            } else {
-                                il0Var.i = 0.0f;
-                                il0Var.j = 0.0f;
-                                o();
-                            }
-                            zk0.b().e(this.a);
-                            break;
-                        }
-                    }
-                    break;
-                case 6:
-                    if (sm0.c(this.a.d)) {
-                        vk0.d(this.a);
-                        break;
-                    } else {
-                        this.a.c = AdDownloadStatus.NONE;
-                        o();
-                        break;
-                    }
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) {
+            ml0 ml0Var = new ml0();
+            ArrayList arrayList = new ArrayList();
+            JSONObject jSONObject = new JSONObject();
+            String a2 = sm0.a(str, str2, str3, str4);
+            h31.f(jSONObject, "status", "0");
+            h31.f(jSONObject, "message", "");
+            h31.f(jSONObject, "data", a2);
+            for (String str5 : this.f.keySet()) {
+                b bVar = (b) i31.b(this.f, str5);
+                if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
+                    ml0.a aVar = new ml0.a();
+                    aVar.b = bVar.b;
+                    aVar.a = bVar.a;
+                    aVar.c = jSONObject.toString();
+                    aVar.d = this.g;
+                    g31.b(arrayList, aVar);
+                }
             }
-            if (!TextUtils.isEmpty(this.a.f)) {
-                cj0.b(this.a.f);
+            if (!arrayList.isEmpty()) {
+                ml0Var.a = arrayList;
+                en0.a().a(ml0Var);
             }
+        }
+    }
+
+    public void y(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, str3, str4) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            String str5 = str + "_" + str4 + "_" + str3 + "_" + str2;
+            this.f.remove(str5);
+            b bVar = new b();
+            bVar.b = str;
+            bVar.a = str2;
+            this.f.put(str5, bVar);
+        }
+    }
+
+    public void z(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, str4) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
+            this.f.remove(str + "_" + str4 + "_" + str3 + "_" + str2);
+            this.g = "";
         }
     }
 }

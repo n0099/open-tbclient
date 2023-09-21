@@ -15,34 +15,34 @@ import com.baidu.swan.apps.commonsync.CommonSyncServerData;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a83;
+import com.baidu.tieba.al2;
 import com.baidu.tieba.an2;
-import com.baidu.tieba.b83;
-import com.baidu.tieba.bl2;
+import com.baidu.tieba.ao3;
+import com.baidu.tieba.ap3;
 import com.baidu.tieba.bn2;
-import com.baidu.tieba.bo3;
-import com.baidu.tieba.bp3;
 import com.baidu.tieba.cn2;
-import com.baidu.tieba.dn2;
-import com.baidu.tieba.fi2;
+import com.baidu.tieba.ei2;
+import com.baidu.tieba.fb3;
+import com.baidu.tieba.g82;
 import com.baidu.tieba.gb3;
-import com.baidu.tieba.h82;
-import com.baidu.tieba.hb3;
-import com.baidu.tieba.il2;
-import com.baidu.tieba.j32;
-import com.baidu.tieba.k62;
-import com.baidu.tieba.m62;
-import com.baidu.tieba.ou2;
-import com.baidu.tieba.rr1;
-import com.baidu.tieba.uw2;
-import com.baidu.tieba.vr1;
-import com.baidu.tieba.za3;
+import com.baidu.tieba.hl2;
+import com.baidu.tieba.i32;
+import com.baidu.tieba.j62;
+import com.baidu.tieba.l62;
+import com.baidu.tieba.nu2;
+import com.baidu.tieba.qr1;
+import com.baidu.tieba.tw2;
+import com.baidu.tieba.ur1;
+import com.baidu.tieba.ya3;
+import com.baidu.tieba.ym2;
 import com.baidu.tieba.zm2;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class SwanFavorDataManager implements vr1 {
-    public static final boolean a = rr1.a;
+public class SwanFavorDataManager implements ur1 {
+    public static final boolean a = qr1.a;
 
     /* loaded from: classes4.dex */
     public interface c {
@@ -76,7 +76,7 @@ public class SwanFavorDataManager implements vr1 {
             ArrayList arrayList = new ArrayList();
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
                 do {
-                    SwanFavorItemData l = fi2.l(cursor);
+                    SwanFavorItemData l = ei2.l(cursor);
                     if (!TextUtils.isEmpty(l.getAppKey()) && !TextUtils.isEmpty(l.getAppName())) {
                         arrayList.add(l);
                     }
@@ -95,7 +95,7 @@ public class SwanFavorDataManager implements vr1 {
         @Override // androidx.loader.app.LoaderManager.LoaderCallbacks
         @NonNull
         public Loader<Cursor> onCreateLoader(int i, @Nullable Bundle bundle) {
-            return new CursorLoader(ou2.c(), fi2.e(), null, null, null, "sort_index");
+            return new CursorLoader(nu2.c(), ei2.e(), null, null, null, "sort_index");
         }
 
         @Override // androidx.loader.app.LoaderManager.LoaderCallbacks
@@ -108,33 +108,33 @@ public class SwanFavorDataManager implements vr1 {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements m62 {
+    public class a implements l62 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.m62
+        @Override // com.baidu.tieba.l62
         public void a(CommonSyncServerData commonSyncServerData) {
-            h82.k("SwanFavorDataManager", "fetchFavorDataFromServer onSuccess");
+            g82.k("SwanFavorDataManager", "fetchFavorDataFromServer onSuccess");
             SwanFavorDataManager.this.f(commonSyncServerData);
         }
 
-        @Override // com.baidu.tieba.m62
+        @Override // com.baidu.tieba.l62
         public void onFail() {
-            h82.k("SwanFavorDataManager", "fetchFavorDataFromServer onFail");
+            g82.k("SwanFavorDataManager", "fetchFavorDataFromServer onFail");
         }
     }
 
     /* loaded from: classes4.dex */
     public class b implements Runnable {
-        public final /* synthetic */ m62 a;
+        public final /* synthetic */ l62 a;
 
-        public b(SwanFavorDataManager swanFavorDataManager, m62 m62Var) {
-            this.a = m62Var;
+        public b(SwanFavorDataManager swanFavorDataManager, l62 l62Var) {
+            this.a = l62Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            k62.b(this.a);
+            j62.b(this.a);
         }
     }
 
@@ -144,8 +144,8 @@ public class SwanFavorDataManager implements vr1 {
     }
 
     public SwanFavorDataManager() {
-        SwanAppDbControl.f(ou2.c());
-        ou2.h0().c(this);
+        SwanAppDbControl.f(nu2.c());
+        nu2.h0().c(this);
     }
 
     public static SwanFavorDataManager h() {
@@ -157,25 +157,25 @@ public class SwanFavorDataManager implements vr1 {
     }
 
     public List<SwanFavorItemData> i() {
-        return fi2.j();
+        return ei2.j();
     }
 
     public /* synthetic */ SwanFavorDataManager(a aVar) {
         this();
     }
 
-    @Override // com.baidu.tieba.vr1
+    @Override // com.baidu.tieba.ur1
     public void a(boolean z) {
-        h82.k("SwanFavorDataManager", "onLoginStatusChanged isLoggedIn=" + z);
+        g82.k("SwanFavorDataManager", "onLoginStatusChanged isLoggedIn=" + z);
         d();
     }
 
-    public void e(m62 m62Var) {
-        bo3.k(new b(this, m62Var), "fetchFavorDataFromServer");
+    public void e(l62 l62Var) {
+        ao3.k(new b(this, l62Var), "fetchFavorDataFromServer");
     }
 
     public final void n(String str) {
-        k62.e(zm2.c(str, 1));
+        j62.e(ym2.c(str, 1));
     }
 
     public static void l(boolean z) {
@@ -190,24 +190,24 @@ public class SwanFavorDataManager implements vr1 {
             str = "0";
         }
         hashMap.put("status", str);
-        uw2.T().u(new il2("favorStatusChange", hashMap));
+        tw2.T().u(new hl2("favorStatusChange", hashMap));
     }
 
-    public void b(String str, an2 an2Var) {
-        ou2.t().a();
-        if (!bp3.T(R.string.obfuscated_res_0x7f0f14f1) && ou2.t().b()) {
+    public void b(String str, zm2 zm2Var) {
+        nu2.t().a();
+        if (!ap3.T(R.string.obfuscated_res_0x7f0f14f4) && nu2.t().b()) {
             if (!SwanAppNetworkUtils.h()) {
-                if (an2Var != null) {
-                    an2Var.a();
+                if (zm2Var != null) {
+                    zm2Var.a();
                 }
-            } else if (TextUtils.equals(str, gb3.K().q().O()) && gb3.K().q().W().getType() != 0) {
-                za3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f14c4).G();
-                an2Var.b(true);
+            } else if (TextUtils.equals(str, fb3.K().q().O()) && fb3.K().q().W().getType() != 0) {
+                ya3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f14c7).G();
+                zm2Var.b(true);
             } else {
                 SwanFavorItemData swanFavorItemData = new SwanFavorItemData();
                 swanFavorItemData.setAppKey(str);
                 swanFavorItemData.setIsNewFavor(1);
-                if (fi2.b(swanFavorItemData, 1, an2Var)) {
+                if (ei2.b(swanFavorItemData, 1, zm2Var)) {
                     m(str, true);
                 }
                 k(str, "add");
@@ -215,19 +215,19 @@ public class SwanFavorDataManager implements vr1 {
         }
     }
 
-    public void c(String str, bn2 bn2Var, bl2.b bVar) {
-        if (bp3.T(R.string.obfuscated_res_0x7f0f14f1)) {
+    public void c(String str, an2 an2Var, al2.b bVar) {
+        if (ap3.T(R.string.obfuscated_res_0x7f0f14f4)) {
             return;
         }
         if (!SwanAppNetworkUtils.h()) {
-            if (bn2Var != null) {
-                bn2Var.a();
+            if (an2Var != null) {
+                an2Var.a();
             }
-        } else if (TextUtils.equals(str, gb3.K().q().O()) && gb3.K().q().W().getType() != 0) {
-            za3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f14c4).G();
-            bn2Var.c(true);
+        } else if (TextUtils.equals(str, fb3.K().q().O()) && fb3.K().q().W().getType() != 0) {
+            ya3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f14c7).G();
+            an2Var.c(true);
         } else {
-            if (fi2.g(str, bn2Var, bVar)) {
+            if (ei2.g(str, an2Var, bVar)) {
                 m(str, false);
             }
             k(str, "cancel");
@@ -243,7 +243,7 @@ public class SwanFavorDataManager implements vr1 {
                     SwanFavorItemData swanFavorItemData = new SwanFavorItemData();
                     String str = metaItemInfo.appKey;
                     swanFavorItemData.setAppKey(str);
-                    swanFavorItemData.setAppType(j32.b(str));
+                    swanFavorItemData.setAppType(i32.b(str));
                     swanFavorItemData.setIconUrl(metaItemInfo.icon);
                     swanFavorItemData.setAppName(metaItemInfo.appName);
                     swanFavorItemData.setAppFrameType(metaItemInfo.subCategory);
@@ -252,7 +252,7 @@ public class SwanFavorDataManager implements vr1 {
                     arrayList.add(swanFavorItemData);
                 }
             }
-            fi2.q(arrayList);
+            ei2.q(arrayList);
         }
     }
 
@@ -263,33 +263,33 @@ public class SwanFavorDataManager implements vr1 {
         return bundle;
     }
 
-    public void j(String str, an2 an2Var) {
+    public void j(String str, zm2 zm2Var) {
         if (!SwanAppNetworkUtils.h()) {
-            if (an2Var != null) {
-                an2Var.a();
+            if (zm2Var != null) {
+                zm2Var.a();
                 return;
             }
             return;
         }
-        fi2.o(str, 1, an2Var);
+        ei2.o(str, 1, zm2Var);
         n(str);
     }
 
     public final void k(String str, String str2) {
-        k62.d(zm2.b(str, str2));
+        j62.d(ym2.b(str, str2));
     }
 
     public void m(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            b83.a(g(str, z), dn2.class);
+            a83.a(g(str, z), cn2.class);
             return;
         }
-        hb3 b0 = hb3.b0();
+        gb3 b0 = gb3.b0();
         if (b0 == null) {
             return;
         }
         if (TextUtils.equals(b0.getAppId(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
-            b83.c(g(str, z), cn2.class, null);
+            a83.c(g(str, z), bn2.class, null);
         } else if (TextUtils.equals(b0.getAppId(), str)) {
             l(z);
         }

@@ -135,7 +135,7 @@ public class EncodedImage implements Closeable {
         this.mSampleSize = 1;
         this.mStreamSize = -1;
         Preconditions.checkArgument(CloseableReference.isValid(closeableReference));
-        this.mPooledByteBufferRef = closeableReference.mo167clone();
+        this.mPooledByteBufferRef = closeableReference.mo169clone();
         this.mInputStreamSupplier = null;
     }
 

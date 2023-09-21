@@ -1,63 +1,82 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.CreationData;
 /* loaded from: classes5.dex */
-public class dw9 {
+public class dw9 extends BaseCardInfo implements bn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public uv9 a;
-    public aw9 b;
-    public vv9 c;
-    public ts9 d;
-    public List<pm> e;
+    public CreationData a;
 
-    public dw9(TbPageContext tbPageContext, HTypeListView hTypeListView) {
+    public void e(CreationData creationData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, creationData) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947719107, "Lcom/baidu/tieba/dw9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947719107, "Lcom/baidu/tieba/dw9;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    public dw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, hTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = new ArrayList();
-        this.a = new uv9(tbPageContext, nx9.c);
-        this.b = new aw9(tbPageContext);
-        this.c = new vv9(tbPageContext, gx9.c);
-        this.d = new ts9(tbPageContext.getPageActivity(), ps9.d);
-        this.e.add(this.a);
-        this.e.add(this.b);
-        this.e.add(this.c);
-        this.e.add(this.d);
-        hTypeListView.a(this.e);
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public CreationData c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.a.u(onClickListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (CreationData) invokeV.objValue;
     }
 
-    public void b(View.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.c.u(onClickListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d(CreationData creationData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, creationData) == null) {
+            this.a = creationData;
         }
     }
 }

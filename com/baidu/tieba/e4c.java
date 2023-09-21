@@ -1,7 +1,51 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface e4c {
-    void a(int i, int i2, boolean z, HashMap<String, String> hashMap);
+public abstract class e4c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+
+    public abstract void f(Bundle bundle);
+
+    public abstract boolean g(Bundle bundle);
+
+    public abstract String h(Bundle bundle);
+
+    public abstract void i(String str);
+
+    public abstract boolean j(String str);
+
+    public abstract String k(String str);
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public final f4c<String> m(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                if (str.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    return d4c.f.a().j(this.a, str);
+                }
+            }
+            return new f4c<>(false, "sendData2MainProcessForStr null");
+        }
+        return (f4c) invokeL.objValue;
+    }
 }

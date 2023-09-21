@@ -2,8 +2,8 @@ package com.baidu.tieba.feed.component.uistate;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.util.LocalFilesFilterKt;
-import com.baidu.tieba.vc7;
-import com.baidu.tieba.w97;
+import com.baidu.tieba.ea7;
+import com.baidu.tieba.ed7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,13 +14,13 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.FunctionReferenceImpl;
 @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionReferenceImpl implements Function1<w97, Unit> {
+public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionReferenceImpl implements Function1<ea7, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardUiStateKt$sendStatData$1(Object obj) {
-        super(1, obj, vc7.a.class, LocalFilesFilterKt.FILTER_NAME_LOG, "log(Lcom/baidu/tieba/feed/data/StatData;)V", 0);
+        super(1, obj, ed7.a.class, LocalFilesFilterKt.FILTER_NAME_LOG, "log(Lcom/baidu/tieba/feed/data/StatData;)V", 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,16 +42,16 @@ public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionRefere
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Unit invoke(w97 w97Var) {
-        invoke2(w97Var);
+    public /* bridge */ /* synthetic */ Unit invoke(ea7 ea7Var) {
+        invoke2(ea7Var);
         return Unit.INSTANCE;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(w97 w97Var) {
+    public final void invoke2(ea7 ea7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w97Var) == null) {
-            ((vc7.a) this.receiver).a(w97Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ea7Var) == null) {
+            ((ed7.a) this.receiver).a(ea7Var);
         }
     }
 }

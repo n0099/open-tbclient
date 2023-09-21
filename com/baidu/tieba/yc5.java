@@ -6,13 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class yc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public long b;
-    public int c;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public yc5() {
         Interceptable interceptable = $ic;
@@ -28,51 +33,91 @@ public class yc5 {
         }
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public long c() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public void d(int i) {
+    public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.b = j;
+        try {
+            jSONObject.optString("splash_bear_sid_ios", "");
+            jSONObject.optString("homepage_bear_sid_ios", "");
+            jSONObject.optString("frs_bear_sid_ios", "");
+            jSONObject.optString("pb_banner_bear_sid_ios", "");
+            jSONObject.optString("pb_comment_bear_sid_ios", "");
+            jSONObject.optString("picpage_bear_sid_ios", "");
+            jSONObject.optString("videoflow_bear_sid_ios", "");
+            this.a = jSONObject.optString("splash_bear_sid_android", "");
+            this.b = jSONObject.optString("homepage_bear_sid_android", "");
+            this.c = jSONObject.optString("frs_bear_sid_android", "");
+            this.d = jSONObject.optString("pb_banner_bear_sid_android", "");
+            this.e = jSONObject.optString("pb_comment_bear_sid_android", "");
+            this.f = jSONObject.optString("picpage_bear_sid_android", "");
+            this.g = jSONObject.optString("videoflow_bear_sid_android", "");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

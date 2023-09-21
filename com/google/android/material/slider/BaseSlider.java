@@ -171,10 +171,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         @NonNull
         private String startOrEndDescription(int i) {
             if (i == this.slider.getValues().size() - 1) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c6c);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c6e);
             }
             if (i == 0) {
-                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c6d);
+                return this.slider.getContext().getString(R.string.obfuscated_res_0x7f0f0c6f);
             }
             return "";
         }

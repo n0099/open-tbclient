@@ -3,35 +3,36 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public final class ujb {
+public class ujb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
+    public static double a(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
+            if (byteBuffer == null || i == 0) {
+                return 0.0d;
+            }
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            byte[] bArr = new byte[i];
+            byteBuffer.get(bArr);
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            double d = 0.0d;
+            for (int i2 = 0; i2 < i; i2 += 2) {
+                int i3 = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8);
+                if (i3 >= 32768) {
+                    i3 = 65535 - i3;
+                }
+                d += i3 * i3;
+            }
+            double d2 = (d / i) / 2.0d;
+            return Math.abs(d2 > 0.0d ? Math.log10(d2) * 10.0d : 0.0d);
         }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public static byte[] b(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLLL.objValue;
+        return invokeLI.doubleValue;
     }
 }

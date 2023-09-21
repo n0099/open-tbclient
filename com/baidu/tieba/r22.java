@@ -1,178 +1,483 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.WindowManager;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.dw2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r22 {
+public class r22 extends f22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948069655, "Lcom/baidu/tieba/r22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.jz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "UbcFlowJarApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ gb3 b;
+
+        public a(JSONObject jSONObject, gb3 gb3Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, gb3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948069655, "Lcom/baidu/tieba/r22;");
+            this.a = jSONObject;
+            this.b = gb3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            r22.y(this.a, this.b);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ HybridUbcFlow b;
+        public final /* synthetic */ mx1 c;
+
+        public b(String str, HybridUbcFlow hybridUbcFlow, mx1 mx1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, hybridUbcFlow, mx1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = hybridUbcFlow;
+            this.c = mx1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (TextUtils.equals(this.a, "1")) {
+                    this.b.S();
+                } else {
+                    this.b.C(this.c);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r22(@NonNull hz1 hz1Var) {
+        super(hz1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((hz1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = rr1.a;
     }
 
-    public static synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            synchronized (r22.class) {
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "release cache system info");
-                }
-                b = null;
-            }
-        }
-    }
-
-    public static JSONObject a(@NonNull Context context) {
+    public static UbcFlowEvent G(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a) {
-                Log.d("SystemInfoCacheHelper", "start create System Info");
-            }
-            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            windowManager.getDefaultDisplay().getSize(new Point());
-            windowManager.getDefaultDisplay().getRectSize(new Rect());
-            Configuration configuration = context.getResources().getConfiguration();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("brand", Build.BRAND);
-                jSONObject.put("model", Build.MODEL);
-                jSONObject.put("pixelRatio", displayMetrics.density);
-                jSONObject.put("devicePixelRatio", displayMetrics.density);
-                jSONObject.put("language", c(configuration));
-                jSONObject.put("version", bp3.D());
-                jSONObject.put("system", "Android " + Build.VERSION.RELEASE);
-                jSONObject.put(Constants.PARAM_PLATFORM, "android");
-                jSONObject.put("fontSizeSetting", ou2.o().r());
-                jSONObject.put("swanNativeVersion", sr1.a());
-                jSONObject.put("host", ou2.n().a());
-                jSONObject.put("statusBarHeight", yo3.O(yo3.t()));
-                jSONObject.put("navigationBarHeight", yo3.O(yo3.j()));
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "end create System Info");
-                }
-                return jSONObject;
-            } catch (JSONException e) {
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "crate system info error : ");
-                    e.printStackTrace();
-                    return null;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @Nullable
-    public static synchronized JSONObject b(Context context) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (r22.class) {
-                if (b == null && context != null) {
-                    if (a) {
-                        Log.d("SystemInfoCacheHelper", "need create system info");
-                    }
-                    b = a(context);
-                }
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "return cache system info");
-                }
-                jSONObject = b;
+            String optString = jSONObject.optString("actionId");
+            long optLong = jSONObject.optLong("timestamp");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
             }
-            return jSONObject;
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
+            ubcFlowEvent.h(optLong);
+            return ubcFlowEvent;
         }
-        return (JSONObject) invokeL.objValue;
+        return (UbcFlowEvent) invokeL.objValue;
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static String c(Configuration configuration) {
+    public static List<UbcFlowEvent> H(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, configuration)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i < 21) {
-                return configuration.locale.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null) {
+                return arrayList;
             }
-            if (i < 24) {
-                return configuration.locale.toLanguageTag();
-            }
-            return configuration.getLocales().toLanguageTags();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(int i) {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && (jSONObject = b) != null) {
-            try {
-                jSONObject.put("fontSizeSetting", i);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Nullable
-    public static synchronized void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            synchronized (r22.class) {
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "start pre cache system info");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                UbcFlowEvent G = G(jSONArray.optJSONObject(i));
+                if (G != null) {
+                    G.e("FE");
+                    arrayList.add(G);
                 }
-                if (!ou2.g0().s()) {
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x004d  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x005b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void A(HybridUbcFlow hybridUbcFlow, gb3 gb3Var, String str, @Nullable mx1 mx1Var) {
+        long j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, hybridUbcFlow, gb3Var, str, mx1Var) == null) && hybridUbcFlow != null && gb3Var != null) {
+            if (!ai2.U().p0()) {
+                if (TextUtils.equals(str, "1")) {
+                    hybridUbcFlow.S();
+                    return;
+                } else {
+                    hybridUbcFlow.C(mx1Var);
                     return;
                 }
-                if (b == null && context != null) {
-                    if (a) {
-                        Log.d("SystemInfoCacheHelper", "need create system info");
+            }
+            long H = nu2.g0().H();
+            if (H <= 0) {
+                return;
+            }
+            dw2.a Y = gb3Var.Y();
+            boolean z = false;
+            if (Y != null) {
+                long currentTimeMillis = System.currentTimeMillis() - Y.N();
+                if (currentTimeMillis >= H) {
+                    z = true;
+                } else {
+                    j = H - currentTimeMillis;
+                    if (!z) {
+                        if (TextUtils.equals(str, "1")) {
+                            hybridUbcFlow.S();
+                            return;
+                        } else {
+                            hybridUbcFlow.C(mx1Var);
+                            return;
+                        }
+                    } else if (j <= 0) {
+                        return;
+                    } else {
+                        ao3.c(new b(str, hybridUbcFlow, mx1Var), "waitFcp", j, TimeUnit.MILLISECONDS);
+                        return;
                     }
-                    b = a(context);
                 }
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "end pre cache system info");
+            }
+            j = 0;
+            if (!z) {
+            }
+        }
+    }
+
+    public static void B(JSONObject jSONObject, gb3 gb3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, jSONObject, gb3Var) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(jSONObject, gb3Var), "handlePerformMsg", 2);
+        }
+    }
+
+    public static void C(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) && (optJSONArray = jSONObject.optJSONArray("data")) != null && optJSONArray.length() >= 1) {
+            n43.e().c(optJSONArray.optJSONObject(0));
+        }
+    }
+
+    public static void D(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("ext")) == null) {
+            return;
+        }
+        String optString = optJSONObject.optString("routeId");
+        if (TextUtils.isEmpty(optString)) {
+            return;
+        }
+        HybridUbcFlow q = l43.q("route", optString);
+        if (TextUtils.equals(optJSONObject.optString("hasWebView"), "1")) {
+            q.I(HybridUbcFlow.SubmitStrategy.ROUTE_WEB);
+        }
+        q.G(H(jSONObject.optJSONArray("data")));
+        q.n();
+        ox1 A = tw2.T().A(optJSONObject.optString("slaveId"));
+        if (A instanceof SwanAppSlaveManager) {
+            ((SwanAppSlaveManager) A).h1();
+        }
+    }
+
+    public static void E(@Nullable JSONArray jSONArray) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, jSONArray) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("FlowJarAction-671: ");
+            if (jSONArray == null) {
+                obj = StringUtil.NULL_STRING;
+            } else {
+                obj = jSONArray;
+            }
+            sb.append(obj);
+            g82.k("UbcFlowJarApi", sb.toString());
+            if (jSONArray != null && jSONArray.length() != 0) {
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    try {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
+                        if (TextUtils.equals(jSONObject.optString("type"), "feTraceError")) {
+                            gh3.d().h(jSONObject);
+                        } else {
+                            gh3.d().k(jSONObject);
+                        }
+                    } catch (JSONException unused) {
+                    }
                 }
             }
         }
+    }
+
+    public static void F(JSONArray jSONArray) {
+        oa2 H;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, jSONArray) != null) || (H = tw2.T().H()) == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = jSONArray.getJSONObject(0);
+            if (jSONObject != null) {
+                String string = jSONObject.getString("eventId");
+                String optString = jSONObject.optString(PmsConstant.Statistic.Key.REV_TIMESTAMP);
+                long j = 0;
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        j = Long.valueOf(optString).longValue();
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+                H.N3(new ki3(string, j));
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static void y(JSONObject jSONObject, gb3 gb3Var) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, jSONObject, gb3Var) == null) {
+            cd2 W = ai2.U().W();
+            if (W instanceof gd2) {
+                i = ((gd2) W).i();
+            } else {
+                i = 0;
+            }
+            qh3.C(true);
+            qh3.r();
+            HybridUbcFlow p = l43.p("startup");
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            mx1 mx1Var = null;
+            String str2 = "0";
+            if (optJSONObject != null) {
+                str2 = optJSONObject.optString("hasWebView", "0");
+                str = optJSONObject.optString("hasRelaunch");
+                ox1 A = tw2.T().A(optJSONObject.optString("slaveId"));
+                if (A instanceof mx1) {
+                    mx1Var = (mx1) A;
+                }
+            } else {
+                str = "";
+            }
+            if (TextUtils.equals(str2, "1")) {
+                HybridUbcFlow.SubmitStrategy i2 = p.i();
+                if (i2 == HybridUbcFlow.SubmitStrategy.HYBRID) {
+                    p.I(HybridUbcFlow.SubmitStrategy.HYBRID_WEB);
+                } else if (i2 == HybridUbcFlow.SubmitStrategy.RELAUNCH) {
+                    p.I(HybridUbcFlow.SubmitStrategy.RELAUNCH_WEB);
+                }
+            }
+            if (TextUtils.equals(str, "none")) {
+                if (TextUtils.equals(str2, "1")) {
+                    p.S();
+                } else {
+                    p.C(mx1Var);
+                }
+            }
+            A(p, gb3Var, str2, mx1Var);
+            JSONArray optJSONArray = jSONObject.optJSONArray("data");
+            p.D("codecache", String.valueOf(i));
+            p.D("slave_codecache", String.valueOf(z()));
+            p.G(H(optJSONArray));
+            p.n();
+        }
+    }
+
+    public static int z() {
+        InterceptResult invokeV;
+        oa2 o;
+        mx1 q3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            pa2 U = tw2.T().U();
+            if (U == null || (o = U.o()) == null || (q3 = o.q3()) == null) {
+                return 0;
+            }
+            return q3.d0();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0089, code lost:
+        if (r2.equals("670") != false) goto L20;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public g32 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            char c = 0;
+            q("#ubcFlowJar", false);
+            gb3 b0 = gb3.b0();
+            if (b0 == null) {
+                return new g32(1001, "swan app is null");
+            }
+            Pair<g32, JSONObject> s = s(str);
+            g32 g32Var = (g32) s.first;
+            if (!g32Var.isSuccess()) {
+                return g32Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("flowId");
+            if (TextUtils.isEmpty(optString)) {
+                return new g32(201, "empty flowId");
+            }
+            switch (optString.hashCode()) {
+                case 53647:
+                    break;
+                case 53648:
+                    if (optString.equals("671")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 55357:
+                    if (optString.equals("805")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 56506:
+                    if (optString.equals("967")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 46733230:
+                    if (optString.equals("10360")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1529139648:
+                    if (optString.equals("renderMonitorLog")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c != 5) {
+                                    return new g32(201, "unknown flowId");
+                                }
+                                C(jSONObject);
+                            } else {
+                                D(jSONObject);
+                            }
+                        } else {
+                            E(jSONObject.optJSONArray("data"));
+                        }
+                    } else {
+                        br3.a().g(jSONObject.optJSONArray("data"));
+                    }
+                } else {
+                    F(jSONObject.optJSONArray("data"));
+                }
+            } else {
+                B(jSONObject, b0);
+            }
+            return g32.f();
+        }
+        return (g32) invokeL.objValue;
     }
 }

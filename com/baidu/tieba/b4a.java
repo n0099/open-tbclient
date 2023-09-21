@@ -1,132 +1,115 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.widget.RemoteViews;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.SystemBarTintManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadReceiver;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.common.GlobalHistogramBinarizer;
+import com.google.zxing.common.HybridBinarizer;
+import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class b4a {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<DecodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RemoteViews a;
 
-    /* loaded from: classes5.dex */
-    public class a extends BdResourceCallback<BdImage> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b4a a;
-
-        public a(b4a b4aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947596378, "Lcom/baidu/tieba/b4a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = b4aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
-        public void onLoaded(BdImage bdImage, String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) && this.a.a != null && bdImage != null && bdImage.getRawBitmap() != null) {
-                this.a.a.setImageViewBitmap(R.id.app_icon, bdImage.getRawBitmap());
-            }
-        }
-    }
-
-    public b4a(DownloadData downloadData, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadData, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947596378, "Lcom/baidu/tieba/b4a;");
                 return;
             }
         }
-        this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.download_notify_view);
-        c(i);
-        this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-        this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
-        this.a.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
-        this.a.setTextViewText(R.id.downapp_name, downloadData.getUser_name());
-        BdResourceLoader.getInstance().loadResource(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
-        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
-        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
-        intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        this.a.setOnClickPendingIntent(R.id.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
-        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
-        intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
-        intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.a.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
+        a = new EnumMap(DecodeHintType.class);
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(BarcodeFormat.QR_CODE);
+        arrayList.add(BarcodeFormat.AZTEC);
+        arrayList.add(BarcodeFormat.DATA_MATRIX);
+        arrayList.add(BarcodeFormat.PDF_417);
+        a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        a.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
-    public RemoteViews b() {
-        InterceptResult invokeV;
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (RemoteViews) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
-            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
-        }
-    }
-
-    public void c(int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i > 0) {
-                str = i + "%";
-            } else {
-                str = "0%";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                int i = 1;
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(str, options);
+                int i2 = options.outHeight / 800;
+                if (i2 > 0) {
+                    i = i2;
+                }
+                options.inSampleSize = i;
+                options.inJustDecodeBounds = false;
+                return BitmapFactory.decodeFile(str, options);
+            } catch (Exception unused) {
+                return null;
             }
-            this.a.setProgressBar(R.id.download_progress, 100, i, false);
-            this.a.setTextViewText(R.id.download_progress_text, str);
         }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static String b(Bitmap bitmap) {
+        InterceptResult invokeL;
+        RGBLuminanceSource rGBLuminanceSource;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
+            try {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int[] iArr = new int[width * height];
+                bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+                rGBLuminanceSource = new RGBLuminanceSource(width, height, iArr);
+            } catch (Exception e) {
+                e = e;
+                rGBLuminanceSource = null;
+            }
+            try {
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), a).getText();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                if (rGBLuminanceSource != null) {
+                    try {
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), a).getText();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                        return null;
+                    }
+                }
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return b(a(str));
+        }
+        return (String) invokeL.objValue;
     }
 }

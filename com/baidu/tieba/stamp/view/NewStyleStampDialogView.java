@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bha;
 import com.baidu.tieba.c45;
-import com.baidu.tieba.rea;
+import com.baidu.tieba.cha;
 import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
-import com.baidu.tieba.vea;
-import com.baidu.tieba.wea;
+import com.baidu.tieba.xga;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class NewStyleStampDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public wea b;
+    public cha b;
     public View c;
     public ImageView d;
     public TextView e;
@@ -298,13 +298,13 @@ public class NewStyleStampDialogView extends LinearLayout {
         return (View) invokeV.objValue;
     }
 
-    public wea getmStampData() {
+    public cha getmStampData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (wea) invokeV.objValue;
+        return (cha) invokeV.objValue;
     }
 
     public final void p() {
@@ -417,11 +417,11 @@ public class NewStyleStampDialogView extends LinearLayout {
         if ((interceptable == null || interceptable.invokeL(65549, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.l.setVisibility(0);
             this.l.setStampIconsList(list);
-            this.l.setSignStampIconClickListener(new vea() { // from class: com.baidu.tieba.yea
+            this.l.setSignStampIconClickListener(new bha() { // from class: com.baidu.tieba.eha
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.vea
+                @Override // com.baidu.tieba.bha
                 public final void a(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -432,10 +432,10 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    public void setStampData(wea weaVar) {
+    public void setStampData(cha chaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, weaVar) == null) {
-            this.b = weaVar;
+        if (interceptable == null || interceptable.invokeL(1048590, this, chaVar) == null) {
+            this.b = chaVar;
             n();
         }
     }
@@ -502,13 +502,13 @@ public class NewStyleStampDialogView extends LinearLayout {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            wea weaVar = this.b;
-            if (weaVar instanceof rea) {
-                rea reaVar = (rea) weaVar;
-                this.e.setText(reaVar.b());
-                this.k.startLoad(reaVar.a(), 10, false);
-            } else if (weaVar instanceof c45) {
-                c45 c45Var = (c45) weaVar;
+            cha chaVar = this.b;
+            if (chaVar instanceof xga) {
+                xga xgaVar = (xga) chaVar;
+                this.e.setText(xgaVar.b());
+                this.k.startLoad(xgaVar.a(), 10, false);
+            } else if (chaVar instanceof c45) {
+                c45 c45Var = (c45) chaVar;
                 List<c45.a> a2 = c45Var.a();
                 if (c45Var.b() == -1) {
                     this.f.setText(getResources().getString(R.string.stamp_full_level));
@@ -550,7 +550,7 @@ public class NewStyleStampDialogView extends LinearLayout {
                 i2 = 0;
             }
             tBLottieAnimationView.setRepeatCount(i2);
-            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.zea
+            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.fha
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

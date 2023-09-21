@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.util.VideoAudioHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -103,7 +103,7 @@ public final class VoicePlayBtn extends RelativeLayout implements VoiceManager.I
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.d.getDuration());
                 Intrinsics.checkNotNullExpressionValue(formatVoiceTime, "{\n            VoiceManag….getDuration())\n        }");
             }
-            String charSequence2String = ei.charSequence2String(this.c.getText(), null);
+            String charSequence2String = di.charSequence2String(this.c.getText(), null);
             if (charSequence2String == null || !Intrinsics.areEqual(charSequence2String, formatVoiceTime)) {
                 this.c.setText(formatVoiceTime);
             }
@@ -339,7 +339,7 @@ public final class VoicePlayBtn extends RelativeLayout implements VoiceManager.I
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.i) {
-                return ((VoiceManager.i) context).R0();
+                return ((VoiceManager.i) context).N0();
             }
             if (m9.a(getContext()) != null) {
                 BdPageContext<?> a2 = m9.a(getContext());
@@ -348,7 +348,7 @@ public final class VoicePlayBtn extends RelativeLayout implements VoiceManager.I
                     if (tbPageContext.getOrignalPage() instanceof VoiceManager.i) {
                         T orignalPage = tbPageContext.getOrignalPage();
                         if (orignalPage != 0) {
-                            return ((VoiceManager.i) orignalPage).R0();
+                            return ((VoiceManager.i) orignalPage).N0();
                         }
                         throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.voice.VoiceManager.IMediaPlayerVoiceActivity");
                     }

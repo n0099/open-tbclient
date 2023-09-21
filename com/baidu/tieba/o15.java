@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.BannerImage;
 /* loaded from: classes7.dex */
-public class o15 implements q75 {
+public class o15 implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -56,7 +56,7 @@ public class o15 implements q75 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q75
+    @Override // com.baidu.tieba.u75
     public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class o15 implements q75 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q75
+    @Override // com.baidu.tieba.u75
     public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

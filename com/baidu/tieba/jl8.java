@@ -1,58 +1,85 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.arch.view.BaseView;
-import com.baidu.tieba.immessagecenter.arch.vm.StatelessViewModel;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public abstract class jl8 extends BaseView<ll8, kl8, StatelessViewModel> {
+public class jl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, ImMessageCenterPojo> a;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: O */
-    public void H(ll8 state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
-            Intrinsics.checkNotNullParameter(state, "state");
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(Iterator<ImMessageCenterPojo> it);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jl8(int i) {
-        super(i);
+    public jl8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ConcurrentHashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: N */
-    public StatelessViewModel q() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new StatelessViewModel();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
         }
-        return (StatelessViewModel) invokeV.objValue;
+    }
+
+    public void a(ImMessageCenterPojo imMessageCenterPojo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, imMessageCenterPojo) != null) || imMessageCenterPojo == null) {
+            return;
+        }
+        this.a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+    }
+
+    public ImMessageCenterPojo c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return this.a.get(str);
+        }
+        return (ImMessageCenterPojo) invokeL.objValue;
+    }
+
+    public void d(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            aVar.a(this.a.values().iterator());
+        }
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || this.a.remove(str) == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

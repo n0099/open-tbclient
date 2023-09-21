@@ -1,24 +1,24 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.ebc;
-import com.baidu.tieba.uac;
-import com.baidu.tieba.yac;
+import com.baidu.tieba.mcc;
+import com.baidu.tieba.qcc;
+import com.baidu.tieba.wcc;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements uac {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements mcc {
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
     public static final int NO_REQUEST_HAS_VALUE = 1;
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
-    public final yac<? super T> child;
+    public final qcc<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(yac<? super T> yacVar) {
-        this.child = yacVar;
+    public SingleDelayedProducer(qcc<? super T> qccVar) {
+        this.child = qccVar;
     }
 
-    @Override // com.baidu.tieba.uac
+    @Override // com.baidu.tieba.mcc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
@@ -56,18 +56,18 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements uac
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(yac<? super T> yacVar, T t) {
-        if (yacVar.isUnsubscribed()) {
+    public static <T> void emit(qcc<? super T> qccVar, T t) {
+        if (qccVar.isUnsubscribed()) {
             return;
         }
         try {
-            yacVar.onNext(t);
-            if (yacVar.isUnsubscribed()) {
+            qccVar.onNext(t);
+            if (qccVar.isUnsubscribed()) {
                 return;
             }
-            yacVar.onCompleted();
+            qccVar.onCompleted();
         } catch (Throwable th) {
-            ebc.g(th, yacVar, t);
+            wcc.g(th, qccVar, t);
         }
     }
 }

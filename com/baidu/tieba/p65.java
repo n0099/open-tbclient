@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.DialogInterface;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.stamp.SignPopStampDialogUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class p65 extends e65 {
+public class p65 extends g65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,41 +33,17 @@ public final class p65 extends e65 {
         }
     }
 
-    public static final void b(DialogInterface dialogInterface) {
+    @Override // com.baidu.tieba.g65
+    public void a(@NonNull Context context, @NonNull u55 u55Var) {
+        JSONObject syncJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dialogInterface) == null) {
-            YunDialogManager.unMarkShowingDialogName("userIcon");
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, u55Var) != null) || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.e65
-    public void a(Context context, v55 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!PollingModel.checkIconPopHadShow()) {
-                YunDialogManager.unMarkShowingDialogName("userIcon");
-                return;
-            }
-            SignPopStampDialogUtil signPopStampDialogUtil = new SignPopStampDialogUtil();
-            signPopStampDialogUtil.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.y55
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.content.DialogInterface.OnDismissListener
-                public final void onDismiss(DialogInterface dialogInterface) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                        p65.b(dialogInterface);
-                    }
-                }
-            });
-            if (signPopStampDialogUtil.preShowPollingStampDialog(TbSingleton.getInstance().getIconPopData()) != null) {
-                YunDialogManager.markShowingDialogName("userIcon");
-            } else {
-                YunDialogManager.unMarkShowingDialogName("userIcon");
-            }
-        }
+        VersionData versionData = new VersionData();
+        versionData.parserJson(syncJson.optJSONObject("version"));
+        CombineDownload combineDownload = new CombineDownload();
+        combineDownload.parserJson(syncJson.optJSONObject("combine_download"));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), versionData, combineDownload)));
     }
 }

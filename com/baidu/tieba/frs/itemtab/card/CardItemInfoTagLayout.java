@@ -27,10 +27,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oa5;
+import com.baidu.tieba.sa5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.va5;
-import com.baidu.tieba.vx;
+import com.baidu.tieba.ux;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.TagInfo;
 /* loaded from: classes5.dex */
-public class CardItemInfoTagLayout extends FrameLayout implements vx {
+public class CardItemInfoTagLayout extends FrameLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerView a;
@@ -67,13 +67,13 @@ public class CardItemInfoTagLayout extends FrameLayout implements vx {
 
             /* renamed from: com.baidu.tieba.frs.itemtab.card.CardItemInfoTagLayout$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class View$OnClickListenerC0295a implements View.OnClickListener {
+            public class View$OnClickListenerC0308a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ View a;
                 public final /* synthetic */ a b;
 
-                public View$OnClickListenerC0295a(a aVar, b bVar, View view2) {
+                public View$OnClickListenerC0308a(a aVar, b bVar, View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements vx {
                             if (tBSpecificationBtn.a instanceof HashMap) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "CatetoryRecommendList", (HashMap) tBSpecificationBtn.a)));
                                 if (valueOf instanceof Integer) {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new va5(2, valueOf.intValue())));
+                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new za5(2, valueOf.intValue())));
                                 }
                             }
                         }
@@ -130,22 +130,22 @@ public class CardItemInfoTagLayout extends FrameLayout implements vx {
                 }
                 this.b = bVar;
                 FrameLayout frameLayout = (FrameLayout) view2;
-                oa5 oa5Var = new oa5();
-                oa5Var.j(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
-                oa5Var.i(R.color.CAM_X0107);
-                oa5Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
-                oa5Var.g(0);
-                oa5Var.w(R.color.CAM_X0105);
-                oa5Var.k(1, 0);
-                oa5Var.p(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
-                oa5Var.o(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+                sa5 sa5Var = new sa5();
+                sa5Var.j(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
+                sa5Var.i(R.color.CAM_X0107);
+                sa5Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+                sa5Var.g(0);
+                sa5Var.w(R.color.CAM_X0105);
+                sa5Var.k(1, 0);
+                sa5Var.p(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
+                sa5Var.o(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
                 TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(view2.getContext());
                 this.a = tBSpecificationBtn;
-                tBSpecificationBtn.setConfig(oa5Var);
+                tBSpecificationBtn.setConfig(sa5Var);
                 if (this.a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.a.getLayoutParams()).rightMargin = TbadkApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006);
                 }
-                this.a.setOnClickListener(new View$OnClickListenerC0295a(this, bVar, view2));
+                this.a.setOnClickListener(new View$OnClickListenerC0308a(this, bVar, view2));
                 frameLayout.addView(this.a);
             }
 
@@ -363,7 +363,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements vx {
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

@@ -19,26 +19,26 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a1b;
 import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.c4b;
+import com.baidu.tieba.e3b;
 import com.baidu.tieba.f3b;
-import com.baidu.tieba.h6b;
-import com.baidu.tieba.iza;
-import com.baidu.tieba.k2b;
-import com.baidu.tieba.m1b;
-import com.baidu.tieba.n1b;
-import com.baidu.tieba.p1b;
-import com.baidu.tieba.q1b;
-import com.baidu.tieba.qq6;
-import com.baidu.tieba.rq6;
-import com.baidu.tieba.si5;
-import com.baidu.tieba.t1b;
-import com.baidu.tieba.u1b;
+import com.baidu.tieba.h3b;
+import com.baidu.tieba.i3b;
+import com.baidu.tieba.l3b;
+import com.baidu.tieba.m3b;
+import com.baidu.tieba.p3b;
+import com.baidu.tieba.p5b;
+import com.baidu.tieba.q3b;
 import com.baidu.tieba.vb;
+import com.baidu.tieba.wi5;
+import com.baidu.tieba.wq6;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
-import com.baidu.tieba.x1b;
-import com.baidu.tieba.x3b;
-import com.baidu.tieba.y1b;
+import com.baidu.tieba.x4b;
+import com.baidu.tieba.xq6;
+import com.baidu.tieba.z7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,15 +59,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000\u009e\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0016\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B9\u0012\n\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t\u0012\u0006\u0010\n\u001a\u00020\u000b\u0012\u0006\u0010\f\u001a\u00020\r\u0012\u0006\u0010\u000e\u001a\u00020\u000f¢\u0006\u0002\u0010\u0010J\u0014\u0010\u0017\u001a\u000e\u0012\u0004\u0012\u00020\u0019\u0012\u0004\u0012\u00020\u001a0\u0018H\u0016J\u001a\u0010\u001b\u001a\u00020\u00192\u0006\u0010\u001c\u001a\u00020\u001d2\b\b\u0002\u0010\u001e\u001a\u00020\u001fH\u0002J\u0010\u0010 \u001a\u00020!2\u0006\u0010\"\u001a\u00020#H\u0004J\u0013\u0010$\u001a\b\u0012\u0004\u0012\u00020&0%H\u0016¢\u0006\u0002\u0010'J\u001c\u0010(\u001a\u00020\u001a2\b\u0010)\u001a\u0004\u0018\u00010*2\b\u0010+\u001a\u0004\u0018\u00010,H\u0016J\u0013\u0010-\u001a\b\u0012\u0004\u0012\u00020.0%H\u0016¢\u0006\u0002\u0010/J\u001a\u00100\u001a\u00020\u001a2\u0006\u00101\u001a\u00020\u001f2\b\u0010\"\u001a\u0004\u0018\u00010,H\u0002J\u0010\u00102\u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020#H\u0002J\b\u00103\u001a\u00020\u001aH\u0016J\u0010\u00104\u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020#H\u0016J\u0010\u00105\u001a\u00020\u001a2\u0006\u00106\u001a\u000207H\u0002J\u0010\u00108\u001a\u00020\u001a2\u0006\u00109\u001a\u00020#H\u0002J\u0010\u0010:\u001a\u00020\u001a2\u0006\u0010;\u001a\u00020<H\u0016J\u0018\u0010:\u001a\u00020\u001a2\u0006\u00109\u001a\u00020#2\u0006\u0010\u001e\u001a\u00020\u001fH\u0016J\u0010\u0010=\u001a\u00020\u001a2\u0006\u00109\u001a\u00020#H\u0016J\u0010\u0010>\u001a\u00020\u001a2\u0006\u0010+\u001a\u00020,H\u0016J\u0010\u0010?\u001a\u00020\u001a2\u0006\u0010)\u001a\u00020*H\u0016J\u0010\u0010@\u001a\u00020\u001a2\u0006\u0010A\u001a\u00020\u001fH\u0002J\b\u0010B\u001a\u00020\u001aH\u0002J\u0010\u0010C\u001a\u00020\u001a2\u0006\u0010\"\u001a\u00020#H\u0002J\u001a\u0010D\u001a\u00020\u001a2\b\u0010\u001c\u001a\u0004\u0018\u00010\u001d2\b\b\u0002\u0010\u001e\u001a\u00020\u001fJ\u0013\u0010E\u001a\b\u0012\u0004\u0012\u00020F0%H\u0016¢\u0006\u0002\u0010GR\u0011\u0010\u000e\u001a\u00020\u000f¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012R\u0011\u0010\n\u001a\u00020\u000b¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006H"}, d2 = {"Lcom/baidu/tieba/write/webwrite/hybirdlistener/image/BaseImageRelatedListener;", "Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Clean;", "Lcom/baidu/tieba/write/webwrite/data/HandleIntent;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "fileInterceptor", "Lcom/baidu/tieba/write/webwrite/ability/LocalFileInterceptor;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "editor", "Lcom/baidu/tbadk/editortools/EditorTools;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/ability/LocalFileInterceptor;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;Lcom/baidu/tbadk/editortools/EditorTools;)V", "getEditor", "()Lcom/baidu/tbadk/editortools/EditorTools;", "getFileInterceptor", "()Lcom/baidu/tieba/write/webwrite/ability/LocalFileInterceptor;", "mAsyncLocalImageLoader", "Lcom/baidu/tieba/write/webwrite/ability/LocalImageWithActionLoader;", "addDraftData", "Lkotlin/Function1;", "Lorg/json/JSONObject;", "", "buildImages", "writeImagesInfo", "Lcom/baidu/tbadk/img/WriteImagesInfo;", MiPushMessage.KEY_NOTIFY_TYPE, "", "canEditImage", "", "data", "", "editorActionHandlers", "", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "initFromIntent", "savedInstanceState", "Landroid/os/Bundle;", "intent", "Landroid/content/Intent;", "keyListeners", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "()[Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "onActivityResult", "requestCode", "onDeleteImageListener", MissionEvent.MESSAGE_DESTROY, "onEditImageListener", "onEditorAction", "action", "Lcom/baidu/tbadk/editortools/Action;", "onImageAddResult", "json", "onImageAdded", "info", "Lcom/baidu/tbadk/img/ImageFileInfo;", "onImageEditResult", "onNewIntent", "onSaveInstanceState", "openAlbum", "from", "openAlbumActivity", "rearrangeListener", "refreshLocalFilesAndNotifyH5", "requestCodeHandlers", "Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
+public class BaseImageRelatedListener extends BizBase implements l3b, m3b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m1b g;
+    public final e3b g;
     public final EditorTools h;
-    public final n1b i;
+    public final f3b i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseImageRelatedListener(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, m1b fileInterceptor, k2b writePageState, EditorTools editor) {
+    public BaseImageRelatedListener(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, e3b fileInterceptor, c4b writePageState, EditorTools editor) {
         super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +79,7 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (k2b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c4b) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,7 +93,7 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         Intrinsics.checkNotNullParameter(editor, "editor");
         this.g = fileInterceptor;
         this.h = editor;
-        this.i = new n1b();
+        this.i = new f3b();
         writePageState.v(new Function1<ImageFileInfo, Unit>(this) { // from class: com.baidu.tieba.write.webwrite.hybirdlistener.image.BaseImageRelatedListener.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         }
     }
 
-    @Override // com.baidu.tieba.u1b
+    @Override // com.baidu.tieba.m3b
     public void a(Bundle bundle, Intent intent) {
         String str;
         Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         ImageFileInfo b;
         LinkedList<ImageFileInfo> chosedFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (a = qq6.a.a(str)) != null && (b = iza.a.b(k(), a)) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (a = wq6.a.a(str)) != null && (b = a1b.a.b(k(), a)) != null) {
             WriteImagesInfo writeImagesInfo = k().getWriteImagesInfo();
             if (writeImagesInfo != null && (chosedFiles = writeImagesInfo.getChosedFiles()) != null) {
                 chosedFiles.remove(b);
@@ -259,7 +259,7 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, data)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            JSONObject a = qq6.a.a(data);
+            JSONObject a = wq6.a.a(data);
             if (a == null || (count = ListUtils.getCount(k().getWriteImagesInfo().getChosedFiles())) == 0 || (optInt = a.optInt("imageIndex", -1)) < 0 || optInt >= count) {
                 return false;
             }
@@ -273,12 +273,12 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         return invokeL.booleanValue;
     }
 
-    public final void D(si5 si5Var) {
+    public final void D(wi5 wi5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, si5Var) == null) {
-            int i = si5Var.a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wi5Var) == null) {
+            int i = wi5Var.a;
             if (i != 14 && i != 48) {
-                throw new IllegalStateException("怎么回事小老弟？有没处理的action code:" + si5Var.a);
+                throw new IllegalStateException("怎么回事小老弟？有没处理的action code:" + wi5Var.a);
             }
             I(0);
         }
@@ -302,12 +302,12 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
     public final void I(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            x3b.b(i().getPageActivity(), 1);
+            p5b.b(i().getPageActivity(), 1);
             J();
         }
     }
 
-    @Override // com.baidu.tieba.u1b
+    @Override // com.baidu.tieba.m3b
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, intent) == null) {
@@ -319,7 +319,7 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         }
     }
 
-    @Override // com.baidu.tieba.u1b
+    @Override // com.baidu.tieba.m3b
     public void onSaveInstanceState(Bundle savedInstanceState) {
         String jsonString;
         Interceptable interceptable = $ic;
@@ -358,14 +358,14 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         WriteImagesInfo writeImagesInfo;
         int count;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (a = qq6.a.a(str)) != null && (optJSONArray = a.optJSONArray("imgList")) != null && (writeImagesInfo = k().getWriteImagesInfo()) != null && (count = ListUtils.getCount(writeImagesInfo.getChosedFiles())) == optJSONArray.length() && count != 0) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (a = wq6.a.a(str)) != null && (optJSONArray = a.optJSONArray("imgList")) != null && (writeImagesInfo = k().getWriteImagesInfo()) != null && (count = ListUtils.getCount(writeImagesInfo.getChosedFiles())) == optJSONArray.length() && count != 0) {
             new ArrayList();
             LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject = optJSONArray.getJSONObject(i);
                 if (jSONObject != null) {
-                    ImageFileInfo b = iza.a.b(k(), jSONObject);
+                    ImageFileInfo b = a1b.a.b(k(), jSONObject);
                     if (b == null) {
                         return;
                     }
@@ -385,18 +385,18 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
             if (k().getWriteImagesInfo() == null) {
                 k().setWriteImagesInfo(new WriteImagesInfo(9));
             }
-            h6b.b(i(), k(), k().getWriteImagesInfo(), k().getFrom(), k().getDisableAudioMessage(), k().isVoiceEnable(), k().getPrefixData());
+            z7b.b(i(), k(), k().getWriteImagesInfo(), k().getFrom(), k().getDisableAudioMessage(), k().isVoiceEnable(), k().getPrefixData());
         }
     }
 
-    @Override // com.baidu.tieba.s1b
-    public p1b[] d() {
+    @Override // com.baidu.tieba.k3b
+    public h3b[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? new p1b[]{new x1b(new Integer[]{14, 48, 12, 13, 46, 49}, new BaseImageRelatedListener$editorActionHandlers$1(this))} : (p1b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? new h3b[]{new p3b(new Integer[]{14, 48, 12, 13, 46, 49}, new BaseImageRelatedListener$editorActionHandlers$1(this))} : (h3b[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.s1b
+    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.k3b
     public Function1<JSONObject, Unit> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -482,7 +482,7 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
                             while (keys.hasNext()) {
                                 String key = keys.next();
                                 Intrinsics.checkNotNullExpressionValue(key, "key");
-                                rq6.a(json, key, x.get(key));
+                                xq6.a(json, key, x.get(key));
                             }
                         }
                     }
@@ -492,7 +492,7 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         return (Function1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t1b
+    @Override // com.baidu.tieba.l3b
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -500,16 +500,16 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         }
     }
 
-    public final m1b z() {
+    public final e3b z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.g;
         }
-        return (m1b) invokeV.objValue;
+        return (e3b) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s1b
+    @Override // com.baidu.tieba.k3b
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -558,11 +558,11 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
         }), h().invoke("writePage.deleteImage", new BaseImageRelatedListener$keyListeners$2(this)), h().invoke("writePage.editImage", new BaseImageRelatedListener$keyListeners$3(this)), h().invoke("writePage.rearrange", new BaseImageRelatedListener$keyListeners$4(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s1b
-    public q1b[] f() {
+    @Override // com.baidu.tieba.k3b
+    public i3b[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? new q1b[]{new y1b(new Integer[]{Integer.valueOf((int) TaskResponseData.ERROR_NO_TASK_OFFLINE_03), Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_MEDIA_FILE_PATH)}, new BaseImageRelatedListener$requestCodeHandlers$1(this))} : (q1b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? new i3b[]{new q3b(new Integer[]{Integer.valueOf((int) TaskResponseData.ERROR_NO_TASK_OFFLINE_03), Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_MEDIA_FILE_PATH)}, new BaseImageRelatedListener$requestCodeHandlers$1(this))} : (i3b[]) invokeV.objValue;
     }
 
     public final JSONObject x(WriteImagesInfo writeImagesInfo, int i) {
@@ -586,13 +586,13 @@ public class BaseImageRelatedListener extends BizBase implements t1b, u1b {
                     } else {
                         i2 = 0;
                     }
-                    f3b.a aVar = f3b.a;
+                    x4b.a aVar = x4b.a;
                     Intrinsics.checkNotNullExpressionValue(info, "info");
                     jSONArray.put(aVar.a(info, i2));
                 }
             }
-            rq6.a(jSONObject, "imgList", jSONArray);
-            rq6.a(jSONObject, MiPushMessage.KEY_NOTIFY_TYPE, Integer.valueOf(i));
+            xq6.a(jSONObject, "imgList", jSONArray);
+            xq6.a(jSONObject, MiPushMessage.KEY_NOTIFY_TYPE, Integer.valueOf(i));
             return jSONObject;
         }
         return (JSONObject) invokeLI.objValue;

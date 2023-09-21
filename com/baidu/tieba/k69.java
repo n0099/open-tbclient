@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.mainentrance.HotSearchInfoData;
-import tbclient.SearchSug.DataRes;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface k69 {
-    void a(String str, boolean z, int i);
+public class k69 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
+    public String c;
 
-    void b();
-
-    View c();
-
-    void d(HotSearchInfoData hotSearchInfoData);
-
-    View e();
-
-    void f(DataRes dataRes, String str);
-
-    void onChangeSkinType(int i);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    public k69() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

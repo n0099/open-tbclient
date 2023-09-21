@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.UniKVTestSwitch;
 import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.tieba.e85;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.iq5;
+import com.baidu.tieba.di;
+import com.baidu.tieba.i85;
+import com.baidu.tieba.jq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,14 +154,14 @@ public class GrowthFunnelHelper {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, str) == null) {
-            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_locate", str).addParam("obj_type", e85.a().b());
-            if (e85.a().d()) {
+            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_locate", str).addParam("obj_type", i85.a().b());
+            if (i85.a().d()) {
                 i = 1;
             } else {
                 i = 2;
             }
             StatisticItem addParam2 = addParam.addParam("obj_param1", i).addParam("obj_source", 8);
-            if (e85.a().b() != 3) {
+            if (i85.a().b() != 3) {
                 addParam2.addParam(TiebaStatic.Params.OBJ_PARAM2, getRealStartScheme());
             }
             TiebaStatic.log(addParam2);
@@ -172,14 +172,14 @@ public class GrowthFunnelHelper {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_locate", str).addParam("obj_type", e85.a().b());
-            if (e85.a().d()) {
+            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_locate", str).addParam("obj_type", i85.a().b());
+            if (i85.a().d()) {
                 i = 1;
             } else {
                 i = 2;
             }
             StatisticItem addParam2 = addParam.addParam("obj_param1", i).addParam("obj_source", 7);
-            if (e85.a().b() != 3) {
+            if (i85.a().b() != 3) {
                 addParam2.addParam(TiebaStatic.Params.OBJ_PARAM2, getRealStartScheme());
             }
             TiebaStatic.log(addParam2);
@@ -245,8 +245,8 @@ public class GrowthFunnelHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             String str = "";
             if (realStartType == 99) {
-                String c = iq5.c();
-                if (ei.isEmpty(c)) {
+                String c = jq5.c();
+                if (di.isEmpty(c)) {
                     return "";
                 }
                 return c;
@@ -254,7 +254,7 @@ public class GrowthFunnelHelper {
             if (!StringUtils.isNull(realStartScheme)) {
                 str = realStartScheme;
             }
-            return ei.getUrlEncode(str);
+            return di.getUrlEncode(str);
         }
         return (String) invokeV.objValue;
     }
@@ -276,8 +276,8 @@ public class GrowthFunnelHelper {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_type", e85.a().b());
-            if (e85.a().d()) {
+            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_type", i85.a().b());
+            if (i85.a().d()) {
                 i = 1;
             } else {
                 i = 2;
@@ -290,8 +290,8 @@ public class GrowthFunnelHelper {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_type", e85.a().b());
-            if (e85.a().d()) {
+            StatisticItem addParam = new StatisticItem(KEY_APP_LAUNCH_FUNNEL).addParam("obj_type", i85.a().b());
+            if (i85.a().d()) {
                 i = 1;
             } else {
                 i = 2;
@@ -343,7 +343,7 @@ public class GrowthFunnelHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65561, null, activity) == null) && activity != null && activity.getClass() != null && Build.VERSION.SDK_INT >= 23 && (activityManager = (ActivityManager) activity.getSystemService("activity")) != null && (appTask = (ActivityManager.AppTask) ListUtils.getItem(activityManager.getAppTasks(), 0)) != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseActivity != null && activity.getClass().getName().equals(appTask.getTaskInfo().baseActivity.getClassName())) {
             String scheme = getScheme(appTask.getTaskInfo().baseIntent);
-            updateAppStartInfo(scheme, ei.isEmpty(scheme));
+            updateAppStartInfo(scheme, di.isEmpty(scheme));
             updateRealAppStartInfo();
         }
     }
@@ -415,7 +415,7 @@ public class GrowthFunnelHelper {
         } else if (type == AppLaunchInfoFetcher.Type.ACTIVITY) {
             if (intent != null) {
                 String dataString = intent.getDataString();
-                updateAppStartInfo(dataString, ei.isEmpty(dataString));
+                updateAppStartInfo(dataString, di.isEmpty(dataString));
             } else {
                 updateAppStartInfoForException("intent=null", 100);
             }

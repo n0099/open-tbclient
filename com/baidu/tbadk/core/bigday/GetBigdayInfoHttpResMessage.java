@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.oe;
 import com.baidu.tieba.u05;
-import com.baidu.tieba.x45;
+import com.baidu.tieba.y45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,8 +49,8 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            x45.k();
-            oe<byte[]> i2 = x45.i("tb.bigday_datas");
+            y45.k();
+            oe<byte[]> i2 = y45.i("tb.bigday_datas");
             i2.remove("tb.bigday_datas");
             i2.g("tb.bigday_datas", bArr);
         }

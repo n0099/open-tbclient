@@ -67,14 +67,14 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.fg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.eg
     public BdImage getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + "";
-            BdImage D = TbImageMemoryCache.A().D(str3);
-            if (D == null) {
+            BdImage C = TbImageMemoryCache.A().C(str3);
+            if (C == null) {
                 Bitmap bitmap = SkinManager.getBitmap(JavaTypesHelper.toInt(str2, 0));
                 if (bitmap == null) {
                     return null;
@@ -83,7 +83,7 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
                 TbImageMemoryCache.A().l(str3, bdImage);
                 return bdImage;
             }
-            return D;
+            return C;
         }
         return (BdImage) invokeCommon.objValue;
     }

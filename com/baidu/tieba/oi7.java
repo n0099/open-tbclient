@@ -1,68 +1,155 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.ForumToolPerm;
 /* loaded from: classes7.dex */
-public class oi7 extends CustomMessageListener {
+public class oi7 {
     public static /* synthetic */ Interceptable $ic;
+    public static UserData a;
+    public static boolean b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsActivity a;
-    public os7 b;
-    public ps7 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oi7(FrsActivity frsActivity) {
-        super(2921728);
+    public static UserData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
         }
-        this.a = frsActivity;
-        os7 os7Var = new os7(frsActivity);
-        this.b = os7Var;
-        os7Var.a(true);
-        ps7 ps7Var = new ps7(frsActivity);
-        this.c = ps7Var;
-        ps7Var.a(true);
-        PriorityOrganizer.makeChain(this.b, this.c);
-        setPriority(1);
+        return (UserData) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            BdUniqueId bdUniqueId = null;
-            if (currentActivity instanceof BdBaseFragmentActivity) {
-                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            UserData a2 = a();
+            if (a2 == null || a2.getIs_manager() != 1) {
+                return false;
             }
-            if (getTag() == bdUniqueId && !this.b.isExecuting(true)) {
-                this.b.reset(true);
-                this.a.q0().tryAdd(this.b);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            UserData a2 = a();
+            if (a2 == null || a2.getIs_manager() != 3) {
+                return false;
             }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static UserData b(FrsViewData frsViewData) {
+        InterceptResult invokeL;
+        UserData userData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
+            if (frsViewData != null) {
+                userData = frsViewData.getUserData();
+            } else {
+                userData = null;
+            }
+            a = userData;
+            return userData;
+        }
+        return (UserData) invokeL.objValue;
+    }
+
+    public static boolean d(UserData userData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, userData)) == null) {
+            if (userData == null) {
+                return false;
+            }
+            int is_manager = userData.getIs_manager();
+            if (is_manager != 1 && is_manager != 2 && is_manager != 3 && is_manager != 4) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        List<ForumToolPerm> forumToolAuth;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            UserData a2 = a();
+            if (a2 != null && (forumToolAuth = a2.getForumToolAuth()) != null) {
+                for (int i = 0; i < forumToolAuth.size(); i++) {
+                    ForumToolPerm forumToolPerm = forumToolAuth.get(i);
+                    if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void i(zw zwVar, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65544, null, zwVar, frsViewData) != null) || zwVar == null) {
+            return;
+        }
+        if (frsViewData != null && frsViewData.getForum() != null) {
+            b = frsViewData.getForum().isFrsMask();
+            c = frsViewData.getForum().getId();
+        }
+        if (frsViewData != null && (d(b(frsViewData)) || h())) {
+            zwVar.e(4);
+        } else {
+            zwVar.f(4);
+        }
+    }
+
+    public static void j(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65545, null, threadCommentAndPraiseInfoLayout, frsViewData) != null) || threadCommentAndPraiseInfoLayout == null) {
+            return;
+        }
+        if (frsViewData != null && frsViewData.getForum() != null) {
+            b = frsViewData.getForum().isFrsMask();
+            c = frsViewData.getForum().getId();
+        }
+        if (frsViewData != null && d(b(frsViewData))) {
+            threadCommentAndPraiseInfoLayout.setManageVisible(true);
+        } else {
+            threadCommentAndPraiseInfoLayout.setManageVisible(false);
         }
     }
 }

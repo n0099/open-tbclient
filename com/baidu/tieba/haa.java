@@ -1,217 +1,155 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.DnsHelper;
-import com.baidu.searchbox.dns.DnsParseResult;
-import com.baidu.searchbox.dns.util.DnsUtil;
-import com.baidu.searchbox.http.IHttpDns;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.searchrecforum.message.SearchRecForumRequestMessage;
+import com.baidu.tieba.searchrecforum.message.SearchRecForumResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Pattern;
-import okhttp3.Dns;
 /* loaded from: classes6.dex */
-public class haa implements Dns, IHttpDns {
+public class haa {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public long b;
-    public long c;
-    public DnsParseResult e;
-    public boolean f;
-    public DnsHelper g;
-    public boolean h;
-    public a i;
+    public final BdUniqueId a;
+    public boolean b;
+    public boolean c;
+    public HttpResponsedMessage d;
+    public b e;
+    public final HttpMessageListener f;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a(long j, long j2, DnsParseResult dnsParseResult);
+    public interface b {
+        void a(kaa kaaVar);
+
+        void onFail();
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947818369, "Lcom/baidu/tieba/haa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ haa a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(haa haaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {haaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947818369, "Lcom/baidu/tieba/haa;");
-                return;
+            this.a = haaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (this.a.c) {
+                    this.a.d = httpResponsedMessage;
+                } else {
+                    this.a.f(httpResponsedMessage);
+                }
             }
         }
-        j = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
-    public DnsHelper a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (DnsHelper) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpDns
-    public boolean getHttpDnsEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public haa(DnsHelper dnsHelper, boolean z) {
-        boolean z2;
+    public haa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dnsHelper, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = z;
-        this.b = -1L;
-        this.c = -1L;
-        this.g = dnsHelper;
-        if (dnsHelper != null && dnsHelper.isHttpDnsEnable()) {
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        this.a = z2;
+        this.a = BdUniqueId.gen();
+        this.b = false;
+        this.c = false;
+        this.f = new a(this, CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecomForum");
+        tbHttpMessageTask.setResponsedClass(SearchRecForumResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return j.matcher(str).matches();
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !gaa.d().e()) {
+            return;
         }
-        return invokeL.booleanValue;
+        if (this.b) {
+            MessageManager.getInstance().removeHttpMessage(this.a);
+        }
+        this.b = true;
+        SearchRecForumRequestMessage searchRecForumRequestMessage = new SearchRecForumRequestMessage();
+        searchRecForumRequestMessage.setParams(gaa.d().c());
+        searchRecForumRequestMessage.setTag(this.a);
+        MessageManager.getInstance().sendMessage(searchRecForumRequestMessage);
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj instanceof haa) {
-                return true;
-            }
-            return super.equals(obj);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpDns
-    public void setHttpDnsEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a = z;
-            DnsHelper dnsHelper = this.g;
-            if (dnsHelper != null) {
-                dnsHelper.setHttpDnsEnable(z);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.e = bVar;
         }
     }
 
-    @Override // com.baidu.searchbox.http.IHttpDns
-    public void setHttpDnsIPv4OnlyEnable(boolean z) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.h = z;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c) {
+            f(this.d);
+            this.c = false;
+            this.d = null;
         }
     }
 
-    @Override // okhttp3.Dns
-    public List<InetAddress> lookup(String str) throws UnknownHostException {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (str != null) {
-                boolean z = this.f;
-                if (z) {
-                    this.b = System.currentTimeMillis();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = true;
+        }
+    }
+
+    public final void f(HttpResponsedMessage httpResponsedMessage) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpResponsedMessage) == null) {
+            this.b = false;
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003526 && (httpResponsedMessage instanceof SearchRecForumResponsedMessage)) {
+                if (httpResponsedMessage.getError() != 0 && (bVar = this.e) != null) {
+                    bVar.onFail();
+                    return;
                 }
-                List arrayList = new ArrayList();
-                try {
-                    if (b(str)) {
-                        return Arrays.asList(InetAddress.getAllByName(str));
-                    }
-                    if (this.a && this.g != null) {
-                        DnsParseResult parseResult = this.g.getParseResult(str);
-                        if (parseResult != null) {
-                            arrayList = DnsUtil.parseInetAddressList(parseResult.getIpList());
-                        }
-                        if (z) {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            this.c = currentTimeMillis;
-                            this.e = parseResult;
-                            if (this.i != null) {
-                                this.i.a(this.b, currentTimeMillis, parseResult);
-                            }
-                        }
-                    } else {
-                        arrayList = Arrays.asList(InetAddress.getAllByName(str));
-                        if (z) {
-                            this.c = System.currentTimeMillis();
-                            DnsParseResult dnsParseResult = new DnsParseResult(DnsUtil.parseRawAddressList(arrayList), 0, 1, DnsUtil.stackType);
-                            this.e = dnsParseResult;
-                            if (this.i != null) {
-                                this.i.a(this.b, this.c, dnsParseResult);
-                            }
-                        }
-                    }
-                    if (DnsUtil.stackType == 3 && this.h && arrayList != null) {
-                        ArrayList arrayList2 = new ArrayList();
-                        for (InetAddress inetAddress : arrayList) {
-                            if (inetAddress instanceof Inet6Address) {
-                                arrayList2.add(inetAddress);
-                            }
-                        }
-                        arrayList.removeAll(arrayList2);
-                        if (arrayList.isEmpty()) {
-                            throw new UnknownHostException("request support ipv4 address only!");
-                        }
-                    }
-                    return arrayList;
-                } catch (IllegalArgumentException e) {
-                    e = e;
-                    throw new UnknownHostException(e.getMessage());
-                } catch (NullPointerException e2) {
-                    if (e2.getMessage() != null && e2.getMessage().contains("Attempt to get length of null array")) {
-                        UnknownHostException unknownHostException = new UnknownHostException("Broken system behaviour for dns lookup of " + str);
-                        unknownHostException.initCause(e2);
-                        throw unknownHostException;
-                    }
-                    throw e2;
-                } catch (SecurityException e3) {
-                    e = e3;
-                    throw new UnknownHostException(e.getMessage());
+                gaa.d().i(false);
+                b bVar2 = this.e;
+                if (bVar2 != null) {
+                    bVar2.a(((SearchRecForumResponsedMessage) httpResponsedMessage).data);
                 }
             }
-            throw new UnknownHostException("hostname == null");
         }
-        return (List) invokeL.objValue;
     }
 }

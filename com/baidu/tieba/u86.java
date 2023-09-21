@@ -1,112 +1,44 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class u86 extends bl1<q81> {
+public final class u86 extends al1<o51> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements q81 {
+    public static final class a implements o51 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.q81
-        public int[] b() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.o51
+        public void a(Context context, int i) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.nad_web_back} : (int[]) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+            }
         }
 
-        @Override // com.baidu.tieba.q81
-        public int[] c() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.o51
+        public void c(Context context, int i, int i2) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.nad_web_close} : (int[]) invokeV.objValue;
-        }
-
-        /* renamed from: com.baidu.tieba.u86$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0491a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ r81 a;
-
-            public View$OnClickListenerC0491a(a aVar, r81 r81Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, r81Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = r81Var;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                r81 r81Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (r81Var = this.a) != null) {
-                    r81Var.i();
-                }
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i, i2) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
             }
         }
 
-        /* loaded from: classes8.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ r81 a;
-
-            public b(a aVar, r81 r81Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, r81Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = r81Var;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                r81 r81Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (r81Var = this.a) != null) {
-                    r81Var.k();
-                }
-            }
-        }
-
-        public a(u86 u86Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u86Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,16 +49,25 @@ public class u86 extends bl1<q81> {
             }
         }
 
-        @Override // com.baidu.tieba.q81
-        public void a(View view2, r81 r81Var) {
+        @Override // com.baidu.tieba.o51
+        public void b(Context context, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, r81Var) == null) {
-                int intValue = ((Integer) view2.getTag()).intValue();
-                if (intValue == R.drawable.nad_web_back) {
-                    view2.setOnClickListener(new View$OnClickListenerC0491a(this, r81Var));
-                } else if (intValue == R.drawable.nad_web_close) {
-                    view2.setOnClickListener(new b(this, r81Var));
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                int i2 = 2000;
+                if (i != 0 && i == 1) {
+                    i2 = 3500;
                 }
+                BdUtilHelper.showToast(str, i2, false);
+            }
+        }
+
+        @Override // com.baidu.tieba.o51
+        public void showToast(Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                BdUtilHelper.showToast(context, str);
             }
         }
     }
@@ -146,14 +87,14 @@ public class u86 extends bl1<q81> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bl1
+    @Override // com.baidu.tieba.al1
     /* renamed from: a */
-    public q81 createService() throws ServiceNotFoundException {
+    public o51 createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+            return new a();
         }
-        return (q81) invokeV.objValue;
+        return (o51) invokeV.objValue;
     }
 }

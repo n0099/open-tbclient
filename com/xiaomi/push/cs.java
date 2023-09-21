@@ -30,9 +30,9 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m343a(String str, int i) {
+    public static InetSocketAddress m345a(String str, int i) {
         cs a = a(str, i);
-        return new InetSocketAddress(a.m344a(), a.a());
+        return new InetSocketAddress(a.m346a(), a.a());
     }
 
     public int a() {
@@ -40,7 +40,7 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m344a() {
+    public String m346a() {
         return this.f188a;
     }
 

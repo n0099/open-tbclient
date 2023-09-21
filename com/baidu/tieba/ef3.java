@@ -1,132 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.tieba.mg3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebView;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ef3 extends gf3 {
+public final class ef3 extends w62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
+    public List<String> n;
 
-    /* loaded from: classes5.dex */
-    public class a implements aq3<kg3<mg3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ ff3 b;
-        public final /* synthetic */ nx1 c;
-        public final /* synthetic */ ef3 d;
-
-        public a(ef3 ef3Var, CallbackHandler callbackHandler, ff3 ff3Var, nx1 nx1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947732375, "Lcom/baidu/tieba/ef3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef3Var, callbackHandler, ff3Var, nx1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = ef3Var;
-            this.a = callbackHandler;
-            this.b = ff3Var;
-            this.c = nx1Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
-        /* renamed from: b */
-        public void a(kg3<mg3.e> kg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
-                if (!fg3.h(kg3Var)) {
-                    fg3.q(kg3Var, this.a, this.b.e);
-                    this.b.k = null;
-                } else {
-                    ff3 ff3Var = this.b;
-                    ff3Var.m = false;
-                    this.d.m(this.a, (SwanAppSlaveManager) this.c, ff3Var);
-                }
-                if (!this.c.U(this.b)) {
-                    h82.c("updateWebView", "update webview widget fail");
-                    this.a.handleSchemeDispatchCallback(this.b.e, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ef3(ec3 ec3Var) {
-        super(ec3Var, "/swanAPI/updateWebView");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ec3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ec3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947732375, "Lcom/baidu/tieba/ef3;");
                 return;
             }
         }
+        boolean z = qr1.a;
     }
 
-    @Override // com.baidu.tieba.ed3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.w62, com.baidu.tieba.f13
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
-            if (ed3.b) {
-                Log.d("UpdateWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            ff3 h = ff3.h(unitedSchemeEntity);
-            if (!h.isValid()) {
-                h82.c("updateWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (!TextUtils.isEmpty(h.j) && l(h.j, h.n)) {
-                h82.c("updateWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else {
-                nx1 nx1Var = (nx1) uw2.T().A(h.c);
-                if (nx1Var == null) {
-                    h82.c("updateWebView", "viewManager is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                if (TextUtils.equals(h.l, "quickPass")) {
-                    hb3Var.e0().g(context, "scope_webview_extra_operation", new a(this, callbackHandler, h, nx1Var));
-                } else if (!nx1Var.U(h)) {
-                    h82.c("updateWebView", "update webview widget fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.c);
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ef3() {
+        super("webView", "viewId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        this.m = true;
+    }
+
+    public static ef3 h(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
+                return null;
+            }
+            String str = unitedSchemeEntity.getParams().get("params");
+            ef3 ef3Var = new ef3();
+            try {
+                ef3Var.a(new JSONObject(str));
+                return ef3Var;
+            } catch (JSONException e) {
+                g82.d(WebView.LOGTAG, "parsing params occurs exception", e);
+                return null;
+            }
+        }
+        return (ef3) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.w62, com.baidu.tieba.f13
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.j = jSONObject.optString("src");
+        this.k = jSONObject.optString(TTDownloadField.TT_USERAGENT);
+        this.l = jSONObject.optString("type");
+        JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            this.n = new ArrayList();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                this.n.add(optJSONArray.optString(i));
+            }
+        }
     }
 }

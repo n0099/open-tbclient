@@ -19,21 +19,24 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.ig;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.ms5;
-import com.baidu.tieba.ps5;
+import com.baidu.tieba.ns5;
 import com.baidu.tieba.qs5;
+import com.baidu.tieba.rs5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -343,7 +346,7 @@ public class IntentConfig extends OrmObject {
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            jg.unbindService(this.a.mContext, this.a.mClientConnection);
+            ig.unbindService(this.a.mContext, this.a.mClientConnection);
         }
     }
 
@@ -376,7 +379,7 @@ public class IntentConfig extends OrmObject {
         ArrayList<String> c2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            ms5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            ns5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 c2 = null;
             } else {
@@ -534,7 +537,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            jg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            ig.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -563,7 +566,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForResultForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            jg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            ig.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -572,28 +575,13 @@ public class IntentConfig extends OrmObject {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
             BdPageContextSupport<?> b2 = m9.b(context);
-            qs5 qs5Var = null;
-            if (b2 instanceof ps5) {
-                qs5Var = ((ps5) b2).getTbPageInfo();
+            rs5 rs5Var = null;
+            if (b2 instanceof qs5) {
+                rs5Var = ((qs5) b2).getTbPageInfo();
             }
-            if (qs5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", qs5Var.a());
+            if (rs5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", rs5Var.a());
             }
-        }
-    }
-
-    public void addSourceTraceForPageStayDurationStat() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIntent != null) {
-            BdPageContextSupport<?> b2 = m9.b(this.mContext);
-            ArrayList<String> arrayList = null;
-            if (b2 instanceof IPageStayDuration) {
-                arrayList = (ArrayList) ((IPageStayDuration) b2).getNextPageSourceKeyList();
-            }
-            if (ListUtils.isEmpty(arrayList)) {
-                return;
-            }
-            this.mIntent.putStringArrayListExtra("obj_source", arrayList);
         }
     }
 
@@ -611,6 +599,39 @@ public class IntentConfig extends OrmObject {
             startService();
         } else if (intentAction == IntentAction.StopService) {
             stopService();
+        }
+    }
+
+    public void addSourceTraceForPageStayDurationStat() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIntent != null) {
+            BdPageContextSupport<?> b2 = m9.b(this.mContext);
+            ArrayList<String> arrayList = null;
+            if (b2 instanceof IPageStayDuration) {
+                arrayList = (ArrayList) ((IPageStayDuration) b2).getNextPageSourceKeyList();
+            } else if (GlobalBuildConfig.isDebug()) {
+                Context context = this.mContext;
+                BdToast.makeText(context, this.mContext + " 请实现IPageStayDuration接口").show();
+            }
+            TbLog defaultLog = DefaultLog.getInstance();
+            StringBuilder sb = new StringBuilder();
+            sb.append("sourceTraceList null is ");
+            if (arrayList == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            sb.append(z);
+            sb.append(". sourceTraceList count ");
+            sb.append(ListUtils.getCount(arrayList));
+            sb.append(". mContext is ");
+            sb.append(this.mContext);
+            defaultLog.d("PageStayDuration", sb.toString());
+            if (ListUtils.isEmpty(arrayList)) {
+                return;
+            }
+            this.mIntent.putStringArrayListExtra("obj_source", arrayList);
         }
     }
 

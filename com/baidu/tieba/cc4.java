@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class cc4 implements xs1 {
+public class cc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bc4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public cc4() {
+    public static synchronized bc4 a() {
+        InterceptResult invokeV;
+        bc4 bc4Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (cc4.class) {
+                if (a == null) {
+                    a = new bc4();
+                }
+                bc4Var = a;
             }
+            return bc4Var;
         }
-    }
-
-    @Override // com.baidu.tieba.xs1
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ec4.a(str);
-        }
+        return (bc4) invokeV.objValue;
     }
 }

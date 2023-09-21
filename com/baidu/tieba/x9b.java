@@ -1,30 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class x9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public String b;
-    public boolean c;
+    public Context a;
+    public ImageView b;
+    public EMTextView c;
+    public View d;
 
-    public x9b() {
+    public x9b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,141 +38,50 @@ public class x9b {
                 return;
             }
         }
-        this.a = new JSONObject();
+        this.a = context;
+        c();
     }
 
-    public JSONObject g() {
+    public void d(int i) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (imageView = this.b) != null) {
+            imageView.setImageDrawable(WebPManager.getMaskDrawable(i, false));
+        }
+    }
+
+    public void e(String str) {
+        EMTextView eMTextView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.c) != null) {
+            eMTextView.setText(str);
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null) {
+            EMManager.from(this.c).setTextLinePadding(R.dimen.M_T_X001).setTextSize(R.dimen.T_X05);
+        }
+    }
+
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (JSONObject) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            i(UbcRemoteStat.CONNECTED, "preconnect_app_hosts", str);
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            i("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
-        }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            i(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            i(UbcRemoteStat.CONNECTED, "preconnect_enabled", Boolean.valueOf(z));
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            i(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            if (new File(str).isDirectory()) {
-                this.b = str;
-                return;
-            }
-            throw new IllegalArgumentException("Storage path must be set to existing directory");
-        }
-    }
-
-    public void d(int i, long j) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (i != 3 && i != 2) {
-                if (l() != null) {
-                    throw new IllegalArgumentException("Storage path must not be set");
-                }
-            } else if (l() != null) {
-                this.c = true;
-            } else {
-                throw new IllegalArgumentException("Storage path must be set");
-            }
-            if (i != 0 && i != 2) {
-                z = false;
-            } else {
-                z = true;
-            }
-            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!z));
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2 && i != 3) {
-                        throw new IllegalArgumentException("Unknown cache mode");
-                    }
-                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 2);
-                } else {
-                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 1);
-                }
-            } else {
-                i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 0);
-            }
-            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
-        }
-    }
-
-    public void i(String str, String str2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, obj) == null) {
-            try {
-                JSONObject optJSONObject = this.a.optJSONObject(str);
-                if (optJSONObject == null) {
-                    optJSONObject = new JSONObject();
-                }
-                optJSONObject.put(str2, obj);
-                this.a.put(str, optJSONObject);
-            } catch (JSONException e) {
-                throw new IllegalStateException("JSON expcetion:", e);
-            }
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            if (i >= 0) {
-                i("misc", "request_timeout", Integer.valueOf(i));
-                return;
-            }
-            throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0a53, (ViewGroup) null);
+            this.d = inflate;
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0911b3);
+            this.c = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911e5);
+            a();
         }
     }
 }

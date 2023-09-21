@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,74 +10,28 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ci1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static String a(int i, String str, String str2) {
+        InterceptResult invokeILL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
-            try {
-                b.put("orderId", str);
-                b.put("payInfo", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return b.toString();
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
-            try {
-                b.put("orderId", str);
-                b.put("payUrl", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return b.toString();
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static JSONObject b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
+            if (!TextUtils.isEmpty(str2)) {
+                str3 = "statecode={" + i + "};order_no={" + str + "};notify=" + str2;
+            } else {
+                str3 = "statecode={" + i + "};order_no={" + str + "};notify={" + str2 + "}";
+            }
             try {
-                jSONObject.put("returnData", a);
-                jSONObject.put("msg", str);
+                jSONObject.put("statusCode", i);
+                jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_MSG, str2);
+                jSONObject.put("responseData", str3);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return jSONObject;
+            return jSONObject.toString();
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return b(str).toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
-            if (bundle != null) {
-                a = bundle.getString("returnData");
-            } else {
-                a = "";
-            }
-        }
+        return (String) invokeILL.objValue;
     }
 }

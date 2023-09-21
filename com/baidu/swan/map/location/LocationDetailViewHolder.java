@@ -6,28 +6,28 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.sg4;
 import com.baidu.tieba.tg4;
-import com.baidu.tieba.ug4;
 /* loaded from: classes4.dex */
 public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView a;
     public TextView b;
     public View c;
     public LocationDetailAdapter d;
-    public ug4 e;
-    public tg4 f;
+    public tg4 e;
+    public sg4 f;
 
-    public LocationDetailViewHolder(View view2, LocationDetailAdapter locationDetailAdapter, tg4 tg4Var) {
+    public LocationDetailViewHolder(View view2, LocationDetailAdapter locationDetailAdapter, sg4 sg4Var) {
         super(view2);
         a(view2);
         this.d = locationDetailAdapter;
-        this.f = tg4Var;
+        this.f = sg4Var;
     }
 
     public final void a(View view2) {
         this.a = (TextView) view2.findViewById(R.id.main_title);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233c);
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0921a7);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092307);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092171);
         this.c = findViewById;
         findViewById.setVisibility(8);
         this.itemView.setOnClickListener(this);
@@ -38,14 +38,14 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
         this.d.n();
         this.e.b = true;
         this.d.notifyDataSetChanged();
-        tg4 tg4Var = this.f;
-        if (tg4Var != null) {
-            tg4Var.d(this.e);
+        sg4 sg4Var = this.f;
+        if (sg4Var != null) {
+            sg4Var.d(this.e);
         }
     }
 
-    public void update(ug4 ug4Var) {
-        update(ug4Var, null, false);
+    public void update(tg4 tg4Var) {
+        update(tg4Var, null, false);
     }
 
     public final CharSequence b(String str, String str2) {
@@ -58,25 +58,25 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
         return Html.fromHtml(str.replaceAll(str2, "<font color='#3C76FF'>" + str2 + "</font>"));
     }
 
-    public void update(ug4 ug4Var, String str, boolean z) {
+    public void update(tg4 tg4Var, String str, boolean z) {
         CharSequence charSequence;
-        if (ug4Var != null) {
-            this.e = ug4Var;
+        if (tg4Var != null) {
+            this.e = tg4Var;
             TextView textView = this.a;
             if (z) {
-                charSequence = b(ug4Var.a.name, str);
+                charSequence = b(tg4Var.a.name, str);
             } else {
-                charSequence = ug4Var.a.name;
+                charSequence = tg4Var.a.name;
             }
             textView.setText(charSequence);
             int i = 0;
             this.b.setVisibility(0);
-            this.b.setText(ug4Var.a.address);
-            if (ug4Var.c || TextUtils.isEmpty(ug4Var.a.address)) {
+            this.b.setText(tg4Var.a.address);
+            if (tg4Var.c || TextUtils.isEmpty(tg4Var.a.address)) {
                 this.b.setVisibility(8);
             }
             View view2 = this.c;
-            if (!ug4Var.b) {
+            if (!tg4Var.b) {
                 i = 8;
             }
             view2.setVisibility(i);

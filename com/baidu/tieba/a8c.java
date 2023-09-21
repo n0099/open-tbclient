@@ -1,155 +1,98 @@
 package com.baidu.tieba;
 
+import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class a8c extends InputStream {
+public final class a8c extends s7c implements NativeFfmpeg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int b;
-    public int c;
-    public final i8c d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a8c(InputStream inputStream) throws IOException {
-        this(inputStream, 16384, null);
+    @Override // com.baidu.tieba.n7c
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public a8c(w6c w6cVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
+            Object[] objArr = {w6cVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (byte[]) objArr2[2]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.l.d(-16);
+        this.s = new WeakReference<>(w6cVar);
+        this.w = true;
+        this.b = i;
+        this.A.i(i);
+        this.o = 3;
     }
 
-    public a8c(InputStream inputStream, int i, byte[] bArr) throws IOException {
+    public void M(MediaInfo mediaInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        i8c i8cVar = new i8c();
-        this.d = i8cVar;
-        if (i > 0) {
-            if (inputStream != null) {
-                this.a = new byte[i];
-                this.b = 0;
-                this.c = 0;
-                try {
-                    i8c.c(i8cVar, inputStream);
-                    if (bArr != null) {
-                        c8c.s(this.d, bArr);
-                        return;
-                    }
-                    return;
-                } catch (BrotliRuntimeException e) {
-                    throw new IOException("Brotli decoder initialization failed", e);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
+            TLog.g(this, mediaInfo.toString());
+            synchronized (this) {
+                if (this.q.e(mediaInfo)) {
+                    this.q.c(mediaInfo);
+                } else {
+                    TLog.g(this, String.format(Locale.getDefault(), "onFormatChanged output size %d * %d", Integer.valueOf(mediaInfo.b), Integer.valueOf(mediaInfo.c)));
+                }
+                if (this.B == null || this.B.capacity() < this.q.i) {
+                    this.B = ByteBuffer.allocateDirect(this.q.i);
+                }
+                int j = ((((int) j7c.j(this.q.d, 16L)) * ((int) j7c.j(this.q.e, 16L))) * 3) >> 1;
+                if (j > this.E) {
+                    this.E = j;
+                    this.C = ByteBuffer.allocateDirect(j);
                 }
             }
-            throw new IllegalArgumentException("source is null");
-        }
-        throw new IllegalArgumentException("Bad buffer size:" + i);
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i8c.a(this.d);
         }
     }
 
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.n7c
+    public void z(MediaFormat mediaFormat, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c >= this.b) {
-                byte[] bArr = this.a;
-                int read = read(bArr, 0, bArr.length);
-                this.b = read;
-                this.c = 0;
-                if (read == -1) {
-                    return -1;
-                }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
+            TLog.g(this, "VideoSwDecoder handleCreateDecoder: taskId " + i);
+            this.x = System.currentTimeMillis();
+            this.a = i;
+            this.A.p(this);
+            this.A.h(i);
+            String string = mediaFormat.getString("mime");
+            if (string.compareTo("video/avc") == 0) {
+                i2 = 6;
+            } else if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
+                i2 = 7;
+            } else {
+                i2 = 0;
             }
-            byte[] bArr2 = this.a;
-            int i = this.c;
-            this.c = i + 1;
-            return bArr2[i] & 255;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (i >= 0) {
-                if (i2 >= 0) {
-                    int i3 = i + i2;
-                    if (i3 <= bArr.length) {
-                        if (i2 == 0) {
-                            return 0;
-                        }
-                        int max = Math.max(this.b - this.c, 0);
-                        if (max != 0) {
-                            max = Math.min(max, i2);
-                            System.arraycopy(this.a, this.c, bArr, i, max);
-                            this.c += max;
-                            i += max;
-                            i2 -= max;
-                            if (i2 == 0) {
-                                return max;
-                            }
-                        }
-                        try {
-                            this.d.Z = bArr;
-                            this.d.U = i;
-                            this.d.V = i2;
-                            this.d.W = 0;
-                            c8c.i(this.d);
-                            if (this.d.W == 0) {
-                                return -1;
-                            }
-                            return this.d.W + max;
-                        } catch (BrotliRuntimeException e) {
-                            throw new IOException("Brotli stream decoding failed", e);
-                        }
-                    }
-                    throw new IllegalArgumentException("Buffer overflow: " + i3 + " > " + bArr.length);
-                }
-                throw new IllegalArgumentException("Bad length: " + i2);
+            if (this.A.j(i2, mediaFormat) != 0) {
+                m(50);
             }
-            throw new IllegalArgumentException("Bad offset: " + i);
+            M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
+            this.y = System.currentTimeMillis();
         }
-        return invokeLII.intValue;
     }
 }

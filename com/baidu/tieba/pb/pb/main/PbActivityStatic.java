@@ -58,16 +58,15 @@ import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.bo9;
-import com.baidu.tieba.du4;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.el9;
-import com.baidu.tieba.fl9;
-import com.baidu.tieba.go5;
-import com.baidu.tieba.hx5;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.csa;
+import com.baidu.tieba.cu4;
+import com.baidu.tieba.di;
+import com.baidu.tieba.hja;
+import com.baidu.tieba.ig;
+import com.baidu.tieba.ix5;
+import com.baidu.tieba.jp9;
 import com.baidu.tieba.kb;
+import com.baidu.tieba.ko5;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.tieba.pb.account.forbid.ForbidActivity;
 import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
@@ -75,19 +74,20 @@ import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
-import com.baidu.tieba.py5;
-import com.baidu.tieba.qn9;
+import com.baidu.tieba.pp9;
+import com.baidu.tieba.qs9;
+import com.baidu.tieba.qy5;
+import com.baidu.tieba.sv4;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.th5;
-import com.baidu.tieba.tq9;
 import com.baidu.tieba.tv4;
+import com.baidu.tieba.up9;
 import com.baidu.tieba.uv4;
-import com.baidu.tieba.vh5;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.vp5;
-import com.baidu.tieba.vpa;
-import com.baidu.tieba.vv4;
-import com.baidu.tieba.wn9;
+import com.baidu.tieba.wm9;
+import com.baidu.tieba.xh5;
+import com.baidu.tieba.xm9;
+import com.baidu.tieba.zh5;
+import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -144,16 +144,16 @@ public class PbActivityStatic {
             if (downloadMessage.getData() != null && downloadMessage.getData().size() > 0) {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null) {
-                        for (vh5 vh5Var : TiePlusHelper.w) {
-                            if (!StringUtils.isNull(vh5Var.f) && vh5Var.f.equals(downloadData.getId())) {
+                        for (zh5 zh5Var : TiePlusHelper.w) {
+                            if (!StringUtils.isNull(zh5Var.f) && zh5Var.f.equals(downloadData.getId())) {
                                 int status = downloadData.getStatus();
                                 if (status != 0) {
                                     if (status == 1) {
-                                        vh5Var.e = false;
+                                        zh5Var.e = false;
                                     }
-                                } else if (!vh5Var.e) {
-                                    vh5Var.e = true;
-                                    TiePlusStat.f(vh5Var.a, vh5Var.b, vh5Var.c, vh5Var.d);
+                                } else if (!zh5Var.e) {
+                                    zh5Var.e = true;
+                                    TiePlusStat.f(zh5Var.a, zh5Var.b, zh5Var.c, zh5Var.d);
                                 }
                             }
                         }
@@ -191,10 +191,10 @@ public class PbActivityStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            th5 th5Var;
+            xh5 xh5Var;
             String a;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof th5) || (a = (th5Var = (th5) customResponsedMessage.getData()).a()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof xh5) || (a = (xh5Var = (xh5) customResponsedMessage.getData()).a()) == null) {
                 return;
             }
             try {
@@ -210,19 +210,19 @@ public class PbActivityStatic {
                 baijiahaoData.oriUgcVid = parse.getQueryParameter("ori_ugc_vid");
                 if (!StringUtils.isNull(queryParameter3)) {
                     int i = JavaTypesHelper.toInt(queryParameter3, 0);
-                    if (th5Var.b() != null) {
-                        hx5.a(queryParameter2, queryParameter, queryParameter4, i, th5Var.b(), baijiahaoData);
+                    if (xh5Var.b() != null) {
+                        ix5.a(queryParameter2, queryParameter, queryParameter4, i, xh5Var.b(), baijiahaoData);
                     } else {
-                        hx5.a(queryParameter2, queryParameter, queryParameter4, i, th5Var.b(), baijiahaoData);
+                        ix5.a(queryParameter2, queryParameter, queryParameter4, i, xh5Var.b(), baijiahaoData);
                     }
                 } else {
                     if (StringUtils.isNull(queryParameter2)) {
                         queryParameter2 = "0";
                     }
-                    if (th5Var.b() != null) {
-                        hx5.a(queryParameter2, queryParameter, queryParameter4, 0, th5Var.b(), baijiahaoData);
+                    if (xh5Var.b() != null) {
+                        ix5.a(queryParameter2, queryParameter, queryParameter4, 0, xh5Var.b(), baijiahaoData);
                     } else {
-                        hx5.a(queryParameter2, queryParameter, queryParameter4, 0, th5Var.b(), baijiahaoData);
+                        ix5.a(queryParameter2, queryParameter, queryParameter4, 0, xh5Var.b(), baijiahaoData);
                     }
                 }
             } catch (Exception e) {
@@ -264,7 +264,11 @@ public class PbActivityStatic {
                     hashMap.put(str, String.valueOf(parse.getQueryParameter(str)));
                 }
                 if (hashMap.containsKey("room_id")) {
-                    ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).navToVoiceRoom(tbPageContext, JavaTypesHelper.toLong((String) hashMap.get("room_id"), 0L), hashMap);
+                    String str2 = (String) hashMap.get("room_id");
+                    if (TextUtils.isEmpty(str2)) {
+                        str2 = "0";
+                    }
+                    ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).navToVoiceRoom(tbPageContext, str2, hashMap);
                 }
                 return 0;
             }
@@ -273,7 +277,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements vv4 {
+    public class d implements uv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -291,12 +295,12 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.vv4
+        @Override // com.baidu.tieba.uv4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = uv4.a(context);
+                TextView a = tv4.a(context);
                 if (a != null) {
                     FloatingLayout.LayoutParams layoutParams = new FloatingLayout.LayoutParams(-2, -2);
                     ((LinearLayout.LayoutParams) layoutParams).gravity = 16;
@@ -311,7 +315,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class e implements vv4 {
+    public class e implements uv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -329,12 +333,12 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.vv4
+        @Override // com.baidu.tieba.uv4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = uv4.a(context);
+                TextView a = tv4.a(context);
                 if (a != null) {
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -349,7 +353,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class f implements vv4 {
+    public class f implements uv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -367,12 +371,12 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.vv4
+        @Override // com.baidu.tieba.uv4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = uv4.a(context);
+                TextView a = tv4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
@@ -387,7 +391,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class g implements vv4 {
+    public class g implements uv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -405,12 +409,12 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.vv4
+        @Override // com.baidu.tieba.uv4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = uv4.a(context);
+                TextView a = tv4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
@@ -488,7 +492,7 @@ public class PbActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                py5.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
+                qy5.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -522,10 +526,10 @@ public class PbActivityStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, tbPageContext, str, uri)) == null) {
                 String queryParameter = uri.getQueryParameter("force_jump");
-                if (!ei.isEmpty(queryParameter) && !ei.isEmpty(str)) {
+                if (!di.isEmpty(queryParameter) && !di.isEmpty(str)) {
                     if (queryParameter.equals("frs")) {
                         String queryParameter2 = uri.getQueryParameter("fname");
-                        if (!ei.isEmpty(queryParameter2)) {
+                        if (!di.isEmpty(queryParameter2)) {
                             FrsActivityConfig createNormalCfg = new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter2, null);
                             createNormalCfg.setPushTid(str);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
@@ -547,12 +551,12 @@ public class PbActivityStatic {
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        /* JADX WARN: Code restructure failed: missing block: B:163:0x031e, code lost:
-            if (com.baidu.adp.lib.util.StringUtils.isNull(r0) == false) goto L159;
+        /* JADX WARN: Code restructure failed: missing block: B:204:0x03c2, code lost:
+            if (android.text.TextUtils.isEmpty(r2) == false) goto L268;
          */
-        /* JADX WARN: Removed duplicated region for block: B:76:0x012f  */
-        /* JADX WARN: Removed duplicated region for block: B:79:0x0136  */
-        /* JADX WARN: Removed duplicated region for block: B:82:0x013f  */
+        /* JADX WARN: Removed duplicated region for block: B:79:0x0142  */
+        /* JADX WARN: Removed duplicated region for block: B:82:0x0149  */
+        /* JADX WARN: Removed duplicated region for block: B:85:0x0153  */
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -561,24 +565,22 @@ public class PbActivityStatic {
             InterceptResult invokeLL;
             boolean z;
             String matchStringFromURL;
-            String str;
-            String str2;
             boolean z2;
+            String str;
             boolean z3;
+            String str2;
             boolean z4;
             boolean z5;
             boolean z6;
             boolean z7;
             String str3;
-            String str4;
             boolean z8;
             VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig;
             PbActivityConfig createNormalCfg;
             int i;
-            String str5;
-            String str6;
+            String str4;
             boolean z9;
-            String str7;
+            String str5;
             char c;
             char c2;
             Interceptable interceptable = $ic;
@@ -591,7 +593,7 @@ public class PbActivityStatic {
                     }
                     String lowerCase = strArr[0].toLowerCase();
                     Matcher matcher = this.a.matcher(lowerCase);
-                    String str8 = "push";
+                    String str6 = "push";
                     if (!Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find() && !lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_BAIJIAHAO_PB)) {
                         if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(PbModel.UNIDISPATCH_PB)) {
                             Uri parse = Uri.parse(lowerCase);
@@ -610,6 +612,10 @@ public class PbActivityStatic {
                                     String queryParameter4 = parse.getQueryParameter("is_anchor_to_comment");
                                     String queryParameter5 = parse.getQueryParameter("hightlight_anchor_pid");
                                     String queryParameter6 = parse.getQueryParameter("pageStartFrom");
+                                    if (TextUtils.isEmpty(queryParameter6)) {
+                                        queryParameter6 = parse.getQueryParameter("pagestartfrom");
+                                    }
+                                    String queryParameter7 = parse.getQueryParameter("novelchannel");
                                     if (!TextUtils.isEmpty(queryParameter3)) {
                                         switch (queryParameter3.hashCode()) {
                                             case 48:
@@ -691,28 +697,32 @@ public class PbActivityStatic {
                                     if (!TextUtils.isEmpty(queryParameter6)) {
                                         pbActivityConfig.setStartFrom(JavaTypesHelper.toInt(queryParameter6, 0));
                                     }
+                                    if (!TextUtils.isEmpty(queryParameter7)) {
+                                        pbActivityConfig.setChannelId(queryParameter7);
+                                    }
                                     tbPageContext.sendMessage(new CustomMessage(2004001, pbActivityConfig));
-                                } else {
-                                    String queryParameter7 = parse.getQueryParameter("tid");
-                                    ArrayList arrayList = new ArrayList();
-                                    VideoItemData videoItemData = new VideoItemData();
-                                    videoItemData.thread_id = queryParameter7;
-                                    arrayList.add(videoItemData);
-                                    new VideoRecommentPlayActivityConfig(tbPageContext.getPageActivity(), arrayList, null, VideoRecommentPlayActivityConfig.FROM_PB_VIDEO_SCHEME).setUri(parse).start();
+                                    return 0;
                                 }
+                                String queryParameter8 = parse.getQueryParameter("tid");
+                                ArrayList arrayList = new ArrayList();
+                                VideoItemData videoItemData = new VideoItemData();
+                                videoItemData.thread_id = queryParameter8;
+                                arrayList.add(videoItemData);
+                                new VideoRecommentPlayActivityConfig(tbPageContext.getPageActivity(), arrayList, null, VideoRecommentPlayActivityConfig.FROM_PB_VIDEO_SCHEME).setUri(parse).start();
+                                return 0;
                             }
                             return 0;
                         }
-                        String str9 = "";
+                        String str7 = "";
                         if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_SUB_PB)) {
                             String paramStr = UrlManager.getParamStr(lowerCase);
                             if (!TextUtils.isEmpty(paramStr)) {
                                 Map<String, String> paramPair = UrlManager.getParamPair(paramStr);
                                 if (!paramPair.isEmpty()) {
-                                    String str10 = paramPair.get("tid");
-                                    String str11 = paramPair.get("pid");
-                                    if (!TextUtils.isEmpty(str10) && !TextUtils.isEmpty(str11)) {
-                                        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(tbPageContext.getPageActivity()).createSubPbActivityConfig(str10, str11, "", true);
+                                    String str8 = paramPair.get("tid");
+                                    String str9 = paramPair.get("pid");
+                                    if (!TextUtils.isEmpty(str8) && !TextUtils.isEmpty(str9)) {
+                                        SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(tbPageContext.getPageActivity()).createSubPbActivityConfig(str8, str9, "", true);
                                         createSubPbActivityConfig.setIsFromeSchema(true);
                                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                                         return 0;
@@ -722,55 +732,54 @@ public class PbActivityStatic {
                         }
                         if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains("bookcover:")) {
                             Map<String, String> paramPair2 = UrlManager.getParamPair(lowerCase.substring(10));
-                            if (paramPair2 == null || paramPair2.size() <= 0) {
-                                return 0;
-                            }
-                            if (JavaTypesHelper.toInt(paramPair2.get(PaymentConfirmActivityConfig.BOOK_TYPE), 1) == 3) {
-                                if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
-                                    BdUtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.manga_plugin_not_install_tip);
+                            if (paramPair2 != null && paramPair2.size() > 0) {
+                                if (JavaTypesHelper.toInt(paramPair2.get(PaymentConfirmActivityConfig.BOOK_TYPE), 1) == 3) {
+                                    if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
+                                        BdUtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.manga_plugin_not_install_tip);
+                                        return 0;
+                                    }
+                                    return 3;
+                                } else if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+                                    BdUtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.book_plugin_not_install_tip);
                                     return 0;
+                                } else {
+                                    return 3;
                                 }
-                                return 3;
-                            } else if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                                BdUtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.book_plugin_not_install_tip);
-                                return 0;
-                            } else {
-                                return 3;
                             }
+                            return 0;
                         }
+                        String str10 = "allthread";
                         if (matcher.find()) {
                             String group = matcher.group(1);
                             Uri parse2 = Uri.parse(lowerCase);
                             if (a(tbPageContext, group, parse2)) {
                                 return 0;
                             }
-                            str9 = parse2.getQueryParameter("pid");
-                            z4 = JavaTypesHelper.toBoolean(parse2.getQueryParameter("is_video"), false);
+                            str7 = parse2.getQueryParameter("pid");
+                            z5 = JavaTypesHelper.toBoolean(parse2.getQueryParameter("is_video"), false);
                             z6 = JavaTypesHelper.toBoolean(parse2.getQueryParameter("is_official_video"), false);
-                            String queryParameter8 = parse2.getQueryParameter("broadcast_id");
+                            str = parse2.getQueryParameter("broadcast_id");
                             if (lowerCase != null) {
                                 String[] split = lowerCase.split("&");
-                                str5 = group;
                                 int i2 = 0;
                                 while (i2 < split.length) {
                                     if (split[i2] != null) {
-                                        str7 = queryParameter8;
+                                        str5 = group;
                                         if (split[i2].startsWith("thread_type=")) {
                                             split[i2].substring(12);
                                         } else if (split[i2].startsWith("playstatkey=")) {
-                                            str8 = split[i2].substring(12);
+                                            str6 = split[i2].substring(12);
                                         }
                                     } else {
-                                        str7 = queryParameter8;
+                                        str5 = group;
                                     }
                                     i2++;
-                                    queryParameter8 = str7;
+                                    group = str5;
                                 }
-                                str6 = queryParameter8;
+                                str4 = group;
                                 z9 = JavaTypesHelper.toBoolean(WebviewHelper.getMatchStringFromURL(lowerCase, "is_from_push="), false);
                             } else {
-                                str5 = group;
-                                str6 = queryParameter8;
+                                str4 = group;
                                 z9 = false;
                             }
                             if (lowerCase != null && lowerCase.contains("?")) {
@@ -778,10 +787,10 @@ public class PbActivityStatic {
                                 int length = split2.length;
                                 int i3 = 0;
                                 while (i3 < length) {
-                                    String str12 = split2[i3];
-                                    if (str12.startsWith("playstatkey=")) {
+                                    String str11 = split2[i3];
+                                    if (str11.startsWith("playstatkey=")) {
                                         z7 = z9;
-                                        str8 = str12.substring(12);
+                                        str6 = str11.substring(12);
                                         break;
                                     }
                                     i3++;
@@ -790,110 +799,99 @@ public class PbActivityStatic {
                             }
                             z7 = z9;
                             if (lowerCase != null) {
-                                str = WebviewHelper.getMatchStringFromURL(lowerCase, "sttype=");
+                                String matchStringFromURL2 = WebviewHelper.getMatchStringFromURL(lowerCase, "sttype=");
+                                if (!StringUtils.isNull(matchStringFromURL2)) {
+                                    str10 = matchStringFromURL2;
+                                }
                             }
-                            str = "allthread";
-                            matchStringFromURL = str5;
-                            str2 = str6;
+                            str2 = str10;
+                            matchStringFromURL = str4;
                             z2 = false;
                             z3 = true;
-                            z5 = true;
-                        } else if (lowerCase != null && (lowerCase.startsWith(TbConfig.HTTP_PREFIX) || lowerCase.startsWith(TbConfig.HTTPS_PREFIX))) {
-                            if (lowerCase.startsWith(TbConfig.HTTP_PREFIX)) {
-                                str3 = lowerCase.substring(TbConfig.HTTP_PREFIX.length());
-                            } else if (lowerCase.startsWith(TbConfig.HTTPS_PREFIX)) {
-                                str3 = lowerCase.substring(TbConfig.HTTPS_PREFIX.length());
-                            } else {
-                                str3 = null;
-                            }
-                            if (str3 != null) {
-                                String[] split3 = str3.split("&");
-                                int i4 = 0;
-                                while (true) {
-                                    if (i4 < split3.length) {
-                                        if (split3[i4] != null && split3[i4].startsWith("kz=")) {
-                                            str4 = split3[i4].substring(3);
-                                            z8 = true;
+                            z4 = true;
+                        } else {
+                            if (lowerCase != null && (lowerCase.startsWith(TbConfig.HTTP_PREFIX) || lowerCase.startsWith(TbConfig.HTTPS_PREFIX))) {
+                                if (lowerCase.startsWith(TbConfig.HTTP_PREFIX)) {
+                                    str3 = lowerCase.substring(TbConfig.HTTP_PREFIX.length());
+                                } else if (lowerCase.startsWith(TbConfig.HTTPS_PREFIX)) {
+                                    str3 = lowerCase.substring(TbConfig.HTTPS_PREFIX.length());
+                                } else {
+                                    str3 = null;
+                                }
+                                if (str3 != null) {
+                                    String[] split3 = str3.split("&");
+                                    int i4 = 0;
+                                    while (true) {
+                                        if (i4 < split3.length) {
+                                            if (split3[i4] != null && split3[i4].startsWith("kz=")) {
+                                                matchStringFromURL = split3[i4].substring(3);
+                                                z8 = true;
+                                                break;
+                                            }
+                                            i4++;
+                                        } else {
+                                            z8 = false;
+                                            matchStringFromURL = null;
                                             break;
                                         }
-                                        i4++;
-                                    } else {
-                                        str4 = null;
-                                        z8 = false;
-                                        break;
                                     }
-                                }
-                                if (!TextUtils.isEmpty(str4) && str4.contains("&")) {
-                                    str4 = str4.split("&")[0];
-                                }
-                                if (TextUtils.isEmpty(str4)) {
-                                    str4 = null;
-                                }
-                            } else {
-                                str4 = null;
-                                z8 = false;
-                            }
-                            z3 = z8;
-                            str2 = null;
-                            z2 = false;
-                            z4 = false;
-                            z5 = true;
-                            z6 = false;
-                            z7 = false;
-                            matchStringFromURL = str4;
-                            str = "allthread";
-                        } else {
-                            if (!TextUtils.isEmpty(lowerCase) && lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
-                                String substring = lowerCase.substring(3);
-                                if (strArr.length > 1) {
-                                    str2 = null;
-                                    z2 = false;
-                                    z3 = true;
-                                    z4 = false;
-                                    z5 = true;
-                                    z6 = false;
-                                    z7 = false;
-                                    matchStringFromURL = substring;
-                                    str = strArr[1];
+                                    if (!TextUtils.isEmpty(matchStringFromURL) && matchStringFromURL.contains("&")) {
+                                        matchStringFromURL = matchStringFromURL.split("&")[0];
+                                    }
                                 } else {
-                                    matchStringFromURL = substring;
-                                    str = null;
-                                    str2 = null;
-                                    z2 = false;
-                                    z3 = true;
+                                    z8 = false;
                                 }
+                                matchStringFromURL = null;
+                                z3 = z8;
+                                str2 = "allthread";
+                                z2 = false;
+                                str = null;
                             } else {
-                                if (!TextUtils.isEmpty(lowerCase) && lowerCase.startsWith("com.baidu.tieba://?kz=")) {
-                                    matchStringFromURL = lowerCase.substring(22);
-                                    str = null;
-                                    str2 = null;
-                                    z2 = true;
-                                } else if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && lowerCase.contains("kz=")) {
-                                    matchStringFromURL = WebviewHelper.getMatchStringFromURL(lowerCase, "kz=");
-                                    str = null;
-                                    str2 = null;
-                                    z2 = false;
+                                if (!TextUtils.isEmpty(lowerCase) && lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TYPE_PB)) {
+                                    String substring = lowerCase.substring(3);
+                                    if (strArr.length > 1) {
+                                        matchStringFromURL = substring;
+                                        str2 = strArr[1];
+                                        z2 = false;
+                                        str = null;
+                                        z3 = true;
+                                    } else {
+                                        matchStringFromURL = substring;
+                                        z2 = false;
+                                        str = null;
+                                        z3 = true;
+                                    }
                                 } else {
-                                    return 3;
+                                    if (!TextUtils.isEmpty(lowerCase) && lowerCase.startsWith("com.baidu.tieba://?kz=")) {
+                                        matchStringFromURL = lowerCase.substring(22);
+                                        z2 = true;
+                                    } else if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && lowerCase.contains("kz=")) {
+                                        matchStringFromURL = WebviewHelper.getMatchStringFromURL(lowerCase, "kz=");
+                                        z2 = false;
+                                    } else {
+                                        return 3;
+                                    }
+                                    str = null;
+                                    z3 = false;
                                 }
-                                z3 = false;
+                                str2 = null;
                             }
-                            z4 = false;
-                            z5 = true;
+                            z4 = true;
+                            z5 = false;
                             z6 = false;
                             z7 = false;
                         }
-                        if (!StringUtils.isNull(matchStringFromURL, z5) && tbPageContext != null) {
-                            if (!z4 && !z6) {
-                                if (StringUtils.isNull(str9)) {
-                                    createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(matchStringFromURL, null, str);
+                        if (!StringUtils.isNull(matchStringFromURL, z4) && tbPageContext != null) {
+                            if (!z5 && !z6) {
+                                if (StringUtils.isNull(str7)) {
+                                    createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(matchStringFromURL, null, str2);
                                 } else {
-                                    createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(matchStringFromURL, str9, str);
+                                    createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(matchStringFromURL, str7, str2);
                                 }
                                 if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(WebviewHelper.getMatchStringFromURL(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
                                     createNormalCfg.setUserName(WebviewHelper.getMatchStringFromURL(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
                                 }
-                                createNormalCfg.setVideo_source(str8);
+                                createNormalCfg.setVideo_source(str6);
                                 createNormalCfg.setStartFrom(25);
                                 if (z7) {
                                     createNormalCfg.setFromPushNotify();
@@ -908,8 +906,8 @@ public class PbActivityStatic {
                                 if (lowerCase != null && (lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH) || lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH_TWO))) {
                                     createNormalCfg.setStartFrom(7);
                                 }
-                                if (!StringUtils.isNull(str2)) {
-                                    createNormalCfg.setOfficialBarMessageId(str2);
+                                if (!StringUtils.isNull(str)) {
+                                    createNormalCfg.setOfficialBarMessageId(str);
                                 }
                                 if (lowerCase != null && lowerCase.contains("fr=collect")) {
                                     createNormalCfg.setJumpToCommentArea(true);
@@ -924,7 +922,7 @@ public class PbActivityStatic {
                             VideoItemData videoItemData2 = new VideoItemData();
                             videoItemData2.thread_id = matchStringFromURL;
                             arrayList2.add(videoItemData2);
-                            if (z4) {
+                            if (z5) {
                                 videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(tbPageContext.getPageActivity(), arrayList2, null, VideoRecommentPlayActivityConfig.FROM_LINK_PAGE);
                             } else {
                                 videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(tbPageContext.getPageActivity(), arrayList2, null, VideoRecommentPlayActivityConfig.FROM_OFFICAL_VIDEO);
@@ -935,9 +933,9 @@ public class PbActivityStatic {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
                             return 0;
                         } else if (z2 && !TextUtils.isEmpty(matchStringFromURL)) {
-                            jg.startService(TbadkCoreApplication.getInst(), wn9.m(TbadkCoreApplication.getInst(), matchStringFromURL));
+                            ig.startService(TbadkCoreApplication.getInst(), pp9.n(TbadkCoreApplication.getInst(), matchStringFromURL));
                             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", 3).param("obj_type", 2).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                            du4.a(param, lowerCase);
+                            cu4.a(param, lowerCase);
                             TiebaStatic.log(param);
                             return 1;
                         } else if (z3) {
@@ -947,7 +945,7 @@ public class PbActivityStatic {
                             return 3;
                         }
                     }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new th5(tbPageContext, lowerCase)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new xh5(tbPageContext, lowerCase)));
                     return 0;
                 }
                 return 3;
@@ -976,12 +974,12 @@ public class PbActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<vpa> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<csa> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2921343, new tq9(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2921343, new qs9(customMessage.getData()));
                 }
                 return null;
             }
@@ -1026,16 +1024,16 @@ public class PbActivityStatic {
         iVar.execute(new Void[0]);
         ItemCardHelper.t();
         ItemCardHelper.s();
-        go5.a(vp5.a, new qn9());
+        ko5.a(zp5.a, new jp9());
     }
 
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            bha.h(302001, pbPageSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, bha.a("c/f/pb/page", 302001));
-            fl9.g = tbHttpMessageTask;
-            el9.i = tbHttpMessageTask;
+            hja.h(302001, pbPageSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, hja.a("c/f/pb/page", 302001));
+            xm9.g = tbHttpMessageTask;
+            wm9.i = tbHttpMessageTask;
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setTimeOut(kb.d().b());
@@ -1105,7 +1103,7 @@ public class PbActivityStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            bha.b(2004003, bo9.class);
+            hja.b(2004003, up9.class);
         }
     }
 
@@ -1142,10 +1140,10 @@ public class PbActivityStatic {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            tv4.b().c(2, new d());
-            tv4.b().c(3, new e());
-            tv4.b().c(4, new f());
-            tv4.b().c(6, new g());
+            sv4.b().c(2, new d());
+            sv4.b().c(3, new e());
+            sv4.b().c(4, new f());
+            sv4.b().c(6, new g());
         }
     }
 
@@ -1153,8 +1151,8 @@ public class PbActivityStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-            TbSocketMessageTask h2 = bha.h(302002, SubPbSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = bha.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+            TbSocketMessageTask h2 = hja.h(302002, SubPbSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = hja.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
             h2.setParallel(a);
             c2.setParallel(a);
         }

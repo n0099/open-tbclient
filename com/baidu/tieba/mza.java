@@ -1,95 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import android.view.ContextThemeWrapper;
+import android.opengl.Matrix;
+import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.TbWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
+import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 /* loaded from: classes7.dex */
-public final class mza {
+public class mza extends BaseOutputSurface {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public float[] a;
+    public MultiMediaData b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947991349, "Lcom/baidu/tieba/mza;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947991349, "Lcom/baidu/tieba/mza;");
+    public mza(int i, int i2, boolean z, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        this.a = new float[16];
+        this.b = new MultiMediaData();
+        init(i, i2, z, handler);
+        this.mFullScreenEXT.setMirror(true);
+        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public void a(int i, int i2, float f) {
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
+            MultiMediaData multiMediaData = this.b;
+            multiMediaData.type = 1;
+            multiMediaData.width = i;
+            multiMediaData.height = i2;
+            multiMediaData.rotation = f;
+            if (f != 90.0f && f != 270.0f) {
+                f2 = (i * 1.0f) / i2;
+            } else {
+                f2 = (i2 * 1.0f) / i;
+            }
+            if (f2 <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
+                this.b.scaleType = "center_crop";
+            } else {
+                this.b.scaleType = "center_inside";
             }
         }
+    }
 
-        @JvmStatic
-        public final TbWebView a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                if (context instanceof MutableContextWrapper) {
-                    MutableContextWrapper mutableContextWrapper = (MutableContextWrapper) context;
-                    mutableContextWrapper.setBaseContext(new ContextThemeWrapper(mutableContextWrapper.getBaseContext(), (int) R.style.obfuscated_res_0x7f100456));
-                    return new TbWebView(context);
-                }
-                return new TbWebView(new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f100456));
+    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
+    public void drawImage(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.drawImage(i);
+            if (this.mFullScreenEXT == null) {
+                return;
             }
-            return (TbWebView) invokeL.objValue;
-        }
-
-        @JvmStatic
-        public final Context b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                if (context instanceof MutableContextWrapper) {
-                    MutableContextWrapper mutableContextWrapper = (MutableContextWrapper) context;
-                    mutableContextWrapper.setBaseContext(new ContextThemeWrapper(mutableContextWrapper.getBaseContext(), (int) R.style.obfuscated_res_0x7f100456));
-                    return context;
-                }
-                return new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f100456);
-            }
-            return (Context) invokeL.objValue;
+            float[] fArr = new float[16];
+            Matrix.setIdentityM(fArr, 0);
+            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
+            this.mFullScreenEXT.setAngle(180.0f);
+            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
+            Matrix.setIdentityM(fArr, 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
         }
     }
 }

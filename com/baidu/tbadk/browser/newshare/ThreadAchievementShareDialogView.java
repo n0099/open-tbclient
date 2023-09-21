@@ -32,14 +32,14 @@ import com.baidu.tbadk.core.util.svg.SvgMaskType;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by5;
-import com.baidu.tieba.co9;
-import com.baidu.tieba.cx5;
+import com.baidu.tieba.cy5;
+import com.baidu.tieba.dx5;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import com.baidu.tieba.xx5;
+import com.baidu.tieba.vp9;
 import com.baidu.tieba.xy4;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.yx5;
 import com.baidu.tieba.yy4;
+import com.baidu.tieba.z45;
 import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -65,9 +65,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public TextView k;
     public TextView l;
     public PermissionJudgePolicy m;
-    public co9 n;
+    public vp9 n;
     public TbPageContext o;
-    public y45 p;
+    public z45 p;
     public Bitmap q;
     public View r;
     public ImageView s;
@@ -317,7 +317,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class h extends xx5<ShareItem> {
+    public class h extends yx5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -345,7 +345,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xx5
+        @Override // com.baidu.tieba.yx5
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
@@ -358,7 +358,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class i implements cx5<ShareItem> {
+    public class i implements dx5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -384,7 +384,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cx5
+        @Override // com.baidu.tieba.dx5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -434,7 +434,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             }
             statisticItem.param("obj_source", this.z);
             TiebaStatic.log(statisticItem);
-            by5.b(new h(this, bitmap, i2), new i(this, i2));
+            cy5.b(new h(this, bitmap, i2), new i(this, i2));
         }
     }
 
@@ -504,12 +504,12 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
     }
 
-    public boolean h(TbPageContext tbPageContext, y45 y45Var) {
+    public boolean h(TbPageContext tbPageContext, z45 z45Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, y45Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, z45Var)) == null) {
             this.o = tbPageContext;
-            this.p = y45Var;
+            this.p = z45Var;
             l(this.c);
             if (this.a.getParams() != null && !ListUtils.isEmpty(this.a.getParams().getThread_list())) {
                 this.u.addView(new xy4(this.c, this.a).a());
@@ -658,7 +658,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         if (this.n == null) {
-            this.n = new co9(this.o);
+            this.n = new vp9(this.o);
         }
         if (this.a.getParams() != null && !TextUtils.isEmpty(this.a.getParams().getUrl())) {
             this.n.b(this.a.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));

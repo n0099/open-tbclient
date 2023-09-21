@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a25;
-import com.baidu.tieba.hb5;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.vz7;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.xz7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -149,21 +149,10 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
-        public boolean finishComposingText() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                sendKeyEvent(new KeyEvent(0, 6));
-                return super.finishComposingText();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
         public boolean sendKeyEvent(KeyEvent keyEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
                 if (this.a.c != null && this.a.c.onKey(this.a, keyEvent.getKeyCode(), keyEvent)) {
                     return true;
                 }
@@ -248,22 +237,22 @@ public class SpanGroupEditText extends AppCompatEditText {
     public void b(List<AtSelectData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.b.k(list);
+            this.b.j(list);
         }
     }
 
     public void e(List<AtSelectData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.b.o(list);
+            this.b.n(list);
         }
     }
 
     public void f(int i) {
-        hb5 E;
+        lb5 D;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (E = this.b.E(i)) != null && getText() != null) {
-            this.b.delete(E.f(), E.c());
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (D = this.b.D(i)) != null && getText() != null) {
+            this.b.delete(D.f(), D.c());
         }
     }
 
@@ -292,10 +281,10 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void setOnSpanGroupChangedListener(hb5.a aVar) {
+    public void setOnSpanGroupChangedListener(lb5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
-            this.b.W(aVar);
+            this.b.V(aVar);
         }
     }
 
@@ -309,14 +298,14 @@ public class SpanGroupEditText extends AppCompatEditText {
     public void setTransAt(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.b.X(z);
+            this.b.W(z);
         }
     }
 
     public void setTransLink(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.b.Y(z);
+            this.b.X(z);
         }
     }
 
@@ -331,7 +320,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         SpanGroupManager spanGroupManager;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (spanGroupManager = this.b) != null) {
-            spanGroupManager.l();
+            spanGroupManager.k();
         }
     }
 
@@ -339,7 +328,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b.w();
+            return this.b.v();
         }
         return (ArrayList) invokeV.objValue;
     }
@@ -348,7 +337,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b.y();
+            return this.b.x();
         }
         return (List) invokeV.objValue;
     }
@@ -366,7 +355,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.b.A();
+            return this.b.z();
         }
         return (String) invokeV.objValue;
     }
@@ -376,11 +365,11 @@ public class SpanGroupEditText extends AppCompatEditText {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            String B = this.b.B();
-            if (B == null) {
+            String A = this.b.A();
+            if (A == null) {
                 return "";
             }
-            return B;
+            return A;
         }
         return (String) invokeV.objValue;
     }
@@ -390,11 +379,11 @@ public class SpanGroupEditText extends AppCompatEditText {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String C = this.b.C();
-            if (C == null) {
+            String B = this.b.B();
+            if (B == null) {
                 return "";
             }
-            return C;
+            return B;
         }
         return (String) invokeV.objValue;
     }
@@ -413,11 +402,11 @@ public class SpanGroupEditText extends AppCompatEditText {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String G = this.b.G();
-            if (G == null) {
+            String F = this.b.F();
+            if (F == null) {
                 return "";
             }
-            return G;
+            return F;
         }
         return (String) invokeV.objValue;
     }
@@ -435,7 +424,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.b.M();
+            return this.b.L();
         }
         return invokeV.booleanValue;
     }
@@ -444,33 +433,33 @@ public class SpanGroupEditText extends AppCompatEditText {
         SpanGroupManager spanGroupManager;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (spanGroupManager = this.b) != null) {
-            spanGroupManager.S();
+            spanGroupManager.R();
         }
     }
 
     public void d(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.b.m(str, i, z);
+            this.b.l(str, i, z);
         }
     }
 
-    public void g(List<vz7> list, List<String> list2) {
+    public void g(List<xz7> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048581, this, list, list2) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            vz7 vz7Var = list.get(i);
+            xz7 xz7Var = list.get(i);
             String str = list2.get(i);
-            if (!this.b.p(vz7Var.a())) {
+            if (!this.b.o(xz7Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                a25 b = a25.b(tbLinkSpanGroup, vz7Var);
+                a25 b = a25.b(tbLinkSpanGroup, xz7Var);
                 b.h = str;
                 tbLinkSpanGroup.C(b.d);
                 tbLinkSpanGroup.t();
-                this.b.K(tbLinkSpanGroup);
+                this.b.J(tbLinkSpanGroup);
             }
         }
     }
@@ -481,7 +470,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         if (interceptable == null || interceptable.invokeLL(1048598, this, charSequence, bufferType) == null) {
             SpanGroupManager spanGroupManager = this.b;
             if (spanGroupManager != null) {
-                spanGroupManager.s();
+                spanGroupManager.r();
             }
             super.setText(charSequence, bufferType);
         }

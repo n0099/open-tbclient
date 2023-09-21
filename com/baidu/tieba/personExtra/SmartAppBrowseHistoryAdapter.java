@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,22 +58,22 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                 }
             }
             this.a = view2;
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09124d);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09123e);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927db);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927a6);
         }
 
         public void a(SmartApp smartApp) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
                 this.a.setTag(smartApp);
-                if (!ei.isEmpty(smartApp.avatar)) {
+                if (!di.isEmpty(smartApp.avatar)) {
                     this.b.setPlaceHolder(1);
                     this.b.startLoad(smartApp.avatar, 10, false, false);
                 }
-                if (!ei.isEmpty(smartApp.name)) {
+                if (!di.isEmpty(smartApp.name)) {
                     this.c.setText(smartApp.name);
                 } else {
                     this.c.setText(R.string.intelligent_smart_app);
@@ -195,7 +195,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08ea, viewGroup, false));
+            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08e7, viewGroup, false));
         }
         return (HistoryRecordViewHolder) invokeLI.objValue;
     }

@@ -1,87 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes5.dex */
-public class er4 {
+public final class er4 extends qr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile er4 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public er4() {
+        super("aiapp_open_stat");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
-                return null;
-            }
-            return connectivityManager.getActiveNetworkInfo();
-        }
-        return (NetworkInfo) invokeL.objValue;
-    }
-
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "2g";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "3g";
-                case 13:
-                case 18:
-                case 19:
-                    return "4g";
-                case 20:
-                    return "5g";
-                default:
-                    if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
-                        return "4g";
-                    }
-                    return "unknown";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeIL.objValue;
     }
 
-    public static String c() {
+    public static er4 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a(AppRuntime.getAppContext());
-            if (a != null && a.isConnected()) {
-                if (a.getType() == 1) {
-                    return "wifi";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (er4.class) {
+                    if (d == null) {
+                        d = new er4();
+                    }
                 }
-                if (a.getType() == 0) {
-                    return b(a.getSubtype(), a.getSubtypeName());
-                }
-                return "unknown";
             }
-            return "no";
+            return d;
         }
-        return (String) invokeV.objValue;
+        return (er4) invokeV.objValue;
     }
 }

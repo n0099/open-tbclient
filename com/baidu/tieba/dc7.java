@@ -1,43 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedKV;
 /* loaded from: classes5.dex */
-public interface dc7 {
+public final class dc7 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(View view2, pc7<?> pc7Var, oc7<?, ?> oc7Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699825, "Lcom/baidu/tieba/dc7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947699825, "Lcom/baidu/tieba/dc7;");
+                return;
+            }
+        }
+        a = new a(null);
     }
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(@NonNull pc7<?> pc7Var, int i);
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final HashMap<String, String> a(List<FeedKV> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                HashMap<String, String> hashMap = new HashMap<>();
+                if (list != null && !list.isEmpty()) {
+                    for (FeedKV feedKV : list) {
+                        String str = feedKV.key;
+                        Intrinsics.checkNotNullExpressionValue(str, "feedKV.key");
+                        String str2 = feedKV.value;
+                        Intrinsics.checkNotNullExpressionValue(str2, "feedKV.value");
+                        hashMap.put(str, str2);
+                    }
+                }
+                return hashMap;
+            }
+            return (HashMap) invokeL.objValue;
+        }
     }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(@NonNull pc7<?> pc7Var, @NonNull oc7<?, ?> oc7Var, int i);
-
-        void b(@NonNull RecyclerView recyclerView);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        boolean a(View view2, pc7<?> pc7Var, oc7<?, ?> oc7Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(@NonNull Object obj);
-    }
-
-    void c(b bVar);
-
-    void e(c cVar);
-
-    void i(a aVar);
-
-    void k(e eVar);
 }

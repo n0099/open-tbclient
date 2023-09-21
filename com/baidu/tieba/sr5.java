@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes8.dex */
-public interface sr5 {
-    boolean N0(tr5 tr5Var);
+public interface sr5 extends qr5 {
+    boolean initByString(String str);
 
-    BdUniqueId getUniqueId();
-
-    boolean s1();
+    String toCacheString();
 }

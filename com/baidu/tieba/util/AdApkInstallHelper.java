@@ -16,9 +16,9 @@ import com.baidu.tieba.filedownloader.TbDownloadManager;
 import com.baidu.tieba.filedownloader.logs.DownloaderLog;
 import com.baidu.tieba.filedownloader.utils.PermissionUtil;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.pda;
-import com.baidu.tieba.sm0;
+import com.baidu.tieba.rm0;
 import com.baidu.tieba.util.AdApkInstallHelper;
+import com.baidu.tieba.vfa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,7 +119,7 @@ public final class AdApkInstallHelper {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                     Intrinsics.checkNotNullParameter(params, "params");
-                    pda h = new TbDownloadManager().m().h(this.a, this.b);
+                    vfa h = new TbDownloadManager().m().h(this.a, this.b);
                     ItemData itemData = new ItemData();
                     itemData.parseJson(h.c());
                     dz4.b().a(this.c, String.valueOf(h.p()), itemData.mTitle, h.d(), itemData.mTbFileDownloaderType);
@@ -216,7 +216,7 @@ public final class AdApkInstallHelper {
                                 return;
                             }
                             DownloaderLog.getInstance().i("AdApkInstallHelper", "下载器：函数 installApp，开始安装");
-                            sm0.d(new File(this.$path));
+                            rm0.d(new File(this.$path));
                             DownloadData downloadData2 = this.$downloadData;
                             if (downloadData2 != null) {
                                 String id = downloadData2.getId();

@@ -1,59 +1,139 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tieba.easteregg.EasterEggAdController;
-import com.baidu.tieba.easteregg.data.EasterEggAdData;
-import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class mz6 extends e65 {
+public class mz6 extends lz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ScaleGestureDetector h;
+    public b i;
 
-    public mz6() {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes7.dex */
+    public final class c extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ mz6 b;
+
+        public c(mz6 mz6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mz6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = mz6Var;
+            this.a = false;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scaleGestureDetector)) == null) {
+                this.a = false;
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleGestureDetector) == null) {
+                this.a = true;
+            }
+        }
+
+        public /* synthetic */ c(mz6 mz6Var, a aVar) {
+            this(mz6Var);
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
+                if (scaleGestureDetector != null && this.b.i != null) {
+                    float scaleFactor = scaleGestureDetector.getScaleFactor();
+                    if (!this.a && scaleFactor > 1.0f) {
+                        this.a = true;
+                        this.b.i.a(true);
+                    } else if (!this.a && scaleFactor > 0.0f && scaleFactor < 1.0f) {
+                        this.a = true;
+                        this.b.i.a(false);
+                    }
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public mz6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.e65
-    public void a(Context context, v55 data) {
-        Unit unit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if ((context instanceof Activity) && (context instanceof pla)) {
-                EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
-                if (b != null) {
-                    new EasterEggAdController((Activity) context).o(b);
-                    YunDialogManager.markShowingDialogName("easterEgg");
-                    unit = Unit.INSTANCE;
-                } else {
-                    unit = null;
-                }
-                if (unit == null) {
-                    YunDialogManager.unMarkShowingDialogName("easterEgg");
-                    return;
-                }
                 return;
             }
-            YunDialogManager.unMarkShowingDialogName("easterEgg");
+        }
+        this.h = new ScaleGestureDetector(context, new c(this, null));
+    }
+
+    @Override // com.baidu.tieba.lz6
+    public boolean c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            try {
+                this.h.onTouchEvent(motionEvent);
+                return super.c(motionEvent);
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.i = bVar;
         }
     }
 }

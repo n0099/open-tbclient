@@ -1,49 +1,181 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.kwad.sdk.core.response.model.AdInfo;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.banner2.UnifiedBannerADListener;
+import com.qq.e.ads.banner2.UnifiedBannerView;
+import com.qq.e.comm.util.AdError;
 /* loaded from: classes5.dex */
-public class etb {
+public class etb extends osb<ktb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static RippedAd a(AdInfo adInfo) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        List<AdInfo.AdMaterialInfo.MaterialFeature> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
-            AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
-            AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
-            RippedAd.Builder builder = new RippedAd.Builder();
-            AdInfo.AdMaterialInfo adMaterialInfo = adInfo.adMaterialInfo;
-            ArrayList arrayList = null;
-            if (adMaterialInfo == null || (list = adMaterialInfo.materialFeatureList) == null || list.isEmpty()) {
-                str = null;
-            } else if (adMaterialInfo.materialType == 1) {
-                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
-                str2 = materialFeature.materialUrl;
-                str = materialFeature.coverUrl;
-                builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adConversionInfo.h5Url).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
-                return builder.build();
-            } else {
-                ArrayList arrayList2 = new ArrayList();
-                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature2 : adMaterialInfo.materialFeatureList) {
-                    arrayList2.add(materialFeature2.materialUrl);
+    /* loaded from: classes5.dex */
+    public class a implements UnifiedBannerADListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public ktb c;
+        public final /* synthetic */ UnifiedBannerView[] d;
+        public final /* synthetic */ etb e;
+
+        public a(etb etbVar, UnifiedBannerView[] unifiedBannerViewArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {etbVar, unifiedBannerViewArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                str = null;
-                arrayList = arrayList2;
             }
-            str2 = str;
-            builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adConversionInfo.h5Url).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
-            return builder.build();
+            this.e = etbVar;
+            this.d = unifiedBannerViewArr;
         }
-        return (RippedAd) invokeL.objValue;
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked((etb) this.c, this.b, new String[0]);
+                this.b = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.e();
+                this.e.onAdClose(this.c);
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADExposure() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdShow((etb) this.c, this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADLeftApplication() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADReceive() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+                ktb ktbVar = new ktb(this.d[0]);
+                this.c = ktbVar;
+                this.e.onAdLoaded(ktbVar, new String[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onNoAD(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
+                this.e.onError(adError.getErrorCode(), adError.getErrorMsg());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public etb(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new vsb(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.osb
+    public void e(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (!(context instanceof Activity)) {
+                onError(0, "NoA");
+                return;
+            }
+            UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.mPid.pid, new a(this, r6));
+            unifiedBannerView.setRefresh(0);
+            unifiedBannerView.loadAD();
+            UnifiedBannerView[] unifiedBannerViewArr = {unifiedBannerView};
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        ktb ktbVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (ktbVar = (ktb) obj) != null) {
+            ((UnifiedBannerView) ktbVar.a).destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            ktb ktbVar = (ktb) obj;
+            onShowStart(ktbVar);
+            if (((UnifiedBannerView) ktbVar.a).getParent() != null) {
+                ((ViewGroup) ((UnifiedBannerView) ktbVar.a).getParent()).removeView((View) ktbVar.a);
+            }
+            viewGroup.removeAllViews();
+            int width = viewGroup.getWidth();
+            viewGroup.addView((View) ktbVar.a, new ViewGroup.LayoutParams(width, Math.round(width / 6.4f)));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

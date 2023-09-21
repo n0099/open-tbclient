@@ -8,7 +8,7 @@ public final class CharCodeJVMKt {
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
     /* renamed from: Char-xj2QHRw  reason: not valid java name */
-    public static final char m846Charxj2QHRw(short s) {
+    public static final char m848Charxj2QHRw(short s) {
         return (char) (s & UShort.MAX_VALUE);
     }
 }

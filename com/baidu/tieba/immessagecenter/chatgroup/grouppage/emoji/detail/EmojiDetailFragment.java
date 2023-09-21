@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ao5;
+import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.EmojiDetailRecyclerAdapter;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiDetailUserInfo;
-import com.baidu.tieba.lp8;
-import com.baidu.tieba.qp8;
-import com.baidu.tieba.wn5;
+import com.baidu.tieba.jt8;
+import com.baidu.tieba.nt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,13 +35,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class EmojiDetailFragment extends BaseFragment implements lp8 {
+public class EmojiDetailFragment extends BaseFragment implements jt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EmojiDetailRecyclerAdapter a;
     public final TbPageContext<BaseFragmentActivity> b;
     @NonNull
-    public final qp8 c;
+    public final nt8 c;
     public final BdUniqueId d;
     public boolean e;
     public View f;
@@ -112,7 +112,7 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 b bVar = new b();
                 bVar.a = view2;
-                bVar.b = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09099b);
+                bVar.b = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090993);
                 return bVar;
             }
             return (b) invokeL.objValue;
@@ -120,17 +120,17 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements lp8 {
+    public static class c implements jt8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<lp8> a;
+        public final WeakReference<jt8> a;
 
-        public c(lp8 lp8Var) {
+        public c(jt8 jt8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lp8Var};
+                Object[] objArr = {jt8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -140,24 +140,24 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(lp8Var);
+            this.a = new WeakReference<>(jt8Var);
         }
 
-        @Override // com.baidu.tieba.lp8
+        @Override // com.baidu.tieba.jt8
         public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
-            lp8 lp8Var;
+            jt8 jt8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (lp8Var = this.a.get()) != null) {
-                lp8Var.a(z, list);
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (jt8Var = this.a.get()) != null) {
+                jt8Var.a(z, list);
             }
         }
 
-        @Override // com.baidu.tieba.lp8
+        @Override // com.baidu.tieba.jt8
         public void onFailure(int i, String str) {
-            lp8 lp8Var;
+            jt8 jt8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (lp8Var = this.a.get()) != null) {
-                lp8Var.onFailure(i, str);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (jt8Var = this.a.get()) != null) {
+                jt8Var.onFailure(i, str);
             }
         }
     }
@@ -181,7 +181,7 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
         this.e = false;
         this.k = new a(this);
         this.b = tbPageContext;
-        this.c = new qp8(tbPageContext, emojiData, j, this.d);
+        this.c = new nt8(tbPageContext, emojiData, j, this.d);
         this.j = new c(this);
     }
 
@@ -197,10 +197,28 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
         }
     }
 
-    public final TextView Z1(boolean z) {
+    @Override // com.baidu.tieba.jt8
+    public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
+            if (isLoadingViewAttached()) {
+                hideLoading();
+            }
+            this.i = z;
+            this.a.l(list);
+            TextView f2 = f2(z);
+            if (this.g.b.getFooterViewsCount() == 0 && f2.getParent() == null) {
+                this.g.b.addFooterView(f2);
+            } else {
+                f2(z);
+            }
+        }
+    }
+
+    public final TextView f2(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             if (this.h == null) {
                 this.h = new TextView(this.b.getPageActivity());
                 this.h.setLayoutParams(new RecyclerView.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds100)));
@@ -217,25 +235,7 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
         return (TextView) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.lp8
-    public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, list) == null) {
-            if (isLoadingViewAttached()) {
-                hideLoading();
-            }
-            this.i = z;
-            this.a.l(list);
-            TextView Z1 = Z1(z);
-            if (this.g.b.getFooterViewsCount() == 0 && Z1.getParent() == null) {
-                this.g.b.addFooterView(Z1);
-            } else {
-                Z1(z);
-            }
-        }
-    }
-
-    public void a2() {
+    public void g2() {
         b bVar;
         BdRecyclerView bdRecyclerView;
         Interceptable interceptable = $ic;
@@ -244,24 +244,24 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
         }
     }
 
-    public final void c2() {
+    public final void hideLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            hideLoading();
-            showNetRefreshView(this.g.a, null, false);
-            wn5 wn5Var = this.mRefreshView;
-            if (wn5Var != null) {
-                wn5Var.getAttachedView().setClickable(false);
-                this.mRefreshView.e(R.color.transparent);
-            }
+            hideLoadingView(getView());
+            this.loadingView = null;
         }
     }
 
-    public final void hideLoading() {
+    public final void i2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            hideLoadingView(getView());
-            this.loadingView = null;
+            hideLoading();
+            showNetRefreshView(this.g.a, null, false);
+            ao5 ao5Var = this.mRefreshView;
+            if (ao5Var != null) {
+                ao5Var.getAttachedView().setClickable(false);
+                this.mRefreshView.e(R.color.transparent);
+            }
         }
     }
 
@@ -270,12 +270,12 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onNetRefreshButtonClicked();
-            b2();
+            h2();
             this.c.g(this.j);
         }
     }
 
-    public final void b2() {
+    public final void h2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             hideNetRefreshView(getView());
@@ -303,11 +303,11 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.lp8
+    @Override // com.baidu.tieba.jt8
     public void onFailure(int i, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) && isLoadingViewAttached()) {
-            c2();
+            i2();
         }
     }
 
@@ -323,7 +323,7 @@ public class EmojiDetailFragment extends BaseFragment implements lp8 {
                 this.g.b.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
                 this.g.b.setOnSrollToBottomListener(this.k);
                 this.g.b.setAdapter(this.a);
-                b2();
+                h2();
                 this.c.g(this.j);
             }
         }

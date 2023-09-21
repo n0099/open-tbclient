@@ -2,139 +2,101 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.os.Build;
-import android.telephony.SubscriptionInfo;
-import android.telephony.SubscriptionManager;
-import android.text.TextUtils;
-import android.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.cmic.sso.sdk.auth.AuthnHelper;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zq1 {
+public class zq1 implements ar1 {
     public static /* synthetic */ Interceptable $ic;
+    public static zq1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ar1 a;
+    public boolean b;
 
-    public static String b(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public zq1() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) ? z ? str : "" : (String) invokeLZ.objValue;
-    }
-
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (!ap1.g(context).e()) {
-                    return -1000;
-                }
-                if (Build.VERSION.SDK_INT < 24) {
-                    return -1001;
-                }
-                if (!qq1.n(context)) {
-                    return -1002;
-                }
-                return SubscriptionManager.getDefaultDataSubscriptionId();
-            } catch (Throwable th) {
-                qq1.d(th);
-                return -1001;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.intValue;
+        this.a = null;
+        this.b = false;
     }
 
-    public static Pair<Integer, Integer> c(Context context) {
-        InterceptResult invokeL;
-        int i;
-        int parseInt;
-        int parseInt2;
+    public static zq1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i2 = -1;
-            Pair<Integer, Integer> pair = new Pair<>(-1, -1);
-            try {
-                JSONObject networkType = AuthnHelper.getInstance(context).getNetworkType(context);
-                if (networkType == null) {
-                    return pair;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (zq1.class) {
+                    if (c == null) {
+                        c = new zq1();
+                    }
                 }
-                if (networkType.has("networktype")) {
-                    parseInt = Integer.parseInt(networkType.optString("networktype", "-1"));
-                    parseInt2 = Integer.parseInt(networkType.optString("operatortype", "-1"));
-                } else if (networkType.has("networkType")) {
-                    parseInt = Integer.parseInt(networkType.optString("networkType", "-1"));
-                    parseInt2 = Integer.parseInt(networkType.optString("operatorType", "-1"));
+            }
+            return c;
+        }
+        return (zq1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ar1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ar1 ar1Var = this.a;
+            if (ar1Var == null) {
+                return null;
+            }
+            try {
+                return ar1Var.a();
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ar1
+    public void a(Context context, br1 br1Var) {
+        ar1 dr1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, br1Var) == null) {
+            try {
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                int ordinal = com.baidu.sso.u.a.a(Build.MANUFACTURER).ordinal();
+                if (ordinal != 0) {
+                    if (ordinal == 1) {
+                        dr1Var = new dr1();
+                    } else if (ordinal == 2) {
+                        dr1Var = new lr1();
+                    } else if (ordinal == 3) {
+                        dr1Var = new jr1();
+                    } else if (ordinal == 4) {
+                        dr1Var = new fr1();
+                    }
+                    this.a = dr1Var;
                 } else {
-                    i = -1;
-                    return Pair.create(Integer.valueOf(i2), Integer.valueOf(i));
+                    this.a = null;
                 }
-                i = parseInt2;
-                i2 = parseInt;
-                return Pair.create(Integer.valueOf(i2), Integer.valueOf(i));
-            } catch (Throwable th) {
-                qq1.d(th);
-                return pair;
+                if (this.a != null) {
+                    this.a.a(context, br1Var);
+                }
+            } catch (Throwable unused) {
             }
         }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static Pair<Integer, String[]> d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                if (!ap1.g(context).e()) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000)});
-                }
-                if (Build.VERSION.SDK_INT < 22) {
-                    return new Pair<>(-2, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!wq1.a(context, com.kuaishou.weapon.p0.h.c)) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!qq1.n(context)) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002)});
-                }
-                List<SubscriptionInfo> activeSubscriptionInfoList = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoList();
-                if (activeSubscriptionInfoList == null) {
-                    return new Pair<>(0, new String[]{String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003)});
-                }
-                String[] strArr = new String[4];
-                int i = 0;
-                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                    int i2 = i * 2;
-                    int simSlotIndex = subscriptionInfo.getSimSlotIndex();
-                    int subscriptionId = subscriptionInfo.getSubscriptionId();
-                    String iccId = subscriptionInfo.getIccId();
-                    if (TextUtils.isEmpty(iccId)) {
-                        iccId = String.valueOf(-1003);
-                    }
-                    strArr[i2] = simSlotIndex + "_" + subscriptionId + "_" + iccId;
-                    CharSequence carrierName = subscriptionInfo.getCarrierName();
-                    if (carrierName != null) {
-                        strArr[i2 + 1] = carrierName.toString();
-                    } else {
-                        strArr[i2 + 1] = String.valueOf(-1003);
-                    }
-                    i++;
-                    if (i >= 2) {
-                        break;
-                    }
-                }
-                for (int i3 = 0; i3 < 4; i3++) {
-                    if (TextUtils.isEmpty(strArr[i3])) {
-                        strArr[i3] = String.valueOf(-1003);
-                    }
-                }
-                return new Pair<>(Integer.valueOf(i), strArr);
-            } catch (Throwable th) {
-                qq1.d(th);
-                return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-            }
-        }
-        return (Pair) invokeL.objValue;
     }
 }

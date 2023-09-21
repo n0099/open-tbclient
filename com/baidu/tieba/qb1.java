@@ -1,46 +1,33 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Message;
-import android.view.KeyEvent;
-import android.webkit.SslErrorHandler;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface qb1 extends wa1 {
-    void A0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
+public abstract class qb1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Object a;
 
-    void B0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
+    public qb1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void F0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    boolean J(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    boolean M0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void Q(AbsNadBrowserView absNadBrowserView, String str);
-
-    void T0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
-
-    void U0(AbsNadBrowserView absNadBrowserView, rb1 rb1Var, String str, String str2);
-
-    void X0();
-
-    void c(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
-
-    void f(AbsNadBrowserView absNadBrowserView, String str);
-
-    void g(AbsNadBrowserView absNadBrowserView);
-
-    void g0();
-
-    void m1(AbsNadBrowserView absNadBrowserView, int i);
-
-    tb1 n0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void s(AbsNadBrowserView absNadBrowserView, String str);
-
-    void s0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
-
-    void z(AbsNadBrowserView absNadBrowserView, float f, float f2);
+    public final void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            this.a = obj;
+        }
+    }
 }

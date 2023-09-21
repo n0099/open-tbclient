@@ -2,8 +2,8 @@ package com.huawei.hms.aaid;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wyb;
-import com.baidu.tieba.xyb;
+import com.baidu.tieba.o0c;
+import com.baidu.tieba.p0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import com.huawei.hms.opendevice.q;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.UUID;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class HmsInstanceIdEx {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HmsInstanceIdEx";
@@ -93,15 +93,15 @@ public class HmsInstanceIdEx {
         return (HmsInstanceIdEx) invokeL.objValue;
     }
 
-    public final wyb<TokenResult> a(Exception exc) {
+    public final o0c<TokenResult> a(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, exc)) == null) {
-            xyb xybVar = new xyb();
-            xybVar.c(exc);
-            return xybVar.b();
+            p0c p0cVar = new p0c();
+            p0cVar.c(exc);
+            return p0cVar.b();
         }
-        return (wyb) invokeL.objValue;
+        return (o0c) invokeL.objValue;
     }
 
     public final String a(String str) {
@@ -155,8 +155,8 @@ public class HmsInstanceIdEx {
         return invokeL.longValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.wyb<TResult>, com.baidu.tieba.wyb<com.huawei.hms.aaid.entity.TokenResult> */
-    public wyb<TokenResult> getToken() {
+    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.o0c<TResult>, com.baidu.tieba.o0c<com.huawei.hms.aaid.entity.TokenResult> */
+    public o0c<TokenResult> getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -164,9 +164,9 @@ public class HmsInstanceIdEx {
                 try {
                     HMSLog.i(TAG, "use proxy get token, please check HmsMessageService.onNewToken receive result.");
                     ProxyCenter.getProxy().getToken(this.a, null, null);
-                    xyb xybVar = new xyb();
-                    xybVar.setResult(new TokenResult());
-                    return xybVar.b();
+                    p0c p0cVar = new p0c();
+                    p0cVar.setResult(new TokenResult());
+                    return p0cVar.b();
                 } catch (ApiException e) {
                     return a(e);
                 } catch (Exception unused) {
@@ -186,6 +186,6 @@ public class HmsInstanceIdEx {
                 return a(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
             }
         }
-        return (wyb) invokeV.objValue;
+        return (o0c) invokeV.objValue;
     }
 }

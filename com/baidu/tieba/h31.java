@@ -1,215 +1,247 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean f(Object obj) {
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+        }
+    }
+
+    public static void i(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
+        }
+    }
+
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
-
-    public static void o(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, exc) == null) {
-        }
-    }
-
-    public static <T> void a(List<T> list, T t, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, list, t, i) != null) || f(list) || !e(list, i)) {
-            return;
-        }
-        try {
-            list.add(i, t);
-        } catch (Exception e) {
-            o(e);
-        }
-    }
-
-    public static <T> boolean b(List<T> list, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, t)) == null) {
-            if (f(list)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            try {
-                return list.add(t);
-            } catch (Exception e) {
-                o(e);
-                return false;
-            }
+            return j(str).replaceAll("\"\\{", "\\{").replaceAll("\\}\"", "\\}");
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.Collection<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void c(Collection<T> collection, Collection<T> collection2) {
+    public static Map<String, String> b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, collection, collection2) == null) && collection2 != 0 && collection != null) {
-            collection.addAll(collection2);
-        }
-    }
-
-    @Nullable
-    public static <T> T d(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            try {
-                return list.get(i);
-            } catch (Exception e) {
-                o(e);
-                return null;
-            }
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> boolean e(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i)) == null) {
-            if (f(list) || i < 0) {
-                return false;
-            }
-            try {
-                if (i >= list.size()) {
-                    return false;
+            HashMap hashMap = new HashMap();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                    hashMap.put(next, optString);
                 }
-                return true;
-            } catch (Exception e) {
-                o(e);
-                return false;
             }
+            return hashMap;
         }
-        return invokeLI.booleanValue;
+        return (Map) invokeL.objValue;
     }
 
-    @Nullable
-    public static <T> T i(List<T> list, int i) {
-        InterceptResult invokeLI;
+    @NonNull
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (Exception e) {
+                h(e.getMessage());
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str == null) {
                 return null;
             }
             try {
-                return list.remove(i);
-            } catch (Exception e) {
-                o(e);
+                StringWriter stringWriter = new StringWriter(str.length());
+                k(stringWriter, str);
+                return stringWriter.toString();
+            } catch (IOException e) {
+                h(e.getMessage());
                 return null;
             }
         }
-        return (T) invokeLI.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static <T> boolean j(List<T> list, T t) {
-        InterceptResult invokeLL;
+    public static void d(JSONObject jSONObject, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, t)) == null) {
-            if (g(list)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, jSONObject, str, i) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, i);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
             }
-            try {
-                return list.remove(t);
-            } catch (Exception e) {
-                o(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> boolean k(List<T> list, Collection<?> collection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, list, collection)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.removeAll(collection);
-            } catch (Exception e) {
-                Log.e("CollectionUtils", "throw exception when List removeAll");
-                o(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> void n(List<T> list, Comparator<? super T> comparator) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65549, null, list, comparator) != null) || f(list)) {
-            return;
-        }
-        try {
-            Collections.sort(list, comparator);
-        } catch (Exception e) {
-            Log.e("CollectionUtils", "throw exception when List sort");
-            o(e);
+            h("json或key值不合法！");
         }
     }
 
-    public static <T> boolean g(List<T> list) {
-        InterceptResult invokeL;
+    public static <T> void f(JSONObject jSONObject, String str, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, jSONObject, str, t) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, t);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
             }
-            return true;
+            h("json或key值不合法！");
         }
-        return invokeL.booleanValue;
     }
 
-    public static <K, V> boolean h(Map<K, V> map) {
-        InterceptResult invokeL;
+    public static void g(JSONObject jSONObject, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
-            if (!f(map) && !map.isEmpty()) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, jSONObject, str, z) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, z);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
             }
-            return true;
+            h("json或key值不合法！");
         }
-        return invokeL.booleanValue;
     }
 
-    public static <T> int l(List<T> list) {
-        InterceptResult invokeL;
+    public static void e(JSONObject jSONObject, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return list.size();
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONObject, str, Long.valueOf(j)}) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, j);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
             }
-            return 0;
+            h("json或key值不合法！");
         }
-        return invokeL.intValue;
     }
 
-    public static <T extends Comparable<? super T>> void m(List<T> list) {
+    public static void k(Writer writer, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, list) == null) {
-            n(list, null);
+        if (interceptable == null || interceptable.invokeLL(65546, null, writer, str) == null) {
+            if (writer != null) {
+                if (str != null) {
+                    int length = str.length();
+                    StringBuilder sb = new StringBuilder(4);
+                    boolean z = false;
+                    boolean z2 = false;
+                    for (int i = 0; i < length; i++) {
+                        char charAt = str.charAt(i);
+                        if (z2) {
+                            sb.append(charAt);
+                            if (sb.length() == 4) {
+                                try {
+                                    writer.write((char) Integer.parseInt(sb.toString(), 16));
+                                    sb.setLength(0);
+                                    z = false;
+                                    z2 = false;
+                                } catch (NumberFormatException e) {
+                                    h(e.getMessage());
+                                }
+                            }
+                        } else if (z) {
+                            if (charAt != '\"') {
+                                if (charAt != '\'') {
+                                    if (charAt != '\\') {
+                                        if (charAt != 'b') {
+                                            if (charAt != 'f') {
+                                                if (charAt != 'n') {
+                                                    if (charAt != 'r') {
+                                                        if (charAt != 't') {
+                                                            if (charAt != 'u') {
+                                                                writer.write(charAt);
+                                                            } else {
+                                                                z = false;
+                                                                z2 = true;
+                                                            }
+                                                        } else {
+                                                            writer.write(9);
+                                                        }
+                                                    } else {
+                                                        writer.write(13);
+                                                    }
+                                                } else {
+                                                    writer.write(10);
+                                                }
+                                            } else {
+                                                writer.write(12);
+                                            }
+                                        } else {
+                                            writer.write(8);
+                                        }
+                                    } else {
+                                        writer.write(92);
+                                    }
+                                } else {
+                                    writer.write(39);
+                                }
+                            } else {
+                                writer.write(34);
+                            }
+                            z = false;
+                        } else if (charAt == '\\') {
+                            z = true;
+                        } else {
+                            writer.write(charAt);
+                        }
+                    }
+                    if (z) {
+                        writer.write(92);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("The Writer must not be null");
         }
     }
 }

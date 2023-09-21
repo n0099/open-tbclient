@@ -30,6 +30,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gz8;
+import com.baidu.tieba.hz8;
 import com.baidu.tieba.immessagecenter.arch.utils.SafetyLinearLayoutManager;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
@@ -38,10 +40,8 @@ import com.baidu.tieba.immessagecenter.msgtab.ui.adapter.MsgTabViewPagerAdapter;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgCenterContainerView;
 import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgCenterContainerViewModel;
-import com.baidu.tieba.nx8;
-import com.baidu.tieba.ox8;
-import com.baidu.tieba.qu8;
-import com.baidu.tieba.rx8;
+import com.baidu.tieba.jw8;
+import com.baidu.tieba.kz8;
 import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,7 +57,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 @Metadata(d1 = {"\u0000¤\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\t\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u0001B!\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\n¢\u0006\u0002\u0010\u000bJ\u001f\u0010*\u001a\u00020+2\b\u0010,\u001a\u0004\u0018\u00010\n2\u0006\u0010-\u001a\u00020\nH\u0002¢\u0006\u0002\u0010.J\u0006\u0010/\u001a\u00020+J\f\u00100\u001a\b\u0012\u0004\u0012\u00020\u000601J\b\u00102\u001a\u00020\nH\u0002J\u0010\u00103\u001a\u00020+2\u0006\u00104\u001a\u000205H\u0014J\u0010\u00106\u001a\u00020+2\u0006\u00104\u001a\u000205H\u0002J\b\u00107\u001a\u00020\u0004H\u0014J\u0010\u00108\u001a\u00020+2\u0006\u00109\u001a\u00020:H\u0016J\b\u0010;\u001a\u00020+H\u0014J\u0010\u0010<\u001a\u00020+2\u0006\u0010=\u001a\u00020\u0002H\u0014J\u0018\u0010>\u001a\u00020+2\u000e\u0010?\u001a\n\u0012\u0004\u0012\u00020A\u0018\u00010@H\u0002J\b\u0010B\u001a\u00020+H\u0002J\u0006\u0010C\u001a\u00020+J\u0006\u0010D\u001a\u00020+J\u0006\u0010E\u001a\u00020+J\u0006\u0010F\u001a\u00020+J\u0017\u0010G\u001a\u00020+2\b\u0010H\u001a\u0004\u0018\u00010:H\u0002¢\u0006\u0002\u0010IR\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\fR\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u0012\u0010\u0011\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\fR\u000e\u0010\u0012\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u001cX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u0004\u0018\u00010\u001eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u001cX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010'\u001a\u0004\u0018\u00010(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u001aX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006J"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgCenterContainerView;", "Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterNavigationUiState;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterNavigationUiIntent;", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/vm/MsgCenterContainerViewModel;", "activity", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "fragment", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment;", "defaultSelectedTabId", "", "(Lcom/baidu/tbadk/core/BaseFragmentActivity;Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment;Ljava/lang/Long;)V", "Ljava/lang/Long;", "mBgView", "Landroid/widget/ImageView;", "mBottomMaskView", "Landroid/view/View;", "mCurrentSelectedId", "mDividerLineBgView", "mEnterChatBtn", "Landroid/widget/TextView;", "mExtFunView", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/NaExtensionView;", "mFragmentTabAdapter", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/adapter/MsgTabViewPagerAdapter;", "mHeaderNavigationAdapter", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/adapter/MsgTabSideNavigationAdapter;", "mHeaderRecyclerView", "Landroidx/recyclerview/widget/RecyclerView;", "mLeftDrawable", "Landroid/graphics/drawable/Drawable;", "mNavigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "mRecyclerView", "mTopMaskView", "mTopSpace", "Landroid/widget/Space;", "mViewPager", "Landroidx/viewpager2/widget/ViewPager2;", "msgTabGuide", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabGuide;", "msgTabSideNavigationAdapter", "changeToPage", "", "oldSelectedId", "newSelectedId", "(Ljava/lang/Long;J)V", "doAfterRender", "getPageContext", "Lcom/baidu/tbadk/TbPageContext;", "getSelectedDataId", "init", "context", "Landroid/content/Context;", "initNavigationBar", "initViewModel", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onFinishInflate", "onRender", "state", "renderBodyData", "data", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "renderHeaderData", "requestData", "requestSilent", "resetSelected", "tryShowGuide", "updateNavigationBar", "type", "(Ljava/lang/Integer;)V", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterContainerViewModel> {
+public final class MsgCenterContainerView extends BaseView<hz8, gz8, MsgCenterContainerViewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity f;
@@ -111,44 +111,81 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: c0 */
-    public void H(ox8 state) {
+    /* renamed from: b0 */
+    public void H(hz8 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            if (state instanceof ox8.a) {
-                d0(((ox8.a) state).a());
+            if (state instanceof hz8.a) {
+                c0(((hz8.a) state).a());
             }
-            R();
+            Q();
         }
     }
 
-    public final void d0(List<qu8> list) {
+    public final void c0(List<jw8> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && list != null) {
             this.w.o(list);
             this.u.n(list);
-            this.g.X1().onNext(list);
+            this.g.d2().onNext(list);
         }
     }
 
-    public static final void Q(MsgCenterContainerView this$0, Pair pair) {
+    public static final void T(MsgCenterContainerView this$0, View view2, jw8 itemData, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, pair) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, view2, itemData, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(pair, "$pair");
-            ViewPager2 viewPager2 = this$0.n;
-            if (viewPager2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mViewPager");
-                viewPager2 = null;
+            Intrinsics.checkNotNullParameter(itemData, "itemData");
+            this$0.h = null;
+            if (itemData.getType() == 3) {
+                kz8.a.b(Long.valueOf(itemData.a()));
+                this$0.P(this$0.x, itemData.a());
+                this$0.f0();
             }
-            viewPager2.setCurrentItem(((Number) pair.getFirst()).intValue(), false);
         }
     }
 
-    public static final void a0(Context context, View view2) {
+    public static final void U(MsgCenterContainerView this$0, View view2, jw8 itemData, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, view2) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{this$0, view2, itemData, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(itemData, "itemData");
+            this$0.h = null;
+            int type = itemData.getType();
+            if (type != 1) {
+                if (type == 2) {
+                    kz8.a.d();
+                    this$0.P(this$0.x, itemData.a());
+                    return;
+                }
+                return;
+            }
+            kz8.a.f();
+            this$0.P(this$0.x, itemData.a());
+        }
+    }
+
+    public static final void V(MsgCenterContainerView this$0, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.o().k(new gz8.c(this$0.R(), "https://tieba.baidu.com/mo/q/hybrid-main-chatgroup/all-channel?customfullscreen=1&nonavigationbar=1"));
+            kz8.a.h();
+        }
+    }
+
+    public static final void X(MsgCenterContainerView this$0, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, this$0, view2) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.f.finish();
+        }
+    }
+
+    public static final void Y(Context context, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, view2) == null) {
             Intrinsics.checkNotNullParameter(context, "$context");
             ShareFriendActivityConfig shareFriendActivityConfig = new ShareFriendActivityConfig(context);
             shareFriendActivityConfig.setIsForChat(true);
@@ -157,77 +194,26 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
         }
     }
 
-    public static final void U(MsgCenterContainerView this$0, View view2, qu8 itemData, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{this$0, view2, itemData, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(itemData, "itemData");
-            this$0.h = null;
-            if (itemData.getType() == 3) {
-                rx8.a.b(Long.valueOf(itemData.a()));
-                this$0.P(this$0.x, itemData.a());
-                this$0.g0();
-            }
-        }
-    }
-
-    public static final void W(MsgCenterContainerView this$0, View view2, qu8 itemData, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{this$0, view2, itemData, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(itemData, "itemData");
-            this$0.h = null;
-            int type = itemData.getType();
-            if (type != 1) {
-                if (type == 2) {
-                    rx8.a.d();
-                    this$0.P(this$0.x, itemData.a());
-                    return;
-                }
-                return;
-            }
-            rx8.a.f();
-            this$0.P(this$0.x, itemData.a());
-        }
-    }
-
-    public static final void X(MsgCenterContainerView this$0, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.n().k(new nx8.c(this$0.S(), "https://tieba.baidu.com/mo/q/hybrid-main-chatgroup/all-channel?customfullscreen=1&nonavigationbar=1"));
-            rx8.a.h();
-        }
-    }
-
-    public static final void Z(MsgCenterContainerView this$0, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.f.finish();
-        }
-    }
-
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    public void G() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.o = (ImageView) j(R.id.obfuscated_res_0x7f091fa0);
-            this.l = (RecyclerView) j(R.id.obfuscated_res_0x7f092008);
-            this.m = (RecyclerView) j(R.id.obfuscated_res_0x7f09200a);
-            this.n = (ViewPager2) j(R.id.obfuscated_res_0x7f092a42);
-            NavigationBar navigationBar = (NavigationBar) j(R.id.navigation_bar);
+            this.o = (ImageView) k(R.id.obfuscated_res_0x7f091f69);
+            this.l = (RecyclerView) k(R.id.obfuscated_res_0x7f091fd2);
+            this.m = (RecyclerView) k(R.id.obfuscated_res_0x7f091fd4);
+            this.n = (ViewPager2) k(R.id.obfuscated_res_0x7f092a0d);
+            NavigationBar navigationBar = (NavigationBar) k(R.id.navigation_bar);
             this.i = navigationBar;
             if (navigationBar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mNavigationBar");
                 navigationBar = null;
             }
             navigationBar.setBarBackgourndColor(R.color.transparent);
-            this.p = (NaExtensionView) j(R.id.obfuscated_res_0x7f090aba);
-            this.q = j(R.id.obfuscated_res_0x7f092674);
-            this.r = j(R.id.obfuscated_res_0x7f09047d);
-            this.s = (Space) j(R.id.obfuscated_res_0x7f09267d);
-            this.t = j(R.id.obfuscated_res_0x7f09090a);
+            this.p = (NaExtensionView) k(R.id.obfuscated_res_0x7f090ab2);
+            this.q = k(R.id.obfuscated_res_0x7f09263f);
+            this.r = k(R.id.obfuscated_res_0x7f090475);
+            this.s = (Space) k(R.id.obfuscated_res_0x7f092648);
+            this.t = k(R.id.obfuscated_res_0x7f090902);
         }
     }
 
@@ -246,51 +232,40 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 msgTabGuide2.s();
             }
             if (this.g.isPrimary()) {
-                i0();
+                h0();
             }
             if (l != null && l.longValue() == j) {
                 return;
             }
-            final Pair<Integer, qu8> n = this.w.n(j);
+            Pair<Integer, jw8> n = this.w.n(j);
             ViewPager2 viewPager2 = null;
             if (n == null) {
                 this.x = null;
                 return;
             }
             this.x = Long.valueOf(j);
-            j0(Integer.valueOf(n.getSecond().getType()));
+            i0(Integer.valueOf(n.getSecond().getType()));
             ViewPager2 viewPager22 = this.n;
             if (viewPager22 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mViewPager");
             } else {
                 viewPager2 = viewPager22;
             }
-            viewPager2.post(new Runnable() { // from class: com.baidu.tieba.iw8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        MsgCenterContainerView.Q(MsgCenterContainerView.this, n);
-                    }
-                }
-            });
+            viewPager2.setCurrentItem(n.getFirst().intValue(), false);
             int i = 0;
             for (Object obj : this.v.l()) {
                 int i2 = i + 1;
                 if (i < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                qu8 qu8Var = (qu8) obj;
-                if (j == qu8Var.a()) {
-                    qu8Var.c(true);
+                jw8 jw8Var = (jw8) obj;
+                if (j == jw8Var.a()) {
+                    jw8Var.c(true);
                     this.v.notifyItemChanged(i);
                 } else {
-                    long a = qu8Var.a();
+                    long a = jw8Var.a();
                     if (l != null && l.longValue() == a) {
-                        qu8Var.c(false);
+                        jw8Var.c(false);
                         this.v.notifyItemChanged(i);
                     }
                 }
@@ -302,14 +277,14 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 if (i3 < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                qu8 qu8Var2 = (qu8) obj2;
-                if (j == qu8Var2.a()) {
-                    qu8Var2.c(true);
+                jw8 jw8Var2 = (jw8) obj2;
+                if (j == jw8Var2.a()) {
+                    jw8Var2.c(true);
                     this.u.notifyItemChanged(i3);
                 } else {
-                    long a2 = qu8Var2.a();
+                    long a2 = jw8Var2.a();
                     if (l != null && l.longValue() == a2) {
-                        qu8Var2.c(false);
+                        jw8Var2.c(false);
                         this.u.notifyItemChanged(i3);
                     }
                 }
@@ -318,7 +293,7 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
         }
     }
 
-    public final void R() {
+    public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Long l = this.x;
@@ -329,11 +304,11 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                     return;
                 }
             }
-            h0();
+            g0();
         }
     }
 
-    public final TbPageContext<BaseFragmentActivity> S() {
+    public final TbPageContext<BaseFragmentActivity> R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -346,8 +321,8 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: b0 */
-    public MsgCenterContainerViewModel q() {
+    /* renamed from: Z */
+    public MsgCenterContainerViewModel r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -358,28 +333,28 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
         return (MsgCenterContainerViewModel) invokeV.objValue;
     }
 
-    public final void f0() {
+    public final void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            n().k(new nx8.b(S()));
+            o().k(new gz8.b(R()));
+        }
+    }
+
+    public final void f0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            o().k(new gz8.a(R()));
         }
     }
 
     public final void g0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            n().k(new nx8.a(S()));
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            P(this.x, S());
         }
     }
 
     public final void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            P(this.x, T());
-        }
-    }
-
-    public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (this.y == null) {
@@ -392,7 +367,7 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
         }
     }
 
-    public final long T() {
+    public final long S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -402,23 +377,23 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 Intrinsics.checkNotNull(l2);
                 return l2.longValue();
             }
-            return n().m(-2L);
+            return o().m(-2L);
         }
         return invokeV.longValue;
     }
 
-    public final void e0() {
+    public final void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new qu8(-1L, 1, false, 4, null));
-            arrayList.add(new qu8(-2L, 2, false, 4, null));
+            arrayList.add(new jw8(-1L, 1, false, 4, null));
+            arrayList.add(new jw8(-2L, 2, false, 4, null));
             this.w.p(arrayList);
             this.v.n(arrayList);
         }
     }
 
-    public final void Y(final Context context) {
+    public final void W(final Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             NavigationBar navigationBar = this.i;
@@ -433,7 +408,7 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 Intrinsics.throwUninitializedPropertyAccessException("mNavigationBar");
                 navigationBar3 = null;
             }
-            navigationBar3.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.hw8
+            navigationBar3.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.gy8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -441,14 +416,14 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        MsgCenterContainerView.Z(MsgCenterContainerView.this, view2);
+                        MsgCenterContainerView.X(MsgCenterContainerView.this, view2);
                     }
                 }
             });
             TextView textView = new TextView(context);
             textView.setText(context.getString(R.string.im_send_private_msg));
             int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds60);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b1d, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b1c, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS);
             this.k = pureDrawable;
             if (pureDrawable != null) {
                 pureDrawable.setBounds(0, 0, dimens, dimens);
@@ -468,7 +443,7 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
             } else {
                 navigationBar2 = navigationBar4;
             }
-            navigationBar2.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.j, new View.OnClickListener() { // from class: com.baidu.tieba.rw8
+            navigationBar2.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.j, new View.OnClickListener() { // from class: com.baidu.tieba.cy8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -476,14 +451,14 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        MsgCenterContainerView.a0(context, view2);
+                        MsgCenterContainerView.Y(context, view2);
                     }
                 }
             });
         }
     }
 
-    public final void j0(Integer num) {
+    public final void i0(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, num) == null) {
             NavigationBar navigationBar = null;
@@ -527,7 +502,7 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
         }
     }
 
-    @Override // com.baidu.tieba.il8
+    @Override // com.baidu.tieba.nq8
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -538,7 +513,7 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 naExtensionView = null;
             }
             naExtensionView.b(i);
-            SkinManager.setBackgroundColor(l(), R.color.CAM_X0202, i);
+            SkinManager.setBackgroundColor(n(), R.color.CAM_X0202, i);
             View view2 = this.t;
             if (view2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mDividerLineBgView");
@@ -551,38 +526,38 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                     Intrinsics.throwUninitializedPropertyAccessException("mBgView");
                     imageView = null;
                 }
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08112c);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081127);
                 View view3 = this.q;
                 if (view3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mTopMaskView");
                     view3 = null;
                 }
-                view3.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff9);
+                view3.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff4);
                 View view4 = this.r;
                 if (view4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mBottomMaskView");
                     view4 = null;
                 }
-                view4.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff7);
+                view4.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff2);
             } else {
                 ImageView imageView2 = this.o;
                 if (imageView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mBgView");
                     imageView2 = null;
                 }
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08112b);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081126);
                 View view5 = this.q;
                 if (view5 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mTopMaskView");
                     view5 = null;
                 }
-                view5.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff8);
+                view5.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff3);
                 View view6 = this.r;
                 if (view6 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mBottomMaskView");
                     view6 = null;
                 }
-                view6.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff6);
+                view6.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ff1);
             }
             NavigationBar navigationBar = this.i;
             if (navigationBar == null) {
@@ -595,7 +570,7 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 Intrinsics.throwUninitializedPropertyAccessException("mNavigationBar");
                 navigationBar2 = null;
             }
-            navigationBar2.onChangeSkinType(S(), i);
+            navigationBar2.onChangeSkinType(R(), i);
             TextView textView = this.j;
             if (textView != null) {
                 EMManager.from(textView).setTextColor(R.color.CAM_X0107);
@@ -643,27 +618,27 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
             viewPager2.setOrientation(1);
             viewPager2.setAdapter(this.w);
             viewPager2.setUserInputEnabled(false);
-            this.u.r(new vz4() { // from class: com.baidu.tieba.mw8
+            this.u.r(new vz4() { // from class: com.baidu.tieba.fy8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 @Override // com.baidu.tieba.vz4
-                public final void d(View view2, Object obj, int i, long j) {
+                public final void b(View view2, Object obj, int i, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        MsgCenterContainerView.U(MsgCenterContainerView.this, view2, (qu8) obj, i, j);
+                        MsgCenterContainerView.T(MsgCenterContainerView.this, view2, (jw8) obj, i, j);
                     }
                 }
             });
-            this.v.r(new vz4() { // from class: com.baidu.tieba.qw8
+            this.v.r(new vz4() { // from class: com.baidu.tieba.ky8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 @Override // com.baidu.tieba.vz4
-                public final void d(View view2, Object obj, int i, long j) {
+                public final void b(View view2, Object obj, int i, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        MsgCenterContainerView.W(MsgCenterContainerView.this, view2, (qu8) obj, i, j);
+                        MsgCenterContainerView.U(MsgCenterContainerView.this, view2, (jw8) obj, i, j);
                     }
                 }
             });
@@ -754,7 +729,7 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 Intrinsics.throwUninitializedPropertyAccessException("mExtFunView");
                 naExtensionView = null;
             }
-            naExtensionView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lw8
+            naExtensionView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ey8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -762,12 +737,12 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        MsgCenterContainerView.X(MsgCenterContainerView.this, view2);
+                        MsgCenterContainerView.V(MsgCenterContainerView.this, view2);
                     }
                 }
             });
             if (this.f instanceof MessageCenterActivity) {
-                Y(context);
+                W(context);
             } else {
                 Space space = this.s;
                 if (space == null) {
@@ -815,7 +790,7 @@ public final class MsgCenterContainerView extends BaseView<ox8, nx8, MsgCenterCo
                 }
                 viewPager23.setPadding(paddingLeft, paddingTop, viewPager22.getPaddingRight(), mainTabBottomBarHeight);
             }
-            e0();
+            d0();
         }
     }
 }

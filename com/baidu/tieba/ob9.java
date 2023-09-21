@@ -1,119 +1,183 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ob9 {
+public class ob9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public Context b;
-    public TextView c;
-    public ImageView d;
-    public TailData e;
-    public View f;
+    public List<lb9> a;
+    public MemberTaskCenterActivity b;
+    public View.OnClickListener c;
 
-    public ob9() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public TextView c;
+        public View d;
+
+        public a(ob9 ob9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ob9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public ob9(MemberTaskCenterActivity memberTaskCenterActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {memberTaskCenterActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.b = memberTaskCenterActivity;
+    }
+
+    public final SpannableString a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            SpannableString spannableString = new SpannableString(str + str2);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, str.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), str.length(), spannableString.length(), 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public lb9 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            List<lb9> list = this.a;
+            if (list != null && list.size() > i) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return (lb9) invokeI.objValue;
+    }
+
+    public void c(List<lb9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a.clear();
+            if (list != null) {
+                this.a.addAll(list);
             }
         }
     }
 
-    public TailData b() {
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c = onClickListener;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<lb9> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
         }
-        return (TailData) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public void c() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.f, R.drawable.tail_item_bg);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundResource(this.d, R.drawable.tail_tool_list_item_checkbox_bg);
-            SkinManager.setImageResource(this.d, R.drawable.tail_tool_list_item_checkbox_selector);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof a)) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0625, (ViewGroup) null);
+                aVar = new a(this);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09245b);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09245c);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09245d);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0908fd);
+            }
+            lb9 item = getItem(i);
+            if (item != null) {
+                aVar.a.setText(item.f());
+                aVar.b.setText(a(String.valueOf(item.a()), item.b()));
+                if (item.d()) {
+                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a92), TextView.BufferType.EDITABLE);
+                    aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+                    aVar.c.setBackgroundDrawable(null);
+                    aVar.c.setOnClickListener(null);
+                } else {
+                    aVar.c.setText(this.b.getPageContext().getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+                    SkinManager.setViewTextColor(aVar.c, (int) R.color.member_center_task_btn_textcolor);
+                    aVar.c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
+                    aVar.c.setTag(item);
+                    aVar.c.setOnClickListener(this.c);
+                }
+                SkinManager.setViewTextColor(aVar.b, (int) R.color.CAM_X0109);
+                SkinManager.setViewTextColor(aVar.a, (int) R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(aVar.d, R.color.CAM_X0204);
+            }
+            view2.setTag(aVar);
+            return view2;
         }
-    }
-
-    public View a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d097e, (ViewGroup) null);
-            this.a = inflate;
-            this.b = context;
-            inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092483);
-            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092482);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092481);
-            this.f = findViewById;
-            findViewById.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c.setTextColor(ub9.a(str));
-        }
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void f(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tailData) == null) {
-            this.e = tailData;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c.setText(TbFaceManager.i().t(this.b, vb9.a(str), null));
-        }
-    }
-
-    public void h(TailData tailData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, tailData) != null) || tailData == null) {
-            return;
-        }
-        g(tailData.getContent());
-        d(tailData.getFontColor());
-        this.d.setSelected(tailData.isSelected());
+        return (View) invokeILL.objValue;
     }
 }

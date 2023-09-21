@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class xeb {
+public final class xeb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayData a;
-    public yeb b;
+    public SQLiteDatabase a;
 
-    public xeb(AudioPlayData audioPlayData) {
+    public xeb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioPlayData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,39 +29,35 @@ public class xeb {
                 return;
             }
         }
-        this.a = audioPlayData;
-        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
-            return;
+        this.a = web.a().c();
+    }
+
+    public final List<com.baidu.ubs.analytics.a.i> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
+                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
+                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
+                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
+                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
+                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(iVar);
+            }
+            rawQuery.close();
+            return arrayList;
         }
-        this.b = new yeb(audioPlayData.audioPath);
+        return (List) invokeV.objValue;
     }
 
-    public yeb a() {
-        InterceptResult invokeV;
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (yeb) invokeV.objValue;
-    }
-
-    public AudioPlayData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            yeb yebVar = this.b;
-            return yebVar != null && yebVar.i();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(yeb yebVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yebVar) == null) {
-            this.b = yebVar;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
         }
     }
 }

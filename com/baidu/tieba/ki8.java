@@ -1,45 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.oe;
+import com.baidu.tieba.im.chat.officialBar.MultiImageTextBottomView;
+import com.baidu.tieba.im.chat.officialBar.MultiImageTextTopView;
+import com.baidu.tieba.im.chat.officialBar.SingleImageTextView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class ki8 {
+public class ki8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ChatSetting> memoryCachedSettings;
+    public ag<MultiImageTextTopView> a;
+    public ag<MultiImageTextBottomView> b;
+    public ag<SingleImageTextView> c;
 
-    public abstract ChatSetting getSetting(String str, String str2);
-
-    public abstract oe<String> getSettingCache();
-
-    public abstract void saveSetting(ChatSetting chatSetting);
-
-    public abstract void saveSettingAsync(ChatSetting chatSetting, cx5<Void> cx5Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947914159, "Lcom/baidu/tieba/ki8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947914159, "Lcom/baidu/tieba/ki8;");
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public class a extends xx5<Boolean> {
+    public class a implements bg<MultiImageTextTopView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ki8 c;
+        public final /* synthetic */ Context a;
 
-        public a(ki8 ki8Var, String str, String str2) {
+        public MultiImageTextTopView e(MultiImageTextTopView multiImageTextTopView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiImageTextTopView)) == null) ? multiImageTextTopView : (MultiImageTextTopView) invokeL.objValue;
+        }
+
+        public a(ki8 ki8Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ki8Var, str, str2};
+                Object[] objArr = {ki8Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,25 +62,279 @@ public abstract class ki8 {
                     return;
                 }
             }
-            this.c = ki8Var;
-            this.a = str;
-            this.b = str2;
+            this.a = context;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bg
+        public /* bridge */ /* synthetic */ MultiImageTextTopView a(MultiImageTextTopView multiImageTextTopView) {
+            MultiImageTextTopView multiImageTextTopView2 = multiImageTextTopView;
+            e(multiImageTextTopView2);
+            return multiImageTextTopView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bg
+        public /* bridge */ /* synthetic */ MultiImageTextTopView c(MultiImageTextTopView multiImageTextTopView) {
+            MultiImageTextTopView multiImageTextTopView2 = multiImageTextTopView;
+            h(multiImageTextTopView2);
+            return multiImageTextTopView2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.xx5
-        public Boolean doInBackground() {
+        @Override // com.baidu.tieba.bg
+        /* renamed from: f */
+        public void b(MultiImageTextTopView multiImageTextTopView) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, multiImageTextTopView) == null) && (multiImageTextTopView instanceof MultiImageTextTopView)) {
+                multiImageTextTopView.f();
+            }
+        }
+
+        public MultiImageTextTopView h(MultiImageTextTopView multiImageTextTopView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, multiImageTextTopView)) == null) {
+                if (multiImageTextTopView instanceof MultiImageTextTopView) {
+                    multiImageTextTopView.f();
+                }
+                return multiImageTextTopView;
+            }
+            return (MultiImageTextTopView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        /* renamed from: g */
+        public MultiImageTextTopView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ChatSetting setting = this.c.getSetting(this.a, this.b);
-                if (setting == null) {
-                    return Boolean.FALSE;
-                }
-                return Boolean.valueOf(setting.isAcceptNotify());
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new MultiImageTextTopView(this.a);
             }
-            return (Boolean) invokeV.objValue;
+            return (MultiImageTextTopView) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends ag<MultiImageTextTopView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ki8 ki8Var, bg bgVar, int i, int i2) {
+            super(bgVar, i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ki8Var, bgVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((bg) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements bg<MultiImageTextBottomView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public MultiImageTextBottomView e(MultiImageTextBottomView multiImageTextBottomView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiImageTextBottomView)) == null) ? multiImageTextBottomView : (MultiImageTextBottomView) invokeL.objValue;
+        }
+
+        public c(ki8 ki8Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ki8Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bg
+        public /* bridge */ /* synthetic */ MultiImageTextBottomView a(MultiImageTextBottomView multiImageTextBottomView) {
+            MultiImageTextBottomView multiImageTextBottomView2 = multiImageTextBottomView;
+            e(multiImageTextBottomView2);
+            return multiImageTextBottomView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bg
+        public /* bridge */ /* synthetic */ MultiImageTextBottomView c(MultiImageTextBottomView multiImageTextBottomView) {
+            MultiImageTextBottomView multiImageTextBottomView2 = multiImageTextBottomView;
+            h(multiImageTextBottomView2);
+            return multiImageTextBottomView2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        /* renamed from: f */
+        public void b(MultiImageTextBottomView multiImageTextBottomView) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, multiImageTextBottomView) == null) && (multiImageTextBottomView instanceof MultiImageTextBottomView)) {
+                multiImageTextBottomView.h();
+            }
+        }
+
+        public MultiImageTextBottomView h(MultiImageTextBottomView multiImageTextBottomView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, multiImageTextBottomView)) == null) {
+                if (multiImageTextBottomView instanceof MultiImageTextBottomView) {
+                    multiImageTextBottomView.h();
+                }
+                return multiImageTextBottomView;
+            }
+            return (MultiImageTextBottomView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        /* renamed from: g */
+        public MultiImageTextBottomView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new MultiImageTextBottomView(this.a);
+            }
+            return (MultiImageTextBottomView) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends ag<MultiImageTextBottomView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(ki8 ki8Var, bg bgVar, int i, int i2) {
+            super(bgVar, i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ki8Var, bgVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((bg) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements bg<SingleImageTextView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public SingleImageTextView e(SingleImageTextView singleImageTextView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, singleImageTextView)) == null) ? singleImageTextView : (SingleImageTextView) invokeL.objValue;
+        }
+
+        public e(ki8 ki8Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ki8Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bg
+        public /* bridge */ /* synthetic */ SingleImageTextView a(SingleImageTextView singleImageTextView) {
+            SingleImageTextView singleImageTextView2 = singleImageTextView;
+            e(singleImageTextView2);
+            return singleImageTextView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bg
+        public /* bridge */ /* synthetic */ SingleImageTextView c(SingleImageTextView singleImageTextView) {
+            SingleImageTextView singleImageTextView2 = singleImageTextView;
+            h(singleImageTextView2);
+            return singleImageTextView2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        /* renamed from: f */
+        public void b(SingleImageTextView singleImageTextView) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, singleImageTextView) == null) && (singleImageTextView instanceof SingleImageTextView)) {
+                singleImageTextView.l();
+            }
+        }
+
+        public SingleImageTextView h(SingleImageTextView singleImageTextView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, singleImageTextView)) == null) {
+                if (singleImageTextView instanceof SingleImageTextView) {
+                    singleImageTextView.l();
+                }
+                return singleImageTextView;
+            }
+            return (SingleImageTextView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        /* renamed from: g */
+        public SingleImageTextView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new SingleImageTextView(this.a);
+            }
+            return (SingleImageTextView) invokeV.objValue;
         }
     }
 
@@ -75,84 +342,70 @@ public abstract class ki8 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.memoryCachedSettings = new HashMap<>();
-    }
-
-    public boolean isAcceptNotify(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            ChatSetting setting = getSetting(str, str2);
-            if (setting == null) {
-                return false;
-            }
-            return setting.isAcceptNotify();
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void isAcceptNotifyAsync(String str, String str2, cx5<Boolean> cx5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, cx5Var) == null) {
-            by5.c(new a(this, str, str2), cx5Var);
-        }
-    }
-
-    public void saveAcceptNotify(String str, String str2, boolean z) {
-        ChatSetting setting;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048581, this, str, str2, z) != null) || (setting = getSetting(str, str2)) == null) {
-            return;
-        }
-        setting.setAcceptNotify(z);
-        saveSetting(setting);
-    }
-
-    public void onAccountChangedInBackground(Class<? extends ChatSetting> cls) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            synchronized (this.memoryCachedSettings) {
-                this.memoryCachedSettings.clear();
-            }
-            String str2 = "";
-            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
-            }
-            if (str2 != null && str2.length() != 0) {
-                String str3 = str2 + "@";
-                synchronized (this.memoryCachedSettings) {
-                    oe<String> settingCache = getSettingCache();
-                    List<oe.b<String>> b = ji.b(settingCache);
-                    if (b != null) {
-                        for (oe.b<String> bVar : b) {
-                            String str4 = bVar.a;
-                            if (str4 != null && str4.startsWith(str3) && (str = settingCache.get(str4)) != null) {
-                                this.memoryCachedSettings.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
-                            }
-                        }
-                    }
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void saveAcceptNotifyAsync(String str, String str2, boolean z, cx5<Void> cx5Var) {
-        ChatSetting setting;
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), cx5Var}) != null) || (setting = getSetting(str, str2)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.b = new d(this, new c(this, context), 9, 0);
         }
-        setting.setAcceptNotify(z);
-        saveSettingAsync(setting, cx5Var);
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.c = new ag<>(new e(this, context), 1, 0);
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.a = new b(this, new a(this, context), 1, 0);
+        }
+    }
+
+    public ag<MultiImageTextBottomView> d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (this.b == null) {
+                a(context);
+            }
+            return this.b;
+        }
+        return (ag) invokeL.objValue;
+    }
+
+    public ag<SingleImageTextView> e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            if (this.c == null) {
+                b(context);
+            }
+            return this.c;
+        }
+        return (ag) invokeL.objValue;
+    }
+
+    public ag<MultiImageTextTopView> f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            if (this.a == null) {
+                c(context);
+            }
+            return this.a;
+        }
+        return (ag) invokeL.objValue;
     }
 }

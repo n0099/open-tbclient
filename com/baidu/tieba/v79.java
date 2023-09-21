@@ -1,38 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.net.INetWork;
-import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import com.baidu.tieba.mainentrance.HotSearchInfoData;
+import tbclient.SearchSug.DataRes;
 /* loaded from: classes8.dex */
-public class v79 implements NetworkAgentService {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface v79 {
+    void a(String str, boolean z, int i);
 
-    public v79() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b();
 
-    @Override // com.baidu.searchbox.live.interfaces.service.NetworkAgentService
-    public INetWork buildNetworkInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new w79();
-        }
-        return (INetWork) invokeV.objValue;
-    }
+    View c();
+
+    void d(HotSearchInfoData hotSearchInfoData);
+
+    View e();
+
+    void f(DataRes dataRes, String str);
+
+    void onChangeSkinType(int i);
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
 }

@@ -7,8 +7,8 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k81;
-import com.baidu.tieba.m61;
+import com.baidu.tieba.j81;
+import com.baidu.tieba.l61;
 /* loaded from: classes3.dex */
 public class NadHighLightAnimationView extends FrameLayout {
     public NadHighLightTextView a;
@@ -52,12 +52,12 @@ public class NadHighLightAnimationView extends FrameLayout {
         this.b.setAlpha(0.0f);
     }
 
-    public void update(@Nullable k81 k81Var) {
-        if (k81Var != null && !TextUtils.isEmpty(k81Var.a)) {
+    public void update(@Nullable j81 j81Var) {
+        if (j81Var != null && !TextUtils.isEmpty(j81Var.a)) {
             this.a.setAlpha(0.0f);
-            this.a.update(k81Var);
-            this.b.setText(k81Var.a);
-            this.b.setTextColor(m61.a(k81Var.b, R.color.nad_high_light_text_default_color));
+            this.a.update(j81Var);
+            this.b.setText(j81Var.a);
+            this.b.setTextColor(l61.a(j81Var.b, R.color.nad_high_light_text_default_color));
             this.b.setAlpha(1.0f);
         }
     }

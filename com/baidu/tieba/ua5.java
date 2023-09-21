@@ -1,98 +1,142 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class ua5 {
+public class ua5 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public final int b;
-    public final String c;
+    public boolean v;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof ua5) {
-                ua5 ua5Var = (ua5) obj;
-                return Intrinsics.areEqual(this.a, ua5Var.a) && this.b == ua5Var.b && Intrinsics.areEqual(this.c, ua5Var.c);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ItemCardViewButtonData(item=" + this.a + ", position=" + this.b + ", tid=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ua5(ItemData item, int i, String tid) {
+    public ua5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item, Integer.valueOf(i), tid};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(item, "item");
-        Intrinsics.checkNotNullParameter(tid, "tid");
-        this.a = item;
-        this.b = i;
-        this.c = tid;
+        this.j = true;
+        this.b = R.color.CAM_X0101;
+        this.d = R.color.CAM_X0302;
+        this.v = false;
+        this.o = this.p;
+        this.n = this.m;
     }
 
-    public final ItemData a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return t(f);
         }
-        return (ItemData) invokeV.objValue;
+        return (Drawable) invokeF.objValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    public void r(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.d = R.color.CAM_X0904;
+            this.v = false;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
-        return invokeV.intValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public void s(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = R.color.CAM_X0101;
+            this.d = i;
+            this.v = false;
+            TBSpecificationButtonConfig.a aVar = this.u;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final Drawable t(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+            if (this.v) {
+                return u(f);
+            }
+            return v(f);
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public final Drawable v(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(SkinManager.getColor(this.s, this.d));
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    @Deprecated
+    public void j(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
+            w(i, iconType);
+        }
+    }
+
+    public final Drawable u(float f) {
+        InterceptResult invokeF;
+        GradientDrawable gradientDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            int color = SkinManager.getColor(this.s, this.d);
+            int[] iArr = {fia.c(color), color};
+            if (Build.VERSION.SDK_INT >= 16) {
+                gradientDrawable = new GradientDrawable();
+                gradientDrawable.setOrientation(this.t);
+                gradientDrawable.setColors(iArr);
+            } else {
+                gradientDrawable = new GradientDrawable(this.t, iArr);
+            }
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeF.objValue;
+    }
+
+    public void w(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
+            this.e[0] = i;
+            this.f = iconType;
+        }
     }
 }

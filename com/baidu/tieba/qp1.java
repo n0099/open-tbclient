@@ -1,76 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qp1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qp1 g;
+    public static volatile qp1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BroadcastReceiver a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public HashSet<String> f;
+    public HandlerThread a;
+    public Handler b;
 
     /* loaded from: classes7.dex */
-    public class a extends BroadcastReceiver {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qp1 a;
 
-        public a(qp1 qp1Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qp1 qp1Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qp1Var};
+                Object[] objArr = {qp1Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = qp1Var;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                String stringExtra = intent.getStringExtra("ss");
-                if (this.a.b == 1) {
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                np1 np1Var = new np1();
+                np1Var.a = message.arg2;
+                int i = message.arg1;
+                if (i == -1) {
+                    i = op1.m().a();
                 }
-                if (!TextUtils.isEmpty(stringExtra)) {
-                    if ("LOADED".equals(stringExtra)) {
-                        if (this.a.f.isEmpty()) {
-                            return;
-                        }
-                        this.a.b = 1;
-                        return;
-                    }
-                    this.a.b = 1;
-                    this.a.f.add(stringExtra);
-                    return;
-                }
-                this.a.b = 1;
+                op1.m().d(message.what, 3, IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, i, "out time.", np1Var, true);
             }
         }
     }
@@ -88,126 +72,40 @@ public class qp1 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = new HashSet<>();
+        HandlerThread handlerThread = new HandlerThread("callback-handler");
+        this.a = handlerThread;
+        this.b = null;
+        handlerThread.start();
+        this.b = new a(this, this.a.getLooper());
     }
 
-    public static qp1 j() {
+    public static qp1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (g == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
                 synchronized (qp1.class) {
-                    if (g == null) {
-                        g = new qp1();
+                    if (c == null) {
+                        c = new qp1();
                     }
                 }
             }
-            return g;
+            return c;
         }
         return (qp1) invokeV.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.c) {
-                return -1000;
-            }
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.d) {
-                return false;
-            }
-            if (!this.e) {
-                return true;
-            }
-            if (!this.c || this.b == 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = 0;
-            this.f.clear();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b.removeMessages(i);
         }
     }
 
-    public void d(Context context) {
+    public void c(Message message, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            try {
-                if (this.a != null) {
-                    return;
-                }
-                this.a = new a(this);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("android.intent.action.SIM_STATE_CHANGED");
-                context.registerReceiver(this.a, intentFilter);
-            } catch (Throwable th) {
-                qq1.d(th);
-            }
-        }
-    }
-
-    public void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            try {
-                if (this.a == null) {
-                    return;
-                }
-                context.unregisterReceiver(this.a);
-                this.a = null;
-            } catch (Throwable th) {
-                qq1.d(th);
-            }
-        }
-    }
-
-    public void e(Context context, JSONObject jSONObject) {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
-            boolean z3 = false;
-            if (jSONObject.optInt("1", 0) == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.d = z;
-            if (jSONObject.optInt("2", 0) == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.c = z2;
-            if (jSONObject.optInt("3", 0) == 1) {
-                z3 = true;
-            }
-            this.e = z3;
-            if (this.c) {
-                d(context);
-            } else {
-                g(context);
-            }
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j) == null) {
+            this.b.sendMessageDelayed(message, j);
         }
     }
 }

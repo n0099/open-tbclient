@@ -1,38 +1,41 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import com.baidu.tieba.t50;
+import com.baidu.tieba.s50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class q50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, t50.a aVar) {
-        String str;
+    public static String a(Context context, s50.a aVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, aVar)) == null) {
             if (context == null) {
                 aVar.a(false, null);
-                return;
+                return null;
             }
             try {
-                Cursor query = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
-                if (query != null) {
-                    query.moveToFirst();
-                    int columnIndex = query.getColumnIndex("value");
-                    str = columnIndex > 0 ? query.getString(columnIndex) : null;
-                    query.close();
-                } else {
-                    str = null;
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                if (cls != null) {
+                    Object newInstance = cls.newInstance();
+                    Method method = cls.getMethod("getOAID", Context.class);
+                    method.setAccessible(true);
+                    if (newInstance != null && method != null) {
+                        String str = (String) method.invoke(newInstance, context);
+                        aVar.a(true, str);
+                        return str;
+                    }
                 }
-                aVar.a(true, str);
             } catch (Throwable unused) {
                 aVar.a(false, null);
             }
+            return null;
         }
+        return (String) invokeLL.objValue;
     }
 }

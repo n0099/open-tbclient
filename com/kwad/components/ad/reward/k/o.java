@@ -15,13 +15,13 @@ public final class o extends d implements View.OnClickListener {
     public ViewGroup vl;
 
     public o(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
-        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04c9, viewGroup, false);
+        this.vl = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04cc, viewGroup, false);
         initView();
     }
 
     private void initView() {
-        this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f091333);
-        this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f091334);
+        this.vU = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f091323);
+        this.vV = this.vl.findViewById(R.id.obfuscated_res_0x7f091324);
         this.vU.setOnClickListener(this);
         this.vV.setOnClickListener(this);
     }

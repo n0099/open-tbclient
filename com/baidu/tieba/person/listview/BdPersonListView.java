@@ -12,7 +12,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c56;
+import com.baidu.tieba.pu9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class BdPersonListView extends BdTypeListView {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public float f1148T;
+    public float f1142T;
     public float U;
     public final int V;
     public final int W;
@@ -133,7 +133,7 @@ public class BdPersonListView extends BdTypeListView {
         this.K = new Scroller(this.J);
         this.L = new Scroller(this.J);
         this.V = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c56.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pu9.ExpandListView);
         this.W = obtainStyledAttributes.getDimensionPixelSize(e0, 0);
         obtainStyledAttributes.recycle();
     }
@@ -275,9 +275,9 @@ public class BdPersonListView extends BdTypeListView {
                     if (action != 1) {
                         if (action == 2) {
                             float f = this.U;
-                            float f2 = f - this.f1148T;
+                            float f2 = f - this.f1142T;
                             float f3 = y - this.O;
-                            this.f1148T = f;
+                            this.f1142T = f;
                             if (this.M.getParent() == this && this.Q != null && this.M.isShown() && this.M.getTop() >= 0 && Math.abs(f3) >= this.V && Math.abs(f2) < this.V) {
                                 int a2 = this.Q.a(this.P - this.O);
                                 b bVar = this.Q;
@@ -319,7 +319,7 @@ public class BdPersonListView extends BdTypeListView {
                 } else {
                     int height = this.M.getHeight();
                     this.O = this.P;
-                    this.f1148T = this.U;
+                    this.f1142T = this.U;
                     this.Q = new b(0, height, 0, this.W + height);
                     int height2 = this.N.getHeight();
                     this.R = new b(0, height2, 0, this.W + height2);

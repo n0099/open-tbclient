@@ -1,33 +1,33 @@
 package rx.schedulers;
 
-import com.baidu.tieba.fbc;
-import com.baidu.tieba.sfc;
-import com.baidu.tieba.vac;
-import com.baidu.tieba.wfc;
-import com.baidu.tieba.zac;
+import com.baidu.tieba.khc;
+import com.baidu.tieba.ncc;
+import com.baidu.tieba.ohc;
+import com.baidu.tieba.rcc;
+import com.baidu.tieba.xcc;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
-public class TestScheduler extends vac {
+public class TestScheduler extends ncc {
     public static long c;
     public final Queue<c> a = new PriorityQueue(11, new a());
     public long b;
 
     /* loaded from: classes2.dex */
-    public final class b extends vac.a {
-        public final sfc a = new sfc();
+    public final class b extends ncc.a {
+        public final khc a = new khc();
 
         /* loaded from: classes2.dex */
-        public class a implements fbc {
+        public class a implements xcc {
             public final /* synthetic */ c a;
 
             public a(c cVar) {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.fbc
+            @Override // com.baidu.tieba.xcc
             public void call() {
                 TestScheduler.this.a.remove(this.a);
             }
@@ -35,14 +35,14 @@ public class TestScheduler extends vac {
 
         /* renamed from: rx.schedulers.TestScheduler$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0799b implements fbc {
+        public class C0792b implements xcc {
             public final /* synthetic */ c a;
 
-            public C0799b(c cVar) {
+            public C0792b(c cVar) {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.fbc
+            @Override // com.baidu.tieba.xcc
             public void call() {
                 TestScheduler.this.a.remove(this.a);
             }
@@ -51,49 +51,49 @@ public class TestScheduler extends vac {
         public b() {
         }
 
-        @Override // com.baidu.tieba.vac.a
-        public zac b(fbc fbcVar) {
-            c cVar = new c(this, 0L, fbcVar);
+        @Override // com.baidu.tieba.ncc.a
+        public rcc b(xcc xccVar) {
+            c cVar = new c(this, 0L, xccVar);
             TestScheduler.this.a.add(cVar);
-            return wfc.a(new C0799b(cVar));
+            return ohc.a(new C0792b(cVar));
         }
 
-        @Override // com.baidu.tieba.vac.a
+        @Override // com.baidu.tieba.ncc.a
         public long a() {
             return TestScheduler.this.now();
         }
 
-        @Override // com.baidu.tieba.zac
+        @Override // com.baidu.tieba.rcc
         public boolean isUnsubscribed() {
             return this.a.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.zac
+        @Override // com.baidu.tieba.rcc
         public void unsubscribe() {
             this.a.unsubscribe();
         }
 
-        @Override // com.baidu.tieba.vac.a
-        public zac c(fbc fbcVar, long j, TimeUnit timeUnit) {
-            c cVar = new c(this, TestScheduler.this.b + timeUnit.toNanos(j), fbcVar);
+        @Override // com.baidu.tieba.ncc.a
+        public rcc c(xcc xccVar, long j, TimeUnit timeUnit) {
+            c cVar = new c(this, TestScheduler.this.b + timeUnit.toNanos(j), xccVar);
             TestScheduler.this.a.add(cVar);
-            return wfc.a(new a(cVar));
+            return ohc.a(new a(cVar));
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class c {
         public final long a;
-        public final fbc b;
-        public final vac.a c;
+        public final xcc b;
+        public final ncc.a c;
         public final long d;
 
-        public c(vac.a aVar, long j, fbc fbcVar) {
+        public c(ncc.a aVar, long j, xcc xccVar) {
             long j2 = TestScheduler.c;
             TestScheduler.c = 1 + j2;
             this.d = j2;
             this.a = j;
-            this.b = fbcVar;
+            this.b = xccVar;
             this.c = aVar;
         }
 
@@ -102,12 +102,12 @@ public class TestScheduler extends vac {
         }
     }
 
-    @Override // com.baidu.tieba.vac
-    public vac.a createWorker() {
+    @Override // com.baidu.tieba.ncc
+    public ncc.a createWorker() {
         return new b();
     }
 
-    @Override // com.baidu.tieba.vac
+    @Override // com.baidu.tieba.ncc
     public long now() {
         return TimeUnit.NANOSECONDS.toMillis(this.b);
     }

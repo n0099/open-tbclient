@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface fn {
-    void a();
+    void cancelRefresh();
+
+    cn getAdapter();
+
+    int getFirstVisiblePosition();
+
+    int getLastVisiblePosition();
 }

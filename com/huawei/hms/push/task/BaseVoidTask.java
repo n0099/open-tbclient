@@ -1,7 +1,7 @@
 package com.huawei.hms.push.task;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xyb;
+import com.baidu.tieba.p0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,19 +53,19 @@ public class BaseVoidTask extends TaskApiCall<PushClient, Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, xyb<Void> xybVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, p0c<Void> p0cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, xybVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, p0cVar) == null) {
             if (responseErrorCode.getErrorCode() == 0) {
                 HMSLog.i("BaseVoidTask", "Operate succeed");
-                xybVar.setResult(null);
+                p0cVar.setResult(null);
             } else {
                 HMSLog.e("BaseVoidTask", "Operate failed with ret=" + responseErrorCode.getErrorCode());
                 ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
                 if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                    xybVar.c(fromCode.toApiException());
+                    p0cVar.c(fromCode.toApiException());
                 } else {
-                    xybVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                    p0cVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
                 }
             }
             PushBiUtil.reportExit(pushClient.getContext(), getUri(), responseErrorCode);

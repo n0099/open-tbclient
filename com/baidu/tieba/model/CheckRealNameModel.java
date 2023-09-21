@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.bha;
+import com.baidu.tieba.hja;
 import com.baidu.tieba.model.message.CheckRealNameHttpResponseMessage;
 import com.baidu.tieba.model.message.CheckRealNameRequestNetMessage;
 import com.baidu.tieba.model.message.CheckRealNameSocketResponseMessage;
@@ -148,8 +148,8 @@ public class CheckRealNameModel extends BdBaseModel {
     public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bha.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            bha.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+            hja.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            hja.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

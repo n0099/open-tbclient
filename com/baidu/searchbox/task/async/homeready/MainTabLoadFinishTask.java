@@ -19,11 +19,13 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.dk;
+import com.baidu.tbadk.switchs.InitWriteWebDelaySwitch;
+import com.baidu.tieba.az5;
+import com.baidu.tieba.ck;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.t55;
-import com.baidu.tieba.z40;
-import com.baidu.tieba.zy5;
+import com.baidu.tieba.s55;
+import com.baidu.tieba.write.WriteWebViewCacheManager;
+import com.baidu.tieba.y40;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
@@ -51,7 +53,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
             return "";
         }
         String str2 = split[1];
-        if (StringUtils.isNull(str2) || (b = new z40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+        if (StringUtils.isNull(str2) || (b = new y40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
             return "";
         }
         try {
@@ -71,7 +73,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 try {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     if (currentActivity != null) {
-                        YunDialogManager.onShow(currentActivity, t55.r);
+                        YunDialogManager.onShow(currentActivity, s55.r);
                     }
                     if (Build.VERSION.SDK_INT >= 17) {
                         SharedPrefHelper.getInstance().putString("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
@@ -93,8 +95,12 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     str = "1";
                 }
                 TiebaStatic.log(statisticItem.param("obj_param1", str));
-                TbLog a = dk.a();
+                TbLog a = ck.a();
                 a.i(Config.DEVICE_PART, "Device Info: cuid: " + TbadkCoreApplication.getInst().getCuid() + " from: " + TbadkCoreApplication.getFrom() + " client_version: " + TbConfig.getVersion() + " os_version: " + DeviceInfoHelper.getOsVersion());
+                if (InitWriteWebDelaySwitch.isOn()) {
+                    WriteWebViewCacheManager.f().i();
+                    return false;
+                }
                 return false;
             }
         });
@@ -104,7 +110,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 JSONArray jSONArray = new JSONArray(string);
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.i("WebPreheat", "冷启动预热H5:" + jSONArray);
-                zy5.e(jSONArray);
+                az5.e(jSONArray);
             }
         } catch (Throwable th) {
             TbLog defaultLog2 = DefaultLog.getInstance();

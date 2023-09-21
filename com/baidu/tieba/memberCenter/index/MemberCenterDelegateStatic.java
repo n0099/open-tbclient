@@ -196,7 +196,7 @@ public class MemberCenterDelegateStatic extends FragmentDelegate {
                 fragmentTabStructure.frag = new MemberCenterFragment();
             }
             fragmentTabStructure.type = 14;
-            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f0c76;
+            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f0c78;
             return fragmentTabStructure;
         }
         return (FragmentTabStructure) invokeV.objValue;

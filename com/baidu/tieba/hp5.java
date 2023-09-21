@@ -1,40 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
-public class hp5 implements lk1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hp5 {
+    @NonNull
+    public static final ServiceReference a;
+    @NonNull
+    public static final hp5 b;
 
-    public hp5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean a(@NonNull String str);
 
-    @Override // com.baidu.tieba.lk1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new w98());
-            arrayList.add(new k7a());
-            return arrayList;
-        }
-        return invokeV.objValue;
+    @NonNull
+    String b(@NonNull String str);
+
+    @NonNull
+    String c();
+
+    @NonNull
+    String d(@NonNull String str, boolean z);
+
+    @NonNull
+    String e(@NonNull String str, @NonNull String str2);
+
+    static {
+        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
+        a = serviceReference;
+        b = (hp5) ServiceManager.getService(serviceReference);
     }
 }

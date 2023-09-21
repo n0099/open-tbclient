@@ -1,100 +1,190 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.URLUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.SoftReference;
+import com.huawei.secure.android.common.util.LogsUtil;
+import java.net.MalformedURLException;
+import java.net.URL;
 /* loaded from: classes5.dex */
-public final class a2c {
+public class a2c {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<a2c> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public b2c a;
-    public String b;
-    public Context c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947564727, "Lcom/baidu/tieba/a2c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947564727, "Lcom/baidu/tieba/a2c;");
-        }
-    }
-
-    public a2c(Context context, String str) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                LogsUtil.f("UriUtil", "whiteListUrl is null");
+                return null;
+            } else if (!URLUtil.isNetworkUrl(str)) {
+                return str;
+            } else {
+                return b(str);
             }
         }
-        f2c.b();
-        this.a = new b2c(context, str);
-        this.b = str;
-        this.c = context;
+        return (String) invokeL.objValue;
     }
 
-    public static a2c b(Context context, String str) {
+    @TargetApi(9)
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                LogsUtil.f("UriUtil", "url is null");
+                return str;
+            }
+            try {
+                if (!URLUtil.isNetworkUrl(str)) {
+                    LogsUtil.d("UriUtil", "url don't starts with http or https");
+                    return "";
+                }
+                return new URL(str.replaceAll("[\\\\#]", "/")).getHost();
+            } catch (MalformedURLException e) {
+                LogsUtil.d("UriUtil", "getHostByURI error  MalformedURLException : " + e.getMessage());
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean c(String str, String[] strArr) {
         InterceptResult invokeLL;
-        a2c a2cVar;
-        a2c a2cVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context != null && str != null) {
-                SoftReference<a2c> softReference = d;
-                if (softReference == null) {
-                    a2cVar = null;
-                } else {
-                    a2cVar = softReference.get();
-                }
-                if (a2cVar == null || !str.equals(a2cVar.b)) {
-                    synchronized (a2c.class) {
-                        a2cVar2 = new a2c(context, str);
-                        d = new SoftReference<>(a2cVar2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (d(str, str2)) {
+                        return true;
                     }
-                    return a2cVar2;
                 }
-                return a2cVar;
+                return false;
             }
-            throw new IllegalArgumentException("YYOpenSDK createInstance failed, Make sure context or appid is not null!");
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
         }
-        return (a2c) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public final void a(Activity activity, y1c y1cVar) {
+    public static boolean e(String str, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, y1cVar) == null) {
-            this.a.c(activity, "123", y1cVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (f(str, str2)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public final void c(int i, int i2, Intent intent, y1c y1cVar) {
+    public static boolean g(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, y1cVar}) == null) {
-            this.a.d(i, i2, intent, y1cVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return TextUtils.equals(b(str), a(str2));
+            }
+            Log.e("UriUtil", "isUrlHostSameWhitelist: url or host is null");
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean h(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (g(str, str2)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (!str.contains(IStringUtil.TOP_PATH) && !str.contains("@")) {
+                    if (!str2.equals(str)) {
+                        if (!str.startsWith(str2 + "?")) {
+                            if (!str.startsWith(str2 + "#")) {
+                                if (!str2.endsWith("/")) {
+                                    return false;
+                                }
+                                if (Uri.parse(str).getPathSegments().size() - Uri.parse(str2).getPathSegments().size() != 1) {
+                                    return false;
+                                }
+                                return str.startsWith(str2);
+                            }
+                        }
+                    }
+                    return true;
+                }
+                Log.e("UriUtil", "url contains unsafe char");
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            String b = b(str);
+            if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(str2)) {
+                String a = a(str2);
+                if (TextUtils.isEmpty(a)) {
+                    Log.e("UriUtil", "whitelist host is null");
+                    return false;
+                } else if (a.equals(b)) {
+                    return true;
+                } else {
+                    if (b.endsWith(a)) {
+                        try {
+                            String substring = b.substring(0, b.length() - a.length());
+                            if (!substring.endsWith(".")) {
+                                return false;
+                            }
+                            return substring.matches("^[A-Za-z0-9.-]+$");
+                        } catch (IndexOutOfBoundsException e) {
+                            LogsUtil.d("UriUtil", "IndexOutOfBoundsException" + e.getMessage());
+                        } catch (Exception e2) {
+                            LogsUtil.d("UriUtil", "Exception : " + e2.getMessage());
+                            return false;
+                        }
+                    }
+                    return false;
+                }
+            }
+            LogsUtil.d("UriUtil", "url or whitelist is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,27 +1,51 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Build;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.android.common.security.AESUtil;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class yaa {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xaa a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized xaa a() {
-        InterceptResult invokeV;
-        xaa xaaVar;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (yaa.class) {
-                if (a == null) {
-                    a = new xaa();
-                }
-                xaaVar = a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            cm cmVar = new cm();
+            String version = TbConfig.getVersion();
+            if (TbConfig.getVersionType() == 1 && !di.isEmpty(TbConfig.getSubVersion())) {
+                version = version + "." + TbConfig.getSubVersion();
             }
-            return xaaVar;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(HttpRequest.CLIENT_TYPE, "Android");
+                jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, "1.0.14");
+                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
+                jSONObject.put("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+                jSONObject.put("_client_version", version);
+                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
+                jSONObject.put(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
+                jSONObject.put(Config.DEVICE_PART, DeviceInfoHelper.getModel() + " " + Build.BRAND + " " + DeviceInfoUtil.getDevicesManufacturer() + " " + Build.BOARD + " " + Build.HARDWARE);
+                jSONObject.put(SchemeDescPatchListener.PATCH, cmVar.a(context));
+                return wh.j(AESUtil.encrypt("tbpatch-iv-value", "tbpatch1tbpatch2tbpatch3tbpatch4", jSONObject.toString().getBytes()));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
         }
-        return (xaa) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

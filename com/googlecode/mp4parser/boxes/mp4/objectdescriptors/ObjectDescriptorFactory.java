@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ObjectDescriptorFactory {
     public static Logger log = Logger.getLogger(ObjectDescriptorFactory.class.getName());
     public static Map<Integer, Map<Integer, Class<? extends BaseDescriptor>>> descriptorRegistry = new HashMap();

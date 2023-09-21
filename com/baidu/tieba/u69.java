@@ -1,75 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.live.interfaces.realauth.LiveRealAuthCallback;
-import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.ICertification;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class u69 implements LiveRealAuthService {
+public final class u69 extends t69<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements ICertification.CertificationCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LiveRealAuthCallback a;
-
-        public a(u69 u69Var, LiveRealAuthCallback liveRealAuthCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u69Var, liveRealAuthCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = liveRealAuthCallback;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948163089, "Lcom/baidu/tieba/u69;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
-        public void onResult(int i, Map<String, Object> map) {
-            LiveRealAuthCallback liveRealAuthCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, map) == null) && (liveRealAuthCallback = this.a) != null) {
-                liveRealAuthCallback.onRealAuthResult(i, map);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948163089, "Lcom/baidu/tieba/u69;");
         }
     }
 
-    public u69() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u69(String key) {
+        super(key);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {key};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(key, "key");
+        e(c() + "_match_last_text");
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveRealAuthService
-    public void doAuth(Map<String, ?> map, LiveRealAuthCallback liveRealAuthCallback) {
-        CustomResponsedMessage runTask;
+    public final boolean f(String text) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, map, liveRealAuthCallback) == null) && (runTask = MessageManager.getInstance().runTask(2921433, ICertification.class)) != null && runTask.getData() != null) {
-            ((ICertification) runTask.getData()).certification(TbadkCoreApplication.getInst(), map, new a(this, liveRealAuthCallback));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, text)) == null) {
+            Intrinsics.checkNotNullParameter(text, "text");
+            return !TextUtils.equals(text, a(""));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void update(String text) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text) == null) {
+            Intrinsics.checkNotNullParameter(text, "text");
+            if (f(text)) {
+                d(text);
+            }
         }
     }
 }

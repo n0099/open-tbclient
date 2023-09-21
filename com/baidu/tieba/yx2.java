@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,42 +12,55 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public class yx2 implements g13 {
+/* loaded from: classes8.dex */
+public class yx2 implements f13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ay2 a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
+    public String a;
+    public String b;
+    public boolean c;
+    public dy2 d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948345462, "Lcom/baidu/tieba/yx2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948345462, "Lcom/baidu/tieba/yx2;");
+                return;
+            }
+        }
+        boolean z = qr1.a;
+    }
 
     public yx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.c = -16777216;
-        this.d = -1;
-        this.e = 0.0f;
+        this.b = "";
+        this.c = false;
     }
 
-    @Override // com.baidu.tieba.g13
+    @Override // com.baidu.tieba.f13
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ay2 ay2Var = this.a;
-            if (ay2Var != null && ay2Var.isValid() && this.d != -1) {
+            dy2 dy2Var = this.d;
+            if (dy2Var != null && dy2Var.isValid() && !TextUtils.isEmpty(this.b)) {
                 return true;
             }
             return false;
@@ -51,30 +68,20 @@ public class yx2 implements g13 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.g13
+    @Override // com.baidu.tieba.f13
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("radius")) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has(CriusAttrConstants.POSITION) && jSONObject.has("iconPath")) {
+            String optString = jSONObject.optString("controlId");
+            this.a = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.a = jSONObject.optString("id");
+            }
+            dy2 dy2Var = new dy2();
+            this.d = dy2Var;
+            dy2Var.a(jSONObject.optJSONObject(CriusAttrConstants.POSITION));
+            this.b = jSONObject.optString("iconPath");
+            this.c = jSONObject.optBoolean("clickable");
         }
-        ay2 ay2Var = new ay2();
-        this.a = ay2Var;
-        ay2Var.a(jSONObject);
-        if (!this.a.isValid()) {
-            return;
-        }
-        this.b = ux2.a(jSONObject.optString("color"), 0);
-        this.c = ux2.a(jSONObject.optString("fillColor"), -16777216);
-        this.d = jSONObject.optInt("radius", -1);
-        this.e = Math.abs(ux2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
-        }
-        return (String) invokeV.objValue;
     }
 }

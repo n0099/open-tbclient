@@ -1,14 +1,34 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class zs8 {
+public final class zs8 extends uf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.uf8
+    public void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseItem, obj) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+        }
+    }
+
+    @Override // com.baidu.tieba.uf8
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "no_response" : (String) invokeV.objValue;
+    }
 
     public zs8() {
         Interceptable interceptable = $ic;
@@ -20,9 +40,7 @@ public class zs8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        new HashMap();
     }
 }

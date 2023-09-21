@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.webwrite.hybirdlistener;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.si5;
+import com.baidu.tieba.wi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ import kotlin.jvm.internal.FunctionReferenceImpl;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public /* synthetic */ class TopicSelectListener$editorActionHandlers$1 extends FunctionReferenceImpl implements Function1<si5, Unit> {
+public /* synthetic */ class TopicSelectListener$editorActionHandlers$1 extends FunctionReferenceImpl implements Function1<wi5, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,13 +41,13 @@ public /* synthetic */ class TopicSelectListener$editorActionHandlers$1 extends 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Unit invoke(si5 si5Var) {
-        invoke2(si5Var);
+    public /* bridge */ /* synthetic */ Unit invoke(wi5 wi5Var) {
+        invoke2(wi5Var);
         return Unit.INSTANCE;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(si5 p0) {
+    public final void invoke2(wi5 p0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
             Intrinsics.checkNotNullParameter(p0, "p0");

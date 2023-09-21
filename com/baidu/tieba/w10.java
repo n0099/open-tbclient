@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.searchbox.boxdownload.IBoxDownloadDbOperator;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class w10 implements cl1<IBoxDownloadDbOperator> {
+public final class w10 implements IBoxDownloadDbOperator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,19 +22,9 @@ public final class w10 implements cl1<IBoxDownloadDbOperator> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cl1
-    /* renamed from: a */
-    public IBoxDownloadDbOperator getService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new x10();
-        }
-        return (IBoxDownloadDbOperator) invokeV.objValue;
+        Intrinsics.checkNotNullExpressionValue(AppRuntime.getAppContext().getContentResolver(), "getAppContext().contentResolver");
     }
 }

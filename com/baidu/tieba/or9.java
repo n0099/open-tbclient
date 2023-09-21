@@ -1,93 +1,164 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.stamp.SignPopStampDialogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class or9 extends lm9<pr9, GodReplyMoreViewHolder> {
+public class or9 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
+    public PbActivity a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public or9(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean isDataReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements SignPopStampDialogUtil.clickCallBack {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ or9 a;
+
+        public a(or9 or9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {or9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = or9Var;
+        }
+
+        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
+        public void closeBtn() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.finish();
+            }
+        }
+
+        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
+        public void jumpToIconCenterBtn() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.finish();
+            }
+        }
+
+        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
+        public void shareBtn() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.finish();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(or9 or9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {or9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                YunDialogManager.unMarkShowingDialogName("userIcon");
+            }
+        }
+    }
+
+    public or9(PbActivity pbActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
+            Object[] objArr = {pbActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((rr9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: u */
-    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean isNeedExecute() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07a9, viewGroup, false));
-        }
-        return (GodReplyMoreViewHolder) invokeL.objValue;
-    }
-
-    public void y(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.lm9, com.baidu.tieba.pm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, (pr9) obj, (GodReplyMoreViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View x(int i, View view2, ViewGroup viewGroup, pr9 pr9Var, GodReplyMoreViewHolder godReplyMoreViewHolder) {
-        InterceptResult invokeCommon;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pr9Var, godReplyMoreViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) pr9Var, (pr9) godReplyMoreViewHolder);
-            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
-                View.OnClickListener onClickListener = this.g;
-                if (onClickListener != null) {
-                    textView.setOnClickListener(onClickListener);
-                }
-                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
-                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
-                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (YunDialogManager.isShowingDialog()) {
+                return false;
             }
-            return view2;
+            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+            if (!PollingModel.checkIconPopHadShow() || iconPopData.getPic160() == null || iconPopData.getTitle() == null || !this.a.Z1() || iconPopData.getUid().longValue() != TbadkCoreApplication.getCurrentAccountId()) {
+                return false;
+            }
+            return true;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void onExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (PollingModel.checkIconPopHadShow()) {
+                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+                SignPopStampDialogUtil signPopStampDialogUtil = new SignPopStampDialogUtil();
+                signPopStampDialogUtil.preShowPollingStampDialog(iconPopData);
+                signPopStampDialogUtil.setClickCallBack(new a(this));
+                signPopStampDialogUtil.setOnDismissListener(new b(this));
+                YunDialogManager.markShowingDialogName("userIcon");
+                return;
+            }
+            finish();
+        }
     }
 }

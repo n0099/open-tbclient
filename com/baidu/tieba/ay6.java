@@ -2,7 +2,8 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ay6 implements cn {
+public class ay6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardTopic a;
+    public ThreadData a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,16 +48,16 @@ public class ay6 implements cn {
         }
     }
 
-    public FeatureCardTopic a() {
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (FeatureCardTopic) invokeV.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,14 +67,10 @@ public class ay6 implements cn {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(FeatureCardTopic featureCardTopic) {
+    public void c(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardTopic) != null) || featureCardTopic == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            this.a = threadData;
         }
-        this.a = featureCardTopic;
-        String str = featureCardTopic.title;
-        Integer num = featureCardTopic.floor;
-        Integer num2 = featureCardTopic.type;
     }
 }

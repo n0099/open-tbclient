@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r88;
-import com.baidu.tieba.vx;
+import com.baidu.tieba.t88;
+import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class HomeLocalCompleteInfoLayout extends LinearLayout implements vx {
+public class HomeLocalCompleteInfoLayout extends LinearLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -60,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements vx {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.getContext() == null) {
                 return;
             }
-            r88.h();
+            t88.h();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -164,13 +164,13 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements vx {
             setPadding(dimens, 0, dimens, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09ef));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09f0));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09f0));
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09f1));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, BdUtilHelper.getDimens(getContext(), R.dimen.tbds75));
             int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004);
             layoutParams2.setMargins(dimens2, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X005), dimens2, BdUtilHelper.getDimens(getContext(), R.dimen.tbds38));
@@ -185,7 +185,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements vx {
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

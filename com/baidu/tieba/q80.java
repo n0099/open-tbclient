@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,21 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class q80 {
-    public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile q80 f;
-    public static int g;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String g = "Flow";
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public int a;
     public int b;
-    public m90 c;
-    public ScheduledExecutorService d;
-    public ConcurrentHashMap<Integer, r80> e;
+    public final long c;
+    public long d;
+    public Context e;
+    public Map<String, String> f;
 
     static {
         InterceptResult invokeClinit;
@@ -46,14 +45,16 @@ public class q80 {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q80 a;
+        public String a;
+        public String b;
+        public final /* synthetic */ q80 c;
 
-        public a(q80 q80Var) {
+        public a(q80 q80Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q80Var};
+                Object[] objArr = {q80Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,202 +64,122 @@ public class q80 {
                     return;
                 }
             }
-            this.a = q80Var;
+            this.c = q80Var;
+            this.a = str;
+            this.b = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.c();
+                this.c.f.put(this.a, this.b);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public r80 a;
-        public final /* synthetic */ q80 b;
-
-        public b(q80 q80Var, r80 r80Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q80Var, r80Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q80Var;
-            this.a = r80Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c.k(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public r80 a;
-        public final /* synthetic */ q80 b;
-
-        public c(q80 q80Var, r80 r80Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q80Var, r80Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q80Var;
-            this.a = r80Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c.f(this.a);
-            }
-        }
-    }
-
-    public q80(Context context) {
+    public q80(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new ConcurrentHashMap<>();
-        this.a = context;
-        this.b = u80.g(context, "flow_handle", g);
-        this.c = m90.j(this.a);
-        this.d = Executors.newSingleThreadScheduledExecutor();
+        this.d = 0L;
+        this.e = context;
+        this.a = i;
+        this.b = i2;
+        this.c = System.currentTimeMillis();
+        this.f = new ConcurrentHashMap();
     }
 
-    public synchronized void e(r80 r80Var) {
+    public q80 b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, r80Var) == null) {
-            synchronized (this) {
-                if (!this.e.containsKey(Integer.valueOf(r80Var.a))) {
-                    return;
-                }
-                if (z90.a) {
-                    aa0.a("BehaviorProcess", "flow endFlow " + r80Var.f());
-                }
-                this.e.remove(Integer.valueOf(r80Var.a));
-                aa0.a("BehaviorProcess", "flow endFlow");
-                this.d.execute(new c(this, r80Var));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                p80.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
             }
-        }
-    }
-
-    public synchronized r80 b(int i) {
-        InterceptResult invokeI;
-        r80 d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            synchronized (this) {
-                d = d(i);
+            if (y90.a) {
+                String str2 = g;
+                z90.a(str2, "flow addEvent id:" + str + ",value:" + i);
             }
-            return d;
+            return this;
         }
-        return (r80) invokeI.objValue;
+        return (q80) invokeLI.objValue;
     }
 
-    public synchronized r80 g(int i) {
-        InterceptResult invokeI;
-        r80 d;
+    public q80 c(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            synchronized (this) {
-                d = d(i);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                p80.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
             }
-            return d;
-        }
-        return (r80) invokeI.objValue;
-    }
-
-    public static q80 h(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f == null) {
-                synchronized (q80.class) {
-                    if (f == null) {
-                        f = new q80(context.getApplicationContext());
-                    }
-                }
+            if (y90.a) {
+                String str2 = g;
+                z90.a(str2, "flow addEvent id:" + str + ",value:" + j);
             }
-            return f;
+            return this;
         }
-        return (q80) invokeL.objValue;
+        return (q80) invokeLJ.objValue;
     }
 
-    public void c() {
+    public q80 d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d.execute(new a(this));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && str2 != null) {
+                p80.h(this.e).f().execute(new a(this, str, str2));
+            }
+            if (y90.a) {
+                String str3 = g;
+                z90.a(str3, "flow addEvent id:" + str + ",value:" + str2);
+            }
+            return this;
+        }
+        return (q80) invokeLL.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = System.currentTimeMillis();
+            p80.h(this.e).e(this);
         }
     }
 
-    public ScheduledExecutorService f() {
+    public Map<String, String> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (ScheduledExecutorService) invokeV.objValue;
-    }
-
-    public final r80 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (!this.e.containsKey(Integer.valueOf(i))) {
-                this.b++;
-                if (z90.a) {
-                    aa0.a("BehaviorProcess", "FlowHandle:" + this.b);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : this.f.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
                 }
-                r80 r80Var = new r80(this.a, i, this.b);
-                this.e.put(Integer.valueOf(i), r80Var);
-                this.d.execute(new b(this, r80Var));
-                u80.j(this.a, "flow_handle", this.b);
-                return r80Var;
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return this.e.get(Integer.valueOf(i));
+            return jSONObject.toString();
         }
-        return (r80) invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 }

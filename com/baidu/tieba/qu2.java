@@ -1,60 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class qu2 implements sn4 {
+public class qu2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pu2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qu2() {
+    public static synchronized pu2 a() {
+        InterceptResult invokeV;
+        pu2 pu2Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (qu2.class) {
+                if (a == null) {
+                    a = new pu2();
+                }
+                pu2Var = a;
             }
+            return pu2Var;
         }
-    }
-
-    @Override // com.baidu.tieba.sn4
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return qo2.e();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sn4
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return qo2.c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sn4
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            qo2.f(jSONObject);
-        }
+        return (pu2) invokeV.objValue;
     }
 }

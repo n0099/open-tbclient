@@ -1,67 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class eg8 {
+public final class eg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final a b;
+    public final Map<String, StringBuilder> c;
 
-    public static short b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case -100000306:
-                    return (short) 6;
-                case -100000303:
-                    return (short) 2;
-                case 3160010:
-                    return (short) 5;
-                case 3160011:
-                    return (short) 4;
-                default:
-                    return (short) 9;
-            }
-        }
-        return invokeI.shortValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(String str, String str2);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
-        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public eg8(a callback) {
+        this(null, callback, 1, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
-            short b = b(i);
-            int i2 = R.string.message_text_error_because_network;
-            if (b != 2) {
-                if (b != 9) {
-                    if (b != 4) {
-                        if (b != 5) {
-                            if (b == 6) {
-                                i2 = R.string.message_text_error_because_refuse;
-                            }
-                            i2 = -1;
-                        } else {
-                            i2 = R.string.message_text_error_because_refuse_stranger;
-                        }
-                    } else {
-                        i2 = R.string.message_text_error_because_refuse_friend;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (a) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (i2 != -1) {
-                return TbadkCoreApplication.getInst().getResources().getString(i2);
-            }
-            return str;
         }
-        return (String) invokeIL.objValue;
+        Intrinsics.checkNotNullParameter(callback, "callback");
+    }
+
+    @JvmOverloads
+    public eg8(String separator, a callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {separator, callback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(separator, "separator");
+        Intrinsics.checkNotNullParameter(callback, "callback");
+        this.a = separator;
+        this.b = callback;
+        this.c = new ConcurrentHashMap();
+    }
+
+    public /* synthetic */ eg8(String str, a aVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "#<>#" : str, aVar);
+    }
+
+    public final void a(String key, String log) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, key, log) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(log, "log");
+            StringBuilder sb = this.c.get(key);
+            if (sb == null) {
+                sb = new StringBuilder();
+                this.c.put(key, sb);
+            } else {
+                sb.append(this.a);
+            }
+            sb.append(log);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (Map.Entry<String, StringBuilder> entry : this.c.entrySet()) {
+                String sb = entry.getValue().toString();
+                Intrinsics.checkNotNullExpressionValue(sb, "it.value.toString()");
+                this.b.a(entry.getKey(), sb);
+            }
+            this.c.clear();
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.clear();
+        }
     }
 }

@@ -1,63 +1,305 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.RoundTbImageView;
+import com.baidu.tieba.l66;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.view.AdAppInfoView;
+import com.baidu.tieba.recapp.widget.ApkDownloadView;
+import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class y6a implements tc7 {
+public class y6a extends b7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout h;
+    public RoundTbImageView i;
+    public TextView j;
+    public TextView k;
+    public ApkDownloadView l;
+    public TextView m;
+    public CountDownTextView n;
+    public AdAppInfoView o;
 
-    @Override // com.baidu.tieba.tc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10730" : (String) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
+
+        public a(y6a y6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    public y6a() {
+    /* loaded from: classes8.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y6a a;
+
+        public b(y6a y6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y6aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            View.OnClickListener onClickListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (onClickListener = this.a.g) != null) {
+                onClickListener.onClick(view2);
+                this.a.n.c();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m6a a;
+        public final /* synthetic */ y6a b;
+
+        public c(y6a y6aVar, m6a m6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y6aVar, m6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y6aVar;
+            this.a = m6aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            boolean z;
+            int i;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                m6a m6aVar = this.a;
+                String str2 = m6aVar.d;
+                if (!pj0.n(m6aVar.j)) {
+                    z = oj0.b(this.b.e.getPageActivity(), this.b.c.q);
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    AdvertAppInfo advertAppInfo = this.b.c;
+                    String str3 = advertAppInfo.g;
+                    if (advertAppInfo.e()) {
+                        str = this.b.c.getDownloadId();
+                    } else {
+                        str = this.b.c.a;
+                    }
+                    i = h5a.b(this.b.e, str2, str, str3, this.a.j);
+                } else {
+                    i = 3;
+                }
+                if (i == 0) {
+                    return;
+                }
+                ClogBuilder clogBuilder = new ClogBuilder();
+                clogBuilder.y(ClogBuilder.LogType.CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g);
+                w31.e(clogBuilder);
+                o49.c(this.b.c);
+                this.b.n.c();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements l66.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y6a a;
+
+        public d(y6a y6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y6aVar;
+        }
+
+        @Override // com.baidu.tieba.l66.a
+        public boolean a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                a66.a(this.a.f.getButtonCmdScheme());
+                o49.c(this.a.c);
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y6a(View view2, String str) {
+        super(view2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        l();
+    }
+
+    @Override // com.baidu.tieba.b7a
+    public void j(CountDownTextView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            super.j(cVar);
+            this.n.setTimeoutListener(cVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.b7a
+    public void c(m6a m6aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, m6aVar) == null) {
+            super.c(m6aVar);
+            if (m6aVar == null) {
+                return;
+            }
+            this.i.startLoad(m6aVar.c, 30, false);
+            this.j.setText(m6aVar.b);
+            this.k.setText(m6aVar.i);
+            this.m.setOnClickListener(new b(this));
+            this.n.setFormatString(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f00e6));
+            this.h.setOnClickListener(new c(this, m6aVar));
+            AdvertAppInfo advertAppInfo = this.c;
+            if (advertAppInfo != null && this.f != null && advertAppInfo.e()) {
+                this.o.setAd(this.c);
+                this.o.setAppInfo(this.c.h.getAppInfoModel());
+                m();
             }
         }
     }
 
-    @Override // com.baidu.tieba.tc7
-    public Map<String, String> a(f87 businessInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.b7a
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            hashMap.putAll(x6a.a.a(businessInfo));
-            String str = businessInfo.a().get("pic_count");
-            String str2 = "";
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_type", str);
-            String str3 = businessInfo.a().get("nid");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, str2);
-            hashMap.put(TiebaStatic.Params.AB_ACTION, "click");
-            return hashMap;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.d();
+            this.n.update(5);
+            this.n.e();
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.c.position + 1)).p(this.c.g);
+            w31.e(clogBuilder);
         }
-        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b7a
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.e();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.setOnClickListener(new a(this));
+            this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f0900a6);
+            this.i = (RoundTbImageView) a(R.id.user_head);
+            this.j = (TextView) a(R.id.user_name);
+            this.k = (TextView) a(R.id.obfuscated_res_0x7f092836);
+            this.l = (ApkDownloadView) a(R.id.download_btn);
+            this.m = (TextView) a(R.id.replay_btn);
+            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0907de);
+            this.o = (AdAppInfoView) a(R.id.obfuscated_res_0x7f0900ca);
+            this.l.setTextColorInitSkin(R.color.CAM_X0101);
+            this.l.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
+            this.l.setTextSize(R.dimen.T_X06);
+            this.l.setForegroundSkin(R.color.black_alpha15);
+            this.l.setBackgroundSkin(R.drawable.obfuscated_res_0x7f081588);
+            this.l.setRatio(0);
+            this.l.b();
+        }
+    }
+
+    public final void m() {
+        AdCard adCard;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (adCard = this.f) != null && adCard.downloadInfo != null) {
+            this.l.setInitText(adCard.operate.a);
+            this.l.setOnClickInterceptListener(new d(this));
+            new k66(this.l, n6a.d(this.f));
+        }
     }
 }

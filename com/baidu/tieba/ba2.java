@@ -1,165 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ba2 extends ed3 {
+public class ba2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ba2(ec3 ec3Var) {
-        super(ec3Var, "/swanAPI/sConsole");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ec3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947638166, "Lcom/baidu/tieba/ba2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947638166, "Lcom/baidu/tieba/ba2;");
                 return;
             }
         }
+        boolean z = qr1.a;
     }
 
-    @Override // com.baidu.tieba.ed3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
-        InterceptResult invokeLLLL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
-            if (ed3.b) {
-                Log.d("ConsoleAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            ox1 A = tw2.T().A(tw2.T().C());
+            if (A != null) {
+                g82.i("ConsoleMessageHelper", "send full San request");
+                A.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
             }
-            return false;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ed3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, hb3 hb3Var) {
-        InterceptResult invokeLLLLL;
-        boolean optBoolean;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, hb3Var)) == null) {
-            if (ed3.b) {
-                Log.d("ConsoleAction", "handleSubAction subAction: " + str);
-            }
-            if (!e82.a() && !h82.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
-                return super.i(context, unitedSchemeEntity, callbackHandler, str, hb3Var);
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1923550429:
-                    if (str.equals("/swanAPI/sConsole/sanIncData2Console")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1792428120:
-                    if (str.equals("/swanAPI/sConsole/sanFullData2Console")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case -797920904:
-                    if (str.equals("/swanAPI/sConsole/hide")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -797593805:
-                    if (str.equals("/swanAPI/sConsole/show")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -161927599:
-                    if (str.equals("/swanAPI/sConsole/postMessage")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 1089933937:
-                    if (str.equals("/swanAPI/sConsole/debugSwitch")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 2136057821:
-                    if (str.equals("/swanAPI/sConsole/getSanDataFromActiveSlave")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (optParamsAsJo != null && (optBoolean = optParamsAsJo.optBoolean("enableDebug")) != e82.a()) {
-                        e82.c(context, optBoolean);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        h82.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
-                    }
-                    return true;
-                case 1:
-                    uw2.T().q().O(true);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    h82.i("ConsoleAction", "sConsole show");
-                    return true;
-                case 2:
-                    uw2.T().q().O(false);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    h82.i("ConsoleAction", "sConsole hide");
-                    return true;
-                case 3:
-                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        h82.i("ConsoleAction", "send san inc data");
-                        ca2.d(optParamsAsJo.toString());
-                    } else {
-                        h82.c("ConsoleAction", "san inc data is null");
-                    }
-                    return true;
-                case 4:
-                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        h82.i("ConsoleAction", "send san full data");
-                        ca2.c(optParamsAsJo.toString());
-                    } else {
-                        h82.c("ConsoleAction", "san full data is null");
-                    }
-                    return true;
-                case 5:
-                    h82.i("ConsoleAction", "request san full data");
-                    ca2.b();
-                    return true;
-                case 6:
-                    qs1 h = pu2.h();
-                    if (h != null) {
-                        h.c(optParamsAsJo);
-                    }
-                    return true;
-                default:
-                    return super.i(context, unitedSchemeEntity, callbackHandler, str, hb3Var);
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            HashMap hashMap = new HashMap(1);
+            hashMap.put("data", str2);
+            tw2.T().m(tw2.T().q().a(), new hl2(str, hashMap));
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a("sanFullData2Console", str);
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            a("sanIncData2Console", str);
+        }
     }
 }

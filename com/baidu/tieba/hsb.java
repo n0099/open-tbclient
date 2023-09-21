@@ -1,129 +1,69 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.splash.SplashAD;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class hsb implements PidLoaderCreator {
+public class hsb extends jtb<SplashAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigKs a;
 
-    public hsb(ModuleConfigKs moduleConfigKs) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hsb(SplashAD splashAD) {
+        super(splashAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {moduleConfigKs};
+            Object[] objArr = {splashAD};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = moduleConfigKs;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
-        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
-     */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jtb
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            char c = 0;
-            try {
-                Long.parseLong(pid.pid);
-                String str = pid.type;
-                str.hashCode();
-                switch (str.hashCode()) {
-                    case -1377301807:
-                        break;
-                    case -1291455752:
-                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1187931233:
-                        if (str.equals(FunAdType.KS_NATIVE)) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1106926588:
-                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1031178769:
-                        if (str.equals(FunAdType.KS_SPLASH)) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1860126748:
-                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 2017609999:
-                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        return new wsb(pid);
-                    case 1:
-                        return new osb(pid, this.a);
-                    case 2:
-                        return new atb(pid);
-                    case 3:
-                        return new gtb(pid, this.a);
-                    case 4:
-                        return new jtb(pid);
-                    case 5:
-                        return new ssb(pid, this.a);
-                    case 6:
-                        return new ksb(pid);
-                    default:
-                        return null;
-                }
-            } catch (NumberFormatException unused) {
-                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
-                return null;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((SplashAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jtb
+    public void b(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((SplashAD) this.a).sendLossNotification(map);
         }
-        return (PidLoader) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.jtb
+    public void d(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((SplashAD) this.a).sendWinNotification(map);
+        }
+    }
+
+    @Override // com.baidu.tieba.jtb
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((SplashAD) this.a).getECPM();
+        }
+        return invokeV.intValue;
     }
 }

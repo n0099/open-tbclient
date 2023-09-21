@@ -1,104 +1,105 @@
 package com.baidu.tieba;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.searchbox.ui.SystemBarTintManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchSug.DataRes;
+import com.baidubce.auth.NTLMEngineImpl;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class w59 {
+public class w59 extends gv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public final List<pm> b;
-    public y59 c;
-    public b69 d;
-    public z59 e;
-    public a69 f;
-    public c69 g;
 
-    public w59(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    @Override // com.baidu.tieba.gv4
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/registerInterviewNotice" : (String) invokeV.objValue;
+    }
+
+    public w59() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ArrayList();
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        a(context, bdTypeRecyclerView);
-    }
-
-    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
-            this.c = new y59(context, d69.c);
-            this.d = new b69(context, g69.l);
-            this.e = new z59(context, e69.i);
-            this.f = new a69(context, f69.g);
-            this.g = new c69(context, h69.e);
-            this.b.add(this.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
-            this.b.add(this.g);
-            this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.addAdapters(this.b);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            y59 y59Var = this.c;
-            if (y59Var != null) {
-                y59Var.notifyDataSetChanged();
-            }
-            b69 b69Var = this.d;
-            if (b69Var != null) {
-                b69Var.notifyDataSetChanged();
-            }
-            z59 z59Var = this.e;
-            if (z59Var != null) {
-                z59Var.notifyDataSetChanged();
-            }
-            a69 a69Var = this.f;
-            if (a69Var != null) {
-                a69Var.notifyDataSetChanged();
-            }
-            c69 c69Var = this.g;
-            if (c69Var != null) {
-                c69Var.notifyDataSetChanged();
             }
         }
     }
 
-    public void c(DataRes dataRes, String str) {
+    @Override // com.baidu.tieba.gv4, com.baidu.tieba.jv4
+    public lv4 b(Object obj, HashMap<String, String> hashMap, String str) {
+        InterceptResult invokeLLL;
+        Map.Entry<String, String> next;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) != null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            lv4 lv4Var = new lv4();
+            if (obj instanceof q49) {
+                q49 q49Var = (q49) obj;
+                boolean c = q49Var.c();
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                Intent intent = new Intent(context, AlarmReceiver.class);
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                intent.putExtra("uid", TbadkCoreApplication.getCurrentAccount());
+                intent.setData(Uri.parse(currentAccount));
+                long j = 0;
+                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
+                int i = 0;
+                while (it.hasNext() && (next = it.next()) != null) {
+                    intent.putExtra(next.getKey(), next.getValue());
+                    if ("task_id".equals(next.getKey())) {
+                        i = Integer.parseInt(next.getValue());
+                    } else if ("s_time".equals(next.getKey())) {
+                        j = Long.parseLong(next.getValue()) * 1000;
+                    }
+                }
+                StatisticItem statisticItem = new StatisticItem(q49Var.h());
+                statisticItem.param("obj_id", "");
+                if (c) {
+                    statisticItem.param("obj_type", "2");
+                    BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0af7)).show();
+                    PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+                    if (broadcast != null) {
+                        alarmManager.cancel(broadcast);
+                        broadcast.cancel();
+                    }
+                    lv4Var.a = false;
+                } else {
+                    statisticItem.param("obj_type", "1");
+                    BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0b02)).show();
+                    alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
+                    lv4Var.a = true;
+                }
+                TiebaStatic.log(statisticItem);
+                q49Var.k(lv4Var.a);
+            }
+            return lv4Var;
         }
-        List<cn> a = i69.a(dataRes, str);
-        if (!ListUtils.isEmpty(a)) {
-            this.a.setData(a);
-        }
+        return (lv4) invokeLLL.objValue;
     }
 }

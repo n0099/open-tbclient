@@ -5,19 +5,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class oda {
+public class oda extends qda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pu6 a;
+    public String n;
 
-    public oda(pu6 spriteAnimData) {
+    public oda(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spriteAnimData};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,16 +26,15 @@ public final class oda {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(spriteAnimData, "spriteAnimData");
-        this.a = spriteAnimData;
+        this.n = str;
     }
 
-    public final pu6 a() {
+    public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.n;
         }
-        return (pu6) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

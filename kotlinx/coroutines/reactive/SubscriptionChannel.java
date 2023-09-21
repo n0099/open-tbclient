@@ -52,7 +52,7 @@ public final class SubscriptionChannel<T> extends LinkedListChannel<T> implement
     @Override // org.reactivestreams.Subscriber
     public void onNext(T t) {
         _requested$FU.decrementAndGet(this);
-        mo2299trySendJP2dKIU(t);
+        mo2301trySendJP2dKIU(t);
     }
 
     @Override // org.reactivestreams.Subscriber

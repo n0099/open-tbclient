@@ -7,8 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej5;
-import com.baidu.tieba.fj5;
+import com.baidu.tieba.ij5;
+import com.baidu.tieba.jj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PbNewEditorTool extends ej5 {
+public class PbNewEditorTool extends ij5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditText t;
@@ -119,7 +119,7 @@ public class PbNewEditorTool extends ej5 {
         ((PbNewInputContainer) this.m).setmAtListRequestResponseCode(i);
         this.t = ((PbNewInputContainer) this.m).getInputView();
         ((PbNewInputContainer) this.m).setHint(context.getString(R.string.say_your_point));
-        ((PbNewInputContainer) this.m).Y(z2);
+        ((PbNewInputContainer) this.m).W(z2);
         this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45, 70};
     }
 
@@ -131,10 +131,10 @@ public class PbNewEditorTool extends ej5 {
     }
 
     public void h(int i) {
-        fj5 fj5Var;
+        jj5 jj5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (fj5Var = this.m) != null) {
-            ((PbNewInputContainer) fj5Var).H(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (jj5Var = this.m) != null) {
+            ((PbNewInputContainer) jj5Var).G(i);
         }
     }
 
@@ -155,9 +155,9 @@ public class PbNewEditorTool extends ej5 {
     public void m(InputShowType inputShowType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, inputShowType) == null) {
-            fj5 fj5Var = this.m;
-            if (fj5Var instanceof PbNewInputContainer) {
-                ((PbNewInputContainer) fj5Var).setFromType(inputShowType);
+            jj5 jj5Var = this.m;
+            if (jj5Var instanceof PbNewInputContainer) {
+                ((PbNewInputContainer) jj5Var).setFromType(inputShowType);
             }
         }
     }
@@ -170,10 +170,10 @@ public class PbNewEditorTool extends ej5 {
     }
 
     public void o(int i) {
-        fj5 fj5Var;
+        jj5 jj5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (fj5Var = this.m) != null) {
-            ((PbNewInputContainer) fj5Var).setType(i);
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (jj5Var = this.m) != null) {
+            ((PbNewInputContainer) jj5Var).setType(i);
         }
     }
 
@@ -187,10 +187,10 @@ public class PbNewEditorTool extends ej5 {
     }
 
     public void j() {
-        fj5 fj5Var;
+        jj5 jj5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (fj5Var = this.m) != null) {
-            ((PbNewInputContainer) fj5Var).T();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jj5Var = this.m) != null) {
+            ((PbNewInputContainer) jj5Var).T();
         }
     }
 }

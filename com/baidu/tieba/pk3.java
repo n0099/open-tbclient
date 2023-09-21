@@ -1,14 +1,6 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Looper;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,115 +8,122 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.io.File;
 import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public final class pk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static a b;
-    public static a c;
+    public static volatile pk3 c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static String e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == 1 ? "aigames/game-config.json" : "aiapps/swan-config.json" : (String) invokeI.objValue;
-    }
-
-    public static String h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i == 1 ? "aigames/game-core.zip" : "aiapps/swan-core.zip" : (String) invokeI.objValue;
-    }
-
-    public static String n(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) ? i == 1 ? "aigames_preset_update_key" : "aiapps_preset_update_key" : (String) invokeI.objValue;
-    }
-
-    public static String o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) ? i == 1 ? "aigames_cur_preset_ver_key" : "aiapps_cur_preset_ver_key" : (String) invokeI.objValue;
-    }
-
-    public static String p(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) ? i == 1 ? "aigames_cur_preset_ver_name_key" : "aiapps_cur_preset_ver_name_key" : (String) invokeI.objValue;
-    }
+    public ArrayList<zp3<Exception>> a;
+    public ArrayList<zp3<Exception>> b;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
+        public final /* synthetic */ int a;
 
-        public static String b(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 1 ? "game-core-version-code" : "swan-core-version-code" : (String) invokeI.objValue;
-        }
-
-        public static String c(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1 ? "game-core-version-name" : "swan-core-version-name" : (String) invokeI.objValue;
-        }
-
-        public a() {
+        public a(pk3 pk3Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pk3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g82.k("PresetSwanCoreUpdater", "onPresetCheck start.");
+                ok3.s(this.a);
+                g82.k("PresetSwanCoreUpdater", "onPresetCheck end.");
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ pk3 b;
+
+        public b(pk3 pk3Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pk3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pk3Var;
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g82.k("PresetSwanCoreUpdater", "onPresetUpdate start.");
+                pk3 pk3Var = this.b;
+                int i = this.a;
+                pk3Var.c(i, ok3.t(i));
+                g82.k("PresetSwanCoreUpdater", "onPresetUpdate end.");
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zp3 a;
+        public final /* synthetic */ Exception b;
+
+        public c(pk3 pk3Var, zp3 zp3Var, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pk3Var, zp3Var, exc};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = zp3Var;
+            this.b = exc;
         }
 
-        public long d() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
             }
-            return invokeV.longValue;
-        }
-
-        public String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (TextUtils.isEmpty(this.a)) {
-                    return "0";
-                }
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public static a f(JSONObject jSONObject, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, i)) == null) {
-                a aVar = new a();
-                if (jSONObject != null) {
-                    aVar.a = jSONObject.optString(c(i));
-                    aVar.b = jSONObject.optLong(b(i));
-                }
-                return aVar;
-            }
-            return (a) invokeLI.objValue;
         }
     }
 
@@ -141,279 +140,110 @@ public final class pk3 {
                 return;
             }
         }
-        a = rr1.a;
+        boolean z = qr1.a;
     }
 
-    public static a d() {
-        InterceptResult invokeV;
+    public pk3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                b = a.f(u(0), 0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return b;
         }
-        return (a) invokeV.objValue;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    public static a i() {
+    public static pk3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (c == null) {
-                c = a.f(u(1), 1);
+                synchronized (pk3.class) {
+                    if (c == null) {
+                        c = new pk3();
+                    }
+                }
             }
             return c;
         }
-        return (a) invokeV.objValue;
+        return (pk3) invokeV.objValue;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public final void c(int i, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            h82.k("PresetSwanCoreControl", "canPresetFolderWrite presetSavePath=" + str);
-            File file = new File(str);
-            if (!file.exists() && !file.mkdirs()) {
-                h82.k("PresetSwanCoreControl", "canPresetFolderWrite mkdirs fail");
-                return false;
-            }
-            boolean canWrite = file.canWrite();
-            h82.k("PresetSwanCoreControl", "canPresetFolderWrite canWrite=" + canWrite);
-            return canWrite;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static synchronized void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65555, null, i) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
             synchronized (pk3.class) {
-                a k = k(i);
-                String h = h(i);
-                String path = l(k.d(), i).getPath();
-                boolean z = lr4.z(h, path);
-                if (a) {
-                    Log.d("PresetSwanCoreControl", "isZipAssetMatchUnzipResult:" + z + ",path:" + path);
+                try {
+                    if (i == 0) {
+                        Iterator<zp3<Exception>> it = this.a.iterator();
+                        while (it.hasNext()) {
+                            d(it.next(), exc);
+                        }
+                        this.a.clear();
+                    } else if (i == 1) {
+                        Iterator<zp3<Exception>> it2 = this.b.iterator();
+                        while (it2.hasNext()) {
+                            d(it2.next(), exc);
+                        }
+                        this.b.clear();
+                    }
+                } catch (Throwable th) {
+                    throw th;
                 }
-                if (!z) {
-                    mk3.m(0, i, k.d());
-                    lr4.M(path);
-                    lr4.V(h, path);
-                }
             }
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static JSONObject u(int i) {
-        InterceptResult invokeI;
+    public final void d(zp3<Exception> zp3Var, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) {
-            if (a) {
-                Log.d("PresetSwanCoreControl", "readPresetConfig start.");
-            }
-            String D = lr4.D(AppRuntime.getAppContext(), e(i));
-            if (TextUtils.isEmpty(D)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(D);
-                if (a) {
-                    Log.d("PresetSwanCoreControl", "readPresetConfig end. config: " + jSONObject.toString());
-                }
-                return jSONObject;
-            } catch (JSONException e) {
-                if (!a) {
-                    return null;
-                }
-                throw new RuntimeException(e);
-            }
-        }
-        return (JSONObject) invokeI.objValue;
-    }
-
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            vj3.a().putString(p(i), "0");
-            vj3.a().putLong(o(i), 0L);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zp3Var, exc) == null) && zp3Var != null) {
+            ap3.e0(new c(this, zp3Var, exc));
         }
     }
 
-    public static long f(int i) {
-        InterceptResult invokeI;
+    public void e(zp3<Exception> zp3Var, int i) {
+        ArrayList<zp3<Exception>> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            return vj3.a().getLong(o(i), 0L);
-        }
-        return invokeI.longValue;
-    }
-
-    public static String g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            return vj3.a().getString(p(i), "0");
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static File j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
-            return new File(mk3.d(i), "preset");
-        }
-        return (File) invokeI.objValue;
-    }
-
-    public static a k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
-            if (i == 1) {
-                return i();
-            }
-            return d();
-        }
-        return (a) invokeI.objValue;
-    }
-
-    public static boolean r(int i) {
-        InterceptResult invokeI;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i)) == null) {
-            if (i == 1) {
-                str = "aigames_preset_checked_key";
-            } else {
-                str = "aiapps_preset_checked_key";
-            }
-            return vj3.a().getBoolean(str, false);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static Exception c(a aVar, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i)) == null) {
-            h82.k("PresetSwanCoreControl", "doPresetUpdate.");
-            if (aVar == null) {
-                return new Exception("preset swan config is null");
-            }
-            String h = h(i);
-            String path = l(aVar.d(), i).getPath();
-            if (!lr4.V(h, path)) {
-                Exception exc = new Exception("PresetSwanCoreControl doPresetUpdate: failed by unzip file path = " + h);
-                h82.k("PresetSwanCoreControl", "doPresetUpdate unzip failed assetExists: " + sn3.a(AppRuntime.getAppContext(), h) + ParamableElem.DIVIDE_PARAM + exc);
-                boolean a2 = a(path);
-                if (i == 0 && Looper.myLooper() != Looper.getMainLooper() && !du2.w() && !a2) {
-                    h82.k("PresetSwanCoreControl", "doSwanFolderFallback:start.");
-                    du2.e("swan_core" + File.separator + "preset" + File.separator + aVar.d());
-                }
-                return exc;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Long.valueOf(aVar.d()));
-            mk3.b(j(i), arrayList);
-            vj3.a().putLong(o(i), aVar.d());
-            vj3.a().putString(p(i), aVar.e());
-            if (i == 0) {
-                SwanJSVersionUpdateEvent.sendEvent(aVar.d());
-            }
-            v(false, i);
-            if (a) {
-                String b2 = nr4.b(new File(h(i)), false);
-                if (!TextUtils.isEmpty(b2)) {
-                    vj3.a().putString(lk3.d(i), b2);
-                    return null;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (Exception) invokeLI.objValue;
-    }
-
-    public static File l(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            return new File(j(i), String.valueOf(j));
-        }
-        return (File) invokeCommon.objValue;
-    }
-
-    public static void w(boolean z, int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            if (i == 1) {
-                str = "aigames_preset_checked_key";
-            } else {
-                str = "aiapps_preset_checked_key";
-            }
-            vj3.a().putBoolean(str, z);
-        }
-    }
-
-    public static SwanCoreVersion m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i)) == null) {
-            SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-            swanCoreVersion.swanCoreType = 0;
-            swanCoreVersion.swanCoreVersionCode = f(i);
-            swanCoreVersion.swanCoreVersionName = g(i);
-            swanCoreVersion.swanCorePath = l(swanCoreVersion.swanCoreVersionCode, i).getPath();
-            return swanCoreVersion;
-        }
-        return (SwanCoreVersion) invokeI.objValue;
-    }
-
-    public static boolean q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
-            if (k(i).b <= 0) {
-                return false;
-            }
-            if (!vj3.a().getBoolean(n(i), false) && m(i).isAvailable()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static synchronized Exception t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, zp3Var, i) == null) {
+            g82.k("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
             synchronized (pk3.class) {
-                if (a) {
-                    Log.d("PresetSwanCoreControl", "onPresetUpdate start.");
+                boolean q = ok3.q(i);
+                g82.k("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = " + q);
+                if (!q && i == 0 && !ok3.r(i)) {
+                    ok3.w(true, i);
+                    new Thread(new a(this, i), "onPresetCheck").start();
                 }
-                if (!q(i)) {
-                    return null;
+                if (!q) {
+                    d(zp3Var, null);
+                    return;
                 }
-                a k = k(i);
-                long j = vj3.a().getLong(h(i), 0L);
-                if (a) {
-                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + k.e());
+                if (i == 1) {
+                    arrayList = this.b;
+                } else {
+                    arrayList = this.a;
                 }
-                return c(k, i);
+                if (arrayList.isEmpty()) {
+                    new Thread(new b(this, i), "updateSwanCoreAsync").start();
+                }
+                arrayList.add(zp3Var);
+                g82.k("PresetSwanCoreUpdater", "updateSwanCoreAsync end.");
             }
         }
-        return (Exception) invokeI.objValue;
     }
 
-    public static void v(boolean z, int i) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            vj3.a().putBoolean(n(i), z);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            synchronized (pk3.class) {
+                c(i, ok3.t(i));
+            }
         }
     }
 }

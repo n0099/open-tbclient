@@ -1,76 +1,133 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.live.interfaces.player.BuildParams;
+import com.baidu.searchbox.live.interfaces.player.IDuMediaInstallListener;
+import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes8.dex */
-public class v99 {
+public class v99 implements ILivePlayerService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public i99 b;
-    public LinkedHashMap<String, l99> c;
 
-    public v99(DataRes dataRes) {
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public boolean isAuthError(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i == -2403 || i == -33403 : invokeI.booleanValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IDuMediaInstallListener a;
+
+        public a(v99 v99Var, IDuMediaInstallListener iDuMediaInstallListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v99Var, iDuMediaInstallListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iDuMediaInstallListener;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            IDuMediaInstallListener iDuMediaInstallListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) && (iDuMediaInstallListener = this.a) != null) {
+                iDuMediaInstallListener.onInstallError(i, i2, str);
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            IDuMediaInstallListener iDuMediaInstallListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && (iDuMediaInstallListener = this.a) != null) {
+                iDuMediaInstallListener.onInstallProgress(i, i2);
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            IDuMediaInstallListener iDuMediaInstallListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) && (iDuMediaInstallListener = this.a) != null) {
+                iDuMediaInstallListener.onInstallSuccess(i, str);
+            }
+        }
+    }
+
+    public v99() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (dataRes == null) {
-            return;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createBackPlayer(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new r99(str);
         }
-        String str = dataRes.grade_intro_title;
-        String str2 = dataRes.grade_intro_link;
-        new u99(dataRes);
-        new w99(dataRes.special_list);
-        new n99(dataRes.cooperate_list);
-        new r99(dataRes.theme_list);
-        new j99(dataRes.banner_list);
-        new z99(dataRes.task_list);
-        new y99(dataRes.rank, dataRes.user);
-        new p99(dataRes.daily_list);
-        i99 i99Var = new i99();
-        this.b = i99Var;
-        i99Var.a(dataRes);
-        List<VipBasicList> list = dataRes.basic_list;
-        if (list != null && list.size() > 0) {
-            this.c = new LinkedHashMap<>();
-            for (VipBasicList vipBasicList : dataRes.basic_list) {
-                List<VipSpecialItem> list2 = vipBasicList.item;
-                if (list2 != null && list2.size() > 0) {
-                    l99 l99Var = new l99(vipBasicList);
-                    if (l99Var.c != 3 || l99Var.a().size() >= 2) {
-                        this.c.put(l99Var.d, l99Var);
-                    }
-                }
+        return (LivePlayer) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createPlayer(BuildParams buildParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buildParams)) == null) {
+            if (buildParams.getPlayerType() != 1) {
+                return createPlayer(buildParams.getRoomId());
             }
+            return createBackPlayer(buildParams.getRoomId());
         }
-        List<String> list3 = dataRes.card_order;
-        if (list3 != null && list3.size() > 0) {
-            this.a = new ArrayList<>();
-            for (String str3 : dataRes.card_order) {
-                if (!StringUtils.isNull(str3)) {
-                    this.a.add(str3);
-                }
-            }
+        return (LivePlayer) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createPlayer(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return new s99(str);
+        }
+        return (LivePlayer) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public void initPlayerEvn(@Nullable IDuMediaInstallListener iDuMediaInstallListener, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, iDuMediaInstallListener, i) == null) {
+            t99.e().h(new a(this, iDuMediaInstallListener), i);
         }
     }
 }

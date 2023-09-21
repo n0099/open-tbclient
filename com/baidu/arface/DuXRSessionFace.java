@@ -14,7 +14,7 @@ import com.baidu.ar.dumix.face.FaceListener;
 import com.baidu.ar.dumix.face.FaceSession;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.mo1;
+import com.baidu.tieba.lo1;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -266,7 +266,7 @@ public class DuXRSessionFace {
             return;
         }
         this.mTextureId = i3;
-        PermissionProxy permissionProxy = mo1.o;
+        PermissionProxy permissionProxy = lo1.o;
         if (permissionProxy != null) {
             permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a());
         } else {

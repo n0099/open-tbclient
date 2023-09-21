@@ -5,14 +5,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tieba.s7a;
+import com.baidu.tbadk.core.atomData.ReplyMeActivityConfig;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class FrsDispatcher implements s7a {
+public class FrsDispatcher implements y9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,13 +31,13 @@ public class FrsDispatcher implements s7a {
         }
     }
 
-    @Override // com.baidu.tieba.s7a
+    @Override // com.baidu.tieba.y9a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context);
             frsActivityConfig.createNormalCfg(jSONObject.optString("forumName"), null);
-            int i = JavaTypesHelper.toInt(jSONObject.optString("callFrom"), -1);
+            int i = JavaTypesHelper.toInt(jSONObject.optString(ReplyMeActivityConfig.KEY_FROM), -1);
             long optLong = jSONObject.optLong("roomId");
             if (optLong != 0) {
                 frsActivityConfig.setRoomId(optLong);

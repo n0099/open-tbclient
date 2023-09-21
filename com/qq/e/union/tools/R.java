@@ -77,8 +77,8 @@ public final class R {
         public static final int ad_server_on_button = 0x7f0800e0;
 
         /* renamed from: logo */
-        public static final int obfuscated = 0x7f080f96;
-        public static final int shape_corner = 0x7f0813c7;
+        public static final int obfuscated = 0x7f080f91;
+        public static final int shape_corner = 0x7f0813c2;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -102,22 +102,22 @@ public final class R {
 
         /* renamed from: adTypeSp */
         public static final int obfuscated = 0x7f09008f;
-        public static final int cancel = 0x7f090541;
-        public static final int confirm = 0x7f09079b;
+        public static final int cancel = 0x7f090539;
+        public static final int confirm = 0x7f090792;
 
         /* renamed from: crtSizeSp */
-        public static final int obfuscated = 0x7f09081e;
+        public static final int obfuscated = 0x7f090812;
 
         /* renamed from: crtSizeTv */
-        public static final int obfuscated = 0x7f09081f;
-        public static final int isFullscreenCheckBox = 0x7f09119e;
-        public static final int isFullscreenTv = 0x7f09119f;
+        public static final int obfuscated = 0x7f090813;
+        public static final int isFullscreenCheckBox = 0x7f09118f;
+        public static final int isFullscreenTv = 0x7f091190;
 
         /* renamed from: msg */
-        public static final int obfuscated = 0x7f0917cb;
-        public static final int msg_title = 0x7f09182c;
-        public static final int productTypeTv = 0x7f091da9;
-        public static final int title = 0x7f0925d1;
+        public static final int obfuscated = 0x7f0917b8;
+        public static final int msg_title = 0x7f091819;
+        public static final int productTypeTv = 0x7f091d77;
+        public static final int title = 0x7f09259d;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -138,7 +138,7 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int gdt_activity_tools = 0x7f0d03dd;
+        public static final int gdt_activity_tools = 0x7f0d03de;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -165,15 +165,15 @@ public final class R {
 
         /* renamed from: crtSize */
         public static final int obfuscated = 0x7f0f0518;
-        public static final int is_fullscreen = 0x7f0f0b34;
+        public static final int is_fullscreen = 0x7f0f0b36;
 
         /* renamed from: msg */
-        public static final int obfuscated = 0x7f0f0cc0;
-        public static final int msg_tile = 0x7f0f0cdc;
-        public static final int product_type = 0x7f0f1174;
+        public static final int obfuscated = 0x7f0f0cc2;
+        public static final int msg_tile = 0x7f0f0cde;
+        public static final int product_type = 0x7f0f1176;
 
         /* renamed from: title */
-        public static final int obfuscated = 0x7f0f16c4;
+        public static final int obfuscated = 0x7f0f16c8;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

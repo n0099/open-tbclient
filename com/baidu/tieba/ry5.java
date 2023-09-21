@@ -1,159 +1,257 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.media.ExifInterface;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.util.gson.Holder;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.SelectImageHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.internal.C$Gson$Types;
-import com.google.gson.reflect.TypeToken;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.Collection;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsJVMKt;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmClassMappingKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Reflection;
-import kotlin.reflect.KClass;
-import kotlin.reflect.KClassifier;
-import kotlin.reflect.KParameter;
-import kotlin.reflect.full.KClasses;
-import kotlin.reflect.jvm.ReflectJvmMapping;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.VideoMuxerData;
+import com.baidu.ugc.editvideo.muxer.VideoMuxer;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.editvideo.player.AudioPlayTrackData;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class ry5 {
+public class ry5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ Object a(KParameter kParameter) {
-        return e(kParameter);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i);
+
+        void b();
+
+        void c();
+
+        void d(String str);
     }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ KClass d(TypeToken typeToken) {
-        return h(typeToken);
-    }
+    /* loaded from: classes7.dex */
+    public class a implements hgb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
 
-    public static final <T> KClass<T> h(TypeToken<T> typeToken) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, typeToken)) == null) {
-            Class<? super T> rawType = typeToken.getRawType();
-            if (rawType != null) {
-                return JvmClassMappingKt.getKotlinClass(rawType);
+        @Override // com.baidu.tieba.hgb
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
-            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T of com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactoryKt.toKClass>");
         }
-        return (KClass) invokeL.objValue;
-    }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ List b(KParameter kParameter, Class cls) {
-        return f(kParameter, cls);
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ TypeToken c(TypeToken typeToken, KParameter kParameter) {
-        return g(typeToken, kParameter);
-    }
-
-    public static final Object e(KParameter kParameter) {
-        InterceptResult invokeL;
-        KClass kClass;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kParameter)) == null) {
-            if (kParameter.getType().isMarkedNullable()) {
-                return null;
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            KClassifier classifier = kParameter.getType().getClassifier();
-            if (classifier instanceof KClass) {
-                kClass = (KClass) classifier;
-            } else {
-                kClass = null;
-            }
-            if (kClass == null) {
-                return null;
-            }
-            if (!KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Collection.class)) && !KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Object[].class))) {
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(String.class))) {
-                    return "";
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Boolean.TYPE))) {
-                    return Boolean.FALSE;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Byte.TYPE))) {
-                    return (byte) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Character.TYPE))) {
-                    return (char) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Double.TYPE))) {
-                    return Double.valueOf(0.0d);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Float.TYPE))) {
-                    return Float.valueOf(0.0f);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Integer.class))) {
-                    return 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Long.TYPE))) {
-                    return 0L;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Short.TYPE))) {
-                    return (short) 0;
-                }
-                return Holder.OBJECT;
-            }
-            return Holder.ARRAY;
+            this.a = bVar;
         }
-        return invokeL.objValue;
+
+        @Override // com.baidu.tieba.hgb
+        public void a(int i) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bVar = this.a) != null) {
+                bVar.a(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.hgb
+        public void e(String str) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (bVar = this.a) != null) {
+                bVar.d(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.hgb
+        public void f(String str) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (bVar = this.a) != null) {
+                bVar.c();
+            }
+        }
+
+        @Override // com.baidu.tieba.hgb
+        public void b() {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
+                bVar.b();
+            }
+        }
+
+        @Override // com.baidu.tieba.hgb
+        public void d() {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bVar = this.a) != null) {
+                bVar.c();
+            }
+        }
     }
 
-    public static final <T> List<String> f(KParameter kParameter, Class<T> cls) {
-        InterceptResult invokeLL;
-        Field field;
+    public static Bitmap a(Context context, Uri uri, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, kParameter, cls)) == null) {
-            String name = kParameter.getName();
-            if (name == null) {
-                return CollectionsKt__CollectionsKt.emptyList();
-            }
-            SerializedName serializedName = null;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, uri, i)) == null) {
             try {
-                field = cls.getDeclaredField(name);
-            } catch (NoSuchFieldException unused) {
-                field = null;
+                return BitmapHelper.subSampleBitmap(context, uri, i);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
-            if (field != null) {
-                serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
-            }
-            if (field != null && !Modifier.isTransient(field.getModifiers())) {
-                if (serializedName != null) {
-                    return CollectionsKt___CollectionsKt.plus((Collection) CollectionsKt__CollectionsJVMKt.listOf(serializedName.value()), (Object[]) serializedName.alternate());
-                }
-                return CollectionsKt__CollectionsJVMKt.listOf(name);
-            }
-            return CollectionsKt__CollectionsKt.emptyList();
         }
-        return (List) invokeLL.objValue;
+        return (Bitmap) invokeLLI.objValue;
     }
 
-    public static final TypeToken<?> g(TypeToken<?> typeToken, KParameter kParameter) {
+    public static Bitmap b(Context context, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
+            try {
+                return BitmapHelper.loadResizedBitmap(str, i, i);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (Bitmap) invokeLLI.objValue;
+    }
+
+    public static Bitmap c(int i, Context context, Uri uri, String str, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), context, uri, str, Integer.valueOf(i2)})) == null) {
+            if (i == 12001) {
+                return e(i2);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                return b(context, str, i2);
+            }
+            return a(context, uri, i2);
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static VideoMuxer d(u0b u0bVar, b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, typeToken, kParameter)) == null) {
-            TypeToken<?> resolveParameterType = TypeToken.get(C$Gson$Types.resolve(typeToken.getType(), typeToken.getRawType(), ReflectJvmMapping.getJavaType(kParameter.getType())));
-            Intrinsics.checkNotNullExpressionValue(resolveParameterType, "resolveParameterType");
-            return resolveParameterType;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, u0bVar, bVar)) == null) {
+            if (u0bVar == null) {
+                return null;
+            }
+            int f = u0bVar.f();
+            int e = u0bVar.e();
+            VideoMuxerData videoMuxerData = new VideoMuxerData();
+            videoMuxerData.setCompat(true);
+            videoMuxerData.setRecordConfigEncodeHevcVideo(true);
+            videoMuxerData.setCurrentEncodeHevcVideo(true);
+            ArrayList arrayList = new ArrayList();
+            if (u0bVar.c() != null) {
+                TbMultiMediaData tbMultiMediaData = (TbMultiMediaData) u0bVar.c().clone();
+                tbMultiMediaData.textureId = 0;
+                arrayList.add(tbMultiMediaData);
+                videoMuxerData.setPhotoDataList(arrayList);
+                videoMuxerData.setVideoPath(tbMultiMediaData.path);
+                videoMuxerData.setPreviewWidth(f);
+                videoMuxerData.setPreviewHeight(e);
+                videoMuxerData.setVideoRatio(u0bVar.g());
+                videoMuxerData.setOutWidth(f);
+                videoMuxerData.setOutHeight(e);
+                videoMuxerData.setOutBitRate(f * e * 6);
+            }
+            if (u0bVar.a() != null) {
+                videoMuxerData.setFilterValue(u0bVar.a());
+            }
+            if (u0bVar.b() != null) {
+                videoMuxerData.setCurrThemeEffect(u0bVar.b());
+            }
+            videoMuxerData.setUserNewAudioMixture(true);
+            if (u0bVar.d() != null) {
+                videoMuxerData.setMusicData(u0bVar.d());
+                ArrayList arrayList2 = new ArrayList();
+                AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
+                AudioPlayData audioPlayData = new AudioPlayData(u0bVar.d().localPath, 0, lkb.f(u0bVar.d().localPath), 1.0f);
+                ArrayList arrayList3 = new ArrayList();
+                audioPlayTrackData.mAudioPlayDataList = arrayList3;
+                arrayList3.add(audioPlayData);
+                arrayList2.add(audioPlayTrackData);
+                videoMuxerData.setAudioPlayTrackDataList(arrayList2);
+            }
+            videoMuxerData.setComposeNecessary(true);
+            VideoMuxer videoMuxer = new VideoMuxer();
+            videoMuxer.setListener(new a(bVar));
+            videoMuxer.startMuxer(videoMuxerData);
+            return videoMuxer;
         }
-        return (TypeToken) invokeLL.objValue;
+        return (VideoMuxer) invokeLL.objValue;
+    }
+
+    public static Bitmap e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            try {
+                int f = f(FileHelper.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
+                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
+                if (f != 0 && subSampleBitmap != null) {
+                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, f);
+                }
+                return subSampleBitmap;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (Bitmap) invokeI.objValue;
+    }
+
+    public static int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            try {
+                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+                if (attributeInt != 3) {
+                    if (attributeInt != 6) {
+                        if (attributeInt != 8) {
+                            return 0;
+                        }
+                        return 270;
+                    }
+                    return 90;
+                }
+                return 180;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return 0;
+            }
+        }
+        return invokeL.intValue;
     }
 }

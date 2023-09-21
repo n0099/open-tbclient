@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class cvb implements ArCoreApk.a {
+public class cvb extends gvb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ dvb a;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ mub c;
+    public final /* synthetic */ bvb d;
 
-    public cvb(dvb dvbVar) {
+    public cvb(bvb bvbVar, mub mubVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dvbVar};
+            Object[] objArr = {bvbVar, mubVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,81 +30,54 @@ public class cvb implements ArCoreApk.a {
                 return;
             }
         }
-        this.a = dvbVar;
+        this.d = bvbVar;
+        this.c = mubVar;
     }
 
-    public static Uri b(String str) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    public static ArCoreApk.Availability c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (d(context) != null) {
-                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
-                }
-                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
-            } catch (UnavailableDeviceNotCompatibleException unused) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.a) {
-                dvb.c(this.a, availability);
-                dvb.f(this.a, false);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((bvb) this.c, this.b, new String[0]);
+            this.b = true;
         }
     }
 
-    public static PendingIntent d(Context context) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowEnd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
-                if (call == null) {
-                    return null;
-                }
-                PendingIntent pendingIntent = (PendingIntent) call.getParcelable("intent");
-                if (pendingIntent != null) {
-                    return pendingIntent;
-                }
-                String string = call.getString("exceptionType", "");
-                if (string.isEmpty()) {
-                    return null;
-                }
-                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
-                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
-                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
-                        String string2 = call.getString("exceptionText", null);
-                        if (string2 != null) {
-                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
-                        }
-                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
-                    }
-                    throw new UnavailableUserDeclinedInstallationException();
-                }
-                throw new UnavailableDeviceNotCompatibleException();
-            } catch (ReflectiveOperationException | RuntimeException e) {
-                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
         }
-        return (PendingIntent) invokeL.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowError(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
+            this.d.onAdError(this.c, i, str);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((bvb) this.c, this.a, new String[0]);
+            this.a = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onSkippedAd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
+        }
     }
 }

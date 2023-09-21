@@ -54,7 +54,7 @@ public class ActionBarAppPortrait extends LinearLayout implements c {
     }
 
     private void b(View view2, final boolean z) {
-        com.kwad.components.core.c.a.a.a(new a.C0643a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wI).ae(view2 == this.wJ ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortrait.2
+        com.kwad.components.core.c.a.a.a(new a.C0636a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wI).ae(view2 == this.wJ ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortrait.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 if (ActionBarAppPortrait.this.wM != null) {
@@ -108,17 +108,17 @@ public class ActionBarAppPortrait extends LinearLayout implements c {
     }
 
     private void initView() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04fa, this);
-        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091289);
-        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09128d);
-        this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f091285);
-        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09128c);
-        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091288);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091287);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04fd, this);
+        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091279);
+        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09127d);
+        this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f091275);
+        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09127c);
+        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091278);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091277);
         this.wI = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
         this.wI.setTextColor(-1);
-        this.wJ = findViewById(R.id.obfuscated_res_0x7f0912c0);
+        this.wJ = findViewById(R.id.obfuscated_res_0x7f0912b0);
     }
 
     private void jg() {

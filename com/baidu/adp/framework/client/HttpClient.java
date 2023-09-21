@@ -14,9 +14,9 @@ import com.baidu.adp.log.NetLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aa;
+import com.baidu.tieba.lf;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.mf;
-import com.baidu.tieba.pf;
+import com.baidu.tieba.of;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,8 +91,8 @@ public class HttpClient extends aa<HttpMessage, HttpMessageTask> {
         public transient /* synthetic */ FieldHolder $fh;
         public HttpMessage a;
         public HttpMessageTask b;
-        public final pf c;
-        public volatile mf d;
+        public final of c;
+        public volatile lf d;
 
         public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
             Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class HttpClient extends aa<HttpMessage, HttpMessageTask> {
             setKey(String.valueOf(httpMessageTask.getCmd()));
             this.a = httpMessage;
             this.b = httpMessageTask;
-            this.c = new pf();
+            this.c = new of();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,7 +151,7 @@ public class HttpClient extends aa<HttpMessage, HttpMessageTask> {
                 int a2 = this.b.getConnectTimeOut().a();
                 int retry = this.b.getRetry();
                 try {
-                    this.d = new mf(this.c);
+                    this.d = new lf(this.c);
                     if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
                         this.d.d(retry, a, a2);
                     } else if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
@@ -234,6 +234,7 @@ public class HttpClient extends aa<HttpMessage, HttpMessageTask> {
                             netLog4.i(str7, " 解码失败 : " + e3.getMessage());
                             newInstance.setError(-1003);
                             newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f06ac));
+                            newInstance.setDecodeException(e3);
                             BdLog.detailException(e3);
                         }
                     }

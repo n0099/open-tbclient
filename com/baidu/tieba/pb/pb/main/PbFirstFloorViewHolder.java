@@ -30,15 +30,15 @@ import com.baidu.tbadk.novel.NovelMemberCardView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj9;
-import com.baidu.tieba.dm9;
-import com.baidu.tieba.hp9;
-import com.baidu.tieba.lq9;
+import com.baidu.tieba.dr9;
+import com.baidu.tieba.is9;
+import com.baidu.tieba.lk9;
+import com.baidu.tieba.mo9;
 import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.tieba.pb.view.PbBusinessPromotionContainer;
 import com.baidu.tieba.pb.view.PbFirstFloorQuestionThreadView;
-import com.baidu.tieba.um9;
-import com.baidu.tieba.wn9;
+import com.baidu.tieba.pp9;
+import com.baidu.tieba.vn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lq9 A;
+    public is9 A;
     public VoteView B;
     public TextView C;
     public PbFirstFloorQuestionThreadView D;
@@ -83,9 +83,9 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public NovelMemberCardView s;
     public BaseWebView t;
     public LinearLayout u;
-    public um9 v;
+    public mo9 v;
     public FrameLayout w;
-    public hp9 x;
+    public dr9 x;
     public ThreadForumEnterButtonContainer y;
     public PbBusinessPromotionContainer z;
 
@@ -145,71 +145,71 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.b = 3;
         this.M = new a(this);
         this.a = tbPageContext;
-        this.v = new um9(view2);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b69);
+        this.v = new mo9(view2);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b55);
         this.d = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -wn9.r());
+        matrix.postTranslate(0.0f, -pp9.s());
         this.d.setImageMatrix(matrix);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090411);
-        this.f = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f50);
-        this.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ad9);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f09040b);
+        this.f = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f19);
+        this.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ac5);
         this.h = (TbAlphaVideo) view2.findViewById(R.id.obfuscated_res_0x7f09015a);
         this.c = view2;
         int equipmentWidth = (((BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.f.getPaddingLeft()) - this.f.getPaddingRight();
-        dm9 dm9Var = new dm9(this.f.getLayoutStrategy());
-        dm9Var.J = equipmentWidth;
-        this.f.setLayoutStrategy(dm9Var);
-        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090dd9);
+        vn9 vn9Var = new vn9(this.f.getLayoutStrategy());
+        vn9Var.J = equipmentWidth;
+        this.f.setLayoutStrategy(vn9Var);
+        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090dd3);
         int min = Math.min(equipmentWidth - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
         this.f.getLayoutStrategy().r(min);
         this.f.getLayoutStrategy().q((int) (min * 1.618f));
         this.f.setIsNeedResizeEmotion(true);
         this.f.setTextSize(TbConfig.getContentSize());
         this.f.setDisplayImage(z, false);
-        this.f.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d0a29);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0908fc);
-        this.k = (ThreadSkinView) view2.findViewById(R.id.obfuscated_res_0x7f091b16);
-        this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b1b);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b15);
-        this.m = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091adc);
-        this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091adb);
-        this.q = (AppletsCellView) view2.findViewById(R.id.obfuscated_res_0x7f09061a);
-        this.r = view2.findViewById(R.id.obfuscated_res_0x7f0907cc);
-        this.s = (NovelMemberCardView) view2.findViewById(R.id.obfuscated_res_0x7f0919df);
-        BaseWebView baseWebView = (BaseWebView) view2.findViewById(R.id.obfuscated_res_0x7f090492);
+        this.f.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d0a26);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0908f4);
+        this.k = (ThreadSkinView) view2.findViewById(R.id.obfuscated_res_0x7f091b02);
+        this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b07);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b01);
+        this.m = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091ac8);
+        this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ac7);
+        this.q = (AppletsCellView) view2.findViewById(R.id.obfuscated_res_0x7f090612);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f0907c2);
+        this.s = (NovelMemberCardView) view2.findViewById(R.id.obfuscated_res_0x7f0919cb);
+        BaseWebView baseWebView = (BaseWebView) view2.findViewById(R.id.obfuscated_res_0x7f09048b);
         this.t = baseWebView;
         baseWebView.setBackgroundColor(0);
         this.t.initCommonJsBridge(tbPageContext.getPageActivity());
         this.t.setOnLoadUrlListener(this.M);
-        this.u = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b19);
-        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b62);
-        ThreadForumEnterButtonContainer threadForumEnterButtonContainer = (ThreadForumEnterButtonContainer) view2.findViewById(R.id.obfuscated_res_0x7f091aef);
+        this.u = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b05);
+        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b4e);
+        ThreadForumEnterButtonContainer threadForumEnterButtonContainer = (ThreadForumEnterButtonContainer) view2.findViewById(R.id.obfuscated_res_0x7f091adb);
         this.y = threadForumEnterButtonContainer;
         threadForumEnterButtonContainer.setFrom(1);
-        this.A = new lq9(tbPageContext);
-        this.z = (PbBusinessPromotionContainer) view2.findViewById(R.id.obfuscated_res_0x7f091ab8);
-        this.w = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a40);
+        this.A = new is9(tbPageContext);
+        this.z = (PbBusinessPromotionContainer) view2.findViewById(R.id.obfuscated_res_0x7f091aa4);
+        this.w = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a2c);
         VoteView voteView = (VoteView) view2.findViewById(R.id.vote_view);
         this.B = voteView;
         voteView.setPageContext(tbPageContext);
-        this.C = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092803);
-        PbFirstFloorQuestionThreadView pbFirstFloorQuestionThreadView = (PbFirstFloorQuestionThreadView) view2.findViewById(R.id.obfuscated_res_0x7f091ab2);
+        this.C = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927ce);
+        PbFirstFloorQuestionThreadView pbFirstFloorQuestionThreadView = (PbFirstFloorQuestionThreadView) view2.findViewById(R.id.obfuscated_res_0x7f091a9e);
         this.D = pbFirstFloorQuestionThreadView;
         pbFirstFloorQuestionThreadView.setPageContext(tbPageContext);
-        this.E = (HeadlinesCardView) view2.findViewById(R.id.obfuscated_res_0x7f091b0a);
-        this.F = (HeadlinesAgreeCardView) view2.findViewById(R.id.obfuscated_res_0x7f091b09);
-        this.L = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dec);
-        this.G = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090de7);
-        this.H = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090deb);
-        this.I = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dea);
-        this.J = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090de8);
-        this.K = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090de9);
+        this.E = (HeadlinesCardView) view2.findViewById(R.id.obfuscated_res_0x7f091af6);
+        this.F = (HeadlinesAgreeCardView) view2.findViewById(R.id.obfuscated_res_0x7f091af5);
+        this.L = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090de6);
+        this.G = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090de1);
+        this.H = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090de5);
+        this.I = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090de4);
+        this.J = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090de2);
+        this.K = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090de3);
         if (this.f != null && (tbPageContext.getPageActivity() instanceof PbActivity)) {
             PbActivity pbActivity = (PbActivity) tbPageContext.getPageActivity();
-            if (pbActivity.Z1() != null) {
-                pbActivity.Z1().s8(this.f);
+            if (pbActivity.Y1() != null) {
+                pbActivity.Y1().p8(this.f);
             }
         }
     }
@@ -240,26 +240,26 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         view2.setVisibility(8);
     }
 
-    public void d(@NonNull aj9 aj9Var, boolean z, boolean z2) {
+    public void d(@NonNull lk9 lk9Var, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aj9Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.y != null && aj9Var != null && aj9Var.k() != null) {
-            if (aj9Var.j0() && aj9Var.x0()) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{lk9Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.y != null && lk9Var != null && lk9Var.k() != null) {
+            if (lk9Var.j0() && lk9Var.x0()) {
                 this.y.setVisibility(8);
                 return;
             }
             this.y.setBottomPlaceHolderVisibility(z2);
             ThreadData threadData = new ThreadData();
-            threadData.setId(aj9Var.Q());
-            threadData.setFid(JavaTypesHelper.toLong(aj9Var.k().getId(), 0L));
-            threadData.setForum_name(aj9Var.k().getName());
-            threadData.setFirstClassName(aj9Var.k().getFirst_class());
-            threadData.setSecondClassName(aj9Var.k().getSecond_class());
-            if (aj9Var.O() != null) {
-                threadData.setThreadType(aj9Var.O().threadType);
+            threadData.setId(lk9Var.Q());
+            threadData.setFid(JavaTypesHelper.toLong(lk9Var.k().getId(), 0L));
+            threadData.setForum_name(lk9Var.k().getName());
+            threadData.setFirstClassName(lk9Var.k().getFirst_class());
+            threadData.setSecondClassName(lk9Var.k().getSecond_class());
+            if (lk9Var.O() != null) {
+                threadData.setThreadType(lk9Var.O().threadType);
             }
-            if (aj9Var.i) {
+            if (lk9Var.i) {
                 this.y.setVisibility(8);
-                this.z.f(threadData, aj9Var.g(), aj9Var.x0());
+                this.z.f(threadData, lk9Var.g(), lk9Var.x0());
                 return;
             }
             this.z.setVisibility(8);

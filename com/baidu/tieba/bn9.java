@@ -1,89 +1,135 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.pb.adapter.PbRecomChildTitleAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bn9 extends lm9<ij9, PbLoadMoreItemViewHolder> {
+public class bn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId g;
-    public View.OnClickListener h;
-    public int i;
+    public BdUniqueId a;
+    public ot9 b;
+    public TbPageContext<?> c;
+    public List<om> d;
+    public hn e;
+    public cn9 f;
+    public dn9 g;
+    public en9 h;
+    public fn9 i;
+    public gn9 j;
+    public hn9 k;
+    public PbRecomChildTitleAdapter l;
+    public to9 m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bn9(rr9 rr9Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(rr9Var, bdUniqueId);
+    public bn9(ot9 ot9Var, BdUniqueId bdUniqueId, hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rr9Var, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {ot9Var, bdUniqueId, hnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((rr9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = bdUniqueId2;
-        this.i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        this.d = new ArrayList();
+        this.e = hnVar;
+        this.a = bdUniqueId;
+        this.b = ot9Var;
+        this.c = ot9Var.getPageContext();
+        c();
+        f(hnVar);
+        hnVar.addAdapters(this.d);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: u */
-    public PbLoadMoreItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public List<om> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.g);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (PbLoadMoreItemViewHolder) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void y(View.OnClickListener onClickListener) {
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.h = onClickListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.lm9, com.baidu.tieba.pm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, (ij9) obj, (PbLoadMoreItemViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View x(int i, View view2, ViewGroup viewGroup, ij9 ij9Var, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ij9Var, pbLoadMoreItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) ij9Var, (ij9) pbLoadMoreItemViewHolder);
-            if (ij9Var.b) {
-                pbLoadMoreItemViewHolder.d(ij9Var.a);
-            } else {
-                pbLoadMoreItemViewHolder.c(ij9Var.a, this.i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PbRecomChildTitleAdapter pbRecomChildTitleAdapter = this.l;
+            if (pbRecomChildTitleAdapter != null && pbRecomChildTitleAdapter.u() != null) {
+                return this.l.u().itemView;
             }
-            pbLoadMoreItemViewHolder.b(this.h);
-            pbLoadMoreItemViewHolder.onChangeSkinType();
-            return view2;
+            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public void d() {
+        hn hnVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hnVar = this.e) != null && hnVar.getListAdapter() != null) {
+            this.e.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.h = new en9(this.c, iq6.G0);
+            this.g = new dn9(this.c, iq6.H0);
+            this.f = new cn9(this.c, iq6.I0);
+            this.i = new fn9(this.c, iq6.F0);
+            this.j = new gn9(this.c, iq6.L0);
+            this.k = new hn9(this.c, jq6.U);
+            this.l = new PbRecomChildTitleAdapter(this.b, tq6.b);
+            this.m = new to9(this.b, tk9.c, this.a);
+            this.d.add(this.h);
+            this.d.add(this.g);
+            this.d.add(this.f);
+            this.d.add(this.i);
+            this.d.add(this.j);
+            this.d.add(this.k);
+            this.d.add(this.l);
+            this.d.add(this.m);
+        }
+    }
+
+    public final void f(hn hnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, hnVar) == null) {
+            this.h.z(hnVar);
+            this.g.z(hnVar);
+            this.f.z(hnVar);
+            this.i.z(hnVar);
+            this.j.z(hnVar);
+            this.k.C(hnVar);
+        }
+    }
+
+    public void g(List<bn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.e.setData(list);
+        }
     }
 }

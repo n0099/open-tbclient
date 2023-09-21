@@ -10,8 +10,8 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jc1;
-import com.baidu.tieba.q61;
+import com.baidu.tieba.ic1;
+import com.baidu.tieba.p61;
 /* loaded from: classes3.dex */
 public class NadRoundProgressBar extends View {
     public final Paint a;
@@ -83,12 +83,12 @@ public class NadRoundProgressBar extends View {
         super(context, attributeSet, i);
         this.a = new Paint();
         this.l = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, jc1.NadRoundProgressBar);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ic1.NadRoundProgressBar);
         this.b = obtainStyledAttributes.getColor(3, getResources().getColor(R.color.nad_mini_video_round_progress_border_color));
         this.c = obtainStyledAttributes.getColor(7, getResources().getColor(R.color.nad_mini_video_round_progress_color));
         this.d = obtainStyledAttributes.getColor(8, getResources().getColor(R.color.nad_mini_video_round_progress_text_color));
-        this.e = obtainStyledAttributes.getDimension(9, q61.c.a(getContext(), 11.0f));
-        this.f = obtainStyledAttributes.getDimension(4, q61.c.a(getContext(), 8.0f));
+        this.e = obtainStyledAttributes.getDimension(9, p61.c.a(getContext(), 11.0f));
+        this.f = obtainStyledAttributes.getDimension(4, p61.c.a(getContext(), 8.0f));
         this.g = obtainStyledAttributes.getDimension(10, 5.0f);
         this.h = obtainStyledAttributes.getInteger(5, 100);
         this.j = obtainStyledAttributes.getBoolean(12, true);

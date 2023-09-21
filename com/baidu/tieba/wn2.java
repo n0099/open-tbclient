@@ -13,9 +13,9 @@ public class wn2 {
     public int a;
     public int b;
     @V8JavascriptField
-    public String errMsg;
+    public String data;
     @V8JavascriptField
-    public String[] files;
+    public String errMsg;
 
     public wn2() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class wn2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ReadDirCallBack" + this.b;
+            return "ReadFileStringCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

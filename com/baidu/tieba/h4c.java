@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,16 +10,188 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.LoggerManager;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class h4c {
+public final class h4c {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
-    public static final LinkedList<n5c> b;
+    public static Logger a;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @JvmStatic
+    public static final void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            b.b(str, str2);
+        }
+    }
+
+    @JvmStatic
+    public static final void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            b.d(str, str2);
+        }
+    }
+
+    @JvmStatic
+    public static final void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            b.g(str, str2);
+        }
+    }
+
+    @JvmStatic
+    public static final void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+            b.j(str, str2);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final void h() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                g("sub_process_view", "init succeed");
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                b("sub_process_view", str);
+            }
+        }
+
+        @JvmStatic
+        public final void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                d("sub_process_view", str);
+            }
+        }
+
+        public final void e(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+                Logger logger = h4c.a;
+                if (logger != null) {
+                    logger.flush(z);
+                }
+                g("sub_process_view", "flushYalog!");
+            }
+        }
+
+        @JvmStatic
+        public final void f(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                g("sub_process_view", str);
+            }
+        }
+
+        public final void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) {
+                return;
+            }
+            h4c.a = LoggerManager.getLogger(str);
+        }
+
+        @JvmStatic
+        public final void b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+                if (h4c.a != null) {
+                    Logger logger = h4c.a;
+                    if (logger == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    logger.d("3925", str, i4c.a(str2));
+                    return;
+                }
+                Log.d(str, i4c.a(str2));
+            }
+        }
+
+        @JvmStatic
+        public final void d(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+                if (h4c.a != null) {
+                    Logger logger = h4c.a;
+                    if (logger == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    logger.e("3925", str, i4c.a(str2));
+                    return;
+                }
+                Log.e(str, i4c.a(str2));
+            }
+        }
+
+        @JvmStatic
+        public final void g(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+                if (h4c.a != null) {
+                    Logger logger = h4c.a;
+                    if (logger == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    logger.i("3925", str, i4c.a(str2));
+                    return;
+                }
+                Log.i(str, i4c.a(str2));
+            }
+        }
+
+        @JvmStatic
+        public final void j(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+                if (h4c.a != null) {
+                    Logger logger = h4c.a;
+                    if (logger == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    logger.w("3925", str, i4c.a(str2));
+                    return;
+                }
+                Log.w(str, i4c.a(str2));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,62 +206,14 @@ public class h4c {
                 return;
             }
         }
-        a = new AtomicBoolean(false);
-        b = new LinkedList<>();
-    }
-
-    public h4c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static void a(n5c n5cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, n5cVar) == null) {
-            synchronized (h4c.class) {
-                if (b.size() == 0) {
-                    c(n5cVar);
-                }
-                if (!b.contains(n5cVar)) {
-                    b.add(n5cVar);
-                }
-            }
-        }
-    }
-
-    public static void c(n5c n5cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, n5cVar) == null) && n5cVar != null) {
-            n5cVar.S0(a.get());
-        }
-    }
-
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            TLog.h("PlayerGlobalOptions", " setAudioFocusEnable:" + z);
-            a.set(z);
-            y4c.h(z);
-            synchronized (h4c.class) {
-                if (b.size() > 0) {
-                    Iterator<n5c> it = b.iterator();
-                    while (it.hasNext()) {
-                        n5c next = it.next();
-                        if (next != null) {
-                            next.S0(z);
-                        }
-                    }
-                }
-            }
+        b = new a(null);
+        try {
+            Log.i("sub_process_view", "KlogUtil init yalog");
+            b.i("yylivesdk");
+        } catch (Throwable th) {
+            a aVar = b;
+            th.printStackTrace();
+            aVar.d("sub_process_view", Unit.INSTANCE.toString());
         }
     }
 }

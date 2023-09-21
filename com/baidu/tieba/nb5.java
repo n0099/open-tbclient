@@ -1,79 +1,101 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.CardLinkInfoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.Selection;
+import android.text.SpanWatcher;
+import android.text.Spannable;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.UrlParser.DataRes;
-import tbclient.UrlParser.UrlParserResIdl;
 /* loaded from: classes7.dex */
-public class nb5 {
+public class nb5 implements SpanWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public SpanGroupManager a;
     public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public String i;
-    public CardLinkInfoData j;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947996712, "Lcom/baidu/tieba/nb5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947996712, "Lcom/baidu/tieba/nb5;");
+    @Override // android.text.SpanWatcher
+    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
         }
     }
 
-    public nb5() {
+    public nb5(@NonNull SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spanGroupManager};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = spanGroupManager;
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
+        SpanGroupManager spanGroupManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || (spanGroupManager = this.a) == null) {
+            return;
+        }
+        if (obj == Selection.SELECTION_END && this.c != i3) {
+            this.c = i3;
+            lb5 C = spanGroupManager.C(i3);
+            if (C != null) {
+                int f = C.f();
+                int c = C.c();
+                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
+                    f = c;
+                }
+                int selectionStart = Selection.getSelectionStart(spannable);
+                if (selectionStart > spannable.length()) {
+                    selectionStart = spannable.length();
+                }
+                if (f > spannable.length()) {
+                    f = spannable.length();
+                }
+                Selection.setSelection(spannable, selectionStart, f);
+            }
+        }
+        if (obj == Selection.SELECTION_START && this.b != i3) {
+            this.b = i3;
+            lb5 C2 = this.a.C(i3);
+            if (C2 != null) {
+                int f2 = C2.f();
+                int c2 = C2.c();
+                if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
+                    f2 = c2;
+                }
+                int selectionEnd = Selection.getSelectionEnd(spannable);
+                if (selectionEnd > spannable.length()) {
+                    selectionEnd = spannable.length();
+                }
+                if (f2 > spannable.length()) {
+                    f2 = spannable.length();
+                }
+                Selection.setSelection(spannable, f2, selectionEnd);
             }
         }
     }
 
-    public void a(UrlParserResIdl urlParserResIdl) {
-        DataRes dataRes;
+    @Override // android.text.SpanWatcher
+    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
+        SpanGroupManager spanGroupManager;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) && urlParserResIdl != null && (dataRes = urlParserResIdl.data) != null) {
-            this.a = dataRes.status.intValue();
-            this.b = urlParserResIdl.data.url_type.intValue();
-            DataRes dataRes2 = urlParserResIdl.data;
-            this.d = dataRes2.image;
-            this.e = dataRes2.title;
-            this.f = dataRes2.link_from;
-            this.g = dataRes2.price_txt;
-            boolean z = true;
-            if (dataRes2.is_recognize.intValue() != 1) {
-                z = false;
-            }
-            this.h = z;
-            this.i = urlParserResIdl.data.description;
-            CardLinkInfoData cardLinkInfoData = new CardLinkInfoData();
-            cardLinkInfoData.parse(urlParserResIdl.data.card_link_info);
-            this.j = cardLinkInfoData;
+        if ((interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) && (spanGroupManager = this.a) != null && this.b != this.c) {
+            spanGroupManager.q();
         }
     }
 }

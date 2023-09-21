@@ -1,268 +1,192 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.data.constant.PwLogConstant;
-import com.baidu.searchbox.live.interfaces.LiveConstants;
-import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class g79 implements EventDispatcherService {
+public class g79 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<String> b;
+    public Context c;
 
-    public final void a(Map<String, ?> map) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public View b;
+        public TextView c;
+        public View d;
+
+        public b(g79 g79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 3;
+        }
+
+        public /* synthetic */ b(g79 g79Var, a aVar) {
+            this(g79Var);
         }
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public g79() {
+    public g79(Context context, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = context;
+        this.b = arrayList;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public String getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int count = getCount();
+            if (count > 0 && i < count) {
+                return this.b.get(i);
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void c(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
+            if (list != null) {
+                notifyDataSetChanged();
             }
         }
     }
 
-    public static void g(ArrayList<String> arrayList) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, arrayList) != null) || arrayList == null || arrayList.size() == 0) {
-        }
-    }
-
-    public final void i(Map<String, ?> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            String str = (String) map.get("data");
-            if (!TextUtils.isEmpty(str) && str != null) {
-                try {
-                    o49.o(new JSONObject(str));
-                } catch (JSONException unused) {
-                }
-            }
-        }
-    }
-
-    public final void b(String str, Map<String, ?> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) != null) || map == null || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        for (String str2 : map.keySet()) {
-            Object obj = map.get(str2);
-            if (obj != null) {
-                statisticItem.addParam(str2, obj.toString());
-            }
-        }
-        statisticItem.addParam("uid", BdStatisticsManager.getInstance().getUid());
-        TiebaStatic.log(statisticItem);
+        this.a = str.trim();
     }
 
-    public final void d(Map<String, ?> map) {
+    public void b(TextView textView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("roomId", map.get("roomId"));
-                jSONObject.put("isClosed", map.get("isClosed"));
-                jSONObject.put("liveId", map.get("liveId"));
-                jSONObject.put("type", map.get("type"));
-                jSONObject.put("sid", map.get("sid"));
-                jSONObject.put(YyLiveRoomConfig.KEY_SSID, map.get(YyLiveRoomConfig.KEY_SSID));
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
+            String lowerCase = str.toLowerCase();
+            String lowerCase2 = this.a.toLowerCase();
+            if (!lowerCase.contains(lowerCase2)) {
+                textView.setText(str);
+                return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
+            int indexOf = lowerCase.indexOf(lowerCase2);
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.a.length() + indexOf, 33);
+            textView.setText(spannableStringBuilder);
         }
     }
 
-    public void e(String str, Map<String, String> map) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || ei.isEmpty(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (map != null) {
-            for (String str2 : map.keySet()) {
-                statisticItem.param(str2, map.get(str2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<String> list = this.b;
+            if (list == null) {
+                return 0;
             }
+            return list.size();
         }
-        TiebaStatic.log(statisticItem);
+        return invokeV.intValue;
     }
 
-    public void f(Map<String, ?> map) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, map) != null) || map == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        String obj = map.remove("key").toString();
-        for (String str : map.keySet()) {
-            hashMap.put(str, map.get(str).toString());
-        }
-        e(obj, hashMap);
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.searchbox.live.interfaces.service.EventDispatcherService
-    public void onEvent(String str, Map<String, ?> map) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map) == null) {
-            switch (str.hashCode()) {
-                case -2147386482:
-                    if (str.equals("sync_webview_cookie")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1369745389:
-                    if (str.equals("living_room_is_closed")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1326603888:
-                    if (str.equals(LiveConstants.SdkToHostEvents.DO_LOG)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1284765503:
-                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_DUR)) {
-                        c = '\n';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -841542404:
-                    if (str.equals(LiveConstants.SdkToHostEvents.GO_FEEDBACK)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -807428011:
-                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_START)) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -442093365:
-                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_FAIL)) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 152519529:
-                    if (str.equals("live_show_close")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1480780598:
-                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_SUC)) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1766660371:
-                    if (str.equals(LiveConstants.SdkToHostEvents.BUY_TBEAN_RESULT)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1785162541:
-                    if (str.equals(LiveConstants.SdkToHostEvents.KEY_PRE_DOWANLOAD_SWAN)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d089f, (ViewGroup) null);
+                bVar = new b(this, null);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091fb7);
+                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092114);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f092113);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
             }
-            switch (c) {
-                case 0:
-                    h();
-                    return;
-                case 1:
-                    c();
-                    return;
-                case 2:
-                    f(map);
-                    return;
-                case 3:
-                    g((ArrayList) map.get(str));
-                    return;
-                case 4:
-                    a(map);
-                    return;
-                case 5:
-                    i(map);
-                    return;
-                case 6:
-                    d(map);
-                    return;
-                case 7:
-                    b("c15400", map);
-                    return;
-                case '\b':
-                    b("c15401", map);
-                    return;
-                case '\t':
-                    b("c15402", map);
-                    return;
-                case '\n':
-                    b("c15403", map);
-                    return;
-                default:
-                    return;
+            String item = getItem(i);
+            if (StringUtils.isNull(item)) {
+                return view2;
             }
+            b(bVar.c, item);
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != bVar.a) {
+                bVar.a = skinType;
+                SkinManager.setBackgroundResource(bVar.b, R.drawable.addresslist_item_bg);
+                SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
+            }
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

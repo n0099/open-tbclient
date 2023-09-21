@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.hihonor.push.framework.aidl.IMessageEntity;
 import com.hihonor.push.framework.aidl.annotation.Packed;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ResponseHeader implements IMessageEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

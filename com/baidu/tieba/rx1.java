@@ -1,16 +1,8 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.ox1;
+import android.app.Activity;
+import android.content.Intent;
 /* loaded from: classes7.dex */
-public interface rx1<T extends ox1> extends px1<T> {
-    void G();
-
-    boolean c();
-
-    void f(boolean z);
-
-    void h(View.OnClickListener onClickListener);
-
-    void removeFromParent();
+public interface rx1 {
+    void onActivityResult(Activity activity, int i, int i2, Intent intent);
 }

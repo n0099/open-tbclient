@@ -1,85 +1,260 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.recapp.adapter.FrsAppEmptyHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n3a extends fi7<ThreadData, FrsAppEmptyHolder> implements d3a {
+public final class n3a {
     public static /* synthetic */ Interceptable $ic;
+    public static final a h;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public String c;
+    public String d;
+    public final int e;
+    public final int f;
+    public final List<String> g;
 
-    @Override // com.baidu.tieba.d3a
-    public void setIsFromCDN(boolean z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952909, "Lcom/baidu/tieba/n3a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947952909, "Lcom/baidu/tieba/n3a;");
+                return;
+            }
+        }
+        h = new a(null);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof n3a) {
+                n3a n3aVar = (n3a) obj;
+                return Intrinsics.areEqual(this.a, n3aVar.a) && Intrinsics.areEqual(this.b, n3aVar.b) && Intrinsics.areEqual(this.c, n3aVar.c) && Intrinsics.areEqual(this.d, n3aVar.d) && this.e == n3aVar.e && this.f == n3aVar.f && Intrinsics.areEqual(this.g, n3aVar.g);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e) * 31) + this.f) * 31) + this.g.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "PushSceneItem(sceneName=" + this.a + ", style=" + this.b + ", title=" + this.c + ", text=" + this.d + ", period=" + this.e + ", threshold=" + this.f + ", sceneClass=" + this.g + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final n3a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                List<String> b = b(jSONObject.optJSONArray("class"));
+                String optString = jSONObject.optString("scene_name");
+                Intrinsics.checkNotNullExpressionValue(optString, "json.optString(\"scene_name\")");
+                String optString2 = jSONObject.optString("style");
+                Intrinsics.checkNotNullExpressionValue(optString2, "json.optString(\"style\")");
+                String optString3 = jSONObject.optString("title");
+                Intrinsics.checkNotNullExpressionValue(optString3, "json.optString(\"title\")");
+                String optString4 = jSONObject.optString("text");
+                Intrinsics.checkNotNullExpressionValue(optString4, "json.optString(\"text\")");
+                return new n3a(optString, optString2, optString3, optString4, jSONObject.optInt("freq"), jSONObject.optInt("threshold"), b);
+            }
+            return (n3a) invokeL.objValue;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:14:0x0023, code lost:
+            if (r4 == true) goto L13;
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final List<String> b(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (jSONArray != null) {
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        String optString = jSONArray.optString(i);
+                        boolean z2 = true;
+                        if (optString != null) {
+                            if (optString.length() > 0) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                        }
+                        z2 = false;
+                        if (z2) {
+                            String optString2 = jSONArray.optString(i);
+                            Intrinsics.checkNotNullExpressionValue(optString2, "array.optString(i)");
+                            arrayList.add(optString2);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n3a(e3a e3aVar, BdUniqueId bdUniqueId) {
-        super(e3aVar.u(), bdUniqueId);
+    public n3a(String sceneName, String style, String title, String text, int i, int i2, List<String> sceneClass) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e3aVar, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+            Object[] objArr = {sceneName, style, title, text, Integer.valueOf(i), Integer.valueOf(i2), sceneClass};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(sceneName, "sceneName");
+        Intrinsics.checkNotNullParameter(style, "style");
+        Intrinsics.checkNotNullParameter(title, "title");
+        Intrinsics.checkNotNullParameter(text, "text");
+        Intrinsics.checkNotNullParameter(sceneClass, "sceneClass");
+        this.a = sceneName;
+        this.b = style;
+        this.c = title;
+        this.d = text;
+        this.e = i;
+        this.f = i2;
+        this.g = sceneClass;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: G */
-    public FrsAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View view2 = new View(this.c.getPageActivity());
-            view2.setVisibility(8);
-            return new FrsAppEmptyHolder(view2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (FrsAppEmptyHolder) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fi7, com.baidu.tieba.pm
-    /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsAppEmptyHolder frsAppEmptyHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public final List<String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsAppEmptyHolder})) == null) {
-            if (threadData instanceof AdvertAppInfo) {
-                AdvertAppInfo advertAppInfo = (AdvertAppInfo) threadData;
-                g15 g15Var = advertAppInfo.i;
-                if (advertAppInfo.c == -1001) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                g15.c(g15Var, threadData.position, z);
-            }
-            return frsAppEmptyHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        return (View) invokeCommon.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.d = str;
+        }
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.c = str;
+        }
     }
 }

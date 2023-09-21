@@ -1,92 +1,77 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fm9 extends yn9 {
+public class fm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fm9(BaseFragmentActivity baseFragmentActivity, View view2) {
-        super(baseFragmentActivity, view2);
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((BaseFragmentActivity) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = null;
-    }
-
-    @Override // com.baidu.tieba.yn9
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091011);
-            this.c = textView;
-            textView.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeI(65536, null, i) == null) && TbadkCoreApplication.getInst().getFontSize() != i) {
+            TbadkCoreApplication.getInst().setFontSize(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
     }
 
-    public TextView d() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public void e(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) && threadData != null && threadData.getPushStatusData() != null) {
-            int status = threadData.getPushStatusData().getStatus();
-            if (status == 1) {
-                f(true);
-            } else if (status == 2) {
-                f(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            if (fontSize == 0) {
+                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_xlarge);
             }
+            if (fontSize == 1) {
+                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_big);
+            }
+            if (fontSize == 2) {
+                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_mid);
+            }
+            return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_small);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 3;
+            if (fontSize == 0) {
+                i = 1;
+            } else if (fontSize == 1) {
+                i = 2;
+            }
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+            }
+            BdToast.makeText(TbadkCoreApplication.getInst(), b()).setIcon(R.drawable.icon_word_t_size).setDuration(0).show();
         }
     }
 
-    public void f(boolean z) {
-        TextView textView;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || (textView = this.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 2;
+            if (fontSize == 0 || fontSize == 1) {
+                i = 0;
+            } else if (fontSize == 2) {
+                i = 1;
+            }
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+            }
+            BdToast.makeText(TbadkCoreApplication.getInst(), b()).setIcon(R.drawable.icon_word_t_size).setDuration(0).show();
         }
-        if (z) {
-            textView.setText(R.string.obfuscated_res_0x7f0f11a6);
-            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f08129f);
-            SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
-            this.c.setClickable(true);
-        } else {
-            textView.setText(R.string.obfuscated_res_0x7f0f02b1);
-            SkinManager.setBackgroundResource(this.c, R.drawable.label_bg_gray80);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-            this.c.setClickable(false);
-        }
-        this.c.setVisibility(0);
     }
 }

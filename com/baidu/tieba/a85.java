@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.cmdRouter.MultiDexHelper;
-import com.baidu.adp.idlehelp.IdleHandlerManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.TiebaStaticClassesArray;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.TbDownloadManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,58 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import java.io.File;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public class a85 {
+public final class a85 {
     public static /* synthetic */ Interceptable $ic;
-    public static String[] a;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TiebaStaticClassesArray b;
-
-        public a(boolean z, TiebaStaticClassesArray tiebaStaticClassesArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), tiebaStaticClassesArray};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tiebaStaticClassesArray;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a) {
-                        MultiDexHelper.loadClass(BdBaseApplication.getInst());
-                        return;
-                    }
-                    Log.e("TiebaStaticClassesArray", "load from dex fail ");
-                    if (!this.b.loadStaticClasses()) {
-                        MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -79,53 +33,85 @@ public class a85 {
                 return;
             }
         }
-        a = new String[]{"com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.flutter.FlutterPluginStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.util.schemeaction.SchemeActionStatic", "com.baidu.tieba.hottopic.controller.HotTopicStatic", "com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic", "com.baidu.tieba.sharesdk.ShareStatic", "com.baidu.tieba.feed.FeedAppStatic", "com.baidu.tbadk.mutiprocess.MutiProcessStatic", "com.baidu.tieba.write.write.WriteActivityImmediateStatic"};
+        a = new a(null);
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            try {
-                TiebaStaticClassesArray tiebaStaticClassesArray = new TiebaStaticClassesArray();
-                try {
-                    Class<?> cls = Class.forName("com.baidu.tbadk.core.util.TiebaStaticArray");
-                    Object newInstance = cls.newInstance();
-                    Field declaredField = cls.getDeclaredField("staticClassesArray");
-                    declaredField.setAccessible(true);
-                    tiebaStaticClassesArray.staticClassesArray = (String[]) declaredField.get(newInstance);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Log.e("staticClassesArray: ", "" + tiebaStaticClassesArray.staticClassesArray.length);
-                long currentTimeMillis = System.currentTimeMillis();
-                IdleHandlerManager.getInstance().addOrRunTask("MultiDexHelper", new a(b(), tiebaStaticClassesArray));
-                Log.e("Tasks", "load from dex coast time " + (System.currentTimeMillis() - currentTimeMillis));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String[] strArr = a;
-            try {
-                if (strArr.length <= 0) {
-                    return false;
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                for (String str : strArr) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Class.forName(str);
-                    Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
-                }
-                return true;
-            } catch (Throwable th) {
-                BdLog.e(th, true);
-                return false;
             }
         }
-        return invokeV.booleanValue;
+
+        public final ApkDownloadInfoData a(hl0 hl0Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hl0Var)) == null) {
+                if (hl0Var != null && hl0Var.p != null) {
+                    ApkDownloadInfoData apkDownloadInfoData = new ApkDownloadInfoData();
+                    apkDownloadInfoData.setApkIcon(hl0Var.p.g);
+                    apkDownloadInfoData.setApkFile(hl0Var.h);
+                    apkDownloadInfoData.setApkName(hl0Var.p.h);
+                    apkDownloadInfoData.setStatus(hl0Var.c);
+                    apkDownloadInfoData.setApkPackageName(hl0Var.d);
+                    apkDownloadInfoData.setFinishDownloadTime(hl0Var.m);
+                    apkDownloadInfoData.setAdDownloadBean(hl0Var);
+                    apkDownloadInfoData.setNotificationShowCount(hl0Var.q.k);
+                    if (apkDownloadInfoData.getApkFile() != null) {
+                        apkDownloadInfoData.setApkPath(apkDownloadInfoData.getApkFile().getAbsolutePath());
+                    }
+                    apkDownloadInfoData.setItemSource(5);
+                    apkDownloadInfoData.setDownloadUrl(hl0Var.g);
+                    return apkDownloadInfoData;
+                }
+                return null;
+            }
+            return (ApkDownloadInfoData) invokeL.objValue;
+        }
+
+        public final ApkDownloadInfoData b(vfa vfaVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vfaVar)) == null) {
+                if (vfaVar == null) {
+                    return null;
+                }
+                TbDownloadManager tbDownloadManager = new TbDownloadManager();
+                ItemData itemData = new ItemData();
+                itemData.parseJson(vfaVar.c());
+                tbDownloadManager.w(itemData.mTbFileDownloaderType);
+                DownloadData downloadData = new DownloadData(vfaVar.r(), vfaVar.d());
+                ApkDownloadInfoData apkDownloadInfoData = new ApkDownloadInfoData();
+                apkDownloadInfoData.setApkIcon(itemData.mIconUrl);
+                apkDownloadInfoData.setApkName(itemData.mTitle);
+                apkDownloadInfoData.setApkPackageName(itemData.pkgName);
+                apkDownloadInfoData.setFinishDownloadTime(vfaVar.e());
+                apkDownloadInfoData.setItemId((int) vfaVar.f());
+                apkDownloadInfoData.setTitle(vfaVar.r());
+                apkDownloadInfoData.setApkPath(tbDownloadManager.o(downloadData));
+                apkDownloadInfoData.setApkFile(new File(apkDownloadInfoData.getApkPath()));
+                apkDownloadInfoData.setNotificationShowCount(itemData.notificationShowCount);
+                apkDownloadInfoData.setItemSource(vfaVar.p());
+                apkDownloadInfoData.setDownloadUrl(vfaVar.d());
+                return apkDownloadInfoData;
+            }
+            return (ApkDownloadInfoData) invokeL.objValue;
+        }
     }
 }

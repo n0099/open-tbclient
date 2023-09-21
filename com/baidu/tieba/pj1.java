@@ -1,163 +1,226 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.prologue.business.data.ParseError;
+import com.baidu.prologue.business.data.SplashStyleRecorder;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.facebook.common.util.UriUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-@SuppressLint({"LongLogTag"})
 /* loaded from: classes7.dex */
-public class pj1 implements Application.ActivityLifecycleCallbacks {
+public class pj1 {
     public static /* synthetic */ Interceptable $ic;
-    public static int c;
-    public static long d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948063858, "Lcom/baidu/tieba/pj1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948063858, "Lcom/baidu/tieba/pj1;");
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, activity, bundle) == null) {
-        }
-    }
-
-    public pj1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 != null && optJSONObject2.has(SpeedStatsUtils.UBC_VALUE_SPLASH) && (optJSONObject = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) != null && optJSONObject.has("src_ext_info")) {
+                    return new JSONObject(optJSONObject.optString("src_ext_info")).has("query_ret_code");
+                }
+                return false;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
             }
         }
-        this.b = true;
+        return invokeL.booleanValue;
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    public static int b(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == 0) {
-                d = u31.a().b("splash_sp_name").getLong("last_background_time", d);
-            }
-            return d;
-        }
-        return invokeV.longValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            if (this.b) {
-                c = 0;
-                this.b = false;
-            }
-            JSONObject d2 = jj1.a().d();
-            if (d2 != null && d2.optBoolean("should_update_by_sdk", true)) {
-                q8.f().j(c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 == null || !optJSONObject2.has(SpeedStatsUtils.UBC_VALUE_SPLASH) || (optJSONObject = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) == null) {
+                    return 0;
+                }
+                if (!TextUtils.isEmpty(optJSONObject.optString("ukey"))) {
+                    return 1;
+                }
+                if (optJSONObject.optInt("isCPC") == 1) {
+                    return 3;
+                }
+                if (optJSONObject.optInt("realTimeLoading") != 1) {
+                    return 0;
+                }
+                return 2;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return 0;
             }
         }
+        return invokeL.intValue;
     }
 
-    public void d(Activity activity) {
+    public static String c(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        JSONObject optJSONObject2;
+        wj1 d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            d = System.currentTimeMillis();
-            u31.a().b("splash_sp_name").g("last_background_time", d);
-            ak1.a();
-            c = 1;
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            int i = this.a + 1;
-            this.a = i;
-            if (i == 1) {
-                c(activity);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                JSONObject optJSONObject3 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject3 == null || !optJSONObject3.has(SpeedStatsUtils.UBC_VALUE_SPLASH) || (optJSONObject = optJSONObject3.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) == null) {
+                    return "";
+                }
+                if (!TextUtils.isEmpty(optJSONObject.optString("ukey"))) {
+                    wj1 p = uj1.p(optJSONObject.optString("ukey"));
+                    if (p == null) {
+                        return "";
+                    }
+                    return p.O;
+                } else if (optJSONObject.optInt("isCPC") == 1 || optJSONObject.optInt("realTimeLoading") != 1 || (optJSONArray = optJSONObject3.optJSONArray("ad")) == null || (optJSONObject2 = optJSONArray.optJSONObject(0)) == null || (d = wj1.d(optJSONObject2)) == null) {
+                    return "";
+                } else {
+                    return d.O;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return "";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
+    public static List<wj1> d(JSONArray jSONArray, String str, boolean z) throws ParseError {
+        InterceptResult invokeLLZ;
+        List<wj1> r;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            int i = this.a - 1;
-            this.a = i;
-            if (i == 0) {
-                d(activity);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, jSONArray, str, z)) == null) {
+            if (jSONArray == null || jSONArray.length() == 0 || (r = wj1.r(jSONArray)) == null || r.size() == 0) {
+                return null;
             }
+            if (z) {
+                for (wj1 wj1Var : r) {
+                    wj1Var.y = true;
+                    if (vj1.t()) {
+                        uj1.j(wj1Var);
+                    }
+                }
+            } else {
+                HashMap<String, wj1> t = uj1.t();
+                if (t != null && t.size() != 0) {
+                    uj1.i(r);
+                    uj1.E(r);
+                } else {
+                    uj1.E(r);
+                }
+                uj1.B(r);
+            }
+            tj1.m().g();
+            return r;
         }
+        return (List) invokeLLZ.objValue;
+    }
+
+    public static List<wj1> e(String str, String str2) throws ParseError {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    return f(new JSONObject(str), str2);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    throw new ParseError(1, "afd/entry retun invalid json");
+                }
+            }
+            throw new ParseError(1, "afd/entry retun null");
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static List<wj1> f(JSONObject jSONObject, String str) throws ParseError {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jSONObject, str)) == null) {
+            List<wj1> arrayList = new ArrayList<>();
+            if (jSONObject != null) {
+                int i = 0;
+                if (jSONObject.optInt("errno", 0) > 0 || (optJSONObject = jSONObject.optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME)) == null) {
+                    return null;
+                }
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
+                JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
+                if (optJSONObject2 != null) {
+                    String optString = optJSONObject2.optString("cmd");
+                    SplashStyleRecorder.b(optJSONObject2.optJSONObject("style_desc"));
+                    vj1.M(optJSONObject2.optString("src_ext_info"));
+                    if (TextUtils.equals(StickerDataChangeType.UPDATE, optString)) {
+                        vj1.L(optJSONObject2.optString("src_ext_info"));
+                        arrayList = d(optJSONArray, str, false);
+                        String optString2 = optJSONObject2.optString("empty_ext_info");
+                        if (!TextUtils.isEmpty(optString2)) {
+                            t31.a().b("splash_sp_name").i("empty_ext_info", optString2, false);
+                        }
+                    } else if (TextUtils.equals("query", optString)) {
+                        int optInt = optJSONObject2.optInt("realTimeLoading");
+                        int optInt2 = optJSONObject2.optInt("isCPC");
+                        if (optInt != 1 && optInt2 != 1) {
+                            String optString3 = optJSONObject2.optString("ukey");
+                            if (TextUtils.isEmpty(optString3)) {
+                                BaseVM.h(32);
+                                return arrayList;
+                            }
+                            List<wj1> w = uj1.w();
+                            if (w == null) {
+                                return arrayList;
+                            }
+                            Iterator<wj1> it = w.iterator();
+                            while (true) {
+                                if (!it.hasNext()) {
+                                    break;
+                                }
+                                wj1 next = it.next();
+                                if (TextUtils.equals(next.c, optString3)) {
+                                    g31.b(arrayList, next);
+                                    break;
+                                }
+                            }
+                            if (arrayList.size() == 0) {
+                                BaseVM.h(64);
+                            }
+                        } else {
+                            List<wj1> d = d(optJSONArray, str, true);
+                            if (d == null || d.size() == 0) {
+                                BaseVM.h(128);
+                            }
+                            arrayList = d;
+                        }
+                        if (arrayList != null && arrayList.size() > 0 && arrayList.get(0) != null) {
+                            wj1 wj1Var = arrayList.get(0);
+                            if (optInt == 1) {
+                                i = 1;
+                            }
+                            wj1Var.D = i;
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeLL.objValue;
     }
 }

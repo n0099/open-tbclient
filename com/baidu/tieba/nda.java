@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nda extends BitmapDrawable {
+public class nda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Drawable a;
+    public int a;
+    public String b;
 
-    public nda(@NonNull Drawable drawable) {
+    public nda() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,38 +29,39 @@ public class nda extends BitmapDrawable {
                 return;
             }
         }
-        this.a = drawable;
+        this.a = -1;
+        this.b = null;
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        canvas.save();
-        canvas.translate(0.0f, (((canvas.getHeight() / 2) - (this.a.getIntrinsicHeight() / 2)) * 1.0f) / 2.0f);
-        this.a.draw(canvas);
-        canvas.restore();
+        return invokeV.intValue;
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getIntrinsicHeight();
+            return this.b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getIntrinsicWidth();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.intValue;
+        try {
+            this.a = jSONObject.optInt("errno");
+            jSONObject.optString("errmsg");
+            this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

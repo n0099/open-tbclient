@@ -51,7 +51,7 @@ public class PushMessageHandler extends BaseService {
         try {
             context.startService(intent);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m181a(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m183a(e.getMessage());
         }
     }
 
@@ -187,7 +187,7 @@ public class PushMessageHandler extends BaseService {
             intent.setAction("action_clicked_activity_finish");
             context.sendBroadcast(intent, d.a(context));
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m181a("callback sync error" + e);
+            com.xiaomi.channel.commonutils.logger.b.m183a("callback sync error" + e);
         }
     }
 
@@ -197,7 +197,7 @@ public class PushMessageHandler extends BaseService {
         try {
             z = intent.getBooleanExtra("is_clicked_activity_call", false);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m181a("intent unparcel error:" + th);
+            com.xiaomi.channel.commonutils.logger.b.m183a("intent unparcel error:" + th);
         }
         try {
             ResolveInfo resolveInfo = null;
@@ -209,7 +209,7 @@ public class PushMessageHandler extends BaseService {
                 com.xiaomi.channel.commonutils.logger.b.c("PushMessageHandler.onHandleIntent " + hlVar.d());
                 MiTinyDataClient.upload(context, hlVar);
             } else if (1 == PushMessageHelper.getPushMode(context)) {
-                if (m200b()) {
+                if (m202b()) {
                     com.xiaomi.channel.commonutils.logger.b.d("receive a message before application calling initialize");
                     if (z) {
                         b(context);
@@ -276,7 +276,7 @@ public class PushMessageHandler extends BaseService {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m200b() {
+    public static boolean m202b() {
         return b.isEmpty();
     }
 
@@ -289,7 +289,7 @@ public class PushMessageHandler extends BaseService {
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo201a() {
+    public boolean mo203a() {
         ThreadPoolExecutor threadPoolExecutor = f47a;
         return (threadPoolExecutor == null || threadPoolExecutor.getQueue() == null || f47a.getQueue().size() <= 0) ? false : true;
     }

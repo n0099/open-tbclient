@@ -95,8 +95,8 @@ public class BannerDownloadStateBar extends LinearLayout {
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902a0);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0902a3);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09029e);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0902a1);
             setState(0);
         }
     }

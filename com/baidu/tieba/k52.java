@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class k52 extends n42 {
+public class k52 extends m42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v42 a;
+    public int a;
 
     public k52() {
         Interceptable interceptable = $ic;
@@ -27,26 +27,28 @@ public class k52 extends n42 {
         }
     }
 
-    @Override // com.baidu.tieba.n42
-    public void a(o42 o42Var, Canvas canvas) {
-        v42 v42Var;
+    @Override // com.baidu.tieba.m42
+    public void a(n42 n42Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, o42Var, canvas) == null) && (v42Var = this.a) != null && v42Var.d()) {
-            if (this.a.c()) {
-                o42Var.b.setShader(this.a.b());
-                return;
-            }
-            o42Var.e.setColor(this.a.a());
-            o42Var.b.setColor(this.a.a());
-            o42Var.b.setShader(null);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, n42Var, canvas) == null) && (i = this.a) > 0) {
+            n42Var.e.setTextSize(i);
         }
     }
 
-    @Override // com.baidu.tieba.n42
+    @Override // com.baidu.tieba.m42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new v42(jSONArray);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    this.a = xo3.g((float) jSONArray.optDouble(0));
+                }
+            } catch (Exception e) {
+                if (qr1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

@@ -27,9 +27,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.cra;
-import com.baidu.tieba.nx5;
-import com.baidu.tieba.zfa;
+import com.baidu.tieba.fia;
+import com.baidu.tieba.jta;
+import com.baidu.tieba.ox5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -191,8 +191,8 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
             return;
         }
         int color = SkinManager.getColor(R.color.CAM_X0108);
-        int f = zfa.f(cra.c(themeColorInfo));
-        if (!zfa.e(f)) {
+        int f = fia.f(jta.c(themeColorInfo));
+        if (!fia.e(f)) {
             color = f;
         }
         this.s.setCorner(R.string.J_X03).setBackGroundRealColor(color);
@@ -264,8 +264,8 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         if ((interceptable != null && interceptable.invokeL(1048588, this, themeColorInfo) != null) || themeColorInfo == null) {
             return;
         }
-        int f = zfa.f(cra.c(themeColorInfo));
-        if (!zfa.e(f)) {
+        int f = fia.f(jta.c(themeColorInfo));
+        if (!fia.e(f)) {
             this.n.setTextColor(f);
         }
     }
@@ -276,8 +276,8 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
             return;
         }
         int color = SkinManager.getColor(R.color.CAM_X0108);
-        int f = zfa.f(cra.c(themeColorInfo));
-        if (!zfa.e(f)) {
+        int f = fia.f(jta.c(themeColorInfo));
+        if (!fia.e(f)) {
             color = f;
         }
         this.k.setTextColor(color);
@@ -389,7 +389,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
         TbPageContext tbPageContext = this.v;
         if (tbPageContext != null) {
-            nx5.f(tbPageContext, String.valueOf(j), null);
+            ox5.f(tbPageContext, String.valueOf(j), null);
         } else {
             new HotTopicActivityConfig(getContext()).createNormalConfig(String.valueOf(j), null, null, "2").start();
         }
@@ -504,26 +504,26 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048586, this, themeColorInfo, themeColorInfo2, themeColorInfo3, themeColorInfo4) == null) {
             if (themeColorInfo != null) {
-                int f = zfa.f(cra.c(themeColorInfo));
-                if (!zfa.e(f)) {
+                int f = fia.f(jta.c(themeColorInfo));
+                if (!fia.e(f)) {
                     this.g.setTextColor(f);
                 }
             }
             if (themeColorInfo2 != null) {
-                int f2 = zfa.f(cra.c(themeColorInfo2));
-                if (!zfa.e(f2)) {
+                int f2 = fia.f(jta.c(themeColorInfo2));
+                if (!fia.e(f2)) {
                     this.h.setBackgroundColor(f2);
                 }
             }
             if (themeColorInfo3 != null) {
-                int f3 = zfa.f(cra.c(themeColorInfo3));
-                if (!zfa.e(f3)) {
+                int f3 = fia.f(jta.c(themeColorInfo3));
+                if (!fia.e(f3)) {
                     this.i.setTextColor(f3);
                 }
             }
             if (themeColorInfo4 != null) {
-                int f4 = zfa.f(cra.c(themeColorInfo4));
-                if (!zfa.e(f4)) {
+                int f4 = fia.f(jta.c(themeColorInfo4));
+                if (!fia.e(f4)) {
                     this.r.setBackGroundRealColor(f4);
                 }
             }

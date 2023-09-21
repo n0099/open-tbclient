@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lm9;
-import com.baidu.tieba.nq6;
-import com.baidu.tieba.rr9;
+import com.baidu.tieba.do9;
+import com.baidu.tieba.ot9;
+import com.baidu.tieba.tq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PbRecomChildTitleAdapter extends lm9<nq6, ViewHolder> {
+public class PbRecomChildTitleAdapter extends do9<tq6, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder g;
@@ -54,10 +54,10 @@ public class PbRecomChildTitleAdapter extends lm9<nq6, ViewHolder> {
             b(view2);
         }
 
-        public void a(nq6 nq6Var) {
+        public void a(tq6 tq6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nq6Var) == null) {
-                this.b.setText(nq6Var.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, tq6Var) == null) {
+                this.b.setText(tq6Var.a);
             }
         }
 
@@ -82,19 +82,19 @@ public class PbRecomChildTitleAdapter extends lm9<nq6, ViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbRecomChildTitleAdapter(rr9 rr9Var, BdUniqueId bdUniqueId) {
-        super(rr9Var, bdUniqueId);
+    public PbRecomChildTitleAdapter(ot9 ot9Var, BdUniqueId bdUniqueId) {
+        super(ot9Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rr9Var, bdUniqueId};
+            Object[] objArr = {ot9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((rr9) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((ot9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,22 +103,22 @@ public class PbRecomChildTitleAdapter extends lm9<nq6, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: x */
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07c4, viewGroup, false));
+            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07c3, viewGroup, false));
             this.g = viewHolder;
             return viewHolder;
         }
         return (ViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.lm9, com.baidu.tieba.pm
+    @Override // com.baidu.tieba.do9, com.baidu.tieba.om
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        y(i, view2, viewGroup, (nq6) obj, (ViewHolder) viewHolder);
+        y(i, view2, viewGroup, (tq6) obj, (ViewHolder) viewHolder);
         return view2;
     }
 
@@ -131,12 +131,12 @@ public class PbRecomChildTitleAdapter extends lm9<nq6, ViewHolder> {
         return (ViewHolder) invokeV.objValue;
     }
 
-    public View y(int i, View view2, ViewGroup viewGroup, nq6 nq6Var, ViewHolder viewHolder) {
+    public View y(int i, View view2, ViewGroup viewGroup, tq6 tq6Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nq6Var, viewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) nq6Var, (nq6) viewHolder);
-            viewHolder.a(nq6Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tq6Var, viewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) tq6Var, (tq6) viewHolder);
+            viewHolder.a(tq6Var);
             viewHolder.c();
             return view2;
         }

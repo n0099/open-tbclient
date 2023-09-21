@@ -11,9 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ReplyMeActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String KEY_FROM = "callFrom";
     public static final int KEY_FROM_MSG = 1;
     public static final int KEY_FROM_PUSH = 2;
     public static final String KEY_HIGH_LIGHT_POST_ID = "high_light_post_id";
+    public static final String KEY_NAV_TITLE = "navTitle";
     public static final String KEY_REPLY_NUMBER = "reply_number";
     public static final String LAST_PAGE_UNIQUE_ID = "last_page_unique_id";
     public transient /* synthetic */ FieldHolder $fh;

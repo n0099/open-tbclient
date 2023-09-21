@@ -1,85 +1,131 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.List;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
 /* loaded from: classes9.dex */
 public final class zu0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wu0 a;
+    public static final zu0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                tk0.c("AuthStrategyHelper", e.toString());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948372308, "Lcom/baidu/tieba/zu0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948372308, "Lcom/baidu/tieba/zu0;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        a = new zu0();
     }
 
-    public static final List<vu0> b() {
-        InterceptResult invokeV;
+    public zu0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = yu0.a(p21.k().getString("host_auth_config", a()));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            wu0 wu0Var = a;
-            if (wu0Var != null) {
-                return wu0Var.a();
-            }
-            return null;
         }
-        return (List) invokeV.objValue;
     }
 
-    public static final synchronized vu0 c(String str) {
+    @JvmStatic
+    public static final int a(wu0 wu0Var, String str) {
+        InterceptResult invokeLL;
+        uu0 c;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, wu0Var, str)) == null) {
+            if (wu0Var != null || ((c = yu0.c(str)) != null && (wu0Var = c.a()) != null)) {
+                num = Integer.valueOf(wu0Var.a());
+            } else {
+                num = null;
+            }
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
+        }
+        return invokeLL.intValue;
+    }
+
+    @JvmStatic
+    public static final String c(wu0 wu0Var, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, wu0Var, str, str2)) == null) {
+            return a.b(a(wu0Var, str), str2);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public final String b(int i, String str) {
+        InterceptResult invokeIL;
+        boolean z;
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                d = "https://sv.baidu.com";
+            } else {
+                d = d(str);
+            }
+            if (i != 1) {
+                return "";
+            }
+            return d;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public final String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (zu0.class) {
-                if (str == null) {
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                Uri url = Uri.parse(str);
+                Intrinsics.checkNotNullExpressionValue(url, "url");
+                String scheme = url.getScheme();
+                if (scheme == null) {
+                    return "https://sv.baidu.com";
                 }
-                List<vu0> b = b();
-                if (b == null) {
-                    return null;
+                String str2 = scheme + "://";
+                if (str2 == null) {
+                    return "https://sv.baidu.com";
                 }
-                try {
-                    String host = new URL(str).getHost();
-                    for (vu0 vu0Var : b) {
-                        if (Pattern.matches(vu0Var.b(), host)) {
-                            return vu0Var;
-                        }
-                    }
-                } catch (Exception e) {
-                    tk0.a("AuthStrategyHelper", e.getMessage());
+                String str3 = str2 + url.getHost();
+                if (str3 == null) {
+                    return "https://sv.baidu.com";
                 }
-                return null;
+                return str3;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "https://sv.baidu.com";
             }
         }
-        return (vu0) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

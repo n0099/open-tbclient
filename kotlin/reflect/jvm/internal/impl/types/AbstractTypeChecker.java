@@ -205,7 +205,7 @@ public final class AbstractTypeChecker {
                     }
                     if (substitutionSupertypePolicy != null) {
                         for (KotlinTypeMarker kotlinTypeMarker : abstractTypeCheckerContext.supertypes(abstractTypeCheckerContext.typeConstructor(current))) {
-                            supertypesDeque.add(substitutionSupertypePolicy.mo2109transformType(abstractTypeCheckerContext, kotlinTypeMarker));
+                            supertypesDeque.add(substitutionSupertypePolicy.mo2111transformType(abstractTypeCheckerContext, kotlinTypeMarker));
                         }
                     }
                 }
@@ -252,7 +252,7 @@ public final class AbstractTypeChecker {
                     }
                     if (supertypesPolicy != null) {
                         for (KotlinTypeMarker kotlinTypeMarker : abstractTypeCheckerContext.supertypes(abstractTypeCheckerContext.typeConstructor(current))) {
-                            supertypesDeque.add(supertypesPolicy.mo2109transformType(abstractTypeCheckerContext, kotlinTypeMarker));
+                            supertypesDeque.add(supertypesPolicy.mo2111transformType(abstractTypeCheckerContext, kotlinTypeMarker));
                         }
                     }
                 }
@@ -387,12 +387,12 @@ public final class AbstractTypeChecker {
                     }
                     if (supertypesPolicy != null) {
                         for (KotlinTypeMarker kotlinTypeMarker : abstractTypeCheckerContext.supertypes(abstractTypeCheckerContext.typeConstructor(current))) {
-                            SimpleTypeMarker mo2109transformType = supertypesPolicy.mo2109transformType(abstractTypeCheckerContext, kotlinTypeMarker);
-                            if (abstractTypeCheckerContext.isNothingConstructor(abstractTypeCheckerContext.typeConstructor(mo2109transformType))) {
+                            SimpleTypeMarker mo2111transformType = supertypesPolicy.mo2111transformType(abstractTypeCheckerContext, kotlinTypeMarker);
+                            if (abstractTypeCheckerContext.isNothingConstructor(abstractTypeCheckerContext.typeConstructor(mo2111transformType))) {
                                 abstractTypeCheckerContext.clear();
                                 return true;
                             }
-                            supertypesDeque.add(mo2109transformType);
+                            supertypesDeque.add(mo2111transformType);
                         }
                         continue;
                     } else {

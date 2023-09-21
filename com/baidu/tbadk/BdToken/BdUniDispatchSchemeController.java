@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.du4;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.gv4;
+import com.baidu.tieba.cu4;
+import com.baidu.tieba.di;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.lt4;
 import com.baidu.tieba.mt4;
-import com.baidu.tieba.nt4;
-import com.baidu.tieba.ow5;
-import com.baidu.tieba.rg;
+import com.baidu.tieba.pw5;
+import com.baidu.tieba.qg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -241,8 +241,8 @@ public class BdUniDispatchSchemeController {
     private void processSchemeFrom(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && !TextUtils.isEmpty(str) && "shoubai".equals(str)) {
-            ow5.m().u(true);
-            ow5.m().k();
+            pw5.m().u(true);
+            pw5.m().k();
         }
     }
 
@@ -298,16 +298,16 @@ public class BdUniDispatchSchemeController {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, this, str, str2, str3, uri) == null) {
-            gv4.f().i(uri);
-            if (ei.isEmpty(str)) {
+            fv4.f().i(uri);
+            if (di.isEmpty(str)) {
                 return;
             }
-            mt4 mt4Var = new mt4(str);
-            mt4Var.m0(str3);
-            if (mt4Var.d() != 0 && mt4Var.q() != 0) {
-                TbSingleton.getInstance().setInvokeSource(mt4Var.e());
-                rg.f(String.valueOf(mt4Var.d()));
-                rg.i(String.valueOf(mt4Var.q()));
+            lt4 lt4Var = new lt4(str);
+            lt4Var.m0(str3);
+            if (lt4Var.d() != 0 && lt4Var.q() != 0) {
+                TbSingleton.getInstance().setInvokeSource(lt4Var.e());
+                qg.f(String.valueOf(lt4Var.d()));
+                qg.i(String.valueOf(lt4Var.q()));
                 if (StringHelper.equals(str2, SCHEME_FROM_TB_TOKEN)) {
                     i = 2;
                 } else {
@@ -326,15 +326,15 @@ public class BdUniDispatchSchemeController {
                     str7 = uri.getQueryParameter("hightlight_anchor_pid");
                     str4 = uri.getQueryParameter("refer");
                 }
-                if (mt4Var.d() == 1111 && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
+                if (lt4Var.d() == 1111 && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                     if (currentActivity instanceof BaseFragmentActivity) {
                         ((BaseFragmentActivity) currentActivity).showFloatingWindow();
                     } else if (currentActivity instanceof BaseActivity) {
                         ((BaseActivity) currentActivity).showFloatingWindow();
                     }
                 }
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", mt4Var.e()).param("obj_type", mt4Var.d()).param("obj_param1", mt4Var.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, mt4Var.s()).param("extra", mt4Var.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str8).param("tid", str5).param("query", str6).param("pid", str7).param("refer", str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1).param(TiebaStatic.Params.WISE_SAMPLE_ID, mt4Var.G()));
-                nt4.w().m(mt4Var);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", lt4Var.e()).param("obj_type", lt4Var.d()).param("obj_param1", lt4Var.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, lt4Var.s()).param("extra", lt4Var.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str8).param("tid", str5).param("query", str6).param("pid", str7).param("refer", str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1).param(TiebaStatic.Params.WISE_SAMPLE_ID, lt4Var.G()));
+                mt4.w().m(lt4Var);
             }
         }
     }
@@ -380,7 +380,7 @@ public class BdUniDispatchSchemeController {
             processActivityMissionInfo(queryParameter, queryParameter2, queryParameter3, uri);
             processSchemeFrom(uri.getQueryParameter(PARAM_FROM));
             addStaticForShemeFormH5("", uri, queryParameter2);
-            du4.c(uri);
+            cu4.c(uri);
             if (PATH_HOMEPAGE.equals(uri.getPath())) {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 2);
                 String str = PARAM_NEW_GOD_FROM;

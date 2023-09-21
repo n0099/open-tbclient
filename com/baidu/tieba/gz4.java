@@ -11,12 +11,12 @@ public class gz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public pk1<hz4.d> a;
+    public ok1<hz4.d> a;
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nk1 b = nk1.b();
+            mk1 b = mk1.b();
             this.a = b;
             b.a(new iz4());
         }

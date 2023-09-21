@@ -1,229 +1,230 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Rect;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import androidx.core.widget.NestedScrollView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.TbDownloadManager;
+import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes8.dex */
-public class sn5 extends qn5 {
+public class sn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NestedScrollView a;
-    public LinearLayout b;
-    public TbImageView c;
-    public TextView d;
-    public TextView e;
-    public TBSpecificationBtn f;
-    public LinearLayout g;
-    public int h;
-    public Rect i;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sn5 a;
-
-        public a(sn5 sn5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sn5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sn5Var;
+    public static void a(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
+            cb5.a(downloadData, 400);
+            i(downloadData).s(downloadData);
         }
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(-1);
+    public static boolean b(DownloadData downloadData) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, downloadData)) == null) {
+            if (downloadData != null) {
+                i = i(downloadData).q(downloadData);
+            } else {
+                i = 1;
+            }
+            if (i == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int c(@NonNull DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
+            return i(downloadData).q(downloadData);
+        }
+        return invokeL.intValue;
+    }
+
+    public static String g(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
+            String dataString = intent.getDataString();
+            if (TextUtils.isEmpty(dataString)) {
+                return null;
+            }
+            String[] split = dataString.split(":");
+            if (split.length == 2) {
+                return split[1];
+            }
+            return dataString;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int h(@NonNull DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
+            int p = i(downloadData).p(downloadData);
+            if (p >= 0 && p <= 100) {
+                return p;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void j(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, downloadData) == null) {
+            cb5.a(downloadData, 800);
+            String o = i(downloadData).o(downloadData);
+            if (StringUtils.isNotNull(o)) {
+                AdApkInstallHelper.a(o, downloadData);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sn5(Context context, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(context).inflate(R.layout.frs_net_refresh_view_layout, (ViewGroup) null));
+    public static void l(String str) {
+        Context context;
+        Intent f;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = 0;
-        this.i = new Rect();
-        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f092146);
-        this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0907aa);
-        this.c = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
-        this.d = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.e = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.g = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
-        oa5 oa5Var = new oa5();
-        oa5Var.s(R.color.CAM_X0304, R.color.CAM_X0905);
-        this.f.setText(context.getResources().getString(R.string.refresh_view_button_text));
-        this.f.setTextSize(R.dimen.tbds42);
-        this.f.setConfig(oa5Var);
-        this.f.setOnClickListener(onClickListener);
-        this.attachedView.setOnClickListener(null);
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.h <= 0) {
-                this.h = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
-            }
-            NestedScrollView nestedScrollView = this.a;
-            if (nestedScrollView == null) {
-                return;
-            }
-            if (i == 0) {
-                nestedScrollView.post(new a(this));
-            }
-            if (!this.a.getLocalVisibleRect(this.i)) {
-                return;
-            }
-            int i2 = this.i.bottom;
-            int abs = Math.abs(this.b.getTop());
-            int abs2 = i2 - Math.abs(this.b.getBottom());
-            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
-                return;
-            }
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            int i3 = this.h;
-            if (abs < i3) {
-                marginLayoutParams.topMargin = i3;
-                this.b.setLayoutParams(marginLayoutParams);
-            } else if (abs == i3) {
-                if (abs2 > i3) {
-                    marginLayoutParams.topMargin = i3 + ((abs2 - i3) / 2);
-                    this.b.setLayoutParams(marginLayoutParams);
-                }
-            } else if (abs > i3) {
-                if (abs2 < i3) {
-                    marginLayoutParams.topMargin = i3;
-                } else if (abs2 == i3) {
-                    marginLayoutParams.topMargin = i3;
-                } else if (abs2 > i3) {
-                    marginLayoutParams.topMargin = (abs + abs2) / 2;
-                }
-                this.b.setLayoutParams(marginLayoutParams);
-            }
-        }
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || str == null) {
+        if ((interceptable != null && interceptable.invokeL(65547, null, str) != null) || TextUtils.isEmpty(str) || (f = f((context = TbadkCoreApplication.getInst().getContext()), str)) == null) {
             return;
         }
-        this.f.setText(str);
+        try {
+            context.startActivity(f);
+        } catch (Exception unused) {
+        }
     }
 
-    public void c(String str) {
+    public static boolean m(DownloadData downloadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (str == null) {
-                this.d.setVisibility(8);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, downloadData)) == null) {
+            if (BdUtilHelper.isNetOk()) {
+                return i(downloadData).y(downloadData);
             }
-            this.d.setVisibility(0);
-            this.d.setText(str);
+            hi5.b(downloadData);
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void d(String str) {
+    public static int d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (ii5.q().t(str)) {
+                return 1;
+            }
+            if (ii5.q().r(str)) {
+                return 5;
+            }
+            File m = ii5.q().m(str, str2);
+            if (m != null && m.exists()) {
+                return 7;
+            }
+            return 6;
         }
-        this.e.setText(str);
+        return invokeLL.intValue;
     }
 
-    public void e() {
+    public static PackageInfo e(String str) {
+        InterceptResult invokeL;
+        PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f.setVisibility(0);
-            this.e.setVisibility(0);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                packageInfo = TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (!str.equals(packageInfo.packageName)) {
+                return null;
+            }
+            return packageInfo;
         }
+        return (PackageInfo) invokeL.objValue;
     }
 
-    public View getAttachedView() {
-        InterceptResult invokeV;
+    public static Intent f(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.attachedView;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qn5
-    public void onViewAttached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
-        }
-    }
-
-    @Override // com.baidu.tieba.qn5
-    public void onViewDettached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onViewDettached();
-            this.c.setImageResource(0);
-        }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setImageResource(this.c, R.drawable.new_pic_emotion_08);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0107, 1, skinType);
-            SkinManager.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
-            TBSpecificationBtn tBSpecificationBtn = this.f;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getLaunchIntentForPackage(str);
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (Intent) invokeLL.objValue;
+    }
+
+    public static TbDownloadManager i(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, downloadData)) == null) {
+            TbDownloadManager tbDownloadManager = new TbDownloadManager();
+            if (downloadData != null && downloadData.getItemData() != null) {
+                if (downloadData.getItemData().isFromTbDownloaderTable) {
+                    tbDownloadManager.w(1);
+                } else if (downloadData.getItemData().mTbFileDownloaderType > 0) {
+                    tbDownloadManager.w(downloadData.getItemData().mTbFileDownloaderType);
+                } else {
+                    tbDownloadManager.w(2);
+                    if (tbDownloadManager.p(downloadData) <= 0) {
+                        tbDownloadManager.w(1);
+                        if (tbDownloadManager.p(downloadData) <= 0) {
+                            tbDownloadManager.w(of7.a());
+                        }
+                    }
+                }
+            }
+            return tbDownloadManager;
+        }
+        return (TbDownloadManager) invokeL.objValue;
+    }
+
+    public static DownloadData k(ItemData itemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, itemData)) == null) {
+            String str = itemData.pkgName + ".v" + itemData.apkDetail.version;
+            DownloadData downloadData = new DownloadData();
+            downloadData.setType(12);
+            downloadData.setId(str);
+            downloadData.setName(itemData.mTitle);
+            downloadData.setUniqueId(String.valueOf(itemData.itemId));
+            downloadData.setUrl(itemData.buttonLink);
+            downloadData.setNotifyId(x5a.p(str).intValue());
+            downloadData.setNeedInvokeApk(true);
+            downloadData.setNeedNotify(false);
+            downloadData.setItemData(itemData);
+            ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());
+            itemDownloadExtraData.appName = itemData.mTitle;
+            itemDownloadExtraData.pkgName = itemData.pkgName;
+            downloadData.setExtra(itemDownloadExtraData);
+            return downloadData;
+        }
+        return (DownloadData) invokeL.objValue;
     }
 }

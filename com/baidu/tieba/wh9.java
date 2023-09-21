@@ -1,114 +1,168 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.RobotEntrance;
-import tbclient.RobotSkill;
-import tbclient.RobotSkillInfo;
 /* loaded from: classes8.dex */
-public final class wh9 implements t65 {
+public class wh9 extends th9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948270721, "Lcom/baidu/tieba/wh9;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public class a extends OneKeyLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh9 a;
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        public a(wh9 wh9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wh9Var;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948270721, "Lcom/baidu/tieba/wh9;");
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
+                this.a.f();
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
+                this.a.b.closeLoadingDialog();
+                BaseActivity baseActivity = this.a.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0f03), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+            }
         }
     }
 
-    public wh9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wh9(TbPageContext tbPageContext, uh9 uh9Var) {
+        super(tbPageContext, uh9Var, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, uh9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (uh9) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.t65
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.th9
+    public void j(vh9 vh9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", "pbFriendBotBottomNewUser");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vh9Var) == null) {
+            this.e = vh9Var;
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.t65
-    public boolean b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
-        List<RobotSkillInfo> list;
-        aj9 r1;
-        RobotEntrance K;
-        aj9 r12;
-        RobotEntrance K2;
+    @Override // com.baidu.tieba.th9
+    public void n(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof PbActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新手引导策略校验失败：当前Activity非PbActivity");
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.n(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f091667) {
+                s();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a0b) {
+                t();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090175) {
+                r();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d53) {
+                u();
             }
-            PbActivity pbActivity = (PbActivity) currentActivity;
-            PbModel J1 = pbActivity.J1();
-            List<RobotSkill> list2 = null;
-            if (J1 != null && (r12 = J1.r1()) != null && (K2 = r12.K()) != null) {
-                list = K2.robot_skill_info;
-            } else {
-                list = null;
-            }
-            PbModel J12 = pbActivity.J1();
-            if (J12 != null && (r1 = J12.r1()) != null && (K = r1.K()) != null) {
-                list2 = K.bottom_bar_robot_skill;
-            }
-            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
-                return !SharedPrefHelper.getInstance().getBoolean("pb_friend_bot_bottom_new_user_shown", false);
-            }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新手引导此时没有数据");
-            return false;
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            BaseActivity baseActivity = this.b;
+            BrowserHelper.startWebActivity((Context) baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0efa), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            l();
+            PassportSDK passportSDK = PassportSDK.getInstance();
+            BaseActivity baseActivity = this.b;
+            passportSDK.loadOneKeyLogin(baseActivity, bi9.j(baseActivity, this.e.c), new a(this));
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            BaseActivity baseActivity = this.b;
+            BrowserHelper.startWebActivity((Context) baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0efe), "http://privacy.baidu.com/mdetail?id=288", false);
+        }
+    }
+
+    public final void t() {
+        vh9 vh9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (vh9Var = this.e) == null) {
+            return;
+        }
+        int a2 = vh9Var.a();
+        if (a2 != 1) {
+            if (a2 != 2) {
+                if (a2 == 3) {
+                    BaseActivity baseActivity = this.b;
+                    BrowserHelper.startWebActivity((Context) baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0efd), "https://wap.cmpassport.com/resources/html/contract.html", false);
+                    return;
+                }
+                return;
+            }
+            BaseActivity baseActivity2 = this.b;
+            BrowserHelper.startWebActivity((Context) baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0efc), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false);
+            return;
+        }
+        BaseActivity baseActivity3 = this.b;
+        BrowserHelper.startWebActivity((Context) baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0efb), "https://ms.zzx9.cn/html/oauth/protocol2.html", false);
     }
 }

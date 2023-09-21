@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class xp2 implements ZeusPluginFactory {
+public class xp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xp2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Map<String, rr2> a;
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_rtc_room" : (String) invokeV.objValue;
-    }
-
-    public xp2(@NonNull String str) {
+    public xp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,18 +31,62 @@ public class xp2 implements ZeusPluginFactory {
                 return;
             }
         }
-        this.a = str;
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
+    public static xp2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            sr2 a = ou2.D().a(invoker, this.a);
-            h82.i("【RtcRoomPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcRoom「Hash:" + a.hashCode() + "」");
-            return new vp2(a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (xp2.class) {
+                    if (b == null) {
+                        b = new xp2();
+                    }
+                }
+            }
+            return b;
         }
-        return (ZeusPlugin) invokeL.objValue;
+        return (xp2) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            if (b != null) {
+                b.b();
+            }
+            b = null;
+        }
+    }
+
+    public final synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                g82.i("RtcRoomWidgetManager", "release");
+                Iterator it = new ArrayList(this.a.values()).iterator();
+                while (it.hasNext()) {
+                    ((rr2) it.next()).onRelease();
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    public synchronized void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            synchronized (this) {
+                g82.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
+                Iterator it = new ArrayList(this.a.values()).iterator();
+                while (it.hasNext()) {
+                    rr2 rr2Var = (rr2) it.next();
+                    if (TextUtils.equals(rr2Var.b(), str)) {
+                        rr2Var.onRelease();
+                    }
+                }
+            }
+        }
     }
 }

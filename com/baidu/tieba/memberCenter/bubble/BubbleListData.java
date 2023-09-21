@@ -262,7 +262,7 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BubbleListData m138clone() {
+    public BubbleListData m140clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

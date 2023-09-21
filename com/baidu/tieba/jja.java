@@ -1,172 +1,190 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.AuthTokenData;
+import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import org.json.JSONException;
+import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class jja {
+public class jja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ija a;
-    public final String b;
-    public final int c;
-    public final long d;
-    public final String e;
-    public final int f;
+    public String a;
+    public a b;
 
-    public abstract void a();
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, long j);
 
-    public abstract boolean c();
+        void b(String str, long j);
+    }
 
-    public abstract mja g(ArrayList<Integer> arrayList, String str, int i);
+    /* loaded from: classes6.dex */
+    public static class b extends BdAsyncTask<Integer, Integer, Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public long c;
+        public String d;
+        public WeakReference<a> e;
+        public int f;
+        public String g;
 
-    public jja(String str, int i, int i2, long j, String str2) {
+        public b(String str, long j, String str2, a aVar, jja jjaVar, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Long.valueOf(j), str2, aVar, jjaVar, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+            this.c = 0L;
+            this.e = null;
+            new WeakReference(jjaVar);
+            this.b = str;
+            this.c = j;
+            this.e = new WeakReference<>(aVar);
+            this.d = str2;
+            this.g = str3;
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Integer doInBackground(Integer... numArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
+                try {
+                    if (this.c != 0 && this.b != null) {
+                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
+                        this.a = netWork;
+                        netWork.addPostData("fid", String.valueOf(this.c));
+                        this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.b);
+                        this.a.addPostData("favo_type", "1");
+                        this.a.addPostData("st_type", this.d);
+                        this.a.addPostData("authsid", this.g);
+                        this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                        String postNetData = this.a.postNetData();
+                        if (!di.isEmpty(postNetData)) {
+                            JSONObject jSONObject = new JSONObject(postNetData);
+                            this.f = jSONObject.optInt("error_code");
+                            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+                            AuthTokenData.parse(jSONObject);
+                        }
+                        if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                            return 1;
+                        }
+                    }
+                    return 0;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return 0;
+                }
+            }
+            return (Integer) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            String netException;
+            NetWork netWork;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+                super.onPostExecute((b) num);
+                if (this.e != null) {
+                    AttentionBarData attentionBarData = new AttentionBarData();
+                    attentionBarData.forumId = this.c;
+                    a aVar = this.e.get();
+                    if (aVar == null) {
+                        return;
+                    }
+                    if (num.intValue() == 1 && (netWork = this.a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
+                        TbadkCoreApplication.getInst().delLikeForum(this.b);
+                        aVar.b(this.b, this.c);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.c)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.b));
+                        attentionBarData.isSuccess = true;
+                    } else {
+                        attentionBarData.isSuccess = false;
+                        NetWork netWork2 = this.a;
+                        if (netWork2 != null) {
+                            if (netWork2.isNetSuccess()) {
+                                netException = this.a.getErrorString();
+                            } else {
+                                netException = this.a.getNetException();
+                            }
+                            attentionBarData.errorMessage = netException;
+                            aVar.a(netException, this.f);
+                        }
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, attentionBarData));
+                }
+            }
+        }
+    }
+
+    public jja() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = str;
-        this.c = i2;
-        this.d = j;
-        this.e = str2;
-        this.f = i;
+        this.a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
     }
 
-    public byte[] b(RandomAccessFile randomAccessFile, int i) {
-        InterceptResult invokeLI;
-        int i2;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
-            if (randomAccessFile != null && i >= 0) {
-                if (i == this.c) {
-                    i2 = (int) (this.d - ((i - 1) * this.f));
-                } else {
-                    i2 = this.f;
-                }
-                byte[] bArr = new byte[i2];
-                boolean z = false;
-                try {
-                    synchronized (randomAccessFile) {
-                        randomAccessFile.seek((i - 1) * this.f);
-                        if (randomAccessFile.read(bArr, 0, i2) != -1) {
-                            z = true;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (z) {
-                    return bArr;
-                }
-            }
-            return null;
-        }
-        return (byte[]) invokeLI.objValue;
-    }
-
-    public void d(int i) {
-        ija ijaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (ijaVar = this.a) != null) {
-            ijaVar.onProgressUpdate(i / 100.0f);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public void f(ija ijaVar) {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ijaVar) == null) {
-            this.a = ijaVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    public final String e(String str) {
-        InterceptResult invokeL;
+    public void c(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            try {
-                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-                if (optJSONObject != null) {
-                    return optJSONObject.optString("video_url");
-                }
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+            new b(str, j, this.a, this.b, this, null).execute(new Integer[0]);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public mja h(RandomAccessFile randomAccessFile, int i, long j, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
-            byte[] b = b(randomAccessFile, i);
-            if (b == null) {
-                mja mjaVar = new mja();
-                mjaVar.b = -1;
-                mjaVar.c = "上传文件不存在";
-                return mjaVar;
-            } else if (c()) {
-                return null;
-            } else {
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
-                netWork.addPostData("chunk_no", String.valueOf(i));
-                netWork.addPostData("chunk_sum", String.valueOf(this.c));
-                netWork.addPostData("chunk_size", String.valueOf(b.length));
-                netWork.addPostData("video_size", String.valueOf(this.d));
-                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
-                netWork.addPostData("video_len", String.valueOf(j));
-                netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-                netWork.addPostData("video_chunk", b);
-                netWork.addPostData("upload_id", str);
-                if (c()) {
-                    return null;
-                }
-                String postMultiNetData = netWork.postMultiNetData();
-                if (c()) {
-                    return null;
-                }
-                mja mjaVar2 = new mja();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    mjaVar2.a = e(postMultiNetData);
-                } else {
-                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
-                        mjaVar2.b = netWork.getNetContext().getResponse().mServerErrorCode;
-                    } else {
-                        mjaVar2.b = netWork.getNetContext().getResponse().mNetErrorCode;
-                    }
-                    mjaVar2.c = netWork.getNetContext().getResponse().mErrorString;
-                }
-                return mjaVar2;
-            }
-        }
-        return (mja) invokeCommon.objValue;
     }
 }

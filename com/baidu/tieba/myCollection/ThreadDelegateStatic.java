@@ -117,7 +117,7 @@ public class ThreadDelegateStatic extends FragmentDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.frag = ThreadFragment.k2();
+            fragmentTabStructure.frag = ThreadFragment.q2();
             fragmentTabStructure.type = 1;
             fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f047d;
             return fragmentTabStructure;

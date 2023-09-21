@@ -24,9 +24,9 @@ import com.baidu.tbadk.data.SearchFriendResult;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.k76;
-import com.baidu.tieba.nf5;
+import com.baidu.tieba.ag;
+import com.baidu.tieba.l76;
+import com.baidu.tieba.rf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,16 +39,16 @@ import java.util.List;
 public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements UserIconBox.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k76 a;
+    public l76 a;
     public NavigationBar b;
     public View c;
     public View d;
-    public k76.c e;
+    public l76.c e;
     public CustomMessageListener f;
     public final HttpMessageListener g;
 
     /* loaded from: classes5.dex */
-    public class a implements k76.c {
+    public class a implements l76.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchFriendActivity a;
@@ -71,7 +71,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             this.a = searchFriendActivity;
         }
 
-        @Override // com.baidu.tieba.k76.c
+        @Override // com.baidu.tieba.l76.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -126,7 +126,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
-                    if ((next instanceof nf5) && userInfo.getUserId() == ((nf5) next).d()) {
+                    if ((next instanceof rf5) && userInfo.getUserId() == ((rf5) next).d()) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                         return;
                     }
@@ -184,17 +184,17 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                         SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                         if (userInfo2 == null) {
                             SearchFriendActivity searchFriendActivity = this.a;
-                            searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e40));
+                            searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e42));
                             return;
                         }
                         this.a.sendMessage(new CustomMessage(2001265, userInfo2));
                         return;
                     }
                     SearchFriendActivity searchFriendActivity2 = this.a;
-                    searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e40));
+                    searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e42));
                 } else if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     SearchFriendActivity searchFriendActivity3 = this.a;
-                    searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e40));
+                    searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e42));
                 } else {
                     this.a.showToast(httpResponsedMessage.getErrorString());
                 }
@@ -286,9 +286,9 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         this.g = new c(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
     }
 
-    public final void p1() {
+    public final void N0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SEARCH_FRIEND_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SEARCH_FRIEND);
             tbHttpMessageTask.setResponsedClass(ResponseSearchFriendMessage.class);
@@ -298,19 +298,19 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public bg<TbImageView> O() {
+    public ag<TbImageView> W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return UserIconBox.c(getPageContext().getPageActivity(), 8);
         }
-        return (bg) invokeV.objValue;
+        return (ag) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
             this.a.h();
         }
@@ -319,7 +319,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
             this.b.onChangeSkinType(getPageContext(), i);
             this.a.f(i);
@@ -331,23 +331,23 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0054);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09195c);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091948);
             d dVar = new d(this);
             this.c.setOnClickListener(dVar);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09195b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091947);
             this.b = navigationBar;
             navigationBar.setTitleText(R.string.find_new_friend);
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-            this.d = findViewById(R.id.obfuscated_res_0x7f09195e);
-            this.a = new k76(getPageContext(), this.d);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09194a);
+            this.a = new l76(getPageContext(), this.d);
             this.d.setOnClickListener(dVar);
             this.a.l(this.e);
             TiebaStatic.log("add_new");
             registerListener(this.f);
-            p1();
+            N0();
         }
     }
 }

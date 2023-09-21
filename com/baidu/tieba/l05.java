@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class l05 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hz6 a;
+    public oz6 a;
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
@@ -96,7 +96,7 @@ public class l05 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.a = new hz6();
+        this.a = new oz6();
     }
 
     public final void a(Activity activity) {
@@ -105,16 +105,16 @@ public class l05 implements Application.ActivityLifecycleCallbacks {
             return;
         }
         String name = activity.getClass().getName();
-        if (e85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+        if (i85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
             if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
                 if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    e85.a().k(true);
+                    i85.a().k(true);
                     return;
                 } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
                     return;
                 }
             }
-            e85.a().h(name);
+            i85.a().h(name);
         }
     }
 
@@ -124,16 +124,16 @@ public class l05 implements Application.ActivityLifecycleCallbacks {
             return;
         }
         String name = activity.getClass().getName();
-        if (e85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+        if (i85.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
             if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
                 if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    e85.a().l(true);
+                    i85.a().l(true);
                     return;
                 } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
                     return;
                 }
             }
-            e85.a().g(name);
+            i85.a().g(name);
         }
     }
 
@@ -144,7 +144,7 @@ public class l05 implements Application.ActivityLifecycleCallbacks {
             c(activity, Lifecycle.Event.ON_PAUSE);
             boolean z = false;
             if (activity.isFinishing()) {
-                o55.i();
+                p55.i();
                 if (((activity instanceof TBWebViewActivity) && activity.getIntent() != null && !TextUtils.isEmpty(activity.getIntent().getStringExtra(WebViewActivityConfig.TAG_WEB_DIALOG_NAME))) || activity.getClass().getName().equals("com.baidu.tieba.UpdateDialog")) {
                     z = true;
                 }
@@ -191,96 +191,63 @@ public class l05 implements Application.ActivityLifecycleCallbacks {
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (activity != null && currentActivity != null && cq5.b().h(activity) && !cq5.b().h(currentActivity)) {
-                cq5.b().o();
-                if (!cq5.b().g(currentActivity.getClass().getName())) {
-                    cq5.b().l(false);
-                }
-            }
-            if (eg5.i() != null && activity == eg5.i().getActivity()) {
-                eg5.i().n();
-            }
-            if (eg5.k() != null && activity == eg5.k().getActivity()) {
-                eg5.l();
-            }
-            if (ne5.b() != null && activity == ne5.b().getActivity()) {
-                ne5.b().t();
-            }
-            c(activity, Lifecycle.Event.ON_DESTROY);
-            z66.L().K(activity);
-            if (activity instanceof TbPageContextSupport) {
-                TbPageContext pageContext = ((TbPageContextSupport) activity).getPageContext();
-                hu6.b().unregister(pageContext);
-                BdUniqueId uniqueId = pageContext.getUniqueId();
-                if (uniqueId != null) {
-                    hu6.a(uniqueId);
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048580, this, activity, bundle) != null) || activity == null) {
             return;
         }
-        i95.q().w(activity);
-        if (i95.q().v(activity)) {
+        m95.q().w(activity);
+        if (m95.q().v(activity)) {
             return;
         }
         String name = activity.getClass().getName();
-        if (!SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !YunDialogManager.isYunDialogActivity(activity) && ((!"com.baidu.tieba.pb.pb.main.PbActivity".equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name)) || !d85.a().a)) {
+        if (!SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !YunDialogManager.isYunDialogActivity(activity) && ((!"com.baidu.tieba.pb.pb.main.PbActivity".equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name)) || !h85.a().a)) {
             IdleHandlerManager.getInstance().runIdleTaskImmediately();
         }
-        if (cq5.b().e(name)) {
-            cq5.b().a();
-        } else if (cq5.b().h(activity)) {
-            cq5.b().c();
-            if (cq5.b().g(name)) {
-                cq5.b().l(true);
+        h85.a().e(activity);
+        c(activity, Lifecycle.Event.ON_CREATE);
+        p55.i();
+        YunDialogManager.markIsBackFromYunDialog(false);
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            if (ig5.i() != null && activity == ig5.i().getActivity()) {
+                ig5.i().n();
             }
-        } else if (cq5.b().f(name)) {
-            cq5.b().o();
-            if (!cq5.b().g(name)) {
-                cq5.b().l(false);
-            } else {
-                cq5.b().l(true);
+            if (ig5.k() != null && activity == ig5.k().getActivity()) {
+                ig5.l();
+            }
+            if (re5.b() != null && activity == re5.b().getActivity()) {
+                re5.b().t();
+            }
+            c(activity, Lifecycle.Event.ON_DESTROY);
+            a76.L().K(activity);
+            if (activity instanceof TbPageContextSupport) {
+                TbPageContext pageContext = ((TbPageContextSupport) activity).getPageContext();
+                nu6.b().unregister(pageContext);
+                BdUniqueId uniqueId = pageContext.getUniqueId();
+                if (uniqueId != null) {
+                    nu6.a(uniqueId);
+                }
             }
         }
-        d85.a().e(activity);
-        c(activity, Lifecycle.Event.ON_CREATE);
-        o55.i();
-        YunDialogManager.markIsBackFromYunDialog(false);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            if (activity != null) {
-                if (!activity.getClass().getSimpleName().equals("LogoActivity")) {
-                    IdleHandlerManager.getInstance().addOrRunTask("BdTokenController", new a(this, UtilHelper.isActivityStartFromScheme(activity)));
-                }
-                String name = activity.getClass().getName();
-                if (cq5.b().e(name)) {
-                    cq5.b().a();
-                } else if (cq5.b().h(activity)) {
-                    cq5.b().c();
-                    if (cq5.b().g(name)) {
-                        cq5.b().l(true);
-                    }
-                }
+            if (activity != null && !activity.getClass().getSimpleName().equals("LogoActivity")) {
+                IdleHandlerManager.getInstance().addOrRunTask("BdTokenController", new a(this, UtilHelper.isActivityStartFromScheme(activity)));
             }
             d(activity);
             b(activity);
             a(activity);
             c(activity, Lifecycle.Event.ON_RESUME);
-            z66.L().d0(activity);
+            a76.L().d0(activity);
             TbadkCoreApplication.getInst().setCurGlobalActivity(activity);
             this.a.b(activity);
             if (!TbadkCoreApplication.getInst().isMainProcess(false) && activity != null && activity.getClass().getName().equals("com.bdgame.assist.SplashActivity")) {
@@ -305,7 +272,7 @@ public class l05 implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
             TbadkCoreApplication.getInst().setStartType(1);
-            i95.q().x(activity);
+            m95.q().x(activity);
             c(activity, Lifecycle.Event.ON_STOP);
         }
     }

@@ -7,24 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class vu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final xu0 b;
+    public final List<uu0> a;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (this != obj) {
-                if (obj instanceof vu0) {
-                    vu0 vu0Var = (vu0) obj;
-                    return Intrinsics.areEqual(this.a, vu0Var.a) && Intrinsics.areEqual(this.b, vu0Var.b);
-                }
-                return false;
+                return (obj instanceof vu0) && Intrinsics.areEqual(this.a, ((vu0) obj).a);
             }
             return true;
         }
@@ -34,11 +30,12 @@ public final class vu0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            xu0 xu0Var = this.b;
-            return hashCode + (xu0Var != null ? xu0Var.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<uu0> list = this.a;
+            if (list != null) {
+                return list.hashCode();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -46,18 +43,18 @@ public final class vu0 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "AuthHostItemModel(host=" + this.a + ", auth=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "AuthHostModel(hostItemList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    public vu0(String host, xu0 xu0Var) {
+    public vu0(List<uu0> hostItemList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {host, xu0Var};
+            Object[] objArr = {hostItemList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -67,26 +64,16 @@ public final class vu0 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(host, "host");
-        this.a = host;
-        this.b = xu0Var;
+        Intrinsics.checkNotNullParameter(hostItemList, "hostItemList");
+        this.a = hostItemList;
     }
 
-    public final xu0 a() {
+    public final List<uu0> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (xu0) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 }

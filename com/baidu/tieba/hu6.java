@@ -1,142 +1,168 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.ju6;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hu6 {
+public final class hu6 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static ju6 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final iu6<byte[]> a;
+    public ByteArrayInputStream b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947836256, "Lcom/baidu/tieba/hu6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947836256, "Lcom/baidu/tieba/hu6;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements ju6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ju6
-        public <T extends iu6> void b(@Nullable T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.ju6
-        public void unregister(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ju6
-        public <T extends iu6> void a(@NonNull Object obj, @NonNull ku6<T> ku6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, ku6Var) == null) {
-                throw new IllegalStateException("Unable to find eventbus service!");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ju6.a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-735118046, "Lcom/baidu/tieba/hu6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-735118046, "Lcom/baidu/tieba/hu6$b;");
-                    return;
-                }
-            }
-            a = (ju6.a) ServiceManager.getService(ju6.a.a);
-        }
-    }
-
-    public hu6() {
+    public hu6(iu6<byte[]> future) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {future};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(future, "future");
+        this.a = future;
     }
 
-    public static void a(@NonNull BdUniqueId bdUniqueId) {
-        ju6.a aVar;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, bdUniqueId) == null) && (aVar = b.a) != null) {
-            aVar.a(bdUniqueId);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null) {
+            byte[] a = this.a.a();
+            if (a == null) {
+                a = new byte[0];
+            }
+            this.b = new ByteArrayInputStream(a);
         }
     }
 
-    public static ju6 b() {
+    @Override // java.io.InputStream
+    public int available() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (hu6.class) {
-                    if (a == null) {
-                        a = (ju6) ServiceManager.getService(ju6.a);
-                    }
-                    if (a == null) {
-                        a = new a();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.available();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            byteArrayInputStream.close();
+        }
+    }
+
+    @Override // java.io.InputStream
+    public boolean markSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            if (byteArrayInputStream != null) {
+                return byteArrayInputStream.markSupported();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.read();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+                a();
+                ByteArrayInputStream byteArrayInputStream = this.b;
+                Intrinsics.checkNotNull(byteArrayInputStream);
+                byteArrayInputStream.reset();
+            }
+        }
+    }
+
+    @Override // java.io.InputStream
+    public synchronized void mark(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            synchronized (this) {
+                ByteArrayInputStream byteArrayInputStream = this.b;
+                if (byteArrayInputStream != null) {
+                    byteArrayInputStream.mark(i);
                 }
             }
-            return a;
         }
-        return (ju6) invokeV.objValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] b) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, b)) == null) {
+            Intrinsics.checkNotNullParameter(b, "b");
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.read(b);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.skip(j);
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] b, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, b, i, i2)) == null) {
+            Intrinsics.checkNotNullParameter(b, "b");
+            a();
+            ByteArrayInputStream byteArrayInputStream = this.b;
+            Intrinsics.checkNotNull(byteArrayInputStream);
+            return byteArrayInputStream.read(b, i, i2);
+        }
+        return invokeLII.intValue;
     }
 }

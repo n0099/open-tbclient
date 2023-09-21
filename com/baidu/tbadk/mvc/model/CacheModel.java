@@ -13,10 +13,10 @@ import com.baidu.tbadk.mvc.message.ReadCacheMessage;
 import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tieba.au5;
-import com.baidu.tieba.pr5;
+import com.baidu.tieba.as5;
+import com.baidu.tieba.bu5;
 import com.baidu.tieba.qr5;
-import com.baidu.tieba.yr5;
+import com.baidu.tieba.rr5;
 import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class CacheModel<T extends pr5, ActivityType> extends BdBaseModel<ActivityType> {
+public abstract class CacheModel<T extends qr5, ActivityType> extends BdBaseModel<ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CacheModelCallback<T> callback;
@@ -205,14 +205,14 @@ public abstract class CacheModel<T extends pr5, ActivityType> extends BdBaseMode
         this.isWriting = false;
     }
 
-    public final void loadSingleCache(qr5 qr5Var) {
+    public final void loadSingleCache(rr5 rr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, qr5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, rr5Var) == null) {
             this.isReading = true;
             checkReadListener();
             ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(getReadCacheCmd());
             readCacheMessage.setTag(getUniqueId());
-            readCacheMessage.setRequestData(qr5Var);
+            readCacheMessage.setRequestData(rr5Var);
             readCacheMessage.setNeedUid(isUidNeed());
             processReadCacheMessage(readCacheMessage);
             checkReadTask();
@@ -299,7 +299,7 @@ public abstract class CacheModel<T extends pr5, ActivityType> extends BdBaseMode
     private void checkReadTask() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, this) == null) && !this.hadCheckReadTask && MessageManager.getInstance().findTask(getReadCacheCmd()) == null) {
-            MessageManager.getInstance().registerTask(new au5(getReadCacheCmd(), new yr5(getReadCacheCmd(), getCacheTableName(), getCacheDataClassName())));
+            MessageManager.getInstance().registerTask(new bu5(getReadCacheCmd(), new zr5(getReadCacheCmd(), getCacheTableName(), getCacheDataClassName())));
             this.hadCheckReadTask = true;
         }
     }
@@ -321,7 +321,7 @@ public abstract class CacheModel<T extends pr5, ActivityType> extends BdBaseMode
     private void checkWriteTask() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65544, this) == null) && !this.hadCheckWriteTask && MessageManager.getInstance().findTask(getWriteCacheCmd()) == null) {
-            MessageManager.getInstance().registerTask(new au5(getWriteCacheCmd(), new zr5(getWriteCacheCmd(), getCacheTableName(), getCacheDataClassName())));
+            MessageManager.getInstance().registerTask(new bu5(getWriteCacheCmd(), new as5(getWriteCacheCmd(), getCacheTableName(), getCacheDataClassName())));
             this.hadCheckWriteTask = true;
         }
     }

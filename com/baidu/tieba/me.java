@@ -110,10 +110,10 @@ public class me<T> extends ge<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (this.b instanceof he.b) {
-                lg.a().b(new a(this, str));
+                kg.a().b(new a(this, str));
             }
             if (this.b instanceof he.a) {
-                lg.a().b(new b(this, str));
+                kg.a().b(new b(this, str));
             }
         }
     }

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface j93 {
-    void handleHide();
+    int getHeight();
 
-    void handleShow();
+    void onSoftInputShowing(boolean z);
+
+    void refreshHeight(int i);
 }

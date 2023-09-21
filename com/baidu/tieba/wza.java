@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tieba.oza;
 /* loaded from: classes8.dex */
 public interface wza {
-    boolean a(int i, MediaFileInfo mediaFileInfo);
+    void a(oza.b bVar);
 }

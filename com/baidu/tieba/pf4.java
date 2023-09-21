@@ -1,300 +1,259 @@
 package com.baidu.tieba;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.os.Build;
-import android.text.TextUtils;
+import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MyLocationConfiguration;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class pf4 implements SensorEventListener {
+public class pf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static final String c;
+    public static volatile pf4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rg4> a;
-    public SensorManager b;
-    public double c;
-    public LocationClient d;
-    public boolean e;
-    public BDLocation f;
-    public boolean g;
+    public Map<mx1, of4> a;
 
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, sensor, i) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements BDLocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pf4 a;
-
-        public a(pf4 pf4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948060107, "Lcom/baidu/tieba/pf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pf4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = pf4Var;
-        }
-
-        @Override // com.baidu.location.BDLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if (bDLocation == null || this.a.a.size() <= 0) {
-                    this.a.n();
-                    return;
-                }
-                this.a.f = bDLocation;
-                for (rg4 rg4Var : this.a.a) {
-                    if (rg4Var.k) {
-                        MyLocationData build = new MyLocationData.Builder().direction(bDLocation.getDirection()).accuracy(bDLocation.getGpsAccuracyStatus()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).satellitesNum(bDLocation.getSatelliteNumber()).build();
-                        BaiduMap map = rg4Var.l.getMap();
-                        map.setMyLocationEnabled(true);
-                        map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
-                        map.setMyLocationData(build);
-                    }
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948060107, "Lcom/baidu/tieba/pf4;");
+                return;
             }
         }
+        b = qr1.a;
+        c = pf4.class.getSimpleName();
     }
 
     public pf4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.g = false;
-        this.a = new ArrayList(1);
-        l();
+        nf4.a();
+        this.a = new HashMap();
     }
 
-    public BDLocation e() {
+    public static pf4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (BDLocation) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LocationClient locationClient = this.d;
-            if (locationClient != null && locationClient.isStarted()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n();
-            for (rg4 rg4Var : this.a) {
-                rg4Var.l.onPause();
-            }
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            l();
-            for (rg4 rg4Var : this.a) {
-                rg4Var.l.onResume();
-            }
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !this.g) {
-            return;
-        }
-        f();
-        LocationClient locationClient = this.d;
-        if (locationClient != null && !locationClient.isStarted()) {
-            this.d.start();
-            m();
-            h82.o("map", "start location");
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.e) {
-            SensorManager sensorManager = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
-            this.b = sensorManager;
-            if (sensorManager != null) {
-                sensorManager.registerListener(this, sensorManager.getDefaultSensor(3), 2);
-                this.e = true;
-            }
-        }
-    }
-
-    public final void n() {
-        LocationClient locationClient;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.g && (locationClient = this.d) != null && locationClient.isStarted()) {
-            this.d.stop();
-            o();
-            h82.o("map", "stop location");
-        }
-    }
-
-    public final void o() {
-        SensorManager sensorManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (sensorManager = this.b) != null && this.e) {
-            sensorManager.unregisterListener(this);
-            this.e = false;
-        }
-    }
-
-    public boolean insert(rg4 rg4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, rg4Var)) == null) {
-            if (rg4Var == null) {
-                return false;
-            }
-            this.a.add(rg4Var);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            rg4 d = d(str);
-            if (d != null) {
-                this.a.remove(d);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            if (z) {
-                this.g = true;
-                l();
-                return;
-            }
-            n();
-            this.g = false;
-        }
-    }
-
-    public rg4 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            for (rg4 rg4Var : this.a) {
-                if (rg4Var != null && TextUtils.equals(rg4Var.j, str)) {
-                    return rg4Var;
-                }
-            }
-            return null;
-        }
-        return (rg4) invokeL.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d == null) {
-            LocationClient locationClient = new LocationClient(AppRuntime.getAppContext());
-            this.d = locationClient;
-            locationClient.registerLocationListener(new a(this));
-            LocationClientOption locationClientOption = new LocationClientOption();
-            locationClientOption.setOpenGps(true);
-            locationClientOption.setCoorType(CoordType.GCJ02.name());
-            locationClientOption.setScanSpan(1000);
-            this.d.setLocOption(locationClientOption);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            n();
-            this.g = false;
-            if (Build.VERSION.SDK_INT > 19) {
-                for (rg4 rg4Var : this.a) {
-                    rg4Var.l.onDestroy();
-                }
-            }
-            this.a.clear();
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, sensorEvent) == null) {
-            double d = sensorEvent.values[0];
-            if (Math.abs(d - this.c) > 1.0d) {
-                for (rg4 rg4Var : this.a) {
-                    MyLocationData locationData = rg4Var.l.getMap().getLocationData();
-                    if (locationData != null && rg4Var.k) {
-                        rg4Var.l.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).satellitesNum(locationData.satellitesNum).build());
-                        f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (pf4.class) {
+                    if (d == null) {
+                        d = new pf4();
                     }
                 }
             }
-            this.c = d;
+            return d;
         }
+        return (pf4) invokeV.objValue;
+    }
+
+    public static void d(mx1 mx1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, mx1Var) == null) {
+            synchronized (pf4.class) {
+                if (d != null) {
+                    d.c(mx1Var).h();
+                }
+            }
+        }
+    }
+
+    public static void e(mx1 mx1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mx1Var) == null) {
+            synchronized (pf4.class) {
+                if (d != null) {
+                    d.f(mx1Var);
+                } else if (b) {
+                    Log.v(c, "未初始化，无需执行release");
+                }
+            }
+        }
+    }
+
+    public static void h(mx1 mx1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, mx1Var) == null) {
+            synchronized (pf4.class) {
+                if (d != null) {
+                    d.c(mx1Var).k();
+                }
+            }
+        }
+    }
+
+    public synchronized of4 c(mx1 mx1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mx1Var)) == null) {
+            synchronized (this) {
+                if (mx1Var == null) {
+                    return null;
+                }
+                of4 of4Var = this.a.get(mx1Var);
+                if (of4Var == null) {
+                    of4Var = new of4();
+                    this.a.put(mx1Var, of4Var);
+                }
+                return of4Var;
+            }
+        }
+        return (of4) invokeL.objValue;
+    }
+
+    public final synchronized void f(mx1 mx1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mx1Var) == null) {
+            synchronized (this) {
+                if (mx1Var == null) {
+                    return;
+                }
+                of4 remove = this.a.remove(mx1Var);
+                if (remove != null) {
+                    remove.i();
+                }
+            }
+        }
+    }
+
+    public boolean a(Context context, sx2 sx2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, sx2Var)) == null) {
+            g82.i("map", "map create start");
+            if (ap3.m(sx2Var.c) != null && sx2Var.isValid()) {
+                ox1 A = tw2.T().A(sx2Var.c);
+                if (!(A instanceof mx1)) {
+                    g82.c("map", "WebViewManager is null");
+                    return false;
+                }
+                of4 c2 = c((mx1) A);
+                if (c2.d(sx2Var.b) != null) {
+                    g82.c("map", "map with id " + sx2Var.b + " exist");
+                    return false;
+                }
+                qg4 K = qg4.K(context, sx2Var);
+                if (K == null) {
+                    g82.c("map", "map with id " + sx2Var.b + " model is invalid");
+                    return false;
+                }
+                x62 insert = K.insert();
+                if (!insert.a()) {
+                    g82.c("map", "map with id " + sx2Var.b + " create fail: " + insert.b);
+                    return false;
+                } else if (!c2.insert(K)) {
+                    return false;
+                } else {
+                    g82.i("map", "map with id " + sx2Var.b + " init start");
+                    jg4.a(context, K, sx2Var, c2);
+                    g82.i("map", "map with id " + sx2Var.b + " init end");
+                    g82.i("map", "map create end");
+                    return true;
+                }
+            }
+            g82.c("map", "model data is invalid");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean g(sx2 sx2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sx2Var)) == null) {
+            g82.i("map", "map remove start");
+            if (ap3.m(sx2Var.c) == null) {
+                g82.c("map", "webView is null or mapModel is null");
+                return false;
+            }
+            ox1 A = tw2.T().A(sx2Var.c);
+            if (!(A instanceof mx1)) {
+                g82.c("map", "WebViewManager is null");
+                return false;
+            }
+            of4 c2 = c((mx1) A);
+            qg4 d2 = c2.d(sx2Var.b);
+            if (d2 == null) {
+                g82.c("map", "remove map with id " + sx2Var.b + " not exist");
+                return false;
+            } else if (!c2.j(sx2Var.b)) {
+                return false;
+            } else {
+                g82.i("map", "map remove end");
+                if (t72.a(sx2Var) == null) {
+                    z72.a("map", "remove with a null map component");
+                }
+                x62 B = d2.B();
+                boolean a = B.a();
+                if (!a) {
+                    String str = c;
+                    g82.c(str, "map remove fail: " + B.b);
+                }
+                return a;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean update(Context context, sx2 sx2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, sx2Var)) == null) {
+            g82.i("map", "map update start");
+            if (ap3.m(sx2Var.c) == null) {
+                g82.c("map", "webView is null or mapModel is null");
+                return false;
+            }
+            ox1 A = tw2.T().A(sx2Var.c);
+            if (A != null && (A instanceof mx1)) {
+                of4 c2 = c((mx1) A);
+                qg4 d2 = c2.d(sx2Var.b);
+                if (d2 == null) {
+                    g82.c("map", "remove map with id " + sx2Var.b + " not exist");
+                    return false;
+                }
+                d2.F();
+                jg4.b(context, d2, sx2Var, c2, true);
+                g82.i("map", "map update end");
+                if (t72.a(sx2Var) == null) {
+                    z72.a("map", "update with a null map component");
+                }
+                x62 update = d2.update((qg4) sx2Var);
+                boolean a = update.a();
+                if (!a) {
+                    String str = c;
+                    g82.c(str, "map update fail: " + update.b);
+                }
+                return a;
+            }
+            g82.c("map", "WebViewManager is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

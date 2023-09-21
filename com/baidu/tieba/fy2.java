@@ -1,19 +1,172 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface fy2 {
-    String b();
 
-    String c();
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
+public final class fy2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<ey2> a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String f();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947780394, "Lcom/baidu/tieba/fy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947780394, "Lcom/baidu/tieba/fy2;");
+                return;
+            }
+        }
+        a = new ArrayList<>();
+    }
 
-    Object i();
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.clear();
+        }
+    }
 
-    void j(boolean z);
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ey2 ey2Var = a.get(size);
+                if (ey2Var != null) {
+                    ey2Var.onDestroy();
+                }
+            }
+        }
+    }
 
-    void k(boolean z);
+    public static void a(ey2 ey2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, ey2Var) == null) && ey2Var != null && !a.contains(ey2Var)) {
+            a.add(ey2Var);
+        }
+    }
 
-    boolean onBackPressed();
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ey2 ey2Var = a.get(size);
+                if (ey2Var != null) {
+                    ey2Var.j(z);
+                }
+            }
+        }
+    }
 
-    void onDestroy();
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ey2 ey2Var = a.get(size);
+                if (ey2Var != null) {
+                    ey2Var.k(z);
+                }
+            }
+        }
+    }
+
+    public static void k(ey2 ey2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, ey2Var) != null) || ey2Var == null) {
+            return;
+        }
+        a.remove(ey2Var);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            ey2 ey2Var = a.get(size);
+            if (ey2Var != null && TextUtils.equals(str, ey2Var.b())) {
+                ey2Var.onDestroy();
+            }
+        }
+    }
+
+    public static ey2 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ey2 ey2Var = a.get(size);
+                if (ey2Var != null && TextUtils.equals(str, ey2Var.c())) {
+                    return ey2Var;
+                }
+            }
+            return null;
+        }
+        return (ey2) invokeL.objValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ey2 ey2Var = a.get(size);
+                if (ey2Var != null && TextUtils.equals(str, ey2Var.b()) && ey2Var.onBackPressed()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static ey2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ey2 ey2Var = a.get(size);
+                if (ey2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, ey2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, ey2Var.f())) || TextUtils.equals(str3, ey2Var.c())))) {
+                    return ey2Var;
+                }
+            }
+            return null;
+        }
+        return (ey2) invokeLLL.objValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            ey2 ey2Var = a.get(size);
+            if (ey2Var != null && TextUtils.equals(str, ey2Var.b())) {
+                ey2Var.k(z);
+            }
+        }
+    }
 }

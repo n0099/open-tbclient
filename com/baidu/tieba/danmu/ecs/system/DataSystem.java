@@ -8,32 +8,32 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.ev6;
+import com.baidu.tieba.aw6;
+import com.baidu.tieba.ax6;
+import com.baidu.tieba.bw6;
+import com.baidu.tieba.bx6;
+import com.baidu.tieba.cw6;
+import com.baidu.tieba.dw6;
+import com.baidu.tieba.ew6;
+import com.baidu.tieba.fw6;
 import com.baidu.tieba.h0;
 import com.baidu.tieba.i0;
-import com.baidu.tieba.jv6;
-import com.baidu.tieba.jw6;
 import com.baidu.tieba.kv6;
-import com.baidu.tieba.kw6;
 import com.baidu.tieba.l0;
-import com.baidu.tieba.lv6;
-import com.baidu.tieba.lw6;
-import com.baidu.tieba.mv6;
-import com.baidu.tieba.nw6;
-import com.baidu.tieba.nx6;
 import com.baidu.tieba.pv6;
 import com.baidu.tieba.pw6;
-import com.baidu.tieba.px6;
+import com.baidu.tieba.qv6;
+import com.baidu.tieba.qw6;
+import com.baidu.tieba.rv6;
 import com.baidu.tieba.rw6;
+import com.baidu.tieba.sv6;
 import com.baidu.tieba.tw6;
-import com.baidu.tieba.uv6;
-import com.baidu.tieba.uw6;
+import com.baidu.tieba.tx6;
 import com.baidu.tieba.vv6;
 import com.baidu.tieba.vw6;
-import com.baidu.tieba.wv6;
-import com.baidu.tieba.xv6;
-import com.baidu.tieba.yv6;
-import com.baidu.tieba.zv6;
+import com.baidu.tieba.vx6;
+import com.baidu.tieba.xw6;
+import com.baidu.tieba.zw6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,15 +58,15 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000~\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u001e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0000\u0018\u0000 ;2\u00020\u00012\u00020\u0002:\u0001;B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\u000e\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0010J\u0014\u0010 \u001a\u00020\u001e2\f\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00100\"J\b\u0010#\u001a\u00020\u001eH\u0003J\u0016\u0010$\u001a\u00020%2\f\u0010&\u001a\b\u0012\u0004\u0012\u00020\u00100\u001bH\u0002J\u0010\u0010'\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0010H\u0002J\b\u0010(\u001a\u00020\u001eH\u0002J\u0010\u0010)\u001a\u00020\u001e2\b\u0010\u001f\u001a\u0004\u0018\u00010\u0010J\u0016\u0010*\u001a\u00020\u001e2\f\u0010+\u001a\b\u0012\u0004\u0012\u00020\u00100\u001bH\u0016J\u0016\u0010,\u001a\u00020\u001e2\f\u0010-\u001a\b\u0012\u0004\u0012\u00020\u00100\u001bH\u0016J\u0018\u0010.\u001a\u00020\u001e2\u0006\u0010/\u001a\u0002002\u0006\u00101\u001a\u000202H\u0014J\u0010\u00103\u001a\u00020\u001e2\u0006\u00104\u001a\u000205H\u0016J\b\u00106\u001a\u00020\u001eH\u0002J\u0010\u00107\u001a\u00020\u001e2\u0006\u00101\u001a\u000202H\u0016J\b\u00108\u001a\u00020\u001eH\u0002J\u0006\u00109\u001a\u00020\u001eJ\u000e\u0010:\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0010R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0011\u001a\u0012\u0012\u0004\u0012\u00020\u000b0\u0012j\b\u0012\u0004\u0012\u00020\u000b`\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00100\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00100\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\u00100\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R2\u0010\u0019\u001a&\u0012\f\u0012\n \u001a*\u0004\u0018\u00010\u00100\u0010 \u001a*\u0012\u0012\f\u0012\n \u001a*\u0004\u0018\u00010\u00100\u0010\u0018\u00010\u001b0\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006<"}, d2 = {"Lcom/baidu/tieba/danmu/ecs/system/DataSystem;", "Lcom/baidu/tieba/danmu/ecs/base/DanmakuSortedSystem;", "Lcom/baidu/tieba/danmu/data/DataSource$DataChangeListener;", "context", "Lcom/baidu/tieba/danmu/ecs/DanmakuContext;", "(Lcom/baidu/tieba/danmu/ecs/DanmakuContext;)V", "comparator", "Lcom/baidu/tieba/danmu/ecs/system/DanmakuItemComparator;", "currentData", "Lcom/baidu/tieba/danmu/ecs/system/Danmakus;", "endTimeMills", "", "entityEntryTime", "forceUpdate", "", "holdingItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "idSet", "Ljava/util/HashSet;", "Lkotlin/collections/HashSet;", "pendingAddItems", "", "pendingCreateItems", "pendingUpdateItems", "shouldSort", "sortedData", "kotlin.jvm.PlatformType", "", "startTimeMills", "addItem", "", "item", "addItems", "items", "", "addPendingItems", "createEntityBeforeEntry", "", "data", "createItemEntity", "createPendingItems", "hold", "onDataAdded", "additionalItems", "onDataRemoved", "removalItems", "processEntity", "entity", "Lcom/badlogic/ashley/core/Entity;", "deltaTime", "", "removedFromEngine", "engine", "Lcom/badlogic/ashley/core/Engine;", QuickPersistConfigConst.KEY_SPLASH_SORT, StickerDataChangeType.UPDATE, "updateCurrentSlice", "updateEntities", "updateItem", "Companion", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class DataSystem extends uv6 implements mv6.a {
+public final class DataSystem extends aw6 implements sv6.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<kv6> i;
-    public pw6 j;
-    public final nw6 k;
-    public final List<kv6> l;
-    public final List<kv6> m;
-    public final List<kv6> n;
+    public final List<qv6> i;
+    public vw6 j;
+    public final tw6 k;
+    public final List<qv6> l;
+    public final List<qv6> m;
+    public final List<qv6> n;
     public boolean o;
     public long p;
     public long q;
@@ -89,8 +89,8 @@ public final class DataSystem extends uv6 implements mv6.a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DataSystem(pv6 context) {
-        super(context, px6.a.a(), null, 4, null);
+    public DataSystem(vv6 context) {
+        super(context, vx6.a.a(), null, 4, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class DataSystem extends uv6 implements mv6.a {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((pv6) objArr2[0], (l0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                super((vv6) objArr2[0], (l0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -109,52 +109,52 @@ public final class DataSystem extends uv6 implements mv6.a {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         this.i = Collections.synchronizedList(new ArrayList());
-        List synchronizedList = Collections.synchronizedList(new jv6());
+        List synchronizedList = Collections.synchronizedList(new pv6());
         Intrinsics.checkNotNullExpressionValue(synchronizedList, "synchronizedList(TreeList())");
-        this.j = new pw6(synchronizedList, 0L, 0L, -1, -1, false, 32, null);
-        this.k = new nw6();
+        this.j = new vw6(synchronizedList, 0L, 0L, -1, -1, false, 32, null);
+        this.k = new tw6();
         this.l = new ArrayList();
         this.m = new ArrayList();
         this.n = new ArrayList();
         this.s = new HashSet<>();
     }
 
-    public final void A(kv6 kv6Var) {
-        zv6 zv6Var;
+    public final void A(qv6 qv6Var) {
+        fw6 fw6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, kv6Var) != null) || this.s.contains(Long.valueOf(kv6Var.e().f()))) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, qv6Var) != null) || this.s.contains(Long.valueOf(qv6Var.e().f()))) {
             return;
         }
         i0 entity = f().i();
         Intrinsics.checkNotNullExpressionValue(entity, "entity");
-        if (((wv6) tw6.a(this, wv6.class, entity, kv6Var)) == null) {
+        if (((cw6) zw6.a(this, cw6.class, entity, qv6Var)) == null) {
             return;
         }
-        if (kv6Var.e().j() > 0) {
-            if (((xv6) tw6.a(this, xv6.class, entity, kv6Var)) == null) {
+        if (qv6Var.e().j() > 0) {
+            if (((dw6) zw6.a(this, dw6.class, entity, qv6Var)) == null) {
                 return;
             }
-            int j = kv6Var.e().j();
+            int j = qv6Var.e().j();
             if (j != 1) {
                 if (j != 4) {
                     if (j == 5) {
-                        entity.a(new kw6());
+                        entity.a(new qw6());
                     }
                 } else {
-                    entity.a(new jw6());
+                    entity.a(new pw6());
                 }
             } else {
-                entity.a(new lw6());
+                entity.a(new rw6());
             }
         }
-        if (!kv6Var.d().isEmpty() && (zv6Var = (zv6) tw6.a(this, zv6.class, entity, kv6Var)) != null) {
-            for (yv6 it : kv6Var.d()) {
+        if (!qv6Var.d().isEmpty() && (fw6Var = (fw6) zw6.a(this, fw6.class, entity, qv6Var)) != null) {
+            for (ew6 it : qv6Var.d()) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                zv6Var.d(it);
+                fw6Var.d(it);
             }
         }
         f().c(entity);
-        this.s.add(Long.valueOf(kv6Var.e().f()));
+        this.s.add(Long.valueOf(qv6Var.e().f()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -163,7 +163,7 @@ public final class DataSystem extends uv6 implements mv6.a {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (this.o) {
                 synchronized (this) {
-                    List<kv6> sortedData = this.i;
+                    List<qv6> sortedData = this.i;
                     Intrinsics.checkNotNullExpressionValue(sortedData, "sortedData");
                     CollectionsKt__MutableCollectionsJVMKt.sortWith(sortedData, this.k);
                     Unit unit = Unit.INSTANCE;
@@ -180,7 +180,7 @@ public final class DataSystem extends uv6 implements mv6.a {
         }
     }
 
-    @Override // com.baidu.tieba.uv6, com.baidu.tieba.sv6, com.baidu.tieba.k0
+    @Override // com.baidu.tieba.aw6, com.baidu.tieba.yv6, com.baidu.tieba.k0
     public void g(h0 engine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, engine) == null) {
@@ -190,7 +190,7 @@ public final class DataSystem extends uv6 implements mv6.a {
         }
     }
 
-    public final void w(kv6 item) {
+    public final void w(qv6 item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -200,7 +200,7 @@ public final class DataSystem extends uv6 implements mv6.a {
         }
     }
 
-    public final void x(Collection<? extends kv6> items) {
+    public final void x(Collection<? extends qv6> items) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, items) == null) {
             Intrinsics.checkNotNullParameter(items, "items");
@@ -210,7 +210,7 @@ public final class DataSystem extends uv6 implements mv6.a {
         }
     }
 
-    public final int z(List<? extends kv6> list) {
+    public final int z(List<? extends qv6> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, list)) == null) {
@@ -221,15 +221,15 @@ public final class DataSystem extends uv6 implements mv6.a {
     }
 
     public final void B() {
-        List<kv6> list;
+        List<qv6> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 list = CollectionsKt___CollectionsKt.toList(this.m);
                 this.m.clear();
             }
-            for (kv6 kv6Var : list) {
-                A(kv6Var);
+            for (qv6 qv6Var : list) {
+                A(qv6Var);
             }
         }
     }
@@ -241,74 +241,74 @@ public final class DataSystem extends uv6 implements mv6.a {
         }
         int i = 0;
         if (!GlobalBuildConfig.isDebug()) {
-            vw6.b("DataSystem_createNewSlice");
+            bx6.b("DataSystem_createNewSlice");
             synchronized (this) {
                 List sortedData = this.i;
                 Intrinsics.checkNotNullExpressionValue(sortedData, "sortedData");
-                int a = rw6.a(sortedData, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
+                int a = xw6.a(sortedData, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
                 List sortedData2 = this.i;
                 Intrinsics.checkNotNullExpressionValue(sortedData2, "sortedData");
-                int b = rw6.b(sortedData2, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
+                int b = xw6.b(sortedData2, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
                 if (a != -1 && b != -1 && b >= a) {
                     BdLog.w("DanmakuEngine [Data] update current slice [" + a + StringUtil.ARRAY_ELEMENT_SEPARATOR + b + "] in time (" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ')');
                     List subList = this.i.subList(a, b + 1);
-                    vw6.a();
+                    bx6.a();
                     Unit unit = Unit.INSTANCE;
-                    vw6.b("DataSystem_getCurrentEntity_" + subList.size());
-                    pw6 pw6Var = this.j;
-                    List synchronizedList = Collections.synchronizedList(rw6.c(subList));
+                    bx6.b("DataSystem_getCurrentEntity_" + subList.size());
+                    vw6 vw6Var = this.j;
+                    List synchronizedList = Collections.synchronizedList(xw6.c(subList));
                     Intrinsics.checkNotNullExpressionValue(synchronizedList, "synchronizedList(newData.toTreeList())");
-                    this.j = new pw6(synchronizedList, this.p, this.q, a, b, false, 32, null);
-                    vw6.a();
-                    vw6.b("DataSystem_diffAndCreateEntity");
-                    if (a <= pw6Var.b() && b > pw6Var.d()) {
+                    this.j = new vw6(synchronizedList, this.p, this.q, a, b, false, 32, null);
+                    bx6.a();
+                    bx6.b("DataSystem_diffAndCreateEntity");
+                    if (a <= vw6Var.b() && b > vw6Var.d()) {
                         z(subList);
                     } else {
                         i = 0 + subList.size();
                         z(subList);
                         BdLog.d("DanmakuEngine [Data] Add all new data [" + a + StringUtil.ARRAY_ELEMENT_SEPARATOR + b + ']');
                     }
-                    vw6.a();
+                    bx6.a();
                     BdLog.d("DanmakuEngine [Data] Add " + i + " in [" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ']');
                 }
                 BdLog.w("DanmakuEngine [Data] update current slice failed: invalid start or end index.");
-                vw6.a();
+                bx6.a();
             }
             return;
         }
         Trace.beginSection("DataSystem_updateCurrentSlice");
-        vw6.b("DataSystem_createNewSlice");
+        bx6.b("DataSystem_createNewSlice");
         synchronized (this) {
             List sortedData3 = this.i;
             Intrinsics.checkNotNullExpressionValue(sortedData3, "sortedData");
-            int a2 = rw6.a(sortedData3, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
+            int a2 = xw6.a(sortedData3, Long.valueOf(this.p), DataSystem$updateCurrentSlice$1$1$1.INSTANCE);
             List sortedData4 = this.i;
             Intrinsics.checkNotNullExpressionValue(sortedData4, "sortedData");
-            int b2 = rw6.b(sortedData4, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
+            int b2 = xw6.b(sortedData4, Long.valueOf(this.q), DataSystem$updateCurrentSlice$1$1$2.INSTANCE);
             if (a2 != -1 && b2 != -1 && b2 >= a2) {
                 BdLog.w("DanmakuEngine [Data] update current slice [" + a2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2 + "] in time (" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ')');
                 List subList2 = this.i.subList(a2, b2 + 1);
-                vw6.a();
+                bx6.a();
                 Unit unit2 = Unit.INSTANCE;
-                vw6.b("DataSystem_getCurrentEntity_" + subList2.size());
-                pw6 pw6Var2 = this.j;
-                List synchronizedList2 = Collections.synchronizedList(rw6.c(subList2));
+                bx6.b("DataSystem_getCurrentEntity_" + subList2.size());
+                vw6 vw6Var2 = this.j;
+                List synchronizedList2 = Collections.synchronizedList(xw6.c(subList2));
                 Intrinsics.checkNotNullExpressionValue(synchronizedList2, "synchronizedList(newData.toTreeList())");
-                this.j = new pw6(synchronizedList2, this.p, this.q, a2, b2, false, 32, null);
-                vw6.a();
-                vw6.b("DataSystem_diffAndCreateEntity");
-                if (a2 <= pw6Var2.b() && b2 > pw6Var2.d()) {
+                this.j = new vw6(synchronizedList2, this.p, this.q, a2, b2, false, 32, null);
+                bx6.a();
+                bx6.b("DataSystem_diffAndCreateEntity");
+                if (a2 <= vw6Var2.b() && b2 > vw6Var2.d()) {
                     z(subList2);
                 } else {
                     i = 0 + subList2.size();
                     z(subList2);
                     BdLog.d("DanmakuEngine [Data] Add all new data [" + a2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2 + ']');
                 }
-                vw6.a();
+                bx6.a();
                 BdLog.d("DanmakuEngine [Data] Add " + i + " in [" + this.p + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.q + ']');
             }
             BdLog.w("DanmakuEngine [Data] update current slice failed: invalid start or end index.");
-            vw6.a();
+            bx6.a();
         }
         Unit unit3 = Unit.INSTANCE;
         Trace.endSection();
@@ -317,11 +317,11 @@ public final class DataSystem extends uv6 implements mv6.a {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ev6 c = i().c();
+            kv6 c = i().c();
             long max = Math.max(c.k(), c.t());
-            long b = tw6.b(this) - max;
-            long b2 = tw6.b(this) + max;
-            tw6.b(this);
+            long b = zw6.b(this) - max;
+            long b2 = zw6.b(this) + max;
+            zw6.b(this);
             y();
             if (!GlobalBuildConfig.isDebug()) {
                 m();
@@ -331,7 +331,7 @@ public final class DataSystem extends uv6 implements mv6.a {
                 Unit unit = Unit.INSTANCE;
                 Trace.endSection();
             }
-            if (this.r || b < this.p || tw6.b(this) > this.q - i().c().q()) {
+            if (this.r || b < this.p || zw6.b(this) > this.q - i().c().q()) {
                 this.p = b;
                 this.q = b2;
                 C();
@@ -341,20 +341,20 @@ public final class DataSystem extends uv6 implements mv6.a {
         }
     }
 
-    @Override // com.baidu.tieba.uv6
+    @Override // com.baidu.tieba.aw6
     public void l(i0 entity, float f) {
-        kv6 a;
+        qv6 a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048581, this, entity, f) == null) {
             Intrinsics.checkNotNullParameter(entity, "entity");
-            nx6 d = tw6.d(this);
-            wv6 b = uw6.b(entity);
+            tx6 d = zw6.d(this);
+            cw6 b = ax6.b(entity);
             if (b != null && (a = b.a()) != null) {
-                vv6 d2 = uw6.d(entity);
-                if (d2 == null && (d2 = (vv6) tw6.a(this, vv6.class, entity, a)) == null) {
+                bw6 d2 = ax6.d(entity);
+                if (d2 == null && (d2 = (bw6) zw6.a(this, bw6.class, entity, a)) == null) {
                     return;
                 }
-                ev6 c = i().c();
+                kv6 c = i().c();
                 if (d2.c() != c.l()) {
                     d2.update(c.l(), i().e().a(a, d, c).a());
                 }
@@ -362,40 +362,40 @@ public final class DataSystem extends uv6 implements mv6.a {
         }
     }
 
-    @Override // com.baidu.tieba.uv6, com.baidu.tieba.k0
+    @Override // com.baidu.tieba.aw6, com.baidu.tieba.k0
     public void update(float f) {
-        kv6 a;
+        qv6 a;
         long k;
-        kv6 a2;
+        qv6 a2;
         long k2;
-        kv6 a3;
+        qv6 a3;
         long k3;
-        kv6 a4;
+        qv6 a4;
         long k4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
             if (!GlobalBuildConfig.isDebug()) {
                 if (!GlobalBuildConfig.isDebug()) {
-                    ev6 c = i().c();
+                    kv6 c = i().c();
                     for (i0 i0Var : k()) {
-                        wv6 b = uw6.b(i0Var);
+                        cw6 b = ax6.b(i0Var);
                         if (b != null && (a4 = b.a()) != null) {
-                            lv6 e = a4.e();
+                            rv6 e = a4.e();
                             if (e.j() == 1) {
                                 k4 = c.t();
                             } else {
                                 k4 = c.k();
                             }
                             a4.n(k4);
-                            if (uw6.h(i0Var, tw6.b(this))) {
+                            if (ax6.h(i0Var, zw6.b(this))) {
                                 if (!this.j.a().isEmpty()) {
                                     this.j.a().remove(a4);
                                 }
                                 this.s.remove(Long.valueOf(e.f()));
                                 f().m(i0Var);
-                                pw6 pw6Var = this.j;
-                                pw6Var.g(pw6Var.d() + 1);
-                            } else if (uw6.g(i0Var, this.q)) {
+                                vw6 vw6Var = this.j;
+                                vw6Var.g(vw6Var.d() + 1);
+                            } else if (ax6.g(i0Var, this.q)) {
                                 this.s.remove(Long.valueOf(e.f()));
                                 f().m(i0Var);
                             }
@@ -405,26 +405,26 @@ public final class DataSystem extends uv6 implements mv6.a {
                     return;
                 }
                 Trace.beginSection("DataSystem_processEntity");
-                ev6 c2 = i().c();
+                kv6 c2 = i().c();
                 for (i0 i0Var2 : k()) {
-                    wv6 b2 = uw6.b(i0Var2);
+                    cw6 b2 = ax6.b(i0Var2);
                     if (b2 != null && (a3 = b2.a()) != null) {
-                        lv6 e2 = a3.e();
+                        rv6 e2 = a3.e();
                         if (e2.j() == 1) {
                             k3 = c2.t();
                         } else {
                             k3 = c2.k();
                         }
                         a3.n(k3);
-                        if (uw6.h(i0Var2, tw6.b(this))) {
+                        if (ax6.h(i0Var2, zw6.b(this))) {
                             if (!this.j.a().isEmpty()) {
                                 this.j.a().remove(a3);
                             }
                             this.s.remove(Long.valueOf(e2.f()));
                             f().m(i0Var2);
-                            pw6 pw6Var2 = this.j;
-                            pw6Var2.g(pw6Var2.d() + 1);
-                        } else if (uw6.g(i0Var2, this.q)) {
+                            vw6 vw6Var2 = this.j;
+                            vw6Var2.g(vw6Var2.d() + 1);
+                        } else if (ax6.g(i0Var2, this.q)) {
                             this.s.remove(Long.valueOf(e2.f()));
                             f().m(i0Var2);
                         }
@@ -437,26 +437,26 @@ public final class DataSystem extends uv6 implements mv6.a {
             }
             Trace.beginSection("DataSystem_update");
             if (!GlobalBuildConfig.isDebug()) {
-                ev6 c3 = i().c();
+                kv6 c3 = i().c();
                 for (i0 i0Var3 : k()) {
-                    wv6 b3 = uw6.b(i0Var3);
+                    cw6 b3 = ax6.b(i0Var3);
                     if (b3 != null && (a2 = b3.a()) != null) {
-                        lv6 e3 = a2.e();
+                        rv6 e3 = a2.e();
                         if (e3.j() == 1) {
                             k2 = c3.t();
                         } else {
                             k2 = c3.k();
                         }
                         a2.n(k2);
-                        if (uw6.h(i0Var3, tw6.b(this))) {
+                        if (ax6.h(i0Var3, zw6.b(this))) {
                             if (!this.j.a().isEmpty()) {
                                 this.j.a().remove(a2);
                             }
                             this.s.remove(Long.valueOf(e3.f()));
                             f().m(i0Var3);
-                            pw6 pw6Var3 = this.j;
-                            pw6Var3.g(pw6Var3.d() + 1);
-                        } else if (uw6.g(i0Var3, this.q)) {
+                            vw6 vw6Var3 = this.j;
+                            vw6Var3.g(vw6Var3.d() + 1);
+                        } else if (ax6.g(i0Var3, this.q)) {
                             this.s.remove(Long.valueOf(e3.f()));
                             f().m(i0Var3);
                         }
@@ -465,26 +465,26 @@ public final class DataSystem extends uv6 implements mv6.a {
                 super.update(f);
             } else {
                 Trace.beginSection("DataSystem_processEntity");
-                ev6 c4 = i().c();
+                kv6 c4 = i().c();
                 for (i0 i0Var4 : k()) {
-                    wv6 b4 = uw6.b(i0Var4);
+                    cw6 b4 = ax6.b(i0Var4);
                     if (b4 != null && (a = b4.a()) != null) {
-                        lv6 e4 = a.e();
+                        rv6 e4 = a.e();
                         if (e4.j() == 1) {
                             k = c4.t();
                         } else {
                             k = c4.k();
                         }
                         a.n(k);
-                        if (uw6.h(i0Var4, tw6.b(this))) {
+                        if (ax6.h(i0Var4, zw6.b(this))) {
                             if (!this.j.a().isEmpty()) {
                                 this.j.a().remove(a);
                             }
                             this.s.remove(Long.valueOf(e4.f()));
                             f().m(i0Var4);
-                            pw6 pw6Var4 = this.j;
-                            pw6Var4.g(pw6Var4.d() + 1);
-                        } else if (uw6.g(i0Var4, this.q)) {
+                            vw6 vw6Var4 = this.j;
+                            vw6Var4.g(vw6Var4.d() + 1);
+                        } else if (ax6.g(i0Var4, this.q)) {
                             this.s.remove(Long.valueOf(e4.f()));
                             f().m(i0Var4);
                         }
@@ -528,7 +528,7 @@ public final class DataSystem extends uv6 implements mv6.a {
                 Iterator it = list.iterator();
                 i = 0;
                 while (it.hasNext()) {
-                    if (((kv6) it.next()).e().k() < this.p) {
+                    if (((qv6) it.next()).e().k() < this.p) {
                         z = true;
                     } else {
                         z = false;
@@ -542,7 +542,7 @@ public final class DataSystem extends uv6 implements mv6.a {
             for (Object obj : list) {
                 long j = this.p;
                 long j2 = this.q;
-                long k = ((kv6) obj).e().k();
+                long k = ((qv6) obj).e().k();
                 if (j <= k && k < j2) {
                     z4 = true;
                 } else {
@@ -552,15 +552,15 @@ public final class DataSystem extends uv6 implements mv6.a {
                     arrayList.add(obj);
                 }
             }
-            pw6 pw6Var = this.j;
-            pw6Var.g(pw6Var.d() + i);
-            pw6 pw6Var2 = this.j;
-            pw6Var2.e(pw6Var2.b() + i + arrayList.size());
+            vw6 vw6Var = this.j;
+            vw6Var.g(vw6Var.d() + i);
+            vw6 vw6Var2 = this.j;
+            vw6Var2.e(vw6Var2.b() + i + arrayList.size());
             ArrayList arrayList2 = new ArrayList();
             for (Object obj2 : list2) {
                 long j3 = this.p;
                 long j4 = this.q;
-                long k2 = ((kv6) obj2).e().k();
+                long k2 = ((qv6) obj2).e().k();
                 if (j3 <= k2 && k2 < j4) {
                     z3 = true;
                 } else {
@@ -580,8 +580,8 @@ public final class DataSystem extends uv6 implements mv6.a {
                 z2 = true;
             }
             this.o = z2;
-            pw6 pw6Var3 = this.j;
-            pw6Var3.f((pw6Var3.c() || (arrayList.isEmpty() ^ true) || (arrayList2.isEmpty() ^ true)) ? true : true);
+            vw6 vw6Var3 = this.j;
+            vw6Var3.f((vw6Var3.c() || (arrayList.isEmpty() ^ true) || (arrayList2.isEmpty() ^ true)) ? true : true);
         }
     }
 }

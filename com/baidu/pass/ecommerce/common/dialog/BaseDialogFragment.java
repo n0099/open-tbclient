@@ -37,7 +37,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
-        getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f100414;
+        getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f100415;
         return inflate;
     }
 }

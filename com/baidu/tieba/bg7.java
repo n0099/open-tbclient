@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.oe;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bg7 {
+public class bg7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oe<byte[]> a;
 
     public bg7() {
         Interceptable interceptable = $ic;
@@ -26,54 +25,27 @@ public class bg7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            x45.k();
-            this.a = x45.i("tb.forum_member_info");
-        }
-    }
-
-    public byte[] a(String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
-        oe.b<byte[]> bVar;
-        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
+                byte[] a = new zf7().a(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
+                BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
+                try {
+                    bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, a);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return bawuTeamReadCacheResponseMessage;
             }
-            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-            oe<byte[]> oeVar = this.a;
-            if (oeVar != null) {
-                bVar = oeVar.h(str2);
-            } else {
-                bVar = null;
-            }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
+            return null;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            b();
-            oe<byte[]> oeVar = this.a;
-            oeVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

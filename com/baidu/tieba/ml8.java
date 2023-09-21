@@ -1,96 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ml8 extends bl1<sp5> {
+public class ml8 extends ua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements sp5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ml8 ml8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ml8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.sp5
-        public void a(@NonNull Context context, long j, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-                GroupChatActivity.v1(context, j, i, str, 0);
-            }
-        }
-
-        @Override // com.baidu.tieba.sp5
-        public void e(@NonNull Context context, long j, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
-                GroupChatActivity.w1(context, j, -1, str, "", i);
-            }
-        }
-
-        @Override // com.baidu.tieba.sp5
-        public void f(@NonNull Context context, int i, long j, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-                GroupChatActivity.y1(context, j, i, true);
-            }
-        }
-
-        @Override // com.baidu.tieba.sp5
-        public void b(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j), Integer.valueOf(i), str2, bundle, Boolean.valueOf(z)}) == null) {
-                GroupChatActivity.A1(context, str, j, i, str2, bundle, z);
-            }
-        }
-
-        @Override // com.baidu.tieba.sp5
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return GroupChatFragment.G;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.tieba.sp5
-        public void d(@NonNull Context context, long j, String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) {
-                GroupChatActivity.x1(context, j, -1, str, "", i, str2);
-            }
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ml8() {
+        super(2016004);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,21 +24,36 @@ public class ml8 extends bl1<sp5> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bl1
-    /* renamed from: a */
-    public sp5 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ya
+    /* renamed from: i */
+    public CustomResponsedMessage g(CustomResponsedMessage customResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
+            if (customResponsedMessage == null) {
+                return null;
+            }
+            if (customResponsedMessage instanceof MemoryChangedMessage) {
+                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
+                ImMessageCenterPojo data = memoryChangedMessage.getData();
+                if (data != null && data.getCustomGroupType() == -8) {
+                    return new MemoryChangedMessage(lc8.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
+                if (data != null && data.getCustomGroupType() == -7) {
+                    return new MemoryChangedMessage(mc8.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
+            }
+            return customResponsedMessage;
         }
-        return (sp5) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

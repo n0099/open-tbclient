@@ -55,7 +55,7 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
         ImageView imageView = new ImageView(getContext());
         this.mCommentIcon = imageView;
         imageView.setScaleType(ImageView.ScaleType.CENTER);
-        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f080532);
+        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f080531);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(FontSizeHelper.getScaledSize(0, this.mItemSize, 2), FontSizeHelper.getScaledSize(0, this.mItemSize, 2));
         layoutParams.addRule(9);
         layoutParams.addRule(10);
@@ -88,14 +88,14 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
             return;
         }
         FontSizeViewExtKt.setScaledSizeRes(this.mCommentIcon, 0, R.dimen.obfuscated_res_0x7f070267, R.dimen.obfuscated_res_0x7f070267);
-        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mCommentIcon, 0, R.drawable.obfuscated_res_0x7f080532);
+        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mCommentIcon, 0, R.drawable.obfuscated_res_0x7f080531);
         FontSizeTextViewExtKt.setScaledSizeRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f0702e9);
         FontSizeViewExtKt.setScaledHeightRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f070267);
         FontSizeViewExtKt.setScaledLeftMarginRes(this.mCommentText, 0, R.dimen.obfuscated_res_0x7f07025a);
     }
 
     public void updateColor() {
-        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f080532);
+        this.mCommentIcon.setImageResource(R.drawable.obfuscated_res_0x7f080531);
         this.mCommentText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601cb));
         onFontSizeChange();
     }

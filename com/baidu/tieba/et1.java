@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class et1 implements bv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.bv1
-    public String a(@NonNull String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public void a(String str, f83 f83Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jSONObject)) == null) ? str : (String) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, f83Var) == null) {
+        }
     }
 
     public et1() {

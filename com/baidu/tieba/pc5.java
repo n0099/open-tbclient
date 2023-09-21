@@ -1,64 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.schemedispatch.forbid.SchemeForbidCheckUtils;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qc5 a;
+    public qc5 b;
 
-    public static List<String> a() {
+    public pc5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public qc5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String string = SharedPrefHelper.getInstance().getString(SchemeForbidCheckUtils.SCHEME_WHITE_LIST_FILENAME, null);
-            if (StringUtils.isNull(string)) {
-                return null;
-            }
-            try {
-                return b(new JSONArray(string));
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return (qc5) invokeV.objValue;
     }
 
-    public static List<String> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public qc5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString = jSONArray.optString(i);
-                if (!StringUtils.isNull(optString)) {
-                    arrayList.add(optString);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (List) invokeL.objValue;
+        return (qc5) invokeV.objValue;
     }
 
-    public static void c(JSONArray jSONArray) {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, jSONArray) == null) {
-            if (jSONArray == null) {
-                SharedPrefHelper.getInstance().putString(SchemeForbidCheckUtils.SCHEME_WHITE_LIST_FILENAME, "");
-            } else {
-                SharedPrefHelper.getInstance().putString(SchemeForbidCheckUtils.SCHEME_WHITE_LIST_FILENAME, jSONArray.toString());
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONObject optJSONObject = jSONObject.optJSONObject(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+        if (optJSONObject != null) {
+            qc5 qc5Var = new qc5();
+            this.a = qc5Var;
+            qc5Var.q = 1;
+            qc5Var.f(optJSONObject);
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
+        if (optJSONObject2 != null) {
+            qc5 qc5Var2 = new qc5();
+            this.b = qc5Var2;
+            qc5Var2.q = 2;
+            qc5Var2.f(optJSONObject2);
         }
     }
 }

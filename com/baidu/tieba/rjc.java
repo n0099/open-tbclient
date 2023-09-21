@@ -1,68 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes7.dex */
-public class rjc {
+public class rjc implements lmc {
     public static /* synthetic */ Interceptable $ic;
-    public static rjc a;
-    public static SharedPreferences b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public AbsViewEventHandler b;
+    public sic c;
+    public amc d;
 
-    public rjc(Context context, String str) {
+    @Override // com.baidu.tieba.lmc
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public rjc(int i, int i2, Activity activity, AbsViewEventHandler absViewEventHandler, sic sicVar, amc amcVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, absViewEventHandler, sicVar, amcVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c = str;
-        b = context.getSharedPreferences(str, 0);
+        this.a = activity;
+        this.b = absViewEventHandler;
+        this.c = sicVar;
+        this.d = amcVar;
     }
 
-    public static rjc b(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.lmc
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (str == null) {
-                str = "midPay";
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                this.d.a();
             }
-            if (a == null || !str.equals(c)) {
-                a = new rjc(context, str);
-            }
-            return a;
-        }
-        return (rjc) invokeLL.objValue;
-    }
-
-    public boolean a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            return b.getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void c(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            b.edit().putBoolean(str, z).apply();
+            RLog.info("PayWayDialogListener", "PaySplitOrderDialog notifyCancelType clickArea:" + cancelType);
+            this.c.g(cancelType, this.b);
         }
     }
 }

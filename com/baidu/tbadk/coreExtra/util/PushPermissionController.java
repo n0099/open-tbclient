@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q1a;
+import com.baidu.tieba.o3a;
 import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.tieba.sz4;
-import com.baidu.tieba.te5;
+import com.baidu.tieba.xe5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -164,7 +164,7 @@ public class PushPermissionController {
             if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
                 return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 7);
             }
-            return q1a.e().b("user_follow");
+            return o3a.e().b("user_follow");
         }
         return invokeV.booleanValue;
     }
@@ -191,7 +191,7 @@ public class PushPermissionController {
         if ((interceptable == null || interceptable.invokeI(65542, this, i) == null) && (activity = this.mActivity) != null && this.mContext != null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(activity).areNotificationsEnabled();
             if (i == 10) {
-                boolean m = te5.d().m();
+                boolean m = xe5.d().m();
                 if (areNotificationsEnabled && m) {
                     onSubscribeFriendSuccess(this.mActivity);
                     return;
@@ -199,7 +199,7 @@ public class PushPermissionController {
                 b bVar = new b(this, m, areNotificationsEnabled);
                 if (checkShouldShowUserFollowPush()) {
                     PushOpenUtil.showPushPermissionDialogV2(this.mContext, this.mActivity, 10, bVar);
-                    q1a.e().h("user_follow");
+                    o3a.e().h("user_follow");
                 }
             }
         }

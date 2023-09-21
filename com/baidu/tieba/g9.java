@@ -49,7 +49,7 @@ public class g9 {
                     String optString = new JSONObject(e9.b().e(str)).optString("sid");
                     String[] split = optString.split("_");
                     if (split.length == 2) {
-                        hashMap.put(optString, new t8(l20.d(split[0]), l20.d(split[1])));
+                        hashMap.put(optString, new t8(k20.d(split[0]), k20.d(split[1])));
                     }
                 } catch (JSONException unused) {
                     if (ABTestConfig.isDebug()) {
@@ -76,7 +76,7 @@ public class g9 {
                         String optString = optJSONObject.optString("sid");
                         String[] split = optString.split("_");
                         if (split.length == 2) {
-                            hashMap.put(optString, new t8(l20.d(split[0]), l20.d(split[1])));
+                            hashMap.put(optString, new t8(k20.d(split[0]), k20.d(split[1])));
                         }
                     }
                 }
@@ -101,7 +101,7 @@ public class g9 {
                             String string = jSONArray.getString(i);
                             String[] split = string.split("_");
                             if (split.length == 2) {
-                                hashMap.put(string, new t8(l20.d(split[0]), l20.d(split[1])));
+                                hashMap.put(string, new t8(k20.d(split[0]), k20.d(split[1])));
                             }
                         }
                     }
@@ -120,7 +120,7 @@ public class g9 {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             for (String str : e9.b().f()) {
-                if (m20.a(str, this.a) == i) {
+                if (l20.a(str, this.a) == i) {
                     try {
                         arrayList.add(new c9(str, new JSONObject(e9.b().e(str)).opt("data")));
                     } catch (JSONException unused) {
@@ -149,7 +149,7 @@ public class g9 {
                             String string = jSONArray.getString(i);
                             String[] split = string.split("_");
                             if (split.length == 2) {
-                                hashMap.put(string, new t8(l20.d(split[0]), l20.d(split[1])));
+                                hashMap.put(string, new t8(k20.d(split[0]), k20.d(split[1])));
                             }
                         }
                     }
@@ -174,7 +174,7 @@ public class g9 {
                         JSONArray jSONArray = new JSONArray(c);
                         jSONObject.put("version", d);
                         jSONObject.put("exps", jSONArray);
-                        c20.h(jSONObject);
+                        b20.h(jSONObject);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -198,7 +198,7 @@ public class g9 {
                         }
                     }
                 }
-                c20.l(jSONObject);
+                b20.l(jSONObject);
             }
         }
     }

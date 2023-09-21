@@ -342,7 +342,7 @@ public abstract class DirectHeader {
                     InterceptResult invokeI2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI2 = interceptable2.invokeI(1048576, this, i2)) == null) {
-                        return Integer.valueOf(UShort.m1128constructorimpl((short) ((UByte.m868constructorimpl(this.this$0.getBuffer()[i2 + 1]) & 255 & 255) | (((UByte.m868constructorimpl(this.this$0.getBuffer()[i2]) & 255) & 255) << 8))) & UShort.MAX_VALUE);
+                        return Integer.valueOf(UShort.m1130constructorimpl((short) ((UByte.m870constructorimpl(this.this$0.getBuffer()[i2 + 1]) & 255 & 255) | (((UByte.m870constructorimpl(this.this$0.getBuffer()[i2]) & 255) & 255) << 8))) & UShort.MAX_VALUE);
                     }
                     return (Integer) invokeI2.objValue;
                 }
@@ -433,7 +433,7 @@ public abstract class DirectHeader {
                     InterceptResult invokeI2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI2 = interceptable2.invokeI(1048576, this, i2)) == null) {
-                        return Integer.valueOf((UByte.m868constructorimpl(this.this$0.getBuffer()[i2]) & 255) >>> 4);
+                        return Integer.valueOf((UByte.m870constructorimpl(this.this$0.getBuffer()[i2]) & 255) >>> 4);
                     }
                     return (Integer) invokeI2.objValue;
                 }
@@ -481,7 +481,7 @@ public abstract class DirectHeader {
                 public final void invoke(int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-                        this.this$0.getBuffer()[i2] = (byte) (((i3 >>> 4) << 4) | (((UByte.m868constructorimpl(this.this$0.getBuffer()[i2]) & 255) << 4) >>> 4));
+                        this.this$0.getBuffer()[i2] = (byte) (((i3 >>> 4) << 4) | (((UByte.m870constructorimpl(this.this$0.getBuffer()[i2]) & 255) << 4) >>> 4));
                     }
                 }
             });
@@ -523,7 +523,7 @@ public abstract class DirectHeader {
                     InterceptResult invokeI2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI2 = interceptable2.invokeI(1048576, this, i2)) == null) {
-                        return Integer.valueOf(UByte.m868constructorimpl(this.this$0.getBuffer()[i2]) & 255);
+                        return Integer.valueOf(UByte.m870constructorimpl(this.this$0.getBuffer()[i2]) & 255);
                     }
                     return (Integer) invokeI2.objValue;
                 }

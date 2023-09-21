@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ew4;
-import com.baidu.tieba.mw5;
+import com.baidu.tieba.dw4;
+import com.baidu.tieba.nw5;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -183,7 +183,7 @@ public class VideoPlayModel extends BdBaseModel {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                BdUtilHelper.showLongToast(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e40));
+                BdUtilHelper.showLongToast(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e42));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -257,13 +257,13 @@ public class VideoPlayModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<ew4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<dw4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<ew4> it = videoRecordList.iterator();
+                        Iterator<dw4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            ew4 next = it.next();
+                            dw4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());
@@ -304,7 +304,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
             httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
         }
-        httpMessage.addParam("app_transmit_data", mw5.a());
+        httpMessage.addParam("app_transmit_data", nw5.a());
         sendMessage(httpMessage);
     }
 
@@ -347,7 +347,7 @@ public class VideoPlayModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", mw5.a());
+            httpMessage.addParam("app_transmit_data", nw5.a());
             sendMessage(httpMessage);
         }
     }

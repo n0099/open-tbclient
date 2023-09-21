@@ -20,20 +20,20 @@ public class bw extends am.b {
     @Override // com.xiaomi.push.am.b
     public void b() {
         try {
-            dv.a a = dv.a.a(Base64.decode(cy.a(com.xiaomi.push.s.m723a(), "https://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.push.bh>) null), 10));
+            dv.a a = dv.a.a(Base64.decode(cy.a(com.xiaomi.push.s.m725a(), "https://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.push.bh>) null), 10));
             if (a != null) {
                 this.a.f954a = a;
                 this.f956a = true;
                 this.a.e();
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m181a("fetch config failure: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m183a("fetch config failure: " + e.getMessage());
         }
     }
 
     @Override // com.xiaomi.push.am.b
     /* renamed from: c */
-    public void mo360c() {
+    public void mo362c() {
         List list;
         List list2;
         bv.a[] aVarArr;

@@ -11,7 +11,7 @@ import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -214,7 +214,7 @@ public class ImageFileInfo extends MediaFileInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return !ei.isEmpty(this.serverImageCode);
+            return !di.isEmpty(this.serverImageCode);
         }
         return invokeV.booleanValue;
     }

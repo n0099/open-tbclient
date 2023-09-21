@@ -1,117 +1,132 @@
 package com.baidu.tieba;
 
+import android.content.res.Resources;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.filedownloader.TbDownloadManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes8.dex */
-public final class w75 {
+public class w75 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948223508, "Lcom/baidu/tieba/w75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948223508, "Lcom/baidu/tieba/w75;");
-                return;
+    public w75() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
+    }
 
-        public final ApkDownloadInfoData a(il0 il0Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, il0Var)) == null) {
-                if (il0Var != null && il0Var.p != null) {
-                    ApkDownloadInfoData apkDownloadInfoData = new ApkDownloadInfoData();
-                    apkDownloadInfoData.setApkIcon(il0Var.p.g);
-                    apkDownloadInfoData.setApkFile(il0Var.h);
-                    apkDownloadInfoData.setApkName(il0Var.p.h);
-                    apkDownloadInfoData.setStatus(il0Var.c);
-                    apkDownloadInfoData.setApkPackageName(il0Var.d);
-                    apkDownloadInfoData.setFinishDownloadTime(il0Var.m);
-                    apkDownloadInfoData.setAdDownloadBean(il0Var);
-                    apkDownloadInfoData.setNotificationShowCount(il0Var.q.k);
-                    if (apkDownloadInfoData.getApkFile() != null) {
-                        apkDownloadInfoData.setApkPath(apkDownloadInfoData.getApkFile().getAbsolutePath());
-                    }
-                    apkDownloadInfoData.setItemSource(5);
-                    apkDownloadInfoData.setDownloadUrl(il0Var.g);
-                    return apkDownloadInfoData;
-                }
-                return null;
-            }
-            return (ApkDownloadInfoData) invokeL.objValue;
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
         }
+    }
 
-        public final ApkDownloadInfoData b(pda pdaVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pdaVar)) == null) {
-                if (pdaVar == null) {
-                    return null;
-                }
-                TbDownloadManager tbDownloadManager = new TbDownloadManager();
-                ItemData itemData = new ItemData();
-                itemData.parseJson(pdaVar.c());
-                tbDownloadManager.w(itemData.mTbFileDownloaderType);
-                DownloadData downloadData = new DownloadData(pdaVar.r(), pdaVar.d());
-                ApkDownloadInfoData apkDownloadInfoData = new ApkDownloadInfoData();
-                apkDownloadInfoData.setApkIcon(itemData.mIconUrl);
-                apkDownloadInfoData.setApkName(itemData.mTitle);
-                apkDownloadInfoData.setApkPackageName(itemData.pkgName);
-                apkDownloadInfoData.setFinishDownloadTime(pdaVar.e());
-                apkDownloadInfoData.setItemId((int) pdaVar.f());
-                apkDownloadInfoData.setTitle(pdaVar.r());
-                apkDownloadInfoData.setApkPath(tbDownloadManager.o(downloadData));
-                apkDownloadInfoData.setApkFile(new File(apkDownloadInfoData.getApkPath()));
-                apkDownloadInfoData.setNotificationShowCount(itemData.notificationShowCount);
-                apkDownloadInfoData.setItemSource(pdaVar.p());
-                apkDownloadInfoData.setDownloadUrl(pdaVar.d());
-                return apkDownloadInfoData;
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void i(IndicatorView indicatorView) {
+        Resources resources;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, indicatorView) != null) || indicatorView == null || (resources = indicatorView.getResources()) == null) {
+            return;
+        }
+        int i = this.d;
+        if (i > 0) {
+            indicatorView.setSpacing(resources.getDimensionPixelSize(i));
+        }
+        int i2 = this.b;
+        if (i2 > 0) {
+            indicatorView.setDrawable(resources.getDrawable(i2));
+        }
+        int i3 = this.c;
+        if (i3 > 0) {
+            indicatorView.setSelector(resources.getDrawable(i3));
+        }
+        ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
+            layoutParams2.gravity = this.a;
+            int i4 = this.e;
+            if (i4 > 0) {
+                layoutParams2.bottomMargin = resources.getDimensionPixelSize(i4);
             }
-            return (ApkDownloadInfoData) invokeL.objValue;
+            int i5 = this.f;
+            if (i5 > 0) {
+                layoutParams2.rightMargin = resources.getDimensionPixelSize(i5);
+            }
+            indicatorView.setLayoutParams(layoutParams);
         }
     }
 }

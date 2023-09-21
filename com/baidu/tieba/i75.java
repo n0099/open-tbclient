@@ -1,81 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.dialog.yun.strategy.FrequenceDialogStrategy;
+import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class i75 {
+public final class i75 implements w65 {
     public static /* synthetic */ Interceptable $ic;
-    public static final i75 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806434, "Lcom/baidu/tieba/i75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947806434, "Lcom/baidu/tieba/i75;");
-                return;
-            }
-        }
-        a = new i75();
-    }
 
     public i75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void a(String json) {
-        boolean z;
-        List entityList;
+    @Override // com.baidu.tieba.w65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            String k = YunDialogDataManager.k();
-            oe<String> n = x45.n("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k);
-            if (n != null) {
-                String str = n.get(k);
-                if (str != null) {
-                    if (str.length() > 0) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap(strategyData);
+            hashMap.put("dialogName", dialogData.getDialogName());
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.w65
+    public boolean b(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            boolean z = false;
+            try {
+                FrequenceDialogStrategy.Data data = (FrequenceDialogStrategy.Data) DataExt.toEntity(map, FrequenceDialogStrategy.Data.class);
+                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                if (currentTimeMillis >= data.startTimestamp && currentTimeMillis <= data.endTimestamp) {
+                    if (data.frequence == 0) {
+                        return true;
+                    }
+                    k75 k75Var = k75.a;
+                    String str = data.dialogName;
+                    Intrinsics.checkNotNullExpressionValue(str, "data.dialogName");
+                    int a = k75Var.a(str);
+                    if (a < data.frequence) {
                         z = true;
-                    } else {
-                        z = false;
                     }
                     if (!z) {
-                        str = null;
+                        TbLog yunDialogLog = YunDialogLog.getInstance();
+                        yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.dialogName + " 命中频次超限限制，当前已展示次数：" + a + "，配置展现次数：" + data.frequence);
                     }
-                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
-                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
-                        j75.a(entityList2);
-                        j75.b(entityList, entityList2);
-                    }
+                    return z;
                 }
-                n.a(k, json);
+                TbLog yunDialogLog2 = YunDialogLog.getInstance();
+                yunDialogLog2.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.dialogName + " 命中频次时间限制，当前时间戳：" + currentTimeMillis + " 配置时间：" + data.startTimestamp + " - " + data.endTimestamp);
+                return false;
+            } catch (Exception e) {
+                if (!TbadkApplication.getInst().isDebugMode()) {
+                    YunDialogLog.getInstance().i(YunDialogManager.LOG_KEY, "云弹窗频次策略解析失败");
+                    return false;
+                }
+                throw e;
             }
         }
+        return invokeL.booleanValue;
     }
 }

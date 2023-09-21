@@ -1,82 +1,102 @@
 package com.baidu.tieba;
 
-import android.opengl.Matrix;
-import android.os.Handler;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.camera2.CameraCharacteristics;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
-import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 /* loaded from: classes8.dex */
-public class uxa extends BaseOutputSurface {
+public class uxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float[] a;
-    public MultiMediaData b;
+    public final Matrix a;
+    public RectF b;
 
-    public uxa(int i, int i2, boolean z, Handler handler) {
+    public uxa(CameraCharacteristics cameraCharacteristics, RectF rectF) {
+        int intValue;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
+            Object[] objArr = {cameraCharacteristics, rectF};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new float[16];
-        this.b = new MultiMediaData();
-        init(i, i2, z, handler);
-        this.mFullScreenEXT.setMirror(true);
-        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
+        if (a(rectF)) {
+            Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
+            Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+            if (num == null) {
+                intValue = 90;
+            } else {
+                intValue = num.intValue();
+            }
+            this.b = new RectF(rect);
+            Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
+            if (num2 != null && num2.intValue() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.a = b(z, intValue, rectF);
+            return;
+        }
+        throw new IllegalArgumentException("previewRect");
     }
 
-    public void a(int i, int i2, float f) {
-        float f2;
+    public final boolean a(RectF rectF) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
-            MultiMediaData multiMediaData = this.b;
-            multiMediaData.type = 1;
-            multiMediaData.width = i;
-            multiMediaData.height = i2;
-            multiMediaData.rotation = f;
-            if (f != 90.0f && f != 270.0f) {
-                f2 = (i * 1.0f) / i2;
-            } else {
-                f2 = (i2 * 1.0f) / i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rectF)) == null) {
+            if (rectF.width() != 0.0f && rectF.height() != 0.0f) {
+                return true;
             }
-            if (f2 <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
-                this.b.scaleType = "center_crop";
-            } else {
-                this.b.scaleType = "center_inside";
-            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
-    public void drawImage(int i) {
+    public RectF c(RectF rectF) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.drawImage(i);
-            if (this.mFullScreenEXT == null) {
-                return;
-            }
-            float[] fArr = new float[16];
-            Matrix.setIdentityM(fArr, 0);
-            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
-            this.mFullScreenEXT.setAngle(180.0f);
-            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
-            Matrix.setIdentityM(fArr, 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
+            RectF rectF2 = new RectF();
+            this.a.mapRect(rectF2, rectF);
+            return rectF2;
         }
+        return (RectF) invokeL.objValue;
+    }
+
+    public final Matrix b(boolean z, int i, RectF rectF) {
+        InterceptResult invokeCommon;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rectF})) == null) {
+            Matrix matrix = new Matrix();
+            if (z) {
+                f = -1.0f;
+            } else {
+                f = 1.0f;
+            }
+            matrix.setScale(f, 1.0f);
+            matrix.postRotate(-i);
+            matrix.mapRect(rectF);
+            Matrix matrix2 = new Matrix();
+            matrix2.setRectToRect(rectF, this.b, Matrix.ScaleToFit.FILL);
+            matrix.setConcat(matrix2, matrix);
+            return matrix;
+        }
+        return (Matrix) invokeCommon.objValue;
     }
 }

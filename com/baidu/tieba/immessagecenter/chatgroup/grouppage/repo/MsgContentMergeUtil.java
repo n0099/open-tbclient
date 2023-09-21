@@ -8,9 +8,9 @@ import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.b;
-import com.baidu.tieba.mo8;
-import com.baidu.tieba.tn8;
-import com.baidu.tieba.yw5;
+import com.baidu.tieba.dg8;
+import com.baidu.tieba.fl8;
+import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,7 +170,7 @@ public final class MsgContentMergeUtil {
     public static final class Result implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @yw5(deserialize = false, serialize = false)
+        @zw5(deserialize = false, serialize = false)
         public final Map<Long, Object> emojiInfo;
         @SerializedName("msg_info")
         public final Map<String, Object> msgInfo;
@@ -347,7 +347,7 @@ public final class MsgContentMergeUtil {
                     if (userInfo != null) {
                         String senderUid = chatMsg.getSenderUid();
                         Intrinsics.checkNotNullExpressionValue(senderUid, "it.senderUid");
-                        obj2 = userInfo.get(mo8.c(senderUid));
+                        obj2 = userInfo.get(fl8.c(senderUid));
                     } else {
                         obj2 = null;
                     }
@@ -363,7 +363,7 @@ public final class MsgContentMergeUtil {
                     }
                     chatRoomContentExt = chatMsg.getChatRoomContentExt();
                 } catch (Exception e) {
-                    tn8.g("merge_msg_content_exception", j, e);
+                    dg8.g("merge_msg_content_exception", j, e);
                 }
                 if (chatRoomContentExt != null && chatRoomContentExt.length() != 0) {
                     z = false;

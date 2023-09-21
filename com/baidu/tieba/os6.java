@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.j67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class os6 implements ea7<e87> {
+public final class os6 implements j67.q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +30,31 @@ public class os6 implements ea7<e87> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea7
-    /* renamed from: a */
-    public pc7<?> b(@NonNull e87 e87Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.j67.q
+    public j67.r a(Context context, ViewGroup rootView) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e87Var)) == null) {
-            return new qc7(new BrowseLocationUiState(e87Var), "browse_location");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, rootView)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(rootView, "rootView");
+            if (context instanceof TbadkCoreApplication) {
+                TbadkCoreApplication tbadkCoreApplication = (TbadkCoreApplication) context;
+                if ((tbadkCoreApplication.getCurrentActivity() instanceof Context) && (context = tbadkCoreApplication.getCurrentActivity()) == null) {
+                    throw new NullPointerException("null cannot be cast to non-null type android.content.Context");
+                }
+            }
+            return new ns6(context, rootView);
         }
-        return (pc7) invokeL.objValue;
+        return (j67.r) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.j67.q
+    public void update(j67.r holder, x77 state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, holder, state) == null) {
+            Intrinsics.checkNotNullParameter(holder, "holder");
+            Intrinsics.checkNotNullParameter(state, "state");
+            holder.update(state);
+        }
     }
 }

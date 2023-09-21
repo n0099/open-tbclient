@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.b28;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.cq6;
-import com.baidu.tieba.e78;
-import com.baidu.tieba.e8a;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.d28;
+import com.baidu.tieba.g78;
+import com.baidu.tieba.iq6;
+import com.baidu.tieba.kaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class RecommendBarCardModel extends b15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public List<cn> b;
+    public List<bn> b;
     public String c;
     public String d;
     public RecDataSource e;
@@ -162,17 +162,17 @@ public class RecommendBarCardModel extends b15 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return cq6.z0;
+            return iq6.z0;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public List<cn> h() {
+    public List<bn> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -226,25 +226,25 @@ public class RecommendBarCardModel extends b15 {
     }
 
     @Nullable
-    public static RecommendBarCardModel d(e78 e78Var) {
+    public static RecommendBarCardModel d(g78 g78Var) {
         InterceptResult invokeL;
-        e78.a aVar;
+        g78.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e78Var)) == null) {
-            if (e78Var != null && !ListUtils.isEmpty(e78Var.d())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, g78Var)) == null) {
+            if (g78Var != null && !ListUtils.isEmpty(g78Var.d())) {
                 RecommendBarCardModel recommendBarCardModel = new RecommendBarCardModel();
                 ArrayList arrayList = new ArrayList();
                 recommendBarCardModel.s(arrayList);
-                recommendBarCardModel.p(e78Var.c());
-                List<e78.a> d = e78Var.d();
+                recommendBarCardModel.p(g78Var.c());
+                List<g78.a> d = g78Var.d();
                 if (!ListUtils.isEmpty(d)) {
-                    b28 b28Var = new b28();
+                    d28 d28Var = new d28();
                     recommendBarCardModel.a = true;
-                    b28Var.h(true);
-                    b28Var.l(true);
+                    d28Var.h(true);
+                    d28Var.l(true);
                     for (int i = 0; i < d.size() && i < 3 && (aVar = d.get(i)) != null && aVar.a > 0 && !TextUtils.isEmpty(aVar.c) && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.d) && !TextUtils.isEmpty(aVar.f); i++) {
-                        b28Var.g[i] = new b28.a();
-                        b28.a aVar2 = b28Var.g[i];
+                        d28Var.g[i] = new d28.a();
+                        d28.a aVar2 = d28Var.g[i];
                         aVar2.o(d.get(i).b);
                         aVar2.v(true);
                         aVar2.m(d.get(i).c);
@@ -252,7 +252,7 @@ public class RecommendBarCardModel extends b15 {
                         aVar2.i(d.get(i).a());
                         aVar2.q(Long.valueOf(d.get(i).a));
                     }
-                    arrayList.add(b28Var);
+                    arrayList.add(d28Var);
                 }
                 return recommendBarCardModel;
             }
@@ -261,28 +261,28 @@ public class RecommendBarCardModel extends b15 {
         return (RecommendBarCardModel) invokeL.objValue;
     }
 
-    public static RecommendBarCardModel e(e8a e8aVar) {
+    public static RecommendBarCardModel e(kaa kaaVar) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, e8aVar)) == null) {
-            if (e8aVar != null && !ListUtils.isEmpty(e8aVar.b)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, kaaVar)) == null) {
+            if (kaaVar != null && !ListUtils.isEmpty(kaaVar.b)) {
                 RecommendBarCardModel recommendBarCardModel = new RecommendBarCardModel();
                 ArrayList arrayList = new ArrayList();
                 recommendBarCardModel.s(arrayList);
-                for (e8a.b bVar : e8aVar.b) {
+                for (kaa.b bVar : kaaVar.b) {
                     if (!ListUtils.isEmpty(bVar.b)) {
-                        b28 b28Var = new b28();
+                        d28 d28Var = new d28();
                         if (!StringUtils.isNull(bVar.a) && !recommendBarCardModel.a) {
                             z = false;
                         } else {
                             z = true;
                         }
                         recommendBarCardModel.a = z;
-                        b28Var.a = bVar.a;
+                        d28Var.a = bVar.a;
                         for (int i = 0; i < bVar.b.size() && i < 3; i++) {
-                            b28Var.g[i] = new b28.a();
-                            b28.a aVar = b28Var.g[i];
+                            d28Var.g[i] = new d28.a();
+                            d28.a aVar = d28Var.g[i];
                             aVar.o(bVar.b.get(i).b);
                             aVar.m(bVar.b.get(i).e);
                             aVar.u(bVar.b.get(i).f);
@@ -290,7 +290,7 @@ public class RecommendBarCardModel extends b15 {
                             aVar.p(bVar.b.get(i).d);
                             aVar.q(Long.valueOf(bVar.b.get(i).a));
                         }
-                        arrayList.add(b28Var);
+                        arrayList.add(d28Var);
                         if (arrayList.size() >= 6) {
                             break;
                         }
@@ -313,31 +313,31 @@ public class RecommendBarCardModel extends b15 {
             if (ListUtils.isEmpty(list)) {
                 return false;
             }
-            List<cn> arrayList = new ArrayList<>();
+            List<bn> arrayList = new ArrayList<>();
             s(arrayList);
             for (int i = 0; i < list.size(); i++) {
                 DiscoverTabCard discoverTabCard = list.get(i);
                 List<RecommendForumInfo> list2 = discoverTabCard.forum_list;
                 if (list2 != null && list2.size() >= 3) {
-                    b28 b28Var = new b28();
+                    d28 d28Var = new d28();
                     if (!StringUtils.isNull(discoverTabCard.name) && !this.a) {
                         z = false;
                     } else {
                         z = true;
                     }
                     this.a = z;
-                    b28Var.a = discoverTabCard.name;
+                    d28Var.a = discoverTabCard.name;
                     Boolean bool = discoverTabCard.is_show_order_number;
                     if (bool == null) {
                         booleanValue = false;
                     } else {
                         booleanValue = bool.booleanValue();
                     }
-                    b28Var.b = booleanValue;
-                    b28Var.c = discoverTabCard.jump_name;
+                    d28Var.b = booleanValue;
+                    d28Var.c = discoverTabCard.jump_name;
                     for (int i2 = 0; i2 < discoverTabCard.forum_list.size() && i2 < 3; i2++) {
-                        b28Var.g[i2] = new b28.a();
-                        b28.a aVar = b28Var.g[i2];
+                        d28Var.g[i2] = new d28.a();
+                        d28.a aVar = d28Var.g[i2];
                         aVar.o(discoverTabCard.forum_list.get(i2).forum_name);
                         aVar.m(discoverTabCard.forum_list.get(i2).avatar);
                         aVar.s(discoverTabCard.forum_list.get(i2).hot_text);
@@ -353,7 +353,7 @@ public class RecommendBarCardModel extends b15 {
                         aVar.q(discoverTabCard.forum_list.get(i2).forum_id);
                         aVar.t(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
                     }
-                    arrayList.add(b28Var);
+                    arrayList.add(d28Var);
                     if (arrayList.size() >= 6) {
                         break;
                     }
@@ -394,7 +394,7 @@ public class RecommendBarCardModel extends b15 {
         }
     }
 
-    public void s(List<cn> list) {
+    public void s(List<bn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             this.b = list;
@@ -408,9 +408,9 @@ public class RecommendBarCardModel extends b15 {
             if (ListUtils.isEmpty(this.b)) {
                 return;
             }
-            for (cn cnVar : this.b) {
-                if (cnVar instanceof b28) {
-                    ((b28) cnVar).g(recDataSource);
+            for (bn bnVar : this.b) {
+                if (bnVar instanceof d28) {
+                    ((d28) bnVar).g(recDataSource);
                 }
             }
         }

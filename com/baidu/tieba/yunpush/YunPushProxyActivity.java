@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tieba.e85;
+import com.baidu.tieba.i85;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +59,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
         }
     }
@@ -67,15 +67,15 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
 
-    public final boolean o1(String str) {
+    public final boolean M0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (SchemeActionHelper.needMainTabActivity(str)) {
                 return true;
             }
@@ -265,7 +265,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                     }
                                     TiebaStatic.log(param);
                                     StatisticItem statisticItem = new StatisticItem("PushOptCount");
-                                    if (e85.a().d()) {
+                                    if (i85.a().d()) {
                                         i11 = 1;
                                     } else {
                                         i11 = 2;
@@ -278,10 +278,10 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                             TbLog yunPushLog2 = YunPushLog.getInstance();
                                             yunPushLog2.e(BaiduYunPushMessageReceiver.TAG, "YunPushProxyActivity parse Exception:" + e);
                                         }
-                                        if (e85.a().d()) {
-                                            e85.a().i(2);
+                                        if (i85.a().d()) {
+                                            i85.a().i(2);
                                         }
-                                        if (o1(str4)) {
+                                        if (M0(str4)) {
                                             int i14 = -1;
                                             if (str4.startsWith(UrlSchemaHelper.SCHEMA_REPLY_ME)) {
                                                 StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.KEY_MSG_REPLY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -375,7 +375,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 }
                                 TiebaStatic.log(param4);
                                 StatisticItem statisticItem3 = new StatisticItem("PushOptCount");
-                                if (e85.a().d()) {
+                                if (i85.a().d()) {
                                 }
                                 TiebaStatic.log(statisticItem3.param("obj_param1", i11));
                                 if (!TextUtils.isEmpty(str4)) {
@@ -421,7 +421,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         }
                         TiebaStatic.log(param42);
                         StatisticItem statisticItem32 = new StatisticItem("PushOptCount");
-                        if (e85.a().d()) {
+                        if (i85.a().d()) {
                         }
                         TiebaStatic.log(statisticItem32.param("obj_param1", i11));
                         if (!TextUtils.isEmpty(str4)) {

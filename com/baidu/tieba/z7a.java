@@ -1,21 +1,37 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UsbAbTestConst;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetMoreMsg.DataRes;
-import tbclient.GetMoreMsg.MsgContent;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class z7a {
+public final class z7a implements cd7, ad7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public ArrayList<y7a> b;
+
+    @Override // com.baidu.tieba.ad7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cd7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_SHOW : (String) invokeV.objValue;
+    }
 
     public z7a() {
         Interceptable interceptable = $ic;
@@ -31,42 +47,43 @@ public class z7a {
             }
         }
         this.a = true;
-        this.b = null;
     }
 
-    public ArrayList<y7a> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cd7
+    public Map<String, String> a(m87 businessInfo) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) && dataRes != null) {
-            boolean z = true;
-            if (dataRes.has_more.intValue() != 1) {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            String str2 = "";
+            if (currentAccount == null) {
+                currentAccount = "";
             }
+            hashMap.put("uid", currentAccount);
+            String str3 = businessInfo.a().get("room_id");
+            if (str3 != null) {
+                str2 = str3;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_TO, str2);
+            if (this.a) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("obj_param1", str);
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_RECOMMEND_FEED_TEST);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.a = z;
-            List<MsgContent> list = dataRes.msg_content;
-            if (list != null && list.size() > 0) {
-                this.b = new ArrayList<>();
-                for (MsgContent msgContent : dataRes.msg_content) {
-                    this.b.add(new y7a(msgContent));
-                }
-            }
         }
     }
 }

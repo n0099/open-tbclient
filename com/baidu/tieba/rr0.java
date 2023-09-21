@@ -9,14 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class rr0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    public final String a;
+    public final String b;
+    public final String c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,15 +35,19 @@ public final class rr0 {
                 return;
             }
         }
-        b = new a(null);
+        d = new a(null);
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (this != obj) {
-                return (obj instanceof rr0) && this.a == ((rr0) obj).a;
+                if (obj instanceof rr0) {
+                    rr0 rr0Var = (rr0) obj;
+                    return Intrinsics.areEqual(this.a, rr0Var.a) && Intrinsics.areEqual(this.b, rr0Var.b) && Intrinsics.areEqual(this.c, rr0Var.c);
+                }
+                return false;
             }
             return true;
         }
@@ -49,14 +57,22 @@ public final class rr0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.c;
+            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "AdRewardCriusModel(showTime=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "AdRewardTextTag(text=" + this.a + ", textColor=" + this.b + ", bgColor=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -89,7 +105,13 @@ public final class rr0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
                 if (jSONObject != null) {
-                    return new rr0(jSONObject.optInt("show_time"));
+                    String optString = jSONObject.optString("text");
+                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"text\")");
+                    String optString2 = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObj.optString(\"text_color\")");
+                    String optString3 = jSONObject.optString("background_color");
+                    Intrinsics.checkNotNullExpressionValue(optString3, "jsonObj.optString(\"background_color\")");
+                    return new rr0(optString, optString2, optString3);
                 }
                 return null;
             }
@@ -97,21 +119,53 @@ public final class rr0 {
         }
     }
 
-    public rr0(int i) {
+    public rr0(String text, String textColor, String bgColor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {text, textColor, bgColor};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        Intrinsics.checkNotNullParameter(text, "text");
+        Intrinsics.checkNotNullParameter(textColor, "textColor");
+        Intrinsics.checkNotNullParameter(bgColor, "bgColor");
+        this.a = text;
+        this.b = textColor;
+        this.c = bgColor;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

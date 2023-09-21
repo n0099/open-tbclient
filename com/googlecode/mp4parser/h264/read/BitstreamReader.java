@@ -4,7 +4,7 @@ import com.googlecode.mp4parser.h264.CharCache;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class BitstreamReader {
     public static int bitsRead;
     public int curByte;

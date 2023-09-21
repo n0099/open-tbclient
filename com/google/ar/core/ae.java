@@ -1,11 +1,11 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.zub;
+import com.baidu.tieba.rwb;
 import com.google.ar.core.Session;
 /* loaded from: classes9.dex */
 public enum ae extends Session.c {
     @Override // com.google.ar.core.Session.c
-    public final zub a(long j, Session session) {
+    public final rwb a(long j, Session session) {
         return null;
     }
 

@@ -1,110 +1,188 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
 /* loaded from: classes8.dex */
 public class vjb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
+    public int a;
+    public int b;
+    public int c;
+    public boolean d;
+    public b e;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return i != 5 ? -1 : 0;
-                        }
-                        return 1;
-                    }
-                    return 3;
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vjb a;
+
+        public a(vjb vjbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vjbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return 4;
             }
-            return 6;
+            this.a = vjbVar;
         }
-        return invokeI.intValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.i();
+            }
+        }
     }
 
-    public vjb(String str, boolean z, boolean z2) {
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(int i);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948244123, "Lcom/baidu/tieba/vjb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948244123, "Lcom/baidu/tieba/vjb;");
+        }
+    }
+
+    public vjb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = str;
-        this.b = z;
-        this.c = z2;
     }
 
-    public String b(byte[] bArr) {
-        InterceptResult invokeL;
-        int i;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
-                short[] sArr = new short[5];
-                int[] iArr = new int[8];
-                int i3 = 5;
-                for (int i4 = 0; i4 < 5; i4++) {
-                    int i5 = (i2 * 5) + i4;
-                    if (i5 < bArr.length) {
-                        sArr[i4] = (short) (bArr[i5] & 255);
-                    } else {
-                        sArr[i4] = 0;
-                        i3--;
-                    }
-                }
-                int a = a(i3);
-                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
-                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
-                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
-                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
-                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
-                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
-                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
-                iArr[7] = (byte) (sArr[4] & 31);
-                int i6 = 0;
-                while (true) {
-                    i = 8 - a;
-                    if (i6 >= i) {
-                        break;
-                    }
-                    char charAt = this.a.charAt(iArr[i6]);
-                    if (this.c) {
-                        charAt = Character.toLowerCase(charAt);
-                    }
-                    byteArrayOutputStream.write(charAt);
-                    i6++;
-                }
-                if (this.b) {
-                    while (i < 8) {
-                        byteArrayOutputStream.write(61);
-                        i++;
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.c;
+            if (i != 0) {
+                return i;
             }
-            return new String(byteArrayOutputStream.toByteArray());
+            int i2 = this.b;
+            return i2 != 0 ? i2 : this.a;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public synchronized void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this) {
+                if (i == this.c) {
+                    return;
+                }
+                if ((this.b == 0 || i != this.b) && (this.b != 0 || i != this.a)) {
+                    this.c = i;
+                    if (i != 0 && !this.d) {
+                        this.d = true;
+                        g();
+                    }
+                }
+                this.c = 0;
+            }
+        }
+    }
+
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.c != this.a) {
+                    this.b = this.c;
+                }
+                this.c = 0;
+            }
+        }
+    }
+
+    public final synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.b != 0) {
+                    this.a = this.b;
+                }
+                this.b = 0;
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ThreadPool.b().e(new a(this));
+        }
+    }
+
+    public final synchronized void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this) {
+                this.d = false;
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048583, this) != null) {
+            return;
+        }
+        while (true) {
+            e();
+            int i = this.b;
+            if (i == 0) {
+                h();
+                return;
+            }
+            b bVar = this.e;
+            if (bVar != null) {
+                bVar.a(i);
+            }
+            f();
+        }
     }
 }

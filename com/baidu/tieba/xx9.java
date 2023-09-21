@@ -1,69 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xx9 {
+public class xx9 extends om<hz9, CardViewHolder<j0a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public y45 b;
-    public boolean c;
-    public View d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public final View.OnClickListener i;
+    public TbPageContext<?> a;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xx9 a;
-
-        public a(xx9 xx9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xx9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xx9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null) {
-                this.a.b.dismiss();
-            }
-        }
-    }
-
-    public xx9(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xx9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), hz9.e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,82 +31,39 @@ public class xx9 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new a(this);
         this.a = tbPageContext;
-        this.c = SharedPrefHelper.getInstance().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
     }
 
-    public final void e(TbImageView tbImageView) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: s */
+    public CardViewHolder<j0a> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, tbImageView) != null) || tbImageView == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new j0a(this.a));
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tbImageView.getLayoutParams();
-        int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.a.getPageActivity()) - (BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070225) * 2);
-        layoutParams.width = equipmentWidth;
-        layoutParams.height = (equipmentWidth * 214) / 380;
-        tbImageView.setLayoutParams(layoutParams);
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hz9 hz9Var, CardViewHolder<j0a> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07db, (ViewGroup) null);
-            this.d = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091032);
-            this.e = tbImageView;
-            e(tbImageView);
-            this.e.setAutoChangeStyle(true);
-            this.e.setRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds24));
-            this.e.setConrers(3);
-            this.e.setIsBitmapPic(true);
-            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091033);
-            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091034);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091031);
-            this.h = textView;
-            textView.setOnClickListener(this.i);
-            d();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hz9Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(hz9Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f08123f);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.c) {
-            return;
-        }
-        this.c = true;
-        SharedPrefHelper.getInstance().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
-        b();
-        y45 y45Var = new y45(this.a.getPageActivity());
-        this.b = y45Var;
-        y45Var.setContentViewSize(1);
-        this.b.setCancelable(true);
-        this.b.setCanceledOnTouchOutside(false);
-        this.b.setContentView(this.d);
-        this.b.create(this.a).show();
+        return (View) invokeCommon.objValue;
     }
 }

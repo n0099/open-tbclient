@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,60 +10,92 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes5.dex */
-public final class akc {
+public class akc {
     public static /* synthetic */ Interceptable $ic;
-    public static final akc a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public boolean b;
+    public Runnable c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947619504, "Lcom/baidu/tieba/akc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ akc a;
+
+        public a(akc akcVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {akcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947619504, "Lcom/baidu/tieba/akc;");
-                return;
+            this.a = akcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                RLog.info("PayFrequencyManager", "mResetFrequencyRunnable mIsFrequency:" + this.a.b + " to false");
+                this.a.b = false;
             }
         }
-        a = new akc();
     }
 
     public akc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new Handler(Looper.getMainLooper());
+        this.b = false;
+        this.c = new a(this);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RLog.info("PayFrequencyManager", "destory mIsFrequency:" + this.b);
+            this.b = false;
+            this.a.removeCallbacks(this.c);
         }
     }
 
-    @TargetApi(17)
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (activity.isFinishing()) {
-                    RLog.warn("ViewUtils", "activity is finishing");
-                    return false;
-                } else if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            RLog.info("PayFrequencyManager", "setIsFrequency from:" + this.b + " to:" + z);
+            this.b = z;
+            this.a.removeCallbacks(this.c);
+            if (this.b) {
+                this.a.postDelayed(this.c, 3000L);
+            }
+        }
     }
 }

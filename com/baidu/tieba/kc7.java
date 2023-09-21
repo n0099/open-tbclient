@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface kc7 {
-    void c();
+    Object getVideoHolder();
 }

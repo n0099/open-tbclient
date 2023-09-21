@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.executor.BaseExecutorCell;
 import com.baidu.nadcore.thread.task.ElasticTask;
@@ -8,20 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
-public class z41 extends BaseExecutorCell {
+/* loaded from: classes8.dex */
+public abstract class z41 extends BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ArteryElasticExecutorCell" : (String) invokeV.objValue;
-    }
+    public boolean d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z41(int i) {
@@ -41,7 +34,7 @@ public class z41 extends BaseExecutorCell {
                 return;
             }
         }
-        this.c = new ThreadPoolExecutor(i, i, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.d = false;
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
@@ -49,21 +42,45 @@ public class z41 extends BaseExecutorCell {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e() < this.b) {
-                return true;
+            if (!this.d || e() >= this.b) {
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public synchronized void g(ElasticTask elasticTask) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask) == null) {
-            synchronized (this) {
-                super.g(elasticTask);
-                m51.f().k();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.d) {
+                Log.w(d(), "This executor cell is already opened.");
+                return;
+            }
+            this.d = true;
+            this.c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (!this.d) {
+                Log.w(d(), "This executor cell is already shutdown.");
+                return;
+            }
+            this.d = false;
+            this.c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
+        }
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public void g(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask) == null) {
+            super.g(elasticTask);
+            if (this.d) {
+                l51.f().k();
             }
         }
     }

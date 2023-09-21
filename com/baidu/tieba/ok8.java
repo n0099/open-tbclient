@@ -1,118 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.android.imsdk.chatmessage.messages.TextImageMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.lib.socket.msg.TbSingleTextImageMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.Triple;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ok8 {
+public final class ok8 extends jk8<TbSingleTextImageMsg, TextImageMsg> {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(StatisticItem statisticItem, vk8 vk8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, vk8Var) == null) {
-            int i = 5;
-            String str = "";
-            if (vk8Var != null) {
-                YyExtData g = vk8Var.g();
-                if (g != null) {
-                    if (g.isYyGame) {
-                        i = 3;
-                    } else {
-                        i = 2;
-                    }
-                    str = TiebaStatic.YYValues.YY_LIVE;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948035245, "Lcom/baidu/tieba/ok8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948035245, "Lcom/baidu/tieba/ok8;");
+                return;
+            }
+        }
+        f = new a(null);
+    }
+
+    public /* synthetic */ ok8(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if (!TextUtils.isEmpty(vk8Var.e())) {
-                    statisticItem.param("obj_param1", vk8Var.e());
-                }
             }
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, i);
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
+        }
+
+        public final Triple<Class<TbSingleTextImageMsg>, Class<TextImageMsg>, ok8> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new Triple<>(TbSingleTextImageMsg.class, TextImageMsg.class, new ok8(null));
+            }
+            return (Triple) invokeV.objValue;
         }
     }
 
-    public static void b(StatisticItem statisticItem, String str, String str2, String str3, String str4) {
+    public ok8() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(65537, null, statisticItem, str, str2, str3, str4) == null) && statisticItem != null) {
-            if (!TextUtils.isEmpty(str)) {
-                statisticItem.param("fid", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                statisticItem.param("fname", str2);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                statisticItem.param("uid", str3);
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                statisticItem.param("tid", str4);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        j(102, TbSingleTextImageMsg.class);
+        j(101, TbTextGenImageMsg.class);
     }
 
-    public static void c(int i, String str, String str2, String str3, String str4, vk8 vk8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jk8
+    /* renamed from: n */
+    public TextImageMsg g(TbSingleTextImageMsg tbMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4, vk8Var}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15008");
-            statisticItem.param("obj_locate", i);
-            b(statisticItem, str, str2, str3, str4);
-            if (vk8Var != null) {
-                a(statisticItem, vk8Var);
-                TiebaStaticHelper.addYYParam(statisticItem, vk8Var.g());
-            }
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            TextImageMsg textImageMsg = new TextImageMsg();
+            textImageMsg.setText(tbMsg.getText());
+            kk8.f.a(textImageMsg, tbMsg);
+            return textImageMsg;
         }
+        return (TextImageMsg) invokeL.objValue;
     }
 
-    public static void d(String str, String str2, String str3, @NonNull AlaInfoData alaInfoData) {
-        String str4;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jk8
+    /* renamed from: o */
+    public TbSingleTextImageMsg h(int i, TextImageMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, alaInfoData) == null) {
-            StatisticItem param = new StatisticItem("c13711").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", str3);
-            String str5 = "";
-            if (alaInfoData.user_info == null) {
-                str4 = "";
-            } else {
-                str4 = "" + alaInfoData.user_info.user_id;
-            }
-            StatisticItem param2 = param.param("obj_param1", str4);
-            int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData);
-            if (alaInfoData.isLegalYYLiveData()) {
-                TiebaStaticHelper.addYYParam(param2, alaInfoData.mYyExtData);
-                str5 = TiebaStatic.YYValues.YY_LIVE;
-            }
-            param2.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
-            param2.param(TiebaStatic.Params.OBJ_PARAM3, str5);
-            TiebaStatic.log(param2);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
+            TbSingleTextImageMsg tbSingleTextImageMsg = (TbSingleTextImageMsg) DataExt.toEntity(sdkMsgMap, l(i));
+            kk8.f.b(tbSingleTextImageMsg, sdkMsg);
+            tbSingleTextImageMsg.setText(sdkMsg.getText());
+            return tbSingleTextImageMsg;
         }
-    }
-
-    public static void e(String str, String str2, String str3, String str4, vk8 vk8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4, vk8Var) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15007");
-            b(statisticItem, str, str2, str3, str4);
-            if (vk8Var != null) {
-                a(statisticItem, vk8Var);
-                TiebaStaticHelper.addYYParam(statisticItem, vk8Var.g());
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void f(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65541, null, i, str, str2) == null) {
-            TiebaStatic.log(new StatisticItem("c13857").param("obj_type", i).param("post_id", str).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", str2));
-        }
+        return (TbSingleTextImageMsg) invokeILL.objValue;
     }
 }

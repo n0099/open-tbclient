@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface y32 {
-    void onFailure();
+    void a();
 
-    void onSuccess(String str);
+    void cancel();
 }

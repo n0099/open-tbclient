@@ -1,598 +1,514 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.content.res.XmlResourceParser;
+import android.database.Cursor;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aub;
-import com.baidu.tieba.cob;
-import com.baidu.tieba.gob;
-import com.baidu.tieba.rnb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.http.GetRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-import java.util.Deque;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class vnb {
+public class vnb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Double> a;
-    public static volatile fub b;
-    public static final Handler c;
-    public static FunAdSdk.SdkInitializeCallback d;
-    public static final Handler e;
-    public static final gob f;
-    public static final aub g;
-    public static boolean h;
-    public static volatile boolean i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948247967, "Lcom/baidu/tieba/vnb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948247967, "Lcom/baidu/tieba/vnb;");
-                return;
-            }
-        }
-        a = new HashMap();
-        c = new a(Looper.getMainLooper());
-        HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
-        handlerThread.start();
-        e = new b(handlerThread.getLooper());
-        f = new gob();
-        g = new aub();
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i == 200) {
-                    vnb.f(false);
-                } else if (i == 201) {
-                    vnb.g();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public final void a(unb unbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, unbVar) == null) {
-                String str = FunAdSdk.getFunAdConfig().appId;
-                String str2 = null;
-                try {
-                    LogPrinter.v("Start load config from assets.", new Object[0]);
-                    AssetManager assets = FunAdSdk.getAppContext().getAssets();
-                    InputStream open = assets.open(str + ".json");
-                    StringWriter stringWriter = new StringWriter();
-                    InputStreamReader inputStreamReader = new InputStreamReader(open);
-                    char[] cArr = new char[4096];
-                    while (true) {
-                        int read = inputStreamReader.read(cArr);
-                        if (-1 == read) {
-                            break;
-                        }
-                        stringWriter.write(cArr, 0, read);
-                    }
-                    String stringWriter2 = stringWriter.toString();
-                    LogPrinter.v("Config from assets load over.", new Object[0]);
-                    open.close();
-                    if (!TextUtils.isEmpty(stringWriter2)) {
-                        str2 = znb.a(stringWriter2, str);
-                        LogPrinter.v("Config from assets decrypted over.", new Object[0]);
-                    }
-                } catch (Exception e) {
-                    LogPrinter.e(e, "The initialized config from assets cannot be loaded.", new Object[0]);
-                }
-                if (!unbVar.b(str2)) {
-                    LogPrinter.e("Config from assets parsed failed.", new Object[0]);
-                    if (FunAdSdk.isLogEnabled()) {
-                        throw new RuntimeException("Config from assets parsed failed");
-                    }
-                }
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:68:0x016a  */
-        @Override // android.os.Handler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void handleMessage(@NonNull Message message) {
-            Response perform;
-            Reporter a;
-            int i;
-            JSONObject jSONObject;
-            int i2;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                boolean z2 = true;
-                switch (message.what) {
-                    case 100:
-                        HashMap hashMap = new HashMap();
-                        try {
-                            JSONObject jSONObject2 = new JSONObject();
-                            HostAppInfo.fillReqParams(jSONObject2);
-                            Iterator<String> keys = jSONObject2.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                hashMap.put(next, jSONObject2.get(next));
-                            }
-                        } catch (JSONException unused) {
-                        }
-                        try {
-                            perform = new GetRequest("https://cd.xdplt.com/v2/z", new RequestParams(hashMap)).perform();
-                        } catch (IOException e) {
-                            LogPrinter.e(e);
-                        }
-                        if (perform != null && perform.getResponseCode() == 200) {
-                            try {
-                                jSONObject = new JSONObject(perform.getContent());
-                                i2 = jSONObject.getInt("ret");
-                                LogPrinter.d("Download online ad config response ret: " + i2, new Object[0]);
-                            } catch (JSONException e2) {
-                                LogPrinter.e(e2);
-                                a = hob.a();
-                                i = -1;
-                            }
-                            if (i2 == 200) {
-                                String string = jSONObject.getJSONObject("data").getString("content");
-                                try {
-                                } catch (Exception e3) {
-                                    LogPrinter.e(e3);
-                                    a = hob.a();
-                                    i = -2;
-                                }
-                                if (new unb().b(znb.a(string, FunAdSdk.getFunAdConfig().appId))) {
-                                    dob.b.edit().putInt("key_cp_v", 6).putString("key_serv_las_d", string).apply();
-                                    vnb.a.clear();
-                                    dob.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                    if (z2) {
-                                    }
-                                    vnb.c();
-                                    return;
-                                }
-                                a = hob.a();
-                                i = -3;
-                                a.logEvent("k_ppcfg", "st", Integer.valueOf(i));
-                                z2 = false;
-                                dob.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                if (z2) {
-                                }
-                                vnb.c();
-                                return;
-                            }
-                            z2 = false;
-                            dob.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                            if (z2) {
-                                vnb.c.sendEmptyMessage(201);
-                            }
-                            vnb.c();
-                            return;
-                        }
-                        LogPrinter.e("Pull ad config failed.", new Object[0]);
-                        z2 = false;
-                        dob.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                        if (z2) {
-                        }
-                        vnb.c();
-                        return;
-                    case 101:
-                        a(new unb());
-                        break;
-                    case 102:
-                        String str = null;
-                        try {
-                            str = znb.a(dob.b.getString("key_serv_las_d", null), FunAdSdk.getFunAdConfig().appId);
-                        } catch (Exception e4) {
-                            LogPrinter.e(e4, "Parsing err from latest cipher occurs, abandon the err data", new Object[0]);
-                        }
-                        if (str == null) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        unb unbVar = new unb();
-                        if (!z && !unbVar.b(str)) {
-                            LogPrinter.e("Config parsed failed from latest cipher data,use cipher data from assets instead", new Object[0]);
-                        } else {
-                            z2 = z;
-                        }
-                        if (z2) {
-                            a(unbVar);
-                            dob.b.edit().remove("key_cp_v").remove("key_serv_las_d").apply();
-                            break;
-                        } else {
-                            dob.b.edit().putInt("key_cp_v", 6).apply();
-                            break;
-                        }
-                    default:
-                        return;
-                }
-                vnb.c.obtainMessage(200).sendToTarget();
-            }
-        }
-    }
-
-    public static int a(String str, Ssp.Pid pid) {
-        InterceptResult invokeLL;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, pid)) == null) {
-            cob cobVar = f.b;
-            synchronized (cobVar.a) {
-                Deque<cob.c> deque = cobVar.a.get(str);
-                i2 = 0;
-                if (deque != null) {
-                    Iterator<cob.c> descendingIterator = deque.descendingIterator();
-                    while (true) {
-                        if (!descendingIterator.hasNext()) {
-                            break;
-                        }
-                        cob.c next = descendingIterator.next();
-                        if (next.a().contains(pid)) {
-                            i2 = next.b();
-                            break;
-                        }
-                    }
-                }
-            }
-            return i2;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static eob b(String str) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x0328, code lost:
+        r4 = (com.baidu.tieba.mnb) r3.get(12);
+        r4.c("IS_CAN_USE_WRITE_EXTERNAL");
+        r1.add(r4);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x0344, code lost:
+        if (r3.containsKey(13) == false) goto L88;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x0346, code lost:
+        r3 = (com.baidu.tieba.mnb) r3.get(13);
+        r3.c("GET_DEV_OAID");
+        r1.add(r3);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:104:0x0358, code lost:
+        r13.d(r1);
+        r13.b(1);
+        r2.add(r13);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:105:0x0361, code lost:
+        return r2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x005f, code lost:
+        if (r4 != null) goto L103;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x006a, code lost:
+        if (0 == 0) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x006c, code lost:
+        r4.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x006f, code lost:
+        r5 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x007c, code lost:
+        if (r3.containsKey(1) == false) goto L102;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x007e, code lost:
+        r1 = (com.baidu.tieba.mnb) r3.get(1);
+        r1.c("SDK初始化");
+        r2.add(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x008f, code lost:
+        r1 = new com.baidu.tieba.mnb();
+        r1.c("SDK初始化");
+        r1.g("0");
+        r2.add(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00a8, code lost:
+        if (r3.containsKey(2) == false) goto L101;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00aa, code lost:
+        r1 = (com.baidu.tieba.mnb) r3.get(2);
+        r1.c("代码混淆");
+        r2.add(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00bb, code lost:
+        r1 = new com.baidu.tieba.mnb();
+        r1.c("代码混淆");
+        r1.g("0");
+        r2.add(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00d4, code lost:
+        if (r3.containsKey(3) == false) goto L100;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00d6, code lost:
+        r1 = (com.baidu.tieba.mnb) r3.get(3);
+        r1.c("provider");
+        r2.add(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00e7, code lost:
+        r1 = new com.baidu.tieba.mnb();
+        r1.c("provider");
+        r1.g("0");
+        r2.add(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0101, code lost:
+        if (r3.containsKey(14) == false) goto L99;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0103, code lost:
+        r1 = (com.baidu.tieba.mnb) r3.get(14);
+        r1.c("UseTextureView");
+        r2.add(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0114, code lost:
+        r1 = new com.baidu.tieba.mnb();
+        r1.c("UseTextureView");
+        r1.g("0");
+        r2.add(r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x0122, code lost:
+        r1 = new com.baidu.tieba.mnb();
+        r1.c("权限配置");
+        r4 = new java.util.ArrayList();
+        r6 = r13.getPackageManager();
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("INTERNET");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x014b, code lost:
+        if (r6.checkPermission(com.kuaishou.weapon.p0.h.a, r13.getPackageName()) != 0) goto L98;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x014d, code lost:
+        r8 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x014f, code lost:
+        r8 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x0150, code lost:
+        r7.g(r8);
+        r4.add(r7);
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("READ_PHONE_STATE");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x016a, code lost:
+        if (r6.checkPermission(com.kuaishou.weapon.p0.h.c, r13.getPackageName()) != 0) goto L97;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x016c, code lost:
+        r8 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x016e, code lost:
+        r8 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x016f, code lost:
+        r7.g(r8);
+        r4.add(r7);
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("ACCESS_NETWORK_STATE");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0189, code lost:
+        if (r6.checkPermission("android.permission.ACCESS_NETWORK_STATE", r13.getPackageName()) != 0) goto L96;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x018b, code lost:
+        r8 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x018d, code lost:
+        r8 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x018e, code lost:
+        r7.g(r8);
+        r4.add(r7);
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("WRITE_EXTERNAL_STORAGE");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x01a8, code lost:
+        if (r6.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", r13.getPackageName()) != 0) goto L95;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x01aa, code lost:
+        r8 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x01ac, code lost:
+        r8 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x01ad, code lost:
+        r7.g(r8);
+        r4.add(r7);
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("ACCESS_WIFI_STATE");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x01c7, code lost:
+        if (r6.checkPermission(com.kuaishou.weapon.p0.h.d, r13.getPackageName()) != 0) goto L94;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x01c9, code lost:
+        r8 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x01cb, code lost:
+        r8 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x01cc, code lost:
+        r7.g(r8);
+        r4.add(r7);
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("ACCESS_COARSE_LOCATION");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x01e6, code lost:
+        if (r6.checkPermission(com.kuaishou.weapon.p0.h.h, r13.getPackageName()) != 0) goto L93;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x01e8, code lost:
+        r8 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x01ea, code lost:
+        r8 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x01eb, code lost:
+        r7.g(r8);
+        r4.add(r7);
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("REQUEST_INSTALL_PACKAGES");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x0209, code lost:
+        if (b(r13.getApplicationContext().getPackageResourcePath(), "android.permission.REQUEST_INSTALL_PACKAGES") == false) goto L92;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x020b, code lost:
+        r8 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x020d, code lost:
+        r8 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x020e, code lost:
+        r7.g(r8);
+        r4.add(r7);
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("GET_TASKS");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x0228, code lost:
+        if (r6.checkPermission(com.kuaishou.weapon.p0.h.e, r13.getPackageName()) != 0) goto L91;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:74:0x022a, code lost:
+        r8 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x022c, code lost:
+        r8 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x022d, code lost:
+        r7.g(r8);
+        r4.add(r7);
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("ACCESS_FINE_LOCATION");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x0247, code lost:
+        if (r6.checkPermission(com.kuaishou.weapon.p0.h.g, r13.getPackageName()) != 0) goto L90;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x0249, code lost:
+        r8 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x024b, code lost:
+        r8 = "0";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x024c, code lost:
+        r7.g(r8);
+        r4.add(r7);
+        r7 = new com.baidu.tieba.mnb();
+        r7.c("WAKE_LOCK");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x0266, code lost:
+        if (r6.checkPermission("android.permission.WAKE_LOCK", r13.getPackageName()) != 0) goto L67;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x0268, code lost:
+        r5 = "1";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x0269, code lost:
+        r7.g(r5);
+        r4.add(r7);
+        r1.d(r4);
+        r1.b(1);
+        r2.add(r1);
+        r13 = new com.baidu.tieba.mnb();
+        r13.c("隐私配置");
+        r1 = new java.util.ArrayList();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x0290, code lost:
+        if (r3.containsKey(7) == false) goto L70;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x0292, code lost:
+        r4 = (com.baidu.tieba.mnb) r3.get(7);
+        r4.c("IS_CAN_USE_LOCATION");
+        r1.add(r4);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x02ae, code lost:
+        if (r3.containsKey(8) == false) goto L73;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x02b0, code lost:
+        r4 = (com.baidu.tieba.mnb) r3.get(8);
+        r4.c("GET_TT_LOCATION");
+        r1.add(r4);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:90:0x02cc, code lost:
+        if (r3.containsKey(9) == false) goto L76;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:91:0x02ce, code lost:
+        r4 = (com.baidu.tieba.mnb) r3.get(9);
+        r4.c("IS_CAN_USE_PHONESTATE");
+        r1.add(r4);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:93:0x02ea, code lost:
+        if (r3.containsKey(10) == false) goto L79;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:94:0x02ec, code lost:
+        r4 = (com.baidu.tieba.mnb) r3.get(10);
+        r4.c("GET_DEV_IMEI");
+        r1.add(r4);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:96:0x0308, code lost:
+        if (r3.containsKey(11) == false) goto L82;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:97:0x030a, code lost:
+        r4 = (com.baidu.tieba.mnb) r3.get(11);
+        r4.c("IS_CAN_USE_WIFI_STATE");
+        r1.add(r4);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x0326, code lost:
+        if (r3.containsKey(12) == false) goto L85;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static List<mnb> a(Context context) {
         InterceptResult invokeL;
-        eob eobVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            gob gobVar = f;
-            synchronized (gobVar) {
-                if (gobVar.a == null) {
-                    LogPrinter.d("Cannot get slotId without AdConfig updated.", new Object[0]);
-                    eobVar = null;
-                } else {
-                    eobVar = gobVar.c.get(str);
-                }
-            }
-            return eobVar;
-        }
-        return (eob) invokeL.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && FunAdSdk.getFunAdConfig().isUseCloudAdConfiguration) {
-            SharedPreferences sharedPreferences = dob.b;
-            long j = 0;
-            long j2 = sharedPreferences.getLong("key_lst_config_sync_time", 0L);
-            if (j2 > 0) {
-                long currentTimeMillis = System.currentTimeMillis() - j2;
-                if (currentTimeMillis >= 0) {
-                    long j3 = sharedPreferences.getInt("key_config_interval", 15) * 60 * 1000;
-                    if (currentTimeMillis < j3) {
-                        j = j3 - currentTimeMillis;
-                    }
-                }
-            }
-            long max = Math.max(10000L, j);
-            LogPrinter.v("Remove last pull config request, and schedule it %ds later.", Long.valueOf(max / 1000));
-            Handler handler = e;
-            handler.removeMessages(100);
-            handler.sendEmptyMessageDelayed(100, max);
-        }
-    }
-
-    public static void d(FunAdConfig funAdConfig, Set set, Set set2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, funAdConfig, set, set2) != null) || b == null) {
-            return;
-        }
-        fub fubVar = b;
-        synchronized (fubVar.b) {
-            if (set2 != null) {
-                Iterator it = set2.iterator();
-                while (it.hasNext()) {
-                    fubVar.a.remove(((Ssp) it.next()).type);
-                }
-            }
-        }
-        rnb.f(funAdConfig, set, new rnb.a() { // from class: com.baidu.tieba.wmb
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.rnb.a
-            public final void a(Map map) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) {
-                    vnb.e(map);
-                }
-            }
-        });
-    }
-
-    public static void e(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, map) == null) {
-            fub fubVar = b;
-            synchronized (fubVar.b) {
-                if (map != null) {
-                    fubVar.a.putAll(map);
-                }
-            }
-        }
-    }
-
-    public static void f(boolean z) {
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            LogPrinter.v("tryInitialize", new Object[0]);
-            SharedPreferences sharedPreferences = dob.b;
-            if (6 == sharedPreferences.getInt("key_cp_v", 6)) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!z2) {
-                e.obtainMessage(102).sendToTarget();
-                return;
-            }
-            c();
-            FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
-            nnb b2 = dob.b();
-            rnb.a = dob.m();
-            Object[] objArr = new Object[2];
-            if (b2 != null) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            objArr[0] = Boolean.valueOf(z3);
-            objArr[1] = Boolean.valueOf(z);
-            LogPrinter.v("adConfig load immediately over, valid:%b parseAssets:%b", objArr);
-            if (b2 == null) {
-                if (z) {
-                    e.obtainMessage(101).sendToTarget();
-                    return;
-                }
-                LogPrinter.d("tryInitialize failed without valid adConfig.", new Object[0]);
-                aub aubVar = g;
-                synchronized (aubVar.b) {
-                    aubVar.d = -1;
-                    while (!aubVar.c.isEmpty()) {
-                        aub.a pollFirst = aubVar.c.pollFirst();
-                        if (!aub.f && pollFirst == null) {
-                            throw new AssertionError();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context != null && context.getApplicationContext() != null) {
+                ArrayList arrayList = new ArrayList();
+                HashMap hashMap = new HashMap();
+                Cursor cursor = null;
+                try {
+                    try {
+                        cursor = tnb.b(context, "setting_global_info", new String[]{"_id", "value"}, null, null, null, null, null);
+                        if (cursor == null) {
+                            return arrayList;
                         }
-                        pollFirst.c.onError(pollFirst.b.getSid());
-                    }
-                }
-                return;
-            }
-            f.a(b2);
-            HostAppInfo.updateCfgv(sharedPreferences.getLong("key_config_v", 0L));
-            if (!h) {
-                h = true;
-                rnb.f(funAdConfig, b2.a, new rnb.a() { // from class: com.baidu.tieba.knb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.rnb.a
-                    public final void a(Map map) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) {
-                            vnb.h(map);
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    public static void g() {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            LogPrinter.v("tryInitialize cloud", new Object[0]);
-            final FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
-            nnb b2 = dob.b();
-            rnb.a = dob.m();
-            Object[] objArr = new Object[1];
-            if (b2 != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            objArr[0] = Boolean.valueOf(z);
-            LogPrinter.v("adConfig load immediately over, valid:%b.", objArr);
-            if (b2 == null) {
-                LogPrinter.e("tryInitializeCloud failed without valid adConfig.", new Object[0]);
-                return;
-            }
-            gob gobVar = f;
-            synchronized (gobVar) {
-                nnb nnbVar = gobVar.a;
-                if (nnbVar != null && nnbVar.equals(b2)) {
-                    LogPrinter.d("New AdConfig equals old one, give up updating it", new Object[0]);
-                } else {
-                    HashSet hashSet = new HashSet(b2.a);
-                    for (Ssp ssp : gobVar.a.a) {
-                        Iterator it = hashSet.iterator();
-                        while (true) {
-                            if (it.hasNext()) {
-                                Ssp ssp2 = (Ssp) it.next();
-                                if (ssp.type.equals(ssp2.type)) {
-                                    if (!ssp.sspId.equals(ssp2.sspId)) {
-                                        LogPrinter.e("In new config sspId of type : %s not match the old one", ssp.type);
-                                    } else {
-                                        it.remove();
-                                    }
-                                }
+                        while (cursor.moveToNext()) {
+                            try {
+                                int i = cursor.getInt(cursor.getColumnIndex("_id"));
+                                String string = cursor.getString(cursor.getColumnIndex("value"));
+                                mnb mnbVar = new mnb();
+                                mnbVar.g(rnb.g(string));
+                                hashMap.put(Integer.valueOf(i), mnbVar);
+                            } catch (Exception unused) {
                             }
                         }
-                    }
-                    z2 = true;
-                }
-                z2 = false;
-                break;
-            }
-            if (!z2) {
-                return;
-            }
-            gob gobVar2 = f;
-            gob.c cVar = new gob.c() { // from class: com.baidu.tieba.smb
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.gob.c
-                public final void a(Set set, Set set2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, set, set2) == null) {
-                        vnb.d(FunAdConfig.this, set, set2);
-                    }
-                }
-            };
-            synchronized (gobVar2) {
-                HashSet hashSet2 = new HashSet(gobVar2.a.a);
-                HashSet hashSet3 = new HashSet(b2.a);
-                for (Ssp ssp3 : gobVar2.a.a) {
-                    Iterator<Ssp> it2 = b2.a.iterator();
-                    while (true) {
-                        if (it2.hasNext()) {
-                            Ssp next = it2.next();
-                            if (ssp3.type.equals(next.type)) {
-                                hashSet2.remove(ssp3);
-                                hashSet3.remove(next);
-                                break;
-                            }
+                    } finally {
+                        if (0 != 0) {
+                            cursor.close();
                         }
                     }
+                } catch (Exception unused2) {
                 }
-                LogPrinter.d("the added ssp type size: %s, reduce type size: %s.", Integer.valueOf(hashSet3.size()), Integer.valueOf(hashSet2.size()));
-                cVar.a(hashSet3, hashSet2);
+            } else {
+                return new ArrayList();
             }
-            f.a(b2);
-            HostAppInfo.updateCfgv(dob.b.getLong("key_config_v", 0L));
+        } else {
+            return (List) invokeL.objValue;
         }
     }
 
-    public static void h(Map map) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0076, code lost:
+        if (r0 != null) goto L35;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0081, code lost:
+        if (0 == 0) goto L43;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0083, code lost:
+        r0.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, map) == null) {
-            if (b == null) {
-                b = new fub(map);
-                aub aubVar = g;
-                fub fubVar = b;
-                synchronized (aubVar.b) {
-                    aubVar.e = fubVar;
-                    aubVar.d = 1;
-                    while (!aubVar.c.isEmpty()) {
-                        aub.a pollFirst = aubVar.c.pollFirst();
-                        if (!aub.f && pollFirst == null) {
-                            throw new AssertionError();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                XmlResourceParser xmlResourceParser = null;
+                try {
+                    AssetManager assetManager = (AssetManager) Class.forName("android.content.res.AssetManager").newInstance();
+                    xmlResourceParser = assetManager.openXmlResourceParser(((Integer) assetManager.getClass().getMethod(V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(assetManager, str)).intValue(), "AndroidManifest.xml");
+                    if (xmlResourceParser == null) {
+                        if (xmlResourceParser != null) {
+                            xmlResourceParser.close();
                         }
-                        aubVar.loadAd(pollFirst.a, pollFirst.b, pollFirst.c);
+                        return false;
                     }
+                    while (xmlResourceParser.next() != 1) {
+                        if (xmlResourceParser.getEventType() == 2 && "uses-permission".equals(xmlResourceParser.getName()) && str2.equals(xmlResourceParser.getAttributeValue(0))) {
+                            if (xmlResourceParser != null) {
+                                xmlResourceParser.close();
+                            }
+                            return true;
+                        }
+                    }
+                } catch (Exception unused) {
+                } catch (Throwable th) {
+                    if (0 != 0) {
+                        xmlResourceParser.close();
+                    }
+                    throw th;
                 }
             }
-            i = true;
-            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = d;
-            if (sdkInitializeCallback != null) {
-                sdkInitializeCallback.onComplete();
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0047, code lost:
+        if (r3 != null) goto L29;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0052, code lost:
+        if (0 == 0) goto L28;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0054, code lost:
+        r3.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0057, code lost:
+        return "pangolin.snssdk.com";
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        int i;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = tnb.b(context, "setting_global_info", new String[]{"_id", "value"}, null, null, null, null, null);
+                    if (cursor == null) {
+                        return "pangolin.snssdk.com";
+                    }
+                    while (cursor.moveToNext()) {
+                        try {
+                            i = cursor.getInt(cursor.getColumnIndex("_id"));
+                            string = cursor.getString(cursor.getColumnIndex("value"));
+                        } catch (Exception unused) {
+                        }
+                        if (i == 15) {
+                            String g = rnb.g(string);
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            return g;
+                        }
+                        continue;
+                    }
+                } finally {
+                    if (0 != 0) {
+                        cursor.close();
+                    }
+                }
+            } catch (Exception unused2) {
             }
-            d = null;
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0047, code lost:
+        if (r3 != null) goto L29;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0052, code lost:
+        if (0 == 0) goto L28;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0054, code lost:
+        r3.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0057, code lost:
+        return "";
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        int i;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = tnb.b(context, "setting_global_info", new String[]{"_id", "value"}, null, null, null, null, null);
+                    if (cursor == null) {
+                        return "";
+                    }
+                    while (cursor.moveToNext()) {
+                        try {
+                            i = cursor.getInt(cursor.getColumnIndex("_id"));
+                            string = cursor.getString(cursor.getColumnIndex("value"));
+                        } catch (Exception unused) {
+                        }
+                        if (i == 16) {
+                            String g = rnb.g(string);
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            return g;
+                        }
+                        continue;
+                    }
+                } finally {
+                    if (0 != 0) {
+                        cursor.close();
+                    }
+                }
+            } catch (Exception unused2) {
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

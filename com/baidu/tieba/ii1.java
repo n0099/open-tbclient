@@ -1,99 +1,69 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ii1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a() {
-        InterceptResult invokeV;
-        ConnectivityManager connectivityManager;
+    public static void a(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = ki1.a();
-            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
-                return null;
-            }
-            return connectivityManager.getActiveNetworkInfo();
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, bundle) != null) || bundle == null) {
+            return;
         }
-        return (NetworkInfo) invokeV.objValue;
+        try {
+            String string = bundle.getString("zid");
+            if (!TextUtils.isEmpty(string)) {
+                bundle.remove("zid");
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("c", bundle.getString("cuid"));
+                jSONObject.put("z", string);
+                jSONObject.put("mac", yh1.c());
+                jSONObject.put("app", "android");
+                jSONObject.put("ver", zh1.a(context));
+                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
+            }
+        } catch (Exception e) {
+            fi1.b(e.getMessage());
+        }
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public static Bundle b(Context context, Bundle bundle) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
+            if (bundle == null) {
+                return new Bundle();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "1";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "2";
-                case 13:
-                case 18:
-                case 19:
-                    break;
-                default:
-                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
-                        return "unknown";
-                    }
-                    break;
-            }
-            return "3";
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                if (a.getType() == 1) {
-                    return "4";
+            wh1.a = bundle.getString("bduss");
+            wh1.b = bundle.getString("tpOrderId");
+            wh1.g = bundle.getString("nativeAppId");
+            wh1.h = bundle.getString("sceneSource");
+            wh1.c = bundle.getString("appKey");
+            wh1.d = bundle.getString("dealId");
+            bundle.putString("deviceType", "ANDROID");
+            bundle.putString("channel", "cashiersdk");
+            bundle.putString(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
+            String[] stringArray = bundle.getStringArray("blockedPayChannels");
+            if (stringArray != null && stringArray.length > 0) {
+                bundle.remove("blockedPayChannels");
+                JSONArray jSONArray = new JSONArray();
+                for (String str : stringArray) {
+                    jSONArray.put(str);
                 }
-                if (a.getType() == 0) {
-                    return b(a.getSubtype(), a.getSubtypeName());
-                }
-                return "unknown";
+                bundle.putString("bannedChannels", jSONArray.toString());
             }
-            return "0";
+            a(context, bundle);
+            return bundle;
         }
-        return (String) invokeV.objValue;
+        return (Bundle) invokeLL.objValue;
     }
 }

@@ -1,213 +1,75 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URI;
-import java.net.URISyntaxException;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+@Service
 /* loaded from: classes5.dex */
-public class er3 extends br3 {
+public class er3 implements xw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743907, "Lcom/baidu/tieba/er3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947743907, "Lcom/baidu/tieba/er3;");
-                return;
-            }
-        }
-        b = rr1.a;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onUserCancel: report");
-            }
-            a();
-            l();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.a.d("na_start")) {
-            this.a.g("na_start");
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.e()) {
-            this.a.k();
-            mt2.e();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.i();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public er3(String str) {
-        super(str);
+    public er3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public boolean b(String str) {
-        URI uri;
+    @Override // com.baidu.tieba.yw3
+    public void a(dc3 dc3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dc3Var) == null) {
+            dc3Var.b(new ws3(dc3Var));
+            dc3Var.b(new at3(dc3Var));
+            dc3Var.b(new ut3(dc3Var));
+            dc3Var.b(new tt3(dc3Var));
+            dc3Var.b(new jt3(dc3Var));
+            dc3Var.b(new bt3(dc3Var));
+            dc3Var.b(new ys3(dc3Var));
+            dc3Var.b(new ht3(dc3Var));
+            dc3Var.b(new xs3(dc3Var));
+            dc3Var.b(new vs3(dc3Var));
+            dc3Var.b(new us3(dc3Var));
+            dc3Var.b(new zs3(dc3Var));
+            dc3Var.b(new yt3(dc3Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.yw3
+    @Nullable
+    public Map<String, Object> b(@NonNull hz1 hz1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                uri = new URI(str);
-            } catch (URISyntaxException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                uri = null;
-            }
-            if (uri != null && !TextUtils.isEmpty(uri.getPath()) && !TextUtils.equals("/", uri.getPath())) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hz1Var)) == null) {
+            return SwanApi$$ModulesProvider.getV8ApiModules(hz1Var);
         }
-        return invokeL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 
-    public void c(String str) {
+    @Override // com.baidu.tieba.yw3
+    @Nullable
+    public Map<String, Object> c(@NonNull hz1 hz1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFcpSubmit: " + str);
-            }
-            if (!this.a.d("na_fcp")) {
-                this.a.g("na_fcp");
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hz1Var)) == null) {
+            return SwanApi$$ModulesProvider.getWebviewApiModules(hz1Var);
         }
-    }
-
-    public void h(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !b(str) && !this.a.d("na_load_url_end")) {
-            this.a.g("na_load_url_end");
-            this.a.f("load_end_url", str);
-            boolean d = this.a.d("fe_fmp");
-            dr3 dr3Var = this.a;
-            if (d) {
-                str2 = "1";
-            } else {
-                str2 = "0";
-            }
-            dr3Var.f("fmpArrived", str2);
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onLoadUrlStart: " + str);
-            }
-            if (!this.a.d("na_load_url")) {
-                this.a.g("na_load_url");
-                this.a.f("load_url", str);
-            }
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !b(str) && !this.a.d("na_first_image_paint")) {
-            this.a.g("na_first_image_paint");
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !b(str) && !this.a.d("na_first_text_paint")) {
-            this.a.g("na_first_text_paint");
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFmpSubmit: " + str);
-            }
-            if (!this.a.d("na_up_screen")) {
-                this.a.g("na_up_screen");
-            }
-            if (this.a.d("fe_fmp")) {
-                a();
-                l();
-            }
-        }
-    }
-
-    public void g(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    this.a.h(jSONObject.optString("actionId"), jSONObject.optLong("timestamp"));
-                } catch (JSONException e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            this.a.g("fe_fmp");
-            if (this.a.d("na_up_screen")) {
-                a();
-                l();
-            }
-        }
+        return (Map) invokeL.objValue;
     }
 }

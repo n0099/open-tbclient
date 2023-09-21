@@ -37,15 +37,15 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b5b;
-import com.baidu.tieba.c5b;
-import com.baidu.tieba.i6b;
-import com.baidu.tieba.n3b;
-import com.baidu.tieba.qu6;
-import com.baidu.tieba.t55;
+import com.baidu.tieba.a8b;
+import com.baidu.tieba.f5b;
+import com.baidu.tieba.q6b;
+import com.baidu.tieba.s55;
+import com.baidu.tieba.t6b;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
+import com.baidu.tieba.u6b;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.y4b;
+import com.baidu.tieba.wu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 /* loaded from: classes8.dex */
-public class NewWriteActivity extends BaseFragmentActivity implements y4b, VoiceManager.j {
+public class NewWriteActivity extends BaseFragmentActivity implements q6b, VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -66,11 +66,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
     @Nullable
     public View h;
     @Nullable
-    public n3b i;
+    public f5b i;
     @Nullable
-    public i6b j;
+    public a8b j;
     @Nullable
-    public b5b k;
+    public t6b k;
     public boolean l;
     public boolean m;
     public final CustomMessageListener n;
@@ -83,10 +83,10 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.IPlayView r1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.IPlayView w1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.IPlayView) invokeL.objValue;
@@ -124,12 +124,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                b5b b5bVar = this.a.k;
-                if (b5bVar != null) {
-                    b5bVar.b();
+                t6b t6bVar = this.a.k;
+                if (t6bVar != null) {
+                    t6bVar.b();
                 }
                 this.a.setResult(100);
-                this.a.x();
+                this.a.s();
             }
         }
     }
@@ -163,9 +163,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                b5b b5bVar = this.a.k;
-                if (b5bVar != null) {
-                    b5bVar.B();
+                t6b t6bVar = this.a.k;
+                if (t6bVar != null) {
+                    t6bVar.B();
                     return false;
                 }
                 return false;
@@ -202,9 +202,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                b5b b5bVar = this.a.k;
-                if (b5bVar != null) {
-                    b5bVar.s();
+                t6b t6bVar = this.a.k;
+                if (t6bVar != null) {
+                    t6bVar.s();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921756));
                 }
                 this.a.h.setVisibility(8);
@@ -240,7 +240,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.t1("6");
+                this.a.p1("6");
                 this.a.h.setVisibility(8);
             }
         }
@@ -279,9 +279,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                b5b b5bVar = this.a.k;
-                if (b5bVar != null) {
-                    b5bVar.A();
+                t6b t6bVar = this.a.k;
+                if (t6bVar != null) {
+                    t6bVar.A();
                 }
                 BdUtilHelper.hideSoftKeyPad(this.a.getActivity(), this.a.getCurrentFocus());
                 return super.onFling(motionEvent, motionEvent2, f, f2);
@@ -306,33 +306,33 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         this.n = new a(this, 2921622);
     }
 
+    @Override // com.baidu.tieba.q6b
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            P0().stopPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.q6b
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            s1();
+        }
+    }
+
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager H0() {
+    public VoiceManager P0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.g == null) {
                 this.g = new VoiceManager();
             }
             return this.g;
         }
         return (VoiceManager) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.y4b
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            H0().stopPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.y4b
-    public void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w1();
-        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -347,7 +347,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         }
     }
 
-    @Override // com.baidu.tieba.y4b
+    @Override // com.baidu.tieba.q6b
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -369,12 +369,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        b5b b5bVar;
+        t6b t6bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            n3b n3bVar = this.i;
-            if ((n3bVar == null || !n3bVar.d()) && (b5bVar = this.k) != null) {
-                P0(b5bVar.onBackPressed());
+            f5b f5bVar = this.i;
+            if ((f5bVar == null || !f5bVar.d()) && (t6bVar = this.k) != null) {
+                L0(t6bVar.onBackPressed());
             }
         }
     }
@@ -384,12 +384,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onDestroy();
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.onDestroy();
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.onDestroy();
             }
-            I();
-            H0().onDestory(getPageContext());
+            E();
+            P0().onDestory(getPageContext());
             if (!this.m) {
                 WriteMsgHolder.setCurrentWriteActivityFromTag(null);
             }
@@ -401,14 +401,14 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onPause();
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.onPause();
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.onPause();
                 this.k.i();
             }
-            H0().onPause();
+            P0().onPause();
             BdUtilHelper.hideSoftKeyPad(this, getCurrentFocus());
-            YunDialogManager.onHidden(t55.n);
+            YunDialogManager.onHidden(s55.n);
         }
     }
 
@@ -417,12 +417,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onResume();
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.onResume();
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.onResume();
             }
-            H0().onResume(getPageContext());
-            YunDialogManager.onShow(this, t55.n);
+            P0().onResume(getPageContext());
+            YunDialogManager.onShow(this, s55.n);
         }
     }
 
@@ -431,11 +431,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onStart();
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.onStart();
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.onStart();
             }
-            H0().onStart(getPageContext());
+            P0().onStart(getPageContext());
         }
     }
 
@@ -444,20 +444,20 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onStop();
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.onStop();
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.onStop();
             }
-            H0().onStop(getPageContext());
+            P0().onStop(getPageContext());
         }
     }
 
-    public boolean v1() {
+    public boolean r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            n3b n3bVar = this.i;
-            if (n3bVar != null && n3bVar.a()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            f5b f5bVar = this.i;
+            if (f5bVar != null && f5bVar.a()) {
                 return true;
             }
             return false;
@@ -465,25 +465,25 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.y4b
-    public void x() {
+    @Override // com.baidu.tieba.q6b
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             this.m = true;
             finish();
         }
     }
 
-    @Override // com.baidu.tieba.y4b
-    public void P0(boolean z) {
+    @Override // com.baidu.tieba.q6b
+    public void L0(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && !z) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && !z) {
             setResult(100);
             finish();
         }
     }
 
-    @Override // com.baidu.tieba.y4b
+    @Override // com.baidu.tieba.q6b
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -508,13 +508,13 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.onChangeSkinType(i);
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.onChangeSkinType(i);
             }
             View view2 = this.h;
             if (view2 != null && view2.getVisibility() == 0) {
-                w1();
+                s1();
             }
         }
     }
@@ -524,9 +524,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.d(z);
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.d(z);
             }
         }
     }
@@ -536,9 +536,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, intent) == null) {
             super.onNewIntent(intent);
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.onNewIntent(intent);
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.onNewIntent(intent);
             }
         }
     }
@@ -547,30 +547,30 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.onSaveInstanceState(bundle);
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.onSaveInstanceState(bundle);
             }
-            H0().onSaveInstanceState(this);
+            P0().onSaveInstanceState(this);
             super.onSaveInstanceState(bundle);
         }
     }
 
-    @Override // com.baidu.tieba.y4b
-    public void Q0(int i, boolean z) {
+    @Override // com.baidu.tieba.q6b
+    public void M0(int i, boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (intent = getIntent()) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra("type", i);
-        i6b i6bVar = this.j;
-        if (i6bVar != null) {
-            this.k = i6bVar.a(i, z);
+        a8b a8bVar = this.j;
+        if (a8bVar != null) {
+            this.k = a8bVar.a(i, z);
         }
-        b5b b5bVar = this.k;
-        if (b5bVar != null) {
-            b5bVar.onCreate(null);
+        t6b t6bVar = this.k;
+        if (t6bVar != null) {
+            t6bVar.onCreate(null);
             this.k.onChangeSkinType(TbadkApplication.getInst().getSkinType());
         }
     }
@@ -580,9 +580,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            b5b b5bVar = this.k;
-            if (b5bVar != null) {
-                b5bVar.onActivityResult(i, i2, intent);
+            t6b t6bVar = this.k;
+            if (t6bVar != null) {
+                t6bVar.onActivityResult(i, i2, intent);
             }
         }
     }
@@ -600,35 +600,35 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0064);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091a6f);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091a5b);
             this.b = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092ac1);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09078d);
+            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092a8c);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090784);
             this.e = (LinearLayout) findViewById(R.id.tool_view);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.c.setOnTouchListener(new b(this));
-            i6b i6bVar = new i6b(getPageContext(), this.b, this.d, this.e, this);
-            this.j = i6bVar;
-            b5b b2 = i6bVar.b(bundle);
+            a8b a8bVar = new a8b(getPageContext(), this.b, this.d, this.e, this);
+            this.j = a8bVar;
+            t6b b2 = a8bVar.b(bundle);
             this.k = b2;
             if (b2 != null) {
                 b2.onCreate(bundle);
             }
             this.f = new GestureDetector(getPageContext().getPageActivity(), new e(this, null));
             registerListener(this.n);
-            H0().onCreate(getPageContext());
-            n3b n3bVar = new n3b(this);
-            this.i = n3bVar;
-            n3bVar.e();
+            P0().onCreate(getPageContext());
+            f5b f5bVar = new f5b(this);
+            this.i = f5bVar;
+            f5bVar.e();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_source", "old_write"));
         }
     }
 
-    public void t1(String str) {
+    public void p1(String str) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             try {
                 if (TbadkCoreApplication.getInst().getSkinType() == 4) {
                     str2 = "&skin=dark";
@@ -637,32 +637,32 @@ public class NewWriteActivity extends BaseFragmentActivity implements y4b, Voice
                 }
                 UrlManager urlManager = UrlManager.getInstance();
                 TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{c5b.a + str2 + ("&from=" + str)});
+                urlManager.dealOneLink(pageContext, new String[]{u6b.a + str2 + ("&from=" + str)});
             } catch (Exception e2) {
                 BdLog.e("openPageByUrl fail:" + e2);
             }
         }
     }
 
-    public final void w1() {
+    public final void s1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             if (this.h == null) {
-                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0929ee)).inflate();
-                this.h = findViewById(R.id.obfuscated_res_0x7f0929ed);
+                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0929b9)).inflate();
+                this.h = findViewById(R.id.obfuscated_res_0x7f0929b8);
             }
             this.h.setVisibility(0);
             EMManager.from(this.h).setAlpha(R.string.A_X05).setBackGroundColor(R.color.CAM_X0611);
-            EMManager.from(this.h.findViewById(R.id.obfuscated_res_0x7f0929ec)).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(this.h.findViewById(R.id.obfuscated_res_0x7f0929b7)).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
             TextView textView = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_cancel_btn);
             EMManager.from(textView).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0105).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0105).setBorderAlpha(R.string.A_X07);
             textView.setOnClickListener(new c(this));
             TextView textView2 = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_btn);
             EMManager.from(textView2).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0304).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304).setBorderAlpha(R.string.A_X07);
             textView2.setOnClickListener(new d(this));
-            View findViewById = this.h.findViewById(R.id.obfuscated_res_0x7f0929f0);
+            View findViewById = this.h.findViewById(R.id.obfuscated_res_0x7f0929bb);
             if (findViewById instanceof ImageView) {
-                Glide.with(findViewById).load(qu6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
+                Glide.with(findViewById).load(wu6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
             }
         }
     }

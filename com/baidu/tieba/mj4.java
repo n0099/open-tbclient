@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class mj4 extends hj4<hk4> {
+public class mj4 extends gj4<hk4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,23 +31,7 @@ public class mj4 extends hj4<hk4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hj4
-    /* renamed from: f */
-    public ContentValues c(hk4 hk4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hk4Var)) == null) {
-            ContentValues a = super.a(hk4Var);
-            a.put("independent", Integer.valueOf(hk4Var.r ? 1 : 0));
-            a.put("sub_pkg_name", hk4Var.p);
-            a.put("app_id", hk4Var.o);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hj4
+    @Override // com.baidu.tieba.gj4
     /* renamed from: g */
     public hk4 d(Cursor cursor) {
         InterceptResult invokeL;
@@ -60,7 +45,7 @@ public class mj4 extends hj4<hk4> {
         return (hk4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hj4
+    @Override // com.baidu.tieba.gj4
     public List<hk4> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -77,23 +62,41 @@ public class mj4 extends hj4<hk4> {
         return (List) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gj4
+    /* renamed from: f */
+    public ContentValues c(hk4 hk4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hk4Var)) == null) {
+            ContentValues a = super.a(hk4Var);
+            a.put("max_age", Long.valueOf(hk4Var.o));
+            a.put("token", hk4Var.p);
+            a.put("domains", hk4Var.q);
+            a.put(GameGuideConfigInfo.KEY_APP_KEY, hk4Var.r);
+            a.put("app_name", hk4Var.s);
+            return a;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
     public final hk4 h(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
             if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("independent");
-                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
-                int columnIndex3 = cursor.getColumnIndex("app_id");
+                int columnIndex = cursor.getColumnIndex("max_age");
+                int columnIndex2 = cursor.getColumnIndex("token");
+                int columnIndex3 = cursor.getColumnIndex("domains");
+                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
+                int columnIndex5 = cursor.getColumnIndex("app_name");
                 hk4 hk4Var = new hk4();
                 if (b(cursor, hk4Var)) {
-                    boolean z = true;
-                    if (cursor.getInt(columnIndex) != 1) {
-                        z = false;
-                    }
-                    hk4Var.r = z;
+                    hk4Var.o = cursor.getLong(columnIndex);
                     hk4Var.p = cursor.getString(columnIndex2);
-                    hk4Var.o = cursor.getString(columnIndex3);
+                    hk4Var.q = cursor.getString(columnIndex3);
+                    hk4Var.r = cursor.getString(columnIndex4);
+                    hk4Var.s = cursor.getString(columnIndex5);
                     return hk4Var;
                 }
                 return null;

@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes8.dex */
-public final class wfa implements if5 {
+public final class wfa extends p41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final yfa a;
 
     public wfa() {
         Interceptable interceptable = $ic;
@@ -26,41 +22,77 @@ public final class wfa implements if5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new yfa();
     }
 
-    @Override // com.baidu.tieba.if5
-    public void parseJson(JSONObject json) {
+    @Override // com.baidu.tieba.p41
+    public o41 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            try {
-                JSONObject optJSONObject = json.optJSONObject("wl_config");
-                if (optJSONObject != null) {
-                    AICapacityApplyHelper a = AICapacityApplyHelper.e.a();
-                    boolean z = true;
-                    if (optJSONObject.optInt("ai_available_status") != 1) {
-                        z = false;
-                    }
-                    a.g(z);
-                }
-                JSONObject optJSONObject2 = json.optJSONObject("common_scheme");
-                if (optJSONObject2 != null) {
-                    String aiWriteScheme = optJSONObject2.optString("ai_write_scheme");
-                    if (!TextUtils.isEmpty(aiWriteScheme)) {
-                        AICapacityApplyHelper a2 = AICapacityApplyHelper.e.a();
-                        Intrinsics.checkNotNullExpressionValue(aiWriteScheme, "aiWriteScheme");
-                        a2.h(aiWriteScheme);
-                    }
-                }
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    e.printStackTrace();
-                    return;
-                }
-                throw e;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (o41) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.c.getValue();
+        }
+        return invokeV.longValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.d.getValue();
+        }
+        return invokeV.longValue;
+    }
+
+    public wfa e(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            this.a.c.setValue(j);
+            return this;
+        }
+        return (wfa) invokeJ.objValue;
+    }
+
+    public wfa f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.a.b.setValue(str);
+            return this;
+        }
+        return (wfa) invokeL.objValue;
+    }
+
+    public wfa g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.a.a.setValue(str);
+            return this;
+        }
+        return (wfa) invokeL.objValue;
+    }
+
+    public wfa h(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            this.a.d.setValue(j);
+            return this;
+        }
+        return (wfa) invokeJ.objValue;
     }
 }

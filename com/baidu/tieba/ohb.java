@@ -1,96 +1,304 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.view.MotionEvent;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.phb;
+import com.baidu.tieba.whb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes7.dex */
-public class ohb extends lhb {
+public class ohb implements whb.a {
     public static /* synthetic */ Interceptable $ic;
+    public static ohb f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean B;
+    public Map<String, whb> a;
+    public nhb b;
+    public ExecutorService c;
+    public uhb d;
+    public Handler e;
 
-    @Override // com.baidu.tieba.khb, com.baidu.tieba.zhb
-    public void a(thb thbVar, SurfaceTexture surfaceTexture) {
+    public void delete(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, thbVar, surfaceTexture) == null) {
-            thbVar.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
-            thbVar.f(surfaceTexture);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
     }
 
-    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            GLES20.glBindFramebuffer(36160, i2);
-            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
-            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            GLES20.glClear(16640);
-            if (this.z) {
-                if (z) {
-                    int i8 = this.j;
-                    int i9 = this.k;
-                    if (i8 > i9) {
-                        int i10 = this.p;
-                        float f = (i10 * 1.0f) / i8;
-                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
-                    } else {
-                        GLES20.glViewport(0, 0, this.p, this.q);
-                    }
-                    this.o.drawFrame(this.l, fArr2);
-                }
-                if (z2) {
-                    GLES20.glViewport(0, 0, this.p, this.q);
-                } else {
-                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
-                }
-                this.mFullScreen2D.drawFrame(i, fArr);
-            } else {
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(i, fArr);
-                if (z) {
-                    int i11 = i4 + this.w;
-                    int i12 = this.q;
-                    int i13 = this.k;
-                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
-                    this.o.drawFrame(this.l, fArr2);
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ohb b;
+
+        public a(ohb ohbVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ohbVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            GLES20.glBindFramebuffer(36160, 0);
+            this.b = ohbVar;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.containsKey(this.a)) {
+                this.b.a.remove(this.a);
+            }
         }
     }
 
-    public boolean j(MotionEvent motionEvent) {
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ohb a;
+
+        public b(ohb ohbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ohbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ohbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (whb whbVar : this.a.a.values()) {
+                    if (whbVar != null && whbVar.isRunning()) {
+                        whbVar.pause();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ohb a;
+
+        public c(ohb ohbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ohbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ohbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (whb whbVar : this.a.a.values()) {
+                    if (whbVar != null && whbVar.isRunning()) {
+                        whbVar.cancel();
+                    }
+                }
+            }
+        }
+    }
+
+    public ohb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new Handler(Looper.getMainLooper());
+        this.a = new LinkedHashMap();
+        i(new nhb());
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            String e = e(str);
+            if (this.a.containsKey(e)) {
+                whb whbVar = this.a.get(e);
+                if (whbVar != null) {
+                    whbVar.cancel();
+                }
+                this.a.remove(e);
+            }
+        }
+    }
+
+    public final String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (str != null) {
+                return String.valueOf(str.hashCode());
+            }
+            throw new IllegalArgumentException("Tag can't be null!");
+        }
+        return (String) invokeL.objValue;
     }
 
-    public boolean k() {
+    public final boolean j(String str) {
+        InterceptResult invokeL;
+        whb whbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (this.a.containsKey(str) && (whbVar = this.a.get(str)) != null && whbVar.isRunning()) {
+                gkb.d("DownloadInfo has been started!");
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean k(String str) {
+        InterceptResult invokeL;
+        whb whbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            String e = e(str);
+            if (this.a.containsKey(e) && (whbVar = this.a.get(e)) != null) {
+                return whbVar.isRunning();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static ohb h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f == null) {
+                synchronized (ohb.class) {
+                    if (f == null) {
+                        f = new ohb();
+                    }
+                }
+            }
+            return f;
+        }
+        return (ohb) invokeV.objValue;
     }
 
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(tg0 tg0Var, int i, float[] fArr) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048580, this, tg0Var, i, fArr) == null) && this.s && this.l != 0) {
-            try {
-                this.mTextureId = i;
-                this.m.updateTexImage();
-                this.m.getTransformMatrix(this.n);
-                f();
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
-            } catch (Throwable th) {
-                iib.c("followvideo", th.toString());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.post(new c(this));
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.e.post(new b(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.whb.a
+    public void a(String str, whb whbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, whbVar) == null) {
+            this.e.post(new a(this, str));
+        }
+    }
+
+    public void f(phb phbVar, String str, rhb rhbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, phbVar, str, rhbVar) == null) {
+            String e = e(str);
+            if (!j(e)) {
+                cib cibVar = new cib(phbVar, new zhb(this.d, rhbVar), this.c, e, this.b, this);
+                this.a.put(e, cibVar);
+                cibVar.start();
+            }
+        }
+    }
+
+    public void g(String str, String str2, String str3, rhb rhbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, rhbVar) == null) {
+            phb.b bVar = new phb.b();
+            bVar.d(str);
+            bVar.b(new File(str2));
+            bVar.c(str3);
+            f(bVar.a(), str, rhbVar);
+        }
+    }
+
+    public final void i(@NonNull nhb nhbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, nhbVar) == null) {
+            if (nhbVar.b() <= nhbVar.a()) {
+                this.b = nhbVar;
+                this.c = Executors.newFixedThreadPool(nhbVar.a());
+                this.d = new aib(this.e);
+                return;
+            }
+            throw new IllegalArgumentException("thread num must < max thread num");
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            String e = e(str);
+            if (this.a.containsKey(e)) {
+                whb whbVar = this.a.get(e);
+                if (whbVar != null && whbVar.isRunning()) {
+                    whbVar.pause();
+                }
+                this.a.remove(e);
             }
         }
     }

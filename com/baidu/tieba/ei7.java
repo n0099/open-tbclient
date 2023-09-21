@@ -1,155 +1,68 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.app.ActivityManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.ForumToolPerm;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.cache.DefaultBitmapMemoryCacheParamsSupplier;
+import com.facebook.imagepipeline.cache.MemoryCacheParams;
 /* loaded from: classes5.dex */
-public class ei7 {
+public class ei7 extends DefaultBitmapMemoryCacheParamsSupplier {
     public static /* synthetic */ Interceptable $ic;
-    public static UserData a;
-    public static boolean b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ActivityManager a;
 
-    public static UserData a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ei7(ActivityManager activityManager) {
+        super(activityManager);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activityManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ActivityManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = activityManager;
+    }
+
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int min = Math.min(this.a.getMemoryClass() * 1048576, Integer.MAX_VALUE);
+            if (min < 33554432) {
+                return 4194304;
+            }
+            if (min < 67108864) {
+                return TbConfig.THREAD_GIF_MIN_USE_MEMORY;
+            }
+            return min / 8;
         }
-        return (UserData) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static String c() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.facebook.imagepipeline.cache.DefaultBitmapMemoryCacheParamsSupplier, com.facebook.common.internal.Supplier
+    public MemoryCacheParams get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            MemoryCacheParams memoryCacheParams = super.get();
+            return new MemoryCacheParams(a(), memoryCacheParams.maxCacheEntries, memoryCacheParams.maxEvictionQueueSize, memoryCacheParams.maxEvictionQueueEntries, memoryCacheParams.maxCacheEntrySize, memoryCacheParams.paramsCheckIntervalMs);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            UserData a2 = a();
-            if (a2 == null || a2.getIs_manager() != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            UserData a2 = a();
-            if (a2 == null || a2.getIs_manager() != 3) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static UserData b(FrsViewData frsViewData) {
-        InterceptResult invokeL;
-        UserData userData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
-            if (frsViewData != null) {
-                userData = frsViewData.getUserData();
-            } else {
-                userData = null;
-            }
-            a = userData;
-            return userData;
-        }
-        return (UserData) invokeL.objValue;
-    }
-
-    public static boolean d(UserData userData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, userData)) == null) {
-            if (userData == null) {
-                return false;
-            }
-            int is_manager = userData.getIs_manager();
-            if (is_manager != 1 && is_manager != 2 && is_manager != 3 && is_manager != 4) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        List<ForumToolPerm> forumToolAuth;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            UserData a2 = a();
-            if (a2 != null && (forumToolAuth = a2.getForumToolAuth()) != null) {
-                for (int i = 0; i < forumToolAuth.size(); i++) {
-                    ForumToolPerm forumToolPerm = forumToolAuth.get(i);
-                    if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void i(ax axVar, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65544, null, axVar, frsViewData) != null) || axVar == null) {
-            return;
-        }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
-        }
-        if (frsViewData != null && (d(b(frsViewData)) || h())) {
-            axVar.e(4);
-        } else {
-            axVar.f(4);
-        }
-    }
-
-    public static void j(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65545, null, threadCommentAndPraiseInfoLayout, frsViewData) != null) || threadCommentAndPraiseInfoLayout == null) {
-            return;
-        }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
-        }
-        if (frsViewData != null && d(b(frsViewData))) {
-            threadCommentAndPraiseInfoLayout.setManageVisible(true);
-        } else {
-            threadCommentAndPraiseInfoLayout.setManageVisible(false);
-        }
+        return (MemoryCacheParams) invokeV.objValue;
     }
 }

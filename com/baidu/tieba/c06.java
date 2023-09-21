@@ -1,13 +1,15 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes5.dex */
-public interface c06 extends wt5 {
-    boolean goBack();
+public interface c06 {
+    void a();
 
-    void onDestroy();
+    void b(int i, int i2, int i3, int i4);
 
-    void onPause();
+    Context getContext();
 
-    void onResume();
+    boolean post(Runnable runnable);
 
-    void z1(String str, boolean z);
+    boolean removeCallbacks(Runnable runnable);
 }

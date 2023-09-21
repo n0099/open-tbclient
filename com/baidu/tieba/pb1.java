@@ -1,33 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.webview.view.NadBrowserStateView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.SslErrorHandler;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class pb1 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$3;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pb1 extends va1 {
+    void A0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
 
-    static {
-        int[] iArr = new int[NadBrowserStateView.ViewState.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
-        $EnumSwitchMapping$0[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
-        int[] iArr2 = new int[NadBrowserStateView.ViewState.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
-        $EnumSwitchMapping$1[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
-        int[] iArr3 = new int[NadBrowserStateView.ViewState.values().length];
-        $EnumSwitchMapping$2 = iArr3;
-        iArr3[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
-        $EnumSwitchMapping$2[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
-        int[] iArr4 = new int[NadBrowserStateView.ViewState.values().length];
-        $EnumSwitchMapping$3 = iArr4;
-        iArr4[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
-        $EnumSwitchMapping$3[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
-    }
+    boolean F(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    void F0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    boolean I0(AbsNadBrowserView absNadBrowserView, String str);
+
+    void J(AbsNadBrowserView absNadBrowserView, String str);
+
+    void O0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
+
+    void T0(AbsNadBrowserView absNadBrowserView, qb1 qb1Var, String str, String str2);
+
+    void W0();
+
+    void Y();
+
+    sb1 b0(AbsNadBrowserView absNadBrowserView, String str);
+
+    void c(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
+
+    void f(AbsNadBrowserView absNadBrowserView, String str);
+
+    void g(AbsNadBrowserView absNadBrowserView);
+
+    void i0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
+
+    void j1(AbsNadBrowserView absNadBrowserView, int i);
+
+    void q(AbsNadBrowserView absNadBrowserView, String str);
+
+    void x(AbsNadBrowserView absNadBrowserView, float f, float f2);
+
+    void z0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
 }

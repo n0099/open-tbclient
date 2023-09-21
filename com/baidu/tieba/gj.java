@@ -4,20 +4,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes6.dex */
-public class gj extends nj {
+public class gj extends mj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public long b;
-    public long c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String[] e;
+    public List<BasicNameValuePair> f;
 
-    public gj(byte[] bArr, long j, long j2) {
+    public gj(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,8 +32,10 @@ public class gj extends nj {
                 return;
             }
         }
-        this.a = bArr;
-        this.b = j;
-        this.c = j2;
+        this.a = str;
+        this.b = "/";
+        this.d = null;
+        this.e = null;
+        this.f = null;
     }
 }

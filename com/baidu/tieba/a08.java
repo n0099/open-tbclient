@@ -1,95 +1,56 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.widget.timepicker.DatePickerHelper;
-import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
 /* loaded from: classes5.dex */
-public class a08 extends DatePickerHelper {
+public class a08 extends va {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity<?> a;
-    public b b;
-    public final OnTimeSelectListener c;
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(Date date, long j);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements OnTimeSelectListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a08 a;
-
-        public a(a08 a08Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a08Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a08Var;
-        }
-
-        @Override // com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener
-        public void onTimeSelect(Date date, View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && date != null && this.a.a != null) {
-                if (date.getTime() > System.currentTimeMillis()) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1067);
-                    return;
-                }
-                long time = date.getTime() / 1000;
-                if (this.a.b != null) {
-                    this.a.b.a(date, time);
-                }
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a08(BaseActivity<?> baseActivity) {
-        super(baseActivity);
+    public a08() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        this.a = baseActivity;
     }
 
-    public void c(b bVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+    @Override // com.baidu.tieba.ya
+    public /* bridge */ /* synthetic */ HttpResponsedMessage g(HttpResponsedMessage httpResponsedMessage) {
+        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
+        i(httpResponsedMessage2);
+        return httpResponsedMessage2;
+    }
+
+    public HttpResponsedMessage i(HttpResponsedMessage httpResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.b = bVar;
-            super.showTimePicker(this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage == null) {
+                return httpResponsedMessage;
+            }
+            if (httpResponsedMessage.getError() == 1990055 && !zz7.c(httpResponsedMessage.getCmd())) {
+                zz7.d();
+            }
+            return httpResponsedMessage;
         }
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

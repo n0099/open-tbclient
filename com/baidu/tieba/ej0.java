@@ -1,15 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class ej0 implements lk1 {
+public abstract class ej0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Nullable
+    public abstract String a();
+
+    public abstract String b();
+
+    public abstract boolean d(Context context, gj0 gj0Var, @Nullable Map<String, Object> map, @Nullable kj0 kj0Var);
 
     public ej0() {
         Interceptable interceptable = $ic;
@@ -25,31 +34,10 @@ public class ej0 implements lk1 {
         }
     }
 
-    @Override // com.baidu.tieba.lk1
-    public Object get() {
-        InterceptResult invokeV;
+    public void c(kj0 kj0Var, @Nullable gj0 gj0Var, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new hh0());
-            arrayList.add(new ih0());
-            arrayList.add(new jh0());
-            arrayList.add(new kh0());
-            arrayList.add(new lh0());
-            arrayList.add(new mh0());
-            arrayList.add(new oh0());
-            arrayList.add(new ji0());
-            arrayList.add(new rm0());
-            arrayList.add(new op0());
-            arrayList.add(new pp0());
-            arrayList.add(new rp0());
-            arrayList.add(new zp0());
-            arrayList.add(new r51());
-            arrayList.add(new f91());
-            arrayList.add(new hb1());
-            arrayList.add(new b66());
-            return arrayList;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{kj0Var, gj0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            pj0.b(kj0Var, gj0Var, i, z);
         }
-        return invokeV.objValue;
     }
 }

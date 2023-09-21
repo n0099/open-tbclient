@@ -1,61 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedContentResource;
+import tbclient.TitleComponent;
 /* loaded from: classes5.dex */
-public class db7 extends ClickableSpan {
+public final class db7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View widget) {
+    public static final void a(TitleComponent titleComponent, List<yc7<?>> dataList, SpannableStringBuilder titleBuilder, b97 feedExtraData, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, widget) == null) {
-            Intrinsics.checkNotNullParameter(widget, "widget");
-        }
-    }
-
-    public db7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
+            Intrinsics.checkNotNullParameter(titleComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            u77 u77Var = new u77(titleBuilder, z);
+            List<FeedContentResource> list = titleComponent.data;
+            if (list != null) {
+                bb7.a(list, titleBuilder, feedExtraData, u77Var);
             }
-        }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint ds) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ds) == null) {
-            Intrinsics.checkNotNullParameter(ds, "ds");
-            int i = this.a;
-            if (i == 0) {
-                ds.setColor(ds.linkColor);
+            if (titleBuilder.length() > 0) {
+                z2 = true;
             } else {
-                ds.setColor(i);
+                z2 = false;
             }
-            ds.setUnderlineText(false);
+            if (z2) {
+                dataList.add(new zc7(u77Var, "title"));
+            }
         }
     }
 }

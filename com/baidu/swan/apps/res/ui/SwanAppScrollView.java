@@ -9,10 +9,10 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.ext.widget.dialog.BoxScrollView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rr1;
+import com.baidu.tieba.qr1;
 /* loaded from: classes4.dex */
 public class SwanAppScrollView extends ScrollView {
-    public static final boolean b = rr1.a;
+    public static final boolean b = qr1.a;
     public int a;
 
     public SwanAppScrollView(Context context) {

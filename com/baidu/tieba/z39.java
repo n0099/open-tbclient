@@ -1,87 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.adapter.LegoDelegateAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes9.dex */
-public class z39 {
+/* loaded from: classes8.dex */
+public class z39 implements o59 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, z39> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309161, "Lcom/baidu/tieba/z39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948309161, "Lcom/baidu/tieba/z39;");
-                return;
-            }
-        }
-        f = new HashMap<>();
-    }
 
     public z39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = "";
     }
 
-    public static z39 a(long j, String str) {
-        InterceptResult invokeJL;
+    @Override // com.baidu.tieba.o59
+    public g59 a(k59 k59Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(j);
-            sb.append("_");
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            sb.append(str);
-            return f.get(sb.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k59Var)) == null) {
+            return new i59(k59Var);
         }
-        return (z39) invokeJL.objValue;
+        return (g59) invokeL.objValue;
     }
 
-    public void b() {
-        String str;
+    @Override // com.baidu.tieba.o59
+    public l49 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            sb.append("_");
-            if (TextUtils.isEmpty(this.b)) {
-                str = "";
-            } else {
-                str = this.b;
-            }
-            sb.append(str);
-            f.put(sb.toString(), this);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            return new LegoDelegateAdapter(tbPageContext, bdUniqueId, i);
         }
+        return (l49) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.o59
+    public q59 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            return new s59(tbPageContext, bdUniqueId);
+        }
+        return (q59) invokeLL.objValue;
     }
 }

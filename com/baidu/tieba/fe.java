@@ -205,7 +205,7 @@ public abstract class fe<T> {
             this.e++;
             if (this.e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
                 this.e = 0;
-                lg.a().b(new a(this));
+                kg.a().b(new a(this));
             }
         }
     }

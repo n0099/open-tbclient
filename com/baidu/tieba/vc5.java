@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
@@ -11,8 +9,6 @@ import org.json.JSONObject;
 public class vc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public wc5 b;
 
     public vc5() {
         Interceptable interceptable = $ic;
@@ -28,37 +24,13 @@ public class vc5 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public wc5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (wc5) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("common");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.optInt("version");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
-            if (optJSONObject2 != null) {
-                wc5 wc5Var = new wc5();
-                this.b = wc5Var;
-                wc5Var.f(optJSONObject2);
-            }
-        }
+        jSONObject.optString("app_id", "");
+        jSONObject.optString("app_name", "");
+        jSONObject.optString("package_name", "");
     }
 }

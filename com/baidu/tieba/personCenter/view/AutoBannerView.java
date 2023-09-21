@@ -5,18 +5,20 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.flow.CoverFlowView;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.r75;
-import com.baidu.tieba.s75;
+import com.baidu.tieba.uv9;
 import com.baidu.tieba.v75;
-import com.baidu.tieba.wt9;
+import com.baidu.tieba.w75;
+import com.baidu.tieba.z75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,10 +29,11 @@ import java.util.List;
 public class AutoBannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowView<wt9> a;
+    public CoverFlowView<uv9> a;
+    public List<uv9> b;
 
     /* loaded from: classes7.dex */
-    public class a extends r75 {
+    public class a extends v75 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerView a;
@@ -53,35 +56,35 @@ public class AutoBannerView extends RelativeLayout {
             this.a = autoBannerView;
         }
 
-        @Override // com.baidu.tieba.r75, com.baidu.tieba.p75
-        public s75 a() {
+        @Override // com.baidu.tieba.v75, com.baidu.tieba.t75
+        public w75 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                s75 s75Var = new s75();
-                s75Var.c(R.drawable.icon_banner_gray_n);
-                s75Var.g(R.drawable.icon_banner_s);
-                s75Var.d(81);
-                s75Var.e(R.dimen.tbds26);
-                s75Var.h(R.dimen.tbds10);
-                return s75Var;
+                w75 w75Var = new w75();
+                w75Var.c(R.drawable.icon_banner_gray_n);
+                w75Var.g(R.drawable.icon_banner_s);
+                w75Var.d(81);
+                w75Var.e(R.dimen.tbds26);
+                w75Var.h(R.dimen.tbds10);
+                return w75Var;
             }
-            return (s75) invokeV.objValue;
+            return (w75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.r75, com.baidu.tieba.p75
-        public v75 c() {
+        @Override // com.baidu.tieba.v75, com.baidu.tieba.t75
+        public z75 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                v75 v75Var = new v75();
-                v75Var.a(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds209));
-                return v75Var;
+                z75 z75Var = new z75();
+                z75Var.a(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds209));
+                return z75Var;
             }
-            return (v75) invokeV.objValue;
+            return (z75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.r75, com.baidu.tieba.p75
+        @Override // com.baidu.tieba.v75, com.baidu.tieba.t75
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -161,12 +164,25 @@ public class AutoBannerView extends RelativeLayout {
             }
         }
         this.a = null;
-        b();
+        this.b = null;
+        c();
     }
 
-    public void a(String str) {
+    public boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i > 0 && i <= ListUtils.getCount(this.b)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
                 if (!TextUtils.isEmpty(str)) {
                     UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(getContext()), new String[]{str});
@@ -177,17 +193,18 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void c(List<wt9> list) {
+    public void d(List<uv9> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.b = list;
             this.a.setData(list);
         }
     }
 
-    public void d(int i) {
-        CoverFlowView<wt9> coverFlowView;
+    public void e(int i) {
+        CoverFlowView<uv9> coverFlowView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (coverFlowView = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.v();
         }
     }
@@ -195,22 +212,22 @@ public class AutoBannerView extends RelativeLayout {
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onWindowVisibilityChanged(i);
         }
     }
 
     public void setMarqueenTime(long j) {
-        CoverFlowView<wt9> coverFlowView;
+        CoverFlowView<uv9> coverFlowView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && (coverFlowView = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setMarqueenTime(j);
         }
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = new CoverFlowView<>(getContext());
             a aVar = new a(this);
             this.a.setIndicatorNoOffet(false);
@@ -222,10 +239,10 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void e() {
-        CoverFlowView<wt9> coverFlowView;
+    public void f() {
+        CoverFlowView<uv9> coverFlowView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (coverFlowView = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.D();
         }
     }
@@ -233,7 +250,7 @@ public class AutoBannerView extends RelativeLayout {
     public CoverFlowView getCoverFlowView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.a;
         }
         return (CoverFlowView) invokeV.objValue;

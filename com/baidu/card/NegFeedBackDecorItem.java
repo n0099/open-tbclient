@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.cx;
-import com.baidu.tieba.oy;
+import com.baidu.tieba.bx;
+import com.baidu.tieba.ny;
+import com.baidu.tieba.tx;
 import com.baidu.tieba.ux;
-import com.baidu.tieba.vx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class NegFeedBackDecorItem extends cx implements ux<NegativeFeedBackData>, vx {
+public class NegFeedBackDecorItem extends bx implements tx<NegativeFeedBackData>, ux {
     public static /* synthetic */ Interceptable $ic;
     public static final int VIEW_WH;
     public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class NegFeedBackDecorItem extends cx implements ux<NegativeFeedBackData>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     public void onBindDataToView(NegativeFeedBackData negativeFeedBackData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, negativeFeedBackData) == null) {
@@ -245,9 +245,9 @@ public class NegFeedBackDecorItem extends cx implements ux<NegativeFeedBackData>
                 } else if (b15Var.isSupportTop()) {
                     setTopMarginParentAlignTop(UtilHelper.getDimenPixelSize(R.dimen.tbds50));
                 } else if (b15Var.isSupportBottom()) {
-                    oy oyVar = this.threadCard;
-                    if (oyVar != null) {
-                        oyVar.o(this);
+                    ny nyVar = this.threadCard;
+                    if (nyVar != null) {
+                        nyVar.o(this);
                     }
                 } else {
                     autoAlignParent(Align.ALIGN_RIGHT_TOP);
@@ -309,7 +309,7 @@ public class NegFeedBackDecorItem extends cx implements ux<NegativeFeedBackData>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cx
+    @Override // com.baidu.tieba.bx
     public NEGFeedBackView getDecorView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -319,7 +319,7 @@ public class NegFeedBackDecorItem extends cx implements ux<NegativeFeedBackData>
         return (NEGFeedBackView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {

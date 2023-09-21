@@ -1,58 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.annotation.TargetApi;
 import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.log.TbLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class nl {
+public class nl {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static File a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448312239, "Lcom/baidu/tieba/nl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448312239, "Lcom/baidu/tieba/nl;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448312239, "Lcom/baidu/tieba/nl;")) == null) {
+            return;
         }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a.b(str);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-    }
-
-    @JvmStatic
-    public static final void b(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            a.c(str, str2, str3);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448312239, "Lcom/baidu/tieba/nl;");
         }
     }
 
@@ -61,85 +41,150 @@ public final class nl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public static void b(ClassLoader classLoader, File file) throws Throwable {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
+                ol.a(ol.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static void b(ClassLoader classLoader, File file) throws Throwable {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
+                Object obj = ol.b(classLoader, "pathList").get(classLoader);
+                List list = (List) ol.b(obj, "nativeLibraryDirectories").get(obj);
+                if (list == null) {
+                    list = new ArrayList(2);
                 }
-            }
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    return TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, Build.SUPPORTED_ABIS);
-                }
-                return Build.CPU_ABI2;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    return Application.getProcessName();
-                }
-                return "";
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @JvmStatic
-        public final void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i("libnama check", "abi:" + a() + ", process: " + d() + ", thread:" + Thread.currentThread().getId() + ", msg: " + str);
-            }
-        }
-
-        @JvmStatic
-        public final void c(String name, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, name, str, str2) == null) {
-                Intrinsics.checkNotNullParameter(name, "name");
-                if (str != null && !TextUtils.isEmpty(name)) {
-                    boolean z = false;
-                    if (StringsKt__StringsKt.contains$default((CharSequence) name, (CharSequence) "nama", false, 2, (Object) null)) {
-                        TbLog defaultLog = DefaultLog.getInstance();
-                        StringBuilder sb = new StringBuilder();
-                        if ((str2 == null || str2.length() == 0) ? true : true) {
-                            str2 = "";
-                        }
-                        sb.append(str2);
-                        sb.append(", name:");
-                        sb.append(name);
-                        sb.append(", abi:");
-                        sb.append(a());
-                        sb.append(", process: ");
-                        sb.append(d());
-                        sb.append(", thread:");
-                        sb.append(Thread.currentThread().getId());
-                        sb.append(", packageinfo: ");
-                        sb.append(str);
-                        defaultLog.i("libnama check", sb.toString());
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    if (file.equals((File) it.next()) || file.equals(nl.a)) {
+                        it.remove();
+                        break;
+                    }
+                    while (it.hasNext()) {
                     }
                 }
+                list.add(0, file);
+                Collection collection = (List) ol.b(obj, "systemNativeLibraryDirectories").get(obj);
+                if (collection == null) {
+                    collection = new ArrayList(2);
+                }
+                Method c = ol.c(obj, "makePathElements", List.class, File.class, List.class);
+                ArrayList arrayList = new ArrayList();
+                list.addAll(collection);
+                Object[] objArr = {list, null, arrayList};
+                Field b = ol.b(obj, "nativeLibraryPathElements");
+                b.setAccessible(true);
+                b.set(obj, (Object[]) c.invoke(obj, objArr));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static void b(ClassLoader classLoader, File file) throws Throwable {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
+                Object obj = ol.b(classLoader, "pathList").get(classLoader);
+                List list = (List) ol.b(obj, "nativeLibraryDirectories").get(obj);
+                if (list == null) {
+                    list = new ArrayList(2);
+                }
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    if (file.equals((File) it.next()) || file.equals(nl.a)) {
+                        it.remove();
+                        break;
+                    }
+                    while (it.hasNext()) {
+                    }
+                }
+                list.add(0, file);
+                Collection collection = (List) ol.b(obj, "systemNativeLibraryDirectories").get(obj);
+                if (collection == null) {
+                    collection = new ArrayList(2);
+                }
+                Method c = ol.c(obj, "makePathElements", List.class);
+                list.addAll(collection);
+                Object[] objArr = {list};
+                Field b = ol.b(obj, "nativeLibraryPathElements");
+                b.setAccessible(true);
+                b.set(obj, (Object[]) c.invoke(obj, objArr));
+            }
+        }
+    }
+
+    @TargetApi(23)
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                return Build.VERSION.PREVIEW_SDK_INT;
+            } catch (Throwable unused) {
+                return 1;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public static synchronized boolean c(ClassLoader classLoader, File file) throws Throwable {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, classLoader, file)) == null) {
+            synchronized (nl.class) {
+                boolean z = false;
+                if (classLoader != null && file != null) {
+                    if (file.exists()) {
+                        int i = Build.VERSION.SDK_INT;
+                        if ((i == 25 && b() != 0) || i > 25) {
+                            z = true;
+                        }
+                        if (z) {
+                            c.b(classLoader, file);
+                        } else if (i >= 23) {
+                            b.b(classLoader, file);
+                        } else if (i >= 14) {
+                            a.b(classLoader, file);
+                        }
+                        a = file;
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static synchronized boolean d(ClassLoader classLoader, String str) throws Throwable {
+        InterceptResult invokeLL;
+        boolean c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, classLoader, str)) == null) {
+            synchronized (nl.class) {
+                c2 = c(classLoader, new File(str));
+            }
+            return c2;
+        }
+        return invokeLL.booleanValue;
     }
 }

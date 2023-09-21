@@ -32,14 +32,14 @@ import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a26;
+import com.baidu.tieba.ag;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.bg;
+import com.baidu.tieba.lm;
 import com.baidu.tieba.m05;
-import com.baidu.tieba.mm;
-import com.baidu.tieba.mp6;
+import com.baidu.tieba.sp6;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.z16;
+import com.baidu.tieba.tx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.OnClickListener {
+public class NewGridImageLayout extends LinearLayout implements tx<b15>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -64,18 +64,18 @@ public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.On
     public String i;
     public boolean j;
     public boolean k;
-    public mp6<b15> l;
+    public sp6<b15> l;
     public boolean m;
     public boolean n;
     public LinkedList<MediaData> o;
-    public z16 p;
+    public a26 p;
     public View.OnClickListener q;
     public boolean r;
     public int s;
 
-    public void setPreloadSizeReadyCallback(mm mmVar) {
+    public void setPreloadSizeReadyCallback(lm lmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, mmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, lmVar) == null) {
         }
     }
 
@@ -105,7 +105,7 @@ public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            mp6<b15> subClickListener;
+            sp6<b15> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -140,7 +140,7 @@ public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            mp6<b15> subClickListener;
+            sp6<b15> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("1");
@@ -520,10 +520,10 @@ public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.On
         }
     }
 
-    public void setSubClickListener(mp6<b15> mp6Var) {
+    public void setSubClickListener(sp6<b15> sp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, mp6Var) == null) {
-            this.l = mp6Var;
+        if (interceptable == null || interceptable.invokeL(1048598, this, sp6Var) == null) {
+            this.l = sp6Var;
         }
     }
 
@@ -586,13 +586,13 @@ public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.On
         return invokeL.booleanValue;
     }
 
-    public mp6<b15> getSubClickListener() {
+    public sp6<b15> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.l;
         }
-        return (mp6) invokeV.objValue;
+        return (sp6) invokeV.objValue;
     }
 
     public final void j(ThreadData threadData) {
@@ -640,9 +640,9 @@ public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.On
                             k = k(mediaData2);
                         }
                         TbRichTextImageInfo tbRichTextImageInfo = new TbRichTextImageInfo();
-                        tbRichTextImageInfo.setSrc(k);
-                        tbRichTextImageInfo.W(originalUrl);
-                        tbRichTextImageInfo.V(mediaData2.isLongPic());
+                        tbRichTextImageInfo.Z(k);
+                        tbRichTextImageInfo.Y(originalUrl);
+                        tbRichTextImageInfo.X(mediaData2.isLongPic());
                         int i3 = mediaData2.picWidth;
                         if (i3 > 0 && mediaData2.picHeight > 0) {
                             tbRichTextImageInfo.setWidth(i3);
@@ -678,7 +678,7 @@ public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.On
             gridImageLayout.setSupportGifPlay(false);
             this.f.setCornerStyle(1);
             this.f.setAfterClickListener(new b(this));
-            this.p = new z16();
+            this.p = new a26();
             int i = BdUtilHelper.getScreenDimensions(this.g)[0];
             this.p.J = (i - (BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2)) - (BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005) * 2);
             this.p.K = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
@@ -724,7 +724,7 @@ public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.On
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: p */
     public void onBindDataToView(b15 b15Var) {
         Interceptable interceptable = $ic;
@@ -813,11 +813,11 @@ public class NewGridImageLayout extends LinearLayout implements ux<b15>, View.On
         }
     }
 
-    public void setObjectPool(bg<ImageView> bgVar, bg<GifView> bgVar2) {
+    public void setObjectPool(ag<ImageView> agVar, ag<GifView> agVar2) {
         GridImageLayout gridImageLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048596, this, bgVar, bgVar2) == null) && (gridImageLayout = this.f) != null) {
-            gridImageLayout.setObjectPool(bgVar, bgVar2);
+        if ((interceptable == null || interceptable.invokeLL(1048596, this, agVar, agVar2) == null) && (gridImageLayout = this.f) != null) {
+            gridImageLayout.setObjectPool(agVar, agVar2);
         }
     }
 }

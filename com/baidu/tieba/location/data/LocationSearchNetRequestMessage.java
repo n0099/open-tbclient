@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetSuggestionByAddrName.DataReq;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LocationSearchNetRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

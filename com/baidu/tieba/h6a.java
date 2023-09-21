@@ -1,28 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class h6a implements tc7 {
+public class h6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.tc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-    }
+    public String a;
+    public String b;
+    public String c;
 
     public h6a() {
         Interceptable interceptable = $ic;
@@ -38,30 +29,16 @@ public final class h6a implements tc7 {
         }
     }
 
-    @Override // com.baidu.tieba.tc7
-    public Map<String, String> a(f87 businessInfo) {
+    public static h6a a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String hdid = TbadkCoreApplication.getInst().getHdid();
-            Intrinsics.checkNotNullExpressionValue(hdid, "getInst().getHdid()");
-            hashMap.put("hdid", hdid);
-            if (PermissionUtil.isBrowseMode()) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put(TiebaStatic.Params.PURE_BROWSING, str);
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            hashMap.put("uid", currentAccount);
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            h6a h6aVar = new h6a();
+            h6aVar.a = jSONObject.optString("lottie");
+            h6aVar.b = jSONObject.optString("text");
+            h6aVar.c = jSONObject.optString("cmd");
+            return h6aVar;
         }
-        return (Map) invokeL.objValue;
+        return (h6a) invokeL.objValue;
     }
 }

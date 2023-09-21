@@ -1,175 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rrb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
-import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import com.qq.e.comm.pi.IBidding;
-import java.util.HashMap;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes8.dex */
-public abstract class wqb<A extends rrb> extends ReporterPidLoader<A> {
+public class wqb implements TTNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ grb c;
+    public final /* synthetic */ FunAdInteractionListener d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ tqb f;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public wqb(FunAdType funAdType, Ssp.Pid pid) {
-        this(funAdType, pid, true);
+    public wqb(tqb tqbVar, grb grbVar, FunAdInteractionListener funAdInteractionListener, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
+            Object[] objArr = {tqbVar, grbVar, funAdInteractionListener, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f = tqbVar;
+        this.c = grbVar;
+        this.d = funAdInteractionListener;
+        this.e = str;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public wqb(FunAdType funAdType, Ssp.Pid pid, boolean z) {
-        this(funAdType, pid, z, false);
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.f.onAdClicked((tqb) this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public wqb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
-        this(funAdType, pid, z, z2, false);
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.f.onAdClicked((tqb) this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wqb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2, boolean z3) {
-        super(funAdType, pid, z, z2, z3);
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdShow(TTNativeAd tTNativeAd) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.f.onAdShow((tqb) this.c, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.d;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
             }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
-    public AdReporter<A> createAdReporter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new uqb(this.mPid) : (AdReporter) invokeV.objValue;
-    }
-
-    public abstract void e(Context context, FunAdSlot funAdSlot);
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
-            Ssp.Pid pid = this.mPid;
-            int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
-            if (checkForbidStatus != 0) {
-                onError(checkForbidStatus != 5004 ? checkForbidStatus != 109502 ? "" : "toomuch" : "cheat");
-            } else {
-                e(context, funAdSlot);
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return ((rrb) obj).c() / 100.0d;
-        }
-        return invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            rrb rrbVar = (rrb) obj;
-            double d3 = d * 100.0d;
-            if (z) {
-                HashMap hashMap = new HashMap();
-                hashMap.put(IBidding.EXPECT_COST_PRICE, Double.valueOf(d3));
-                hashMap.put(IBidding.HIGHEST_LOSS_PRICE, Double.valueOf(d2));
-                rrbVar.d(hashMap);
-                return;
-            }
-            int i3 = 2;
-            if (i != 3 && i != 5) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put(IBidding.WIN_PRICE, Double.valueOf(d3 + 100.0d));
-            hashMap2.put(IBidding.LOSS_REASON, Integer.valueOf(i2));
-            if (FunAdSdk.PLATFORM_GDT.equals(str)) {
-                i3 = 1;
-            }
-            hashMap2.put(IBidding.ADN_ID, Integer.valueOf(i3));
-            rrbVar.b(hashMap2);
         }
     }
 }

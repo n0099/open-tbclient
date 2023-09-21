@@ -1,68 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+@JvmName(name = "TbBaseMsgExt")
 /* loaded from: classes7.dex */
-public class qo8 {
+public final class qo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MsgSendHelper<? extends BaseChatAdapter, ? extends BaseMsg> a;
 
-    public qo8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @NonNull
-    public <T extends BaseChatAdapter, Msg extends BaseMsg> MsgSendHelper<T, Msg> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (MsgSendHelper<T, Msg>) this.a;
-        }
-        return (MsgSendHelper) invokeV.objValue;
-    }
-
-    @Nullable
-    public static qo8 b(@NonNull View view2) {
+    public static final long a(TbBaseMsg tbBaseMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            return (qo8) view2.getTag(R.id.obfuscated_res_0x7f092419);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbBaseMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbBaseMsg, "<this>");
+            TbBaseMsg.c forumExt = tbBaseMsg.getForumExt();
+            if (forumExt != null) {
+                return forumExt.a();
+            }
+            return 0L;
         }
-        return (qo8) invokeL.objValue;
+        return invokeL.longValue;
     }
 
-    public <T extends BaseChatAdapter, Msg extends BaseMsg> void c(@NonNull MsgSendHelper<T, Msg> msgSendHelper) {
+    public static final CharSequence b(TbBaseMsg tbBaseMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msgSendHelper) == null) {
-            this.a = msgSendHelper;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbBaseMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbBaseMsg, "<this>");
+            String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0420);
+            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…_reply_msg_prefix_format)");
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbBaseMsg.getUserName()}, 1));
+            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
+            return format;
         }
-    }
-
-    public static void d(@NonNull View view2, @NonNull qo8 qo8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, view2, qo8Var) == null) {
-            view2.setTag(R.id.obfuscated_res_0x7f092419, qo8Var);
-        }
+        return (CharSequence) invokeL.objValue;
     }
 }

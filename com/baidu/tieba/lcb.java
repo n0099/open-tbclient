@@ -1,27 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
 /* loaded from: classes6.dex */
 public class lcb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public ok1<fcb> a;
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            mk1 b = mk1.b();
-            this.a = b;
-            b.a(new gcb());
-        }
-    }
+    public scb a;
+    public HashSet<String> b;
+    public HashSet<String> c;
+    public HashSet<String> d;
+    public HashSet<String> e;
+    public HashSet<String> f;
+    public HashSet<String> g;
+    public HashMap<String, Integer> h;
+    public HashMap<String, String> i;
+    public HashMap<String, rcb> j;
+    public HashSet<String> k;
+    public HashSet<String> l;
+    public HashMap<String, Integer> m;
+    public HashMap<String, Integer> n;
+    public HashMap<String, Integer> o;
 
     public lcb() {
         Interceptable interceptable = $ic;
@@ -36,15 +39,20 @@ public class lcb {
                 return;
             }
         }
-        b();
-    }
-
-    public fcb a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
-        }
-        return (fcb) invokeV.objValue;
+        this.a = new scb();
+        this.b = new HashSet<>();
+        this.c = new HashSet<>();
+        this.d = new HashSet<>();
+        this.e = new HashSet<>();
+        this.f = new HashSet<>();
+        this.g = new HashSet<>();
+        this.h = new HashMap<>();
+        this.i = new HashMap<>();
+        this.j = new HashMap<>();
+        this.k = new HashSet<>();
+        this.l = new HashSet<>();
+        this.m = new HashMap<>();
+        this.n = new HashMap<>();
+        this.o = new HashMap<>();
     }
 }

@@ -1,37 +1,24 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
+import android.content.Context;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@TargetApi(23)
 /* loaded from: classes7.dex */
 public class s71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void validateRequestPermissionsRequestCode(int i);
-    }
-
-    public static boolean a(Activity activity, String str) {
+    public static int a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
-            return activity.shouldShowRequestPermissionRationale(str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
-            if (activity instanceof a) {
-                ((a) activity).validateRequestPermissionsRequestCode(i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (str != null) {
+                return context.checkPermission(str, Process.myPid(), Process.myUid());
             }
-            activity.requestPermissions(strArr, i);
+            throw new IllegalArgumentException("permission is null");
         }
+        return invokeLL.intValue;
     }
 }

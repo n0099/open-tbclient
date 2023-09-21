@@ -11,7 +11,7 @@ public class BitmapImageViewTarget extends ImageViewTarget<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.request.target.ImageViewTarget
     public void setResource(Bitmap bitmap) {
-        ((ImageView) this.f1196view).setImageBitmap(bitmap);
+        ((ImageView) this.f1193view).setImageBitmap(bitmap);
     }
 
     @Deprecated

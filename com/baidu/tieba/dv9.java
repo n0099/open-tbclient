@@ -1,31 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.person.PersonMoreData;
+import com.baidu.tieba.person.PersonMoreItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class dv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ev9 a;
+    public TbPageContext b;
+    public List<bn> c;
+    public PersonMoreData d;
 
-    public static void a(String str) {
+    public dv9(TbPageContext tbPageContext, Bundle bundle, sp6<ew9> sp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14893");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_locate", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bundle, sp6Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = tbPageContext;
+        ev9 ev9Var = new ev9(tbPageContext);
+        this.a = ev9Var;
+        ev9Var.f(sp6Var);
+        a(bundle);
+    }
+
+    public final void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && (bundle.get(PersonMoreData.URL_MAPS) instanceof ArrayList)) {
+            this.d = new PersonMoreData();
+            this.d.mUrlMaps.addAll(DataExt.toEntityList(bundle.getStringArrayList(PersonMoreData.URL_MAPS).toString(), PersonMoreItemData.class));
         }
     }
 
-    public static void b() {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14892");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new ArrayList();
+            PersonMoreData personMoreData = this.d;
+            if (personMoreData != null && !ListUtils.isEmpty(personMoreData.mUrlMaps)) {
+                for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
+                    if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
+                        ew9 ew9Var = new ew9();
+                        ew9Var.e = personMoreItemData.mName;
+                        ew9Var.a = 36;
+                        ew9Var.f = personMoreItemData.mUrl;
+                        ew9Var.j = personMoreItemData.mId;
+                        this.c.add(ew9Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d07dc);
+            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c29));
+            b();
+            this.a.e(this.c);
+        }
+    }
+
+    public void d() {
+        ev9 ev9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ev9Var = this.a) != null) {
+            ev9Var.d();
         }
     }
 }

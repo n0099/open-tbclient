@@ -1,20 +1,28 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class d8a {
+public final class d8a implements cd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
+    public String a;
+
+    @Override // com.baidu.tieba.cd7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CommonStatisticKey.KEY_FORUM_REC_THREAD_CLICK : (String) invokeV.objValue;
+    }
 
     public d8a() {
         Interceptable interceptable = $ic;
@@ -29,30 +37,35 @@ public class d8a {
                 return;
             }
         }
-        b();
+        this.a = "";
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            this.a.clear();
-            this.a.add(BdUniDispatchSchemeController.PARAM_SHOUBAI);
-            this.a.add(BdUniDispatchSchemeController.PARAM_WISE);
-        }
-    }
-
-    public boolean a(Uri uri) {
+    @Override // com.baidu.tieba.cd7
+    public Map<String, String> a(m87 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            if (uri == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
             }
-            return this.a.contains(uri.getQueryParameter("obj_source"));
+            hashMap.put("uid", currentAccount);
+            hashMap.put("obj_locate", this.a);
+            return hashMap;
         }
-        return invokeL.booleanValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public final d8a b(String objLocate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objLocate)) == null) {
+            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
+            this.a = objLocate;
+            return this;
+        }
+        return (d8a) invokeL.objValue;
     }
 }

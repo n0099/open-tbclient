@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v53 implements z53 {
+public class v53 implements y53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public long b;
 
-    @Override // com.baidu.tieba.z53
+    @Override // com.baidu.tieba.y53
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageInitRender" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageSwitchCost" : (String) invokeV.objValue;
     }
 
     public v53() {
@@ -37,7 +37,7 @@ public class v53 implements z53 {
         this.b = -1L;
     }
 
-    @Override // com.baidu.tieba.z53
+    @Override // com.baidu.tieba.y53
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class v53 implements z53 {
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.z53
+    @Override // com.baidu.tieba.y53
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -63,7 +63,7 @@ public class v53 implements z53 {
         }
     }
 
-    @Override // com.baidu.tieba.z53
+    @Override // com.baidu.tieba.y53
     public void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {

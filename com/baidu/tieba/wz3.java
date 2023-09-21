@@ -1,15 +1,20 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface wz3 {
-    void onCompletion();
+    void a(String str, JSONObject jSONObject);
 
-    boolean onError();
+    boolean b();
 
-    void onPause();
+    boolean c(View view2);
 
-    void onPrepared();
+    boolean d(View view2, qy3 qy3Var);
 
-    void onResume();
+    void e();
 
-    void onStart();
+    boolean f(View view2, qy3 qy3Var);
+
+    boolean removeView(View view2);
 }

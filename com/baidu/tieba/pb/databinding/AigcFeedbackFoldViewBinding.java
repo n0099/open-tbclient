@@ -54,14 +54,14 @@ public final class AigcFeedbackFoldViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0901bf;
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bf);
+            int i = R.id.obfuscated_res_0x7f0901bd;
+            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bd);
             if (eMTextView != null) {
-                i = R.id.obfuscated_res_0x7f0901c1;
-                TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f0901c1);
+                i = R.id.obfuscated_res_0x7f0901bf;
+                TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f0901bf);
                 if (tbImage != null) {
-                    i = R.id.obfuscated_res_0x7f0901c2;
-                    EMTextView eMTextView2 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c2);
+                    i = R.id.obfuscated_res_0x7f0901c0;
+                    EMTextView eMTextView2 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c0);
                     if (eMTextView2 != null) {
                         return new AigcFeedbackFoldViewBinding((RelativeLayout) view2, eMTextView, tbImage, eMTextView2);
                     }

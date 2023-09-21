@@ -1,10 +1,14 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.AnyThread;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,130 +16,165 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class q53 implements aq3<HybridUbcFlow> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean b = true;
-    public static int c = -1;
+public class q53 implements kw2 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948042778, "Lcom/baidu/tieba/q53;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948042778, "Lcom/baidu/tieba/q53;");
-        }
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final q53 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a(q53 q53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q53Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-536650404, "Lcom/baidu/tieba/q53$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-536650404, "Lcom/baidu/tieba/q53$b;");
+                    return;
                 }
             }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bp3.Y();
-            }
+            a = new q53(null);
         }
     }
 
-    public q53(String str) {
+    public q53() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
+        this.c = new ConcurrentHashMap<>();
     }
 
-    public final void b(@NonNull HybridUbcFlow hybridUbcFlow) {
-        UbcFlowEvent g;
-        UbcFlowEvent a2;
-        UbcFlowEvent a3;
+    public static q53 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        uh2 uh2Var = (uh2) hybridUbcFlow.k("fmp_data_record");
-        if ("fmp_callback".equals(this.a)) {
-            String name = q53.class.getName();
-            Log.d(name, "Current Record FMP - " + g.a + ":" + g.g());
-            if (uh2Var != null && (a3 = uh2Var.a()) != null) {
-                String name2 = q53.class.getName();
-                Log.d(name2, "First Page Record FMP - " + a3.a + ":" + a3.g());
-            }
-        } else if ("callback_on_submit".equals(this.a)) {
-            String name3 = q53.class.getName();
-            Log.d(name3, "Real Report FMP - " + g.a + ":" + g.g());
-            if (uh2Var != null && (a2 = uh2Var.a()) != null) {
-                String name4 = q53.class.getName();
-                Log.d(name4, "First Page Report FMP - " + a2.a + ":" + a2.g());
-            }
-        }
+        return (q53) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.aq3
-    /* renamed from: c */
-    public synchronized void a(HybridUbcFlow hybridUbcFlow) {
+    public /* synthetic */ q53(a aVar) {
+        this();
+    }
+
+    @Nullable
+    @UiThread
+    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeCommon;
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            synchronized (this) {
-                if (b) {
-                    if (c == -1) {
-                        ou2.g0().getSwitch("swan_next_env_delay", 600);
-                        c = 600;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
+            View d = d(i);
+            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
+                if (layoutParams2 == null) {
+                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
+                } else {
+                    layoutParams2.width = layoutParams.width;
+                    layoutParams2.height = layoutParams.height;
+                }
+                d.setLayoutParams(layoutParams2);
+            }
+            if (d == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                View inflate = LayoutInflater.from(nu2.c()).inflate(i, viewGroup, z);
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (kw2.a) {
+                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                }
+                return inflate;
+            }
+            return d;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @AnyThread
+    public void c(@LayoutRes int... iArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) && iArr != null && iArr.length != 0) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                int length = iArr.length;
+                LayoutInflater from = LayoutInflater.from(nu2.c());
+                for (int i : iArr) {
+                    View inflate = from.inflate(i, (ViewGroup) null);
+                    CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                    if (copyOnWriteArrayList == null) {
+                        copyOnWriteArrayList = new CopyOnWriteArrayList<>();
                     }
-                    bp3.b0(new a(this), c);
+                    copyOnWriteArrayList.add(inflate);
+                    this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
                 }
-                if (rr1.a) {
-                    String name = getClass().getName();
-                    Log.d(name, "enable=" + b + ", delay=" + c);
+                if (kw2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
                 }
-                if ("fmp_callback".equals(this.a)) {
-                    b = false;
-                } else if ("callback_on_submit".equals(this.a)) {
-                    b = true;
-                }
-                if (rr1.a && hybridUbcFlow != null) {
-                    b(hybridUbcFlow);
+            } catch (Exception e) {
+                if (kw2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
                 }
             }
         }
+    }
+
+    @Nullable
+    @AnyThread
+    public View d(@LayoutRes int i) {
+        InterceptResult invokeI;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            View view2 = null;
+            try {
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
+                    view2 = copyOnWriteArrayList.remove(0);
+                }
+            } catch (Exception e) {
+                if (kw2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
+                }
+            }
+            if (kw2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("tryObtainLayoutByResId resId = ");
+                sb.append(i);
+                if (view2 == null) {
+                    str = " cache view is null";
+                } else {
+                    str = " adopt cached view";
+                }
+                sb.append(str);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return view2;
+        }
+        return (View) invokeI.objValue;
     }
 }

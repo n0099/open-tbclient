@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,12 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface vo0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "loadImage");
+    public static final ServiceReference a = new ServiceReference("nad.core", "loadVideo");
     public static final vo0 b = new a();
 
-    void c(String str, uo0 uo0Var);
-
-    void d(String str);
+    void a(String str, int i);
 
     /* loaded from: classes8.dex */
     public class a implements vo0 {
@@ -21,16 +18,9 @@ public interface vo0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.vo0
-        public void c(String str, uo0 uo0Var) {
+        public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, uo0Var) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.vo0
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
             }
         }
 

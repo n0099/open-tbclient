@@ -1,84 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mg3;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.CookieManager;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xy1 extends mz1 {
+public final class xy1 extends dd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.kz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "AllianceAccountApi" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes8.dex */
-    public class a implements aq3<kg3<mg3.e>> {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ xy1 b;
 
-        public a(xy1 xy1Var, String str) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-273506532, "Lcom/baidu/tieba/xy1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-273506532, "Lcom/baidu/tieba/xy1$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xy1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.b = xy1Var;
-            this.a = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
-        /* renamed from: b */
-        public void a(kg3<mg3.e> kg3Var) {
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
-                if (fg3.h(kg3Var)) {
-                    this.b.z(this.a);
-                    return;
-                }
-                int b = kg3Var.b();
-                fg3.f(b);
-                this.b.d(this.a, new h32(b, fg3.f(b)));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ua2.a3();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xy1(@NonNull iz1 iz1Var) {
-        super(iz1Var);
+    public xy1(dc3 dc3Var) {
+        super(dc3Var, "/swanAPI/setTplBdussSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iz1Var};
+            Object[] objArr = {dc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((iz1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,36 +89,69 @@ public class xy1 extends mz1 {
         }
     }
 
-    public h32 y(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dd3
+    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, gb3 gb3Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getUnionBDUSS", false);
-            hb3 b0 = hb3.b0();
-            if (b0 == null) {
-                return new h32(1001, "swan app is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, gb3Var)) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
+            SwanAppAllianceLoginHelper.d.l(true);
+            if (optParamsAsJo == null) {
+                sr1 d = SwanAppAllianceLoginHelper.d.d();
+                if (d != null) {
+                    d.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                SwanAppAllianceLoginHelper.d.a(ty1.d(), ty1.a());
+                return false;
             }
-            Pair<h32, JSONObject> s = s(str);
-            h32 h32Var = (h32) s.first;
-            if (!h32Var.isSuccess()) {
-                return h32Var;
+            int optInt = optParamsAsJo.optInt("errno");
+            JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
+            ap3.a0(a.a);
+            if (optInt != 0) {
+                sr1 d2 = SwanAppAllianceLoginHelper.d.d();
+                if (d2 != null) {
+                    d2.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
+                SwanAppAllianceLoginHelper.d.a(ty1.d(), ty1.a());
+                return false;
+            } else if (optJSONObject != null) {
+                Map<String, String> c = pr4.c(CookieManager.getInstance().getCookie(".baidu.com"));
+                Intrinsics.checkNotNullExpressionValue(c, "SwanAppUrlUtils.parseCookie(cookieString)");
+                String str = c.get("OPENBDUSS");
+                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    uy1.b.c(optInt, optJSONObject);
+                    oy1.b(context, str);
+                    SwanAppAllianceLoginHelper.d.j(true);
+                    sr1 d3 = SwanAppAllianceLoginHelper.d.d();
+                    if (d3 != null) {
+                        d3.onResult(0);
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, entity, 0);
+                    SwanAppAllianceLoginHelper.d.a(ty1.f(), ty1.c());
+                    return true;
+                }
+                sr1 d4 = SwanAppAllianceLoginHelper.d.d();
+                if (d4 != null) {
+                    d4.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
+                SwanAppAllianceLoginHelper.d.a(ty1.d(), ty1.a());
+                return false;
+            } else {
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "json data is null");
+                SwanAppAllianceLoginHelper.d.a(ty1.d(), ty1.a());
+                return false;
             }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new h32(201, "cb is empty");
-            }
-            b0.e0().g(gb3.K(), "account_get_union_bduss", new a(this, optString));
-            return h32.f();
         }
-        return (h32) invokeL.objValue;
-    }
-
-    public final void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            ho3.f(jSONObject, "bduss", sy1.a.a());
-            d(str, new h32(0, jSONObject));
-        }
+        return invokeLLLL.booleanValue;
     }
 }

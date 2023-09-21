@@ -2,23 +2,24 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ForumEnterLayout;
+import com.baidu.card.view.ForumGoodsEnterLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class lx extends hx {
+public class lx extends gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b15 h;
-    public ForumEnterLayout i;
-    public final View.OnClickListener j;
+    public ForumGoodsEnterLayout i;
+    public int j;
+    public final View.OnClickListener k;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -71,36 +72,53 @@ public class lx extends hx {
                 return;
             }
         }
-        this.j = new a(this);
+        this.k = new a(this);
         int dimens = BdUtilHelper.getDimens(context, R.dimen.M_H_X003);
         int dimens2 = BdUtilHelper.getDimens(context, R.dimen.tbds0);
         x(dimens);
         u(dimens2);
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().d instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().d.getParent() == null) {
-            this.i = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().d;
-        } else {
-            this.i = new ForumEnterLayout(context);
-        }
-        this.i.setOnAfterClickListener(this.j);
+        ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
+        this.i = forumGoodsEnterLayout;
+        forumGoodsEnterLayout.setOnAfterClickListener(this.k);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: A */
     public void onBindDataToView(b15 b15Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, b15Var) == null) {
             this.h = b15Var;
             this.i.setSourceForPb(this.a.j());
+            this.i.setFrstype(this.j);
             this.i.setData(b15Var);
         }
     }
 
-    @Override // com.baidu.tieba.ax
+    public void B(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public void C(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin != i || marginLayoutParams.bottomMargin != i2) {
+                marginLayoutParams.topMargin = i;
+                marginLayoutParams.bottomMargin = i2;
+                view2.setLayoutParams(marginLayoutParams);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zw
     public View j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.i;
         }
         return (View) invokeV.objValue;
@@ -108,19 +126,19 @@ public class lx extends hx {
 
     public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             int dimens = BdUtilHelper.getDimens(this.b, R.dimen.M_H_X003);
-            int dimens2 = BdUtilHelper.getDimens(this.b, R.dimen.tbds0);
             x(dimens);
-            u(dimens2);
+            u(0);
+            C(this.i, dimens, 0);
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.i.n(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
+            this.i.d(tbPageContext, i);
         }
     }
 }

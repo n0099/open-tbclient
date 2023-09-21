@@ -80,13 +80,13 @@ public class be implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo266a() {
+    public String mo268a() {
         return a(b);
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo267a() {
+    public boolean mo269a() {
         return "1".equals(r.a(f, "0"));
     }
 }

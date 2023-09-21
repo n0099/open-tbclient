@@ -1,5 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface lp6 {
-    void j(boolean z);
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
+public class lp6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

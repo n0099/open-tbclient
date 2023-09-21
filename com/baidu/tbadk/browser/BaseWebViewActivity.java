@@ -57,16 +57,16 @@ import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.di;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.pc5;
 import com.baidu.tieba.pz4;
 import com.baidu.tieba.ry4;
-import com.baidu.tieba.um6;
+import com.baidu.tieba.tc5;
 import com.baidu.tieba.vy4;
 import com.baidu.tieba.wy4;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.ym6;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -141,7 +141,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public Timer mTimer;
     public String mUrl;
     public String mUrlTitle;
-    public cx4 mView;
+    public bx4 mView;
     public final wy4 mWebLoadingManager;
     public final CustomMessageListener webviewLoginListener;
 
@@ -248,11 +248,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     ThreadAchievementShareDialogView threadAchievementShareDialogView = new ThreadAchievementShareDialogView(baseWebViewActivity, baseWebViewActivity.getShareInfo());
                     ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.a;
                     if (threadAchievementShareInfo != null && threadAchievementShareInfo.getParams() != null) {
-                        y45 y45Var = new y45(this.a);
-                        if (threadAchievementShareDialogView.h(this.a.getPageContext(), y45Var)) {
-                            y45Var.setContentViewSize(2);
-                            y45Var.setContentView(threadAchievementShareDialogView);
-                            y45Var.create(this.a.getPageContext()).show();
+                        z45 z45Var = new z45(this.a);
+                        if (threadAchievementShareDialogView.h(this.a.getPageContext(), z45Var)) {
+                            z45Var.setContentViewSize(2);
+                            z45Var.setContentView(threadAchievementShareDialogView);
+                            z45Var.create(this.a.getPageContext()).show();
                             return;
                         }
                         return;
@@ -369,12 +369,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e40);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e42);
                     return;
                 }
-                cx4 cx4Var = this.a.mView;
-                if (cx4Var != null) {
-                    cx4Var.m();
+                bx4 bx4Var = this.a.mView;
+                if (bx4Var != null) {
+                    bx4Var.m();
                 }
                 this.a.refresh();
             }
@@ -528,7 +528,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 }
                 str = sb.toString();
             }
-            if (ei.isEmpty(shareInfoUrl)) {
+            if (di.isEmpty(shareInfoUrl)) {
                 shareInfoUrl = str;
             }
             AndroidUtils.copyToClipboard(shareInfoUrl);
@@ -604,9 +604,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
             super.onUserChanged(z);
-            cx4 cx4Var = this.mView;
-            if (cx4Var != null) {
-                cx4Var.C(z);
+            bx4 bx4Var = this.mView;
+            if (bx4Var != null) {
+                bx4Var.C(z);
             }
         }
     }
@@ -629,9 +629,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
             this.isNeedViewShowLoading = z;
-            cx4 cx4Var = this.mView;
-            if (cx4Var != null) {
-                cx4Var.H(z);
+            bx4 bx4Var = this.mView;
+            if (bx4Var != null) {
+                bx4Var.H(z);
             }
         }
     }
@@ -669,7 +669,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 return false;
             }
             String c2 = pz4.c(this.mUrl);
-            if (!ei.isEquals(WebviewHelper.getMatchStringFromURL(this.mUrl, CUSTOM_FULL_SCREEN), "=")) {
+            if (!di.isEquals(WebviewHelper.getMatchStringFromURL(this.mUrl, CUSTOM_FULL_SCREEN), "=")) {
                 try {
                     c2 = URLDecoder.decode(c2.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
                 } catch (Exception e2) {
@@ -709,9 +709,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             webViewDestory();
             TbadkCoreApplication.getInst().delRemoteActivity(this);
             stopLoadTimer();
-            cx4 cx4Var = this.mView;
-            if (cx4Var != null) {
-                cx4Var.u();
+            bx4 bx4Var = this.mView;
+            if (bx4Var != null) {
+                bx4Var.u();
             }
             this.mWebLoadingManager.b();
             removeLoadingDelayRunnable();
@@ -747,7 +747,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (context == null || str == null || (parse = Uri.parse(str)) == null) {
                 return null;
             }
-            List<String> a2 = pc5.a();
+            List<String> a2 = tc5.a();
             if (ListUtils.isEmpty(a2)) {
                 return null;
             }
@@ -783,7 +783,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             String shareInfo = getShareInfo();
-            if (!ei.isEmpty(shareInfo)) {
+            if (!di.isEmpty(shareInfo)) {
                 try {
                     return new JSONObject(shareInfo).optString("url");
                 } catch (JSONException e2) {
@@ -808,9 +808,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             removeLoadingDelayRunnable();
-            cx4 cx4Var = this.mView;
-            if (cx4Var != null) {
-                cx4Var.n();
+            bx4 bx4Var = this.mView;
+            if (bx4Var != null) {
+                bx4Var.n();
             }
         }
     }
@@ -939,9 +939,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             dismissAllDialog();
             dismissAllPopupWindow();
             hideListMenu();
-            cx4 cx4Var = this.mView;
-            if (cx4Var != null) {
-                cx4Var.h();
+            bx4 bx4Var = this.mView;
+            if (bx4Var != null) {
+                bx4Var.h();
             }
         }
     }
@@ -951,7 +951,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
             String shareInfoUrl = getShareInfoUrl();
             Activity pageActivity = getPageContext().getPageActivity();
-            if (ei.isEmpty(shareInfoUrl)) {
+            if (di.isEmpty(shareInfoUrl)) {
                 shareInfoUrl = this.mUrl;
             }
             BrowserHelper.startExternWebActivity(pageActivity, shareInfoUrl);
@@ -997,10 +997,10 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     public void showLoading() {
-        cx4 cx4Var;
+        bx4 bx4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048633, this) == null) && (cx4Var = this.mView) != null) {
-            cx4Var.R();
+        if ((interceptable == null || interceptable.invokeV(1048633, this) == null) && (bx4Var = this.mView) != null) {
+            bx4Var.R();
         }
     }
 
@@ -1101,7 +1101,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             } else if (getWebView() instanceof TbWebView) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-                um6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                ym6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
             }
         }
     }
@@ -1233,7 +1233,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             return;
         }
         String shareInfo = getShareInfo();
-        if (ei.isEmpty(shareInfo)) {
+        if (di.isEmpty(shareInfo)) {
             return;
         }
         try {
@@ -1246,30 +1246,30 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             String optString6 = jSONObject.optString("wbtitle");
             String optString7 = jSONObject.optString("wbcontent");
             String optString8 = jSONObject.optString("isShowMoreForum");
-            if (!ei.isEmpty(optString)) {
+            if (!di.isEmpty(optString)) {
                 shareItem.title = optString;
             }
-            if (!ei.isEmpty(optString4)) {
+            if (!di.isEmpty(optString4)) {
                 shareItem.linkUrl = optString4;
             }
-            if (!ei.isEmpty(optString2)) {
+            if (!di.isEmpty(optString2)) {
                 shareItem.content = optString2;
             }
-            if (!ei.isEmpty(optString3)) {
+            if (!di.isEmpty(optString3)) {
                 shareItem.imageUri = Uri.parse(optString3);
                 shareItem.imageUrl = optString3;
             }
-            if (!ei.isEmpty(optString5)) {
+            if (!di.isEmpty(optString5)) {
                 shareItem.topic = optString5;
             }
-            if (!ei.isEmpty(optString6)) {
+            if (!di.isEmpty(optString6)) {
                 shareItem.wbtitle = optString6;
             }
-            if (!ei.isEmpty(optString7)) {
+            if (!di.isEmpty(optString7)) {
                 shareItem.wbcontent = optString7;
             }
             shareItem.shareType = jSONObject.optInt("shareimg");
-            if (!ei.isEmpty(optString8) && "1".equals(optString8)) {
+            if (!di.isEmpty(optString8) && "1".equals(optString8)) {
                 shareItem.setShowMoreForumIcon(true);
                 shareItem.title = optString + " " + optString2;
             }
@@ -1309,9 +1309,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             setSwipeBackEnabled(false);
             initData();
             initWebView();
-            cx4 cx4Var = new cx4(this);
-            this.mView = cx4Var;
-            cx4Var.q();
+            bx4 bx4Var = new bx4(this);
+            this.mView = bx4Var;
+            bx4Var.q();
             initView();
             setSkinOverly();
             this.mView.I(this.mOnRefreshClickListener);
@@ -1417,7 +1417,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (interceptable == null || interceptable.invokeL(1048611, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091fec) {
+            if (id == R.id.obfuscated_res_0x7f091fb6) {
                 if (isTranslucent()) {
                     finish();
                 }
@@ -1451,7 +1451,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     str3 = pz4.c(this.mUrl);
                 } else {
                     String c2 = pz4.c(str2);
-                    if (!ei.isEquals(WebviewHelper.getMatchStringFromURL(str2, KEY_NO_NAVIGATIONBAR), "=")) {
+                    if (!di.isEquals(WebviewHelper.getMatchStringFromURL(str2, KEY_NO_NAVIGATIONBAR), "=")) {
                         try {
                         } catch (Exception e3) {
                             e2 = e3;
@@ -1506,10 +1506,10 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     public void showTipToast(boolean z, String str, int i) {
-        cx4 cx4Var;
+        bx4 bx4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Boolean.valueOf(z), str, Integer.valueOf(i)}) == null) && (cx4Var = this.mView) != null) {
-            cx4Var.T(z, str, i);
+        if ((interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Boolean.valueOf(z), str, Integer.valueOf(i)}) == null) && (bx4Var = this.mView) != null) {
+            bx4Var.T(z, str, i);
         }
     }
 }

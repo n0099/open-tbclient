@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.AdMixFloor;
-import tbclient.FrsTabInfo;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class py7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile py7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public Map<String, FunAdSidConfigData> a;
 
     public py7() {
         Interceptable interceptable = $ic;
@@ -31,166 +31,110 @@ public class py7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.clear();
+        this.a.putAll(c());
     }
 
-    public static boolean d() {
+    public final Map<String, FunAdSidConfigData> c() {
+        InterceptResult invokeV;
+        FunAdSidConfigData d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str : qy7.e().c()) {
+                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
+                    hashMap.put(str, d);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public static py7 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return UbsABTestHelper.isFrsFunAdSdkTest();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (py7.class) {
+                    if (b == null) {
+                        b = new py7();
+                    }
+                }
+            }
+            return b;
         }
-        return invokeV.booleanValue;
+        return (py7) invokeV.objValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
-        boolean z;
+    public final FunAdSidConfigData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            if (!z) {
-                return false;
-            }
-            return true;
+            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
+            funAdSidConfigData.parserJson(jSONObject);
+            return funAdSidConfigData;
         }
-        return invokeV.booleanValue;
+        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    public static py7 a(boolean z) {
-        InterceptResult invokeZ;
+    public FunAdSidConfigData b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            if (z && d()) {
-                return new py7();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                return this.a.get(str);
             }
             return null;
         }
-        return (py7) invokeZ.objValue;
+        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    public static boolean e(FrsTabInfo frsTabInfo, int i) {
-        InterceptResult invokeLI;
-        boolean z;
+    public final FunAdSidConfigData d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, frsTabInfo, i)) == null) {
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            JSONObject jSONObject = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            if (z) {
-                return false;
+            String string = qy7.g().getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
             }
-            if ((frsTabInfo == null || 505 != frsTabInfo.tab_id.intValue() || 91 != frsTabInfo.tab_type.intValue()) && i != 2) {
-                return true;
+            try {
+                jSONObject = new JSONObject(string);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
             }
-            return false;
+            return a(jSONObject);
         }
-        return invokeLI.booleanValue;
+        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    public void b(List<cn> list, boolean z, String str) {
-        int i;
+    public final void g(String str) {
+        FunAdSidConfigData funAdSidConfigData;
+        JSONObject json;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), str}) == null) {
-            int h = iy7.m().h();
-            if (z) {
-                i = iy7.m().i() - 1;
-                for (cn cnVar : list) {
-                    if (cnVar instanceof ThreadData) {
-                        if (((ThreadData) cnVar).getIs_top() != 1) {
-                            break;
-                        }
-                        i++;
-                    }
-                }
-            } else {
-                i = this.a;
-            }
-            this.a = c(i, h, list, str);
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
+            return;
         }
+        EditorHelper.putString(qy7.g(), str, json.toString());
     }
 
-    public final int c(int i, int i2, List<cn> list, String str) {
-        InterceptResult invokeCommon;
+    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, str})) == null) {
-            int i3 = 0;
-            if (list != null && list.size() != 0) {
-                if (i > list.size() - 1) {
-                    return 0;
-                }
-                int i4 = 0;
-                int i5 = 0;
-                while (true) {
-                    if (i4 >= list.size()) {
-                        break;
-                    }
-                    ThreadData threadData = new ThreadData();
-                    rha rhaVar = new rha();
-                    rhaVar.n(true);
-                    threadData.funAdData = rhaVar;
-                    rhaVar.m(str);
-                    list.add(i, threadData);
-                    if (i5 == 0) {
-                        i5 = i + 1;
-                    }
-                    i = i + i2 + 1;
-                    if (i > list.size() - 1) {
-                        i3 = (i - (list.size() - 1)) - 1;
-                        break;
-                    }
-                    i4++;
-                }
-                if (i5 > 0 && q66.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
-                    q66.i().n(list, i5, 2);
-                }
-            }
-            return i3;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public void g(List<cn> list, List<AdMixFloor> list2, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, list2, Boolean.valueOf(z), str}) == null) {
-            if (((AdMixFloor) ListUtils.getItem(list2, 0)) == null) {
-                return;
-            }
-            int i = 0;
-            for (int i2 = 0; z && i2 < list.size(); i2++) {
-                cn cnVar = list.get(i2);
-                if (cnVar instanceof ThreadData) {
-                    if (((ThreadData) cnVar).getIs_top() != 1) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            int i3 = 0;
-            for (int i4 = 0; i4 < list2.size(); i4++) {
-                AdMixFloor adMixFloor = list2.get(i4);
-                if (adMixFloor.ad_type.intValue() != 1) {
-                    ThreadData threadData = new ThreadData();
-                    rha rhaVar = new rha();
-                    rhaVar.n(true);
-                    threadData.funAdData = rhaVar;
-                    rhaVar.m(str);
-                    ListUtils.add(list, (adMixFloor.floor_num.intValue() + i) - 1, threadData);
-                    if (i3 == 0) {
-                        i3 = adMixFloor.floor_num.intValue() + i;
-                    }
-                }
-            }
-            if (i3 > 0 && q66.i().p(AbsDataRecorder.Scene.FRS_NEW)) {
-                q66.i().n(list, i3, 2);
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) && this.a != null && !TextUtils.isEmpty(str)) {
+            this.a.put(str, funAdSidConfigData);
+            g(str);
         }
     }
 }

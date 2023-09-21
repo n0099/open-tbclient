@@ -1,93 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s70 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile s70 b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104189, "Lcom/baidu/tieba/s70;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948104189, "Lcom/baidu/tieba/s70;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        c = availableProcessors;
-        d = Math.max(2, Math.min(availableProcessors - 1, 4));
-        e = (c * 2) + 1;
-    }
-
-    public s70() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
-    }
-
-    public static s70 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (s70.class) {
-                    if (b == null) {
-                        b = new s70();
-                    }
-                }
-            }
-            return b;
-        }
-        return (s70) invokeV.objValue;
-    }
-
-    public boolean b(Runnable runnable) {
+    public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            try {
-                this.a.submit(runnable);
-                return true;
-            } catch (Throwable th) {
-                x70.b("UBCTaskManager", "Exception ", th);
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            byte[] a = v70.a(str.getBytes());
+            if (a != null && a.length > 2) {
+                a[0] = 117;
+                a[1] = 123;
+            }
+            return a;
         }
-        return invokeL.booleanValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean b(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                w70.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
+                if (z2) {
+                    w70.a("UBCUploader", "save ubcdata");
+                    return true;
+                }
+                c(context, jSONArray, z, z2, z3);
+                return true;
+            }
+            w70.a("UBCUploader", "upload json is null");
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static void c(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            JSONObject b = new t70(z, jSONArray).b();
+            if (b == null) {
+                w70.a("UBCUploader", "uploadJsonData is null");
+                return;
+            }
+            byte[] a = a(b.toString());
+            if (a != null && a.length >= 3) {
+                w70.a("UBCUploader", "gzip success, length:" + a.length);
+                w70.a("UBCUploader", "start execute http upload data");
+                q70 q70Var = new q70(context);
+                n70.e(context).b(context, q70Var, q70Var, a, z3);
+                return;
+            }
+            w70.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
+        }
     }
 }

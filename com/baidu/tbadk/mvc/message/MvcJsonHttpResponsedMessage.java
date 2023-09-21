@@ -11,10 +11,10 @@ import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
 import com.baidu.tieba.oe;
-import com.baidu.tieba.pf;
-import com.baidu.tieba.qr5;
+import com.baidu.tieba.of;
 import com.baidu.tieba.rr5;
-import com.baidu.tieba.x45;
+import com.baidu.tieba.sr5;
+import com.baidu.tieba.y45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -136,10 +136,10 @@ public class MvcJsonHttpResponsedMessage<D extends IResponseData> extends MvcHtt
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, pf pfVar) {
+    public void logStatInBackground(int i, of ofVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, pfVar) == null) {
-            super.logStatInBackground(i, pfVar);
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, ofVar) == null) {
+            super.logStatInBackground(i, ofVar);
         }
     }
 
@@ -152,26 +152,26 @@ public class MvcJsonHttpResponsedMessage<D extends IResponseData> extends MvcHtt
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof qr5)) {
-                    qr5 qr5Var = (qr5) mvcHttpMessage.getRequestData();
-                    String cacheKey = qr5Var.getCacheKey();
-                    String cacheTableName = qr5Var.getCacheTableName();
-                    if (qr5Var.isNeedUid()) {
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof rr5)) {
+                    rr5 rr5Var = (rr5) mvcHttpMessage.getRequestData();
+                    String cacheKey = rr5Var.getCacheKey();
+                    String cacheTableName = rr5Var.getCacheTableName();
+                    if (rr5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(cacheTableName) && bArr != null) {
-                        if (qr5Var.w()) {
-                            x45.k();
-                            oe<byte[]> j = x45.j(cacheTableName, str);
+                        if (rr5Var.w()) {
+                            y45.k();
+                            oe<byte[]> j = y45.j(cacheTableName, str);
                             if (j == null) {
                                 return;
                             }
                             j.g(cacheKey, bArr);
-                        } else if (mvcHttpMessage.getRequestData() instanceof rr5) {
-                            x45.k();
-                            oe<String> m = x45.m(cacheTableName, str);
+                        } else if (mvcHttpMessage.getRequestData() instanceof sr5) {
+                            y45.k();
+                            oe<String> m = y45.m(cacheTableName, str);
                             if (m == null) {
                                 return;
                             }

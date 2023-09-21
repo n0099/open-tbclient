@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.owa;
+import com.baidu.tieba.gya;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public class CloudMusicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public owa<CloudMusicData.MusicTagList> a;
+    public gya<CloudMusicData.MusicTagList> a;
     public int b;
     public final HttpMessageListener c;
 
@@ -151,9 +151,9 @@ public class CloudMusicListModel extends BdBaseModel {
         return i;
     }
 
-    public void O(int i, owa<CloudMusicData.MusicTagList> owaVar) {
+    public void O(int i, gya<CloudMusicData.MusicTagList> gyaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, owaVar) == null) && owaVar != null && i >= 0) {
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, gyaVar) == null) && gyaVar != null && i >= 0) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
             int i2 = this.b + 1;
             this.b = i2;
@@ -161,7 +161,7 @@ public class CloudMusicListModel extends BdBaseModel {
             httpMessage.addParam("rn", 10);
             httpMessage.addParam(PushConstants.SUB_TAGS_STATUS_ID, i);
             sendMessage(httpMessage);
-            this.a = owaVar;
+            this.a = gyaVar;
         }
     }
 

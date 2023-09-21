@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface bz2 {
-    void a(File file);
+public interface bz2<T> {
+    void e(String str);
 
-    void b(String str);
+    void f(List<T> list);
 }

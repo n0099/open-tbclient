@@ -1,7 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-/* loaded from: classes5.dex */
-public interface fw1 {
-    void a(Context context);
+import java.io.File;
+/* loaded from: classes6.dex */
+public interface fw1 extends x43 {
+    File a();
+
+    void e(String str, String str2);
+
+    void e(String str, String str2, Throwable th);
+
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

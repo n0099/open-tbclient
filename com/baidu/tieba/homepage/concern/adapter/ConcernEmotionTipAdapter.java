@@ -13,15 +13,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pm;
-import com.baidu.tieba.z18;
+import com.baidu.tieba.b28;
+import com.baidu.tieba.om;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ConcernEmotionTipAdapter extends pm<z18, ConcernEmotionTipViewHolder> {
+public class ConcernEmotionTipAdapter extends om<b28, ConcernEmotionTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -67,7 +67,7 @@ public class ConcernEmotionTipAdapter extends pm<z18, ConcernEmotionTipViewHolde
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernEmotionTipAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getContext(), z18.g);
+        super(tbPageContext.getContext(), b28.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,36 +110,36 @@ public class ConcernEmotionTipAdapter extends pm<z18, ConcernEmotionTipViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: s */
     public ConcernEmotionTipViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0224, viewGroup, false));
+            return new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0223, viewGroup, false));
         }
         return (ConcernEmotionTipViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z18 z18Var, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b28 b28Var, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z18Var, concernEmotionTipViewHolder})) == null) {
-            String str = z18Var.b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b28Var, concernEmotionTipViewHolder})) == null) {
+            String str = b28Var.b;
             if (str != null) {
                 concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, str));
             }
-            if (z18Var.getType() == z18.f) {
-                if (z18Var.a == 2) {
+            if (b28Var.getType() == b28.f) {
+                if (b28Var.a == 2) {
                     concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04be)));
                 } else {
                     concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04bd)));
                 }
             }
-            int i2 = z18Var.a;
+            int i2 = b28Var.a;
             if (i2 != 2) {
                 if (i2 == 3) {
                     concernEmotionTipViewHolder.a(this.a, TbadkCoreApplication.getInst().getSkinType(), NoDataViewFactory.ImgType.NOPOST);

@@ -1,47 +1,42 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.ArrayList;
-import java.util.List;
+import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes8.dex */
-public class vjc {
+public class vjc implements IH5PayActivityVisit {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<wic> a(List<PayWayInfo> list) {
-        InterceptResult invokeL;
+    public vjc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list != null && list.size() != 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    PayWayInfo payWayInfo = list.get(i);
-                    if (PayType.ALI_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.ALI_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new wic(PayType.ALI_PAY, payWayInfo.name, payWayInfo.tips, 0.0d, false, payWayInfo.perFreePassAmount, payWayInfo.passFreeAlwaysConfirm));
-                    } else if (PayType.WECHAT_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.WECHAT_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new wic(PayType.WECHAT_PAY, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.DXM_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new wic(PayType.DXM_PAY, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.DXM_PAY_KJ.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY_KJ.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new wic(PayType.DXM_PAY_KJ, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.QQ_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.QQ_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new wic(PayType.QQ_PAY, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.UNION_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.UNION_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new wic(PayType.UNION_PAY, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.DXM_PAY_H5.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY_H5.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new wic(PayType.DXM_PAY_H5, payWayInfo.name, payWayInfo.tips));
-                    }
-                }
-                return arrayList;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            RLog.info("PayWayInfoUtils", "createRechargeWayList but mPayWayInfoList null");
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit
+    public void notifyPayFlowActivityVisit(String str, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, str, i, i2, i3) == null) {
+            RLog.info("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str);
+            PayFlowType a = flc.a(i3);
+            if (a == null) {
+                RLog.error("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str + " payFlowType null", new Object[0]);
+                return;
+            }
+            ekc.b(str, i, i2, a);
+        }
     }
 }

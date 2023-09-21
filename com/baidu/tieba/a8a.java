@@ -1,51 +1,36 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.abtest.UsbAbTestConst;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class a8a {
+public final class a8a implements cd7, ad7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public boolean b;
-    public String c;
-    public d8a d;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.ad7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a8a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-990575871, "Lcom/baidu/tieba/a8a$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-990575871, "Lcom/baidu/tieba/a8a$b;");
-                    return;
-                }
-            }
-            a = new a8a(null);
-        }
+    @Override // com.baidu.tieba.cd7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CommonStatisticKey.KEY_HOME_PEI_WAN_VOICE_CLICK : (String) invokeV.objValue;
     }
 
     public a8a() {
@@ -58,99 +43,52 @@ public class a8a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
     }
 
-    public static a8a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (a8a) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.c;
-            if (str == null) {
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a && this.b) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public /* synthetic */ a8a(a aVar) {
-        this();
-    }
-
-    public void a(Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, uri) == null) && uri != null && b(uri)) {
-            this.c = null;
-        }
-    }
-
-    public final boolean b(Uri uri) {
+    @Override // com.baidu.tieba.cd7
+    public Map<String, String> a(m87 businessInfo) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            if (this.d == null) {
-                this.d = new d8a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            String str2 = "";
+            if (currentAccount == null) {
+                currentAccount = "";
             }
-            return this.d.a(uri);
+            hashMap.put("uid", currentAccount);
+            String str3 = businessInfo.a().get("room_id");
+            if (str3 == null) {
+                str3 = "";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_TO, str3);
+            String str4 = businessInfo.a().get("voice_uid");
+            if (str4 != null) {
+                str2 = str4;
+            }
+            hashMap.put("obj_id", str2);
+            if (this.a) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("obj_param1", str);
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_RECOMMEND_FEED_TEST);
+            return hashMap;
         }
-        return invokeL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 
-    public void f(String str) {
+    public final void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = true;
-            this.c = str;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.a = z;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void g(Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, uri, str) != null) || !b(uri)) {
-            return;
-        }
-        this.b = true;
-        if (!TextUtils.isEmpty(str)) {
-            this.c = c8a.a(str);
-        } else {
-            this.c = null;
         }
     }
 }

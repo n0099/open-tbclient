@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.util;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class UUIDConverter {
     public static UUID convert(byte[] bArr) {
         ByteBuffer wrap = ByteBuffer.wrap(bArr);

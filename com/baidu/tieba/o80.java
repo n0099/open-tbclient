@@ -3,64 +3,25 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.devicescore.IDeviceScore;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.searchbox.security.WarmTipsManager;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class o80 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static volatile long b;
-    public static volatile long c;
-    public static volatile long d;
+    public static long b;
+    public static long c;
+    public static volatile String d;
     public static volatile long e;
-    public static volatile String f;
-    public static volatile JSONObject g;
-    public static volatile boolean h;
-    public static volatile String i;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            o80.h(2);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -76,214 +37,59 @@ public class o80 {
             }
         }
         a = AppConfig.isDebug();
-        b = 0L;
-        c = 0L;
-        d = 0L;
-        e = 0L;
-        f = "";
-        h = false;
-        i = "";
+        b = -1L;
+        c = -1L;
+        d = "";
+        e = -1L;
     }
 
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            if (a) {
-                Log.d("ExternalTransferStats", "resetStats");
-            }
-            b = 0L;
-            c = 0L;
-            d = 0L;
-            e = 0L;
-            g = null;
-            f = "";
-            h = false;
-            i = "";
-        }
-    }
-
-    public static synchronized void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            synchronized (o80.class) {
-                c(str, String.valueOf(System.currentTimeMillis()));
-            }
-        }
-    }
-
-    public static synchronized void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            synchronized (o80.class) {
-                if ((!h && p80.a() == -1) || TextUtils.isEmpty(p80.c())) {
-                    return;
-                }
-                if (a) {
-                    Log.d("ExternalTransferStats", "addEvent id " + str + " value " + str2);
-                }
-                if (TextUtils.equals(str, "external_dispatch_start") && b == 0) {
-                    b = Long.valueOf(str2).longValue();
-                    if (a) {
-                        Log.d("ExternalTransferStats", "set sSchemeDispatcherStartTimeStamp: " + b);
-                    }
-                } else if (TextUtils.equals(str, "external_dispatch_end") && c == 0) {
-                    c = Long.valueOf(str2).longValue();
-                    if (a) {
-                        Log.d("ExternalTransferStats", "set sSchemeDispatcherEndTimeStamp: " + c);
-                    }
-                } else if (TextUtils.equals(str, "external_business_create") && d == 0) {
-                    d = Long.valueOf(str2).longValue();
-                    if (a) {
-                        Log.d("ExternalTransferStats", "set sBusinessPageCreateTimeStamp: " + d);
-                    }
-                } else if (TextUtils.equals(str, "external_business_ui_ready") && e == 0) {
-                    e = Long.valueOf(str2).longValue();
-                    if (a) {
-                        Log.d("ExternalTransferStats", "set sBusinessPageUiReadyTimeStamp: " + e);
-                    }
-                } else if (TextUtils.equals(str, "c_dom_first_screen_paint") && f == "feed") {
-                    e = Long.valueOf(str2).longValue();
-                }
-                if (!TextUtils.equals(str, "external_dispatch_start") && !TextUtils.equals(str, "external_dispatch_end") && !TextUtils.equals(str, "external_business_create") && !TextUtils.equals(str, "external_business_ui_ready")) {
-                    d(str, str2);
-                }
-            }
-        }
-    }
-
-    public static synchronized void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            synchronized (o80.class) {
-                try {
-                    if (g == null) {
-                        g = new JSONObject();
-                    }
-                    if (!g.has(str)) {
-                        g.put(str, str2);
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static String e() {
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return invokeV.longValue;
+    }
+
+    public static long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return invokeV.longValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d;
         }
         return (String) invokeV.objValue;
     }
 
-    public static void g(String str) {
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            b = 0L;
-            c = 0L;
-            d = 0L;
-            e = 0L;
-            g = null;
-            f = "";
-            h = true;
-            i = str;
-            ExecutorUtilsExt.delayPostOnElastic(new a(), "asyncUploadExternalTransferInfo", 3, 15000L);
-        }
-    }
-
-    public static synchronized void h(int i2) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, null, i2) == null) {
-            synchronized (o80.class) {
-                if (!h) {
-                    return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a() != -1 && !TextUtils.isEmpty(str)) {
+            if (System.currentTimeMillis() - e < 10000) {
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "set source too often，ignore this set source " + str);
                 }
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (uBCManager == null) {
-                    f();
-                    return;
+            } else if (!TextUtils.equals("push", str) && !TextUtils.equals(PbModel.WISE, str) && !TextUtils.equals("scheme", str) && !TextUtils.equals(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN, str) && !TextUtils.equals(WarmTipsManager.WIDGET_SOURCE_VALUE, str)) {
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "cannot distinguish the source: " + str);
                 }
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("from", "research");
-                    IDeviceScore iDeviceScore = (IDeviceScore) ServiceManager.getService(IDeviceScore.SERVICE_REFERENCE);
-                    if (iDeviceScore != null) {
-                        jSONObject.put("device_score", iDeviceScore.getFinalScore(AppRuntime.getAppContext()));
-                    }
-                    jSONObject.put("upload_type", i2);
-                    if (d == 0) {
-                        jSONObject.put("type", "");
-                    } else {
-                        long b2 = p80.b();
-                        if (b2 != 0 && d - b2 < 0) {
-                            jSONObject.put("type", "normal");
-                        }
-                        jSONObject.put("type", "quick");
-                    }
-                    jSONObject.put("page", f);
-                    jSONObject.put("source", p80.c());
-                    if (k80.a()) {
-                        jSONObject.put("boot_type", "cold_boot");
-                        j = p80.a();
-                    } else {
-                        jSONObject.put("boot_type", "warm_boot");
-                        j = b;
-                    }
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put(DiskUpdateListener.BEGIN_TIME, p80.a());
-                    if (b != 0) {
-                        long j2 = b - j;
-                        if (j2 >= 0 && j2 < 60000) {
-                            jSONObject2.put("dispatcher_start_duration", j2);
-                        } else {
-                            jSONObject2.put("dispatcher_start_duration", -1);
-                        }
-                    } else {
-                        jSONObject2.put("dispatcher_start_duration", -1);
-                    }
-                    if (c != 0) {
-                        long j3 = c - j;
-                        if (j3 >= 0 && j3 < 60000) {
-                            jSONObject2.put("dispatcher_duration", j3);
-                        } else {
-                            jSONObject2.put("dispatcher_duration", -1);
-                        }
-                    } else {
-                        jSONObject2.put("dispatcher_duration", -1);
-                    }
-                    if (d != 0) {
-                        long j4 = d - j;
-                        if (j4 >= 0 && j4 < 60000) {
-                            jSONObject2.put("will_show_duration", j4);
-                        } else {
-                            jSONObject2.put("will_show_duration", -1);
-                        }
-                    } else {
-                        jSONObject2.put("will_show_duration", -1);
-                    }
-                    if (e != 0) {
-                        long j5 = e - j;
-                        if (j5 >= 0 && j5 < 60000) {
-                            jSONObject2.put("duration", e - j);
-                        } else {
-                            jSONObject2.put("duration", -1);
-                        }
-                    } else {
-                        jSONObject2.put("duration", -1);
-                    }
-                    jSONObject2.put("addition_info", g);
-                    jSONObject.put("ext", jSONObject2);
-                    uBCManager.onEvent("1090", jSONObject.toString());
-                    if (a) {
-                        Log.d("ExternalTransferStats", jSONObject.toString());
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+            } else {
+                e = System.currentTimeMillis();
+                d = str;
+                if (!TextUtils.equals(n80.e(), str)) {
+                    n80.g(str);
                 }
-                f();
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "set external transfer source: " + str);
+                }
             }
         }
     }

@@ -1,102 +1,72 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.personPolymeric.constant.PersonStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qy9 extends no6<nx9> {
+public abstract class qy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public View j;
-    public TbImageView k;
-    public TextView l;
+    public boolean a;
 
-    @Override // com.baidu.tieba.no6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d046d : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qy9(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public qy9(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View h = h();
-        this.j = h;
-        this.i = tbPageContext;
-        h.setTag(this);
-        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090e47);
-        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090e45);
+        this.a = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.no6
-    /* renamed from: r */
-    public void i(nx9 nx9Var) {
+    public PersonStatus g(UserData userData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nx9Var) == null) {
-            if (nx9Var == null) {
-                this.j.setVisibility(8);
-                return;
-            }
-            j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            this.k.startLoad(nx9Var.a, 10, false);
-            this.j.setOnClickListener(this);
-            if (nx9Var.b > 0) {
-                this.l.setVisibility(0);
-                long j = nx9Var.b;
-                if (j > 99) {
-                    this.l.setText("99");
-                    return;
-                } else {
-                    this.l.setText(String.valueOf(j));
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userData)) == null) {
+            if (userData == null) {
+                if (this.a) {
+                    return PersonStatus.HOST_DEFAULT;
                 }
+                return PersonStatus.GUEST_DEFAULT;
+            } else if (userData.isBaijiahaoUser()) {
+                if (this.a) {
+                    return PersonStatus.HOST_BJH;
+                }
+                return PersonStatus.GUEST_BJH;
+            } else if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            } else {
+                return PersonStatus.GUEST_DEFAULT;
             }
-            this.l.setVisibility(8);
         }
+        return (PersonStatus) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.no6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public PersonStatus h(xy9 xy9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
-            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xy9Var)) == null) {
+            if (xy9Var != null && xy9Var.j() != null) {
+                return g(xy9Var.j());
+            }
+            if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            }
+            return PersonStatus.GUEST_DEFAULT;
         }
+        return (PersonStatus) invokeL.objValue;
     }
 }

@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dd7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ForumList;
-import tbclient.GetDislikeList.DataRes;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class j8a {
+public final class j8a implements dd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<h8a> a;
-    public boolean b;
 
     public j8a() {
         Interceptable interceptable = $ic;
@@ -25,29 +24,84 @@ public class j8a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = true;
     }
 
-    public void a(DataRes dataRes) {
+    @Override // com.baidu.tieba.cd7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return dd7.a.b(this);
         }
-        for (ForumList forumList : dataRes.forum_list) {
-            h8a h8aVar = new h8a();
-            h8aVar.a = forumList.avatar;
-            h8aVar.b = forumList.forum_name;
-            h8aVar.c = String.valueOf(forumList.forum_id);
-            this.a.add(h8aVar);
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cd7
+    public Map<String, String> a(m87 m87Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m87Var)) == null) {
+            return dd7.a.a(this, m87Var);
         }
-        boolean z = true;
-        if (dataRes.has_more.intValue() != 1) {
-            z = false;
+        return (Map) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x005b A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x006e A[ORIG_RETURN, RETURN] */
+    @Override // com.baidu.tieba.dd7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(m87 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
+                return "";
+            }
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
+            }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    if (!str.equals("common_user")) {
+                        return "";
+                    }
+                    return "live_mix_card_person_head_click";
+                case -1617812209:
+                    if (!str.equals("video_user")) {
+                        return "";
+                    }
+                    break;
+                case 448970189:
+                    if (!str.equals("common_forum")) {
+                        return "";
+                    }
+                    return "live_mix_card_forum_head_click";
+                case 1009035070:
+                    if (!str.equals("live_user")) {
+                        return "";
+                    }
+                    break;
+                case 1201356814:
+                    if (!str.equals("live_forum")) {
+                        return "";
+                    }
+                    break;
+                case 1373469789:
+                    if (!str.equals("video_forum")) {
+                        return "";
+                    }
+                    break;
+                default:
+                    return "";
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
-        this.b = z;
     }
 }

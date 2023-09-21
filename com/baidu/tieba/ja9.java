@@ -1,60 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ja9 {
+public class ja9 implements ThirdPartAliRechargeService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, String str3) {
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
+    public void aliSign(@NonNull Activity activity, @NonNull String str, @Nullable ThirdPartAliRechargeService.ThirdPartAliSignCallback thirdPartAliSignCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14870");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", str);
-            statisticItem.addParam("obj_id", str2);
-            statisticItem.addParam("fid", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, thirdPartAliSignCallback) == null) {
         }
     }
 
-    public static void c(int i, String str, String str2) {
+    public ja9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65538, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14871");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", str2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void d(int i, String str, String str2) {
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
+    public String aliRecharge(Activity activity, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14872");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", str2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
+            qv4 qv4Var = new qv4();
+            qv4Var.a = activity;
+            qv4Var.b = str;
+            qv4Var.c = z;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, qv4Var);
+            if (runTask == null) {
+                return "";
+            }
+            return (String) runTask.getData();
         }
-    }
-
-    public static void b(int i, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14873");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", j);
-            TiebaStatic.log(statisticItem);
-        }
+        return (String) invokeLLZ.objValue;
     }
 }

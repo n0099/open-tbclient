@@ -12,45 +12,45 @@ public abstract class jd {
     public abstract byte a();
 
     /* renamed from: a */
-    public abstract double mo694a();
+    public abstract double mo696a();
 
     /* renamed from: a */
-    public abstract int mo695a();
+    public abstract int mo697a();
 
     /* renamed from: a */
-    public abstract long mo696a();
+    public abstract long mo698a();
 
     /* renamed from: a */
-    public abstract ja mo697a();
+    public abstract ja mo699a();
 
     /* renamed from: a */
-    public abstract jb mo698a();
+    public abstract jb mo700a();
 
     /* renamed from: a */
-    public abstract jc mo699a();
+    public abstract jc mo701a();
 
     /* renamed from: a */
-    public abstract jh mo700a();
+    public abstract jh mo702a();
 
     /* renamed from: a */
-    public abstract ji mo701a();
+    public abstract ji mo703a();
 
     /* renamed from: a */
-    public abstract String mo702a();
+    public abstract String mo704a();
 
     /* renamed from: a */
-    public abstract ByteBuffer mo703a();
+    public abstract ByteBuffer mo705a();
 
     /* renamed from: a */
-    public abstract short mo704a();
+    public abstract short mo706a();
 
     /* renamed from: a */
-    public abstract void mo705a();
+    public abstract void mo707a();
 
     public abstract void a(byte b);
 
     /* renamed from: a */
-    public abstract void mo706a(int i);
+    public abstract void mo708a(int i);
 
     public abstract void a(long j);
 
@@ -71,7 +71,7 @@ public abstract class jd {
     public abstract void a(boolean z);
 
     /* renamed from: a */
-    public abstract boolean mo707a();
+    public abstract boolean mo709a();
 
     public abstract void b();
 

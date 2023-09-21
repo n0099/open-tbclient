@@ -25,9 +25,9 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao5;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.bo5;
+import com.baidu.tieba.eo5;
+import com.baidu.tieba.fo5;
+import com.baidu.tieba.hja;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.redpackage.NewUserRedPackageActivity;
@@ -91,7 +91,7 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements bo5.b {
+    public class b implements fo5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -114,7 +114,7 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.bo5.b
+        @Override // com.baidu.tieba.fo5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -156,8 +156,8 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ao5)) {
-                this.a.b = Boolean.valueOf(((ao5) customResponsedMessage.getData()).a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof eo5)) {
+                this.a.b = Boolean.valueOf(((eo5) customResponsedMessage.getData()).a);
                 if (this.a.b.booleanValue()) {
                     this.a.a.refresh(0);
                     this.a.a.setVisibility(0);
@@ -243,8 +243,8 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            bha.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, bha.a("c/u/user/profile", 303012));
+            hja.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, hja.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -276,7 +276,7 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.mIndicator = (MaintabBottomIndicator) bo5.e().d(1005, new b(this, context));
+            this.mIndicator = (MaintabBottomIndicator) fo5.e().d(1005, new b(this, context));
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.FragmentTapTip fragmentTapTip = new TbFragmentTabIndicator.FragmentTapTip();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;

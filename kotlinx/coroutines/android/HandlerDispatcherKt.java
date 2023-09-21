@@ -43,17 +43,17 @@ public final class HandlerDispatcherKt {
     }
 
     static {
-        Object m850constructorimpl;
+        Object m852constructorimpl;
         HandlerDispatcher handlerDispatcher = null;
         try {
             Result.Companion companion = Result.Companion;
-            m850constructorimpl = Result.m850constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), null, 2, null));
+            m852constructorimpl = Result.m852constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), null, 2, null));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m850constructorimpl = Result.m850constructorimpl(ResultKt.createFailure(th));
+            m852constructorimpl = Result.m852constructorimpl(ResultKt.createFailure(th));
         }
-        if (!Result.m856isFailureimpl(m850constructorimpl)) {
-            handlerDispatcher = m850constructorimpl;
+        if (!Result.m858isFailureimpl(m852constructorimpl)) {
+            handlerDispatcher = m852constructorimpl;
         }
         Main = handlerDispatcher;
     }
@@ -65,7 +65,7 @@ public final class HandlerDispatcherKt {
     }
 
     public static final void postFrameCallback(Choreographer choreographer2, final CancellableContinuation<? super Long> cancellableContinuation) {
-        choreographer2.postFrameCallback(new Choreographer.FrameCallback() { // from class: com.baidu.tieba.w7c
+        choreographer2.postFrameCallback(new Choreographer.FrameCallback() { // from class: com.baidu.tieba.o9c
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,7 +123,7 @@ public final class HandlerDispatcherKt {
         }
         final CancellableContinuationImpl cancellableContinuationImpl2 = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation), 1);
         cancellableContinuationImpl2.initCancellability();
-        Dispatchers.getMain().mo2345dispatch(EmptyCoroutineContext.INSTANCE, new Runnable() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$awaitFrame$lambda-3$$inlined$Runnable$1
+        Dispatchers.getMain().mo2347dispatch(EmptyCoroutineContext.INSTANCE, new Runnable() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$awaitFrame$lambda-3$$inlined$Runnable$1
             @Override // java.lang.Runnable
             public final void run() {
                 HandlerDispatcherKt.updateChoreographerAndPostFrameCallback(CancellableContinuation.this);

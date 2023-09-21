@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextToSpeechMsg;
+import com.baidu.tieba.hz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.Triple;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class ug8 extends og8<TbTextMsg, TextMsg> {
+public abstract class ug8 implements hz4.d {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,11 +31,7 @@ public final class ug8 extends og8<TbTextMsg, TextMsg> {
                 return;
             }
         }
-        f = new a(null);
-    }
-
-    public /* synthetic */ ug8(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
+        b = new a(null);
     }
 
     /* loaded from: classes8.dex */
@@ -65,20 +57,29 @@ public final class ug8 extends og8<TbTextMsg, TextMsg> {
             }
         }
 
-        public final Triple<Class<TbTextMsg>, Class<TextMsg>, ug8> a() {
-            InterceptResult invokeV;
+        public final void a(ug8 h5Notify) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new Triple<>(TbTextMsg.class, TextMsg.class, new ug8(null));
+            if (interceptable == null || interceptable.invokeL(1048576, this, h5Notify) == null) {
+                Intrinsics.checkNotNullParameter(h5Notify, "h5Notify");
+                hz4.b.a().c(h5Notify);
             }
-            return (Triple) invokeV.objValue;
+        }
+
+        public final void b(ug8 h5Notify) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h5Notify) == null) {
+                Intrinsics.checkNotNullParameter(h5Notify, "h5Notify");
+                hz4.b.a().e(h5Notify);
+            }
         }
     }
 
-    public ug8() {
+    public ug8(String keyStr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {keyStr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -88,40 +89,17 @@ public final class ug8 extends og8<TbTextMsg, TextMsg> {
                 return;
             }
         }
-        j(1, TbTextMsg.class);
-        j(103, TbTextToSpeechMsg.class);
+        Intrinsics.checkNotNullParameter(keyStr, "keyStr");
+        this.a = keyStr;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.og8
-    /* renamed from: n */
-    public TextMsg g(TbTextMsg tbMsg) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hz4.d
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            TextMsg textMsg = new TextMsg();
-            textMsg.setText(tbMsg.getText());
-            return textMsg;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (TextMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.og8
-    /* renamed from: o */
-    public TbTextMsg h(int i, TextMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
-            TbTextMsg tbTextMsg = (TbTextMsg) DataExt.toEntity(sdkMsgMap, l(i));
-            String str = sdkMsg.text;
-            Intrinsics.checkNotNullExpressionValue(str, "sdkMsg.text");
-            tbTextMsg.setText(str);
-            return tbTextMsg;
-        }
-        return (TbTextMsg) invokeILL.objValue;
+        return (String) invokeV.objValue;
     }
 }

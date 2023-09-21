@@ -1,56 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class scb {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public boolean d;
+    public int e;
+    public String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948148023, "Lcom/baidu/tieba/scb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948148023, "Lcom/baidu/tieba/scb;");
+    public scb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = pbb.m();
+        this.a = true;
+        this.b = false;
+        this.c = 60;
+        this.d = true;
+        this.e = 0;
+        this.f = "99999";
     }
 
-    public static byte[] a(byte[] bArr) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            byte[] bArr2 = null;
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                gZIPOutputStream.write(bArr);
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                bArr2 = byteArrayOutputStream.toByteArray();
-                byteArrayOutputStream.close();
-                return bArr2;
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                    return bArr2;
-                }
-                return bArr2;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return TextUtils.equals(str, "99999");
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

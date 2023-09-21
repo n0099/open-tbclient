@@ -1,56 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class e0c {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "h";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<?> a;
+    public final Class<?> b;
+    public boolean c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947681969, "Lcom/baidu/tieba/e0c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947681969, "Lcom/baidu/tieba/e0c;");
-        }
+    public Class<?> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Class) invokeV.objValue;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Context a2 = a0c.a();
-            if (a2 == null) {
-                return "";
-            }
-            try {
-                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                String str2 = a;
-                d0c.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
-                return "";
-            } catch (Exception e2) {
-                String str3 = a;
-                d0c.d(str3, "getVersion: " + e2.getMessage());
-                return "";
-            } catch (Throwable unused) {
-                d0c.d(a, "throwable");
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public Class<?> getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Class) invokeV.objValue;
     }
 }

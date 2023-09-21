@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class FileUtils {
-    public static Function<String, Boolean> DELETE_ALL = new Function() { // from class: com.baidu.tieba.o8c
+    public static Function<String, Boolean> DELETE_ALL = new Function() { // from class: com.baidu.tieba.gac
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

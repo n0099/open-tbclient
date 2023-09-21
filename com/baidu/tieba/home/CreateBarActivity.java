@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ae5;
+import com.baidu.tieba.ee5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,10 +95,10 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     if (view2 != this.a.f) {
                         return;
                     }
-                    this.a.I1();
+                    this.a.i1();
                     return;
                 }
-                this.a.H1();
+                this.a.h1();
             }
         }
     }
@@ -301,7 +301,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                 }
                 this.d.showToast(this.c.getErrorString());
                 if (this.c.isNetSuccess()) {
-                    this.d.I1();
+                    this.d.i1();
                 }
             }
         }
@@ -355,14 +355,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        ae5 ae5Var = new ae5();
-                        ae5Var.e(postNetData);
-                        if (ae5Var.c() != null && ae5Var.c().length() > 0) {
-                            this.c.n = ae5Var.b();
+                        ee5 ee5Var = new ee5();
+                        ee5Var.e(postNetData);
+                        if (ee5Var.c() != null && ee5Var.c().length() > 0) {
+                            this.c.n = ee5Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(ae5Var.c());
+                            NetWork netWork2 = new NetWork(ee5Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -455,15 +455,15 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0239);
+            setContentView(R.layout.obfuscated_res_0x7f0d0238);
             initData();
-            G1();
-            E1();
+            g1();
+            f1();
             adjustResizeForSoftInput();
         }
     }
 
-    public final void E1() {
+    public final void f1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.k == null) {
             e eVar = new e(this, null);
@@ -472,7 +472,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         }
     }
 
-    public final void I1() {
+    public final void i1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.k == null && this.j == null) {
             e eVar = new e(this, null);
@@ -510,7 +510,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         }
     }
 
-    public final void G1() {
+    public final void g1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.l = new a(this);
@@ -519,43 +519,43 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             this.u = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.u.setTitleText(getPageContext().getString(R.string.create_bar));
-            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907aa);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0924c8);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092686)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090a44);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091134);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090808);
+            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907a0);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f092494);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092651)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3c);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091123);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907fd);
             this.e = relativeLayout;
             relativeLayout.setOnClickListener(this.l);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091135);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09097f);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091124);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090977);
             this.c = editText;
             editText.addTextChangedListener(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f09098e);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090986);
             this.d = editText2;
             editText2.addTextChangedListener(this.m);
             if (this.t) {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e96));
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e98));
                 this.c.setText(this.s);
             } else {
                 this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f032f));
             }
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090808);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091090);
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907fd);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091083);
             this.f = frameLayout;
             frameLayout.setOnClickListener(this.l);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09108c);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09107f);
             this.e.setEnabled(false);
-            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091dad);
-            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091db8);
+            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d7b);
+            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d86);
             if (this.t) {
                 this.d.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f092248).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f092211).setOnTouchListener(new c(this));
         }
     }
 
-    public final void H1() {
+    public final void h1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.j == null) {
             d dVar = new d(this, this.c.getText().toString().trim(), this.d.getText().toString().trim());

@@ -6,18 +6,17 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
+import com.baidu.tieba.ala.frsgamelive.view.AlaFrsLiveListGatherNoDataTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qe6 extends pm<we6, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
+public class qe6 extends om<ye6, AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public fb6 b;
+    public TbPageContext<?> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qe6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -42,34 +41,25 @@ public class qe6 extends pm<we6, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: s */
-    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.a));
+            return new AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder(new AlaFrsLiveListGatherNoDataTitleView(this.a));
         }
-        return (AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder) invokeL.objValue;
-    }
-
-    public void u(fb6 fb6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fb6Var) == null) {
-            this.b = fb6Var;
-        }
+        return (AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, we6 we6Var, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ye6 ye6Var, AlaFrsLiveListGatherNoDataTitleView.AlaFrsLiveListNoDataViewHolder alaFrsLiveListNoDataViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, we6Var, alaGameFrsGameViewHolder})) == null) {
-            alaGameFrsGameViewHolder.a.i(we6Var);
-            alaGameFrsGameViewHolder.a.t(this.b);
-            return alaGameFrsGameViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ye6Var, alaFrsLiveListNoDataViewHolder})) == null) {
+            return alaFrsLiveListNoDataViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

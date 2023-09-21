@@ -12,7 +12,7 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     @KsJson
     /* renamed from: com.kwad.components.core.webview.jshandler.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0660a extends com.kwad.sdk.core.response.kwai.a {
+    public static class C0653a extends com.kwad.sdk.core.response.kwai.a {
         public String Ld;
 
         public final String getTarget() {
@@ -45,9 +45,9 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         this.Lb = cVar;
         try {
-            C0660a c0660a = new C0660a();
-            c0660a.parseJson(new JSONObject(str));
-            String target = c0660a.getTarget();
+            C0653a c0653a = new C0653a();
+            c0653a.parseJson(new JSONObject(str));
+            String target = c0653a.getTarget();
             if (this.Lc != null) {
                 this.Lc.a(this, target);
             }

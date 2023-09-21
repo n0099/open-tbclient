@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class e32 implements d32 {
+public class e32 implements c32 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
+    public static volatile e32 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, p43> a;
+    public List<c32> a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +32,7 @@ public class e32 implements d32 {
                 return;
             }
         }
-        b = rr1.a;
+        b = qr1.a;
     }
 
     public e32() {
@@ -51,53 +48,64 @@ public class e32 implements d32 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add(new d32());
     }
 
-    @Override // com.baidu.tieba.d32
+    public static e32 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (e32.class) {
+                    if (c == null) {
+                        c = new e32();
+                    }
+                }
+            }
+            return c;
+        }
+        return (e32) invokeV.objValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.d("Api-Marker", "release: ");
+                }
+                if (c == null) {
+                    return;
+                }
+                c = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.c32
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.d("Api-Marker", "markStart: " + str);
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).a(str);
+            }
         }
-        if (b) {
-            Log.d("Api-FirstRecorder", "markStart: " + str);
-        }
-        p43 p43Var = new p43();
-        this.a.put(str, p43Var);
-        p43Var.i(System.currentTimeMillis());
-        p43Var.f(str);
     }
 
-    @Override // com.baidu.tieba.d32
-    @SuppressLint({"BDThrowableCheck"})
+    @Override // com.baidu.tieba.c32
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            p43 p43Var = this.a.get(str);
-            if (p43Var == null) {
-                if (!b) {
-                    return;
-                }
-                throw new RuntimeException(str + " markEnd before markStart");
-            } else if (p43Var.d() > 0) {
-            } else {
-                p43Var.h(System.currentTimeMillis());
-                if (b) {
-                    Log.d("Api-FirstRecorder", str + " first called cost " + p43Var.c());
-                }
-                if (TextUtils.equals(str, "request")) {
-                    if (b) {
-                        Log.d("Api-FirstRecorder", "record first request api called " + p43Var.toString());
-                    }
-                    HybridUbcFlow p = m43.p("startup");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
-                    ubcFlowEvent.h(p43Var.e());
-                    p.F(ubcFlowEvent);
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
-                    ubcFlowEvent2.h(p43Var.d());
-                    p.F(ubcFlowEvent2);
-                }
+            if (b) {
+                Log.d("Api-Marker", "markEnd: " + str);
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).b(str);
             }
         }
     }

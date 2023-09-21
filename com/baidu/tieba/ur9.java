@@ -1,160 +1,135 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
-import com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatEnterForumViewHolder;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.bot.RequestBotSkillHelper;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.PbContent;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
 /* loaded from: classes8.dex */
-public class ur9 extends pm<vj9, VideoTabPbFloatEnterForumViewHolder> {
+public class ur9 {
     public static /* synthetic */ Interceptable $ic;
+    public static List<zja> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public boolean b;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ur9 a;
-
-        public a(ur9 ur9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948220749, "Lcom/baidu/tieba/ur9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ur9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ur9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.a instanceof VideoPbCommentFloatFragment)) {
-                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) this.a.a;
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                statisticItem.param("fid", videoPbCommentFloatFragment.X().getForumId());
-                statisticItem.param("tid", videoPbCommentFloatFragment.X().L1());
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("post_id", videoPbCommentFloatFragment.X().P0());
-                statisticItem.param("obj_source", 1);
-                statisticItem.param("obj_type", 16);
-                statisticItem.param("obj_locate", videoPbCommentFloatFragment.G3());
-                TiebaStatic.log(statisticItem);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ur9(Context context, BdUniqueId bdUniqueId, BaseFragment baseFragment) {
-        super(context, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, baseFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948220749, "Lcom/baidu/tieba/ur9;");
                 return;
             }
         }
-        this.a = baseFragment;
+        a = new ArrayList();
     }
 
-    public void x(boolean z) {
+    public static void a(TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull String str, long j, @NonNull String str2, @NonNull String str3, @NonNull String str4, FastRequest.b<Void> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, str, Long.valueOf(j), str2, str3, str4, bVar}) == null) {
+            new RequestBotSkillHelper(tbPageContext).b(new RequestBotSkillHelper.BotRequest(str, j, str2, str3, str4), bVar);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.pm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vj9 vj9Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        u(i, view2, viewGroup, vj9Var, videoTabPbFloatEnterForumViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: t */
-    public VideoTabPbFloatEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static void b(PbModel pbModel, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.tbds156);
-            layoutParams.topMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_H_X003);
-            layoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_H_X005);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            View view2 = new View(this.mContext);
-            view2.setId(R.id.obfuscated_res_0x7f090b78);
-            view2.setAlpha(0.5f);
-            frameLayout.addView(view2, new FrameLayout.LayoutParams(-1, -1));
-            return new VideoTabPbFloatEnterForumViewHolder(this.mContext, frameLayout);
+        if ((interceptable != null && interceptable.invokeLL(65538, null, pbModel, str) != null) || pbModel == null) {
+            return;
         }
-        return (VideoTabPbFloatEnterForumViewHolder) invokeL.objValue;
+        lk9 r1 = pbModel.r1();
+        lk9 lk9Var = new lk9();
+        ArrayList<zja> F = lk9Var.F();
+        zja zjaVar = new zja();
+        zjaVar.s1(System.currentTimeMillis());
+        ArrayList arrayList = new ArrayList();
+        PbContent.Builder builder = new PbContent.Builder();
+        List<RobotSkillInfo> list = r1.K().robot_skill_info;
+        List<RobotSkill> list2 = r1.K().bottom_bar_robot_skill;
+        if (list != null && list2 != null) {
+            builder.text = BotEntranceManager.h().c(list, list2).style_conf.android_extra.bot_loading_content;
+        }
+        if (TextUtils.isEmpty(builder.text)) {
+            builder.text = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f9);
+        }
+        arrayList.add(builder.build(true));
+        zjaVar.o1(new TbRichText(arrayList, pbModel.L1(), false));
+        zjaVar.T0(1);
+        if (r1 != null && r1.y() != null) {
+            zjaVar.W0(r1.F().size() + 1);
+        }
+        if (r1 != null && r1.O() != null) {
+            lk9Var.S0(r1.O());
+            lk9Var.O().setReply_num(lk9Var.O().getReply_num() + 1);
+        }
+        MetaData metaData = new MetaData();
+        UserData V = pbModel.r1().V();
+        metaData.setName_show(V.getName_show());
+        metaData.setPortrait(V.getPortrait());
+        metaData.setUserId(V.getUserId());
+        metaData.setLevel_id(V.getLevel_id());
+        metaData.setLevelName(V.getLevelName());
+        metaData.setIconInfo(V.getIconInfo());
+        zjaVar.P0(metaData);
+        zjaVar.Q0(str);
+        F.clear();
+        F.add(zjaVar);
+        a.add(zjaVar);
+        pbModel.C2(lk9Var, 8, false, 0, "", false, 0, 0L, 0L, true);
     }
 
-    public View u(int i, View view2, ViewGroup viewGroup, vj9 vj9Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
+    public static String c(String str, String str2, long j) {
         InterceptResult invokeCommon;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vj9Var, videoTabPbFloatEnterForumViewHolder})) == null) {
-            if (vj9Var != null) {
-                videoTabPbFloatEnterForumViewHolder.setData(vj9Var.a);
-                videoTabPbFloatEnterForumViewHolder.b(new a(this));
-            }
-            if (this.b) {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(0);
-            } else {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(8);
-            }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
-            View view3 = videoTabPbFloatEnterForumViewHolder.d;
-            if (this.b) {
-                i2 = R.color.CAM_X0201;
-            } else {
-                i2 = R.color.transparent;
-            }
-            SkinManager.setBackgroundColor(view3, i2);
-            videoTabPbFloatEnterForumViewHolder.a();
-            return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            return ji.c(str + str2 + j);
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeCommon.objValue;
+    }
+
+    public static void d(String str, String str2, String str3, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, i) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            for (zja zjaVar : a) {
+                if (str.equals(zjaVar.x()) && zjaVar.l() == 1) {
+                    ArrayList arrayList = new ArrayList();
+                    PbContent.Builder builder = new PbContent.Builder();
+                    builder.text = str2;
+                    arrayList.add(builder.build(true));
+                    zjaVar.o1(new TbRichText(arrayList, "", false));
+                    zjaVar.c1(str3);
+                    zjaVar.T0(i);
+                    return;
+                }
+            }
+        }
+    }
+
+    public static void e(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            BdToast.makeText(TbadkCoreApplication.getInst().getContext(), str).show();
+        }
     }
 }

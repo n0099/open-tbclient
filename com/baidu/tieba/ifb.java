@@ -1,19 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Stack;
 /* loaded from: classes6.dex */
-public class ifb implements qfb {
+public final class ifb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public veb a;
-    public float b;
-    public boolean c;
+    public Stack<WeakReference<Activity>> a;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ifb a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-719030937, "Lcom/baidu/tieba/ifb$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-719030937, "Lcom/baidu/tieba/ifb$a;");
+                    return;
+                }
+            }
+            a = new ifb((byte) 0);
+        }
+    }
 
     public ifb() {
         Interceptable interceptable = $ic;
@@ -28,104 +53,61 @@ public class ifb implements qfb {
                 return;
             }
         }
-        this.b = 1.0f;
-        this.c = true;
+        this.a = new Stack<>();
     }
 
-    @Override // com.baidu.tieba.qfb
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            veb vebVar = this.a;
-            if (vebVar == null || !vebVar.putBytes(bArr, i)) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.qfb
-    public boolean a() {
+    public final Stack<WeakReference<Activity>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qfb
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (veb) yib.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
-            }
-            veb vebVar = this.a;
-            if (vebVar != null) {
-                vebVar.init(i3, i2);
-                this.a.setSpeed(1.0f);
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeIIII.booleanValue;
+        return (Stack) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qfb
-    public byte[] a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            veb vebVar = this.a;
-            return vebVar != null ? vebVar.getOutPutBytes() : new byte[0];
-        }
-        return (byte[]) invokeI.objValue;
+    public /* synthetic */ ifb(byte b) {
+        this();
     }
 
-    public void b(float f) {
+    public final void c(WeakReference<Activity> weakReference) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.b = f;
-            veb vebVar = this.a;
-            if (vebVar != null) {
-                vebVar.setSpeed(f);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
+            this.a.add(weakReference);
         }
     }
 
-    @Override // com.baidu.tieba.qfb
-    public boolean b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qfb
-    public void c() {
-        veb vebVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (vebVar = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < this.a.size(); i++) {
+                Activity activity = this.a.get(i).get();
+                if (activity != null) {
+                    sb.append(activity.getClass().getSimpleName());
+                    sb.append("->");
+                }
+            }
+            if (sb.length() > 0) {
+                return sb.substring(0, sb.length() - 2);
+            }
+            return "没有路径了";
         }
-        vebVar.flush();
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qfb
-    public void d() {
-        veb vebVar;
+    public final void d(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (vebVar = this.a) == null) {
-            return;
-        }
-        vebVar.close();
-        this.a = null;
-    }
-
-    @Override // com.baidu.tieba.qfb
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (this.a != null) {
+                for (int i = 0; i < this.a.size(); i++) {
+                    if (this.a.get(i).get() == activity) {
+                        Stack<WeakReference<Activity>> stack = this.a;
+                        stack.remove(stack.get(i));
+                    }
+                }
+            }
+            b();
         }
     }
 }

@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes9.dex */
 public interface zw1 {
-    void b();
+    void a(NgWebView ngWebView);
 
-    void c();
+    void b(NgWebView ngWebView, String str);
 
-    zw1 create();
+    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
 
-    void d(r03 r03Var, boolean z);
+    void d(String str, Context context);
 
-    void e(r03 r03Var, Context context);
-
-    boolean isPlaying();
-
-    boolean onBackPressed();
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    void e(String str, Context context);
 }

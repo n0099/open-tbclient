@@ -79,11 +79,11 @@ public class in implements is<in, Object>, Serializable, Cloneable {
         int a12;
         int a13;
         if (in.class.equals(inVar.getClass())) {
-            int compareTo = Boolean.valueOf(m679a()).compareTo(Boolean.valueOf(inVar.m679a()));
+            int compareTo = Boolean.valueOf(m681a()).compareTo(Boolean.valueOf(inVar.m681a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m679a() || (a13 = it.a(this.f760a, inVar.f760a)) == 0) {
+            if (!m681a() || (a13 = it.a(this.f760a, inVar.f760a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(inVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -184,19 +184,19 @@ public class in implements is<in, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo701a();
+        jdVar.mo703a();
         while (true) {
-            ja mo697a = jdVar.mo697a();
-            byte b2 = mo697a.a;
+            ja mo699a = jdVar.mo699a();
+            byte b2 = mo699a.a;
             if (b2 == 0) {
                 jdVar.f();
                 a();
                 return;
             }
-            switch (mo697a.f813a) {
+            switch (mo699a.f813a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f760a = jdVar.mo702a();
+                        this.f760a = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
@@ -212,63 +212,63 @@ public class in implements is<in, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f763b = jdVar.mo702a();
+                        this.f763b = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f764c = jdVar.mo702a();
+                        this.f764c = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f765d = jdVar.mo702a();
+                        this.f765d = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f766e = jdVar.mo702a();
+                        this.f766e = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f767f = jdVar.mo702a();
+                        this.f767f = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f768g = jdVar.mo702a();
+                        this.f768g = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 11) {
-                        this.f769h = jdVar.mo702a();
+                        this.f769h = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 10:
                     if (b2 == 11) {
-                        this.f770i = jdVar.mo702a();
+                        this.f770i = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 11:
                     if (b2 == 2) {
-                        this.f762a = jdVar.mo707a();
+                        this.f762a = jdVar.mo709a();
                         a(true);
                         continue;
                         jdVar.g();
@@ -276,7 +276,7 @@ public class in implements is<in, Object>, Serializable, Cloneable {
                     break;
                 case 12:
                     if (b2 == 10) {
-                        this.f758a = jdVar.mo696a();
+                        this.f758a = jdVar.mo698a();
                         b(true);
                         continue;
                         jdVar.g();
@@ -293,23 +293,23 @@ public class in implements is<in, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m679a() {
+    public boolean m681a() {
         return this.f760a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m680a(in inVar) {
+    public boolean m682a(in inVar) {
         if (inVar == null) {
             return false;
         }
-        boolean m679a = m679a();
-        boolean m679a2 = inVar.m679a();
-        if ((m679a || m679a2) && !(m679a && m679a2 && this.f760a.equals(inVar.f760a))) {
+        boolean m681a = m681a();
+        boolean m681a2 = inVar.m681a();
+        if ((m681a || m681a2) && !(m681a && m681a2 && this.f760a.equals(inVar.f760a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = inVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f759a.m597a(inVar.f759a))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f759a.m599a(inVar.f759a))) {
             return false;
         }
         boolean c2 = c();
@@ -374,7 +374,7 @@ public class in implements is<in, Object>, Serializable, Cloneable {
     public void b(jd jdVar) {
         a();
         jdVar.a(f757a);
-        if (this.f760a != null && m679a()) {
+        if (this.f760a != null && m681a()) {
             jdVar.a(a);
             jdVar.a(this.f760a);
             jdVar.b();
@@ -435,7 +435,7 @@ public class in implements is<in, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo705a();
+        jdVar.mo707a();
     }
 
     public void b(boolean z) {
@@ -475,7 +475,7 @@ public class in implements is<in, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof in)) {
-            return m680a((in) obj);
+            return m682a((in) obj);
         }
         return false;
     }
@@ -516,7 +516,7 @@ public class in implements is<in, Object>, Serializable, Cloneable {
         boolean z;
         StringBuilder sb = new StringBuilder("XmPushActionUnRegistration(");
         boolean z2 = false;
-        if (m679a()) {
+        if (m681a()) {
             sb.append("debug:");
             String str = this.f760a;
             if (str == null) {

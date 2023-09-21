@@ -16,21 +16,19 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.TbCaptureActivityConfig;
 import com.baidu.tbadk.core.atomData.WorkPublishGuideActivityConfig;
 import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.switchs.PicCaptureModeSwitch;
 import com.baidu.tbadk.switchs.PublishVideoThreadSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e55;
+import com.baidu.tieba.cja;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.i55;
-import com.baidu.tieba.wga;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.j55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +86,7 @@ public class WriteVideoUtil {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements i55.f {
+    public class b implements j55.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -100,14 +98,14 @@ public class WriteVideoUtil {
         public final /* synthetic */ String g;
         public final /* synthetic */ String h;
         public final /* synthetic */ String i;
-        public final /* synthetic */ g55 j;
+        public final /* synthetic */ h55 j;
 
-        public b(String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7, g55 g55Var) {
+        public b(String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7, h55 h55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7, g55Var};
+                Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7, h55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -126,38 +124,38 @@ public class WriteVideoUtil {
             this.g = str5;
             this.h = str6;
             this.i = str7;
-            this.j = g55Var;
+            this.j = h55Var;
         }
 
-        @Override // com.baidu.tieba.i55.f
-        public void G0(i55 i55Var, int i, View view2) {
+        @Override // com.baidu.tieba.j55.f
+        public void G0(j55 j55Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, i55Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, j55Var, i, view2) == null) {
                 if (i == 0) {
                     WriteVideoUtil.sendThread(true, true, this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i);
                 } else if (i == 1) {
                     WriteVideoUtil.sendThread(true, false, this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i);
                 }
-                g55 g55Var = this.j;
-                if (g55Var != null) {
-                    g55Var.dismiss();
+                h55 h55Var = this.j;
+                if (h55Var != null) {
+                    h55Var.dismiss();
                 }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c implements i55.c {
+    public class c implements j55.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g55 a;
+        public final /* synthetic */ h55 a;
 
-        public c(g55 g55Var) {
+        public c(h55 h55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g55Var};
+                Object[] objArr = {h55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -167,15 +165,15 @@ public class WriteVideoUtil {
                     return;
                 }
             }
-            this.a = g55Var;
+            this.a = h55Var;
         }
 
-        @Override // com.baidu.tieba.i55.c
+        @Override // com.baidu.tieba.j55.c
         public void onClick() {
-            g55 g55Var;
+            h55 h55Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (g55Var = this.a) != null) {
-                g55Var.dismiss();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (h55Var = this.a) != null) {
+                h55Var.dismiss();
             }
         }
     }
@@ -207,7 +205,7 @@ public class WriteVideoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return !TextUtils.isEmpty(wga.G());
+            return !TextUtils.isEmpty(cja.G());
         }
         return invokeV.booleanValue;
     }
@@ -242,30 +240,40 @@ public class WriteVideoUtil {
         return invokeLII.booleanValue;
     }
 
+    public static void publishVideo(TbPageContext tbPageContext, String str, ForumWriteData forumWriteData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, str, forumWriteData) == null) && forumWriteData != null && tbPageContext != null && isTbVideoAviable()) {
+            TbCaptureActivityConfig tbCaptureActivityConfig = new TbCaptureActivityConfig(tbPageContext.getPageActivity());
+            tbCaptureActivityConfig.getIntent().putExtra(TbCaptureActivityConfig.FORUM_WRITE_DATA, forumWriteData);
+            tbCaptureActivityConfig.setCaptureType(0);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921582, tbCaptureActivityConfig));
+        }
+    }
+
     public static void openBottomActionSheet(BdPageContext bdPageContext, String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{bdPageContext, str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7}) == null) && bdPageContext != null && bdPageContext.getPageActivity() != null) {
             String string = bdPageContext.getString(R.string.work_publish_open_dialog_title);
-            g55 g55Var = new g55(bdPageContext);
-            i55 i55Var = new i55(bdPageContext.getPageActivity());
-            i55Var.t(string);
+            h55 h55Var = new h55(bdPageContext);
+            j55 j55Var = new j55(bdPageContext.getPageActivity());
+            j55Var.t(string);
             ArrayList arrayList = new ArrayList();
-            e55 e55Var = new e55(0, bdPageContext.getString(R.string.work_publish_open_dialog_load_draft), i55Var);
-            e55Var.r(R.color.CAM_X0105);
-            e55Var.p(R.color.CAM_X0204);
-            arrayList.add(e55Var);
-            e55 e55Var2 = new e55(1, bdPageContext.getString(R.string.work_publish_open_dialog_add_new), i55Var);
-            e55Var2.r(R.color.CAM_X0105);
-            e55Var2.p(R.color.CAM_X0204);
-            arrayList.add(e55Var2);
-            b bVar = new b(str, str2, str3, str4, i, bool, str5, str6, str7, g55Var);
-            c cVar = new c(g55Var);
-            i55Var.l(arrayList);
-            i55Var.q(bVar);
-            i55Var.o(cVar);
-            g55Var.setCanceledOnTouchOutside(true);
-            g55Var.h(i55Var);
-            g55Var.l();
+            f55 f55Var = new f55(0, bdPageContext.getString(R.string.work_publish_open_dialog_load_draft), j55Var);
+            f55Var.r(R.color.CAM_X0105);
+            f55Var.p(R.color.CAM_X0204);
+            arrayList.add(f55Var);
+            f55 f55Var2 = new f55(1, bdPageContext.getString(R.string.work_publish_open_dialog_add_new), j55Var);
+            f55Var2.r(R.color.CAM_X0105);
+            f55Var2.p(R.color.CAM_X0204);
+            arrayList.add(f55Var2);
+            b bVar = new b(str, str2, str3, str4, i, bool, str5, str6, str7, h55Var);
+            c cVar = new c(h55Var);
+            j55Var.l(arrayList);
+            j55Var.q(bVar);
+            j55Var.o(cVar);
+            h55Var.setCanceledOnTouchOutside(true);
+            h55Var.h(j55Var);
+            h55Var.l();
         }
     }
 
@@ -283,25 +291,6 @@ public class WriteVideoUtil {
             if (currentActivity instanceof TbPageContextSupport) {
                 openBottomActionSheet(((TbPageContextSupport) currentActivity).getPageContext(), str, str2, str3, str4, i, bool, str5, str6, str7);
             }
-        }
-    }
-
-    public static void publishVideo(TbPageContext tbPageContext, String str, ForumWriteData forumWriteData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, str, forumWriteData) == null) && forumWriteData != null && tbPageContext != null && isTbVideoAviable()) {
-            if (PicCaptureModeSwitch.Companion.isOn()) {
-                TbCaptureActivityConfig tbCaptureActivityConfig = new TbCaptureActivityConfig(tbPageContext.getPageActivity());
-                tbCaptureActivityConfig.getIntent().putExtra("forum_write_data", forumWriteData);
-                tbCaptureActivityConfig.setCaptureType(0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921582, tbCaptureActivityConfig));
-                return;
-            }
-            RecordVideoActivityConfig.b bVar = new RecordVideoActivityConfig.b(1, forumWriteData, null, str, 0);
-            bVar.d(0);
-            if (forumWriteData != null) {
-                bVar.c(forumWriteData.antiData, forumWriteData.prefixData, forumWriteData.firstDir, forumWriteData.secondDir);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921615, bVar));
         }
     }
 
@@ -326,7 +315,7 @@ public class WriteVideoUtil {
                 if (z2) {
                     i2 = 2;
                 } else {
-                    wga.B("");
+                    cja.B("");
                     i2 = 1;
                 }
             } else {

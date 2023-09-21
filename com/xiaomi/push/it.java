@@ -157,7 +157,7 @@ public final class it {
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
-        return m691a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m692a(byteBuffer));
+        return m693a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m694a(byteBuffer));
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -177,13 +177,13 @@ public final class it {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m691a(ByteBuffer byteBuffer) {
+    public static boolean m693a(ByteBuffer byteBuffer) {
         return byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m692a(ByteBuffer byteBuffer) {
-        if (m691a(byteBuffer)) {
+    public static byte[] m694a(ByteBuffer byteBuffer) {
+        if (m693a(byteBuffer)) {
             return byteBuffer.array();
         }
         byte[] bArr = new byte[byteBuffer.remaining()];

@@ -11,9 +11,9 @@ import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.sia;
+import com.baidu.tieba.di;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tieba.yka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public class LocationCacheData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (sInstance == null) {
-                synchronized (sia.class) {
+                synchronized (yka.class) {
                     if (sInstance == null) {
                         sInstance = new LocationCacheData();
                     }
@@ -150,9 +150,9 @@ public class LocationCacheData {
             String str = this.latitude;
             builder.latitude = str;
             builder.longitude = this.longitude;
-            if (ei.isEmpty(str) || ei.isEmpty(this.longitude)) {
+            if (di.isEmpty(str) || di.isEmpty(this.longitude)) {
                 String string = SharedPrefHelper.getInstance().getString("key_last_receive_location_latitude_and_longitude", "");
-                if (!ei.isEmpty(string)) {
+                if (!di.isEmpty(string)) {
                     String[] split = string.split(",");
                     if (split.length >= 2) {
                         builder.latitude = split[0];

@@ -1,6 +1,6 @@
 package com.huawei.hms.opendevice;
 
-import com.baidu.tieba.mzb;
+import com.baidu.tieba.e1c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ public abstract class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            return mzb.a(bArr);
+            return e1c.a(bArr);
         }
         return (String) invokeL.objValue;
     }
@@ -22,7 +22,7 @@ public abstract class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return mzb.b(str);
+            return e1c.b(str);
         }
         return (byte[]) invokeL.objValue;
     }

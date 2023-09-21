@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,35 +14,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ThemeColorInfo;
+import tbclient.GetInfluenceRank.DataRes;
+import tbclient.NewGodInfo;
+import tbclient.RankRuler;
+import tbclient.User;
 /* loaded from: classes8.dex */
-public class v17 extends b25 {
+public class v17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public t17 a;
+    public List<u17> b;
+    public u17 c;
     public String d;
     public String e;
-    public String f;
-    public String g;
-    public String h;
-    public List<w17> i;
-    public String j;
-    public boolean k;
-    public int l;
-    public int m;
-
-    public void B(ThemeColorInfo themeColorInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, themeColorInfo) == null) {
-        }
-    }
-
-    public void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-        }
-    }
+    public long f;
+    public boolean g;
 
     public v17() {
         Interceptable interceptable = $ic;
@@ -52,203 +43,120 @@ public class v17 extends b25 {
                 return;
             }
         }
-        this.k = false;
-        this.l = Integer.MIN_VALUE;
-        this.m = Integer.MIN_VALUE;
-        d(14);
+        this.b = new ArrayList();
+        this.g = true;
     }
 
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.m;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<w17> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.i;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static v17 p(JSONObject jSONObject) {
+    public final u17 a(User user) {
         InterceptResult invokeL;
+        NewGodInfo newGodInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, user)) == null) {
+            if (user == null) {
                 return null;
             }
-            v17 v17Var = new v17();
-            String optString = jSONObject.optString("forum_id");
-            v17Var.s(optString);
-            String optString2 = jSONObject.optString("forum_name");
-            v17Var.t(optString2);
-            v17Var.q(jSONObject.optString("avatar"));
-            v17Var.x(jSONObject.optString("member_count"));
-            v17Var.D(jSONObject.optString("thread_count"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("threadlist");
-            ArrayList arrayList = new ArrayList();
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    w17 e = w17.e(optJSONArray.optJSONObject(i));
-                    e.f(optString);
-                    e.g(optString2);
-                    arrayList.add(e);
+            u17 u17Var = new u17();
+            u17Var.a = user.level_influence;
+            u17Var.c = b(user);
+            boolean z = true;
+            if (!u17Var.g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
+                u17Var.d = user.new_god_data.field_name + ly5.b(user.new_god_data);
+                u17Var.h = true;
+            }
+            if (user.influence == null) {
+                u17Var.e = "";
+            } else {
+                u17Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a96), StringHelper.numFormatOverWanNa(user.influence.intValue()));
+            }
+            MetaData metaData = new MetaData();
+            metaData.parserProtobuf(user);
+            Integer num = user.has_concerned;
+            metaData.setIsLike((num == null || num.intValue() == 0) ? false : false);
+            u17Var.f = metaData;
+            if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
+                u17Var.b = metaData.getAvater();
+            } else {
+                u17Var.b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
+            }
+            return u17Var;
+        }
+        return (u17) invokeL.objValue;
+    }
+
+    public void c(DataRes dataRes) {
+        long longValue;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.a = new t17();
+        boolean z = false;
+        if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
+            this.a.b = b(dataRes.user_rank.get(0));
+            MetaData metaData = new MetaData();
+            metaData.parserProtobuf(dataRes.user_rank.get(0));
+            this.a.c = metaData;
+            String avatarH = metaData.getAvatarH();
+            if (TextUtils.isEmpty(avatarH)) {
+                avatarH = metaData.getAvater();
+            }
+            if (avatarH != null && avatarH.startsWith("http")) {
+                this.a.e = avatarH;
+            } else {
+                this.a.e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
+            }
+        }
+        t17 t17Var = this.a;
+        Long l = dataRes.timestamp;
+        long j = 0;
+        if (l == null) {
+            longValue = 0;
+        } else {
+            longValue = l.longValue();
+        }
+        t17Var.d = longValue;
+        this.a.f = dataRes.field_info;
+        if (!ListUtils.isEmpty(dataRes.user_rank)) {
+            for (User user : dataRes.user_rank) {
+                if (user != null) {
+                    this.b.add(a(user));
                 }
             }
-            v17Var.C(arrayList);
-            v17Var.y(jSONObject.optString("need_trans"));
-            v17Var.u(jSONObject.optString("from"));
-            v17Var.B(cra.j(jSONObject.optJSONObject("theme_color")));
-            return v17Var;
         }
-        return (v17) invokeL.objValue;
+        this.c = a(dataRes.current_user);
+        RankRuler rankRuler = dataRes.rank_description;
+        if (rankRuler != null) {
+            this.d = rankRuler.top_link;
+            this.e = rankRuler.bottom_link;
+        }
+        Long l2 = dataRes.timestamp;
+        if (l2 != null) {
+            j = l2.longValue();
+        }
+        this.f = j;
+        Boolean bool = dataRes.has_more;
+        if (bool != null) {
+            z = bool.booleanValue();
+        }
+        this.g = z;
     }
 
-    public void C(List<w17> list) {
+    public final String b(User user) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.i = list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, user)) == null) {
+            String str = "";
+            if (user == null) {
+                return "";
+            }
+            if (TextUtils.isEmpty("")) {
+                str = user.name_show;
+            }
+            if (TextUtils.isEmpty(str)) {
+                return TbadkCoreApplication.getInst().getString(R.string.user_name_default_txt);
+            }
+            return str;
         }
-    }
-
-    public void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.l = i;
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void v(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.m = i;
-        }
+        return (String) invokeL.objValue;
     }
 }

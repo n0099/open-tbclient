@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import android.net.wifi.WifiInfo;
 /* loaded from: classes8.dex */
-public interface yl3 extends zl3 {
-    void onError(int i);
+public interface yl3 {
+    void a(WifiInfo wifiInfo);
 }

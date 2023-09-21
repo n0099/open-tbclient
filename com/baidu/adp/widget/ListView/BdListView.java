@@ -19,17 +19,17 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cn;
 import com.baidu.tieba.dn;
-import com.baidu.tieba.en;
-import com.baidu.tieba.gn;
+import com.baidu.tieba.fn;
+import com.baidu.tieba.kk;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.lk;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.on;
+import com.baidu.tieba.pm;
 import com.baidu.tieba.qm;
-import com.baidu.tieba.rm;
+import com.baidu.tieba.sm;
 import com.baidu.tieba.tm;
-import com.baidu.tieba.um;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public class BdListView extends ListView implements en<BdListView> {
+public class BdListView extends ListView implements dn<BdListView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
@@ -48,7 +48,7 @@ public class BdListView extends ListView implements en<BdListView> {
     public n D;
     public Runnable E;
     public t F;
-    public tm a;
+    public sm a;
     public AdapterView.OnItemClickListener b;
     public AdapterView.OnItemLongClickListener c;
     public AdapterView.OnItemSelectedListener d;
@@ -62,13 +62,13 @@ public class BdListView extends ListView implements en<BdListView> {
     public int l;
     public p m;
     public q n;
-    public qm o;
-    public qm p;
+    public pm o;
+    public pm p;
     public View q;
     public int r;
     public l9 s;
     public Runnable t;
-    public final gn u;
+    public final fn u;
     public Runnable v;
     public Runnable w;
     public int x;
@@ -102,7 +102,7 @@ public class BdListView extends ListView implements en<BdListView> {
 
     /* loaded from: classes.dex */
     public interface q {
-        void I(BdListView bdListView);
+        void Q(BdListView bdListView);
     }
 
     /* loaded from: classes.dex */
@@ -116,7 +116,7 @@ public class BdListView extends ListView implements en<BdListView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
+    @Override // com.baidu.tieba.dn
     public BdListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class BdListView extends ListView implements en<BdListView> {
         public static /* synthetic */ Interceptable $ic = null;
         public static float k = 3.0f;
         public transient /* synthetic */ FieldHolder $fh;
-        public rm a;
+        public qm a;
         public boolean b;
         public int c;
         public int d;
@@ -155,7 +155,7 @@ public class BdListView extends ListView implements en<BdListView> {
         }
 
         /* loaded from: classes.dex */
-        public class a implements pn {
+        public class a implements on {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ t a;
@@ -178,7 +178,7 @@ public class BdListView extends ListView implements en<BdListView> {
                 this.a = tVar;
             }
 
-            @Override // com.baidu.tieba.pn
+            @Override // com.baidu.tieba.on
             public void onOver() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -187,12 +187,12 @@ public class BdListView extends ListView implements en<BdListView> {
             }
         }
 
-        public t(BdListView bdListView, rm rmVar) {
+        public t(BdListView bdListView, qm qmVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bdListView, rmVar};
+                Object[] objArr = {bdListView, qmVar};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -210,11 +210,11 @@ public class BdListView extends ListView implements en<BdListView> {
             this.f = Boolean.FALSE;
             this.g = null;
             this.j = 800;
-            if (rmVar != null) {
+            if (qmVar != null) {
                 if (bdListView != null) {
-                    this.a = rmVar;
+                    this.a = qmVar;
                     this.e = bdListView;
-                    View view2 = rmVar.getView();
+                    View view2 = qmVar.getView();
                     view2.setPadding(0, -this.a.h(), 0, 0);
                     view2.invalidate();
                     this.e.x(view2);
@@ -257,24 +257,24 @@ public class BdListView extends ListView implements en<BdListView> {
         }
 
         public final void c() {
-            rm e;
+            qm e;
             View view2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (e = e()) == null || (view2 = e.getView()) == null) {
                 return;
             }
-            um umVar = new um(view2.getContext(), 0, -e.h(), this.j);
-            umVar.d(new a(this));
-            umVar.e(e.e);
-            umVar.f(view2);
+            tm tmVar = new tm(view2.getContext(), 0, -e.h(), this.j);
+            tmVar.d(new a(this));
+            tmVar.e(e.e);
+            tmVar.f(view2);
         }
 
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.d = 3;
-                rm rmVar = this.a;
-                rmVar.x(0, -rmVar.h(), 0, 0);
+                qm qmVar = this.a;
+                qmVar.x(0, -qmVar.h(), 0, 0);
                 this.a.g(true);
                 r rVar = this.g;
                 if (rVar != null) {
@@ -283,13 +283,13 @@ public class BdListView extends ListView implements en<BdListView> {
             }
         }
 
-        public rm e() {
+        public qm e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return this.a;
             }
-            return (rm) invokeV.objValue;
+            return (qm) invokeV.objValue;
         }
 
         public void f(MotionEvent motionEvent, int i) {
@@ -334,8 +334,8 @@ public class BdListView extends ListView implements en<BdListView> {
                                     }
                                 } else if (y - this.c <= 0) {
                                     this.d = 3;
-                                    rm rmVar = this.a;
-                                    rmVar.x(0, -rmVar.h(), 0, 0);
+                                    qm qmVar = this.a;
+                                    qmVar.x(0, -qmVar.h(), 0, 0);
                                     this.a.g(false);
                                     r rVar3 = this.g;
                                     if (rVar3 != null) {
@@ -354,8 +354,8 @@ public class BdListView extends ListView implements en<BdListView> {
                                     }
                                 } else if (y - this.c <= 0) {
                                     this.d = 3;
-                                    rm rmVar2 = this.a;
-                                    rmVar2.x(0, -rmVar2.h(), 0, 0);
+                                    qm qmVar2 = this.a;
+                                    qmVar2.x(0, -qmVar2.h(), 0, 0);
                                     this.a.g(false);
                                     r rVar5 = this.g;
                                     if (rVar5 != null) {
@@ -380,12 +380,12 @@ public class BdListView extends ListView implements en<BdListView> {
                             }
                             int i3 = this.d;
                             if (i3 == 1 || i3 == 0) {
-                                rm rmVar3 = this.a;
-                                rmVar3.x(0, ((int) ((y - this.c) / k)) - rmVar3.h(), 0, 0);
-                                rm rmVar4 = this.a;
-                                if (rmVar4 != null && y >= this.i) {
+                                qm qmVar3 = this.a;
+                                qmVar3.x(0, ((int) ((y - this.c) / k)) - qmVar3.h(), 0, 0);
+                                qm qmVar4 = this.a;
+                                if (qmVar4 != null && y >= this.i) {
                                     float f = ((y - this.c) / k) / this.h;
-                                    rmVar4.onPullPercentChange(f, f);
+                                    qmVar4.onPullPercentChange(f, f);
                                 }
                             }
                         }
@@ -397,8 +397,8 @@ public class BdListView extends ListView implements en<BdListView> {
                 if (i4 != 2) {
                     if (i4 == 1) {
                         this.d = 3;
-                        rm rmVar5 = this.a;
-                        rmVar5.x(0, -rmVar5.h(), 0, 0);
+                        qm qmVar5 = this.a;
+                        qmVar5.x(0, -qmVar5.h(), 0, 0);
                         this.a.g(false);
                         r rVar8 = this.g;
                         if (rVar8 != null) {
@@ -540,7 +540,7 @@ public class BdListView extends ListView implements en<BdListView> {
     }
 
     /* loaded from: classes.dex */
-    public class d implements gn {
+    public class d implements fn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdListView a;
@@ -563,7 +563,7 @@ public class BdListView extends ListView implements en<BdListView> {
             this.a = bdListView;
         }
 
-        @Override // com.baidu.tieba.gn
+        @Override // com.baidu.tieba.fn
         public void cancelRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -572,17 +572,17 @@ public class BdListView extends ListView implements en<BdListView> {
             }
         }
 
-        @Override // com.baidu.tieba.gn
-        public dn getAdapter() {
+        @Override // com.baidu.tieba.fn
+        public cn getAdapter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.a.getAdapter2();
             }
-            return (dn) invokeV.objValue;
+            return (cn) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.gn
+        @Override // com.baidu.tieba.fn
         public int getFirstVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -592,7 +592,7 @@ public class BdListView extends ListView implements en<BdListView> {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.gn
+        @Override // com.baidu.tieba.fn
         public int getLastVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -632,8 +632,8 @@ public class BdListView extends ListView implements en<BdListView> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
                 return;
             }
-            if (view2 instanceof lk) {
-                ((lk) view2).refresh();
+            if (view2 instanceof kk) {
+                ((kk) view2).refresh();
             }
             if (view2 instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view2;
@@ -707,7 +707,7 @@ public class BdListView extends ListView implements en<BdListView> {
     }
 
     /* loaded from: classes.dex */
-    public class g implements tm.b {
+    public class g implements sm.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdListView a;
@@ -730,7 +730,7 @@ public class BdListView extends ListView implements en<BdListView> {
             this.a = bdListView;
         }
 
-        @Override // com.baidu.tieba.tm.b
+        @Override // com.baidu.tieba.sm.b
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -873,7 +873,7 @@ public class BdListView extends ListView implements en<BdListView> {
                         this.a.m.onScrollToBottom();
                     }
                     if (this.a.n != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                        this.a.n.I(this.a);
+                        this.a.n.Q(this.a);
                     }
                     if (this.a.k != null && absListView.getFirstVisiblePosition() <= this.a.l) {
                         this.a.k.onScrollToTop();
@@ -1208,7 +1208,7 @@ public class BdListView extends ListView implements en<BdListView> {
         return invokeL.booleanValue;
     }
 
-    @Override // android.widget.ListView, com.baidu.tieba.en
+    @Override // android.widget.ListView, com.baidu.tieba.dn
     public boolean removeHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1239,17 +1239,17 @@ public class BdListView extends ListView implements en<BdListView> {
         }
     }
 
-    public void setNextPage(qm qmVar) {
+    public void setNextPage(pm pmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, qmVar) == null) {
-            qm qmVar2 = this.p;
-            if (qmVar2 != null) {
-                removeFooterView(qmVar2.c());
+        if (interceptable == null || interceptable.invokeL(1048609, this, pmVar) == null) {
+            pm pmVar2 = this.p;
+            if (pmVar2 != null) {
+                removeFooterView(pmVar2.c());
                 this.p = null;
             }
-            if (qmVar != null) {
-                this.a.d(qmVar.c(), null, true, 0);
-                this.p = qmVar;
+            if (pmVar != null) {
+                this.a.d(pmVar.c(), null, true, 0);
+                this.p = pmVar;
             }
         }
     }
@@ -1325,16 +1325,16 @@ public class BdListView extends ListView implements en<BdListView> {
         }
     }
 
-    public void setPullRefresh(rm rmVar) {
+    public void setPullRefresh(qm qmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, rmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, qmVar) == null) {
             t tVar = this.F;
             if (tVar != null) {
                 removeHeaderView(tVar.e().getView());
             }
             this.F = null;
-            if (rmVar != null) {
-                t tVar2 = new t(this, rmVar);
+            if (qmVar != null) {
+                t tVar2 = new t(this, qmVar);
                 this.F = tVar2;
                 tVar2.h(this.i);
             }
@@ -1399,7 +1399,7 @@ public class BdListView extends ListView implements en<BdListView> {
         }
     }
 
-    @Override // com.baidu.tieba.en
+    @Override // com.baidu.tieba.dn
     public int getContentViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1412,7 +1412,7 @@ public class BdListView extends ListView implements en<BdListView> {
         return invokeV.intValue;
     }
 
-    @Override // android.widget.ListView, com.baidu.tieba.en
+    @Override // android.widget.ListView, com.baidu.tieba.dn
     public int getFooterViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1422,7 +1422,7 @@ public class BdListView extends ListView implements en<BdListView> {
         return invokeV.intValue;
     }
 
-    @Override // android.widget.ListView, com.baidu.tieba.en
+    @Override // android.widget.ListView, com.baidu.tieba.dn
     public int getHeaderViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1432,31 +1432,31 @@ public class BdListView extends ListView implements en<BdListView> {
         return invokeV.intValue;
     }
 
-    public dn getListAdapter() {
+    public cn getListAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return getAdapter2();
         }
-        return (dn) invokeV.objValue;
+        return (cn) invokeV.objValue;
     }
 
-    public gn getPreLoadHandle() {
+    public fn getPreLoadHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.u;
         }
-        return (gn) invokeV.objValue;
+        return (fn) invokeV.objValue;
     }
 
     public ListAdapter getWrappedAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            tm tmVar = this.a;
-            if (tmVar instanceof tm) {
-                return tmVar.getWrappedAdapter();
+            sm smVar = this.a;
+            if (smVar instanceof sm) {
+                return smVar.getWrappedAdapter();
             }
             return null;
         }
@@ -1548,9 +1548,9 @@ public class BdListView extends ListView implements en<BdListView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setFadingEdgeLength(0);
-            tm tmVar = new tm(getContext());
-            this.a = tmVar;
-            tmVar.s(new g(this));
+            sm smVar = new sm(getContext());
+            this.a = smVar;
+            smVar.s(new g(this));
             super.setOnItemClickListener(new h(this));
             super.setOnScrollListener(new i(this));
         }
@@ -1600,7 +1600,7 @@ public class BdListView extends ListView implements en<BdListView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.tm' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.sm' to match base method */
     @Override // android.widget.ListView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
@@ -1609,7 +1609,7 @@ public class BdListView extends ListView implements en<BdListView> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.a;
         }
-        return (tm) invokeV.objValue;
+        return (sm) invokeV.objValue;
     }
 
     @Override // android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View

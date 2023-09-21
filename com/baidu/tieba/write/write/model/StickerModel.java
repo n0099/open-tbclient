@@ -9,8 +9,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.u6b;
+import com.baidu.tieba.hja;
+import com.baidu.tieba.m8b;
 import com.baidu.tieba.write.write.message.RequestGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseHttpGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
@@ -24,7 +24,7 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u6b a;
+    public m8b a;
     public NetMessageListener b;
 
     /* loaded from: classes8.dex */
@@ -100,10 +100,10 @@ public class StickerModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void N(u6b u6bVar) {
+    public void N(m8b m8bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, u6bVar) == null) {
-            this.a = u6bVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, m8bVar) == null) {
+            this.a = m8bVar;
         }
     }
 
@@ -133,8 +133,8 @@ public class StickerModel extends BdBaseModel {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 return false;
             }
-            bha.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-            bha.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+            hja.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+            hja.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
             RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
             requestGetStickerMessage.setTag(this.unique_id);
             sendMessage(requestGetStickerMessage);

@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.WorkerThread;
-import java.util.List;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public interface ro5 {
-    @WorkerThread
-    void a(int i, long j, List<Long> list, int i2, String str);
+    void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList);
 }

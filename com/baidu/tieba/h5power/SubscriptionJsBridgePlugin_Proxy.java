@@ -3,10 +3,10 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kia;
-import com.baidu.tieba.mia;
-import com.baidu.tieba.oia;
-import com.baidu.tieba.tm6;
+import com.baidu.tieba.qka;
+import com.baidu.tieba.ska;
+import com.baidu.tieba.uka;
+import com.baidu.tieba.xm6;
 import com.baidu.tieba.xx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SubscriptionJsBridgePlugin_Proxy extends kia {
+public class SubscriptionJsBridgePlugin_Proxy extends qka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public xx4 mJsBridge;
@@ -45,74 +45,74 @@ public class SubscriptionJsBridgePlugin_Proxy extends kia {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.kia
-    public mia dispatch(WebView webView, oia oiaVar, mia miaVar) {
+    @Override // com.baidu.tieba.qka
+    public ska dispatch(WebView webView, uka ukaVar, ska skaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, oiaVar, miaVar)) == null) {
-            if (miaVar == null) {
-                miaVar = new mia();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ukaVar, skaVar)) == null) {
+            if (skaVar == null) {
+                skaVar = new ska();
             }
-            String b = oiaVar.b();
-            JSONObject e = oiaVar.e();
+            String b = ukaVar.b();
+            JSONObject e = ukaVar.e();
             if (b.equals("subscription/gamePush")) {
-                miaVar.s(true);
-                mia c = this.mJsBridge.c(webView, e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
+                skaVar.s(true);
+                ska c = this.mJsBridge.c(webView, e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
                 if (c != null) {
-                    miaVar.y(c.f());
-                    miaVar.u(c.b());
-                    miaVar.o(c.a());
-                    miaVar.x(c.e());
+                    skaVar.y(c.f());
+                    skaVar.u(c.b());
+                    skaVar.o(c.a());
+                    skaVar.x(c.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             } else if (b.equals("subscription/gamePushStatus")) {
-                miaVar.s(true);
-                mia e2 = this.mJsBridge.e(webView);
+                skaVar.s(true);
+                ska e2 = this.mJsBridge.e(webView);
                 if (e2 != null) {
-                    miaVar.y(e2.f());
-                    miaVar.u(e2.b());
-                    miaVar.o(e2.a());
-                    miaVar.x(e2.e());
+                    skaVar.y(e2.f());
+                    skaVar.u(e2.b());
+                    skaVar.o(e2.a());
+                    skaVar.x(e2.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             } else if (b.equals("subscription/notifyNativeRefresh")) {
-                miaVar.s(true);
-                mia f = this.mJsBridge.f(webView, e.optString("key"), e.optString("data"), e.optBoolean("isNotifyH5"));
+                skaVar.s(true);
+                ska f = this.mJsBridge.f(webView, e.optString("key"), e.optString("data"), e.optBoolean("isNotifyH5"));
                 if (f != null) {
-                    miaVar.y(f.f());
-                    miaVar.u(f.b());
-                    miaVar.o(f.a());
-                    miaVar.x(f.e());
+                    skaVar.y(f.f());
+                    skaVar.u(f.b());
+                    skaVar.o(f.a());
+                    skaVar.x(f.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             } else if (b.equals("subscription/getViewPosition")) {
-                miaVar.s(true);
-                mia d = this.mJsBridge.d(webView, e.optString("viewId"), e.optString("data"));
+                skaVar.s(true);
+                ska d = this.mJsBridge.d(webView, e.optString("viewId"), e.optString("data"));
                 if (d != null) {
-                    miaVar.y(d.f());
-                    miaVar.u(d.b());
-                    miaVar.o(d.a());
-                    miaVar.x(d.e());
+                    skaVar.y(d.f());
+                    skaVar.u(d.b());
+                    skaVar.o(d.a());
+                    skaVar.x(d.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLLL.objValue;
+        return (ska) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kia
-    public tm6 getJsBridge() {
+    @Override // com.baidu.tieba.qka
+    public xm6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (tm6) invokeV.objValue;
+        return (xm6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kia
-    public List<mia> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.qka
+    public List<ska> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

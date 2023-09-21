@@ -184,7 +184,7 @@ public class BdScrollPagerTabHost extends FrameLayout {
 
     public void setTabBarHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091a6b);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091a57);
         if (findViewById != null && (layoutParams = findViewById.getLayoutParams()) != null) {
             layoutParams.height = i;
             findViewById.setLayoutParams(layoutParams);
@@ -316,11 +316,11 @@ public class BdScrollPagerTabHost extends FrameLayout {
         }
         this.mContext = context;
         if (this.mCanViewPagerScroll) {
-            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d077a, this);
-        } else {
             inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0779, this);
+        } else {
+            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0778, this);
         }
-        BdPagerTabBar bdPagerTabBar = (BdPagerTabBar) inflate.findViewById(R.id.obfuscated_res_0x7f091a6a);
+        BdPagerTabBar bdPagerTabBar = (BdPagerTabBar) inflate.findViewById(R.id.obfuscated_res_0x7f091a56);
         this.mPagerTabBar = bdPagerTabBar;
         bdPagerTabBar.setUIStandard(this.mUseStandardStyle, this.mLayoutInActionBar);
         if (!isInEditMode()) {
@@ -333,10 +333,10 @@ public class BdScrollPagerTabHost extends FrameLayout {
                 }
             });
         }
-        this.mViewPager = (ViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f0929ce);
-        this.mDivider = inflate.findViewById(R.id.obfuscated_res_0x7f0923d6);
+        this.mViewPager = (ViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f092999);
+        this.mDivider = inflate.findViewById(R.id.obfuscated_res_0x7f0923a1);
         this.mViewPager.setOffscreenPageLimit(3);
-        DrawablePageIndicator drawablePageIndicator = (DrawablePageIndicator) inflate.findViewById(R.id.obfuscated_res_0x7f091132);
+        DrawablePageIndicator drawablePageIndicator = (DrawablePageIndicator) inflate.findViewById(R.id.obfuscated_res_0x7f091121);
         this.mPageIndicator = drawablePageIndicator;
         drawablePageIndicator.setUseStandardStyle(this.mUseStandardStyle);
         this.mPageIndicator.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.searchbox.ui.viewpager.BdScrollPagerTabHost.2
@@ -384,9 +384,9 @@ public class BdScrollPagerTabHost extends FrameLayout {
                 }
             }
         });
-        this.pagerTabBarContainer = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a6b);
-        this.settingLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921e4);
-        this.settingImage = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921e3);
+        this.pagerTabBarContainer = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a57);
+        this.settingLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921ad);
+        this.settingImage = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ac);
         setTabTextColor(getResources().getColorStateList(R.color.obfuscated_res_0x7f060b48));
         setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07075c));
         setPageResources();

@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes8.dex */
-public class sj3 extends rj3 {
+public class sj3 extends qj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,48 +27,47 @@ public class sj3 extends rj3 {
         }
     }
 
-    @Override // com.baidu.tieba.rj3
+    @Override // com.baidu.tieba.qj3
     @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(qj3 qj3Var) {
+    public Bundle c(pj3 pj3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qj3Var)) == null) {
-            Bundle bundle = new Bundle();
-            pj3 b = vj3.b(qj3Var.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pj3Var)) == null) {
+            oj3 b = uj3.b(pj3Var.a);
             if (b == null) {
-                if (!rj3.a) {
-                    return bundle;
+                if (!qj3.a) {
+                    return Bundle.EMPTY;
                 }
                 throw new IllegalArgumentException("illegal sp.");
             }
-            int i = qj3Var.b;
+            int i = pj3Var.b;
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
                         if (i != 4) {
                             if (i != 5) {
-                                if (rj3.a) {
+                                if (qj3.a) {
                                     throw new IllegalArgumentException("wrong info params.");
                                 }
                             } else {
-                                bundle.putFloat("result_value", b.getFloat(qj3Var.c, Float.parseFloat(qj3Var.d)));
+                                b.putFloat(pj3Var.c, Float.parseFloat(pj3Var.d));
                             }
                         } else {
-                            bundle.putString("result_value", b.getString(qj3Var.c, qj3Var.d));
+                            b.putString(pj3Var.c, pj3Var.d);
                         }
                     } else {
-                        bundle.putBoolean("result_value", b.getBoolean(qj3Var.c, Boolean.parseBoolean(qj3Var.d)));
+                        b.putBoolean(pj3Var.c, Boolean.parseBoolean(pj3Var.d));
                     }
                 } else {
-                    bundle.putLong("result_value", b.getLong(qj3Var.c, Long.parseLong(qj3Var.d)));
+                    b.putLong(pj3Var.c, Long.parseLong(pj3Var.d));
                 }
             } else {
-                bundle.putInt("result_value", b.getInt(qj3Var.c, Integer.parseInt(qj3Var.d)));
+                b.putInt(pj3Var.c, Integer.parseInt(pj3Var.d));
             }
-            if (rj3.a) {
-                Log.d("SwanAppSpDelegation", "Get: " + qj3Var);
+            if (qj3.a) {
+                Log.d("SwanAppSpDelegation", "Put: " + pj3Var);
             }
-            return bundle;
+            return Bundle.EMPTY;
         }
         return (Bundle) invokeL.objValue;
     }

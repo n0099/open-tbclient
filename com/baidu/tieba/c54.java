@@ -1,35 +1,33 @@
 package com.baidu.tieba;
 
+import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c54 extends ny2 {
+public class c54 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public EventTargetImpl d;
-    public z44 e;
 
-    @Override // com.baidu.tieba.ny2
-    public boolean c() {
-        InterceptResult invokeV;
+    public static boolean b(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f <= 1.0f && f >= 0.0f : invokeF.booleanValue;
     }
 
     static {
@@ -45,69 +43,156 @@ public class c54 extends ny2 {
                 return;
             }
         }
-        f = rr1.a;
+        HashMap<String, String> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("494433", ".mp3");
+        a.put("524946", ".wav");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c54(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
-        super(null, jSONObject);
+    public static String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eventTargetImpl, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String e = e();
+            if (j() && !TextUtils.isEmpty(e)) {
+                return e;
             }
+            return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        this.d = eventTargetImpl;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ny2
-    public void b(String str, JSONObject jSONObject) {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (bArr != null && bArr.length > 0) {
+                for (byte b : bArr) {
+                    String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
+                    if (upperCase.length() < 2) {
+                        sb.append(0);
+                    }
+                    sb.append(upperCase);
+                }
+                String sb2 = sb.toString();
+                if (qr1.a) {
+                    Log.e("AudioDataUtils", "audio buffer header: " + sb2);
+                }
+                return sb2;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) throws MalformedURLException {
+        InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            String optString = this.b.optString(str);
-            z44 z44Var = this.e;
-            if (z44Var != null) {
-                z44Var.p(optString, jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int lastIndexOf = str.lastIndexOf(46);
+            if (lastIndexOf != -1) {
+                str2 = str.substring(lastIndexOf);
+            } else {
+                str2 = "";
             }
-            if (!this.d.hasEventListener(optString)) {
-                return;
-            }
-            JSEvent jSEvent = new JSEvent(optString);
-            if (jSONObject != null) {
-                jSEvent.data = jSONObject;
-            }
-            if (f && !"onTimeUpdate".equals(str)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("type = ");
-                sb.append(str);
-                sb.append("  result = ");
-                if (jSONObject != null) {
-                    str2 = jSONObject.toString();
-                } else {
-                    str2 = StringUtil.NULL_STRING;
-                }
-                sb.append(str2);
-                Log.d("AudioCallbackForV8", sb.toString());
-            }
-            this.d.dispatchEvent(jSEvent);
+            return "/" + gb3.g0() + "/" + str.hashCode() + str2;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void e(z44 z44Var) {
+    public static a54 c(d54 d54Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z44Var) == null) {
-            this.e = z44Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, d54Var)) == null) {
+            a54 a54Var = new a54();
+            a54Var.a = d54Var.b;
+            a54Var.e = d54Var.autoplay;
+            a54Var.f = d54Var.loop;
+            a54Var.c = d54Var.src;
+            a54Var.d = d54Var.startTime;
+            a54Var.g = d54Var.obeyMuteSwitch;
+            a54Var.i = d54Var.volume;
+            a54Var.j = i().toString();
+            return a54Var;
         }
+        return (a54) invokeL.objValue;
+    }
+
+    public static String h(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
+            if (bArr != null && 3 <= bArr.length) {
+                byte[] bArr2 = new byte[3];
+                for (int i = 0; i < 3; i++) {
+                    bArr2[i] = bArr[i];
+                }
+                return a.get(a(bArr2));
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = qn2.p() + "/usr";
+            File file = new File(str);
+            if (!file.exists() && !file.mkdirs()) {
+                Log.e("AudioDataUtils", "create targetFile dir error, path is " + file.getAbsolutePath(), new Throwable());
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return File.separator + "bdata" + File.separator;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return "mounted".equals(Environment.getExternalStorageState());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static JSONObject i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("onCanplay", "canplay");
+                jSONObject.put("onPlay", "play");
+                jSONObject.put("onEnded", "ended");
+                jSONObject.put(MissionEvent.MESSAGE_PAUSE, DownloadStatisticConstants.UBC_TYPE_PAUSE);
+                jSONObject.put("onSeeking", "seeking");
+                jSONObject.put("onSeeked", "seeked");
+                jSONObject.put(MissionEvent.MESSAGE_STOP, "stop");
+                jSONObject.put(GameAssistConstKt.TYPE_CALLBACK_ERROR, "error");
+                jSONObject.put("onTimeUpdate", "timeupdate");
+                jSONObject.put("onBufferingUpdate", "buffered");
+                jSONObject.put("onWaiting", "waiting");
+            } catch (Exception e) {
+                if (qr1.a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

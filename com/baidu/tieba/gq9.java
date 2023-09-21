@@ -1,180 +1,271 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.rate.RateManager;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class gq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ot9 a;
+    public final HttpMessageListener b;
+    public final HttpMessageListener c;
 
     /* loaded from: classes6.dex */
-    public class a implements f16 {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ DetailInfoAndReplyFragment b;
+        public final /* synthetic */ gq9 a;
 
-        public a(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gq9 gq9Var, int i, boolean z) {
+            super(i, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, detailInfoAndReplyFragment};
+                Object[] objArr = {gq9Var, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = detailInfoAndReplyFragment;
+            this.a = gq9Var;
         }
 
-        @Override // com.baidu.tieba.f16
-        public void a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.K2(false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.e(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             }
         }
+    }
 
-        @Override // com.baidu.tieba.f16
-        public void b(List<String> list) {
+    /* loaded from: classes6.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gq9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(gq9 gq9Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a.r1() == null) {
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gq9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gq9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.e(httpResponsedMessage, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+            }
+        }
+    }
+
+    public gq9(ot9 ot9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ot9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ArrayList<tha> F = this.a.r1().F();
-            if (!ListUtils.isEmpty(F) && !ListUtils.isEmpty(list)) {
-                Iterator<tha> it = F.iterator();
-                while (it.hasNext()) {
-                    tha next = it.next();
-                    int i = 0;
-                    while (true) {
-                        if (i >= list.size()) {
-                            break;
-                        } else if (TextUtils.equals(list.get(i), next.U())) {
-                            it.remove();
-                            if (this.a.r1().O() != null) {
-                                this.a.r1().O().setReply_num(this.a.r1().O().getReply_num() - 1);
-                            }
-                        } else {
-                            i++;
-                        }
-                    }
+        }
+        this.b = new a(this, CmdConfigHttp.CMD_PB_FLOOR_AGREE, true);
+        this.c = new b(this, CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
+        if (ot9Var != null) {
+            this.a = ot9Var;
+            f();
+            return;
+        }
+        throw new NullPointerException("PbActivity is NullPointerException");
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0071  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0095  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x00a6  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x00b1  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(AgreeData agreeData) {
+        ns5 currentVisiblePageExtra;
+        BaijiahaoData baijiahaoData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, agreeData) != null) || agreeData == null) {
+            return;
+        }
+        int i = 1;
+        if (agreeData.hasAgree) {
+            if (agreeData.agreeType == 2) {
+                agreeData.agreeType = 2;
+                agreeData.hasAgree = false;
+                agreeData.agreeNum--;
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+                httpMessage.addParam("thread_id", agreeData.threadId);
+                httpMessage.addParam("op_type", i);
+                if (agreeData.objType == 0) {
+                    agreeData.objType = 3;
                 }
-                this.b.w2();
+                httpMessage.addParam("obj_type", agreeData.objType);
+                httpMessage.addParam("agree_type", agreeData.agreeType);
+                httpMessage.addParam("forum_id", agreeData.forumId);
+                currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.m0());
+                if (currentVisiblePageExtra != null) {
+                    httpMessage.addParam("obj_source", currentVisiblePageExtra.a());
+                }
+                if (!TextUtils.isEmpty(agreeData.postId)) {
+                    httpMessage.addParam("post_id", agreeData.postId);
+                }
+                baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+                    httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+                    httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+                    httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+                }
+                httpMessage.setTag(c());
+                httpMessage.setExtra(Integer.valueOf(i));
+                httpMessage.addHeader("needSig", "1");
+                MessageManager.getInstance().sendMessage(httpMessage);
             }
+            agreeData.agreeType = 2;
+            agreeData.hasAgree = true;
+            agreeData.agreeNum++;
+            RateManager.getInstance().notifyLike(this.a.getPageContext());
+        } else {
+            agreeData.agreeType = 2;
+            agreeData.hasAgree = true;
+            agreeData.agreeNum++;
+            RateManager.getInstance().notifyLike(this.a.getPageContext());
         }
+        i = 0;
+        HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+        httpMessage2.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+        httpMessage2.addParam("thread_id", agreeData.threadId);
+        httpMessage2.addParam("op_type", i);
+        if (agreeData.objType == 0) {
+        }
+        httpMessage2.addParam("obj_type", agreeData.objType);
+        httpMessage2.addParam("agree_type", agreeData.agreeType);
+        httpMessage2.addParam("forum_id", agreeData.forumId);
+        currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.m0());
+        if (currentVisiblePageExtra != null) {
+        }
+        if (!TextUtils.isEmpty(agreeData.postId)) {
+        }
+        baijiahaoData = agreeData.baijiahaoData;
+        if (baijiahaoData != null) {
+        }
+        httpMessage2.setTag(c());
+        httpMessage2.setExtra(Integer.valueOf(i));
+        httpMessage2.addHeader("needSig", "1");
+        MessageManager.getInstance().sendMessage(httpMessage2);
     }
 
-    public static void a() {
+    public BdUniqueId c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            e16.b().a();
-        }
-    }
-
-    public static h16 b(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, detailInfoAndReplyFragment)) == null) {
-            if (detailInfoAndReplyFragment != null && pbModel != null) {
-                h16 h16Var = new h16();
-                if (pbModel.r1() != null && pbModel.r1().k() != null) {
-                    if (pbModel.r1().k().getDeletedReasonInfo() != null) {
-                        h16Var.p(pbModel.r1().k().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                        h16Var.o(pbModel.r1().k().getDeletedReasonInfo().is_boomgrow.intValue());
-                    }
-                    h16Var.l(pbModel.r1().k().getId());
-                    h16Var.m(pbModel.r1().k().getName());
-                    h16Var.k(pbModel.r1().k().getImage_url());
-                    h16Var.t(pbModel.r1().k().getUser_level());
-                }
-                if (pbModel.r1() != null && pbModel.r1().n() != null) {
-                    h16Var.n(pbModel.r1().n().has_forum_rule.intValue());
-                }
-                if (pbModel.r1() != null && pbModel.r1().V() != null) {
-                    h16Var.s(pbModel.r1().V());
-                }
-                h16Var.q(new a(pbModel, detailInfoAndReplyFragment));
-                if (pbModel.r1() != null) {
-                    AntiData c = pbModel.r1().c();
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    if (c != null && c.getDelThreadInfoList() != null) {
-                        List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
-                        for (int i = 0; i < delThreadInfoList.size(); i++) {
-                            if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                                sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                            }
-                        }
-                    }
-                    h16Var.r(sparseArray);
-                }
-                return h16Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TbPageContext pageContext = this.a.getPageContext();
+            if (pageContext != null) {
+                return pageContext.getUniqueId();
             }
             return null;
         }
-        return (h16) invokeLL.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static boolean c(aj9 aj9Var, tha thaVar) {
-        InterceptResult invokeLL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aj9Var, thaVar)) == null) {
-            if (aj9Var != null && thaVar != null) {
-                j16 j16Var = new j16();
-                j16Var.d(thaVar.Q() + "");
-                if (aj9Var.O() != null) {
-                    j16Var.f(aj9Var.O().getId());
-                }
-                j16Var.e(thaVar.U());
-                return e16.b().c(j16Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g();
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ot9 ot9Var = this.a;
+            if (ot9Var != null) {
+                ot9Var.registerListener(this.b);
+                this.a.registerListener(this.c);
+                return true;
             }
-            return false;
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment, View view2) {
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65539, null, tbPageContext, pbModel, detailInfoAndReplyFragment, view2) == null) && tbPageContext != null && pbModel != null && detailInfoAndReplyFragment != null && detailInfoAndReplyFragment.getView() != null) {
-            e16.b().e(tbPageContext, (ViewGroup) view2, b(pbModel, detailInfoAndReplyFragment));
-            e16.b().d(2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().unRegisterListener(this.c);
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public static boolean e(tha thaVar) {
-        InterceptResult invokeL;
+    public final void e(HttpResponsedMessage httpResponsedMessage, int i) {
+        PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, thaVar)) == null) {
-            if (thaVar == null) {
-                return false;
-            }
-            return e16.b().f(thaVar.U());
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, httpResponsedMessage, i) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == i && (httpResponsedMessage instanceof PbFloorAgreeResponseMessage) && (pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage) != null && !pbFloorAgreeResponseMessage.hasError() && this.a != null && pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
+            CustomDialogData activityDialogData = pbFloorAgreeResponseMessage.getActivityDialogData();
+            activityDialogData.type = 0;
+            jm9.a(this.a.getPageContext(), activityDialogData).show();
         }
-        return invokeL.booleanValue;
     }
 }

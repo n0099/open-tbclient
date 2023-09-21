@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vh7;
+import com.baidu.tieba.fi7;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -111,10 +111,10 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0394, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090d2f);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d36);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090d37);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0395, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090d22);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d29);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090d2a);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             c();
@@ -163,9 +163,9 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
                 d();
             } else if (view2 == this.b) {
                 this.e = null;
-                vh7.h().n();
+                fi7.h().n();
             } else if (view2 == this.c) {
-                if (this.a != null && this.e == null && !ListUtils.isEmpty(vh7.h().i())) {
+                if (this.a != null && this.e == null && !ListUtils.isEmpty(fi7.h().i())) {
                     FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.a);
                     this.e = frsMoveAreaChooseView;
                     frsMoveAreaChooseView.setOnClickListener(this);

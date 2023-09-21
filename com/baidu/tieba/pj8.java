@@ -1,174 +1,198 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class pj8 {
-    public static /* synthetic */ Interceptable $ic;
+public class pj8 extends dj8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static dj8 d = null;
+    public static String e = "tb_oficial_msg_";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<MetaData> a;
-    public List<MetaData> b;
-    public List<MetaData> c;
-    public List<MetaData> d;
 
-    /* loaded from: classes7.dex */
-    public class a implements Comparator<MetaData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(pj8 pj8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pj8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948064075, "Lcom/baidu/tieba/pj8;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(MetaData metaData, MetaData metaData2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, metaData, metaData2)) == null) {
-                return Long.compare(metaData.lastUpdateTime, metaData2.lastUpdateTime);
-            }
-            return invokeLL.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948064075, "Lcom/baidu/tieba/pj8;");
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pj8() {
+        super("tb_oficial_msg_", OfficialChatMessage.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList();
     }
 
-    public List<MetaData> b() {
+    public static synchronized pj8 w() {
+        InterceptResult invokeV;
+        pj8 pj8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (pj8.class) {
+                if (d == null) {
+                    d = new pj8();
+                }
+                pj8Var = (pj8) d;
+            }
+            return pj8Var;
+        }
+        return (pj8) invokeV.objValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b5: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:29:0x00b5 */
+    public static List<tj8> x() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Exception e2;
+        Cursor cursor;
+        Cursor cursor2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Cursor cursor3 = null;
+            ArrayList arrayList2 = null;
+            try {
+                try {
+                    cursor = lj8.d().e("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                    if (cursor != null) {
+                        try {
+                            arrayList = new ArrayList(cursor.getCount());
+                            while (cursor.moveToNext()) {
+                                try {
+                                    tj8 tj8Var = new tj8();
+                                    tj8Var.h(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                                    tj8Var.j(cursor.getInt(cursor.getColumnIndex("unread_count")));
+                                    tj8Var.i(cursor.getString(cursor.getColumnIndex("group_head")));
+                                    tj8Var.g(cursor.getString(cursor.getColumnIndex("group_name")));
+                                    tj8Var.k(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    int columnIndex = cursor.getColumnIndex("visit_time");
+                                    if (columnIndex >= 0) {
+                                        tj8Var.l(cursor.getLong(columnIndex));
+                                    }
+                                    arrayList.add(tj8Var);
+                                } catch (Exception e3) {
+                                    e2 = e3;
+                                    e2.printStackTrace();
+                                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
+                                    ei.a(cursor);
+                                    return arrayList;
+                                }
+                            }
+                            arrayList2 = arrayList;
+                        } catch (Exception e4) {
+                            arrayList = null;
+                            e2 = e4;
+                        }
+                    }
+                    ei.a(cursor);
+                    return arrayList2;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor3 = cursor2;
+                    ei.a(cursor3);
+                    throw th;
+                }
+            } catch (Exception e5) {
+                arrayList = null;
+                e2 = e5;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                ei.a(cursor3);
+                throw th;
+            }
+        } else {
+            return (List) invokeV.objValue;
+        }
+    }
+
+    public static List<String> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c(true, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    lj8 d2 = lj8.d();
+                    cursor = d2.e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                        }
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
+                }
+                return arrayList;
+            } finally {
+                ei.a(cursor);
+            }
         }
         return (List) invokeV.objValue;
     }
 
-    public final void g() {
+    public void A(long j, long j2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Collections.sort(this.d, new a(this));
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!i39.e(this.a)) {
-                for (MetaData metaData : this.a) {
-                    metaData.setItemType(1);
-                }
-            }
-            if (!i39.e(this.c)) {
-                for (MetaData metaData2 : this.c) {
-                    metaData2.setItemType(2);
-                }
-            }
-            if (!i39.e(this.b)) {
-                for (MetaData metaData3 : this.b) {
-                    metaData3.setItemType(3);
-                }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("read_count", Integer.valueOf(i));
+                lj8 d2 = lj8.d();
+                int update = d2.update(e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
+                BdLog.d("updateReadCount result = " + update);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public final void e() {
+    public void z(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (MetaData metaData : this.a) {
-                if (metaData != null) {
-                    arrayList.add(metaData.getUserId());
-                }
-            }
-            if (i39.e(this.c)) {
-                return;
-            }
-            for (MetaData metaData2 : this.c) {
-                if (metaData2 != null) {
-                    if (metaData2.getUserId() == null) {
-                        this.d.add(metaData2);
-                    } else if (!arrayList.contains(metaData2.getUserId())) {
-                        arrayList.add(metaData2.getUserId());
-                        this.d.add(metaData2);
-                    }
-                }
-            }
-        }
-    }
-
-    public List<MetaData> c(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return d(z, z2, true);
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    public List<MetaData> d(boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            this.a = qj8.a();
-            if (z) {
-                this.b = rj8.a();
-            }
-            a();
-            f(z, z3);
-            g();
-            if (z2) {
-                this.c = tj8.a();
-                e();
-            }
-            return this.d;
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    public final void f(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z2 && !i39.e(this.a)) {
-                this.d.addAll(this.a);
-            }
-            if (z && !i39.e(this.b)) {
-                this.d.addAll(this.b);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("visit_time", Long.valueOf(j2));
+                contentValues.put("unread_count", (Integer) 0);
+                int update = lj8.d().update("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)});
+                BdLog.d("updateReadCount result = " + update);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }

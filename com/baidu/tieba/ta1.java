@@ -1,14 +1,9 @@
 package com.baidu.tieba;
-
-import android.app.Activity;
-import android.content.Intent;
 /* loaded from: classes8.dex */
 public interface ta1 {
-    boolean F();
+    boolean c1();
 
-    Activity getActivity();
+    boolean d1();
 
-    Intent getIntent();
-
-    void l();
+    boolean m0();
 }

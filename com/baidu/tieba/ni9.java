@@ -1,61 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.ExcPbPage.DataRes;
-import tbclient.ExcPbPage.ExcPbPageResIdl;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ni9 implements CustomMessageTask.CustomRunnable<Object> {
+public class ni9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ni9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static String a = "c12585";
+        public static String b = "c12586";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-574336050, "Lcom/baidu/tieba/ni9$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-574336050, "Lcom/baidu/tieba/ni9$a;");
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public static CustomDialogData a(JSONObject jSONObject) {
         InterceptResult invokeL;
-        ExcPbPageResIdl excPbPageResIdl;
-        DataRes dataRes;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            mi9 mi9Var = null;
-            if (customMessage == null || customMessage.getCmd() != 2001314) {
-                return null;
-            }
-            x45.k();
-            byte[] bArr = x45.i("tb.pb_normal").get("chosen_pb_page_cache");
-            if (bArr != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("tb_hudong")) != null && !TextUtils.isEmpty(optJSONObject.optString("content"))) {
                 try {
-                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
-                } catch (Exception unused) {
-                    excPbPageResIdl = null;
-                }
-                if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
-                    mi9Var = new mi9(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
+                    return CustomDialogData.praseJSON(new JSONObject(Uri.decode(optJSONObject.optString("content"))));
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-            return new ReadChosenPbCacheResponse(mi9Var);
+            return null;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (CustomDialogData) invokeL.objValue;
     }
 }

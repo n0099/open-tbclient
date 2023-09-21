@@ -10,7 +10,7 @@ import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.c;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.t65;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class PageDialogStrategy implements t65 {
+public class PageDialogStrategy implements w65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +63,7 @@ public class PageDialogStrategy implements t65 {
         }
     }
 
-    @Override // com.baidu.tieba.t65
+    @Override // com.baidu.tieba.w65
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -76,7 +76,7 @@ public class PageDialogStrategy implements t65 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.t65
+    @Override // com.baidu.tieba.w65
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -1,27 +1,51 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sx2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sf4 {
+public abstract class sf4<T extends sx2> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rf4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized rf4 a() {
-        InterceptResult invokeV;
-        rf4 rf4Var;
+    public abstract boolean b(Context context, T t, px2 px2Var, gb3 gb3Var, JSONObject jSONObject);
+
+    public sf4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (sf4.class) {
-                if (a == null) {
-                    a = new rf4();
-                }
-                rf4Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return rf4Var;
         }
-        return (rf4) invokeV.objValue;
+    }
+
+    public boolean c(Context context, T t, px2 px2Var, gb3 gb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, t, px2Var, gb3Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!b(context, t, px2Var, gb3Var, jSONObject)) {
+                px2Var.d(1001);
+                g82.c("map", "doAction fail");
+                return false;
+            }
+            if (jSONObject.length() <= 0) {
+                jSONObject = null;
+            }
+            px2Var.e(jSONObject);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

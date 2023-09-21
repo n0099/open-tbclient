@@ -1,97 +1,60 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.feed.card.FeedCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ce7 {
+public class ce7 extends hc7<FeedCardView, n87<?>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947671956, "Lcom/baidu/tieba/ce7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947671956, "Lcom/baidu/tieba/ce7;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ce7(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    @Override // com.baidu.tieba.hc7, com.baidu.tieba.xc7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            me7.h(a);
+            return a;
         }
+        return (View) invokeL.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final int a(m87 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                int type = colorData.getType();
-                if (type != 1) {
-                    if (type == 2) {
-                        return SkinManager.getColor(a67.a.getResources().getIdentifier(colorData.b(), "color", a67.a.getPackageName()));
-                    }
-                } else {
-                    int currentSkinType = SkinManager.getCurrentSkinType();
-                    if (currentSkinType != 0) {
-                        if (currentSkinType == 4) {
-                            return zfa.f(colorData.a());
-                        }
-                    } else {
-                        return zfa.f(colorData.b());
-                    }
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public final int b(m87 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                if (colorData.getType() == 2) {
-                    return a67.a.getResources().getIdentifier(colorData.b(), "color", a67.a.getPackageName());
-                }
-                return 0;
-            }
-            return invokeL.intValue;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xc7
+    /* renamed from: e */
+    public void b(@NonNull FeedCardView feedCardView, @NonNull n87<?> n87Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, feedCardView, n87Var) == null) {
+            feedCardView.g(n87Var);
         }
     }
 }

@@ -1,77 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.download.util.LocalFilesFilterKt;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public final class jeb {
+public class jeb {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends ceb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947881826, "Lcom/baidu/tieba/jeb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947881826, "Lcom/baidu/tieba/jeb;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.ceb
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (feb.a(com.baidu.ubs.analytics.d.a.b)) {
-                    for (File file : jeb.a(com.baidu.ubs.analytics.d.a.b)) {
-                        if (mdb.c(mdb.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
-                            feb.b(file.getPath());
-                        }
-                    }
-                }
-                if (feb.a(com.baidu.ubs.analytics.d.a.c)) {
-                    for (File file2 : jeb.a(com.baidu.ubs.analytics.d.a.c)) {
-                        if (!file2.getName().equals(aeb.e()) && mdb.c(mdb.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
-                            feb.b(file2.getPath());
-                        }
-                    }
-                }
-            }
-        }
+        a = hdb.m();
     }
 
-    public static /* synthetic */ List a(String str) {
-        ArrayList arrayList = new ArrayList();
-        File[] listFiles = new File(str).listFiles();
-        if (listFiles != null) {
-            for (int i = 0; i < listFiles.length; i++) {
-                String name = listFiles[i].getName();
-                if (name.endsWith("txt") || name.endsWith(LocalFilesFilterKt.FILTER_NAME_LOG)) {
-                    arrayList.add(listFiles[i]);
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static void b() {
+    public static boolean a(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            beb.a(new a());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (a) {
+                Log.d("UBCFileUtils", "delete file:" + file);
+            }
+            if (file == null) {
+                return false;
+            }
+            boolean z = true;
+            if (file.exists()) {
+                if (file.isFile()) {
+                    return true & file.delete();
+                }
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            z &= a(file2);
+                        }
+                    }
+                    return z & file.delete();
+                } else if (!a) {
+                    return true;
+                } else {
+                    Log.d("UBCFileUtils", "a special file:" + file);
+                    return true;
+                }
+            } else if (!a) {
+                return true;
+            } else {
+                Log.d("UBCFileUtils", "not found the file to delete:" + file);
+                return true;
+            }
         }
+        return invokeL.booleanValue;
     }
 }

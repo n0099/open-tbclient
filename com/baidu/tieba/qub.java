@@ -1,159 +1,76 @@
 package com.baidu.tieba;
 
-import android.os.Debug;
-import android.os.SystemClock;
-import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qub implements Printer {
+public class qub extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public b d;
-    public final boolean e;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(long j, long j2, long j3, long j4);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ qub e;
-
-        public a(qub qubVar, long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qubVar, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = qubVar;
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = j4;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.d.a(this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    public qub(b bVar, long j, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qub(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = null;
-        if (bVar != null) {
-            this.d = bVar;
-            this.a = j;
-            this.e = z;
-            return;
-        }
-        throw new IllegalArgumentException("blockListener should not be null.");
     }
 
-    public final boolean b(long j) {
-        InterceptResult invokeJ;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object obj2;
+        List<AdInfo> list;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j - this.b > this.a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            oub.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (mub.e().b != null) {
-                mub.e().b.c();
-            }
-            if (mub.e().c != null) {
-                mub.e().c.c();
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (mub.e().b != null) {
-                mub.e().b.d();
-            }
-            if (mub.e().c != null) {
-                mub.e().c.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                jvb jvbVar = (jvb) obj;
+                if (jvbVar != null) {
+                    Object obj3 = jvbVar.a;
+                    String[] strArr = {"mAdTemplate"};
+                    Field field = null;
+                    for (int i = 0; i < 1; i++) {
+                        try {
+                            field = obj3.getClass().getDeclaredField(strArr[i]);
+                            field.setAccessible(true);
+                            break;
+                        } catch (NoSuchFieldException unused) {
+                        }
+                    }
+                    if (field == null || (obj2 = field.get(obj3)) == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                        return null;
+                    }
+                    return wub.a(adInfo);
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
-    }
-
-    @Override // android.util.Printer
-    public void println(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.e && Debug.isDebuggerConnected()) {
-                return;
-            }
-            if (str.charAt(0) == '>') {
-                this.b = System.currentTimeMillis();
-                this.c = SystemClock.currentThreadTimeMillis();
-                d();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (b(currentTimeMillis)) {
-                c(currentTimeMillis);
-            }
-            e();
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

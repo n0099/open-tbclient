@@ -16,21 +16,21 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.e55;
-import com.baidu.tieba.f3b;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.i55;
-import com.baidu.tieba.k2b;
-import com.baidu.tieba.kg;
+import com.baidu.tieba.c4b;
+import com.baidu.tieba.cja;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.h3b;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.i3b;
+import com.baidu.tieba.j55;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.l3b;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.p1b;
-import com.baidu.tieba.q1b;
-import com.baidu.tieba.t1b;
-import com.baidu.tieba.um6;
-import com.baidu.tieba.wga;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz;
+import com.baidu.tieba.x4b;
+import com.baidu.tieba.ym6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,11 +44,11 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\u0010\u0000\n\u0002\b\u0003\b&\u0018\u0000 02\u00020\u00012\u00020\u00022\u00020\u0003:\u000201B)\u0012\n\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t\u0012\u0006\u0010\n\u001a\u00020\u000b¢\u0006\u0002\u0010\fJ\b\u0010\u0011\u001a\u00020\u0012H\u0016J\u0013\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\u00150\u0014H\u0016¢\u0006\u0002\u0010\u0016J\u0006\u0010\u0017\u001a\u00020\u0018J\u0016\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u001c\u001a\u00020\tJ\b\u0010\u001d\u001a\u00020\u0012H\u0002J\u0015\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020\u001f\u0018\u00010\u0014H\u0016¢\u0006\u0002\u0010 J\b\u0010!\u001a\u00020\u0012H&J\b\u0010\"\u001a\u00020\u0012H\u0016J\u0012\u0010#\u001a\u00020\u00122\b\u0010$\u001a\u0004\u0018\u00010\tH\u0016J\u0015\u0010%\u001a\n\u0012\u0004\u0012\u00020&\u0018\u00010\u0014H\u0016¢\u0006\u0002\u0010'J\b\u0010(\u001a\u00020\u0012H&J\u0010\u0010)\u001a\u00020\u00122\u0006\u0010*\u001a\u00020\u001aH\u0002J\b\u0010+\u001a\u00020\u0012H\u0002J\u0018\u0010,\u001a\u00020\u00122\u0006\u0010-\u001a\u00020.2\u0006\u0010\u001c\u001a\u00020/H\u0002R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000¨\u00062"}, d2 = {"Lcom/baidu/tieba/write/webwrite/hybirdlistener/draft/BaseDraftBiz;", "Lcom/baidu/tieba/tbadkCore/PostDraftHelper$IDraftCallback;", "Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Clean;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;)V", "saveDraftDialog", "Lcom/baidu/tbadk/core/dialog/PopupDialog;", "saveDraftDialogView", "Lcom/baidu/tbadk/core/view/SaveDraftDialogView;", "clearDraftData", "", "editorActionHandlers", "", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "getFid", "", "handleDraft", "", "canPost", "data", "jumpEvaluate", "keyListeners", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "()[Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "loadDraftData", MissionEvent.MESSAGE_DESTROY, "onDraftLoaded", "draftData", "requestCodeHandlers", "Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "saveDraftData", "showDraftSaveDialog", "isEvaluateClick", "showNanSavePopup", "startEvaluate", "id", "", "", "Companion", "IDraftListener", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
+public abstract class BaseDraftBiz extends BizBase implements cja.h, l3b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SaveDraftDialogView g;
-    public g55 h;
+    public h55 h;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -76,7 +76,7 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
         }
     }
 
-    @Override // com.baidu.tieba.s1b
+    @Override // com.baidu.tieba.k3b
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,17 +86,17 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
         return (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s1b
-    public q1b[] f() {
+    @Override // com.baidu.tieba.k3b
+    public i3b[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return null;
         }
-        return (q1b[]) invokeV.objValue;
+        return (i3b[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t1b
+    @Override // com.baidu.tieba.l3b
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -112,14 +112,14 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseDraftBiz a;
-        public final /* synthetic */ k2b b;
+        public final /* synthetic */ c4b b;
 
-        public a(BaseDraftBiz baseDraftBiz, k2b k2bVar) {
+        public a(BaseDraftBiz baseDraftBiz, c4b c4bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {baseDraftBiz, k2bVar};
+                Object[] objArr = {baseDraftBiz, c4bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -130,7 +130,7 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
                 }
             }
             this.a = baseDraftBiz;
-            this.b = k2bVar;
+            this.b = c4bVar;
         }
 
         @Override // com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz.b
@@ -176,7 +176,7 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseDraftBiz(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, k2b writePageState) {
+    public BaseDraftBiz(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, c4b writePageState) {
         super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -188,7 +188,7 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (k2b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c4b) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -201,21 +201,21 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
         writePageState.u(new a(this, writePageState));
     }
 
-    public static final void B(e55 quitConfirm, BaseDraftBiz this$0, g55 popupDialog, i55 i55Var, int i, View view2) {
+    public static final void B(f55 quitConfirm, BaseDraftBiz this$0, h55 popupDialog, j55 j55Var, int i, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{quitConfirm, this$0, popupDialog, i55Var, Integer.valueOf(i), view2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{quitConfirm, this$0, popupDialog, j55Var, Integer.valueOf(i), view2}) == null) {
             Intrinsics.checkNotNullParameter(quitConfirm, "$quitConfirm");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(popupDialog, "$popupDialog");
             if (i == quitConfirm.e()) {
                 this$0.s();
                 popupDialog.dismiss();
-                k2b.d(this$0.l(), 0, 1, null);
+                c4b.d(this$0.l(), 0, 1, null);
             }
         }
     }
 
-    public static final void C(g55 popupDialog) {
+    public static final void C(h55 popupDialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, popupDialog) == null) {
             Intrinsics.checkNotNullParameter(popupDialog, "$popupDialog");
@@ -223,12 +223,12 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
         }
     }
 
-    @Override // com.baidu.tieba.wga.h
+    @Override // com.baidu.tieba.cja.h
     public void c(WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
             if (writeData != null) {
-                f3b.a.d(k(), writeData);
+                x4b.a.d(k(), writeData);
             }
             l().n().h();
         }
@@ -247,59 +247,59 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
                 if (z) {
                     this$0.v();
                 }
-                k2b.d(this$0.l(), 0, 1, null);
+                c4b.d(this$0.l(), 0, 1, null);
             } else if (id == R.id.save_draft_dialog_save) {
-                um6.a().i(this$0.j(), "writePageNa.saveDraft", new JSONObject());
+                ym6.a().i(this$0.j(), "writePageNa.saveDraft", new JSONObject());
                 if (z) {
                     this$0.v();
                 }
             }
-            g55 g55Var = this$0.h;
-            Intrinsics.checkNotNull(g55Var);
-            g55Var.dismiss();
+            h55 h55Var = this$0.h;
+            Intrinsics.checkNotNull(h55Var);
+            h55Var.dismiss();
         }
     }
 
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            final g55 g55Var = new g55(i());
-            i55 i55Var = new i55(i().getPageActivity());
-            i55Var.t(i().getString(R.string.obfuscated_res_0x7f0f0eb6));
+            final h55 h55Var = new h55(i());
+            j55 j55Var = new j55(i().getPageActivity());
+            j55Var.t(i().getString(R.string.obfuscated_res_0x7f0f0eb8));
             ArrayList arrayList = new ArrayList();
-            final e55 e55Var = new e55(i().getString(R.string.obfuscated_res_0x7f0f0eb5), i55Var);
-            e55Var.r(R.color.CAM_X0107);
-            arrayList.add(e55Var);
-            i55.f fVar = new i55.f() { // from class: com.baidu.tieba.y2b
+            final f55 f55Var = new f55(i().getString(R.string.obfuscated_res_0x7f0f0eb7), j55Var);
+            f55Var.r(R.color.CAM_X0107);
+            arrayList.add(f55Var);
+            j55.f fVar = new j55.f() { // from class: com.baidu.tieba.q4b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.i55.f
-                public final void G0(i55 i55Var2, int i, View view2) {
+                @Override // com.baidu.tieba.j55.f
+                public final void G0(j55 j55Var2, int i, View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, i55Var2, i, view2) == null) {
-                        BaseDraftBiz.B(e55.this, this, g55Var, i55Var2, i, view2);
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, j55Var2, i, view2) == null) {
+                        BaseDraftBiz.B(f55.this, this, h55Var, j55Var2, i, view2);
                     }
                 }
             };
-            i55.c cVar = new i55.c() { // from class: com.baidu.tieba.z2b
+            j55.c cVar = new j55.c() { // from class: com.baidu.tieba.r4b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.i55.c
+                @Override // com.baidu.tieba.j55.c
                 public final void onClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BaseDraftBiz.C(g55.this);
+                        BaseDraftBiz.C(h55.this);
                     }
                 }
             };
-            i55Var.l(arrayList);
-            i55Var.q(fVar);
-            i55Var.o(cVar);
-            g55Var.setCanceledOnTouchOutside(true);
-            g55Var.h(i55Var);
-            kg.i(g55Var, i().getPageActivity());
+            j55Var.l(arrayList);
+            j55Var.q(fVar);
+            j55Var.o(cVar);
+            h55Var.setCanceledOnTouchOutside(true);
+            h55Var.h(j55Var);
+            jg.i(h55Var, i().getPageActivity());
         }
     }
 
@@ -308,18 +308,18 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, obj) == null) {
             if (!l().e()) {
                 v();
-                k2b.d(l(), 0, 1, null);
+                c4b.d(l(), 0, 1, null);
                 return;
             }
             y(true);
         }
     }
 
-    @Override // com.baidu.tieba.s1b
-    public p1b[] d() {
+    @Override // com.baidu.tieba.k3b
+    public h3b[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new p1b[]{n(69, new BaseDraftBiz$editorActionHandlers$1(this))} : (p1b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new h3b[]{n(69, new BaseDraftBiz$editorActionHandlers$1(this))} : (h3b[]) invokeV.objValue;
     }
 
     public void s() {
@@ -392,7 +392,7 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
         if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && i().getPageActivity() != null && !i().getPageActivity().isFinishing()) {
             if (this.g == null) {
                 this.g = new SaveDraftDialogView(i().getPageActivity());
-                View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.a3b
+                View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.s4b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -409,19 +409,19 @@ public abstract class BaseDraftBiz extends BizBase implements wga.h, t1b {
                 saveDraftDialogView.setOnClickListener(onClickListener);
             }
             if (this.h == null) {
-                g55 g55Var = new g55(i());
-                this.h = g55Var;
-                Intrinsics.checkNotNull(g55Var);
+                h55 h55Var = new h55(i());
+                this.h = h55Var;
+                Intrinsics.checkNotNull(h55Var);
                 SaveDraftDialogView saveDraftDialogView2 = this.g;
                 Intrinsics.checkNotNull(saveDraftDialogView2);
-                g55Var.setContentView(saveDraftDialogView2);
+                h55Var.setContentView(saveDraftDialogView2);
             }
             SaveDraftDialogView saveDraftDialogView3 = this.g;
             Intrinsics.checkNotNull(saveDraftDialogView3);
-            saveDraftDialogView3.setText(i().getString(R.string.write_save_draft_dialog_normal_title), i().getString(R.string.obfuscated_res_0x7f0f12f1));
-            g55 g55Var2 = this.h;
-            Intrinsics.checkNotNull(g55Var2);
-            g55Var2.l();
+            saveDraftDialogView3.setText(i().getString(R.string.write_save_draft_dialog_normal_title), i().getString(R.string.obfuscated_res_0x7f0f12f2));
+            h55 h55Var2 = this.h;
+            Intrinsics.checkNotNull(h55Var2);
+            h55Var2.l();
         }
     }
 }

@@ -14,5 +14,6 @@ public final /* synthetic */ class sq0 {
         $EnumSwitchMapping$0 = iArr;
         iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
         $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
+        $EnumSwitchMapping$0[NestedEvent.SCROLL_FINISH.ordinal()] = 3;
     }
 }

@@ -1,32 +1,20 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class bj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<dj0> d;
-    public static final List<fj0> e;
+    public static final aj0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, dj0> a;
-    public final Map<String, fj0> b;
-    public final ArrayList<String> c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,90 +29,61 @@ public class bj0 {
                 return;
             }
         }
-        mj0 mj0Var = new mj0();
-        d = mj0Var.a.getList();
-        e = mj0Var.b.getList();
+        a = new aj0();
     }
 
-    public bj0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-        this.b = Collections.synchronizedMap(new LinkedHashMap());
-        this.c = new ArrayList<>();
-        synchronized (bj0.class) {
-            if (d != null && this.a.isEmpty()) {
-                for (dj0 dj0Var : d) {
-                    if (dj0Var != null) {
-                        if (j31.b(this.a, dj0Var.a()) == null) {
-                            j31.e(this.a, dj0Var.a(), dj0Var);
-                        }
-                        if (!TextUtils.isEmpty(dj0Var.a())) {
-                            h31.b(this.c, dj0Var.a());
-                        }
-                    }
-                }
-            }
-            if (e != null && this.b.isEmpty()) {
-                for (fj0 fj0Var : e) {
-                    this.b.put(fj0Var.b(), fj0Var);
-                }
-            }
-        }
-    }
-
-    public boolean a(@NonNull Context context, @NonNull hj0 hj0Var, @Nullable Map<String, Object> map, @Nullable lj0 lj0Var) {
+    public static boolean a(@NonNull Context context, @NonNull gj0 gj0Var, @Nullable Map<String, Object> map, @Nullable kj0 kj0Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, hj0Var, map, lj0Var)) == null) {
-            if (b(context, hj0Var, map, lj0Var)) {
-                qj0.b(lj0Var, hj0Var, 0, true);
-                return true;
-            }
-            dj0 dj0Var = null;
-            if (qj0.f(hj0Var.a())) {
-                dj0Var = (dj0) j31.b(this.a, hj0Var.a());
-            }
-            if (qj0.g(hj0Var.c()) && dj0Var != null) {
-                hj0Var.f();
-                return dj0Var.b(context, hj0Var, map, lj0Var);
-            }
-            return ij0.a().a(context, hj0Var.b(), map, lj0Var);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, gj0Var, map, kj0Var)) == null) {
+            return a.a(context, gj0Var, map, kj0Var);
         }
         return invokeLLLL.booleanValue;
     }
 
-    public boolean b(Context context, hj0 hj0Var, @Nullable Map<String, Object> map, @Nullable lj0 lj0Var) {
-        InterceptResult invokeLLLL;
-        String a;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hj0Var, map, lj0Var)) == null) {
-            if (this.b.isEmpty()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return c(str, null);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(String str, @Nullable Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, context)) == null) {
+            return d(str, context, null);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean d(String str, @Nullable Context context, @Nullable Map<String, Object> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, map)) == null) {
+            return e(str, context, map, null);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean e(String str, @Nullable Context context, @Nullable Map<String, Object> map, @Nullable kj0 kj0Var) {
+        InterceptResult invokeLLLL;
+        x51 x51Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, context, map, kj0Var)) == null) {
+            if (t51.a && (x51Var = (x51) s51.a().a(x51.class)) != null) {
+                x51Var.a(str);
+            }
+            if (!pj0.o(str)) {
+                pj0.d(kj0Var, str, 201, false);
                 return false;
             }
-            fj0 fj0Var = null;
-            try {
-                for (Map.Entry<String, fj0> entry : this.b.entrySet()) {
-                    String a2 = hj0Var.a();
-                    if (entry == null || ((fj0Var = entry.getValue()) != null && (a = fj0Var.a()) != null && TextUtils.equals(a2, a))) {
-                        if (fj0Var != null && fj0Var.d(context, hj0Var, map, lj0Var)) {
-                            return true;
-                        }
-                    }
-                }
-            } catch (Exception unused) {
+            if (context == null) {
+                context = sj0.b();
             }
-            return false;
+            return a(context, new gj0(str), map, kj0Var);
         }
         return invokeLLLL.booleanValue;
     }

@@ -1,58 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cr0 {
+public class cr0 extends AdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ib1 a;
+    @NonNull
+    public final fr0 r;
 
-    public cr0(br0 br0Var, Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cr0(@NonNull mr0 mr0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        super(mr0Var, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {br0Var, context};
+            Object[] objArr = {mr0Var, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((mr0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        this.a = new ib1(context);
-    }
-
-    public final void a() {
-        ib1 ib1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ib1Var = this.a) != null) {
-            ib1Var.h();
+        if (mr0Var.k.size() >= 1) {
+            this.r = mr0Var.k.get(0);
+            return;
         }
-    }
-
-    public final void b() {
-        ib1 ib1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ib1Var = this.a) != null) {
-            ib1Var.k();
-        }
-    }
-
-    public final void c(boolean z) {
-        ib1 ib1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (ib1Var = this.a) != null) {
-            ib1Var.n(z);
-        }
+        throw ParseError.contentError(3, mr0Var.a.value);
     }
 }

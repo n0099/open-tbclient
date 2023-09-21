@@ -1,78 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class vy9 implements Runnable {
+public class vy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
-    public boolean d;
-    public fz9 e;
 
-    public vy9(fz9 fz9Var) {
+    public static void a(String str, List<bn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fz9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.e = fz9Var;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        fz9 fz9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (fz9Var = this.e) == null) {
+        if ((interceptable != null && interceptable.invokeLL(65536, null, str, list) != null) || StringUtils.isNull(str)) {
             return;
         }
-        if (!this.d) {
-            fz9Var.m(this.b, this.c, this.a, 2);
-        } else {
-            fz9Var.m(this.b, this.c, this.a, 1);
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        JSONArray jSONArray = new JSONArray();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            bn bnVar = list.get(i);
+            if (bnVar instanceof ci5) {
+                ci5 ci5Var = (ci5) bnVar;
+                if (!ci5Var.c()) {
+                    jSONArray.put(ci5Var.a());
+                }
+            }
+        }
+        jSONArray.put(str);
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+        httpMessage.addParam("pic_list", jSONArray.toString());
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public static String c(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+            if (tbPageContext != null && !StringUtils.isNull(str)) {
+                if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
+                    return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
+                }
+                return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(ci5 ci5Var, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, ci5Var, bdUniqueId) != null) || ci5Var == null || StringUtils.isNull(ci5Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
+        httpMessage.addParam("pic_url", ci5Var.a());
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public static void b(ci5 ci5Var, List<bn> list) {
+        ci5 ci5Var2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, ci5Var, list) == null) && ci5Var != null && !ListUtils.isEmpty(list) && !StringUtils.isNull(ci5Var.a())) {
+            JSONArray jSONArray = new JSONArray();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                bn bnVar = list.get(i);
+                if ((bnVar instanceof ci5) && (ci5Var2 = (ci5) bnVar) != ci5Var && !ci5Var2.c()) {
+                    jSONArray.put(ci5Var2.a());
+                }
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+            httpMessage.addParam("pic_list", jSONArray.toString());
+            if (jSONArray.length() <= 0) {
+                httpMessage.addParam("truncat", 1);
+            } else {
+                httpMessage.addParam("truncat", 0);
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

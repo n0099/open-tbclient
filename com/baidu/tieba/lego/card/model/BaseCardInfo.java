@@ -3,8 +3,8 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.q29;
-import com.baidu.tieba.w39;
+import com.baidu.tieba.b49;
+import com.baidu.tieba.h59;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,9 +72,9 @@ public class BaseCardInfo extends BaseLegoCardInfo {
                 if (obj instanceof UpdateAttentionMessage.UpdateAttentionData) {
                     UpdateAttentionMessage.UpdateAttentionData updateAttentionData = (UpdateAttentionMessage.UpdateAttentionData) obj;
                     return responseAttentionUser(updateAttentionData.toUid, updateAttentionData.isAttention);
-                } else if (obj instanceof w39) {
-                    w39 w39Var = (w39) obj;
-                    return responseAttentionForum(w39Var.a, w39Var.b);
+                } else if (obj instanceof h59) {
+                    h59 h59Var = (h59) obj;
+                    return responseAttentionForum(h59Var.a, h59Var.b);
                 } else {
                     return false;
                 }
@@ -89,7 +89,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return q29.b.a(str).d("fid");
+                return b49.b.a(str).d("fid");
             }
             return "";
         }
@@ -101,7 +101,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return q29.b.a(str).d("touid");
+                return b49.b.a(str).d("touid");
             }
             return "";
         }

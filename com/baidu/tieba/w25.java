@@ -127,7 +127,7 @@ public class w25 {
                     this.c = jSONObject2.optString("link_abstract");
                     this.d = jSONObject2.optString("link_head_small_pic");
                     this.e = jSONObject2.optInt("link_type");
-                    if (ei.isEmpty(this.b) && ei.isEmpty(this.c)) {
+                    if (di.isEmpty(this.b) && di.isEmpty(this.c)) {
                         this.f = true;
                     }
                 } else {
@@ -154,7 +154,7 @@ public class w25 {
             this.c = linkThreadContent.link_abstract;
             this.d = linkThreadContent.link_head_small_pic;
             this.e = linkThreadContent.link_type.intValue();
-            if (ei.isEmpty(this.b) && ei.isEmpty(this.c)) {
+            if (di.isEmpty(this.b) && di.isEmpty(this.c)) {
                 this.f = true;
                 return;
             }

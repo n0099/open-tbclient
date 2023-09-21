@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.fbc;
-import com.baidu.tieba.pbc;
-import com.baidu.tieba.rfc;
-import com.baidu.tieba.sac;
-import com.baidu.tieba.uac;
-import com.baidu.tieba.yac;
+import com.baidu.tieba.hdc;
+import com.baidu.tieba.jhc;
+import com.baidu.tieba.kcc;
+import com.baidu.tieba.mcc;
+import com.baidu.tieba.qcc;
+import com.baidu.tieba.xcc;
 import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.Queue;
@@ -14,39 +14,39 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
-public final class OperatorWindowWithSize$WindowOverlap<T> extends yac<T> implements fbc {
-    public final yac<? super sac<T>> e;
+public final class OperatorWindowWithSize$WindowOverlap<T> extends qcc<T> implements xcc {
+    public final qcc<? super kcc<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
-    public final ArrayDeque<rfc<T, T>> i;
+    public final ArrayDeque<jhc<T, T>> i;
     public final AtomicLong j;
     public final AtomicInteger k;
-    public final Queue<rfc<T, T>> l;
+    public final Queue<jhc<T, T>> l;
     public Throwable m;
     public volatile boolean n;
     public int o;
     public int p;
 
     /* loaded from: classes2.dex */
-    public final class WindowOverlapProducer extends AtomicBoolean implements uac {
+    public final class WindowOverlapProducer extends AtomicBoolean implements mcc {
         public static final long serialVersionUID = 4625807964358024108L;
 
         public WindowOverlapProducer() {
         }
 
-        @Override // com.baidu.tieba.uac
+        @Override // com.baidu.tieba.mcc
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
                     OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = OperatorWindowWithSize$WindowOverlap.this;
                     if (!get() && compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowOverlap.e(pbc.a(pbc.c(operatorWindowWithSize$WindowOverlap.g, j - 1), operatorWindowWithSize$WindowOverlap.f));
+                        operatorWindowWithSize$WindowOverlap.e(hdc.a(hdc.c(operatorWindowWithSize$WindowOverlap.g, j - 1), operatorWindowWithSize$WindowOverlap.f));
                     } else {
-                        OperatorWindowWithSize$WindowOverlap.this.e(pbc.c(operatorWindowWithSize$WindowOverlap.g, j));
+                        OperatorWindowWithSize$WindowOverlap.this.e(hdc.c(operatorWindowWithSize$WindowOverlap.g, j));
                     }
-                    pbc.b(operatorWindowWithSize$WindowOverlap.j, j);
+                    hdc.b(operatorWindowWithSize$WindowOverlap.j, j);
                     operatorWindowWithSize$WindowOverlap.j();
                     return;
                 }
@@ -56,16 +56,16 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends yac<T> implem
         }
     }
 
-    @Override // com.baidu.tieba.fbc
+    @Override // com.baidu.tieba.xcc
     public void call() {
         if (this.h.decrementAndGet() == 0) {
             unsubscribe();
         }
     }
 
-    @Override // com.baidu.tieba.tac
+    @Override // com.baidu.tieba.lcc
     public void onCompleted() {
-        Iterator<rfc<T, T>> it = this.i.iterator();
+        Iterator<jhc<T, T>> it = this.i.iterator();
         while (it.hasNext()) {
             it.next().onCompleted();
         }
@@ -74,18 +74,18 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends yac<T> implem
         j();
     }
 
-    public boolean i(boolean z, boolean z2, yac<? super rfc<T, T>> yacVar, Queue<rfc<T, T>> queue) {
-        if (yacVar.isUnsubscribed()) {
+    public boolean i(boolean z, boolean z2, qcc<? super jhc<T, T>> qccVar, Queue<jhc<T, T>> queue) {
+        if (qccVar.isUnsubscribed()) {
             queue.clear();
             return true;
         } else if (z) {
             Throwable th = this.m;
             if (th != null) {
                 queue.clear();
-                yacVar.onError(th);
+                qccVar.onError(th);
                 return true;
             } else if (z2) {
-                yacVar.onCompleted();
+                qccVar.onCompleted();
                 return true;
             } else {
                 return false;
@@ -127,8 +127,8 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends yac<T> implem
         if (atomicInteger.getAndIncrement() != 0) {
             return;
         }
-        yac<? super sac<T>> yacVar = this.e;
-        Queue<rfc<T, T>> queue = this.l;
+        qcc<? super kcc<T>> qccVar = this.e;
+        Queue<jhc<T, T>> queue = this.l;
         int i = 1;
         do {
             long j = this.j.get();
@@ -139,27 +139,27 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends yac<T> implem
                     break;
                 }
                 boolean z2 = this.n;
-                rfc<T, T> poll = queue.poll();
+                jhc<T, T> poll = queue.poll();
                 if (poll == null) {
                     z = true;
                 } else {
                     z = false;
                 }
-                if (i(z2, z, yacVar, queue)) {
+                if (i(z2, z, qccVar, queue)) {
                     return;
                 }
                 if (z) {
                     break;
                 }
-                yacVar.onNext(poll);
+                qccVar.onNext(poll);
                 j2++;
             }
         } while (i != 0);
     }
 
-    @Override // com.baidu.tieba.tac
+    @Override // com.baidu.tieba.lcc
     public void onError(Throwable th) {
-        Iterator<rfc<T, T>> it = this.i.iterator();
+        Iterator<jhc<T, T>> it = this.i.iterator();
         while (it.hasNext()) {
             it.next().onError(th);
         }
@@ -169,10 +169,10 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends yac<T> implem
         j();
     }
 
-    @Override // com.baidu.tieba.tac
+    @Override // com.baidu.tieba.lcc
     public void onNext(T t) {
         int i = this.o;
-        ArrayDeque<rfc<T, T>> arrayDeque = this.i;
+        ArrayDeque<jhc<T, T>> arrayDeque = this.i;
         if (i == 0 && !this.e.isUnsubscribed()) {
             this.h.getAndIncrement();
             UnicastSubject Q = UnicastSubject.Q(16, this);
@@ -180,14 +180,14 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends yac<T> implem
             this.l.offer(Q);
             j();
         }
-        Iterator<rfc<T, T>> it = this.i.iterator();
+        Iterator<jhc<T, T>> it = this.i.iterator();
         while (it.hasNext()) {
             it.next().onNext(t);
         }
         int i2 = this.p + 1;
         if (i2 == this.f) {
             this.p = i2 - this.g;
-            rfc<T, T> poll = arrayDeque.poll();
+            jhc<T, T> poll = arrayDeque.poll();
             if (poll != null) {
                 poll.onCompleted();
             }

@@ -1,58 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.helper.BdVideoGesture;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ax0 extends BdVideoGesture {
+public class ax0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.nadcore.player.helper.BdVideoGesture
-    public void f(Context context) {
+    public static o01 a(@NonNull BdVideoSeries bdVideoSeries, @NonNull BdVideo bdVideo, @NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
+            o01 o01Var = new o01();
+            o01Var.k(str2);
+            o01Var.l(n01.c(bdVideo.getCurrentLength()) + "/" + n01.c(bdVideo.getTotalLength()));
+            o01Var.p(bdVideoSeries.getVid());
+            o01Var.m(bdVideo.getType());
+            o01Var.j(System.currentTimeMillis());
+            o01Var.n(bdVideo.getTitle());
+            o01Var.o(str);
+            o01Var.r(bdVideoSeries.getPositionMs());
+            o01Var.q(bdVideo.getCurrentLength());
+            o01Var.s(bdVideo.getTotalLength());
+            return o01Var;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax0(Context context, @NonNull tx0 tx0Var) {
-        super(context, tx0Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, tx0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (tx0) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.nadcore.player.helper.BdVideoGesture
-    public boolean c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (motionEvent.getPointerCount() >= 2 && p21.k().getBoolean("player_shrink_switch", true)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (o01) invokeLLLL.objValue;
     }
 }

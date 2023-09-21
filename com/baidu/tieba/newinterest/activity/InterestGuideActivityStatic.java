@@ -29,7 +29,7 @@ public class InterestGuideActivityStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(InterestGuideActivityConfig.class, InterestGuideActivity.class);
-        InterestedForumModel.q();
+        InterestedForumModel.p();
     }
 
     public InterestGuideActivityStatic() {

@@ -1,95 +1,92 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
 import android.text.SpannableString;
-import android.text.style.ImageSpan;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.wm5;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.zw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class gr9 implements ir9 {
+public class gr9 extends dr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExcContent a;
-    public SpannableString b;
+    public LinearLayout f;
+    public TextView g;
 
-    @Override // com.baidu.tieba.ir9
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jr9
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public gr9(ExcContent excContent) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gr9(TbPageContext tbPageContext, int i) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = excContent;
     }
 
-    @Override // com.baidu.tieba.ir9
-    public CharSequence b() {
+    @Override // com.baidu.tieba.dr9
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
+            this.f = linearLayout;
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092494);
+            return this.f;
         }
-        return (CharSequence) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final SpannableString c(ExcContent excContent) {
-        InterceptResult invokeL;
-        wm5.a f;
+    @Override // com.baidu.tieba.dr9
+    public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
-            if (this.b == null) {
-                String str = excContent.text;
-                if (TbFaceManager.i().o(str)) {
-                    String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.i().j(str) + SmallTailInfo.EMOTION_SUFFIX;
-                    this.b = new SpannableString(str2 + " ");
-                    c26 c = TbFaceManager.i().c(str);
-                    if (TbFaceManager.i().f(str) != null) {
-                        int a = (int) (f.a() * 0.6d);
-                        c.setBounds(new Rect(0, 0, a, a));
-                    } else {
-                        c.setBounds(new Rect(0, 0, 0, 0));
-                    }
-                    this.b.setSpan(new ImageSpan(c, 0), 0, str2.length(), 33);
-                }
-            }
-            return this.b;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
+            this.e = i;
+            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
         }
-        return (SpannableString) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dr9
+    public void c(OriginalThreadInfo originalThreadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
+            this.g.setText(new SpannableString(this.a.getString(R.string.origin_thread_deleted_title)));
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+        }
+    }
+
+    @Override // com.baidu.tieba.dr9
+    public void d(zw.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            super.d(aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.dr9
+    public void e(sp6 sp6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sp6Var) == null) {
+            super.e(sp6Var);
+        }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface z0 {
     boolean a(int i, int i2, int i3, int i4);
 

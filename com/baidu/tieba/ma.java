@@ -76,7 +76,7 @@ public class ma {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                bi.a(byteArrayInputStream, byteArrayOutputStream);
+                ai.a(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
@@ -94,7 +94,7 @@ public class ma {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                bi.c(byteArrayInputStream, byteArrayOutputStream);
+                ai.c(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
@@ -174,7 +174,7 @@ public class ma {
                 if (laVar.d() && naVar.d > 0) {
                     if (oa.a().b() != null) {
                         try {
-                            byte[] a2 = li.a(oa.a().b(), naVar.b, naVar.c, naVar.d);
+                            byte[] a2 = ki.a(oa.a().b(), naVar.b, naVar.c, naVar.d);
                             naVar.b = a2;
                             naVar.c = 0;
                             naVar.d = a2.length;
@@ -230,7 +230,7 @@ public class ma {
                 encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = li.c(oa.a().b(), encodeInBackGround);
+                encodeInBackGround = ki.c(oa.a().b(), encodeInBackGround);
             }
             return la.i(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         }

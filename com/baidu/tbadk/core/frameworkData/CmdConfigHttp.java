@@ -212,10 +212,10 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_DEL_TOKEN_INFO = 1003558;
     public static final int CMD_HTTP_ET_VIDEO = 1003519;
     public static final int CMD_HTTP_EXCEPTION_REPORT = 1003574;
+    public static final int CMD_HTTP_FORUM_SIGN_IN_RESULT = 1003577;
     public static final int CMD_HTTP_FRS_TAB_AD = 1003411;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
     public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
-    public static final int CMD_HTTP_GET_MSG_REC_FORUM_LIST = 1003507;
     public static final int CMD_HTTP_GROUP_MESSAGE = 1003549;
     public static final int CMD_HTTP_ONEKEY_DELETION_HISTORY = 1003557;
     public static final int CMD_HTTP_POLLING_INTERFACE = 1003540;

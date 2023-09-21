@@ -2,238 +2,113 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import com.baidu.tieba.dw2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h34 extends ki3 {
+public class h34 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String v;
 
-    public h34() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947772768, "Lcom/baidu/tieba/h34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947772768, "Lcom/baidu/tieba/h34;");
+                return;
             }
         }
+        a = qr1.a;
     }
 
-    public static String l(String str) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2, String str3, String str4, f34 f34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, f34Var) == null) {
+            String l = g34.l(str2);
+            if (TextUtils.isEmpty(l)) {
+                return;
+            }
+            if (a) {
+                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
+            }
             if (TextUtils.isEmpty(str)) {
-                return null;
+                return;
             }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -2136141294:
-                    if (str.equals("notifyInstall")) {
-                        c = '\r';
-                        break;
-                    }
-                    break;
-                case -1996849701:
-                    if (str.equals("installHijack")) {
-                        c = 17;
-                        break;
-                    }
-                    break;
-                case -1903789791:
-                    if (str.equals("continueClick")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -1768725569:
-                    if (str.equals("notifyClick")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case -1263222921:
-                    if (str.equals("openApp")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1165168761:
-                    if (str.equals("notifyList")) {
-                        c = 14;
-                        break;
-                    }
-                    break;
-                case -1164961306:
-                    if (str.equals("notifyShow")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -625158317:
-                    if (str.equals("deleteDownload")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -606050596:
-                    if (str.equals("resumeAllDownload")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case -567202649:
-                    if (str.equals("continue")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case -451216226:
-                    if (str.equals("pauseDownload")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -263045656:
-                    if (str.equals("installSuccess")) {
-                        c = 15;
-                        break;
-                    }
-                    break;
-                case 66344735:
-                    if (str.equals("authorizeClick")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 184711125:
-                    if (str.equals("resumeDownload")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 388113743:
-                    if (str.equals("overTwoDays")) {
-                        c = 16;
-                        break;
-                    }
-                    break;
-                case 900412038:
-                    if (str.equals("installApp")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 1475610601:
-                    if (str.equals("authorize")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 1554935562:
-                    if (str.equals("startDownload")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
+            g34 g34Var = new g34();
+            g34Var.m(f34Var);
+            g34Var.b = l;
+            g34Var.e = str3;
+            g34Var.v = str;
+            g34Var.l = ap3.D();
+            if (gb3.b0() != null) {
+                dw2.a W = gb3.b0().W();
+                g34Var.a = zh3.n(W.G());
+                g34Var.f = W.H();
+                g34Var.c = W.T();
             }
-            switch (c) {
-                case 0:
-                    return "start";
-                case 1:
-                    return DownloadStatisticConstants.UBC_TYPE_PAUSE;
-                case 2:
-                    return DownloadStatisticConstants.UBC_TYPE_RESUME;
-                case 3:
-                    return "cancel";
-                case 4:
-                    return "install";
-                case 5:
-                    return "open";
-                case 6:
-                    return "continue";
-                case 7:
-                    return "authorize";
-                case '\b':
-                    return "guide";
-                case '\t':
-                    return "authorizeclick";
-                case '\n':
-                    return "guideclick";
-                case 11:
-                    return "notifyshow";
-                case '\f':
-                    return "notifyclick";
-                case '\r':
-                    return "notifyinstall";
-                case 14:
-                    return "notifylist";
-                case 15:
-                    return "installsuccess";
-                case 16:
-                    return "overtwodays";
-                case 17:
-                    return "installhijack";
-                default:
-                    return str;
-            }
+            g34Var.t = str4;
+            zh3.x("1245", g34Var);
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ki3, com.baidu.tieba.ji3
-    public JSONObject f() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.k = mk3.e(TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
-            this.n = SwanAppNetworkUtils.f().type;
-            if (this.h == null) {
-                this.h = new JSONObject();
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(str, str2, "");
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            String l = g34.l(str);
+            if (TextUtils.isEmpty(l)) {
+                return;
             }
+            g34 g34Var = new g34();
+            g34Var.b = l;
+            g34Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
+            if (str3 == null) {
+                str3 = "";
+            }
+            g34Var.a("packageName", str3);
+            zh3.x("1245", g34Var);
+        }
+    }
+
+    public static void d(int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String d = x74.b().d();
+            JSONObject jSONObject = new JSONObject();
             try {
-                this.h.put("host", ou2.n().a());
-                this.h.put("package", this.v);
-            } catch (JSONException e) {
-                if (ji3.j) {
-                    e.printStackTrace();
-                }
+                jSONObject.put("cuid", nu2.h0().i(nu2.c()));
+                jSONObject.put("type", i);
+                jSONObject.put("time", System.currentTimeMillis() / 1000);
+                jSONObject.put("host", nu2.n().a());
+                jSONObject.put("version", ap3.D());
+                jSONObject.put("package", str);
+                jSONObject.put("appid", str2);
+                jSONObject.put("url", str3);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ki4.h(nu2.c()).postRequest().cookieManager(nu2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+            } catch (Exception unused) {
             }
-            return super.f();
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void m(g34 g34Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g34Var) != null) || g34Var == null) {
-            return;
-        }
-        if (ji3.j) {
-            Log.d("SwanAppUBCEvent", "setCommonData: " + g34Var.a());
-        }
-        this.a = g34Var.a;
-        this.f = g34Var.c;
-        this.c = g34Var.b;
-        this.o = g34Var.f;
-        this.p = g34Var.g;
-        this.s = g34Var.h;
-        this.u = g34Var.i;
-        this.l = g34Var.d;
-        this.m = g34Var.e;
     }
 }

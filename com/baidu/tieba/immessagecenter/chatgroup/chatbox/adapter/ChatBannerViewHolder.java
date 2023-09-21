@@ -18,8 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn8;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.bs8;
+import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
+import com.baidu.tieba.oc8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +34,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView e;
     public View f;
-    public bn8 g;
+    public bs8 g;
     public FrameLayout h;
     public String i;
     public String j;
@@ -115,13 +116,13 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e8d);
-        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e8f);
-        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e8e);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e86);
+        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e88);
+        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e87);
         this.k = str;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
+    @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
     public void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -132,14 +133,14 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull vl8 vl8Var, @NonNull TbPageContext tbPageContext, int i) {
+    @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
+    public void d(@NonNull oc8 oc8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, vl8Var, tbPageContext, i) == null) {
-            if (vl8Var instanceof bn8) {
-                bn8 bn8Var = (bn8) vl8Var;
-                this.g = bn8Var;
-                this.i = bn8Var.b();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, oc8Var, tbPageContext, i) == null) {
+            if (oc8Var instanceof bs8) {
+                bs8 bs8Var = (bs8) oc8Var;
+                this.g = bs8Var;
+                this.i = bs8Var.b();
                 this.j = this.g.c();
                 if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j)) {
                     this.h.setVisibility(0);

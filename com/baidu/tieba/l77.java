@@ -1,111 +1,131 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.uistate.CardLiveUiStateKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class l77 extends o77 {
+public final class l77 extends v77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final s97 d;
-    public final String e;
-    public final String f;
-    public final List<w97> g;
-    public final List<w97> h;
-    public final List<w97> i;
+    public final r97 d;
+    public final List<ea7> e;
+    public final Function2<Context, String, Unit> f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947895869, "Lcom/baidu/tieba/l77;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947895869, "Lcom/baidu/tieba/l77;");
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof l77) {
+                l77 l77Var = (l77) obj;
+                return Intrinsics.areEqual(this.d, l77Var.d) && Intrinsics.areEqual(this.e, l77Var.e) && Intrinsics.areEqual(this.f, l77Var.f);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((this.d.hashCode() * 31) + this.e.hashCode()) * 31) + this.f.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "CardLiveUiState(liveData=" + this.d + ", clickStatDataList=" + this.e + ", onLiveClick=" + this.f + ')';
+        }
+        return (String) invokeV.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l77(s97 replyData, String headSchema, String schema, List<w97> userHeadClickStatList, List<w97> userNameClickStatList, List<w97> cardClickStatList) {
+    public l77(r97 liveData, List<ea7> clickStatDataList, Function2<? super Context, ? super String, Unit> onLiveClick) {
         super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {replyData, headSchema, schema, userHeadClickStatList, userNameClickStatList, cardClickStatList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {liveData, clickStatDataList, onLiveClick};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(replyData, "replyData");
-        Intrinsics.checkNotNullParameter(headSchema, "headSchema");
-        Intrinsics.checkNotNullParameter(schema, "schema");
-        Intrinsics.checkNotNullParameter(userHeadClickStatList, "userHeadClickStatList");
-        Intrinsics.checkNotNullParameter(userNameClickStatList, "userNameClickStatList");
-        Intrinsics.checkNotNullParameter(cardClickStatList, "cardClickStatList");
-        this.d = replyData;
-        this.e = headSchema;
-        this.f = schema;
-        this.g = userHeadClickStatList;
-        this.h = userNameClickStatList;
-        this.i = cardClickStatList;
+        Intrinsics.checkNotNullParameter(liveData, "liveData");
+        Intrinsics.checkNotNullParameter(clickStatDataList, "clickStatDataList");
+        Intrinsics.checkNotNullParameter(onLiveClick, "onLiveClick");
+        this.d = liveData;
+        this.e = clickStatDataList;
+        this.f = onLiveClick;
     }
 
-    public final List<w97> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
-        }
-        return (List) invokeV.objValue;
+    public /* synthetic */ l77(r97 r97Var, List list, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r97Var, (i & 2) != 0 ? new ArrayList() : list, (i & 4) != 0 ? CardLiveUiStateKt.a() : function2);
     }
 
-    public final String i() {
+    public final List<ea7> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.e;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final s97 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (s97) invokeV.objValue;
-    }
-
-    public final String k() {
+    public final r97 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return (r97) invokeV.objValue;
     }
 
-    public final List<w97> l() {
+    public final Function2<Context, String, Unit> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
+            return this.f;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<w97> m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return (List) invokeV.objValue;
+        return (Function2) invokeV.objValue;
     }
 }

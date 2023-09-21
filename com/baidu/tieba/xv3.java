@@ -1,49 +1,146 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xv3 implements Object {
+public class xv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final int c;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public boolean h;
+    public wv3 i;
+    public wv3 j;
+    public wv3 k;
+    public wv3 l;
 
-    public xv3(int i, int i2, int i3) {
+    public xv3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
+        this.a = -1;
+        this.b = -1;
+        this.c = -1;
+        this.d = -1;
+        this.e = -1;
+        this.f = -1;
+        this.g = -1;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public int compareTo(xv3 xv3Var) {
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.h) {
+                return b(this.l);
+            }
+            wv3 wv3Var = this.k;
+            if (wv3Var != null) {
+                return wv3Var.c;
+            }
+            wv3 wv3Var2 = this.i;
+            if (wv3Var2 != null) {
+                return wv3Var2.c;
+            }
+            wv3 wv3Var3 = this.j;
+            if (wv3Var3 != null) {
+                return wv3Var3.c;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.g != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int b(wv3 wv3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xv3Var)) == null) {
-            if (this.c < xv3Var.c) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wv3Var)) == null) {
+            if (wv3Var != null) {
+                return wv3Var.c;
             }
-            return 1;
+            return -1;
         }
         return invokeL.intValue;
+    }
+
+    public final int c(wv3 wv3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wv3Var)) == null) {
+            if (wv3Var != null) {
+                return wv3Var.b;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cores", this.a);
+                jSONObject.put("is_biglittle", this.h);
+                if (this.h) {
+                    jSONObject.put("little_freq_min", c(this.j));
+                    jSONObject.put("little_freq_max", b(this.j));
+                    jSONObject.put("big_freq_min", c(this.i));
+                    jSONObject.put("big_freq_max", b(this.i));
+                    jSONObject.put("little_cores", this.b);
+                    jSONObject.put("big_cores", this.d);
+                    jSONObject.put("little_index", this.c);
+                    jSONObject.put("big_index", this.e);
+                    if (this.g != -1) {
+                        jSONObject.put("super_freq_min", c(this.k));
+                        jSONObject.put("super_freq_max", b(this.k));
+                        jSONObject.put("super_cores", this.f);
+                        jSONObject.put("super_index", this.g);
+                    }
+                } else {
+                    jSONObject.put("freq_min", c(this.l));
+                    jSONObject.put("freq_max", b(this.l));
+                }
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

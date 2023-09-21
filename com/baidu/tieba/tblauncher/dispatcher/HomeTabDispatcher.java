@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.s7a;
 import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class HomeTabDispatcher implements s7a {
+public class HomeTabDispatcher implements y9a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String url = "com.baidu.tieba://unidispatch/hometab?";
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class HomeTabDispatcher implements s7a {
         }
     }
 
-    @Override // com.baidu.tieba.s7a
+    @Override // com.baidu.tieba.y9a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

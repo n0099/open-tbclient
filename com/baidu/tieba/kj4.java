@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class kj4 extends hj4<ek4> {
+public class kj4 extends gj4<fk4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,47 +30,49 @@ public class kj4 extends hj4<ek4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hj4
+    @Override // com.baidu.tieba.gj4
     /* renamed from: f */
-    public ContentValues c(ek4 ek4Var) {
+    public ContentValues c(fk4 fk4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ek4Var)) == null) {
-            return a(ek4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fk4Var)) == null) {
+            ContentValues a = super.a(fk4Var);
+            a.put("pkg_type", Integer.valueOf(fk4Var.o));
+            return a;
         }
         return (ContentValues) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hj4
+    @Override // com.baidu.tieba.gj4
     /* renamed from: g */
-    public ek4 d(Cursor cursor) {
+    public fk4 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                ek4 ek4Var = new ek4();
-                if (b(cursor, ek4Var)) {
-                    return ek4Var;
+                fk4 fk4Var = new fk4();
+                if (b(cursor, fk4Var)) {
+                    return fk4Var;
                 }
                 return null;
             }
             return null;
         }
-        return (ek4) invokeL.objValue;
+        return (fk4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hj4
-    public List<ek4> e(Cursor cursor) {
+    @Override // com.baidu.tieba.gj4
+    public List<fk4> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
             ArrayList arrayList = new ArrayList();
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
                 do {
-                    ek4 ek4Var = new ek4();
-                    if (b(cursor, ek4Var)) {
-                        arrayList.add(ek4Var);
+                    fk4 fk4Var = new fk4();
+                    if (b(cursor, fk4Var)) {
+                        arrayList.add(fk4Var);
                     }
                 } while (cursor.moveToNext());
                 return arrayList;

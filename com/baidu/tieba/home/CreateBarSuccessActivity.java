@@ -55,7 +55,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
 
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String stringExtra = getIntent().getStringExtra("barname");
             this.a = stringExtra;
             if (stringExtra == null) {
@@ -76,11 +76,11 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         }
     }
 
-    public final void o1() {
+    public final void M0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907aa);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925d1);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907a0);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09259d);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
@@ -90,8 +90,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setTitleText(getPageContext().getString(R.string.create_bar));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0924c8);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ef);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092494);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924bb);
         }
     }
 
@@ -154,9 +154,9 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d023b);
+            setContentView(R.layout.obfuscated_res_0x7f0d023a);
             initData();
-            o1();
+            M0();
         }
     }
 }

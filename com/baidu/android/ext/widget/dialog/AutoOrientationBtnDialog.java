@@ -203,8 +203,8 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
             }
             this.this$0 = autoOrientationBtnDialog;
             if (view2 != null) {
-                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ff2);
-                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ff1);
+                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fe6);
+                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fe5);
                 this.button = (LinearLayout) view2;
                 this.mDialog = autoOrientationBtnDialog2;
             }
@@ -316,7 +316,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, this, btnItem, linearLayout, i)) == null) {
-            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d046f, (ViewGroup) linearLayout, false);
+            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0472, (ViewGroup) linearLayout, false);
             linearLayout2.setBackground(getContext().getResources().getDrawable(i));
             new ViewHelper(this, linearLayout2, this).onBindView(btnItem);
             return linearLayout2;
@@ -379,11 +379,11 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             Context context = getContext();
             this.mContext = context;
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0a09, getBuilder().getCustomContentParent(), false);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0a06, getBuilder().getCustomContentParent(), false);
             this.mView = viewGroup;
-            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ff3);
-            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090ff4);
-            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090ff0);
+            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090fe7);
+            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090fe8);
+            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090fe4);
             View createContentView = createContentView(this.mContent);
             if (createContentView != null) {
                 this.mContent.addView(createContentView);

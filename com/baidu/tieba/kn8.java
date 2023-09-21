@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class kn8 {
+public class kn8 extends of8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jn8 a;
-    public CollapseState b;
-    public int c;
+    public boolean e;
 
-    public kn8(jn8 jn8Var, ln8 ln8Var) {
+    public kn8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jn8Var, ln8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,144 +31,107 @@ public class kn8 {
                 return;
             }
         }
-        this.c = 0;
-        this.a = jn8Var;
-        this.b = new CollapseState();
+        this.e = true;
     }
 
-    public final void d(String str, long j) {
+    @Override // com.baidu.tieba.lf8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
-            if (!TextUtils.isEmpty(str) && j != 0) {
-                CollapseState collapseState = this.b;
-                collapseState.a = CollapseState.Icon.FORUM;
-                collapseState.e = str;
-                collapseState.d = j;
-                return;
-            }
-            CollapseState collapseState2 = this.b;
-            collapseState2.a = CollapseState.Icon.DEFAULT;
-            collapseState2.e = null;
-            collapseState2.d = 0L;
-        }
-    }
-
-    public final void e(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                this.b.c = CollapseState.Tip.AT_ME;
-            } else if (z2) {
-                this.b.c = CollapseState.Tip.THREE_EXP;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            lf8 lf8Var = this.c;
+            if (lf8Var != null) {
+                z2 = lf8Var.a(i, z, obj);
             } else {
-                this.b.c = CollapseState.Tip.DEFAULT;
+                z2 = true;
             }
-        }
-    }
-
-    public void a(List<Long> list, long j, List list2, int i) {
-        List<Long> list3;
-        ChatRoomInfo chatRoomInfo;
-        boolean z;
-        boolean a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) && (list3 = list) != null && list2 != null) {
-            long j2 = 0;
-            String str = null;
-            this.c = 0;
-            for (int i2 = 0; i2 < list2.size(); i2++) {
-                if (list2.get(i2) instanceof ChatGroupInfo) {
-                    List<ChatRoomInfo> roomInfoList = ((ChatGroupInfo) list2.get(i2)).getRoomInfoList();
-                    if (!ListUtils.isEmpty(roomInfoList)) {
-                        this.c += roomInfoList.size();
+            for (int i2 = 0; i2 < this.a.size(); i2++) {
+                kf8 kf8Var = this.a.get(i2);
+                if (kf8Var instanceof ao8) {
+                    ao8 ao8Var = (ao8) kf8Var;
+                    if (ao8Var.d() && i != i2) {
+                        ao8Var.e(false);
+                        i(i2);
+                    } else {
+                        if (i == i2) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        ao8Var.e(z3);
                     }
                 }
             }
-            int i3 = -1;
-            int i4 = 0;
-            boolean z2 = false;
-            boolean z3 = false;
-            int i5 = -1;
-            while (i4 < list2.size()) {
-                if (list2.get(i4) instanceof ChatGroupInfo) {
-                    List<ChatRoomInfo> roomInfoList2 = ((ChatGroupInfo) list2.get(i4)).getRoomInfoList();
-                    if (!ListUtils.isEmpty(roomInfoList2)) {
-                        int i6 = 0;
-                        while (i6 < roomInfoList2.size() && (chatRoomInfo = roomInfoList2.get(i6)) != null) {
-                            if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
-                                z = true;
-                            } else {
+            return z2;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.of8
+    public List<kf8> j(List list) {
+        InterceptResult invokeL;
+        List<BotsDTO.BotListDTO.SkillDTO> list2;
+        pf8 pf8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i < list.size()) {
+                    Object obj = list.get(i);
+                    if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO) {
+                        BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) obj;
+                        if (itemsDTO.getItemType() == 1) {
+                            pf8Var = new qf8(itemsDTO);
+                        } else {
+                            pf8 pf8Var2 = new pf8(itemsDTO);
+                            int i2 = this.d;
+                            if (i2 > -1) {
+                                if (i != i2) {
+                                    z = false;
+                                }
+                                pf8Var2.n(z);
+                            }
+                            pf8Var = pf8Var2;
+                        }
+                        arrayList.add(pf8Var);
+                    } else if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) {
+                        ao8 ao8Var = new ao8((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) obj);
+                        int i3 = this.d;
+                        if (i3 > -1) {
+                            if (i != i3) {
                                 z = false;
                             }
-                            int indexOf = list3.indexOf(Long.valueOf(chatRoomInfo.getRoomId()));
-                            if (indexOf != i3) {
-                                if (z && !z2) {
-                                    j2 = chatRoomInfo.getRoomId();
-                                    str = chatRoomInfo.getAvatar();
-                                } else if (z && z2) {
-                                    if (i5 < 0 || indexOf < i5) {
-                                        j2 = chatRoomInfo.getRoomId();
-                                        str = chatRoomInfo.getAvatar();
-                                    }
-                                } else if (!z && !z2 && ((!(a = yr8.a(j)) || this.c == 1) && (i5 < 0 || indexOf < i5))) {
-                                    j2 = chatRoomInfo.getRoomId();
-                                    z3 = !a;
-                                    str = chatRoomInfo.getAvatar();
-                                    i5 = indexOf;
-                                    z2 = false;
-                                }
-                                i5 = indexOf;
-                                z2 = true;
-                                z3 = false;
-                            }
-                            i6++;
-                            list3 = list;
-                            i3 = -1;
+                            ao8Var.e(z);
                         }
+                        arrayList.add(ao8Var);
+                    } else if (obj instanceof TbBaseMsg) {
+                        TbTextGenImageMsg tbTextGenImageMsg = (TbTextGenImageMsg) obj;
+                        if (tbTextGenImageMsg.getSubSkillConfig() != null && (list2 = tbTextGenImageMsg.getSubSkillConfig().a) != null && !list2.isEmpty()) {
+                            if (this.e) {
+                                arrayList.add(new yn8());
+                                this.e = false;
+                            }
+                            for (BotsDTO.BotListDTO.SkillDTO skillDTO : list2) {
+                                zn8 zn8Var = new zn8(skillDTO);
+                                zn8Var.e(tbTextGenImageMsg);
+                                arrayList.add(zn8Var);
+                            }
+                        }
+                    } else if (obj instanceof AbilityItem) {
+                        arrayList.add(new bo8((AbilityItem) obj));
                     }
+                    i++;
+                } else {
+                    this.e = true;
+                    return arrayList;
                 }
-                i4++;
-                list3 = list;
-                i3 = -1;
             }
-            CollapseState clone = this.b.clone();
-            e(z2, z3);
-            d(str, j2);
-            jn8 jn8Var = this.a;
-            if (jn8Var != null) {
-                jn8Var.update(clone, this.b);
-            }
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            CollapseState clone = this.b.clone();
-            if (z) {
-                this.b.b = CollapseState.State.EXPAND;
-            } else {
-                this.b.b = CollapseState.State.COLLAPSE;
-            }
-            jn8 jn8Var = this.a;
-            if (jn8Var != null) {
-                jn8Var.update(clone, this.b);
-            }
-        }
-    }
-
-    public void c(List<Long> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            CollapseState clone = this.b.clone();
-            e(false, false);
-            if (this.c != 1) {
-                d(null, 0L);
-            }
-            jn8 jn8Var = this.a;
-            if (jn8Var != null) {
-                jn8Var.update(clone, this.b);
-            }
+        } else {
+            return (List) invokeL.objValue;
         }
     }
 }

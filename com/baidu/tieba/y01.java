@@ -7,13 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class y01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<w01> a;
+    public final String a;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -31,9 +30,9 @@ public final class y01 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<w01> arrayList = this.a;
-            if (arrayList != null) {
-                return arrayList.hashCode();
+            String str = this.a;
+            if (str != null) {
+                return str.hashCode();
             }
             return 0;
         }
@@ -44,17 +43,17 @@ public final class y01 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Interact(adaptationSetList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+            return "InteractRepresentation(url=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    public y01(ArrayList<w01> arrayList) {
+    public y01(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,15 +63,15 @@ public final class y01 {
                 return;
             }
         }
-        this.a = arrayList;
+        this.a = str;
     }
 
-    public final ArrayList<w01> a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ArrayList) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

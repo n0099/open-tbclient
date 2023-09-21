@@ -1,19 +1,66 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class jd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<kd5> a;
+    public long a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public String j;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-693589423, "Lcom/baidu/tieba/jd5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-693589423, "Lcom/baidu/tieba/jd5$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[EmotionGroupType.values().length];
+            a = iArr;
+            try {
+                iArr[EmotionGroupType.LOCAL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[EmotionGroupType.USER_COLLECT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[EmotionGroupType.USER_DIY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     public jd5() {
         Interceptable interceptable = $ic;
@@ -29,40 +76,52 @@ public class jd5 {
         }
     }
 
-    public void a(JSONArray jSONArray) {
-        boolean z;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.a = new ArrayList();
-            try {
-                if (jSONArray == null) {
-                    SharedPrefHelper.getInstance().putString("key_index_tab_info_list", "[]");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(@NonNull pj5 pj5Var, @Nullable String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, pj5Var, str) == null) {
+            EmotionGroupType h = pj5Var.h();
+            if (str != null) {
+                str2 = hp5.b.b(str);
+            } else {
+                str2 = null;
+            }
+            int i = a.a[h.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        this.j = pj5Var.f();
+                        this.i = str2;
+                        return;
+                    }
+                    this.j = "3";
+                    this.i = str2;
                     return;
                 }
-                JSONArray jSONArray2 = new JSONArray(SharedPrefHelper.getInstance().getString("key_index_tab_info_list", "[]"));
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    kd5 kd5Var = new kd5();
-                    kd5 kd5Var2 = new kd5();
-                    kd5Var.i(jSONArray.getJSONObject(i));
-                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        kd5Var2.i(jSONArray2.getJSONObject(i2));
-                        if (kd5Var.c != null && kd5Var.c.equals(kd5Var2.c)) {
-                            if (!TextUtils.isEmpty(kd5Var2.e) && kd5Var2.e.equals(kd5Var.e)) {
-                                z = false;
-                                kd5Var.f = z;
-                            }
-                            z = true;
-                            kd5Var.f = z;
-                        }
-                    }
-                    if (!kd5Var.f()) {
-                        this.a.add(kd5Var);
-                    }
-                }
-                SharedPrefHelper.getInstance().putString("key_index_tab_info_list", jSONArray.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
+                this.j = "2";
+                this.i = str2;
+                return;
             }
+            this.j = "1";
+            this.i = str;
         }
     }
 }

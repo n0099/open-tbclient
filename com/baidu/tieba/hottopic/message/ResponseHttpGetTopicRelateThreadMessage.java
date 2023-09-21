@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.jb8;
+import com.baidu.tieba.nb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import tbclient.ThreadInfo;
 public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jb8 hotThreadItemListData;
+    public nb8 hotThreadItemListData;
     public Page page;
     public List<ThreadInfo> thread_list;
 
@@ -57,19 +57,19 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
             DataRes dataRes = getTopicRelateThreadResIdl.data;
             this.thread_list = dataRes.thread_list;
             this.page = dataRes.page;
-            jb8 jb8Var = new jb8();
-            this.hotThreadItemListData = jb8Var;
-            jb8Var.h(getTopicRelateThreadResIdl.data);
+            nb8 nb8Var = new nb8();
+            this.hotThreadItemListData = nb8Var;
+            nb8Var.h(getTopicRelateThreadResIdl.data);
         }
     }
 
-    public jb8 getHotThreadItemListData() {
+    public nb8 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.hotThreadItemListData;
         }
-        return (jb8) invokeV.objValue;
+        return (nb8) invokeV.objValue;
     }
 
     public Page getPage() {

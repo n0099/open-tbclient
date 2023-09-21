@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.common.internal.BaseHmsClient;
 import com.huawei.hms.common.internal.ClientSettings;
 import com.huawei.hms.common.internal.HmsClient;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PushClient extends HmsClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

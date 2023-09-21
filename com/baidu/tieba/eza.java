@@ -1,36 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.ImageSpan;
+import android.text.SpannableString;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class eza {
+public final class eza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public String b;
+    public SpannableString a;
+    public int b;
     public int c;
+    @ColorRes
     public int d;
+    @DrawableRes
     public int e;
     public int f;
-    public int g;
-    public boolean h;
-    public boolean i;
+    public String g;
 
     public eza() {
         Interceptable interceptable = $ic;
@@ -45,180 +38,123 @@ public class eza {
                 return;
             }
         }
-        this.g = -1;
-        this.h = false;
-        this.i = false;
+        this.a = new SpannableString("");
+        this.b = 1;
+        this.c = 3;
+        this.g = "";
     }
 
-    public ArrayList<String> a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean d() {
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean e() {
+    public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void g() {
+    public final SpannableString f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i = this.c;
-            if (i != 0) {
-                this.e = SkinManager.getColor(i);
-            }
-            int i2 = this.d;
-            if (i2 != 0) {
-                this.f = SkinManager.getColor(i2);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (SpannableString) invokeV.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.g = str;
         }
     }
 
-    public SpannableStringBuilder f(Editable editable) {
-        InterceptResult invokeL;
-        boolean z;
+    public final void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, editable)) == null) {
-            if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.a)) {
-                return null;
-            }
-            String obj = editable.toString();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-            if (this.g >= 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.g = -1;
-            Iterator<String> it = this.a.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!StringUtils.isNull(next)) {
-                    m(spannableStringBuilder, obj, next);
-                }
-            }
-            if (this.g < 0 && !z) {
-                return null;
-            }
-            ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
-            if (imageSpanArr != null) {
-                for (ImageSpan imageSpan : imageSpanArr) {
-                    if (imageSpan != null) {
-                        spannableStringBuilder.setSpan(imageSpan, editable.getSpanStart(imageSpan), editable.getSpanEnd(imageSpan), editable.getSpanFlags(imageSpan));
-                    }
-                }
-            }
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeL.objValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.d = i;
-            this.f = SkinManager.getColor(i);
         }
     }
 
-    public void i(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            this.a = arrayList;
-        }
-    }
-
-    public void j(int i) {
+    public final void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public final void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.c = i;
-            this.e = SkinManager.getColor(i);
         }
     }
 
-    public void k(boolean z) {
+    public final void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.f = i;
         }
     }
 
-    public void l(boolean z) {
+    public final void m(SpannableString spannableString) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.i = z;
+        if (interceptable == null || interceptable.invokeL(1048588, this, spannableString) == null) {
+            Intrinsics.checkNotNullParameter(spannableString, "<set-?>");
+            this.a = spannableString;
         }
     }
 
-    public void n(String str) {
+    public final void n(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final void m(SpannableStringBuilder spannableStringBuilder, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048588, this, spannableStringBuilder, str, str2) == null) && spannableStringBuilder != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (this.e != 0 || this.f != 0) {
-                int indexOf = str.indexOf(str2);
-                int length = str2.length();
-                if (indexOf >= 0) {
-                    int i = this.g;
-                    if (i == -1) {
-                        this.g = indexOf + length;
-                    } else {
-                        int i2 = indexOf + length;
-                        if (i2 < i) {
-                            this.g = i2;
-                        }
-                    }
-                }
-                while (indexOf >= 0) {
-                    if (this.e != 0) {
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(this.e), indexOf, indexOf + length, 33);
-                    }
-                    if (this.f != 0) {
-                        spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f), indexOf, indexOf + length, 33);
-                    }
-                    indexOf = str.indexOf(str2, indexOf + 1);
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.b = i;
         }
     }
 }

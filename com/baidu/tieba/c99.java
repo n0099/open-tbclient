@@ -1,64 +1,135 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.location.Address;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
-import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
+import com.baidu.searchbox.live.interfaces.location.LocationCallback;
+import com.baidu.searchbox.live.interfaces.location.LocationInfo;
+import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c99 implements ToastService {
+public class c99 implements LiveLocationService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showToastCenter(@NonNull Context context, @NonNull String str, @NonNull Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, drawable, i) == null) {
+    /* loaded from: classes5.dex */
+    public class a implements BdLocationMananger.LocationCallBack {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LocationCallback a;
+        public final /* synthetic */ c99 b;
+
+        public a(c99 c99Var, LocationCallback locationCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c99Var, locationCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = c99Var;
+            this.a = locationCallback;
         }
+
+        @Override // com.baidu.adp.lib.lbs.BdLocationMananger.LocationCallBack
+        public void onLocationGeted(int i, String str, Address address) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.onReceiveLocation(this.b.b(address));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629734, "Lcom/baidu/tieba/c99;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947629734, "Lcom/baidu/tieba/c99;");
+                return;
+            }
+        }
+        BdLocationMananger.getInstance().addWhiteList(c99.class);
     }
 
     public c99() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public LocationInfo getLocationInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b(BdLocationMananger.getInstance().getAddress(false, (BdLocationMananger.LocationCallBack) null));
         }
+        return (LocationInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showNormal(Context context, String str, int i) {
+    public final LocationInfo b(Address address) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
+            LocationInfo locationInfo = new LocationInfo();
+            if (address != null) {
+                locationInfo.setCity(address.getLocality());
+                locationInfo.setLatitude(address.getLatitude());
+                locationInfo.setLongitude(address.getLongitude());
+                locationInfo.setProvince(address.getAdminArea());
+                locationInfo.setCounty(address.getCountryName());
+            }
+            return locationInfo;
         }
+        return (LocationInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showToastBottom(Context context, String str, int i) {
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public void requestLocate(LocationCallback locationCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
+            if (!UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
+                if (locationCallback != null) {
+                    locationCallback.onReceiveLocation(new LocationInfo());
+                    return;
+                }
+                return;
+            }
+            BdLocationMananger.getInstance().getAddress(false, (BdLocationMananger.LocationCallBack) new a(this, locationCallback));
         }
     }
 }

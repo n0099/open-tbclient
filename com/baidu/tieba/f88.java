@@ -1,63 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class f88 extends gx {
+public class f88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uz9 B;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f88(Context context) {
-        super(context);
+    /* loaded from: classes5.dex */
+    public class a implements ThirdStatisticHelper.ThirdStatisticCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
+        public void onFailed(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                new StatisticItem("c12885").addParam("obj_param1", 1).eventStat();
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                new StatisticItem("c12885").addParam("obj_param1", 0).eventStat();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ThirdStatisticHelper.ThirdStatisticCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
+        public void onFailed(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                new StatisticItem("c12884").addParam("obj_param1", 1).eventStat();
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                new StatisticItem("c12884").addParam("obj_param1", 0).eventStat();
+            }
+        }
+    }
+
+    public static void a(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            if (ListUtils.isEmpty(list)) {
+                new StatisticItem("c12885").addParam("obj_param1", 2).eventStat();
                 return;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.gx, com.baidu.tieba.wy
-    public uz9 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.m) && this.m.equals("index")) {
-                this.B = new h88(this.b, this.i);
-            } else {
-                this.B = new g88(this.b, this.i);
+            for (String str : list) {
+                ThirdStatisticHelper.sendReq(str, new a());
             }
-            this.B.setStageType("2001");
-            return this.B;
         }
-        return (uz9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wy
-    public void z() {
+    public static void b(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.z();
-            uz9 uz9Var = this.l;
-            if (uz9Var instanceof h88) {
-                ((h88) uz9Var).e();
+        if (interceptable == null || interceptable.invokeL(65537, null, list) == null) {
+            if (ListUtils.isEmpty(list)) {
+                new StatisticItem("c12884").addParam("obj_param1", 2).eventStat();
+                return;
+            }
+            for (String str : list) {
+                ThirdStatisticHelper.sendReq(str, new b());
             }
         }
     }

@@ -1,108 +1,63 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
+import java.lang.reflect.Field;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class fi {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
-            try {
-                cursor.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448304458, "Lcom/baidu/tieba/fi;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448304458, "Lcom/baidu/tieba/fi;");
+                return;
             }
         }
+        HashMap<String, String> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("java.lang.String", "java.lang.String");
+        a.put("java.lang.Integer", "java.lang.Integer");
+        a.put("java.lang.Double", "java.lang.Double");
+        a.put("java.lang.Float", "java.lang.Float");
+        a.put("java.lang.Boolean", "java.lang.Boolean");
+        a.put("java.lang.Character", "java.lang.Character");
+        a.put("java.lang.Short", "java.lang.Short");
+        a.put("java.lang.Long", "java.lang.Long");
+        a.put("java.lang.Byte", "java.lang.Byte");
+        a.put("java.util.Date", "java.util.Date");
+        a.put("java.lang.Integer", "java.lang.Integer");
+        a.put("java.lang.Integer", "java.lang.Integer");
     }
 
-    public static void b(SQLiteDatabase sQLiteDatabase) {
+    public static Object a(Object obj, Field field) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, field)) == null) {
+            Object obj2 = null;
+            if (obj != null && field != null) {
+                boolean isAccessible = field.isAccessible();
+                field.setAccessible(true);
+                try {
+                    obj2 = field.get(obj);
+                } catch (Throwable unused) {
+                }
+                field.setAccessible(isAccessible);
             }
+            return obj2;
         }
-    }
-
-    public static void c(SQLiteStatement sQLiteStatement) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, sQLiteStatement) == null) && sQLiteStatement != null) {
-            try {
-                sQLiteStatement.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void d(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-            }
-        }
-    }
-
-    public static void e(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream) == null) && inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void f(OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, outputStream) == null) && outputStream != null) {
-            try {
-                outputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void g(Reader reader) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, reader) == null) && reader != null) {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void h(Writer writer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, writer) == null) && writer != null) {
-            try {
-                writer.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+        return invokeLL.objValue;
     }
 }

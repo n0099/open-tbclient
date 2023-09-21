@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigGdt;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes8.dex */
-public class sqb implements PidLoaderCreator {
+public class sqb implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigGdt a;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ drb b;
+    public final /* synthetic */ oqb c;
 
-    public sqb(ModuleConfigGdt moduleConfigGdt) {
+    public sqb(oqb oqbVar, View view2, drb drbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {moduleConfigGdt};
+            Object[] objArr = {oqbVar, view2, drbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,91 +32,35 @@ public class sqb implements PidLoaderCreator {
                 return;
             }
         }
-        this.a = moduleConfigGdt;
+        this.c = oqbVar;
+        this.a = view2;
+        this.b = drbVar;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        char c;
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -942661506:
-                    if (str.equals(FunAdType.GDT_SPLASH)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -596233886:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 114133351:
-                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 125016359:
-                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 425812868:
-                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 543046357:
-                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1990506825:
-                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return new lrb(pid);
-                case 1:
-                    return new zqb(pid);
-                case 2:
-                    return new mrb(pid);
-                case 3:
-                    return new nrb(pid, this.a);
-                case 4:
-                    return new frb(pid);
-                case 5:
-                    return new krb(pid, this.a);
-                case 6:
-                    return new yqb(pid, this.a);
-                default:
-                    return null;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d("CSJBannerExpressAd dislike callback onCancel", new Object[0]);
         }
-        return (PidLoader) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            LogPrinter.d("dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+            if (this.a.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
+            }
+            this.c.onAdClose(this.b);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
     }
 }

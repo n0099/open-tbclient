@@ -37,12 +37,12 @@ public class EmojiDetailHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f2d);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ef6);
         this.a = tbImageView;
         tbImageView.setRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds52));
         this.a.setConrers(15);
         this.a.setDefaultBgResource(R.drawable.chat_room_subscribe_icon);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f2e);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ef7);
     }
 
     @NonNull

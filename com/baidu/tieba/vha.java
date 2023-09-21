@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class vha {
+public abstract class vha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Bitmap c;
-    public String d;
-    public String e;
+    public final List<tha> a;
 
     public vha() {
         Interceptable interceptable = $ic;
@@ -28,6 +26,15 @@ public class vha {
                 return;
             }
         }
-        this.a = 0;
+        this.a = new ArrayList();
+    }
+
+    public final List<tha> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
     }
 }

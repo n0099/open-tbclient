@@ -1,78 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import tbclient.GameForumGuideTab.GameForumSubTab;
+import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
 public class xo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public BdTypeListView b;
-    public final List<pm> c;
-    public wo7 d;
 
-    public xo7(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
+    public static List<ep7> a(List<GameForumSubTab> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext, bdTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
-        }
-        this.c = new ArrayList();
-        this.a = bdPageContext;
-        this.b = bdTypeListView;
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            wo7 wo7Var = new wo7((TbPageContext) this.a, lo7.b);
-            this.d = wo7Var;
-            this.c.add(wo7Var);
-            this.b.addAdapters(this.c);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof tm)) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void c(mn mnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mnVar) == null) {
-            for (pm pmVar : this.c) {
-                if (pmVar != null) {
-                    pmVar.setOnAdapterItemClickListener(mnVar);
+            ArrayList arrayList = new ArrayList(list.size());
+            for (GameForumSubTab gameForumSubTab : list) {
+                ep7 ep7Var = new ep7();
+                if (gameForumSubTab != null) {
+                    ep7Var.a = gameForumSubTab.id.intValue();
+                    ep7Var.b = gameForumSubTab.sub_tab_name;
+                    LabelDataList labelDataList = new LabelDataList();
+                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
+                    ep7Var.c = labelDataList;
+                    arrayList.add(ep7Var);
                 }
             }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    public void d(List<cn> list) {
-        BdTypeListView bdTypeListView;
+    public static List<bn> b(List<ThreadInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (bdTypeListView = this.b) != null) {
-            bdTypeListView.setData(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            LinkedList linkedList = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                vo7 vo7Var = new vo7();
+                ThreadData threadData = new ThreadData();
+                vo7Var.c(threadData);
+                threadData.parserProtobuf(list.get(i));
+                threadData.parser_title();
+                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
+                    u25 u25Var = new u25();
+                    u25Var.e(threadData.getLegoCard());
+                    linkedList.add(u25Var);
+                } else {
+                    linkedList.add(vo7Var);
+                }
+            }
+            return linkedList;
         }
+        return (List) invokeL.objValue;
     }
 }

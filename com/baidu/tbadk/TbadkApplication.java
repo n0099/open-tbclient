@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.hg;
+import com.baidu.tieba.gg;
 import com.baidu.tieba.service.SignAlertReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,7 +32,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public static TbadkApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] mPatchWhiteList;
-    public hg resourcesWrapper;
+    public gg resourcesWrapper;
     public String tShopUrl;
 
     static {
@@ -249,7 +249,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                 if (this.resourcesWrapper == null && super.getResources() != null) {
-                    this.resourcesWrapper = new hg(super.getResources());
+                    this.resourcesWrapper = new gg(super.getResources());
                 }
                 return this.resourcesWrapper;
             }

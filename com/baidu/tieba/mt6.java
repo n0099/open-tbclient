@@ -1,63 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class mt6 implements tc7 {
+public final class mt6 implements cd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
 
-    @Override // com.baidu.tieba.tc7
+    @Override // com.baidu.tieba.cd7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13692" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
     }
 
-    public mt6(int i) {
+    public mt6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
     }
 
-    @Override // com.baidu.tieba.tc7
-    public Map<String, String> a(f87 businessInfo) {
+    @Override // com.baidu.tieba.cd7
+    public Map<String, String> a(m87 businessInfo) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
-            if (JavaTypesHelper.toInt(businessInfo.a().get("is_video_work"), 0) == 1) {
-                str = "1";
-            } else {
-                str = "0";
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_type", b(businessInfo));
+            String str = a.get("live_type");
+            String str2 = "";
+            if (str == null) {
+                str = "";
             }
-            hashMap.put("obj_source", str);
-            hashMap.put("obj_locate", String.valueOf(this.a));
+            hashMap.put("obj_param1", str);
+            String str3 = a.get("live_app_id");
+            if (str3 != null) {
+                str2 = str3;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
             return hashMap;
         }
         return (Map) invokeL.objValue;
+    }
+
+    public final String b(m87 m87Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m87Var)) == null) {
+            Map<String, String> a = m87Var.a();
+            if (Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK)) {
+                return "3";
+            }
+            if (!Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW) && !Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_AMOUNT_FULL_PAGE_CHANNEL_CLICK) && !Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
+                return "2";
+            }
+            return "1";
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.tieba.setting.dispatcher;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tieba.s7a;
 import com.baidu.tieba.setting.more.MoreActivity;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class MoreDispatcher implements s7a {
+public class MoreDispatcher implements y9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class MoreDispatcher implements s7a {
         }
     }
 
-    @Override // com.baidu.tieba.s7a
+    @Override // com.baidu.tieba.y9a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

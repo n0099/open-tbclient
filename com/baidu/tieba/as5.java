@@ -1,34 +1,36 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.vr5;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tieba.qr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class as5<D, S extends vr5> extends ds5<D, S> {
+public class as5<T extends qr5> extends xr5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as5(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view2, viewEventCenter);
+    public as5(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, viewEventCenter};
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,12 +38,67 @@ public abstract class as5<D, S extends vr5> extends ds5<D, S> {
         }
     }
 
-    public int i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof WriteCacheMessage)) {
+                WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
+                WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                qr5 qr5Var = (qr5) a();
+                if (qr5Var != null) {
+                    if (qr5Var instanceof pr5) {
+                        y45.k();
+                        oe<byte[]> j = y45.j(this.b, currentAccount);
+                        if (writeCacheMessage.isClear()) {
+                            qr5 qr5Var2 = (qr5) writeCacheMessage.getData();
+                            if (qr5Var2 == null) {
+                                BdCacheService.n().l(j);
+                            } else {
+                                j.remove(qr5Var2.getCacheKey());
+                            }
+                            writeCacheRespMsg.setSuccess(true);
+                        } else {
+                            qr5 qr5Var3 = (qr5) writeCacheMessage.getData();
+                            if (qr5Var3 == null) {
+                                return writeCacheRespMsg;
+                            }
+                            j.g(qr5Var3.getCacheKey(), ((pr5) qr5Var3).toCacheByteArray());
+                            writeCacheRespMsg.setSuccess(true);
+                        }
+                    } else if (qr5Var instanceof sr5) {
+                        y45.k();
+                        oe<String> m = y45.m(this.b, currentAccount);
+                        if (writeCacheMessage.isClear()) {
+                            qr5 qr5Var4 = (qr5) writeCacheMessage.getData();
+                            if (qr5Var4 == null) {
+                                BdCacheService.n().l(m);
+                            } else {
+                                m.remove(qr5Var4.getCacheKey());
+                            }
+                            writeCacheRespMsg.setSuccess(true);
+                        } else {
+                            qr5 qr5Var5 = (qr5) writeCacheMessage.getData();
+                            if (qr5Var5 == null) {
+                                return writeCacheRespMsg;
+                            }
+                            String cacheString = ((sr5) qr5Var5).toCacheString();
+                            if (cacheString != null) {
+                                m.g(qr5Var5.getCacheKey(), cacheString);
+                                writeCacheRespMsg.setSuccess(true);
+                            }
+                        }
+                    }
+                }
+                return writeCacheRespMsg;
+            }
+            return null;
         }
-        return invokeV.intValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -1,9 +1,9 @@
 package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hzb;
-import com.baidu.tieba.lzb;
-import com.baidu.tieba.mzb;
+import com.baidu.tieba.d1c;
+import com.baidu.tieba.e1c;
+import com.baidu.tieba.z0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,13 +75,13 @@ public class c0 {
             String c = c();
             if (b()) {
                 y.c("hmsSdk", "refresh components");
-                b = lzb.d(128);
+                b = d1c.d(128);
                 a("aprpap", b);
-                b2 = lzb.d(128);
+                b2 = d1c.d(128);
                 a("febdoc", b2);
-                b3 = lzb.d(128);
+                b3 = d1c.d(128);
                 a("marfil", b3);
-                b4 = lzb.d(128);
+                b4 = d1c.d(128);
                 a("maywnj", b4);
                 g0.b(b.i(), "Privacy_MY", "assemblyFlash", System.currentTimeMillis());
             } else {
@@ -90,7 +90,7 @@ public class c0 {
                 b3 = b("marfil");
                 b4 = b("maywnj");
             }
-            return mzb.a(hzb.b(a(b, b2, b3, c), mzb.b(b4), 10000, 16));
+            return e1c.a(z0c.b(a(b, b2, b3, c), e1c.b(b4), 10000, 16));
         }
         return (String) invokeV.objValue;
     }
@@ -142,10 +142,10 @@ public class c0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, str4)) == null) {
-            byte[] b = mzb.b(str);
-            byte[] b2 = mzb.b(str2);
-            byte[] b3 = mzb.b(str3);
-            byte[] b4 = mzb.b(str4);
+            byte[] b = e1c.b(str);
+            byte[] b2 = e1c.b(str2);
+            byte[] b3 = e1c.b(str3);
+            byte[] b4 = e1c.b(str4);
             int length = b.length;
             if (length > b2.length) {
                 length = b2.length;
@@ -174,7 +174,7 @@ public class c0 {
             if (a(file)) {
                 return t0.a(file);
             }
-            String d = lzb.d(128);
+            String d = d1c.d(128);
             t0.a(file, d);
             return d;
         }

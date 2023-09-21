@@ -1,57 +1,43 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.view.LayoutInflater;
+import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.TranslateAnimation;
-import android.widget.FrameLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.card.AutoVideoCardViewHolder;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.ny;
+import com.baidu.tieba.yy;
+import com.baidu.tieba.zw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 /* loaded from: classes8.dex */
-public class u27 extends PopupWindow {
+public class u27 extends om<h45, AutoVideoCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ViewGroup b;
-    public d c;
-    public View d;
-    public TextView e;
-    public TextView f;
-    public int g;
-    public View.OnClickListener h;
-    public final View.OnClickListener i;
+    public BdUniqueId a;
+    public String b;
+    public TbPageContext<?> c;
+    public hn d;
+    public vy e;
+    public sp6<ThreadData> f;
 
     /* loaded from: classes8.dex */
-    public interface d {
-        void onItemClick(int i);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a extends sp6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u27 a;
+        public final /* synthetic */ u27 b;
 
         public a(u27 u27Var) {
             Interceptable interceptable = $ic;
@@ -68,37 +54,34 @@ public class u27 extends PopupWindow {
                     return;
                 }
             }
-            this.a = u27Var;
+            this.b = u27Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sp6
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.e) {
-                    if (this.a.c != null) {
-                        this.a.c.onItemClick(2);
-                    }
-                } else if (view2 == this.a.f && this.a.c != null) {
-                    this.a.c.onItemClick(1);
-                }
-                this.a.i();
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                kp6.b().d(true);
+                s07.a(view2, threadData, this.b.b);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
+    public class b implements zw.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u27 a;
+        public final /* synthetic */ vy a;
+        public final /* synthetic */ u27 b;
 
-        public b(u27 u27Var) {
+        public b(u27 u27Var, vy vyVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u27Var};
+                Object[] objArr = {u27Var, vyVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -108,37 +91,31 @@ public class u27 extends PopupWindow {
                     return;
                 }
             }
-            this.a = u27Var;
+            this.b = u27Var;
+            this.a = vyVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.zw.a
+        public void a(b15 b15Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, b15Var) != null) || b15Var == null) {
+                return;
             }
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.getVideoContainer());
+            if (b15Var instanceof ThreadData) {
+                b15Var.objType = 5;
+                ThreadCardUtils.jumpToPB(b15Var, this.b.mContext, 2, false, computeViewArea);
+                return;
+            }
+            ThreadCardUtils.jumpToPB(b15Var, this.b.mContext, 2, false, computeViewArea);
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c implements Animation.AnimationListener {
+    public class c implements ln {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ u27 a;
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-            }
-        }
 
         public c(u27 u27Var) {
             Interceptable interceptable = $ic;
@@ -158,192 +135,140 @@ public class u27 extends PopupWindow {
             this.a = u27Var;
         }
 
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
+        @Override // com.baidu.tieba.ln
+        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (bnVar instanceof h45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                AutoVideoCardViewHolder autoVideoCardViewHolder = (AutoVideoCardViewHolder) view2.getTag();
+                ThreadData threadData = ((h45) bnVar).t;
+                threadData.objType = 1;
+                if (this.a.f != null) {
+                    this.a.f.a(autoVideoCardViewHolder.getView(), threadData);
+                }
+                ThreadCardUtils.jumpToPB((b15) threadData, view2.getContext(), 2, false, dx.a((hn) viewGroup, view2, i));
+                autoVideoCardViewHolder.a().p(new yy.a(1));
             }
-            this.a.g();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u27(Context context) {
-        super(context);
+    public u27(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
-        this.i = new b(this);
-        this.a = context;
-        setFocusable(true);
-        setTouchable(true);
-        setOutsideTouchable(true);
-        setAnimationStyle(0);
-        setBackgroundDrawable(new ColorDrawable(0));
+        this.f = new a(this);
+        this.c = tbPageContext;
+        this.a = bdUniqueId2;
+        this.b = str;
     }
 
-    public void n(View view2) {
+    public void B(hn hnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, view2) != null) || view2 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hnVar) == null) {
+            this.d = hnVar;
         }
-        if (Build.VERSION.SDK_INT < 24) {
-            if (kg.k(this, view2)) {
-                m();
-                return;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: A */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h45 h45Var, AutoVideoCardViewHolder<ThreadData> autoVideoCardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h45Var, autoVideoCardViewHolder})) == null) {
+            if (h45Var == null) {
+                return autoVideoCardViewHolder.getView();
             }
-            return;
-        }
-        int[] iArr = new int[2];
-        view2.getLocationInWindow(iArr);
-        if (kg.m(this, view2, 0, iArr[0] - this.a.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr[1] + view2.getHeight() + this.a.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
-            m();
-        }
-    }
-
-    public void l(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            this.c = dVar;
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.dismiss();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05a1, (ViewGroup) null);
-            this.d = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a4);
-            this.e = textView;
-            EMManager.from(textView).setTextStyle(R.string.F_X01);
-            TextView textView2 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0922a5);
-            this.f = textView2;
-            EMManager.from(textView2).setTextStyle(R.string.F_X01);
-            this.e.setOnClickListener(this.h);
-            this.f.setOnClickListener(this.h);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || xw5.a()) {
-            return;
-        }
-        TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
-        translateAnimation.setDuration(350L);
-        translateAnimation.setFillAfter(true);
-        translateAnimation.setInterpolator(new AccelerateInterpolator());
-        AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-        alphaAnimation.setDuration(240L);
-        alphaAnimation.setInterpolator(new LinearInterpolator());
-        alphaAnimation.setAnimationListener(new c(this));
-        this.d.startAnimation(translateAnimation);
-        this.b.startAnimation(alphaAnimation);
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
-            translateAnimation.setDuration(350L);
-            translateAnimation.setInterpolator(new DecelerateInterpolator());
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(350L);
-            alphaAnimation.setInterpolator(new LinearInterpolator());
-            this.d.startAnimation(translateAnimation);
-            this.b.startAnimation(alphaAnimation);
-        }
-    }
-
-    public final View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e();
-            FrameLayout frameLayout = new FrameLayout(this.a);
-            FrameLayout frameLayout2 = new FrameLayout(this.a);
-            this.b = frameLayout2;
-            frameLayout.addView(frameLayout2);
-            frameLayout.addView(this.d);
-            this.b.setOnClickListener(this.i);
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(BdUtilHelper.getDimens(this.a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(BdUtilHelper.getDimens(this.a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(BdUtilHelper.getDimens(this.a, R.dimen.tbds4)).into(this.d);
-            return frameLayout;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.g == 2) {
-                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0108);
-            } else {
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
+            if (autoVideoCardViewHolder == null) {
+                return null;
             }
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(BdUtilHelper.getDimens(this.a, R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowRadius(BdUtilHelper.getDimens(this.a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(BdUtilHelper.getDimens(this.a, R.dimen.tbds4)).into(this.d);
+            h45Var.t.statFloor = getPositionByType(i) + 1;
+            autoVideoCardViewHolder.a().r(i);
+            autoVideoCardViewHolder.x(y(h45Var.t));
+            autoVideoCardViewHolder.e(h45Var.t);
+            autoVideoCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            autoVideoCardViewHolder.a().q(this.f);
+            s07.b(h45Var, this.b);
+            return autoVideoCardViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void k(List<z07> list, int i) {
+    public final n1a y(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048583, this, list, i) != null) || list == null) {
-            return;
-        }
-        this.g = i;
-        View f = f();
-        for (z07 z07Var : list) {
-            if (z07Var.b == 2) {
-                this.e.setText(z07Var.a);
-            } else {
-                this.f.setText(z07Var.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, threadData)) == null) {
+            if (threadData != null) {
+                n1a n1aVar = new n1a();
+                n1aVar.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
+                n1aVar.c = threadData.tid;
+                n1aVar.f = threadData.mRecomSource;
+                n1aVar.g = threadData.mRecomAbTag;
+                n1aVar.h = threadData.mRecomWeight;
+                n1aVar.i = "14";
+                n1aVar.s = this.b;
+                n1aVar.q = String.valueOf(threadData.statFloor);
+                if (threadData.getThreadVideoChannelInfo() != null) {
+                    n1aVar.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
+                }
+                if (threadData.getThreadData() != null) {
+                    n1aVar.d = String.valueOf(threadData.getThreadData().getFid());
+                    n1aVar.v = threadData.getThreadData().getNid();
+                    if (threadData.getThreadData().getThreadVideoInfo() != null) {
+                        n1aVar.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
+                        n1aVar.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
+                    }
+                }
+                n1aVar.e = TbadkCoreApplication.getCurrentAccount();
+                if (threadData.getThreadData() != null && threadData.getThreadData().getBaijiahaoData() != null) {
+                    n1aVar.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
+                    n1aVar.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
+                    return n1aVar;
+                }
+                return n1aVar;
             }
-            if (i == 2) {
-                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0108);
-            } else {
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
-            }
+            return null;
         }
-        setContentView(f);
-        GreyUtil.grey(this);
+        return (n1a) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: z */
+    public AutoVideoCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            ny.b bVar = new ny.b(this.c.getPageActivity(), false);
+            fx fxVar = new fx(this.c.getPageActivity());
+            fxVar.A(new b(this, fxVar));
+            this.e = fxVar;
+            fxVar.p(this.a);
+            this.e.setFrom("14");
+            this.e.setStageType("2001");
+            bVar.n(this.e);
+            ny k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
+            AutoVideoCardViewHolder<ThreadData> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k);
+            autoVideoCardViewHolder.i(this.a);
+            k.q(this.f);
+            k.s(2);
+            setOnAdapterItemClickListener(new c(this));
+            return autoVideoCardViewHolder;
+        }
+        return (AutoVideoCardViewHolder) invokeL.objValue;
     }
 }

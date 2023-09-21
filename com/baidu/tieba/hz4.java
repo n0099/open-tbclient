@@ -166,9 +166,9 @@ public final class hz4 {
         }
         this.a = new HashMap();
         gz4 gz4Var = new gz4();
-        pk1<d> pk1Var = gz4Var.a;
-        if (pk1Var != null) {
-            list = pk1Var.getList();
+        ok1<d> ok1Var = gz4Var.a;
+        if (ok1Var != null) {
+            list = ok1Var.getList();
         } else {
             list = null;
         }

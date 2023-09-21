@@ -72,18 +72,18 @@ public final class CapturedTypeConstructorKt {
 
             @Override // kotlin.reflect.jvm.internal.impl.types.DelegatedTypeSubstitution, kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
             /* renamed from: get */
-            public TypeProjection mo2110get(KotlinType kotlinType) {
+            public TypeProjection mo2112get(KotlinType kotlinType) {
                 TypeProjection createCapturedIfNeeded;
-                TypeProjection mo2110get = super.mo2110get(kotlinType);
+                TypeProjection mo2112get = super.mo2112get(kotlinType);
                 TypeParameterDescriptor typeParameterDescriptor = null;
-                if (mo2110get == null) {
+                if (mo2112get == null) {
                     return null;
                 }
-                ClassifierDescriptor mo2105getDeclarationDescriptor = kotlinType.getConstructor().mo2105getDeclarationDescriptor();
-                if (mo2105getDeclarationDescriptor instanceof TypeParameterDescriptor) {
-                    typeParameterDescriptor = mo2105getDeclarationDescriptor;
+                ClassifierDescriptor mo2107getDeclarationDescriptor = kotlinType.getConstructor().mo2107getDeclarationDescriptor();
+                if (mo2107getDeclarationDescriptor instanceof TypeParameterDescriptor) {
+                    typeParameterDescriptor = mo2107getDeclarationDescriptor;
                 }
-                createCapturedIfNeeded = CapturedTypeConstructorKt.createCapturedIfNeeded(mo2110get, typeParameterDescriptor);
+                createCapturedIfNeeded = CapturedTypeConstructorKt.createCapturedIfNeeded(mo2112get, typeParameterDescriptor);
                 return createCapturedIfNeeded;
             }
         };

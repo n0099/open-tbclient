@@ -1,232 +1,124 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l29 implements h29 {
+public abstract class l29<SdkMsg extends ChatMsg, T> implements o29<SdkMsg, p09<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StatisticItem a;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public abstract int c();
 
-    /* loaded from: classes6.dex */
-    public static class b implements h29 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract SdkMsg e(T t);
 
-        @Override // com.baidu.tieba.h29
-        public void a(ICardInfo iCardInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            }
-        }
+    public abstract T g(SdkMsg sdkmsg);
 
-        @Override // com.baidu.tieba.h29
-        public h29 b(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (h29) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.tieba.h29
-        public h29 c(String str, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (h29) invokeLJ.objValue;
-        }
-
-        @Override // com.baidu.tieba.h29
-        public h29 d(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (h29) invokeLL.objValue;
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public l29(BaseLegoCardInfo baseLegoCardInfo) {
-        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
+    public l29() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseLegoCardInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public l29(String str, int i, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        this.a = statisticItem;
-        statisticItem.param("obj_source", i);
-        this.a.param("obj_type", i2);
-        if (!TextUtils.isEmpty(str2)) {
-            this.a.param("obj_card", str2);
-        }
-    }
-
-    public static h29 e(BaseLegoCardInfo baseLegoCardInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.o29
+    /* renamed from: d */
+    public SdkMsg b(p09<T> msg) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
-            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            SdkMsg e = e(msg.f());
+            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", c());
+            jSONObject.put("from", "android");
+            e.setContentExtra(jSONObject.toString());
+            return e;
+        }
+        return (SdkMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.o29
+    /* renamed from: f */
+    public p09<T> a(SdkMsg msg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            p09<T> p09Var = new p09<>();
+            p09Var.i(g(msg));
+            p09Var.c(msg.getMsgId());
+            String msgKey = msg.getMsgKey();
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
+            p09Var.d(msgKey);
+            p09Var.e().l(msg.getContacterUk());
+            p09Var.e().k(ekb.c(msg.getSenderUid(), 0L));
+            p09Var.e().i(msg.getStatus());
+            p09Var.j(msg);
+            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
+            p09Var.e().h(isSelf);
+            if (!isSelf) {
+                p09Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
+                p09Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
             } else {
-                z = false;
+                p09Var.e().g(TbadkCoreApplication.getCurrentPortrait());
+                p09Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
             }
-            if (z) {
-                return new l29(baseLegoCardInfo);
-            }
-            return new b(null);
-        }
-        return (h29) invokeL.objValue;
-    }
-
-    public static h29 f(String str, int i, int i2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return new l29(str, i, i2, str2);
-            }
-            return new b(null);
-        }
-        return (h29) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.h29
-    public void a(ICardInfo iCardInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            g(iCardInfo);
-            TiebaStatic.log(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.h29
-    public h29 b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, i);
-            }
-            return this;
-        }
-        return (h29) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.h29
-    public h29 c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, String.valueOf(j));
-            }
-            return this;
-        }
-        return (h29) invokeLJ.objValue;
-    }
-
-    @Override // com.baidu.tieba.h29
-    public h29 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                this.a.param(str, str2);
-            }
-            return this;
-        }
-        return (h29) invokeLL.objValue;
-    }
-
-    public final void g(ICardInfo iCardInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
-            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
-            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
-                List<Object> params = this.a.getParams();
-                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
-                    String[] split = str.split("=");
-                    if (split.length == 2) {
-                        String str2 = split[0];
-                        String str3 = split[1];
-                        boolean z = false;
-                        for (int i = 0; i < params.size() && !z; i += 2) {
-                            if (TextUtils.equals(str2, params.get(i).toString())) {
-                                int i2 = i + 1;
-                                if (i2 < params.size()) {
-                                    params.set(i2, str3);
-                                }
-                                z = true;
-                            }
-                        }
-                        if (!z) {
-                            this.a.param(str2, str3);
-                        }
+            if (!StringUtils.isNull(msg.getContentExtra())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
+                    p09Var.e().j(jSONObject.optInt("type"));
+                    p09Var.e().e(jSONObject.optString("from"));
+                } catch (JSONException e) {
+                    if (!TbadkApplication.getInst().isDebugMode()) {
+                        e.printStackTrace();
+                    } else {
+                        throw e;
                     }
                 }
-                d(TiebaStatic.Params.OBJ_PARAM3, xo6.e());
             }
+            String msgContent = msg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
+            }
+            if (!di.isEmpty(msgContent)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(msgContent);
+                    o09 g = p09Var.g();
+                    String optString = jSONObject2.optString("origin_msg_key");
+                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
+                    g.b(optString);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            return p09Var;
         }
+        return (p09) invokeL.objValue;
     }
 }

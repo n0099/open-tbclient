@@ -1,31 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import android.os.SystemClock;
-import android.util.Log;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.BdStatsItem;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.Closeables;
-import com.baidu.android.util.soloader.SoLoader;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.launch.stats.ZygoteSpeedStats;
-import com.baidu.searchbox.launch.utils.LaunchNativeUtils;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
+import com.baidu.searchbox.fluency.utils.FpsConstants;
+import com.baidu.tbadk.performanceLog.PerformanceLogger;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class jt5 {
+public class jt5 extends PerformanceLogger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
 
     public jt5() {
         Interceptable interceptable = $ic;
@@ -37,114 +31,168 @@ public final class jt5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(gt5 gt5Var) {
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, gt5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            return;
+        }
+        BdStatsItem logItem = PerformanceLogger.getLogItem();
+        logItem.append("action", "time");
+        String str2 = "0";
+        if (!gt5Var.s) {
+            str = "0";
+        } else {
+            str = "1";
+        }
+        logItem.append("ishttp", str);
+        if (gt5Var.b) {
+            str2 = "1";
+        }
+        logItem.append("issuccess", str2);
+        logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
+        logItem.append("wt", String.valueOf(gt5Var.p));
+        logItem.append("qt", String.valueOf(gt5Var.f));
+        logItem.append("connt", String.valueOf(gt5Var.g));
+        logItem.append("rwt", String.valueOf(gt5Var.h));
+        logItem.append("fbt", String.valueOf(gt5Var.i));
+        logItem.append("abt", String.valueOf(gt5Var.j));
+        logItem.append("dect", String.valueOf(gt5Var.k));
+        logItem.append("parset", String.valueOf(gt5Var.l));
+        logItem.append("tqt", String.valueOf(gt5Var.n));
+        logItem.append("rendert", String.valueOf(gt5Var.o));
+        logItem.append("ss", String.valueOf(gt5Var.q));
+        logItem.append("hs", String.valueOf(gt5Var.r));
+        if (gt5Var.s && (i = gt5Var.t) != 0) {
+            logItem.append("salno", String.valueOf(i));
+            long j = gt5Var.u;
+            if (j != 0) {
+                logItem.append("scosttime", String.valueOf(j));
+            }
+        }
+        if (gt5Var.s) {
+            logItem.append("hrtn", String.valueOf(gt5Var.w));
+            logItem.append("hrtt", String.valueOf(gt5Var.x));
+        }
+        int i2 = gt5Var.v;
+        if (i2 != 0) {
+            logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
+        }
+        if (gt5Var.y) {
+            logItem.append("pt", "1");
+        } else {
+            logItem.append("sysct", String.valueOf(gt5Var.c));
+            logItem.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(gt5Var.e));
+            logItem.append("lt", String.valueOf(gt5Var.d));
+            logItem.append("df", String.valueOf(gt5Var.m));
+        }
+        if (gt5Var.s) {
+            logItem.append("c_logid", String.valueOf(gt5Var.A));
+            long j2 = gt5Var.z;
+            if (j2 != 0) {
+                logItem.append(PushConstants.SEQ_ID, String.valueOf(j2 & 4294967295L));
+            }
+        } else {
+            logItem.append(PushConstants.SEQ_ID, String.valueOf(gt5Var.z & 4294967295L));
+        }
+        HashMap<String, String> hashMap = gt5Var.E;
+        if (hashMap != null && !hashMap.isEmpty()) {
+            for (Map.Entry<String, String> entry : gt5Var.E.entrySet()) {
+                logItem.append(entry.getKey(), entry.getValue());
+            }
+        }
+        BdStatisticsManager.getInstance().performance(this.subType, logItem);
+    }
+
+    public void b(gt5 gt5Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gt5Var, i) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || gt5Var.D <= 0) {
+            return;
+        }
+        BdStatsItem logItem = PerformanceLogger.getLogItem();
+        logItem.append("action", "time");
+        logItem.append("pct", String.valueOf(gt5Var.D));
+        if (i != 0) {
+            if (i != 40) {
                 return;
             }
+            logItem.append("pct_type", String.valueOf(101));
+        } else {
+            logItem.append("pct_type", String.valueOf(100));
         }
-        this.a = -1L;
-        this.b = -1L;
+        BdStatisticsManager.getInstance().performance(this.subType, logItem);
     }
 
-    public void a() {
+    public void c(gt5 gt5Var, boolean z) {
+        String str;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = SystemClock.elapsedRealtime();
-            Process.getElapsedCpuTime();
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, gt5Var, z) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            return;
         }
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == -1) {
-                b();
+        if (!z || gt5Var.B > 0) {
+            if (!z && gt5Var.C <= 0) {
+                return;
             }
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    /* JADX WARN: Not initialized variable reg: 6, insn: 0x00b5: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r6 I:??[OBJECT, ARRAY]), block:B:44:0x00b5 */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b() {
-        BufferedReader bufferedReader;
-        NumberFormatException e;
-        IOException e2;
-        FileNotFoundException e3;
-        Closeable closeable;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ht5.a().c();
-            Closeable closeable2 = null;
-            long j2 = -1;
-            try {
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/stat")), 1000);
-                    try {
-                        String[] split = bufferedReader.readLine().split(" ");
-                        if (split.length > 21 && split[0].equals(String.valueOf(Process.myPid()))) {
-                            String str = split[21];
-                            try {
-                                SoLoader.load(AppRuntime.getAppContext(), "launch_native");
-                                j = LaunchNativeUtils.getClkTck();
-                            } catch (UnsatisfiedLinkError e4) {
-                                Log.e(ZygoteSpeedStats.TAG, "load so failed, UnsatisfiedLinkError", e4);
-                                j = 0;
-                            }
-                            Log.d(ZygoteSpeedStats.TAG, "_SC_CLK_TCK " + j);
-                            if (j <= 0) {
-                                j = 100;
-                            }
-                            j2 = (Long.parseLong(str) * 1000) / j;
-                        }
-                    } catch (FileNotFoundException e5) {
-                        e3 = e5;
-                        Log.e(ZygoteSpeedStats.TAG, "can't read process status file", e3);
-                        Closeables.closeSafely(bufferedReader);
-                        if (j2 <= 0) {
-                        }
-                    } catch (IOException e6) {
-                        e2 = e6;
-                        Log.e(ZygoteSpeedStats.TAG, "read process status failed", e2);
-                        Closeables.closeSafely(bufferedReader);
-                        if (j2 <= 0) {
-                        }
-                    } catch (NumberFormatException e7) {
-                        e = e7;
-                        Log.e(ZygoteSpeedStats.TAG, "parse status file failed", e);
-                        Closeables.closeSafely(bufferedReader);
-                        if (j2 <= 0) {
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable2 = closeable;
-                    Closeables.closeSafely(closeable2);
-                    throw th;
+            BdStatsItem logItem = PerformanceLogger.getLogItem();
+            logItem.append("action", "time");
+            if (z) {
+                logItem.append("put", String.valueOf(gt5Var.B));
+            } else {
+                logItem.append("pdt", String.valueOf(gt5Var.C));
+            }
+            String str2 = "1";
+            if (gt5Var.s) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            logItem.append("ishttp", str);
+            if (!gt5Var.b) {
+                str2 = "0";
+            }
+            logItem.append("issuccess", str2);
+            logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
+            logItem.append("qt", String.valueOf(gt5Var.f));
+            logItem.append("connt", String.valueOf(gt5Var.g));
+            logItem.append("rwt", String.valueOf(gt5Var.h));
+            logItem.append("dect", String.valueOf(gt5Var.k));
+            logItem.append("parset", String.valueOf(gt5Var.l));
+            logItem.append("rendert", String.valueOf(gt5Var.o));
+            logItem.append("ss", String.valueOf(gt5Var.q));
+            logItem.append("hs", String.valueOf(gt5Var.r));
+            if (gt5Var.s && (i = gt5Var.t) != 0) {
+                logItem.append("salno", String.valueOf(i));
+                long j = gt5Var.u;
+                if (j != 0) {
+                    logItem.append("scosttime", String.valueOf(j));
                 }
-            } catch (FileNotFoundException e8) {
-                bufferedReader = null;
-                e3 = e8;
-            } catch (IOException e9) {
-                bufferedReader = null;
-                e2 = e9;
-            } catch (NumberFormatException e10) {
-                bufferedReader = null;
-                e = e10;
-            } catch (Throwable th2) {
-                th = th2;
-                Closeables.closeSafely(closeable2);
-                throw th;
             }
-            Closeables.closeSafely(bufferedReader);
-            if (j2 <= 0) {
-                this.b = this.a - j2;
+            int i2 = gt5Var.v;
+            if (i2 != 0) {
+                logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
             }
+            BdStatisticsManager.getInstance().performance(this.subType, logItem);
         }
+    }
+
+    public void d(at5 at5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, at5Var) != null) || at5Var == null || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            return;
+        }
+        BdStatsItem logItem = PerformanceLogger.getLogItem();
+        logItem.append("action", FpsTracer.UBC_KEY_FLUENCY);
+        logItem.append(FpsConstants.REPORT_FPS, String.valueOf(at5Var.b()));
+        BdStatisticsManager.getInstance().performance(this.subType, logItem);
+        BdStatsItem logItem2 = PerformanceLogger.getLogItem();
+        logItem2.append("action", "mem");
+        logItem2.append("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
+        BdStatisticsManager.getInstance().performance(this.subType, logItem2);
     }
 }

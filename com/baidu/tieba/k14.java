@@ -1,27 +1,30 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class k14 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile j14 a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "com.baidu.gamenow";
+    public static String b = "file_name";
+    public static String c = "file_unzip_path";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized j14 a() {
-        InterceptResult invokeV;
-        j14 j14Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (k14.class) {
-                if (a == null) {
-                    a = new j14();
-                }
-                j14Var = a;
-            }
-            return j14Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947860219, "Lcom/baidu/tieba/k14;")) == null) {
+            return;
         }
-        return (j14) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947860219, "Lcom/baidu/tieba/k14;");
+        }
     }
 }

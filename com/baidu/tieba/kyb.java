@@ -1,30 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tieba.nyb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
-public class kyb implements eyb {
+public class kyb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
+    public final /* synthetic */ nyb.a a;
 
-    public kyb(Context context, String str) {
+    public kyb(nyb.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,45 +26,14 @@ public class kyb implements eyb {
                 return;
             }
         }
-        this.a = context;
-        this.b = str;
+        this.a = aVar;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return "agc_" + zxb.c(b(str.getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.d();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] b(byte[] bArr) throws NoSuchAlgorithmException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? MessageDigest.getInstance("SHA-256").digest(bArr) : (byte[]) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.eyb
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        int identifier;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String a = a(str);
-            if (TextUtils.isEmpty(a) || (identifier = this.a.getResources().getIdentifier(a, EMABTest.TYPE_STRING, this.b)) == 0) {
-                return str2;
-            }
-            try {
-                return this.a.getResources().getString(identifier);
-            } catch (Resources.NotFoundException unused) {
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
     }
 }

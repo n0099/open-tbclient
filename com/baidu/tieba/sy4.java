@@ -84,7 +84,7 @@ public final class sy4 extends AbsJsInterface {
     public String getInitData() {
         InterceptResult invokeV;
         int i;
-        ko6 perfData;
+        qo6 perfData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -94,12 +94,12 @@ public final class sy4 extends AbsJsInterface {
                 try {
                     if (webView.getParent() instanceof TbWebView) {
                         str = ((TbWebView) webView.getParent()).getUrl();
-                        Map<String, rj6<Object>> bizData = ((TbWebView) webView.getParent()).getBizData();
-                        if (!mn6.b(bizData)) {
+                        Map<String, vj6<Object>> bizData = ((TbWebView) webView.getParent()).getBizData();
+                        if (!qn6.b(bizData)) {
                             JSONObject jSONObject2 = new JSONObject();
-                            for (Map.Entry<String, rj6<Object>> entry : bizData.entrySet()) {
+                            for (Map.Entry<String, vj6<Object>> entry : bizData.entrySet()) {
                                 try {
-                                    rj6<Object> value = entry.getValue();
+                                    vj6<Object> value = entry.getValue();
                                     if (!TextUtils.isEmpty(entry.getKey()) && value != null) {
                                         jSONObject2.put(entry.getKey(), value.call());
                                     }
@@ -152,7 +152,7 @@ public final class sy4 extends AbsJsInterface {
                 }
                 if (webView != null && (webView.getParent() instanceof TbWebView)) {
                     Map<String, String> baseData = ((TbWebView) webView.getParent()).getBaseData();
-                    if (!mn6.b(baseData)) {
+                    if (!qn6.b(baseData)) {
                         for (Map.Entry<String, String> entry2 : baseData.entrySet()) {
                             if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
                                 jSONObject3.put(entry2.getKey(), entry2.getValue());

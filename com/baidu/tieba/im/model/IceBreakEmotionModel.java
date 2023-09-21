@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.af8;
-import com.baidu.tieba.bf8;
 import com.baidu.tieba.im.message.IceBreakHttpResponsedMessage;
+import com.baidu.tieba.vi8;
+import com.baidu.tieba.wi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
 
     /* loaded from: classes6.dex */
     public interface IceBreakRequestCallback {
-        void onSuccess(List<bf8> list);
+        void onSuccess(List<wi8> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -113,12 +113,12 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    af8 af8Var;
+                    vi8 vi8Var;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (af8Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (vi8Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
                         return;
                     }
-                    List<bf8> a = af8Var.a();
+                    List<wi8> a = vi8Var.a();
                     if (!ListUtils.isEmpty(a) && this.this$0.mCallback != null) {
                         this.this$0.mCallback.onSuccess(a);
                     }

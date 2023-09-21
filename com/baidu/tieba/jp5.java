@@ -1,27 +1,72 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public interface jp5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
+    public static final a a = a.a;
+
+    boolean a();
+
+    boolean b();
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a();
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-682507171, "Lcom/baidu/tieba/jp5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-682507171, "Lcom/baidu/tieba/jp5$a;");
+                    return;
+                }
+            }
+            a = new a();
+            b = new ServiceReference("module_home", "SpriteStateService");
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final jp5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Object service = ServiceManager.getService(b);
+                Intrinsics.checkNotNullExpressionValue(service, "getService(SERVICE_REFERENCE)");
+                return (jp5) service;
+            }
+            return (jp5) invokeV.objValue;
+        }
     }
-
-    jp5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
-
-    void b(int i, e35 e35Var, long j);
-
-    void c(@Nullable a aVar);
 }

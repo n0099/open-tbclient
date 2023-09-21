@@ -22,9 +22,9 @@ import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import com.baidu.tieba.e56;
-import com.baidu.tieba.v36;
-import com.baidu.tieba.wn5;
+import com.baidu.tieba.ao5;
+import com.baidu.tieba.f56;
+import com.baidu.tieba.w36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class AttentionView extends FrameLayout implements v36<String> {
+public class AttentionView extends FrameLayout implements w36<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,7 +41,7 @@ public class AttentionView extends FrameLayout implements v36<String> {
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
     public LoadingView e;
-    public wn5 f;
+    public ao5 f;
     public List<SelectForumData> g;
     public List<SelectForumData> h;
     public boolean i;
@@ -54,7 +54,7 @@ public class AttentionView extends FrameLayout implements v36<String> {
         void a();
     }
 
-    @Override // com.baidu.tieba.v36
+    @Override // com.baidu.tieba.w36
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -381,7 +381,7 @@ public class AttentionView extends FrameLayout implements v36<String> {
         }
     }
 
-    public void setForumSelectStateChangedListener(e56.e eVar) {
+    public void setForumSelectStateChangedListener(f56.e eVar) {
         SelectForumItemAdapter selectForumItemAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, eVar) == null) && (selectForumItemAdapter = this.c) != null) {
@@ -426,7 +426,7 @@ public class AttentionView extends FrameLayout implements v36<String> {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.attention.AttentionView.h(com.baidu.tieba.attention.AttentionView, java.util.List):java.util.List");
     }
 
-    @Override // com.baidu.tieba.v36
+    @Override // com.baidu.tieba.w36
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -448,16 +448,16 @@ public class AttentionView extends FrameLayout implements v36<String> {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wn5 wn5Var = this.f;
-            if (wn5Var != null) {
-                wn5Var.dettachView(this);
+            ao5 ao5Var = this.f;
+            if (ao5Var != null) {
+                ao5Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.v36
+    @Override // com.baidu.tieba.w36
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -469,14 +469,14 @@ public class AttentionView extends FrameLayout implements v36<String> {
         if (loadingView != null) {
             loadingView.onChangeSkinType();
         }
-        wn5 wn5Var = this.f;
-        if (wn5Var != null) {
-            wn5Var.onChangeSkinType();
+        ao5 ao5Var = this.f;
+        if (ao5Var != null) {
+            ao5Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.v36
+    @Override // com.baidu.tieba.w36
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -506,9 +506,9 @@ public class AttentionView extends FrameLayout implements v36<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            wn5 wn5Var = this.f;
-            if (wn5Var != null) {
-                return wn5Var.isViewAttached();
+            ao5 ao5Var = this.f;
+            if (ao5Var != null) {
+                return ao5Var.isViewAttached();
             }
             return false;
         }
@@ -518,8 +518,8 @@ public class AttentionView extends FrameLayout implements v36<String> {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b2, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0921b0);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ae, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09217a);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.s(2);
@@ -533,7 +533,7 @@ public class AttentionView extends FrameLayout implements v36<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v36
+    @Override // com.baidu.tieba.w36
     /* renamed from: t */
     public void b(String str) {
         Interceptable interceptable = $ic;
@@ -562,7 +562,7 @@ public class AttentionView extends FrameLayout implements v36<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new wn5(getContext(), new c(this));
+            this.f = new ao5(getContext(), new c(this));
         }
         this.f.j(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

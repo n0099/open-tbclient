@@ -1,171 +1,319 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.os.Build;
 import android.os.Message;
-import android.view.Surface;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.common.AudioSendStamp;
+import com.yy.transvod.player.common.VideoExtraInfo;
+import com.yy.transvod.player.core.TransVodProxy;
 import com.yy.transvod.player.log.TLog;
-/* loaded from: classes9.dex */
-public class z6c extends u6c implements SurfaceHolder.Callback {
+import com.yy.transvod.player.mediacodec.MediaSample;
+import com.yy.transvod.player.mediacodec.SEIUtility;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class z6c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SurfaceView K;
+    public AtomicReference<TransVodProxy> a;
+    public boolean b;
+    public boolean c;
+    public byte[] d;
+    public int e;
+    public long f;
+    public AtomicBoolean g;
+    public AtomicBoolean h;
+    public u6c i;
 
-    @Override // com.baidu.tieba.r6c
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.r6c
-    public void d(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
-        }
-    }
-
-    public z6c(Context context, View view2, int i, int i2, e5c e5cVar) {
+    public z6c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, Integer.valueOf(i), Integer.valueOf(i2), e5cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.K = null;
-        A(context, view2, i, i2, e5cVar);
+        this.a = new AtomicReference<>(null);
+        this.b = false;
+        this.c = false;
+        this.d = null;
+        this.e = -1;
+        this.f = 0L;
+        this.g = new AtomicBoolean(true);
+        this.h = new AtomicBoolean(false);
+        this.i = new u6c(200);
+        this.b = false;
+        this.f = System.currentTimeMillis();
     }
 
-    @Override // com.baidu.tieba.u6c
-    public void A(Context context, Object obj, int i, int i2, e5c e5cVar) {
+    public static boolean a(ArrayList<VideoExtraInfo> arrayList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), e5cVar}) == null) {
-            super.A(context, obj, i, i2, e5cVar);
-            if (obj != null && (obj instanceof SurfaceView)) {
-                SurfaceView surfaceView = (SurfaceView) obj;
-                this.K = surfaceView;
-                surfaceView.getHolder().addCallback(this);
-                if (Build.MODEL.equals("OPPO A33t")) {
-                    this.K.setLayerType(1, null);
-                }
-            }
-        }
-    }
-
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            X(true);
-            synchronized (this.i) {
-                if (this.K != null && this.K.getHolder() != null) {
-                    this.K.getHolder().setKeepScreenOn(true);
-                }
-                if (this.d != null) {
-                    if (this.a.available()) {
-                        this.d.g(2402);
-                        this.d.f(2402);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
+            for (int i = 0; i < arrayList.size(); i++) {
+                VideoExtraInfo videoExtraInfo = arrayList.get(i);
+                if (videoExtraInfo.a == VideoExtraInfo.d) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(new String(videoExtraInfo.c));
+                        if (jSONObject.has(DI.LIVE_PLAYER)) {
+                            JSONObject optJSONObject = jSONObject.optJSONObject(DI.LIVE_PLAYER);
+                            if (!optJSONObject.has("split")) {
+                                return false;
+                            }
+                            if (optJSONObject.optInt("split") != 1) {
+                                return false;
+                            }
+                            return true;
+                        }
+                        continue;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    TLog.l(this, "do send surfaceCreated. playerUid " + this.r);
-                    this.d.g(2401);
-                    this.d.f(2401);
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b(TransVodProxy transVodProxy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, transVodProxy) == null) {
+            this.a.set(transVodProxy);
+        }
+    }
+
+    public void f(ArrayList<AudioSendStamp> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            TransVodProxy transVodProxy = this.a.get();
+            if (!arrayList.isEmpty() && transVodProxy != null) {
+                transVodProxy.g(arrayList);
+            }
+        }
+    }
+
+    public synchronized void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            synchronized (this) {
+                this.b = z;
+            }
+        }
+    }
+
+    public final synchronized boolean c(int i, boolean z, byte[] bArr, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), bArr, Integer.valueOf(i2)})) == null) {
+            synchronized (this) {
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void d(MediaSample mediaSample, s6c s6cVar, String str) {
+        AVframe aVframe;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mediaSample, s6cVar, str) == null) && (aVframe = mediaSample.g) != null && str != null && s6cVar != null) {
+            if (mediaSample.c) {
+                this.i.b(mediaSample.t);
+                AVframe aVframe2 = mediaSample.g;
+                e(str, aVframe2.p, aVframe2.n, s6cVar, aVframe2.e);
+            } else if (aVframe.p != null) {
+                g(str, mediaSample, s6cVar);
+            }
+        }
+    }
+
+    public void e(String str, byte[] bArr, int i, s6c s6cVar, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, bArr, Integer.valueOf(i), s6cVar, Integer.valueOf(i2)}) == null) {
+            if (bArr == null) {
+                if (this.c) {
+                    TLog.g(this, "TransVodMisc[dse] send a empty dse message");
+                    i(i, null, s6cVar, i2);
+                }
+                this.c = false;
+                return;
+            }
+            boolean c = c(i2, false, bArr, i);
+            if (!c && System.currentTimeMillis() - this.f > 20000) {
+                TLog.g(this, "TransVodMisc[sei] processAudioSEIInfo, ignore same audio sei notification");
+                this.f = System.currentTimeMillis();
+            }
+            if (c) {
+                Message obtain = Message.obtain();
+                obtain.what = 69;
+                obtain.arg1 = i;
+                obtain.obj = bArr;
+                s6cVar.a(obtain, i2);
+            }
+            ArrayList arrayList = new ArrayList();
+            if (i == 1) {
+                ArrayList arrayList2 = new ArrayList();
+                if (SEIUtility.decodeDSEPayLoadV1(bArr, arrayList2, arrayList) > 0) {
+                    if (c) {
+                        i(i, arrayList2, s6cVar, i2);
+                    }
+                    this.c = true;
+                } else if (this.c) {
+                    i(i, null, s6cVar, i2);
+                    this.c = false;
+                }
+            } else if (SEIUtility.decodeDSEPayLoadV0(bArr, arrayList) > 0) {
+                if (c) {
+                    i(i, arrayList, s6cVar, i2);
+                }
+                this.c = true;
+            } else if (this.c) {
+                i(i, null, s6cVar, i2);
+                this.c = false;
+            }
+            ArrayList<AudioSendStamp> arrayList3 = new ArrayList<>();
+            if (!arrayList.isEmpty()) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    arrayList3.add(new AudioSendStamp(this.i.a(), ((Long) it.next()).longValue()));
+                }
+            }
+            f(arrayList3);
+        }
+    }
+
+    public void g(String str, MediaSample mediaSample, s6c s6cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, mediaSample, s6cVar) == null) {
+            AVframe aVframe = mediaSample.g;
+            byte[] bArr = aVframe.p;
+            int i = aVframe.n;
+            int i2 = aVframe.e;
+            if (bArr != null && s6cVar != null) {
+                if (!c(i2, true, bArr, i)) {
+                    mediaSample.H = this.h.get();
+                    if (System.currentTimeMillis() - this.f > 20000) {
+                        TLog.g(this, "TransVodMisc[sei] processVideoSEIInfo, ignore same video sei notification");
+                        this.f = System.currentTimeMillis();
+                        return;
+                    }
+                    return;
+                }
+                Message obtain = Message.obtain();
+                obtain.what = 68;
+                obtain.arg1 = i;
+                obtain.obj = bArr;
+                s6cVar.a(obtain, i2);
+                if (i != 0 && i != 1) {
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                ArrayList arrayList3 = new ArrayList();
+                SEIUtility.decodeSEIPayload(i, bArr, arrayList, arrayList2, arrayList3);
+                boolean z = false;
+                if (!arrayList.isEmpty()) {
+                    if (this.b) {
+                        Message obtain2 = Message.obtain();
+                        obtain2.what = 63;
+                        obtain2.arg1 = i;
+                        obtain2.obj = arrayList;
+                        s6cVar.a(obtain2, i2);
+                    }
+                    if (!this.g.get() && (z = a(arrayList)) != this.h.get()) {
+                        TLog.g(this, "processVideoSEIInfo, isVideoInJoyPk: " + z + ", mVideoInJoyPk:" + this.h.get());
+                    }
+                }
+                this.h.set(z);
+                mediaSample.H = z;
+                if (!arrayList2.isEmpty()) {
+                    Message obtain3 = Message.obtain();
+                    obtain3.what = 64;
+                    obtain3.arg1 = i;
+                    obtain3.obj = arrayList2;
+                    s6cVar.a(obtain3, i2);
+                }
+                if (!arrayList3.isEmpty()) {
+                    Message obtain4 = Message.obtain();
+                    obtain4.what = 66;
+                    obtain4.arg1 = i;
+                    obtain4.obj = arrayList3;
+                    s6cVar.a(obtain4, i2);
                 }
             }
         }
     }
 
-    public void Z() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            X(false);
-            SurfaceView surfaceView = this.K;
-            if (surfaceView != null && surfaceView.getHolder() != null) {
-                this.K.getHolder().setKeepScreenOn(false);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c = false;
+            synchronized (this) {
+                this.d = null;
+                this.e = -1;
             }
-            synchronized (this.i) {
-                if (this.d != null && this.a.available()) {
-                    this.d.g(2402);
-                    this.d.f(2402);
+        }
+    }
+
+    public final void i(int i, Object obj, s6c s6cVar, int i2) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), obj, s6cVar, Integer.valueOf(i2)}) == null) {
+            Message obtain = Message.obtain();
+            if (i == 1) {
+                obtain.what = 65;
+            } else {
+                obtain.what = 67;
+            }
+            if (obj == null) {
+                if (i == 1) {
+                    arrayList = new ArrayList();
+                } else {
+                    arrayList = new ArrayList();
                 }
+                obtain.obj = arrayList;
+            } else {
+                obtain.obj = obj;
             }
+            s6cVar.a(obtain, i2);
         }
     }
 
-    public void finalize() throws Throwable {
+    public synchronized void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.finalize();
-        }
-    }
-
-    @Override // com.baidu.tieba.r6c
-    public Object getWindow() {
-        InterceptResult invokeV;
-        Surface surface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SurfaceView surfaceView = this.K;
-            if (surfaceView == null || (surface = surfaceView.getHolder().getSurface()) == null || !surface.isValid()) {
-                return null;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            synchronized (this) {
+                this.g.set(z);
+                if (!z) {
+                    synchronized (this) {
+                        if (this.d != null && this.e != -1) {
+                            byte[] bArr = this.d;
+                            int i = this.e;
+                            ArrayList arrayList = new ArrayList();
+                            SEIUtility.decodeSEIPayload(i, bArr, arrayList, new ArrayList(), new ArrayList());
+                            this.h.set(a(arrayList));
+                        }
+                    }
+                    return;
+                }
+                TLog.g(this, "updateForceEnablePipeFlag, flag: " + z + ", mVideoInJoyPk:" + this.h.get());
             }
-            return this.K.getHolder();
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048583, this, surfaceHolder, i, i2, i3) == null) {
-            TLog.l(this, String.format("surfaceChanged(%d, %d, %d). playerUID %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(this.r)));
-            m4c m4cVar = this.d;
-            if (m4cVar != null) {
-                m4cVar.g(2404);
-                this.d.sendMessage(Message.obtain(null, 2404, i2, i3));
-            }
-            D();
-            this.I.set(true);
-            U();
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) {
-            TLog.l(this, "surfaceCreated. playerUid " + this.r);
-            this.I.set(true);
-            Y();
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, surfaceHolder) == null) {
-            TLog.l(this, "surfaceDestroyed(). playerUid " + this.r);
-            D();
-            this.I.set(false);
-            U();
-            Z();
         }
     }
 }

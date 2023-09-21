@@ -9,12 +9,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bn;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.in;
-import com.baidu.tieba.pm;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.om;
+import com.baidu.tieba.um;
 import com.baidu.tieba.vm;
-import com.baidu.tieba.wm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,16 +24,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public class BdTypeListView extends BdListView implements in<BdTypeListView> {
+public class BdTypeListView extends BdListView implements hn<BdTypeListView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TypeAdapter G;
-    public HashMap<BdUniqueId, pm> H;
-    public HashMap<BdUniqueId, wm> I;
+    public HashMap<BdUniqueId, om> H;
+    public HashMap<BdUniqueId, vm> I;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.tieba.en
+    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.tieba.dn
     /* renamed from: getListView */
     public BdListView getListView2() {
         InterceptResult invokeV;
@@ -201,11 +201,11 @@ public class BdTypeListView extends BdListView implements in<BdTypeListView> {
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap<BdUniqueId, wm> hashMap = this.I;
+            HashMap<BdUniqueId, vm> hashMap = this.I;
             if (hashMap != null) {
                 hashMap.clear();
             }
-            HashMap<BdUniqueId, pm> hashMap2 = this.H;
+            HashMap<BdUniqueId, om> hashMap2 = this.H;
             if (hashMap2 != null) {
                 hashMap2.clear();
             }
@@ -216,8 +216,8 @@ public class BdTypeListView extends BdListView implements in<BdTypeListView> {
         }
     }
 
-    @Override // com.baidu.tieba.in
-    public List<cn> getData() {
+    @Override // com.baidu.tieba.hn
+    public List<bn> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -226,13 +226,13 @@ public class BdTypeListView extends BdListView implements in<BdTypeListView> {
         return (List) invokeV.objValue;
     }
 
-    public cn G(int i) {
+    public bn G(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return this.G.getItem(i);
         }
-        return (cn) invokeI.objValue;
+        return (bn) invokeI.objValue;
     }
 
     public final void H() {
@@ -252,53 +252,53 @@ public class BdTypeListView extends BdListView implements in<BdTypeListView> {
         }
     }
 
-    @Override // com.baidu.tieba.in
-    public void addAdapters(List<pm> list) {
+    @Override // com.baidu.tieba.hn
+    public void addAdapters(List<om> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            for (pm<cn, TypeAdapter.ViewHolder> pmVar : list) {
-                if (pmVar != null) {
+            for (om<bn, TypeAdapter.ViewHolder> omVar : list) {
+                if (omVar != null) {
                     BdUniqueId bdUniqueId = null;
-                    if (pmVar.getHeaderId() != null) {
-                        bdUniqueId = pmVar.getHeaderId();
+                    if (omVar.getHeaderId() != null) {
+                        bdUniqueId = omVar.getHeaderId();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            wm wmVar = new wm(pmVar.mContext, bdUniqueId, pmVar.mPageId);
-                            wmVar.u(pmVar);
-                            this.G.a(wmVar);
-                            this.I.put(bdUniqueId, wmVar);
+                            vm vmVar = new vm(omVar.mContext, bdUniqueId, omVar.mPageId);
+                            vmVar.u(omVar);
+                            this.G.a(vmVar);
+                            this.I.put(bdUniqueId, vmVar);
                         }
                     }
-                    if (pmVar.getContentId() != null) {
-                        bdUniqueId = pmVar.getContentId();
+                    if (omVar.getContentId() != null) {
+                        bdUniqueId = omVar.getContentId();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            wm wmVar2 = new wm(pmVar.mContext, bdUniqueId, pmVar.mPageId);
-                            wmVar2.u(pmVar);
-                            this.G.a(wmVar2);
-                            this.I.put(bdUniqueId, wmVar2);
+                            vm vmVar2 = new vm(omVar.mContext, bdUniqueId, omVar.mPageId);
+                            vmVar2.u(omVar);
+                            this.G.a(vmVar2);
+                            this.I.put(bdUniqueId, vmVar2);
                         }
                     }
-                    if (pmVar.getExtendId() != null) {
-                        bdUniqueId = pmVar.getExtendId();
+                    if (omVar.getExtendId() != null) {
+                        bdUniqueId = omVar.getExtendId();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            wm wmVar3 = new wm(pmVar.mContext, bdUniqueId, pmVar.mPageId);
-                            wmVar3.u(pmVar);
-                            this.G.a(wmVar3);
-                            this.I.put(bdUniqueId, wmVar3);
+                            vm vmVar3 = new vm(omVar.mContext, bdUniqueId, omVar.mPageId);
+                            vmVar3.u(omVar);
+                            this.G.a(vmVar3);
+                            this.I.put(bdUniqueId, vmVar3);
                         }
                     }
-                    if (pmVar.getBottomId() != null) {
-                        bdUniqueId = pmVar.getBottomId();
+                    if (omVar.getBottomId() != null) {
+                        bdUniqueId = omVar.getBottomId();
                         if (!this.I.containsKey(bdUniqueId)) {
-                            wm wmVar4 = new wm(pmVar.mContext, bdUniqueId, pmVar.mPageId);
-                            wmVar4.u(pmVar);
-                            this.G.a(wmVar4);
-                            this.I.put(bdUniqueId, wmVar4);
+                            vm vmVar4 = new vm(omVar.mContext, bdUniqueId, omVar.mPageId);
+                            vmVar4.u(omVar);
+                            this.G.a(vmVar4);
+                            this.I.put(bdUniqueId, vmVar4);
                         }
                     }
                     if (bdUniqueId == null) {
-                        this.G.a(pmVar);
+                        this.G.a(omVar);
                     } else {
-                        this.H.put(pmVar.mType, pmVar);
+                        this.H.put(omVar.mType, omVar);
                     }
                 }
             }
@@ -306,57 +306,57 @@ public class BdTypeListView extends BdListView implements in<BdTypeListView> {
         }
     }
 
-    @Override // com.baidu.tieba.in
-    public void setData(List<? extends cn> list) {
+    @Override // com.baidu.tieba.hn
+    public void setData(List<? extends bn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             ArrayList arrayList = new ArrayList();
-            for (cn cnVar : list) {
-                if (cnVar != null) {
-                    if (this.H.containsKey(cnVar.getType())) {
-                        pm pmVar = this.H.get(cnVar.getType());
-                        if (pmVar.getHeaderId() != null) {
-                            vm vmVar = new vm();
-                            vmVar.e(pmVar.getHeaderId());
-                            if (cnVar instanceof BaseCardInfo) {
-                                vmVar.position = ((BaseCardInfo) cnVar).position;
-                                vmVar.setSupportType(BaseCardInfo.SupportType.TOP);
+            for (bn bnVar : list) {
+                if (bnVar != null) {
+                    if (this.H.containsKey(bnVar.getType())) {
+                        om omVar = this.H.get(bnVar.getType());
+                        if (omVar.getHeaderId() != null) {
+                            um umVar = new um();
+                            umVar.e(omVar.getHeaderId());
+                            if (bnVar instanceof BaseCardInfo) {
+                                umVar.position = ((BaseCardInfo) bnVar).position;
+                                umVar.setSupportType(BaseCardInfo.SupportType.TOP);
                             }
-                            vmVar.d(cnVar);
-                            arrayList.add(vmVar);
+                            umVar.d(bnVar);
+                            arrayList.add(umVar);
                         }
-                        if (pmVar.getContentId() != null) {
-                            vm vmVar2 = new vm();
-                            vmVar2.e(pmVar.getContentId());
-                            if (cnVar instanceof BaseCardInfo) {
-                                vmVar2.position = ((BaseCardInfo) cnVar).position;
-                                vmVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        if (omVar.getContentId() != null) {
+                            um umVar2 = new um();
+                            umVar2.e(omVar.getContentId());
+                            if (bnVar instanceof BaseCardInfo) {
+                                umVar2.position = ((BaseCardInfo) bnVar).position;
+                                umVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                             }
-                            vmVar2.d(cnVar);
-                            arrayList.add(vmVar2);
+                            umVar2.d(bnVar);
+                            arrayList.add(umVar2);
                         }
-                        if (pmVar.getExtendId() != null) {
-                            vm vmVar3 = new vm();
-                            vmVar3.e(pmVar.getExtendId());
-                            if (cnVar instanceof BaseCardInfo) {
-                                vmVar3.position = ((BaseCardInfo) cnVar).position;
-                                vmVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        if (omVar.getExtendId() != null) {
+                            um umVar3 = new um();
+                            umVar3.e(omVar.getExtendId());
+                            if (bnVar instanceof BaseCardInfo) {
+                                umVar3.position = ((BaseCardInfo) bnVar).position;
+                                umVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             }
-                            vmVar3.d(cnVar);
-                            arrayList.add(vmVar3);
+                            umVar3.d(bnVar);
+                            arrayList.add(umVar3);
                         }
-                        if (pmVar.getBottomId() != null) {
-                            vm vmVar4 = new vm();
-                            vmVar4.e(pmVar.getBottomId());
-                            if (cnVar instanceof BaseCardInfo) {
-                                vmVar4.position = ((BaseCardInfo) cnVar).position;
-                                vmVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        if (omVar.getBottomId() != null) {
+                            um umVar4 = new um();
+                            umVar4.e(omVar.getBottomId());
+                            if (bnVar instanceof BaseCardInfo) {
+                                umVar4.position = ((BaseCardInfo) bnVar).position;
+                                umVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                             }
-                            vmVar4.d(cnVar);
-                            arrayList.add(vmVar4);
+                            umVar4.d(bnVar);
+                            arrayList.add(umVar4);
                         }
                     } else {
-                        arrayList.add(cnVar);
+                        arrayList.add(bnVar);
                     }
                 }
             }

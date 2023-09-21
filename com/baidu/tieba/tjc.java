@@ -1,76 +1,74 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes8.dex */
-public class tjc {
+public class tjc implements lmc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public Activity c;
+    public bmc d;
+    public AbsViewEventHandler e;
+    public sic f;
 
-    public static PayType a(String str, String str2) {
-        InterceptResult invokeLL;
+    public tjc(int i, int i2, Activity activity, bmc bmcVar, AbsViewEventHandler absViewEventHandler, sic sicVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (PayType.ALI_PAY.getChannel().equals(str) && PayType.ALI_PAY.getMethod().equals(str2)) {
-                return PayType.ALI_PAY;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, bmcVar, absViewEventHandler, sicVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (PayType.WECHAT_PAY.getChannel().equals(str) && PayType.WECHAT_PAY.getMethod().equals(str2)) {
-                return PayType.WECHAT_PAY;
-            }
-            if (PayType.DXM_PAY.getChannel().equals(str) && PayType.DXM_PAY.getMethod().equals(str2)) {
-                return PayType.DXM_PAY;
-            }
-            if (PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2)) {
-                return PayType.DXM_PAY_KJ;
-            }
-            if (PayType.QQ_PAY.getChannel().equals(str) && PayType.QQ_PAY.getMethod().equals(str2)) {
-                return PayType.QQ_PAY;
-            }
-            if (PayType.UNION_PAY.getChannel().equals(str) && PayType.UNION_PAY.getMethod().equals(str2)) {
-                return PayType.UNION_PAY;
-            }
-            if (PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2)) {
-                return PayType.DXM_PAY_H5;
-            }
-            return null;
         }
-        return (PayType) invokeLL.objValue;
+        RLog.info("PayWayDialogListener", "create PayWayDialogListener appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = activity;
+        this.d = bmcVar;
+        this.e = absViewEventHandler;
+        this.f = sicVar;
     }
 
-    public static boolean b(String str, String str2) {
+    @Override // com.baidu.tieba.lmc
+    public void a(CancelType cancelType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayWayDialogListener", "PayWayDialog notifyCancelType clickArea:" + cancelType);
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                this.d.a();
+            }
+            this.f.g(cancelType, this.e);
+            xjc.b(this.a, this.b, cancelType);
+        }
+    }
+
+    @Override // com.baidu.tieba.lmc
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK && this.d.d()) {
+                RLog.info("PayWayDialogListener", "PayWayDialog interceptDialogClose  ShowSplitOrderView clickArea:" + cancelType);
                 return true;
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!c(str, str2) && !b(str, str2) && !PayType.MOCK_TEST_PAY.getChannel().equals(str) && !PayType.UNION_PAY.getChannel().equals(str)) {
-                return false;
-            }
-            return true;
+            return this.f.s(this.c, this.d, this.e);
         }
         return invokeLL.booleanValue;
     }

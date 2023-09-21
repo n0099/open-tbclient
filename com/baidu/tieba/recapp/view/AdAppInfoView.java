@@ -21,10 +21,10 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c56;
 import com.baidu.tieba.d15;
-import com.baidu.tieba.j3a;
-import com.baidu.tieba.x31;
+import com.baidu.tieba.d56;
+import com.baidu.tieba.h5a;
+import com.baidu.tieba.w31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -178,7 +178,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                j3a.a(this.a.getContext(), str3, null, null, str);
+                h5a.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -190,7 +190,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, c56.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d56.SimpleAdInfoView);
         this.l = obtainStyledAttributes.getResourceId(0, this.l);
         obtainStyledAttributes.recycle();
     }
@@ -230,7 +230,7 @@ public class AdAppInfoView extends FrameLayout {
             this.f = (TextView) findViewById(R.id.ad_permission);
             this.g = (TextView) findViewById(R.id.ad_feature);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090109);
-            this.i = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090930);
+            this.i = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090928);
             this.e.setOnClickListener(this.n);
             this.f.setOnClickListener(this.n);
             this.g.setOnClickListener(this.n);
@@ -354,7 +354,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.k != null && !TextUtils.isEmpty(str)) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.k.position + 1)).j(str).p(this.k.g);
-            x31.e(clogBuilder);
+            w31.e(clogBuilder);
         }
     }
 

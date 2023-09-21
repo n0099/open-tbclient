@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.nza;
-import com.baidu.tieba.oza;
+import com.baidu.tieba.f1b;
+import com.baidu.tieba.g1b;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public oza a;
-    public nza b;
+    public g1b a;
+    public f1b b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -73,7 +73,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
         }
     }
@@ -81,7 +81,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -95,10 +95,10 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         }
     }
 
-    public String o1() {
+    public String M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             AccessState accessState = this.d;
             if (accessState != null && accessState.getUserInfo() != null) {
                 return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", f, this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
@@ -130,7 +130,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new oza(this);
+            this.a = new g1b(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -151,10 +151,10 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     }
                     newWriteModel2.i0(z);
                 }
-                nza nzaVar = new nza(this.a, this.c);
-                this.b = nzaVar;
-                this.a.l(nzaVar);
-                this.b.h(o1());
+                f1b f1bVar = new f1b(this.a, this.c);
+                this.b = f1bVar;
+                this.a.l(f1bVar);
+                this.b.h(M0());
                 return;
             }
             finish();

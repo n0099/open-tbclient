@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.va5;
-import com.baidu.tieba.vx;
+import com.baidu.tieba.ux;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecentUpdate;
 /* loaded from: classes5.dex */
-public class CardItemRecentUpdateLayout extends LinearLayout implements vx {
+public class CardItemRecentUpdateLayout extends LinearLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -117,7 +117,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements vx {
                 this.a.g.setText(R.string.obfuscated_res_0x7f0f0760);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new va5(10)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new za5(10)));
             }
         }
     }
@@ -203,11 +203,11 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements vx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ce, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911da);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0911db);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d7);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0911d9);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d8);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911cb);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0911cc);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0911c8);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0911ca);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911c9);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
             this.f = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
@@ -230,7 +230,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements vx {
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

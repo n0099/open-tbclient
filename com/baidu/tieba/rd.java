@@ -53,7 +53,7 @@ public class rd implements gd {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return xh.e(String.valueOf(this.a), 0);
+                                                    return wh.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                     return null;

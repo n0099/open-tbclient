@@ -1,88 +1,224 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.view.headcard.RecommendCollectLayout;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tieba.video.LiveConfig;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class ywa extends ax<exa> {
+/* loaded from: classes8.dex */
+public class ywa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendCollectLayout f;
-    public int g;
+    @Nullable
+    public final VideoItemData a;
+    @Nullable
+    public final LiveConfig b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ywa(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public ywa(@Nullable VideoItemData videoItemData, @Nullable LiveConfig liveConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {videoItemData, liveConfig};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new RecommendCollectLayout(tbPageContext);
+        this.a = videoItemData;
+        this.b = liveConfig;
     }
 
-    @Override // com.baidu.tieba.ax
-    public View j() {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if ("index".equals(str)) {
+                return "index";
+            }
+            if ("concern_tab".equals(str)) {
+                return "concern_tab";
+            }
+            if ("frs".equals(str)) {
+                return "FRS";
+            }
+            return AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            VideoItemData videoItemData = this.a;
+            if (videoItemData != null && videoItemData.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null && !StringUtils.isNull(this.a.getLivePageData().mYyExtData.mSid)) {
+                return true;
+            }
+            return false;
         }
-        return (View) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ax
-    public void p(BdUniqueId bdUniqueId) {
-        RecommendCollectLayout recommendCollectLayout;
+    public void c(int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) && (recommendCollectLayout = this.f) != null) {
-            recommendCollectLayout.setPageUniqueId(bdUniqueId);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && this.a != null && this.b != null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_AUTO_JUMP);
+            statisticItem.addParam("tid", this.a.thread_id);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+            statisticItem.addParam("obj_locate", i);
+            statisticItem.addParam("obj_source", this.a.mRecomSource);
+            statisticItem.addParam("obj_type", str);
+            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
+            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
+            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
+            statisticItem.addParam("hdid", TbadkCoreApplication.getInst().getHdid());
+            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
+                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
+                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
+                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
+                statisticItem.addParam("template_id", this.a.getLivePageData().mYyExtData.mTemplateId);
+            }
+            if (b()) {
+                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "1");
+                statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, TiebaStatic.YYValues.YY_LIVE);
+            } else {
+                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "");
+                if (this.a.getLivePageData() != null && !StringUtils.isNull(this.a.getLivePageData().appId)) {
+                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.a.getLivePageData().appId);
+                } else {
+                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, "");
+                }
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
-    /* renamed from: s */
-    public void onBindDataToView(exa exaVar) {
-        RecommendCollectLayout recommendCollectLayout;
+    public void e(int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, exaVar) == null) && (recommendCollectLayout = this.f) != null) {
-            recommendCollectLayout.setData(exaVar);
-            this.f.setSourceForPb(this.g);
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && this.a != null && this.b != null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_SHOW);
+            statisticItem.addParam("tid", this.a.thread_id);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+            statisticItem.addParam("obj_locate", i);
+            statisticItem.addParam("obj_source", this.a.mRecomSource);
+            statisticItem.addParam("obj_type", str);
+            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
+            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
+            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
+            statisticItem.addParam("hdid", TbadkCoreApplication.getInst().getHdid());
+            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
+                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
+                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
+                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
+                statisticItem.addParam("template_id", this.a.getLivePageData().mYyExtData.mTemplateId);
+            }
+            if (b()) {
+                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "1");
+                statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, TiebaStatic.YYValues.YY_LIVE);
+            } else {
+                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "");
+                if (this.a.getLivePageData() != null && !StringUtils.isNull(this.a.getLivePageData().appId)) {
+                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.a.getLivePageData().appId);
+                } else {
+                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, "");
+                }
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void t(int i) {
+    public void d(int i, String str, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g = i;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && this.a != null && this.b != null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_CLICK);
+            statisticItem.addParam("tid", this.a.thread_id);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+            statisticItem.addParam("obj_locate", i);
+            statisticItem.addParam("obj_source", this.a.mRecomSource);
+            statisticItem.addParam("obj_name", i2);
+            statisticItem.addParam("obj_type", str);
+            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
+            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
+            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
+            statisticItem.addParam("hdid", TbadkCoreApplication.getInst().getHdid());
+            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
+                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
+                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
+                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
+                statisticItem.addParam("template_id", this.a.getLivePageData().mYyExtData.mTemplateId);
+            }
+            if (b()) {
+                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "1");
+                statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, TiebaStatic.YYValues.YY_LIVE);
+            } else {
+                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "");
+                if (this.a.getLivePageData() != null && !StringUtils.isNull(this.a.getLivePageData().appId)) {
+                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.a.getLivePageData().appId);
+                } else {
+                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, "");
+                }
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.vx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        RecommendCollectLayout recommendCollectLayout;
+    @Nullable
+    public n1a f(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (recommendCollectLayout = this.f) != null) {
-            recommendCollectLayout.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, str)) == null) {
+            if (this.a != null && this.b != null) {
+                n1a n1aVar = new n1a();
+                n1aVar.e = TbadkCoreApplication.getCurrentAccount();
+                n1aVar.c = this.a.thread_id;
+                n1aVar.a = String.valueOf(i);
+                n1aVar.f = this.a.mRecomSource;
+                n1aVar.A = str;
+                n1aVar.B = String.valueOf(this.b.getCurrentRealHitStrategy());
+                n1aVar.i = String.valueOf(this.b.getWaitSecond());
+                n1aVar.H = TbadkCoreApplication.getInst().getHdid();
+                n1aVar.g = String.valueOf(YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
+                if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
+                    n1aVar.C = this.a.getLivePageData().mYyExtData.mSid;
+                    n1aVar.D = this.a.getLivePageData().mYyExtData.mSsid;
+                    n1aVar.E = this.a.getLivePageData().mYyExtData.mYyUid;
+                    n1aVar.G = this.a.getLivePageData().mYyExtData.mTemplateId;
+                }
+                if (b()) {
+                    n1aVar.h = TiebaStatic.YYValues.YY_LIVE;
+                    n1aVar.F = "1";
+                } else {
+                    n1aVar.h = "";
+                    n1aVar.F = "";
+                    if (this.a.getLivePageData() != null && !StringUtils.isNull(this.a.getLivePageData().appId)) {
+                        n1aVar.h = this.a.getLivePageData().appId;
+                    } else {
+                        n1aVar.h = "";
+                    }
+                }
+                return n1aVar;
+            }
+            return null;
         }
+        return (n1a) invokeIL.objValue;
     }
 }

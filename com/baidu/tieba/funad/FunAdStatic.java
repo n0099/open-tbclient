@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.switchs.GdtPrivacySwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.iy7;
-import com.baidu.tieba.jy7;
-import com.baidu.tieba.ry7;
-import com.baidu.tieba.sy7;
+import com.baidu.tieba.ky7;
+import com.baidu.tieba.ly7;
+import com.baidu.tieba.ty7;
+import com.baidu.tieba.uy7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.managers.setting.GlobalSetting;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FunAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements CustomMessageTask.CustomRunnable<iy7.e> {
+    /* loaded from: classes6.dex */
+    public class a implements CustomMessageTask.CustomRunnable<ky7.e> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,11 +48,11 @@ public class FunAdStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<iy7.e> run(CustomMessage<iy7.e> customMessage) {
+        public CustomResponsedMessage<ky7.e> run(CustomMessage<ky7.e> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921525, new ry7());
+                return new CustomResponsedMessage<>(2921525, new ty7());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -72,7 +72,7 @@ public class FunAdStatic {
             }
         }
         GlobalSetting.setAgreePrivacyStrategy(GdtPrivacySwitch.isOpen());
-        jy7.a.set(new sy7());
+        ly7.a.set(new uy7());
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

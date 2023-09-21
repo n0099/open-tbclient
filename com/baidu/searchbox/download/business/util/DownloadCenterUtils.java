@@ -46,7 +46,7 @@ import com.baidu.searchbox.download.util.LocalDataScanHelper;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.a0;
-import com.baidu.tieba.z10;
+import com.baidu.tieba.y10;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import java.io.File;
@@ -584,7 +584,7 @@ public class DownloadCenterUtils {
             sb.append("',");
         }
         String str = ((("mimetype IN (" + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX) + " AND extra_info IS NOT NULL") + " AND is_visible_in_downloads_ui != '0'") + " AND status = '200'";
-        if (!z10.d(z10.a)) {
+        if (!y10.d(y10.a)) {
             str = str + getFilterPrivateFileSql();
         }
         Cursor query = sQLiteDatabase.query("downloads", new String[]{"_id", "extra_info"}, str, null, null, null, null);
@@ -637,7 +637,7 @@ public class DownloadCenterUtils {
             sb.append("',");
         }
         String str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND mimetype IN (" + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-        if (!z10.d(z10.a)) {
+        if (!y10.d(y10.a)) {
             str = str + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NOT NULL)");
         }
         String str2 = str;
@@ -772,7 +772,7 @@ public class DownloadCenterUtils {
         Cursor cursor = null;
         sb.append(FileClassifyHelper.getSQliteSelectionByCategory(i, null));
         String sb2 = sb.toString();
-        if (!z10.d(z10.a)) {
+        if (!y10.d(y10.a)) {
             sb2 = sb2 + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
         }
         try {
@@ -805,7 +805,7 @@ public class DownloadCenterUtils {
         try {
             try {
                 String str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND lower(mimetype)= ?";
-                if (!z10.d(z10.a)) {
+                if (!y10.d(y10.a)) {
                     str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND lower(mimetype)= ?" + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
                 }
                 cursor = AppRuntime.getAppContext().getContentResolver().query(Downloads.Impl.CONTENT_URI, new String[]{"_data"}, str, new String[]{String.valueOf(200), String.valueOf(1), String.valueOf(1), "application/vnd.apple.mpegurl"}, "status asc LIMIT 0," + i);
@@ -877,7 +877,7 @@ public class DownloadCenterUtils {
             sb.append("',");
         }
         String str3 = str2 + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-        if (!z10.d(z10.a)) {
+        if (!y10.d(y10.a)) {
             str3 = str3 + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
         }
         String str4 = str3;

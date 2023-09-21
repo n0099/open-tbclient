@@ -1,17 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface y44 {
-    void destroy();
-
-    int getCurrentTime();
-
-    int getDuration();
-
-    void pause();
-
-    void play();
-
-    void seek(float f);
-
-    void stop();
+    void p(String str, JSONObject jSONObject);
 }

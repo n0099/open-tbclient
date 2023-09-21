@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class iy4 extends ui5 {
+public final class iy4 extends yi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final gy4 a;
@@ -47,8 +47,8 @@ public final class iy4 extends ui5 {
         this.a = mConfig;
     }
 
-    @Override // com.baidu.tieba.ui5
-    public void c(final wi5 editor) {
+    @Override // com.baidu.tieba.yi5
+    public void c(final aj5 editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editor) == null) {
             Intrinsics.checkNotNullParameter(editor, "editor");
@@ -56,35 +56,35 @@ public final class iy4 extends ui5 {
                 return;
             }
             final EditorTools a = editor.a();
-            ti5 ti5Var = new ti5() { // from class: com.baidu.tieba.dy4
+            xi5 xi5Var = new xi5() { // from class: com.baidu.tieba.dy4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.ti5
-                public final void G(si5 si5Var) {
+                @Override // com.baidu.tieba.xi5
+                public final void O(wi5 wi5Var) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, si5Var) == null) {
-                        iy4.e(wi5.this, this, a, si5Var);
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, wi5Var) == null) {
+                        iy4.e(aj5.this, this, a, wi5Var);
                     }
                 }
             };
-            a.setActionListener(4, ti5Var);
-            a.setActionListener(7, ti5Var);
-            a.setActionListener(16, ti5Var);
-            a.setActionListener(8, ti5Var);
+            a.setActionListener(4, xi5Var);
+            a.setActionListener(7, xi5Var);
+            a.setActionListener(16, xi5Var);
+            a.setActionListener(8, xi5Var);
         }
     }
 
-    public static final void e(wi5 editor, iy4 this$0, EditorTools editorTools, si5 si5Var) {
+    public static final void e(aj5 editor, iy4 this$0, EditorTools editorTools, wi5 wi5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, editor, this$0, editorTools, si5Var) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, editor, this$0, editorTools, wi5Var) == null) {
             Intrinsics.checkNotNullParameter(editor, "$editor");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             hy4 hy4Var = (hy4) editor;
-            if (hy4Var.a() == null || si5Var == null) {
+            if (hy4Var.a() == null || wi5Var == null) {
                 return;
             }
-            int i = si5Var.a;
+            int i = wi5Var.a;
             if (i != 4) {
                 if (i != 16) {
                     if (i != 7) {
@@ -109,7 +109,7 @@ public final class iy4 extends ui5 {
                 if (hy4Var.f() != null) {
                     SpanGroupManager f = hy4Var.f();
                     Intrinsics.checkNotNull(f);
-                    atListActivityConfig.setSelectedAtList(f.w());
+                    atListActivityConfig.setSelectedAtList(f.v());
                 }
                 atListActivityConfig.setFromTid(editorTools.getTid());
                 atListActivityConfig.setFromFid(String.valueOf(editorTools.getFid()));
@@ -121,15 +121,15 @@ public final class iy4 extends ui5 {
                 TiebaStatic.log(statisticItem);
                 return;
             }
-            Object obj = si5Var.c;
-            if (obj instanceof cl5) {
+            Object obj = wi5Var.c;
+            if (obj instanceof gl5) {
                 if (obj != null) {
-                    String str = ((cl5) obj).a;
+                    String str = ((gl5) obj).a;
                     Intrinsics.checkNotNullExpressionValue(str, "action.data as SubPbInputContentData).mContent");
                     hy4Var.q(str);
-                    Object obj2 = si5Var.c;
+                    Object obj2 = wi5Var.c;
                     if (obj2 != null) {
-                        hy4Var.r(((cl5) obj2).c);
+                        hy4Var.r(((gl5) obj2).c);
                     } else {
                         throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.editortools.pb.SubPbInputContentData");
                     }
@@ -141,21 +141,21 @@ public final class iy4 extends ui5 {
         }
     }
 
-    @Override // com.baidu.tieba.ui5
-    public wi5 a(Context context) {
+    @Override // com.baidu.tieba.yi5
+    public aj5 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            wi5 a = super.a(context);
+            aj5 a = super.a(context);
             Intrinsics.checkNotNullExpressionValue(a, "super.build(context)");
             return a;
         }
-        return (wi5) invokeL.objValue;
+        return (aj5) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ui5
-    public wi5 b(Context context) {
+    @Override // com.baidu.tieba.yi5
+    public aj5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -172,12 +172,12 @@ public final class iy4 extends ui5 {
             editorTools.setClearEbPadding(true);
             return new hy4(editorTools);
         }
-        return (wi5) invokeL.objValue;
+        return (aj5) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ui5
-    public void d(wi5 editor) {
-        ej5 p;
+    @Override // com.baidu.tieba.yi5
+    public void d(aj5 editor) {
+        ij5 p;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, editor) == null) {
             Intrinsics.checkNotNullParameter(editor, "editor");
@@ -193,9 +193,9 @@ public final class iy4 extends ui5 {
                 }
             }
             if (this.a.h) {
-                gj5 gj5Var = new gj5(a.getContext(), 7);
-                gj5Var.i = false;
-                a.d(gj5Var);
+                kj5 kj5Var = new kj5(a.getContext(), 7);
+                kj5Var.i = false;
+                a.d(kj5Var);
             }
             jy4 jy4Var = new jy4(a.getContext());
             jy4Var.g(this.a);

@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.utils.UniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class hu implements gu {
+public final class hu implements is {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,30 +23,11 @@ public final class hu implements gu {
         }
     }
 
-    @Override // com.baidu.tieba.gu
-    public void a(String str) {
-        BDPTask t;
+    @Override // com.baidu.tieba.is
+    public void a(String str, hs hsVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (t = BDPTask.m.t()) != null) {
-            t.C(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.gu
-    public void b(String str, UniqueId uniqueId) {
-        BDPTask t;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, uniqueId) == null) && (t = BDPTask.m.t()) != null) {
-            t.G(str, uniqueId);
-        }
-    }
-
-    @Override // com.baidu.tieba.gu
-    public void c(String str, String str2) {
-        BDPTask t;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && (t = BDPTask.m.t()) != null) {
-            t.u0(str, str2);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, hsVar) == null) {
+            hsVar.onError();
         }
     }
 }

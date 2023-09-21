@@ -1,43 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
-import com.baidu.tieba.wra;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jsa implements rra, wra.c, st6 {
+public final class jsa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public jra b;
-    public vra c;
-    public SelectMusicModel d;
-    public String e;
+    public VersionData a;
+    public final ClientUpdateInfo b;
+    public final String c;
+    public final boolean d;
 
-    @Override // com.baidu.tieba.rra
-    public void setMusicData(List<MusicData> list) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof jsa) {
+                jsa jsaVar = (jsa) obj;
+                return Intrinsics.areEqual(this.a, jsaVar.a) && Intrinsics.areEqual(this.b, jsaVar.b) && Intrinsics.areEqual(this.c, jsaVar.c) && this.d == jsaVar.d;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public jsa(jra jraVar) {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            ClientUpdateInfo clientUpdateInfo = this.b;
+            int hashCode2 = (((hashCode + (clientUpdateInfo == null ? 0 : clientUpdateInfo.hashCode())) * 31) + this.c.hashCode()) * 31;
+            boolean z = this.d;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return hashCode2 + i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "LcUpdateDataWrapper(versionData=" + this.a + ", updateInfo=" + this.b + ", apkMd5Rsa=" + this.c + ", isUserUpdate=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public jsa(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String apkMd5Rsa, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jraVar};
+            Object[] objArr = {versionData, clientUpdateInfo, apkMd5Rsa, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,139 +77,47 @@ public class jsa implements rra, wra.c, st6 {
                 return;
             }
         }
-        this.b = jraVar;
-        this.a = jraVar.a;
+        Intrinsics.checkNotNullParameter(versionData, "versionData");
+        Intrinsics.checkNotNullParameter(apkMd5Rsa, "apkMd5Rsa");
+        this.a = versionData;
+        this.b = clientUpdateInfo;
+        this.c = apkMd5Rsa;
+        this.d = z;
     }
 
-    public final void a(String str) {
-        jra jraVar;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (jraVar = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        if (jraVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        this.e = str;
-        VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.e);
-        videoInfo.setThumbPath(this.b.c);
-        jra jraVar2 = this.b;
-        if (jraVar2 != null) {
-            jraVar2.f(videoInfo);
-        }
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
-        jra jraVar;
+    public final ClientUpdateInfo b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (jraVar = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        if (jraVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        if (StringUtils.isNull(this.b.d)) {
-            jra jraVar2 = this.b;
-            if (!jraVar2.e) {
-                e1(jraVar2.b, -4399, "");
-                return;
-            }
-        }
-        if (this.d == null) {
-            this.d = new SelectMusicModel(this.a.getPageContext(), this);
-        }
-        SelectMusicModel selectMusicModel = this.d;
-        jra jraVar3 = this.b;
-        selectMusicModel.P(jraVar3.b, jraVar3.d, kra.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !jraVar3.e);
+        return (ClientUpdateInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.st6
-    public void cancel() {
+    public final VersionData c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            jra jraVar = this.b;
-            if (jraVar != null) {
-                jraVar.i(true);
-            }
-            vra vraVar = this.c;
-            if (vraVar != null && vraVar.f()) {
-                this.c.e();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (VersionData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rra
-    public void e1(String str, int i, String str2) {
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
-            jra jraVar = this.b;
-            if (jraVar != null && jraVar.b()) {
-                this.b.c();
-                this.b = null;
-            } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0cac);
-                jra jraVar2 = this.b;
-                if (jraVar2 != null) {
-                    jraVar2.g(i, str2);
-                }
-            } else {
-                jra jraVar3 = this.b;
-                if (jraVar3 != null) {
-                    jraVar3.h();
-                }
-                if (!StringUtils.isNull(this.b.f)) {
-                    if (!StringHelper.equals(str, this.b.b)) {
-                        this.b.g = str;
-                    }
-                    if (this.c == null) {
-                        vra vraVar = new vra(this.a.getActivity());
-                        this.c = vraVar;
-                        vraVar.i(this);
-                    }
-                    this.c.g(str, this.b.f);
-                    return;
-                }
-                jra jraVar4 = this.b;
-                if (jraVar4 != null) {
-                    jraVar4.e();
-                }
-                a(str);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-    }
-
-    @Override // com.baidu.tieba.wra.c
-    public void onGenFilterVideoFail(int i, String str) {
-        jra jraVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (jraVar = this.b) != null) {
-            jraVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.wra.c
-    public void onGenFilterVideoRecordError(int i, String str) {
-        jra jraVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (jraVar = this.b) != null) {
-            jraVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.wra.c
-    public void onGenFilterVideoSuccess(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            jra jraVar = this.b;
-            if (jraVar != null) {
-                jraVar.e();
-            }
-            a(str);
-        }
+        return invokeV.booleanValue;
     }
 }

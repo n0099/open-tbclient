@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.TreeSet;
 /* loaded from: classes5.dex */
 public interface ap5 {
-    void a(long j);
-
-    void b(long j, int i, String str);
+    @WorkerThread
+    void a(int i, @NonNull String str, @NonNull TreeSet<ChatMsg> treeSet);
 }

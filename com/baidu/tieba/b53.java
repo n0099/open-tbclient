@@ -2,24 +2,22 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b53 implements d53 {
+public class b53 implements c53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public Set<String> c;
 
     public b53() {
         Interceptable interceptable = $ic;
@@ -31,15 +29,12 @@ public class b53 implements d53 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = "boxjs.";
-        this.c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
     }
 
-    @Override // com.baidu.tieba.d53
-    public List<p43> a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.c53
+    public List<o43> a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
@@ -54,51 +49,39 @@ public class b53 implements d53 {
             if (optInt <= 0) {
                 return arrayList;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
-            if (optJSONArray != null && optJSONArray2 != null) {
-                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
-                if (min <= 0) {
-                    return arrayList;
-                }
-                for (int i = 0; i < min; i++) {
-                    p43 p43Var = new p43();
-                    p43Var.f(optString);
-                    p43Var.g(b(p43Var));
-                    p43Var.i(optJSONArray.optLong(i));
-                    p43Var.h(optJSONArray2.optLong(i));
-                    arrayList.add(p43Var);
-                    if (d53.a) {
-                        c(p43Var.toString());
-                    }
-                }
+            JSONObject optJSONObject = jSONObject.optJSONObject("caller");
+            if (optJSONObject == null) {
                 return arrayList;
             }
-            c("startTimes or endTimes is empty");
+            b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
+            b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
             return arrayList;
         }
         return (List) invokeL.objValue;
     }
 
-    public final int b(p43 p43Var) {
-        InterceptResult invokeL;
+    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<o43> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p43Var)) == null) {
-            String a = p43Var.a();
-            if (TextUtils.isEmpty(a)) {
-                return 0;
+        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) && jSONObject != null && jSONObject.length() > 0) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
+            if (optJSONArray != null && optJSONArray2 != null) {
+                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+                for (int i2 = 0; i2 < min; i2++) {
+                    o43 o43Var = new o43();
+                    o43Var.g(i);
+                    o43Var.f(str);
+                    o43Var.i(optJSONArray.optLong(i2));
+                    o43Var.h(optJSONArray2.optLong(i2));
+                    list.add(o43Var);
+                }
             }
-            if (!a.startsWith(this.b) && !this.c.contains(a)) {
-                return 0;
-            }
-            return 1;
         }
-        return invokeL.intValue;
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && d53.a) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && c53.a) {
             Log.d("Api-Parser", str);
         }
     }

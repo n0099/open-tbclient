@@ -1,35 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.pyramid.annotation.Service;
+import android.content.pm.Signature;
+import android.util.Base64;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes9.dex */
-public class zk implements IWebViewDataDirectoryManager {
+public final class zk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.nps.interfa.IWebViewDataDirectoryManager
-    public void setDataDirectorySuffix() {
+    public static byte[] a(Signature[] signatureArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signatureArr)) == null) {
+            if (signatureArr != null) {
+                int i = 0;
+                for (Signature signature : signatureArr) {
+                    i += signature.toByteArray().length;
+                }
+                byte[] bArr = new byte[i];
+                int i2 = 0;
+                for (Signature signature2 : signatureArr) {
+                    byte[] byteArray = signature2.toByteArray();
+                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
+                    i2 += byteArray.length;
+                }
+                return bArr;
+            }
+            return null;
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    public zk() {
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
+        NoSuchAlgorithmException e;
+        String str;
+        byte[] digest;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
+            try {
+                digest = MessageDigest.getInstance("MD5").digest(bArr);
+            } catch (NoSuchAlgorithmException e2) {
+                e = e2;
+                str = null;
+            }
+            if (digest == null) {
+                return null;
+            }
+            str = Base64.encodeToString(digest, 0);
+            if (str != null) {
+                try {
+                    str = str.replaceAll("\\s", "").replaceAll("\\\\", "rg").replaceAll("/", "lg");
+                } catch (NoSuchAlgorithmException e3) {
+                    e = e3;
+                    if (BdLog.isDebugMode()) {
+                        e.printStackTrace();
+                    }
+                    return str;
+                }
+            }
+            return str;
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        byte[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signatureArr)) == null) {
+            if (signatureArr != null && (a = a(signatureArr)) != null) {
+                return b(a);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

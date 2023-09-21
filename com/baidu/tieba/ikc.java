@@ -1,67 +1,72 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes6.dex */
-public interface ikc extends dkc {
+public class ikc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public GiftBagsInfo a;
+    public boolean b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(sic sicVar);
-
-        void b();
-
-        void onRefreshViewFail(int i, String str);
-    }
-
-    void a();
-
-    void setCallback(a aVar);
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public sic a;
-        public WindowParams b;
-        public PayFlowType c;
-        public List<PayWayInfo> d;
-        public String e;
-        public IYYPayAmountView.ViewParams f;
-        public AbsViewEventHandler g;
-        public PaySplitOrderViewSource h;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public ikc(GiftBagsInfo giftBagsInfo, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {giftBagsInfo, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = giftBagsInfo;
+        this.b = z;
+    }
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{  source='" + this.h + "'  amount=" + this.a + ", payFlowType=" + this.c + ", bubbleActMsg=" + this.e + ", payWayInfoList=" + this.d + ", payAmountViewParams='" + this.f + "', windowParams='" + this.b + "', viewEventListener='" + this.g + "'}";
+    public static boolean b(ikc ikcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ikcVar)) == null) {
+            if (ikcVar != null && ikcVar.a() != null && ikcVar.a().giftbag != null && !ikcVar.a().giftbag.isEmpty()) {
+                return false;
             }
-            return (String) invokeV.objValue;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public GiftBagsInfo a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (GiftBagsInfo) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
     }
 }

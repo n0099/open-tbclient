@@ -1,129 +1,209 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class b49 extends BaseAdapter {
+public class b49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<z39> a;
-    public Context b;
-    public int c;
-    public int d;
-    public final int e;
+    public final HashMap<String, jv4> a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public b49(Context context, int i) {
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+        public HashMap<String, String> c;
+
+        public b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = false;
+            Uri parse = Uri.parse(str);
+            this.a = "tblego".equals(parse.getScheme());
+            if (e()) {
+                this.b = parse.getAuthority() + parse.getPath();
+                this.c = new HashMap<>();
+                for (String str2 : parse.getQueryParameterNames()) {
+                    this.c.put(str2, parse.getQueryParameter(str2));
+                }
+                return;
+            }
+            this.b = "";
+            this.c = new HashMap<>();
+        }
+
+        public static b a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                return new b(str);
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public HashMap<String, String> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
+            }
+            return (HashMap) invokeV.objValue;
+        }
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                if (!TextUtils.isEmpty(str) && e()) {
+                    for (String str2 : this.c.keySet()) {
+                        if (str.equals(str2)) {
+                            return this.c.get(str2);
+                        }
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static b49 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-966832413, "Lcom/baidu/tieba/b49$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-966832413, "Lcom/baidu/tieba/b49$c;");
+                    return;
+                }
+            }
+            a = new b49(null);
+        }
+    }
+
+    public b49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.c = 0;
-        this.d = 0;
-        this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5);
-        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
-        this.e = i;
+        this.a = new HashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public z39 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (z39) invokeI.objValue;
-    }
-
-    public void b(List<z39> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a.clear();
-            if (list != null && list.size() > 0) {
-                this.a.addAll(list);
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static b49 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
         }
-        return invokeV.intValue;
+        return (b49) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        TextView textView;
+    public /* synthetic */ b49(a aVar) {
+        this();
+    }
+
+    public void b(gv4 gv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 instanceof TextView) {
-                textView = (TextView) view2;
-            } else {
-                textView = new TextView(this.b);
-                textView.setGravity(17);
-                textView.setTextSize(0, this.c);
-                int i2 = this.d;
-                textView.setPadding(0, i2, 0, i2);
-            }
-            z39 z39Var = (z39) ListUtils.getItem(this.a, i);
-            if (z39Var == null) {
-                return null;
-            }
-            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(z39Var.c, 8, (String) null));
-            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
-            if (i == this.e) {
-                SkinManager.setBackgroundResource(textView, R.drawable.btn_label_white_s);
-            } else {
-                SkinManager.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
-            }
-            return textView;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gv4Var) == null) {
+            c(gv4Var.c(), gv4Var);
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void c(String str, jv4 jv4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jv4Var) == null) {
+            this.a.put(str, jv4Var);
+        }
+    }
+
+    public void d(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, str) != null) || str == null) {
+            return;
+        }
+        b a2 = b.a(str);
+        jv4 jv4Var = this.a.get(a2.b());
+        if (jv4Var != null && a2.e()) {
+            jv4Var.b(obj, a2.c(), str);
+        }
+    }
+
+    public void e(Object obj, String str, HashMap<String, String> hashMap, i9 i9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(1048579, this, obj, str, hashMap, i9Var) != null) || str == null) {
+            return;
+        }
+        b a2 = b.a(str);
+        jv4 jv4Var = this.a.get(a2.b());
+        if (jv4Var != null && a2.e()) {
+            if (hashMap != null && !hashMap.isEmpty()) {
+                a2.c().putAll(hashMap);
+            }
+            jv4Var.a(obj, a2.c(), str, i9Var);
+        }
     }
 }

@@ -140,10 +140,10 @@ public final class ye {
     }
 
     public final void b() {
-        pk1<ve> pk1Var;
+        ok1<ve> ok1Var;
         List<ve> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pk1Var = new bf().a) != null && (list = pk1Var.getList()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ok1Var = new bf().a) != null && (list = ok1Var.getList()) != null) {
             for (ve veVar : list) {
             }
         }

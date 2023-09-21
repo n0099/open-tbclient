@@ -3,31 +3,46 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
 public class jt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            return b(bArr, 0, bArr.length);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
         }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    public static byte[] b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                byte[] bArr2 = new byte[i2];
-                System.arraycopy(bArr, i, bArr2, 0, i2);
-                return bArr2;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception unused) {
             }
-            return new byte[0];
+            return a(bArr, "", z);
         }
-        return (byte[]) invokeLII.objValue;
+        return (String) invokeLZ.objValue;
     }
 }

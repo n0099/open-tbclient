@@ -1,582 +1,386 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.util.Log;
+import android.text.style.ForegroundColorSpan;
 import android.util.SparseArray;
-import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbCommentFloatActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorCommentAndPraiseAdapter;
-import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
-import com.baidu.tieba.view.SortSwitchButton;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import tbclient.AigcFeedbackInfo;
 /* loaded from: classes8.dex */
-public abstract class sr9 extends yr9 {
+public class sr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DetailInfoAndReplyFragment a;
-    public BdTypeRecyclerView b;
-    public aj9 c;
-    public final List<pm> d;
-    public boolean e;
-    public ArrayList<cn> f;
-    public String g;
-    public boolean h;
-    public boolean i;
-    public int j;
-    public int k;
-    public int l;
-    public on m;
 
-    public void A(View.OnClickListener onClickListener) {
+    public static int n(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-        }
-    }
-
-    public abstract void B(View.OnClickListener onClickListener);
-
-    public abstract void C(View.OnClickListener onClickListener);
-
-    public abstract void D(aj9 aj9Var);
-
-    public void E(vk9 vk9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vk9Var) == null) {
-        }
-    }
-
-    public abstract void F(aj9 aj9Var);
-
-    public abstract void G(String str);
-
-    public abstract pn9 f();
-
-    public abstract jm9 g();
-
-    public abstract PbFirstFloorCommentAndPraiseAdapter h();
-
-    public abstract void m();
-
-    public abstract void n();
-
-    public abstract void o();
-
-    public abstract void q(boolean z);
-
-    public abstract void r(aj9 aj9Var, boolean z, String str, boolean z2);
-
-    public void v(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, onClickListener) == null) {
-        }
-    }
-
-    public abstract void w(boolean z);
-
-    public void x(TbRichTextView.z zVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, zVar) == null) {
-        }
-    }
-
-    public void y(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, onLongClickListener) == null) {
-        }
-    }
-
-    public void z(SortSwitchButton.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, fVar) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sr9 a;
-
-        public a(sr9 sr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sr9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sr9 sr9Var = this.a;
-                sr9Var.b.setData(sr9Var.f);
-            }
-        }
-    }
-
-    public sr9(DetailInfoAndReplyFragment detailInfoAndReplyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {detailInfoAndReplyFragment, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new ArrayList();
-        this.e = true;
-        this.g = null;
-        this.h = true;
-        this.i = false;
-        this.k = -1;
-        this.l = -1;
-        this.a = detailInfoAndReplyFragment;
-        if (detailInfoAndReplyFragment != null && detailInfoAndReplyFragment.S() != null && detailInfoAndReplyFragment.S().getArguments() != null) {
-            this.j = detailInfoAndReplyFragment.S().getArguments().getInt(PbCommentFloatActivityConfig.KEY_FROM_VIDEO_PAGE_TYPE);
-        }
-        this.b = bdTypeRecyclerView;
-        this.m = new on(bdTypeRecyclerView);
-    }
-
-    public void s(aj9 aj9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, aj9Var) == null) {
-            t(aj9Var, false);
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public final void H() {
-        aj9 aj9Var;
-        sha shaVar;
-        sha shaVar2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (aj9Var = this.c) == null || aj9Var.Z || aj9Var.a0 == 2) {
-            return;
-        }
-        ArrayList<tha> F = aj9Var.F();
-        ArrayList<sha> d = this.c.d();
-        if (d != null && !d.isEmpty() && F != null && !F.isEmpty()) {
-            StringBuilder sb = new StringBuilder();
-            Iterator<sha> it = d.iterator();
-            while (it.hasNext()) {
-                sha next = it.next();
-                if (next != null && next.E1() != null) {
-                    sb.append(next.E1());
-                    sb.append(",");
-                }
-            }
-            if (sb.length() > 1) {
-                sb.deleteCharAt(sb.length() - 1);
-            }
-            Iterator<sha> it2 = d.iterator();
-            while (it2.hasNext()) {
-                sha next2 = it2.next();
-                if (next2 != null) {
-                    next2.o1 = next2.getPosition() - 1;
-                }
-            }
-            SparseArray sparseArray = new SparseArray();
-            Iterator<sha> it3 = d.iterator();
-            while (it3.hasNext()) {
-                sha next3 = it3.next();
-                if (next3.getAdvertAppInfo() != null) {
-                    int h = next3.getAdvertAppInfo().h();
-                    if (h != 0) {
-                        x4a.j(next3, h);
-                        if (h != 28 && h != 31) {
-                            next3.getAdvertAppInfo().c = -1001;
-                            Log.e("cq", "updateAppData，Data InValidate: " + h);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i)) == null) {
+            if (i != -4) {
+                if (i != -3) {
+                    if (i != -2) {
+                        if (i != -1) {
+                            switch (i) {
+                                case 4:
+                                    return 5;
+                                case 5:
+                                    return 7;
+                                case 6:
+                                    return 6;
+                                case 7:
+                                    return 9;
+                                case 8:
+                                    return 8;
+                                default:
+                                    return 0;
+                            }
                         }
+                        return 1;
                     }
-                    sparseArray.put(next3.getPosition(), next3);
+                    return 2;
+                }
+                return 3;
+            }
+            return 4;
+        }
+        return invokeI.intValue;
+    }
+
+    public static boolean a(List<f55> list, j55 j55Var, zja zjaVar, cl9 cl9Var, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{list, j55Var, zjaVar, cl9Var, Boolean.valueOf(z)})) == null) {
+            if (list == null || zjaVar == null || cl9Var == null || !z || !cl9Var.o() || !TbadkCoreApplication.isLogin() || l(zjaVar) || cl9Var.n()) {
+                return false;
+            }
+            f55 f55Var = new f55(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0367), j55Var);
+            list.add(f55Var);
+            psa.f(f55Var.d, zjaVar);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean b(List<f55> list, j55 j55Var, zja zjaVar, PbModel pbModel) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, list, j55Var, zjaVar, pbModel)) == null) {
+            if (list != null && zjaVar != null && pbModel != null && pbModel.r1() != null) {
+                lk9 r1 = pbModel.r1();
+                if (r1.k0() && TbadkCoreApplication.isLogin() && !l(zjaVar) && !r1.j0()) {
+                    f55 f55Var = new f55(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0367), j55Var);
+                    list.add(f55Var);
+                    psa.f(f55Var.d, zjaVar);
+                    return true;
                 }
             }
-            HashMap hashMap = new HashMap();
-            for (int i = 0; i < sparseArray.size(); i++) {
-                sha shaVar3 = (sha) sparseArray.get(sparseArray.keyAt(i));
-                if (shaVar3 != null && (shaVar2 = (sha) hashMap.put(shaVar3.D1(), shaVar3)) != null) {
-                    x4a.j(shaVar2, 30);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public static List<f55> c(List<f55> list, AgreeData agreeData, SparseArray<?> sparseArray, j55 j55Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, list, agreeData, sparseArray, j55Var)) == null) {
+            return d(list, agreeData, sparseArray, j55Var, null);
+        }
+        return (List) invokeLLLL.objValue;
+    }
+
+    public static List<f55> d(List<f55> list, AgreeData agreeData, SparseArray<?> sparseArray, j55 j55Var, AigcFeedbackInfo aigcFeedbackInfo) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, list, agreeData, sparseArray, j55Var, aigcFeedbackInfo)) == null) {
+            String t = pp9.t(R.string.c_agree, new Object[0]);
+            String t2 = pp9.t(R.string.c_disagree, new Object[0]);
+            String t3 = pp9.t(R.string.c_agreeed, new Object[0]);
+            String t4 = pp9.t(R.string.c_disagreeed, new Object[0]);
+            if (aigcFeedbackInfo != null) {
+                String str = aigcFeedbackInfo.positive_text;
+                String str2 = aigcFeedbackInfo.negative_text;
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    t2 = str2;
+                    t4 = t2;
+                    t = str;
+                    t3 = t;
                 }
             }
-            sparseArray.clear();
-            for (Map.Entry entry : hashMap.entrySet()) {
-                if (entry != null && (shaVar = (sha) entry.getValue()) != null) {
-                    sparseArray.put(shaVar.getPosition(), shaVar);
-                }
+            if (list == null) {
+                list = new ArrayList<>();
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < sparseArray.size(); i2++) {
-                arrayList.add(Integer.valueOf(sparseArray.keyAt(i2)));
-            }
-            Collections.sort(arrayList);
-            for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                sha shaVar4 = (sha) sparseArray.get(((Integer) arrayList.get(i3)).intValue());
-                if (this.c.k() != null) {
-                    shaVar4.i1 = this.c.k().getId();
-                }
-                if (this.c.O() != null) {
-                    shaVar4.l1 = JavaTypesHelper.toLong(this.c.O().getId(), 0L);
-                }
-                aj9 aj9Var2 = this.c;
-                if (aj9Var2 != null && aj9Var2.y() != null) {
-                    shaVar4.m1 = this.c.y().a();
-                }
-                c(shaVar4);
-                int position = shaVar4.getPosition() + this.c.Y;
-                if (position >= F.size()) {
-                    shaVar4.o1 = position;
-                    x4a.k(shaVar4, 2, position + i3, F.size());
-                    return;
-                }
-                if (!this.e) {
-                    position--;
-                    shaVar4.o1 = position;
-                }
-                if (position < 0) {
-                    x4a.j(shaVar4, 23);
-                } else if (i(F, position)) {
-                    x4a.j(shaVar4, 1);
+            if (agreeData.hasAgree) {
+                if (agreeData.agreeType == 2) {
+                    f55 f55Var = new f55(-1, t3, j55Var);
+                    f55Var.n(true);
+                    f55Var.d.setTag(sparseArray);
+                    arrayList.add(f55Var);
+                    if (!g(sparseArray, R.id.pb_dialog_item_isugc)) {
+                        f55 f55Var2 = new f55(-2, t2, j55Var);
+                        f55Var2.n(false);
+                        f55Var2.d.setTag(sparseArray);
+                        arrayList.add(f55Var2);
+                    }
                 } else {
-                    F.add(position, shaVar4);
-                    TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", shaVar4.getAdvertAppInfo().q);
+                    f55 f55Var3 = new f55(-1, t, j55Var);
+                    f55Var3.n(false);
+                    f55Var3.d.setTag(sparseArray);
+                    arrayList.add(f55Var3);
+                    if (!g(sparseArray, R.id.pb_dialog_item_isugc)) {
+                        f55 f55Var4 = new f55(-2, t4, j55Var);
+                        f55Var4.n(true);
+                        f55Var4.d.setTag(sparseArray);
+                        arrayList.add(f55Var4);
+                    }
+                }
+            } else {
+                f55 f55Var5 = new f55(-1, t, j55Var);
+                f55Var5.n(false);
+                f55Var5.d.setTag(sparseArray);
+                arrayList.add(f55Var5);
+                if (!g(sparseArray, R.id.pb_dialog_item_isugc)) {
+                    f55 f55Var6 = new f55(-2, t2, j55Var);
+                    f55Var6.n(false);
+                    f55Var6.d.setTag(sparseArray);
+                    arrayList.add(f55Var6);
                 }
             }
+            f55 f55Var7 = new f55(-3, pp9.t(R.string.obfuscated_res_0x7f0f1249, new Object[0]), j55Var);
+            f55Var7.d.setTag(sparseArray);
+            arrayList.add(f55Var7);
+            f55 f55Var8 = new f55(-4, pp9.t(R.string.obfuscated_res_0x7f0f13a1, new Object[0]), j55Var);
+            f55Var8.d.setTag(sparseArray);
+            arrayList.add(f55Var8);
+            list.addAll(0, arrayList);
+            return list;
+        }
+        return (List) invokeLLLLL.objValue;
+    }
+
+    public static void e(Activity activity, @Nullable BdPageContext<?> bdPageContext, z45.e eVar, z45.e eVar2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, bdPageContext, eVar, eVar2) == null) {
+            z45 z45Var = new z45(activity);
+            z45Var.setMessageId(R.string.del_post_confirm);
+            z45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f059b, eVar);
+            z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0590, eVar2);
+            z45Var.setCancelable(true);
+            z45Var.create(bdPageContext);
+            z45Var.show();
         }
     }
 
-    @Override // com.baidu.tieba.yr9
-    public ArrayList<cn> a() {
-        InterceptResult invokeV;
+    public static List<f55> f(List<f55> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+            if (list == null) {
+                return list;
+            }
+            for (f55 f55Var : list) {
+                f55Var.l(i(f55Var));
+            }
+            return list;
         }
-        return (ArrayList) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public static boolean j(PbModel pbModel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (12 == this.j) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, pbModel)) == null) {
+            if (pbModel != null && pbModel.r1() != null && pbModel.r1().k0()) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public boolean l() {
-        InterceptResult invokeV;
+    public static boolean k(cl9 cl9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.a.X() != null) {
-                return this.a.X().U0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, cl9Var)) == null) {
+            if (cl9Var != null && cl9Var.o()) {
+                return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void c(sha shaVar) {
-        ForumData k;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, shaVar) == null) && shaVar != null && this.c != null && shaVar.getAdvertAppInfo() != null) {
-            shaVar.getAdvertAppInfo().i = new g15();
-            if (this.c.y() != null) {
-                shaVar.getAdvertAppInfo().i.b = this.c.y().a();
-            }
-            shaVar.getAdvertAppInfo().i.a = shaVar.F1();
-            if (this.c.k() != null && (k = this.c.k()) != null) {
-                shaVar.getAdvertAppInfo().i.c = k.getId();
-                shaVar.getAdvertAppInfo().i.d = k.getFirst_class();
-                shaVar.getAdvertAppInfo().i.e = k.getSecond_class();
-            }
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                shaVar.getAdvertAppInfo().i.f = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
-            }
-            shaVar.getAdvertAppInfo().i.g = shaVar.getAdvertAppInfo().g;
-            shaVar.getAdvertAppInfo().i.h = false;
-        }
-    }
-
-    public final boolean i(ArrayList<tha> arrayList, int i) {
+    public static boolean g(SparseArray<?> sparseArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, arrayList, i)) == null) {
-            for (int max = Math.max(i - 4, 0); max < arrayList.size() && max < i + 4; max++) {
-                if (arrayList.get(max) instanceof sha) {
-                    return true;
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, sparseArray, i)) == null) {
+            if (sparseArray != null && (sparseArray.get(i) instanceof Boolean)) {
+                return ((Boolean) sparseArray.get(i)).booleanValue();
             }
             return false;
         }
         return invokeLI.booleanValue;
     }
 
-    public final void p() {
+    public static SpannableString o(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            boolean z = false;
-            for (int i = 0; i < this.f.size(); i++) {
-                if (this.f.get(i) instanceof pj9) {
-                    this.k = i;
-                    z = true;
-                }
-            }
-            if (!z) {
-                this.k = -1;
-            }
-            this.l = -1;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, str, i)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            spannableString.setSpan(new ForegroundColorSpan(i), 0, str.length(), 33);
+            return spannableString;
         }
+        return (SpannableString) invokeLI.objValue;
     }
 
-    public void t(aj9 aj9Var, boolean z) {
-        sha shaVar;
-        tha thaVar;
-        boolean z2;
-        aj9 aj9Var2;
+    public static SpannableStringBuilder h(zja zjaVar) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048602, this, aj9Var, z) != null) || aj9Var == null) {
-            return;
-        }
-        this.c = aj9Var;
-        if (aj9Var != null && aj9Var.O() != null && aj9Var.O().getAuthor() != null) {
-            this.g = aj9Var.O().getAuthor().getUserId();
-        }
-        if (this.f == null) {
-            this.f = new ArrayList<>();
-        }
-        this.f.clear();
-        Iterator<tha> it = aj9Var.F().iterator();
-        while (true) {
-            shaVar = null;
-            if (it.hasNext()) {
-                tha next = it.next();
-                if (next instanceof tha) {
-                    thaVar = next;
-                    if (thaVar.L() == 1) {
-                        break;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, zjaVar)) == null) {
+            if (zjaVar == null) {
+                return null;
+            }
+            if (zjaVar.f0() != null) {
+                str = zjaVar.f0().toString();
             } else {
-                thaVar = null;
-                break;
+                str = "";
             }
+            SpannableString o = o(zjaVar.t().getName_show() + ZeusCrashHandler.NAME_SEPERATOR, SkinManager.getColor(R.color.CAM_X0109));
+            SpannableString o2 = o(str, SkinManager.getColor(R.color.CAM_X0107));
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) o);
+            spannableStringBuilder.append((CharSequence) o2);
+            return spannableStringBuilder;
         }
-        if (thaVar == null && aj9Var.i() != null) {
-            thaVar = aj9Var.i();
-        }
-        if (thaVar != null) {
-            this.f.add(thaVar);
-        }
-        F(aj9Var);
-        G(this.g);
-        int i = 0;
-        if (!ListUtils.isEmpty(aj9Var.F()) && aj9Var.F().get(0) != null && aj9Var.O() != null) {
-            aj9Var.O().setItem(aj9Var.F().get(0).X());
-            aj9Var.O().setItemStar(aj9Var.F().get(0).Y());
-        }
-        if (aj9Var.O() != null && aj9Var.O().getRawThreadInfo() != null) {
-            h45 h45Var = new h45();
-            h45Var.t = aj9Var.O();
-            h45Var.n = true;
-            this.f.add(h45Var);
-        }
-        qj9 qj9Var = new qj9(aj9Var.O(), aj9Var.c());
-        qj9Var.g(false);
-        qj9Var.b = false;
-        this.f.add(qj9Var);
-        if (thaVar != null && thaVar.t0 != null && (aj9Var.k() == null || !TextUtils.equals(aj9Var.k().getName(), this.a.X().Q0()) || !this.a.X().W0())) {
-            dj9 dj9Var = new dj9(thaVar.t0);
-            dj9Var.b = this.a.X().L1();
-            this.f.add(dj9Var);
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        if (!z2 && aj9Var.k() != null && !StringUtils.isNull(aj9Var.k().getName()) && (!TextUtils.equals(aj9Var.k().getName(), this.a.X().Q0()) || !this.a.X().W0())) {
-            cj9 cj9Var = new cj9(aj9Var.k());
-            cj9Var.g = this.a.X().L1();
-            cj9Var.e = false;
-            this.f.add(cj9Var);
-            qj9Var.g(false);
-            qj9Var.b = false;
-        }
-        if (aj9Var.O() != null && !StringUtils.isNull(aj9Var.O().getForum_name())) {
-            vj9 vj9Var = new vj9();
-            vj9Var.a = aj9Var.O();
-            this.f.add(vj9Var);
-        } else if (aj9Var.O() != null && !StringUtils.isNull(aj9Var.m())) {
-            aj9Var.O().setForum_name(aj9Var.m());
-            vj9 vj9Var2 = new vj9();
-            vj9Var2.a = aj9Var.O();
-            this.f.add(vj9Var2);
-        }
-        if (k() && aj9Var.y() != null && aj9Var.y().c() == 1) {
-            kj9 kj9Var = new kj9(kj9.c);
-            kj9Var.b(true);
-            this.f.add(kj9Var);
-        }
-        pj9 pj9Var = new pj9(pj9.g);
-        pj9Var.c = l();
-        pj9Var.b = aj9Var.g;
-        pj9Var.d = aj9Var.j0();
-        pj9Var.e = aj9Var.f;
-        D(aj9Var);
-        this.f.add(pj9Var);
-        if (aj9Var.J() == 4) {
-            this.f.add(new oj9());
-        }
-        H();
-        q(j());
-        Iterator<tha> it2 = aj9Var.F().iterator();
-        boolean z3 = false;
-        while (it2.hasNext()) {
-            tha next2 = it2.next();
-            if ((next2 instanceof tha) && next2.L() != 1) {
-                this.f.add(next2);
-                z3 = true;
-            }
-        }
-        if (!z3 && ((!z || !BdNetTypeUtil.isNetWorkAvailable()) && ((aj9Var2 = this.c) == null || !aj9Var2.s()))) {
-            mj9 mj9Var = new mj9();
-            mj9Var.h1 = TbadkCoreApplication.getInst().getContext().getString(R.string.mention_replyme_nodata);
-            mj9Var.g1 = R.drawable.new_pic_emotion_03;
-            mj9Var.i1 = BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds74);
-            this.f.add(mj9Var);
-        }
-        r(aj9Var, this.i, this.g, this.h);
-        if (aj9Var.y().b() == 0) {
-            aj9 aj9Var3 = this.c;
-            if (aj9Var3 != null && aj9Var3.s()) {
-                C(this.a.S().J3());
-                this.f.add(new jj9());
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("fid", this.c.l());
-                statisticItem.param("fname", this.c.m());
-                statisticItem.param("tid", this.c.Q());
-                TiebaStatic.log(statisticItem);
-            } else if (z3) {
-                B(this.a.S().J3());
-                ij9 ij9Var = new ij9();
-                ij9Var.a = TbadkCoreApplication.getInst().getResources().getString(R.string.list_has_no_more);
-                this.f.add(ij9Var);
-            }
-            List<sha> a0 = aj9Var.a0();
-            int i2 = -1;
-            if (a0 != null && !a0.isEmpty()) {
-                shaVar = a0.get(0);
-                i2 = shaVar.getPosition();
-            }
-            if (!ListUtils.isEmpty(aj9Var.e())) {
-                int i3 = 1;
-                for (s15 s15Var : aj9Var.e()) {
-                    if (a0 != null && i3 == i2) {
-                        if (shaVar != null) {
-                            c(shaVar);
-                            this.f.add(shaVar);
-                            i++;
-                            if (shaVar.getType() != AdvertAppInfo.y) {
-                                i3++;
-                            }
-                        }
-                        if (i < a0.size()) {
-                            sha shaVar2 = a0.get(i);
-                            shaVar = shaVar2;
-                            i2 = shaVar2.getPosition();
-                        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public static Drawable i(f55 f55Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, f55Var)) == null) {
+            switch (f55Var.e()) {
+                case -4:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_share30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case -3:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_comment30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case -2:
+                    if (!f55Var.j()) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_dislike30, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
-                    this.f.add(s15Var);
-                    i3++;
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_disliked30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case -1:
+                    if (!f55Var.j()) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_like30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_liked30, SkinManager.getColor(R.color.CAM_X0301), null);
+                case 0:
+                default:
+                    return null;
+                case 1:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_expression30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 2:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_save30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 3:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_copy30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 4:
+                    if (pp9.t(R.string.obfuscated_res_0x7f0f0c5c, new Object[0]).equals(f55Var.f())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_collect30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_collected30, SkinManager.getColor(R.color.CAM_X0305), null);
+                case 5:
+                    if (pp9.t(R.string.report_text, new Object[0]).equals(f55Var.f())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_report30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    if (!pp9.t(R.string.obfuscated_res_0x7f0f0d1e, new Object[0]).equals(f55Var.f())) {
+                        return null;
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_nospeakingset30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 6:
+                    if (pp9.t(R.string.report_text, new Object[0]).equals(f55Var.f())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_report30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    if (!pp9.t(R.string.obfuscated_res_0x7f0f054b, new Object[0]).equals(f55Var.f())) {
+                        return null;
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_delete30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 7:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_administration30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 8:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_hide30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 9:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_block30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 10:
+                    if (pp9.t(R.string.obfuscated_res_0x7f0f055a, new Object[0]).equals(f55Var.f())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_delete30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    if (!pp9.t(R.string.obfuscated_res_0x7f0f054b, new Object[0]).equals(f55Var.f())) {
+                        return null;
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_delete30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 11:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_block30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 12:
+                    if (pp9.t(R.string.obfuscated_res_0x7f0f0d1a, new Object[0]).equals(f55Var.f())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_nospeaking30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    if (!pp9.t(R.string.un_mute, new Object[0]).equals(f55Var.f())) {
+                        return null;
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_nospeakinged30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 13:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_batch_delete, SkinManager.getColor(R.color.CAM_X0107), null);
+            }
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    public static boolean l(zja zjaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, zjaVar)) == null) {
+            if (zjaVar != null && zjaVar.t() != null && !StringUtils.isNull(zjaVar.t().getUserId()) && zjaVar.t().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static List<f55> m(List<f55> list, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65548, null, list, z)) == null) {
+            if (list != null && !z) {
+                Iterator<f55> it = list.iterator();
+                while (it.hasNext()) {
+                    f55 next = it.next();
+                    if (next.e() == 2 || next.e() == 1 || next.e() == 3) {
+                        it.remove();
+                    }
                 }
             }
+            return list;
         }
-        BdTypeRecyclerView bdTypeRecyclerView = this.b;
-        if (bdTypeRecyclerView != null) {
-            if (this.m == null) {
-                this.m = new on(bdTypeRecyclerView);
-            }
-            this.m.e(new a(this));
-        }
-        p();
+        return (List) invokeLZ.objValue;
     }
 }

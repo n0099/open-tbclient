@@ -1,79 +1,68 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.qq.e.ads.nativ.NativeExpressADView;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class erb extends FunNativeAd2Bridger<urb, View> {
+public class erb implements TTNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ zqb b;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ grb c;
+    public final /* synthetic */ brb d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public erb(zqb zqbVar, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public erb(brb brbVar, grb grbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zqbVar, reporterPidLoader};
+            Object[] objArr = {brbVar, grbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = zqbVar;
+        this.d = brbVar;
+        this.c = grbVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, urb urbVar, BaseNativeAd2<urb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, urbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((brb) this.c, this.b, new String[0]);
+            this.b = true;
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(urb urbVar) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, urbVar)) == null) {
-            return (View) urbVar.a;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked((brb) this.c, this.b, new String[0]);
+            this.b = true;
         }
-        return (View) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, urb urbVar, BaseNativeAd2<urb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdShow(TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, urbVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            urb urbVar2 = urbVar;
-            this.b.onShowStart(urbVar2);
-            if (((NativeExpressADView) urbVar2.a).getBoundData().getAdPatternType() == 2) {
-                zqb zqbVar = this.b;
-                zqbVar.getClass();
-                ((NativeExpressADView) urbVar2.a).setMediaListener(new crb(zqbVar));
-            }
-            expressInflater.inflate();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((brb) this.c, this.a, new String[0]);
+            this.a = true;
         }
     }
 }

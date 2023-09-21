@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jw0 extends qw0 {
+public class jw0 extends vw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,67 +24,12 @@ public class jw0 extends qw0 {
         }
     }
 
-    public void e() {
+    public static vw0 w(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(iw0.w(ControlEvent.ACTION_RESUME));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return vw0.m(str, 8);
         }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(iw0.w(ControlEvent.ACTION_SHOW_TIP));
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c(iw0.w(ControlEvent.ACTION_START));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c(iw0.w(ControlEvent.ACTION_STOP));
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            ww0 w = iw0.w(ControlEvent.ACTION_PAUSE);
-            w.n(11, Integer.valueOf(i));
-            boolean z = true;
-            if (i != 1) {
-                z = false;
-            }
-            w.n(7, Boolean.valueOf(z));
-            c(w);
-        }
-    }
-
-    public void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            ww0 w = iw0.w(ControlEvent.ACTION_SEEK_MS);
-            w.n(5, Integer.valueOf(i));
-            w.n(12, Integer.valueOf(i2));
-            c(w);
-        }
-    }
-
-    public void j(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
-            ww0 w = iw0.w(ControlEvent.ACTION_SYNC_PROGRESS);
-            w.n(1, Integer.valueOf(i));
-            w.n(2, Integer.valueOf(i2));
-            w.n(3, Integer.valueOf(i3));
-            w.r(1);
-            c(w);
-        }
+        return (vw0) invokeL.objValue;
     }
 }

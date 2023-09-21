@@ -26,7 +26,7 @@ public class c {
 
     /* renamed from: com.ss.android.socialbase.downloader.network.c$c  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0770c {
+    public static class C0763c {
         public static final c a = new c();
     }
 
@@ -37,7 +37,7 @@ public class c {
     }
 
     public static c a() {
-        return C0770c.a;
+        return C0763c.a;
     }
 
     private void a(String str, List<InetAddress> list) {

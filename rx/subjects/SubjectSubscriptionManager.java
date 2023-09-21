@@ -1,34 +1,34 @@
 package rx.subjects;
 
-import com.baidu.tieba.fbc;
-import com.baidu.tieba.gbc;
-import com.baidu.tieba.sac;
-import com.baidu.tieba.tac;
-import com.baidu.tieba.wfc;
-import com.baidu.tieba.yac;
+import com.baidu.tieba.kcc;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.ohc;
+import com.baidu.tieba.qcc;
+import com.baidu.tieba.xcc;
+import com.baidu.tieba.ycc;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements sac.a<T> {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements kcc.a<T> {
     public static final long serialVersionUID = 6035251036011671568L;
     public boolean active;
     public volatile Object latest;
-    public gbc<c<T>> onAdded;
-    public gbc<c<T>> onStart;
-    public gbc<c<T>> onTerminated;
+    public ycc<c<T>> onAdded;
+    public ycc<c<T>> onStart;
+    public ycc<c<T>> onTerminated;
 
     /* loaded from: classes2.dex */
-    public class a implements fbc {
+    public class a implements xcc {
         public final /* synthetic */ c a;
 
         public a(c cVar) {
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.fbc
+        @Override // com.baidu.tieba.xcc
         public void call() {
             SubjectSubscriptionManager.this.remove(this.a);
         }
@@ -97,15 +97,15 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> implements tac<T> {
-        public final yac<? super T> a;
+    public static final class c<T> implements lcc<T> {
+        public final qcc<? super T> a;
         public boolean b = true;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(yac<? super T> yacVar) {
-            this.a = yacVar;
+        public c(qcc<? super T> qccVar) {
+            this.a = qccVar;
         }
 
         public void a(Object obj) {
@@ -147,12 +147,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             NotificationLite.a(this.a, obj);
         }
 
-        @Override // com.baidu.tieba.tac
+        @Override // com.baidu.tieba.lcc
         public void onError(Throwable th) {
             this.a.onError(th);
         }
 
-        @Override // com.baidu.tieba.tac
+        @Override // com.baidu.tieba.lcc
         public void onNext(T t) {
             this.a.onNext(t);
         }
@@ -213,7 +213,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.tac
+        @Override // com.baidu.tieba.lcc
         public void onCompleted() {
             this.a.onCompleted();
         }
@@ -248,11 +248,11 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return true;
     }
 
-    public void call(yac<? super T> yacVar) {
-        c<T> cVar = new c<>(yacVar);
-        addUnsubscriber(yacVar, cVar);
+    public void call(qcc<? super T> qccVar) {
+        c<T> cVar = new c<>(qccVar);
+        addUnsubscriber(qccVar, cVar);
         this.onStart.call(cVar);
-        if (!yacVar.isUnsubscribed() && add(cVar) && yacVar.isUnsubscribed()) {
+        if (!qccVar.isUnsubscribed() && add(cVar) && qccVar.isUnsubscribed()) {
             remove(cVar);
         }
     }
@@ -286,12 +286,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return getAndSet(b.d).b;
     }
 
-    public void addUnsubscriber(yac<? super T> yacVar, c<T> cVar) {
-        yacVar.b(wfc.a(new a(cVar)));
+    public void addUnsubscriber(qcc<? super T> qccVar, c<T> cVar) {
+        qccVar.b(ohc.a(new a(cVar)));
     }
 
-    @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
+    @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((yac) ((yac) obj));
+        call((qcc) ((qcc) obj));
     }
 }

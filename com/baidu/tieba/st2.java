@@ -1,107 +1,62 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.Surface;
-import androidx.annotation.NonNull;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import java.util.Map;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface st2 extends ep2 {
+public class st2 extends dd3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(int i);
-
-        void b(int i);
-
-        void c(String str);
-
-        void d(@NonNull String str);
-
-        void e(String str);
-
-        void f();
-
-        void onEnded();
-
-        void onError(int i);
-
-        void onPrepared();
-
-        void onRelease(String str);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public st2(dc3 dc3Var) {
+        super(dc3Var, "/swanAPI/closeInput");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    void B(boolean z);
-
-    void C();
-
-    void G(int i);
-
-    void H();
-
-    void L(int i, int i2, int i3, int i4);
-
-    void N(ZeusPluginFactory.Invoker invoker);
-
-    boolean O(String str, String str2, String str3, boolean z);
-
-    boolean P();
-
-    a Q();
-
-    void S(Map map);
-
-    void T();
-
-    void V();
-
-    int a();
-
-    void a0(String str);
-
-    void b0();
-
-    String c();
-
-    ZeusPluginFactory.Invoker e0();
-
-    void f0(int i);
-
-    void g0(@NonNull a aVar);
-
-    Context getContext();
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    int getVideoHeight();
-
-    int getVideoSarDen();
-
-    int getVideoSarNum();
-
-    int getVideoWidth();
-
-    boolean i0();
-
-    boolean isPlaying();
-
-    void l(boolean z);
-
-    void m0();
-
-    void pause();
-
-    boolean prepareAsync();
-
-    void release();
-
-    void seekTo(int i);
-
-    void setSpeed(float f);
-
-    void setSurface(Surface surface);
-
-    void start();
+    @Override // com.baidu.tieba.dd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
+            SwanEditText c = tt2.d().c();
+            if (c == null) {
+                g82.c("closeInput", "input组件不存在");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
+                return false;
+            } else if (tw2.T().U() == null) {
+                g82.c("closeInput", "fragmentManager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                c.clearFocus();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
 }

@@ -1,98 +1,153 @@
 package com.baidu.tieba;
 
-import android.media.MediaFormat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
+import com.google.android.material.internal.ManufacturerUtils;
 import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
-import java.util.Locale;
 /* loaded from: classes6.dex */
-public final class i6c extends a6c implements NativeFfmpeg.a {
+public class i6c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.v5c
-    public void C() {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public i6c(e5c e5cVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e5cVar, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (h() && Build.MODEL.equals("MI 8")) {
+                TLog.m("extraDelta", "from MI 8 extraDelta= 45");
+                return 60;
             }
-        }
-        this.l.d(-16);
-        this.s = new WeakReference<>(e5cVar);
-        this.w = true;
-        this.b = i;
-        this.A.i(i);
-        this.o = 3;
-    }
-
-    public void M(MediaInfo mediaInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
-            TLog.g(this, mediaInfo.toString());
-            synchronized (this) {
-                if (this.q.e(mediaInfo)) {
-                    this.q.c(mediaInfo);
+            if (c()) {
+                String str = Build.MODEL;
+                if (str.equals("SEA-AL10")) {
+                    TLog.m("extraDelta", "from huawei nova 5 pro extraDelta= 100");
+                    return 20;
+                } else if (str.equals("ELE-AL00")) {
+                    TLog.m("extraDelta", "from huawei p30 extraDelta= 80");
+                    return 80;
+                }
+            }
+            if (g()) {
+                if (Build.MODEL.equals("vivo X21A")) {
+                    TLog.m("extraDelta", "from vivo X21A extraDelta= 110");
+                    return 100;
+                }
+                TLog.m("extraDelta", "from VIVO extraDelta= 150");
+                return 150;
+            } else if (e()) {
+                String str2 = Build.MODEL;
+                if (str2.equals("OPPO A37m")) {
+                    TLog.m("extraDelta", "from OPPO A37m extraDelta= 150");
+                    return 150;
+                } else if (str2.equals("PBEM00")) {
+                    TLog.m("extraDelta", "from oppo r17 extraDelta= 300");
+                    return 300;
                 } else {
-                    TLog.g(this, String.format(Locale.getDefault(), "onFormatChanged output size %d * %d", Integer.valueOf(mediaInfo.b), Integer.valueOf(mediaInfo.c)));
+                    TLog.m("extraDelta", "from oppo extraDelta= 100");
+                    return 100;
                 }
-                if (this.B == null || this.B.capacity() < this.q.i) {
-                    this.B = ByteBuffer.allocateDirect(this.q.i);
-                }
-                int j = ((((int) r5c.j(this.q.d, 16L)) * ((int) r5c.j(this.q.e, 16L))) * 3) >> 1;
-                if (j > this.E) {
-                    this.E = j;
-                    this.C = ByteBuffer.allocateDirect(j);
-                }
+            } else if (b()) {
+                TLog.m("extraDelta", "from EMUI extraDelta= 150");
+                return 150;
+            } else if (d()) {
+                TLog.m("extraDelta", "from MIUI extraDelta= 150");
+                return 150;
+            } else if (f()) {
+                TLog.m("extraDelta", "from SAMSUNG extraDelta= 50");
+                return 50;
+            } else {
+                TLog.m("extraDelta", "from default extraDelta= 100");
+                return 100;
             }
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.v5c
-    public void z(MediaFormat mediaFormat, int i) {
-        int i2;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
-            TLog.g(this, "VideoSwDecoder handleCreateDecoder: taskId " + i);
-            this.x = System.currentTimeMillis();
-            this.a = i;
-            this.A.p(this);
-            this.A.h(i);
-            String string = mediaFormat.getString("mime");
-            if (string.compareTo("video/avc") == 0) {
-                i2 = 6;
-            } else if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
-                i2 = 7;
-            } else {
-                i2 = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
             }
-            if (this.A.j(i2, mediaFormat) != 0) {
-                m(50);
-            }
-            M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
-            this.y = System.currentTimeMillis();
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if ("OPPO".equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (ManufacturerUtils.SAMSUNG.equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if ("vivo".equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

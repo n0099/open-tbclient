@@ -1,223 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ListAdapter;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class c49 {
+public class c49 implements kv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Animation a;
-    public Animation b;
-    public View c;
-    public ViewGroup d;
-    public c e;
-    public b49 f;
-    public boolean g;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a();
+    @Override // com.baidu.tieba.kv4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.FOLLOW_ADDRESS : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ c49 b;
-
-        public a(c49 c49Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c49Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = c49Var;
-            this.a = context;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                z39 item = this.b.f.getItem(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
-                this.b.f(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends ig {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c49 a;
-
-        public b(c49 c49Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c49Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c49Var;
-        }
-
-        @Override // com.baidu.tieba.ig, android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.g = false;
-                if (this.a.e != null) {
-                    this.a.e.a();
-                }
-                this.a.d.removeView(this.a.c);
-            }
-        }
-    }
-
-    public c49(ViewGroup viewGroup) {
+    public c49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = false;
-        this.d = viewGroup;
-    }
-
-    public void f(Context context) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && (view2 = this.c) != null) {
-            view2.startAnimation(i(context));
-        }
-    }
-
-    public final Animation h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.a == null) {
-                this.a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
-            }
-            return this.a;
-        }
-        return (Animation) invokeL.objValue;
-    }
-
-    public final Animation i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (this.b == null) {
-                this.b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
-            }
-            this.b.setAnimationListener(new b(this));
-            return this.b;
-        }
-        return (Animation) invokeL.objValue;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
-            b49 b49Var = this.f;
-            if (b49Var != null) {
-                b49Var.notifyDataSetChanged();
             }
         }
     }
 
-    public void l(c cVar) {
+    @Override // com.baidu.tieba.kv4
+    public void b(HashMap<String, String> hashMap, lv4 lv4Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.e = cVar;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, lv4Var) == null) && lv4Var != null && hashMap != null && !hashMap.isEmpty()) {
+            UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
+            updateAttentionData.isSucc = lv4Var.a;
+            updateAttentionData.errorString = lv4Var.c;
+            updateAttentionData.isAttention = true;
+            if (hashMap.get("touid") == null) {
+                str = "";
+            } else {
+                str = hashMap.get("touid");
+            }
+            updateAttentionData.toUid = str;
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(updateAttentionData));
         }
-    }
-
-    public final View g(Context context, List<z39> list, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05b9, (ViewGroup) null);
-            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f09213d);
-            gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
-            b49 b49Var = new b49(context, i);
-            this.f = b49Var;
-            b49Var.b(list);
-            gridView.setAdapter((ListAdapter) this.f);
-            gridView.setOnItemClickListener(new a(this, context));
-            return inflate;
-        }
-        return (View) invokeLLI.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m(Context context, List<z39> list, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048583, this, context, list, i) != null) || this.g) {
-            return;
-        }
-        this.g = true;
-        View g = g(context, list, i);
-        this.c = g;
-        this.d.addView(g);
-        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
-        this.c.startAnimation(h(context));
     }
 }

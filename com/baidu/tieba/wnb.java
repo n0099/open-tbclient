@@ -1,197 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.tencent.open.SocialConstants;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wnb extends kob {
+public class wnb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
 
     /* loaded from: classes8.dex */
-    public static class a extends kob {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final Map<String, Set<Object>> b;
+        public final /* synthetic */ AppCompatActivity a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, ObjectInput objectInput) {
-            super(i);
+        public a(AppCompatActivity appCompatActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput};
+                Object[] objArr = {appCompatActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = objectInput.readUTF();
-            HashMap hashMap = new HashMap();
-            int readInt = objectInput.readInt();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                String readUTF = objectInput.readUTF();
-                int readInt2 = objectInput.readInt();
-                HashSet hashSet = new HashSet();
-                for (int i5 = 0; i5 < readInt2; i5++) {
-                    try {
-                        hashSet.add(objectInput.readObject());
-                    } catch (ClassNotFoundException e) {
-                        LogPrinter.e(e);
-                    }
-                }
-                hashMap.put(readUTF, Collections.unmodifiableSet(hashSet));
-            }
-            this.b = Collections.unmodifiableMap(hashMap);
+            this.a = appCompatActivity;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JSONObject jSONObject) {
-            super(1);
-            Map<String, Set<Object>> unmodifiableMap;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = jSONObject.getString("key");
-            JSONArray optJSONArray = jSONObject.optJSONArray("content");
-            if (optJSONArray == null) {
-                unmodifiableMap = Collections.emptyMap();
-            } else {
-                HashMap hashMap = new HashMap();
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
-                    String string = jSONObject2.getString(CriusAttrConstants.COLUMN);
-                    JSONArray optJSONArray2 = jSONObject2.optJSONArray(SavedStateHandle.VALUES);
-                    int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
-                    HashSet hashSet = new HashSet();
-                    for (int i4 = 0; i4 < length; i4++) {
-                        hashSet.add(optJSONArray2.get(i4));
-                    }
-                    hashMap.put(string, Collections.unmodifiableSet(hashSet));
-                }
-                unmodifiableMap = Collections.unmodifiableMap(hashMap);
-            }
-            this.b = unmodifiableMap;
-        }
-
-        @Override // com.baidu.tieba.kob
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-                objectOutput.writeUTF(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (Map.Entry<String, Set<Object>> entry : this.b.entrySet()) {
-                    Set<Object> value = entry.getValue();
-                    objectOutput.writeUTF(entry.getKey());
-                    objectOutput.writeInt(value.size());
-                    for (Object obj : value) {
-                        objectOutput.writeObject(obj);
-                    }
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.onBackPressed();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wnb(int i, ObjectInput objectInput) {
-        super(i);
+    public static void a(AppCompatActivity appCompatActivity, Toolbar toolbar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        int readInt = objectInput.readInt();
-        HashSet hashSet = new HashSet();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            hashSet.add(new a(objectInput.readInt(), objectInput));
-        }
-        this.a = Collections.unmodifiableSet(hashSet);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wnb(JSONObject jSONObject) {
-        super(1);
-        Set<a> unmodifiableSet;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_EXCLUDE);
-        if (optJSONArray == null) {
-            unmodifiableSet = Collections.emptySet();
-        } else {
-            HashSet hashSet = new HashSet();
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                hashSet.add(new a(optJSONArray.getJSONObject(i3)));
-            }
-            unmodifiableSet = Collections.unmodifiableSet(hashSet);
-        }
-        this.a = unmodifiableSet;
-    }
-
-    @Override // com.baidu.tieba.kob
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (a aVar : this.a) {
-                aVar.srzable(objectOutput);
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, appCompatActivity, toolbar, str) == null) {
+            toolbar.setNavigationIcon((Drawable) null);
+            toolbar.setTitle("");
+            View inflate = LayoutInflater.from(appCompatActivity).inflate(R.layout.obfuscated_res_0x7f0d005c, (ViewGroup) toolbar, false);
+            Toolbar.LayoutParams layoutParams = new Toolbar.LayoutParams(-1, -1);
+            layoutParams.gravity = 17;
+            inflate.setLayoutParams(layoutParams);
+            toolbar.addView(inflate);
+            appCompatActivity.setSupportActionBar(toolbar);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091909)).setText(str);
+            inflate.findViewById(R.id.obfuscated_res_0x7f091908).setOnClickListener(new a(appCompatActivity));
         }
     }
 }

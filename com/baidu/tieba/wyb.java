@@ -1,41 +1,47 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class wyb<TResult> {
+public class wyb implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ xyb a;
 
-    public wyb() {
+    public wyb(xyb xybVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xybVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = xybVar;
     }
 
-    public abstract wyb<TResult> a(tyb<TResult> tybVar);
-
-    public abstract wyb<TResult> b(uyb uybVar);
-
-    public abstract wyb<TResult> c(vyb<TResult> vybVar);
-
-    public abstract Exception d();
-
-    public abstract TResult e();
-
-    public abstract boolean f();
-
-    public abstract boolean g();
-
-    public abstract boolean h();
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            if (message != null && message.what == 1001) {
+                this.a.b(8002003);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

@@ -16,11 +16,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.o15;
 import com.baidu.tieba.q25;
-import com.baidu.tieba.r88;
-import com.baidu.tieba.s98;
-import com.baidu.tieba.t75;
+import com.baidu.tieba.t88;
 import com.baidu.tieba.tz4;
+import com.baidu.tieba.u98;
 import com.baidu.tieba.wz4;
+import com.baidu.tieba.x75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,7 +35,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     public GridIconLayout c;
     public String d;
     public wz4 e;
-    public t75<o15> f;
+    public x75<o15> f;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
@@ -105,7 +105,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                r88.c("c13751", this.a.d);
+                t88.c("c13751", this.a.d);
             }
         }
     }
@@ -119,7 +119,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.wz4
         /* renamed from: a */
-        public void b(View view2, o15 o15Var, int i, long j) {
+        public void d(View view2, o15 o15Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, o15Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             }
@@ -146,16 +146,16 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.wz4
         /* renamed from: c */
-        public void d(View view2, o15 o15Var, int i, long j) {
+        public void b(View view2, o15 o15Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, o15Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                r88.a("c13751", o15Var, i + 1, this.a.d);
+                t88.a("c13751", o15Var, i + 1, this.a.d);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements t75<o15> {
+    public class d implements x75<o15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedHeaderView a;
@@ -178,25 +178,25 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.a = homePageTabFeedHeaderView;
         }
 
-        @Override // com.baidu.tieba.t75
+        @Override // com.baidu.tieba.x75
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 o15 o15Var = new o15();
                 o15Var.e(str);
-                r88.a("c13750", o15Var, i, this.a.d);
+                t88.a("c13750", o15Var, i, this.a.d);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.t75
+        @Override // com.baidu.tieba.x75
         /* renamed from: c */
         public void a(int i, o15 o15Var) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, o15Var) != null) || o15Var == null) {
                 return;
             }
-            r88.b("c13750", o15Var, i, this.a.d);
+            t88.b("c13750", o15Var, i, this.a.d);
         }
     }
 
@@ -333,11 +333,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
     }
 
-    public void setData(s98 s98Var) {
+    public void setData(u98 u98Var) {
         int i;
         List<o15> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, s98Var) != null) || s98Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, u98Var) != null) || u98Var == null) {
             return;
         }
         setPadding(0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003), 0, 0);
@@ -351,7 +351,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             addView(this.b);
             this.b.setIWindowChangedListener(new a(this));
         }
-        this.b.onBindDataToView(s98Var.e);
+        this.b.onBindDataToView(u98Var.e);
         if (this.c == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
             this.c = gridIconLayout;
@@ -361,7 +361,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             addView(this.c, layoutParams);
             int dimens = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.M_H_X002);
             int dimens2 = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds30);
-            q25 q25Var = s98Var.f;
+            q25 q25Var = u98Var.f;
             if (q25Var != null && (list = q25Var.a) != null) {
                 i = list.size();
             } else {
@@ -377,7 +377,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.c.setIWindowChangedListener(new b(this));
             this.c.setMaxItem(10);
         }
-        this.c.onBindDataToView(s98Var.f);
+        this.c.onBindDataToView(u98Var.f);
         this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 }

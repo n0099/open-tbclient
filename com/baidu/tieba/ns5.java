@@ -1,73 +1,120 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class ns5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public final ArrayList<String> c;
 
-    public static String a(ArrayList<String> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
+    public ns5(BdUniqueId bdUniqueId, String str, String str2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, arrayList, str, i)) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            if (!ListUtils.isEmpty(arrayList)) {
-                arrayList2.addAll(arrayList);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId, str, str2, intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!TextUtils.isEmpty(str)) {
-                arrayList2.add(str);
-            }
-            List<String> c = c(arrayList2, i);
-            if (!ListUtils.isEmpty(c)) {
-                return b(c);
-            }
-            return null;
         }
-        return (String) invokeLLI.objValue;
+        this.c = new ArrayList<>();
+        this.a = str;
+        this.b = str2;
+        g(intent);
     }
 
-    public static String b(List<String> list) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.getCount(list) <= 0) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ArrayList<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return TbPageExtraHelper.buildNextPageSourceKeyList(this.c, this.a);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (String) ListUtils.getItem(this.c, ListUtils.getCount(this.c) - 1);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (StringUtils.isNull(this.a)) {
+                return true;
             }
-            StringBuilder sb = new StringBuilder();
-            boolean z = false;
-            for (String str : list) {
-                if (!StringUtils.isNull(str)) {
-                    if (!z && !StringUtils.isNull(sb.toString())) {
-                        z = true;
-                    }
-                    if (z) {
-                        sb.append("_");
-                    }
-                    sb.append(str);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+            this.c.clear();
+            if (intent != null) {
+                ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
+                if (!ListUtils.isEmpty(stringArrayListExtra)) {
+                    this.c.addAll(stringArrayListExtra);
                 }
             }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static List<String> c(List<String> list, int i) {
-        InterceptResult invokeLI;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            int count = ListUtils.getCount(list);
-            if (count > 0 && i >= 0 && count > i) {
-                return ListUtils.subList(list, count - i, count);
-            }
-            return list;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
-        return (List) invokeLI.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ei6;
+import com.baidu.tieba.ii6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import tbclient.Search.SearchResIdl;
 public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ei6 candidateData;
+    public ii6 candidateData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CandidateSearchHttpResMsg() {
@@ -49,9 +49,9 @@ public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
                     setErrorString(searchResIdl.error.errmsg);
                 }
                 if (searchResIdl.data.uid.longValue() != 0) {
-                    ei6 ei6Var = new ei6();
-                    this.candidateData = ei6Var;
-                    ei6Var.a(searchResIdl.data);
+                    ii6 ii6Var = new ii6();
+                    this.candidateData = ii6Var;
+                    ii6Var.a(searchResIdl.data);
                     if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                         this.candidateData.a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
                     }

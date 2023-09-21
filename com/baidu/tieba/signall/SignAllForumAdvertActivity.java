@@ -147,10 +147,17 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
+    public final void N0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TiebaStatic.log("c10746");
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             clearAnimatable();
             clearAnimation();
             overridePendingTransition(0, 0);
@@ -160,24 +167,35 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             clearAnimatable();
             clearAnimation();
             overridePendingTransition(0, 0);
         }
     }
 
-    public final void p1() {
+    public final void O0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TiebaStatic.log("c10746");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d08c9);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            this.f = navigationBar;
+            navigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09222b);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092226);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092225);
+            this.d.setDefaultBgResource(R.drawable.transparent_bg);
+            BdResourceLoader.getInstance().loadResource(this.a, 10, new a(this), null);
+            this.d.startLoad(this.a, 10, false);
+            this.d.setOnClickListener(new b(this));
+            this.e.setOnClickListener(new c(this));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             super.setActivityBgTransparent();
             super.setSwipeBackEnabled(false);
@@ -185,26 +203,8 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
             this.a = intent.getStringExtra("ad_pic");
             this.b = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
             intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
-            q1();
-            p1();
-        }
-    }
-
-    public final void q1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d08cd);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.f = navigationBar;
-            navigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092262);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09225d);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09225c);
-            this.d.setDefaultBgResource(R.drawable.transparent_bg);
-            BdResourceLoader.getInstance().loadResource(this.a, 10, new a(this), null);
-            this.d.startLoad(this.a, 10, false);
-            this.d.setOnClickListener(new b(this));
-            this.e.setOnClickListener(new c(this));
+            O0();
+            N0();
         }
     }
 }

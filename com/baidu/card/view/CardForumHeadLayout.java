@@ -33,14 +33,14 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cra;
 import com.baidu.tieba.d45;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
+import com.baidu.tieba.fia;
+import com.baidu.tieba.jta;
 import com.baidu.tieba.k25;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.un6;
+import com.baidu.tieba.sa5;
 import com.baidu.tieba.view.TbLayerImageView;
-import com.baidu.tieba.zfa;
+import com.baidu.tieba.yn6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -333,16 +333,16 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         }
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
         if (f(this.p) && this.p.b() != null) {
-            this.e.setTextColor(zfa.f(cra.c(this.p.b().c())));
-            EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(zfa.f(cra.c(this.p.b().a())));
+            this.e.setTextColor(fia.f(jta.c(this.p.b().c())));
+            EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(fia.f(jta.c(this.p.b().a())));
         } else {
             EMManager.from(this.e).setTextSize(R.dimen.T_X09).setCorner(R.string.J_X02).setTextColor(R.color.CAM_X0109);
             this.e.setBackgroundDrawable(null);
         }
         EMManager.from(this.q).setTextSize(R.dimen.T_X08);
-        oa5 oa5Var = new oa5();
-        oa5Var.r(zfa.a(SkinManager.getColor(R.color.CAM_X0341), 0.75f), SkinManager.getColor(R.color.CAM_X0101));
-        this.q.setConfig(oa5Var);
+        sa5 sa5Var = new sa5();
+        sa5Var.r(fia.a(SkinManager.getColor(R.color.CAM_X0341), 0.75f), SkinManager.getColor(R.color.CAM_X0101));
+        this.q.setConfig(sa5Var);
         SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
@@ -420,7 +420,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             TbSingleton.getInstance().saveHomeRecommendItemClickTime();
         }
         ThreadData threadData2 = this.n;
-        if (threadData2 != null && threadData2.getForumData() != null && !ei.isEmpty(this.n.getForumData().j())) {
+        if (threadData2 != null && threadData2.getForumData() != null && !di.isEmpty(this.n.getForumData().j())) {
             UrlManager.getInstance().dealOneLink(this.n.getForumData().j());
         } else {
             FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(this.k, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
@@ -556,29 +556,29 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             if (f(k25Var)) {
                 this.p = k25Var;
                 this.f.setText(k25Var.a());
-                if (k25Var.b() != null && !ei.isEmpty(k25Var.b().b())) {
+                if (k25Var.b() != null && !di.isEmpty(k25Var.b().b())) {
                     this.e.setText(k25Var.b().b());
                     TextView textView = this.e;
                     int i3 = s;
                     int i4 = t;
                     textView.setPadding(i3, i4, i3, i4);
-                    this.e.setTextColor(zfa.f(cra.c(this.p.b().c())));
+                    this.e.setTextColor(fia.f(jta.c(this.p.b().c())));
                     setAttentionLineSpace(u);
-                    EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(zfa.f(cra.c(this.p.b().a())));
+                    EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(fia.f(jta.c(this.p.b().a())));
                 } else {
-                    un6.f(this.e, 8);
+                    yn6.f(this.e, 8);
                     this.e.setPadding(0, 0, 0, 0);
                     EMManager.from(this.e).setTextSize(R.dimen.T_X09).setCorner(R.string.J_X02).setTextColor(R.color.CAM_X0109);
                     this.e.setBackgroundDrawable(null);
                 }
-                if (!ei.isEmpty(this.p.c())) {
-                    un6.f(this.q, 0);
+                if (!di.isEmpty(this.p.c())) {
+                    yn6.f(this.q, 0);
                     this.q.setText(this.p.c());
                 } else {
-                    un6.f(this.q, 8);
+                    yn6.f(this.q, 8);
                 }
             } else {
-                un6.f(this.q, 8);
+                yn6.f(this.q, 8);
                 this.f.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i)));
                 this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04b8), StringHelper.numberUniformFormatExtra(i2)));
             }

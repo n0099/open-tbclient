@@ -1,76 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import androidx.appcompat.app.AlertDialog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.browser.BrowserHelper;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.LoginDialogData;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.qe5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public final class l65 extends d65 {
+public final class l65 extends g65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static final class a implements TbImageView.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBAlertBuilder a;
-        public final /* synthetic */ AlertDialog b;
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public a(TBAlertBuilder tBAlertBuilder, AlertDialog alertDialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tBAlertBuilder, alertDialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBAlertBuilder;
-            this.b = alertDialog;
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void a(String key, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, key, z) == null) {
-                Intrinsics.checkNotNullParameter(key, "key");
-                if (!z) {
-                    return;
-                }
-                this.a.show(this.b);
-            }
-        }
-    }
 
     public l65() {
         Interceptable interceptable = $ic;
@@ -86,83 +33,59 @@ public final class l65 extends d65 {
         }
     }
 
-    @Override // com.baidu.tieba.d65
-    public void c() {
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            YunDialogManager.unMarkShowingDialogName("operateNew");
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
         }
     }
 
-    @Override // com.baidu.tieba.d65
-    public void d() {
+    @Override // com.baidu.tieba.g65
+    public void a(Context context, u55 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            YunDialogManager.markShowingDialogName("operateNew");
-        }
-    }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
+                int i = 0;
+                LiveRemindRecommendData c = e95.a().c(0);
+                HashMap hashMap = new HashMap();
+                if (c.getRemindType() == 1) {
+                    i = 3;
+                } else if (c.getRemindType() == 2) {
+                    i = 4;
+                } else if (c.getRemindType() == 3) {
+                    i = 2;
+                }
+                hashMap.put("view_top_params_key_image_url", c.getLiveIconSrc());
+                hashMap.put("view_top_params_key_schema", c.getLiveIconScheme());
+                hashMap.put("view_top_params_user_name", c.getUserName());
+                hashMap.put("view_top_params_key_desc", c.getDesc());
+                hashMap.put("view_top_params_room_id", c.getRoomId());
+                hashMap.put("view_top_params_btn_text", c.getBtnText());
+                hashMap.put("view_top_params_key_title", c.getTitle());
+                hashMap.put("view_top_params_key_nid", c.getFeedId());
+                hashMap.put("view_top_params_key_yyext", c.getYyExtData());
+                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
+                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
+                re5.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new qe5.h() { // from class: com.baidu.tieba.a65
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void f(AlertDialog dialog, lh5 lh5Var, View view2) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, dialog, lh5Var, view2) == null) {
-            Intrinsics.checkNotNullParameter(dialog, "$dialog");
-            if (view2 != null && view2.getContext() != null) {
-                dialog.dismiss();
-                LoginDialogData loginDialogData = new LoginDialogData(view2.getContext(), LoginDialogData.HOME_OPERATE_DIALOG);
-                String b = lh5Var.b();
-                Intrinsics.checkNotNullExpressionValue(b, "operateData.getHomeOperateUrl()");
-                if (TextUtils.isEmpty(b)) {
-                    return;
-                }
-                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    str = "skin=dark";
-                } else {
-                    str = "skin=default";
-                }
-                if (StringsKt__StringsKt.contains$default((CharSequence) b, (CharSequence) "?", false, 2, (Object) null)) {
-                    str2 = b + "&customfullscreen=1&nonavigationbar=1&" + str;
-                } else {
-                    str2 = b + "?customfullscreen=1&nonavigationbar=1&" + str;
-                }
-                loginDialogData.setJumpUrl(str2);
-                if (DialogLoginHelper.checkUpIsLogin(loginDialogData)) {
-                    BrowserHelper.startWebActivity(view2.getContext(), (String) null, str2, true);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.d65
-    public void b(TBAlertBuilder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, builder) == null) {
-            Intrinsics.checkNotNullParameter(builder, "builder");
-            final lh5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
-            SharedPrefHelper.getInstance().putBoolean(a75.a.a(), false);
-            int processWidth = TBAlertBuilder.processWidth(TbadkCoreApplication.getInst());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(processWidth, (processWidth * 4) / 3);
-            TbImageView tbImageView = new TbImageView(getActivity());
-            tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            builder.setCustomContentView(tbImageView).setNeedTransparentBg(true).setShowBottomCloseBtn(true).setCancelable(false);
-            final AlertDialog create = builder.create();
-            Intrinsics.checkNotNullExpressionValue(create, "builder.create()");
-            tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x55
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        l65.f(AlertDialog.this, homeOperateData, view2);
+                    @Override // com.baidu.tieba.qe5.h
+                    public final void dismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            l65.b();
+                        }
                     }
-                }
-            });
-            tbImageView.setEvent(new a(builder, create));
-            tbImageView.startLoad(homeOperateData.a(), 10, false);
+                });
+                f95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                YunDialogManager.markShowingDialogName("homeLiveRemind");
+                return;
+            }
+            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
         }
     }
 }

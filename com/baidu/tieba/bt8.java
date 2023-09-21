@@ -1,55 +1,65 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.UserData;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bt8 {
+public class bt8 extends FastRequest.b<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public final String c;
+    @NonNull
+    public final ChatPage d;
 
-    public static String a(UserData userData) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: j */
+    public void g(@NonNull Void r5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userData)) == null) {
-            if (userData == null) {
-                return "";
-            }
-            if (UtilHelper.isFllowByPriorty(userData)) {
-                if (userData.getAuthType() == 1) {
-                    if (userData.isOfficial()) {
-                        return "";
-                    }
-                } else if (userData.getAuthType() == 2) {
-                    if (userData.isOriginal()) {
-                        return userData.getCreatorInfo().authDesc;
-                    }
-                } else if (userData.getAuthType() == 3) {
-                    if (userData.isNewGod()) {
-                        return userData.getNewGodData().getFieldName() + ky5.c(userData.isVideoGod());
-                    }
-                } else if (userData.getAuthType() == 4 && userData.showBazhuGrade()) {
-                    return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, "...");
-                }
-            }
-            if (TextUtils.isEmpty("") && userData.isOfficial()) {
-                return "";
-            }
-            if (TextUtils.isEmpty("") && userData.isOriginal()) {
-                return userData.getCreatorInfo().authDesc;
-            }
-            if (TextUtils.isEmpty("") && userData.isNewGod()) {
-                return userData.getNewGodData().getFieldName() + ky5.c(userData.isVideoGod());
-            } else if (!TextUtils.isEmpty("") || !userData.showBazhuGrade()) {
-                return "";
-            } else {
-                return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, "...");
+        if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
+        }
+    }
+
+    public bt8(@Nullable String str, @NonNull ChatPage chatPage) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, chatPage};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.c = str;
+        this.d = chatPage;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: i */
+    public void d(int i, @NonNull String str, @Nullable Void r7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
+            super.d(i, str, r7);
+            BdLog.d("error: " + i + " " + str);
+            String str2 = this.c;
+            if (str2 != null && !StringUtils.isNull(str2)) {
+                this.d.w1(this.c, false);
+            }
+        }
     }
 }

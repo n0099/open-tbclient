@@ -20,11 +20,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.cja;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.wga;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class hy4 extends wi5 {
+public final class hy4 extends aj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> b;
@@ -50,7 +50,7 @@ public final class hy4 extends wi5 {
     public String h;
     public String i;
     public final NewWriteModel.d j;
-    public wga.h k;
+    public cja.h k;
 
     static {
         InterceptResult invokeClinit;
@@ -95,18 +95,18 @@ public final class hy4 extends wi5 {
             public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public final void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ae5 ae5Var, WriteData writeData, AntiData antiData) {
+            public final void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ee5 ee5Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ae5Var, writeData, antiData}) == null) {
-                    hy4.i(hy4.this, z, postWriteCallBackData, ae5Var, writeData, antiData);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ee5Var, writeData, antiData}) == null) {
+                    hy4.i(hy4.this, z, postWriteCallBackData, ee5Var, writeData, antiData);
                 }
             }
         };
-        this.k = new wga.h() { // from class: com.baidu.tieba.by4
+        this.k = new cja.h() { // from class: com.baidu.tieba.by4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.wga.h
+            @Override // com.baidu.tieba.cja.h
             public final void c(WriteData writeData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, writeData) == null) {
@@ -131,12 +131,12 @@ public final class hy4 extends wi5 {
                 String content = writeData.getContent();
                 Intrinsics.checkNotNullExpressionValue(content, "draftData.content");
                 this$0.e = content;
-                editorTools.D(new si5(6, 40, writeData.getContent()));
+                editorTools.D(new wi5(6, 40, writeData.getContent()));
             }
         }
     }
 
-    public static final void i(hy4 this$0, boolean z, PostWriteCallBackData postWriteCallBackData, ae5 ae5Var, WriteData writeData, AntiData antiData) {
+    public static final void i(hy4 this$0, boolean z, PostWriteCallBackData postWriteCallBackData, ee5 ee5Var, WriteData writeData, AntiData antiData) {
         WriteData writeData2;
         Integer num;
         String str;
@@ -149,7 +149,7 @@ public final class hy4 extends wi5 {
         String str8;
         String str9;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, Boolean.valueOf(z), postWriteCallBackData, ae5Var, writeData, antiData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, Boolean.valueOf(z), postWriteCallBackData, ee5Var, writeData, antiData}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             String str10 = null;
             if (writeData == null) {
@@ -233,7 +233,7 @@ public final class hy4 extends wi5 {
                     gy4Var = null;
                 }
                 jSONObject.put("replyUName", gy4Var.a().get("replyUName"));
-                um6.a().h("webviewPage.replyResult", jSONObject);
+                ym6.a().h("webviewPage.replyResult", jSONObject);
             } catch (Exception unused) {
             }
             if (z) {
@@ -242,15 +242,15 @@ public final class hy4 extends wi5 {
                 this$0.m();
                 return;
             }
-            if (ae5Var != null) {
-                str10 = ae5Var.d();
+            if (ee5Var != null) {
+                str10 = ee5Var.d();
             }
             if (!TextUtils.isEmpty(str10)) {
-                writeData2.setVcodeMD5(ae5Var.b());
-                writeData2.setVcodeUrl(ae5Var.c());
-                writeData2.setVcodeExtra(ae5Var.a());
-                if (VcodeTool.needVcode(ae5Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this$0.getContext().getPageActivity(), 12006, writeData2, false, ae5Var.d())));
+                writeData2.setVcodeMD5(ee5Var.b());
+                writeData2.setVcodeUrl(ee5Var.c());
+                writeData2.setVcodeExtra(ee5Var.a());
+                if (VcodeTool.needVcode(ee5Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this$0.getContext().getPageActivity(), 12006, writeData2, false, ee5Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this$0.getContext().getPageActivity(), writeData2, 12006)));
                 }
@@ -272,10 +272,10 @@ public final class hy4 extends wi5 {
         }
     }
 
-    public static final void t(y45 y45Var) {
+    public static final void t(z45 z45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, y45Var) == null) {
-            y45Var.dismiss();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, z45Var) == null) {
+            z45Var.dismiss();
         }
     }
 
@@ -346,9 +346,9 @@ public final class hy4 extends wi5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TextUtils.isEmpty(this.h)) {
-                wga.C(this.h, null);
+                cja.C(this.h, null);
             } else if (!TextUtils.isEmpty(this.i)) {
-                wga.E(this.i, null);
+                cja.E(this.i, null);
             }
         }
     }
@@ -357,9 +357,9 @@ public final class hy4 extends wi5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!TextUtils.isEmpty(this.h)) {
-                wga.r(this.h, this.k);
+                cja.r(this.h, this.k);
             } else if (!TextUtils.isEmpty(this.i)) {
-                wga.t(this.i, this.k);
+                cja.t(this.i, this.k);
             }
         }
     }
@@ -427,13 +427,13 @@ public final class hy4 extends wi5 {
                 if (i == 25004 && intent != null) {
                     String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
                     if (a() != null) {
-                        a().D(new si5(44, 40, stringExtra));
+                        a().D(new wi5(44, 40, stringExtra));
                     }
                 }
             } else if (intent != null) {
                 ArrayList parcelableArrayListExtra = intent.getParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA);
                 if (a() != null) {
-                    a().D(new si5(17, 40, parcelableArrayListExtra));
+                    a().D(new wi5(17, 40, parcelableArrayListExtra));
                 }
             }
         }
@@ -501,7 +501,7 @@ public final class hy4 extends wi5 {
             c0.setContent(this.e);
             if (!TextUtils.isEmpty(this.h)) {
                 c0.setType(1);
-                wga.C(this.h, c0);
+                cja.C(this.h, c0);
             } else if (!TextUtils.isEmpty(this.i)) {
                 c0.setType(2);
                 c0.setReplyId(g("replyUid"));
@@ -510,7 +510,7 @@ public final class hy4 extends wi5 {
                 c0.setName(g("name"));
                 c0.setReSubPostId(g("reSubPostId"));
                 c0.setSubPbReplyPrefix(g("subPbReplyPrefix"));
-                wga.E(this.i, c0);
+                cja.E(this.i, c0);
             }
         }
     }
@@ -518,8 +518,8 @@ public final class hy4 extends wi5 {
     public final void o() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && a() != null) {
-            a().D(new si5(9, -1, Boolean.TRUE));
-            a().D(new si5(4, -1, ""));
+            a().D(new wi5(9, -1, Boolean.TRUE));
+            a().D(new wi5(4, -1, ""));
             a().q();
         }
     }
@@ -532,21 +532,21 @@ public final class hy4 extends wi5 {
             } else if (i != 230277 && i != 230278) {
                 u(str);
             } else {
-                y45 y45Var = new y45(getContext().getPageActivity());
-                y45Var.setMessage(str);
-                y45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b59, new y45.e() { // from class: com.baidu.tieba.cy4
+                z45 z45Var = new z45(getContext().getPageActivity());
+                z45Var.setMessage(str);
+                z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b5b, new z45.e() { // from class: com.baidu.tieba.cy4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.y45.e
-                    public final void onClick(y45 y45Var2) {
+                    @Override // com.baidu.tieba.z45.e
+                    public final void onClick(z45 z45Var2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, y45Var2) == null) {
-                            hy4.t(y45Var2);
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, z45Var2) == null) {
+                            hy4.t(z45Var2);
                         }
                     }
                 });
-                y45Var.create(getContext()).show();
+                z45Var.create(getContext()).show();
             }
         }
     }
@@ -557,7 +557,7 @@ public final class hy4 extends wi5 {
         if (interceptable == null || interceptable.invokeL(1048593, this, config) == null) {
             Intrinsics.checkNotNullParameter(config, "config");
             this.c = config;
-            ej5 p = a().p(40);
+            ij5 p = a().p(40);
             Intrinsics.checkNotNullExpressionValue(p, "editorTools.findToolById…rToolsID.TOOL_ID_WEBVIEW)");
             if (p instanceof jy4) {
                 ((jy4) p).h(config);
@@ -602,7 +602,7 @@ public final class hy4 extends wi5 {
             HybridLog.getInstance().i("WebViewEditor", "updateConfig " + z2 + WebvttCueParser.CHAR_SPACE + this.g + WebvttCueParser.CHAR_SPACE + g + WebvttCueParser.CHAR_SPACE + g2);
             if (z2) {
                 this.e = "";
-                a().D(new si5(6, 40, ""));
+                a().D(new wi5(6, 40, ""));
                 e();
             }
         }

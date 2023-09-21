@@ -1,89 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class b80 {
+public class b80 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static boolean b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public long d;
-    public boolean e;
-    public boolean f;
 
-    public abstract JSONObject b();
-
-    public b80() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947598703, "Lcom/baidu/tieba/b80;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947598703, "Lcom/baidu/tieba/b80;");
                 return;
             }
         }
-        this.e = false;
-        this.f = false;
-    }
-
-    public b80(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        a = AppConfig.isDebug();
+        b = QuickPersistConfig.getInstance().getBoolean("sp_key_enable_keyevent", true);
+        c = QuickPersistConfig.getInstance().getInt("sp_key_max_keyevent", 20);
+        d = QuickPersistConfig.getInstance().getInt("sp_key_event_timeout", 15000);
+        if (a) {
+            if (!b) {
+                b = true;
+                Log.d("KeyeventConfig", "server config sEnableKeyevent is false, debug set true!");
             }
+            Log.d("KeyeventConfig", "keyevent enable:" + b);
         }
-        this.e = false;
-        this.f = false;
-        this.a = str;
-        this.b = str2;
     }
 
-    public JSONObject a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", this.a);
-                jSONObject.put("name", this.b);
-                jSONObject.put("start_time", String.valueOf(this.c));
-                jSONObject.put("end_time", String.valueOf(this.d));
-                jSONObject.put("domain", b());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String toString() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "Event{type='" + this.a + "', name='" + this.b + "', startTime=" + this.c + ", endTime=" + this.d + ", waitTimeout=" + this.e + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return invokeV.intValue;
     }
 }

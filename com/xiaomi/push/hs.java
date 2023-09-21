@@ -58,21 +58,21 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
         int a7;
         int a8;
         if (hs.class.equals(hsVar.getClass())) {
-            int compareTo = Boolean.valueOf(m573a()).compareTo(Boolean.valueOf(hsVar.m573a()));
+            int compareTo = Boolean.valueOf(m575a()).compareTo(Boolean.valueOf(hsVar.m575a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m573a() || (a8 = it.a(this.f510a, hsVar.f510a)) == 0) {
-                int compareTo2 = Boolean.valueOf(m575b()).compareTo(Boolean.valueOf(hsVar.m575b()));
+            if (!m575a() || (a8 = it.a(this.f510a, hsVar.f510a)) == 0) {
+                int compareTo2 = Boolean.valueOf(m577b()).compareTo(Boolean.valueOf(hsVar.m577b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
                 }
-                if (!m575b() || (a7 = it.a(this.f515b, hsVar.f515b)) == 0) {
-                    int compareTo3 = Boolean.valueOf(m576c()).compareTo(Boolean.valueOf(hsVar.m576c()));
+                if (!m577b() || (a7 = it.a(this.f515b, hsVar.f515b)) == 0) {
+                    int compareTo3 = Boolean.valueOf(m578c()).compareTo(Boolean.valueOf(hsVar.m578c()));
                     if (compareTo3 != 0) {
                         return compareTo3;
                     }
-                    if (!m576c() || (a6 = it.a(this.f514a, hsVar.f514a)) == 0) {
+                    if (!m578c() || (a6 = it.a(this.f514a, hsVar.f514a)) == 0) {
                         int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(hsVar.d()));
                         if (compareTo4 != 0) {
                             return compareTo4;
@@ -113,34 +113,34 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m570a() {
+    public long m572a() {
         return this.f511a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m571a() {
+    public String m573a() {
         return this.f512a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m572a() {
+    public void m574a() {
     }
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo701a();
+        jdVar.mo703a();
         while (true) {
-            ja mo697a = jdVar.mo697a();
-            byte b2 = mo697a.a;
+            ja mo699a = jdVar.mo699a();
+            byte b2 = mo699a.a;
             if (b2 == 0) {
                 jdVar.f();
-                m572a();
+                m574a();
                 return;
             }
-            switch (mo697a.f813a) {
+            switch (mo699a.f813a) {
                 case 1:
                     if (b2 == 8) {
-                        this.f510a = jdVar.mo695a();
+                        this.f510a = jdVar.mo697a();
                         a(true);
                         continue;
                         jdVar.g();
@@ -148,7 +148,7 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
                     break;
                 case 2:
                     if (b2 == 8) {
-                        this.f515b = jdVar.mo695a();
+                        this.f515b = jdVar.mo697a();
                         b(true);
                         continue;
                         jdVar.g();
@@ -156,7 +156,7 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 2) {
-                        this.f514a = jdVar.mo707a();
+                        this.f514a = jdVar.mo709a();
                         c(true);
                         continue;
                         jdVar.g();
@@ -164,7 +164,7 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
                     break;
                 case 4:
                     if (b2 == 8) {
-                        this.f517c = jdVar.mo695a();
+                        this.f517c = jdVar.mo697a();
                         d(true);
                         continue;
                         jdVar.g();
@@ -172,7 +172,7 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
                     break;
                 case 5:
                     if (b2 == 10) {
-                        this.f511a = jdVar.mo696a();
+                        this.f511a = jdVar.mo698a();
                         e(true);
                         continue;
                         jdVar.g();
@@ -180,14 +180,14 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f512a = jdVar.mo702a();
+                        this.f512a = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 7:
                     if (b2 == 2) {
-                        this.f516b = jdVar.mo707a();
+                        this.f516b = jdVar.mo709a();
                         f(true);
                         continue;
                         jdVar.g();
@@ -204,28 +204,28 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m573a() {
+    public boolean m575a() {
         return this.f513a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m574a(hs hsVar) {
+    public boolean m576a(hs hsVar) {
         if (hsVar == null) {
             return false;
         }
-        boolean m573a = m573a();
-        boolean m573a2 = hsVar.m573a();
-        if ((m573a || m573a2) && !(m573a && m573a2 && this.f510a == hsVar.f510a)) {
+        boolean m575a = m575a();
+        boolean m575a2 = hsVar.m575a();
+        if ((m575a || m575a2) && !(m575a && m575a2 && this.f510a == hsVar.f510a)) {
             return false;
         }
-        boolean m575b = m575b();
-        boolean m575b2 = hsVar.m575b();
-        if ((m575b || m575b2) && !(m575b && m575b2 && this.f515b == hsVar.f515b)) {
+        boolean m577b = m577b();
+        boolean m577b2 = hsVar.m577b();
+        if ((m577b || m577b2) && !(m577b && m577b2 && this.f515b == hsVar.f515b)) {
             return false;
         }
-        boolean m576c = m576c();
-        boolean m576c2 = hsVar.m576c();
-        if ((m576c || m576c2) && !(m576c && m576c2 && this.f514a == hsVar.f514a)) {
+        boolean m578c = m578c();
+        boolean m578c2 = hsVar.m578c();
+        if ((m578c || m578c2) && !(m578c && m578c2 && this.f514a == hsVar.f514a)) {
             return false;
         }
         boolean d2 = d();
@@ -257,26 +257,26 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m572a();
+        m574a();
         jdVar.a(f509a);
-        if (m573a()) {
+        if (m575a()) {
             jdVar.a(a);
-            jdVar.mo706a(this.f510a);
+            jdVar.mo708a(this.f510a);
             jdVar.b();
         }
-        if (m575b()) {
+        if (m577b()) {
             jdVar.a(b);
-            jdVar.mo706a(this.f515b);
+            jdVar.mo708a(this.f515b);
             jdVar.b();
         }
-        if (m576c()) {
+        if (m578c()) {
             jdVar.a(c);
             jdVar.a(this.f514a);
             jdVar.b();
         }
         if (d()) {
             jdVar.a(d);
-            jdVar.mo706a(this.f517c);
+            jdVar.mo708a(this.f517c);
             jdVar.b();
         }
         if (e()) {
@@ -295,7 +295,7 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo705a();
+        jdVar.mo707a();
     }
 
     public void b(boolean z) {
@@ -303,7 +303,7 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m575b() {
+    public boolean m577b() {
         return this.f513a.get(1);
     }
 
@@ -316,7 +316,7 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m576c() {
+    public boolean m578c() {
         return this.f513a.get(2);
     }
 
@@ -338,7 +338,7 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hs)) {
-            return m574a((hs) obj);
+            return m576a((hs) obj);
         }
         return false;
     }
@@ -367,14 +367,14 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
         boolean z;
         StringBuilder sb = new StringBuilder("OnlineConfigItem(");
         boolean z2 = false;
-        if (m573a()) {
+        if (m575a()) {
             sb.append("key:");
             sb.append(this.f510a);
             z = false;
         } else {
             z = true;
         }
-        if (m575b()) {
+        if (m577b()) {
             if (!z) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
@@ -382,7 +382,7 @@ public class hs implements is<hs, Object>, Serializable, Cloneable {
             sb.append(this.f515b);
             z = false;
         }
-        if (m576c()) {
+        if (m578c()) {
             if (!z) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }

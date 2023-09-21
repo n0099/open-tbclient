@@ -1,49 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import android.app.Activity;
+import android.content.res.Resources;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class w49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public w49() {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                return Integer.parseInt(Build.VERSION.SDK);
+            } catch (NumberFormatException unused) {
+                return 0;
             }
         }
+        return invokeV.intValue;
     }
 
-    public void a(JSONObject jSONObject) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("error");
-        if (optJSONObject != null) {
-            optJSONObject.optInt("errno");
-            String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-            this.a = optString;
-            if (!StringUtils.isNull(optString)) {
-                this.a = optJSONObject.optString("errmsg");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a() >= 14) {
+                return true;
             }
+            return false;
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-        if (optJSONObject2 != null) {
-            optJSONObject2.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Resources resources;
+        int identifier;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (b() && (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", "android")) > 0) {
+                return resources.getBoolean(identifier);
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

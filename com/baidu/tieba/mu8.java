@@ -1,75 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.NewFloorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mu8 {
+public class mu8 extends zm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(xt8 xt8Var, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mu8() {
+        super(lm8.a(), 2001143);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, xt8Var, i) == null) && xt8Var != null && xt8Var.u() != null && !ListUtils.isEmpty(xt8Var.i()) && xt8Var.i().size() >= 2) {
-            List<NewFloorInfo> i2 = xt8Var.i();
-            if (i2.size() > 2) {
-                if (StringHelper.equals(xt8Var.u().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                    if (i2.get(1) != null) {
-                        if (i2.get(1).is_floor.intValue() == 0) {
-                            b(xt8Var, 12, i);
-                            return;
-                        } else if (i2.get(1).is_floor.intValue() == 1) {
-                            b(xt8Var, 13, i);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    return;
-                } else if (i2.get(1) != null) {
-                    if (i2.get(1).is_floor.intValue() == 0) {
-                        if (xt8Var.q() != null) {
-                            if (StringHelper.equals(xt8Var.q().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                                b(xt8Var, 14, i);
-                                return;
-                            } else {
-                                b(xt8Var, 15, i);
-                                return;
-                            }
-                        }
-                        return;
-                    } else if (i2.get(1).is_floor.intValue() == 1) {
-                        b(xt8Var, 16, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((hm8) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            b(xt8Var, 11, i);
-        }
-    }
-
-    public static void b(xt8 xt8Var, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, null, xt8Var, i, i2) == null) && xt8Var != null && xt8Var.s() != null && xt8Var.l() != null) {
-            StatisticItem statisticItem = new StatisticItem("c12928");
-            statisticItem.param("tid", xt8Var.l().f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", xt8Var.l().e);
-            statisticItem.param("fname", xt8Var.l().d);
-            statisticItem.param("pid", xt8Var.o());
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_locate", i2);
-            TiebaStatic.log(statisticItem);
         }
     }
 }

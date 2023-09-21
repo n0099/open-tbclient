@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.dz;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.cz;
+import com.baidu.tieba.tx;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements ux<b15> {
+public class HeadlinesAgreeCardView extends FrameLayout implements tx<b15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -51,7 +51,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ux<b15> {
     public TextView e;
     public HeadlinesItemInfoView f;
     public z35 g;
-    public dz h;
+    public cz h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
 
@@ -283,10 +283,10 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ux<b15> {
         }
     }
 
-    public void setOnStatListener(dz dzVar) {
+    public void setOnStatListener(cz czVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dzVar) == null) {
-            this.h = dzVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, czVar) == null) {
+            this.h = czVar;
         }
     }
 
@@ -321,7 +321,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ux<b15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: h */
     public void onBindDataToView(b15 b15Var) {
         Interceptable interceptable = $ic;
@@ -337,9 +337,9 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ux<b15> {
             }
             j(b15Var.getThreadData());
             this.f.setOnBannerClickListener(new b(this));
-            dz dzVar = this.h;
-            if (dzVar != null) {
-                dzVar.onShow();
+            cz czVar = this.h;
+            if (czVar != null) {
+                czVar.onShow();
             }
         }
     }

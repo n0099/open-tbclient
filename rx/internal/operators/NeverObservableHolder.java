@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.sac;
-import com.baidu.tieba.yac;
+import com.baidu.tieba.kcc;
+import com.baidu.tieba.qcc;
 /* loaded from: classes2.dex */
-public enum NeverObservableHolder implements sac.a<Object> {
+public enum NeverObservableHolder implements kcc.a<Object> {
     INSTANCE;
     
-    public static final sac<Object> NEVER = sac.d(INSTANCE);
+    public static final kcc<Object> NEVER = kcc.d(INSTANCE);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
-    public void call(yac<? super Object> yacVar) {
+    @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
+    public void call(qcc<? super Object> qccVar) {
     }
 
-    public static <T> sac<T> instance() {
-        return (sac<T>) NEVER;
+    public static <T> kcc<T> instance() {
+        return (kcc<T>) NEVER;
     }
 }

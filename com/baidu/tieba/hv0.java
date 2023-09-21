@@ -1,21 +1,29 @@
 package com.baidu.tieba;
-
-import android.view.MotionEvent;
 /* loaded from: classes6.dex */
 public interface hv0 {
-    void onBeforeSwitchToFull();
+    void a(int i);
 
-    void onBeforeSwitchToHalf();
+    void onBufferEnd();
 
-    void onGestureActionEnd();
+    void onBufferStart();
 
-    void onGestureActionStart();
+    void onEnd(int i);
 
-    boolean onGestureDoubleClick(MotionEvent motionEvent);
+    void onError(int i, int i2, String str);
 
-    void onPanelVisibilityChanged(boolean z);
+    void onInfo(int i, int i2);
 
-    void onVideoSwitchToFull();
+    void onPause();
 
-    void onVideoSwitchToHalf();
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onUpdateProgress(int i, int i2, int i3);
+
+    void onVideoSizeChanged(int i, int i2);
 }

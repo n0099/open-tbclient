@@ -19,17 +19,17 @@ public class ei implements ef {
     }
 
     private void b(Context context, eb ebVar) {
-        String m448a = ebVar.m448a();
+        String m450a = ebVar.m450a();
         String b = ebVar.b();
         String d = ebVar.d();
         int a = ebVar.a();
-        if (context == null || TextUtils.isEmpty(m448a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+        if (context == null || TextUtils.isEmpty(m450a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
             if (TextUtils.isEmpty(d)) {
                 dy.a(context, "service", 1008, "argument error");
             } else {
                 dy.a(context, d, 1008, "argument error");
             }
-        } else if (!com.xiaomi.push.service.l.a(context, m448a, b)) {
+        } else if (!com.xiaomi.push.service.l.a(context, m450a, b)) {
             dy.a(context, d, 1003, "B is not ready");
         } else {
             dy.a(context, d, 1002, "B is ready");
@@ -37,9 +37,9 @@ public class ei implements ef {
             try {
                 Intent intent = new Intent();
                 intent.setAction(b);
-                intent.setPackage(m448a);
+                intent.setPackage(m450a);
                 intent.putExtra("awake_info", dx.a(d));
-                if (a == 1 && !ec.m449a(context)) {
+                if (a == 1 && !ec.m451a(context)) {
                     dy.a(context, d, 1008, "A not in foreground");
                 } else if (context.startService(intent) == null) {
                     dy.a(context, d, 1008, "A is fail to help B's service");

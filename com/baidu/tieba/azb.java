@@ -1,111 +1,77 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public final class azb {
+public class azb {
     public static /* synthetic */ Interceptable $ic;
-    public static final azb b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
+    public SharedPreferences a;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(byte b) {
-            this();
-        }
-
-        @Override // java.util.concurrent.Executor
-        public final void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                new Handler(Looper.getMainLooper()).post(runnable);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947633888, "Lcom/baidu/tieba/azb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947633888, "Lcom/baidu/tieba/azb;");
-                return;
-            }
-        }
-        b = new azb();
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        c = availableProcessors;
-        d = availableProcessors + 1;
-        e = (availableProcessors * 2) + 1;
-    }
-
-    public azb() {
+    public azb(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a((byte) 0);
-    }
-
-    public static ExecutorService a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-            threadPoolExecutor.allowCoreThreadTimeOut(true);
-            return threadPoolExecutor;
+        if (context != null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                Context createDeviceProtectedStorageContext = context.createDeviceProtectedStorageContext();
+                SharedPreferences sharedPreferences = createDeviceProtectedStorageContext.getSharedPreferences("move_to_de_records", 0);
+                if (!sharedPreferences.getBoolean(str, false) && createDeviceProtectedStorageContext.moveSharedPreferencesFrom(context, str)) {
+                    SharedPreferences.Editor edit = sharedPreferences.edit();
+                    edit.putBoolean(str, true);
+                    edit.apply();
+                }
+                context = createDeviceProtectedStorageContext;
+            }
+            this.a = context.getSharedPreferences(str, 0);
+            return;
         }
-        return (ExecutorService) invokeV.objValue;
+        throw new NullPointerException("context is null!");
     }
 
-    public static Executor b() {
-        InterceptResult invokeV;
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences != null && sharedPreferences.contains(str) && (edit = this.a.edit()) != null) {
+                return edit.remove(str).commit();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        SharedPreferences.Editor edit;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences != null && (edit = sharedPreferences.edit()) != null) {
+                return edit.putString(str, str2).commit();
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

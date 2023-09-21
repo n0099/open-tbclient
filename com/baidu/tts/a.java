@@ -60,14 +60,14 @@ public class a {
 
         /* renamed from: com.baidu.tts.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class HandlerC0550a extends Handler {
+        public class HandlerC0543a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpeechSynthesizerListener a;
             public final /* synthetic */ c b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC0550a(c cVar, Looper looper, a aVar, SpeechSynthesizerListener speechSynthesizerListener) {
+            public HandlerC0543a(c cVar, Looper looper, a aVar, SpeechSynthesizerListener speechSynthesizerListener) {
                 super(looper);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -136,7 +136,7 @@ public class a {
                 looper = this.b.getLooper();
             }
             if (looper != null) {
-                this.a = new HandlerC0550a(this, looper, aVar, speechSynthesizerListener);
+                this.a = new HandlerC0543a(this, looper, aVar, speechSynthesizerListener);
             } else {
                 this.a = null;
             }
@@ -145,12 +145,12 @@ public class a {
 
     /* renamed from: com.baidu.tts.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C0549a implements m {
+    public class C0542a implements m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0549a(a aVar) {
+        public C0542a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -381,15 +381,15 @@ public class a {
                 return;
             }
         }
-        C0549a c0549a = new C0549a(this);
-        this.h = c0549a;
+        C0542a c0542a = new C0542a(this);
+        this.h = c0542a;
         this.a = w0.a("SpeechSynthesizerAdapter", str);
         this.b = str;
         b1.d().a(context);
         x1 x1Var = new x1(str);
         this.c = x1Var;
-        this.d = new o(str, x1Var, c0549a);
-        this.g = new b2(str, x1Var.c(), c0549a);
+        this.d = new o(str, x1Var, c0542a);
+        this.g = new b2(str, x1Var.c(), c0542a);
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(6:3|6|14|15|16|17) */

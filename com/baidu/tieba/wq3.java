@@ -1,95 +1,45 @@
 package com.baidu.tieba;
 
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class wq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    public wq3() {
+    public static void a(@NonNull vq3 vq3Var, @NonNull m13 m13Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, vq3Var, m13Var) == null) {
+            vq3Var.f(m13Var.d());
+            vq3Var.g(m13Var.e());
+            if (m13Var.g()) {
+                vq3Var.a(1);
+            } else {
+                vq3Var.e(1);
             }
         }
-        this.a = 0;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static FrameLayout.LayoutParams b(@NonNull nx1 nx1Var, @NonNull m13 m13Var) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if ((this.a & 1) == 1) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, nx1Var, m13Var)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(m13Var.f(), m13Var.c());
+            int i2 = 0;
+            if (m13Var.g()) {
+                i2 = nx1Var.getWebViewScrollX();
+                i = nx1Var.getWebViewScrollY();
+            } else {
+                i = 0;
             }
-            return false;
+            layoutParams.leftMargin = m13Var.d() + i2;
+            layoutParams.topMargin = m13Var.e() + i;
+            return layoutParams;
         }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public wq3 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            this.a = i | this.a;
-            return this;
-        }
-        return (wq3) invokeI.objValue;
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = (~i) & this.a;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
+        return (FrameLayout.LayoutParams) invokeLL.objValue;
     }
 }

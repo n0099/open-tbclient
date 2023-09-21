@@ -1,47 +1,44 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.app.Activity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface h91 {
-    void a();
+    public static final h91 a = new a();
 
-    ViewGroup.LayoutParams b();
+    g91 a(Activity activity);
 
-    void c(View.OnLayoutChangeListener onLayoutChangeListener);
+    /* loaded from: classes6.dex */
+    public class a implements h91 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void d();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    void e(int i);
-
-    boolean f();
-
-    void g(FrameLayout.LayoutParams layoutParams);
-
-    boolean h();
-
-    void i(int i);
-
-    void j(l91 l91Var);
-
-    void k(boolean z);
-
-    boolean m();
-
-    void n(ViewGroup viewGroup);
-
-    void o(e91 e91Var);
-
-    void onDestroy();
-
-    void q(String str);
-
-    void r(View.OnLayoutChangeListener onLayoutChangeListener);
-
-    void s(int i, boolean z);
-
-    void t(j91 j91Var);
-
-    void u();
+        @Override // com.baidu.tieba.h91
+        public g91 a(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+                return new b91(activity);
+            }
+            return (g91) invokeL.objValue;
+        }
+    }
 }

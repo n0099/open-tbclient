@@ -1,8 +1,9 @@
 package com.baidu.adp.framework.message;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pf;
+import com.baidu.tieba.of;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,15 +18,17 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     public transient /* synthetic */ FieldHolder $fh;
     public String contentLength;
     public String contentType;
+    @Nullable
+    public Exception decodeException;
     public Map<String, List<String>> mHeader;
     public int mStatusCode;
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
-    public void logStatInBackground(int i, pf pfVar) {
+    public void logStatInBackground(int i, of ofVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, pfVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, ofVar) == null) {
         }
     }
 
@@ -71,10 +74,20 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
+    public Exception getDecodeException() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.decodeException;
+        }
+        return (Exception) invokeV.objValue;
+    }
+
     public int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mStatusCode;
         }
         return invokeV.intValue;
@@ -84,7 +97,7 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     public boolean hasError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return !isSuccess();
         }
         return invokeV.booleanValue;
@@ -93,7 +106,7 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     public boolean isSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int i = this.mStatusCode;
             if (i != 200 && i / 100 != 3) {
                 return false;
@@ -106,7 +119,7 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     public synchronized List<String> getHeader(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (this) {
                 if (this.mHeader != null && this.mHeader.containsKey(str)) {
                     return Collections.unmodifiableList(this.mHeader.get(str));
@@ -119,21 +132,28 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
 
     public void setContentLength(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.contentLength = str;
         }
     }
 
     public void setContentType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.contentType = str;
+        }
+    }
+
+    public void setDecodeException(@Nullable Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, exc) == null) {
+            this.decodeException = exc;
         }
     }
 
     public synchronized void setHeader(Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, map) == null) {
             synchronized (this) {
                 this.mHeader = map;
             }
@@ -142,7 +162,7 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
 
     public void setStatusCode(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, str) == null) {
             this.mStatusCode = i;
             if (!isSuccess()) {
                 setError(-1);

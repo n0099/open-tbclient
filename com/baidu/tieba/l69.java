@@ -1,91 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.location.Address;
+import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.chatmessage.messages.AdvisoryMsgBusinessExtra;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tbadk.util.WebviewHelper;
-import com.baidu.tieba.quickWebView.QuickWebView;
-import com.baidu.tieba.util.TopicListUtil;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.recapp.localads.LocationCacheData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public class l69 {
+public class l69 implements Cif {
     public static /* synthetic */ Interceptable $ic;
+    public static l69 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public k69 b;
-    public m69 c;
-    public BaseActivity d;
-    public List<String> e;
-    public boolean f;
-    public SearchJsBridge g;
-    public CustomMessageListener h;
-    public CustomMessageListener i;
-    public CustomMessageListener j;
-    public CustomMessageListener k;
+    public Context a;
+    public boolean b;
+    public String c;
+    public BdLocationMananger.c d;
+    public b e;
+    public LocationClient f;
+    public LocationClientOption g;
+    public Address h;
+    public long i;
+    public boolean j;
 
     /* loaded from: classes6.dex */
-    public class a implements BaseWebView.d {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            }
-        }
-
-        public a(l69 l69Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l69Var};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
+                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || !(customResponsedMessage.getData() instanceof Boolean)) {
+                    return;
+                }
+                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                    BdLocationMananger.getInstance().registerProvider(l69.j());
+                } else {
+                    BdLocationMananger.getInstance().unRegiserProvider(l69.j());
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements BaseWebView.g {
+    public class b implements BDLocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l69 a;
@@ -108,470 +108,175 @@ public class l69 {
             this.a = l69Var;
         }
 
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.g
-        public void a(WebView webView, int i, String str, String str2) {
+        public /* synthetic */ b(l69 l69Var, a aVar) {
+            this(l69Var);
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLILL(1048576, this, webView, i, str, str2) != null) || webView != this.a.c.e()) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
+                    this.a.c();
+                    this.a.h = new Address(Locale.getDefault());
+                    this.a.h.setLatitude(bDLocation.getLatitude());
+                    this.a.h.setLongitude(bDLocation.getLongitude());
+                    SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                    sharedPrefHelper.putString("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
+                    this.a.h.setLocality(bDLocation.getCity());
+                    Bundle bundle = new Bundle();
+                    bundle.putFloat("radius", bDLocation.getRadius());
+                    bundle.putDouble("altitude", bDLocation.getAltitude());
+                    bundle.putFloat("speed", bDLocation.getSpeed());
+                    bundle.putString("cityCode", bDLocation.getCityCode());
+                    bundle.putString("street", bDLocation.getStreet());
+                    bundle.putString("streetNumber", bDLocation.getStreetNumber());
+                    bundle.putString("province", bDLocation.getProvince());
+                    this.a.h.setExtras(bundle);
+                    this.a.i = System.currentTimeMillis();
+                    StringBuffer stringBuffer = new StringBuffer();
+                    if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
+                        stringBuffer.append(bDLocation.getCity());
+                    }
+                    stringBuffer.append(bDLocation.getDistrict());
+                    stringBuffer.append(bDLocation.getStreet());
+                    if (bDLocation.getAddrStr() != null) {
+                        this.a.h.setAddressLine(0, stringBuffer.toString());
+                    }
+                    if (this.a.d != null) {
+                        this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
+                        LocationCacheData.getInstance().setLatitude(String.valueOf(this.a.h.getLatitude()));
+                        LocationCacheData.getInstance().setLongitude(String.valueOf(this.a.h.getLongitude()));
+                        LocationCacheData.getInstance().setSaveTime(System.currentTimeMillis());
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894970, "Lcom/baidu/tieba/l69;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947894970, "Lcom/baidu/tieba/l69;");
                 return;
             }
-            this.a.q(false);
         }
+        MessageManager.getInstance().registerListener(new a(2001330));
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements BaseWebView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l69 a;
-
-        public c(l69 l69Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l69Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l69Var;
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                if (this.a.p(str)) {
-                    return true;
-                }
-                if (this.a.a != null && this.a.a.getPageActivity() != null) {
-                    if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.a.a, new String[]{str}) != 3) {
-                        return true;
-                    }
-                    if (str != null && str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                        UrlManager.getInstance().dealOneLink(this.a.a, new String[]{str}, true);
-                        return true;
-                    }
-                    Intent parseIntentFromUrl = BaseWebViewActivity.parseIntentFromUrl(this.a.a.getPageActivity(), str);
-                    if (parseIntentFromUrl != null) {
-                        try {
-                            ArrayList<String> arrayList = (ArrayList) this.a.d.getCurrentPageSourceKeyList();
-                            String currentPageKey = this.a.d.getCurrentPageKey();
-                            if (arrayList != null && !StringUtils.isNull(currentPageKey) && !arrayList.contains(currentPageKey)) {
-                                arrayList.add(currentPageKey);
-                            }
-                            if (!ListUtils.isEmpty(arrayList)) {
-                                parseIntentFromUrl.putStringArrayListExtra("obj_source", arrayList);
-                            }
-                            this.a.a.getPageActivity().startActivity(parseIntentFromUrl);
-                        } catch (Throwable th) {
-                            BdLog.detailException(th);
-                        }
-                        return true;
+    public static l69 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (k == null) {
+                synchronized (l69.class) {
+                    if (k == null) {
+                        k = new l69();
                     }
                 }
-                return false;
             }
-            return invokeLL.booleanValue;
+            return k;
         }
+        return (l69) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class d extends xx5<List<String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(l69 l69Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l69Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xx5
-        public List<String> doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return uia.k();
-            }
-            return (List) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements cx5<List<String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l69 a;
-
-        public e(l69 l69Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l69Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l69Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cx5
-        /* renamed from: a */
-        public void onReturnDataInUI(List<String> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
-                return;
-            }
-            this.a.e = list;
-            this.a.g.setHistoryDatas(this.a.e);
-            kz4.c().d(this.a.e);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l69 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(l69 l69Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l69Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l69Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.a.f = ((Boolean) customResponsedMessage.getData()).booleanValue();
+    @Override // com.baidu.tieba.Cif
+    public void c() {
+        LocationClient locationClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f) != null && locationClient.isStarted()) {
+            try {
+                this.f.stop();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class g extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l69 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(l69 l69Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l69Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l69Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.a.e.remove((String) customResponsedMessage.getData());
-            }
+    @Override // com.baidu.tieba.Cif
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class h extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l69 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(l69 l69Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l69Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l69Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.e != null) {
-                this.a.e.clear();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class i extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l69 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public i(l69 l69Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l69Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l69Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                try {
-                    JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
-                    String optString = jSONObject.optString("query");
-                    int optInt = jSONObject.optInt(AdvisoryMsgBusinessExtra.SUBTYPE_KEY);
-                    if (this.a.b != null) {
-                        this.a.b.a(optString, true, optInt);
-                        TiebaStatic.log(new StatisticItem("c12034"));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public l69(BaseActivity baseActivity, k69 k69Var, m69 m69Var) {
+    public l69() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, k69Var, m69Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.d = baseActivity;
-        this.a = baseActivity.getPageContext();
-        this.b = k69Var;
-        this.c = m69Var;
-        n();
-        o();
-        l();
+        this.b = true;
+        this.c = "";
+        this.d = null;
+        this.i = 0L;
+        this.j = false;
     }
 
-    public void k(String str) {
-        List<String> list;
+    @Override // com.baidu.tieba.Cif
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !StringUtils.isNull(str) && (list = this.e) != null) {
-            list.remove(str);
-            this.e.add(0, str);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            by5.b(new d(this), new e(this));
-        }
-    }
-
-    public final String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int count = ListUtils.getCount(this.e);
-            if (count == 0) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (int i2 = 0; i2 < count; i2++) {
-                jSONArray.put(this.e.get(i2));
-            }
-            return jSONArray.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.h);
-            MessageManager.getInstance().unRegisterListener(this.i);
-            MessageManager.getInstance().unRegisterListener(this.j);
-            MessageManager.getInstance().unRegisterListener(this.k);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h = new f(this, 2921556);
-            this.i = new g(this, 2921557);
-            this.j = new h(this, 2921558);
-            this.k = new i(this, 2921559);
-            MessageManager.getInstance().registerListener(this.h);
-            MessageManager.getInstance().registerListener(this.i);
-            MessageManager.getInstance().registerListener(this.j);
-            MessageManager.getInstance().registerListener(this.k);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a aVar = new a(this);
-            b bVar = new b(this);
-            c cVar = new c(this);
-            QuickWebView e2 = this.c.e();
-            if (e2 != null) {
-                this.g = new SearchJsBridge(this.e);
-                kz4.c().d(this.e);
-                e2.h(this.g);
-                e2.setOnPageFinishedListener(aVar);
-                e2.setOnReceivedErrorListener(bVar);
-                e2.setOnLoadUrlListener(cVar);
-            }
-        }
-    }
-
-    public final boolean p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (!str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) && !str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW)) {
-                if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW)) {
-                    TopicListUtil.openWebTopicListPage();
-                    return true;
-                }
-                return false;
-            }
-            String matchStringFromURL = WebviewHelper.getMatchStringFromURL(str, "topic_id=");
-            String matchStringFromURL2 = WebviewHelper.getMatchStringFromURL(str, "topic_name=");
-            String matchStringFromURL3 = WebviewHelper.getMatchStringFromURL(str, "is_video_topic=");
-            if (!bx5.b(this.a) && !StringUtils.isNull(matchStringFromURL) && !StringUtils.isNull(matchStringFromURL2, true)) {
-                if (StringHelper.equals(matchStringFromURL3, "1")) {
-                    this.a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.a.getPageActivity()).createNormalConfig(matchStringFromURL, matchStringFromURL2, "4")));
-                } else {
-                    nx5.f(this.a, matchStringFromURL, matchStringFromURL2);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.b && this.f != null) {
+                try {
+                    this.j = z;
+                    if (z) {
+                        this.g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    }
+                    this.f.setLocOption(this.g);
+                    if (!this.f.isStarted()) {
+                        this.f.start();
+                    }
+                    this.f.requestLocation();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    c();
+                    BdLocationMananger.c cVar = this.d;
+                    if (cVar != null) {
+                        cVar.a(5, "", this.h, this.i, this.j);
+                    }
                 }
             }
-            TiebaStatic.log(new StatisticItem("c10363").param("obj_name", matchStringFromURL2));
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void q(boolean z) {
-        NoDataViewFactory.e a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (!z) {
-                this.c.u();
-                if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1648);
-                } else {
-                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0e40);
-                }
-                this.c.t(a2);
-                return;
-            }
-            this.c.s();
         }
     }
 
-    public void r() {
+    @Override // com.baidu.tieba.Cif
+    public void b(BdLocationMananger.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.s();
-            String m = m();
-            if (this.f) {
-                if (!StringUtils.isNull(m)) {
-                    QuickWebView e2 = this.c.e();
-                    e2.loadUrl("javascript:setSearchHistory('" + m + "')");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.a = TbadkCoreApplication.getInst().getContext();
+            this.d = cVar;
+            this.c = "baidu";
+            if (this.b) {
+                try {
+                    this.f = new LocationClient(this.a);
+                    LocationClientOption locationClientOption = new LocationClientOption();
+                    this.g = locationClientOption;
+                    locationClientOption.setOpenGps(true);
+                    this.g.setIgnoreKillProcess(true);
+                    this.g.setProdName(this.c);
+                    this.g.setAddrType("all");
+                    this.g.setCoorType("bd09ll");
+                    b bVar = new b(this, null);
+                    this.e = bVar;
+                    this.f.registerLocationListener(bVar);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
-            } else {
-                QuickWebView e3 = this.c.e();
-                e3.loadUrl(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "mo/q/hybrid/searchHistory");
-            }
-            if (this.c.e() != null && !StringUtils.isNull(m)) {
-                this.c.e().m(m());
             }
         }
     }

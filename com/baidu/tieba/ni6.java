@@ -1,43 +1,151 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ManagerElection;
 /* loaded from: classes7.dex */
-public interface ni6 {
+public class ni6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public mi6 a;
+    public li6 b;
+    public List<li6> c;
+    public ManagerElection d;
+    public boolean e;
+    public long f;
+    public BdUniqueId g;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        int a(byte[] bArr, int i);
+    public ni6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(byte[] bArr);
+    public mi6 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (mi6) invokeV.objValue;
     }
 
-    View a();
+    public List<li6> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
 
-    void b(b bVar);
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
 
-    void c(int i);
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
 
-    int d();
+    public ManagerElection e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (ManagerElection) invokeV.objValue;
+    }
 
-    void e();
+    public li6 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (li6) invokeV.objValue;
+    }
 
-    Rect f();
+    public BdUniqueId g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
 
-    void g();
+    public void h(ArrayList<li6> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
+            this.c = arrayList;
+        }
+    }
 
-    void h(int i);
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.f = j;
+        }
+    }
 
-    void i(oi6 oi6Var);
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.e = z;
+        }
+    }
 
-    void pause();
+    public void k(ManagerElection managerElection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, managerElection) == null) {
+            this.d = managerElection;
+        }
+    }
 
-    void resume();
+    public void l(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
+            this.g = bdUniqueId;
+        }
+    }
 
-    void start();
+    public void m(mi6 mi6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, mi6Var) == null) {
+            this.a = mi6Var;
+        }
+    }
 
-    void stop();
+    public void n(li6 li6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, li6Var) == null) {
+            this.b = li6Var;
+        }
+    }
 }

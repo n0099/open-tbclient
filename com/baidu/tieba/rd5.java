@@ -1,24 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class rd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
+    public int a;
+    public int b;
     public int c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
 
     public rd5() {
         Interceptable interceptable = $ic;
@@ -34,29 +29,55 @@ public class rd5 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        boolean z;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        boolean z2 = true;
-        if (jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1) {
-            z = true;
-        } else {
-            z = false;
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        this.a = z;
-        if (jSONObject.optInt("isActivateNaniApp", 1) != 1) {
-            z2 = false;
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.a;
+            if (i == 0) {
+                return Integer.MAX_VALUE;
+            }
+            return i;
         }
-        this.b = z2;
-        this.c = jSONObject.optInt("downloadNaniShowPosition", 3);
-        this.d = jSONObject.optInt("downloadNaniShowRate", 2);
-        this.e = jSONObject.optString("downloadNaniLinkUrl", null);
-        this.f = jSONObject.optString("downloadNaniTxt", null);
-        this.g = jSONObject.optString("showNaniTailTxt", null);
-        this.h = jSONObject.optInt("showNaniTailVideoType", 0);
-        this.i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
+        return invokeV.intValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = JavaTypesHelper.toInt(str, 0);
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c = JavaTypesHelper.toInt(str, 0);
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = JavaTypesHelper.toInt(str, 0);
+        }
     }
 }

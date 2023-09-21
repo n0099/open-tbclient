@@ -1,23 +1,57 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.core.edit.TbMediaTrackConfig;
 /* loaded from: classes6.dex */
 public interface ju6 {
-    public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus");
 
     /* loaded from: classes6.dex */
     public interface a {
-        public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus.autorelease");
+        void a();
 
-        void a(@NonNull BdUniqueId bdUniqueId);
+        void b();
+
+        void c();
     }
 
-    <T extends iu6> void a(@NonNull Object obj, @NonNull ku6<T> ku6Var);
+    boolean a(QmFilterItem qmFilterItem);
 
-    <T extends iu6> void b(@Nullable T t);
+    void b(a aVar);
 
-    void unregister(@NonNull Object obj);
+    void c(TbMultiMediaData tbMultiMediaData);
+
+    long d();
+
+    void e();
+
+    void f(int i, int i2);
+
+    void g(float f);
+
+    long getCurrentPlayTime();
+
+    long getFrom();
+
+    TbMediaTrackConfig getMediaTrackConfig();
+
+    float getRatio();
+
+    void h();
+
+    boolean i();
+
+    boolean isPlaying();
+
+    void j(boolean z);
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
+
+    void pause();
+
+    void start();
 }

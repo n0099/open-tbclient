@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class Utf8AppleDataBox extends AppleDataBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;

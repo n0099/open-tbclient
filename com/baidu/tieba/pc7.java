@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface pc7<T> {
+public interface pc7 {
     @NonNull
-    String a();
-
-    @NonNull
-    T b();
+    List<xc7<?, ?>> a();
 }

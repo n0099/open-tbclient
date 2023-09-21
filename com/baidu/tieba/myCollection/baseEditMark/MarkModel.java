@@ -12,9 +12,9 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.bd9;
-import com.baidu.tieba.hw4;
-import com.baidu.tieba.zc9;
+import com.baidu.tieba.gw4;
+import com.baidu.tieba.ke9;
+import com.baidu.tieba.me9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public hw4.a d;
+    public gw4.a d;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -45,7 +45,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public bd9 c;
+        public me9 c;
         public final /* synthetic */ MarkModel d;
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -75,7 +75,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new bd9();
+            this.c = new me9();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,9 +88,9 @@ public class MarkModel extends BdBaseModel {
                 boolean z = false;
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    zc9 zc9Var = new zc9();
-                    zc9Var.j(this.d.b);
-                    this.a.addPostData("data", zc9Var.E(0, 1));
+                    ke9 ke9Var = new ke9();
+                    ke9Var.j(this.d.b);
+                    this.a.addPostData("data", ke9Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;
@@ -128,7 +128,7 @@ public class MarkModel extends BdBaseModel {
                         if (this.a != null && !this.a.getNetContext().getResponse().isRequestSuccess()) {
                             this.d.d.a(false, this.b, this.a.getErrorString());
                         } else {
-                            hw4.a aVar = this.d.d;
+                            gw4.a aVar = this.d.d;
                             boolean z = this.b;
                             if (this.c != null) {
                                 str = this.c.b();
@@ -223,7 +223,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void W(hw4.a aVar) {
+    public void W(gw4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.d = aVar;

@@ -1,33 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
+import android.graphics.Color;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 /* loaded from: classes5.dex */
-public class ce4 implements ys1 {
+public class ce4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<gq3> a;
-    public FrameLayout b;
-    public boolean c;
-    public boolean d;
+    public a a;
+    @V8JavascriptField
+    public String backgroundColor;
+    @V8JavascriptField
+    public String borderColor;
+    @V8JavascriptField
+    public double borderRadius;
+    @V8JavascriptField
+    public int borderWidth;
+    @V8JavascriptField
+    public String color;
+    @V8JavascriptField
+    public double fontSize;
+    @V8JavascriptField
+    public String fontWeight;
+    @V8JavascriptField
+    public int height;
+    @V8JavascriptField
+    public boolean hidden;
+    @V8JavascriptField
+    public int left;
+    @V8JavascriptField
+    public int lineHeight;
+    @V8JavascriptField
+    public double opacity;
+    @V8JavascriptField
+    public String textAlign;
+    @V8JavascriptField
+    public int top;
+    @V8JavascriptField
+    public int width;
 
-    public ce4(@NonNull FrameLayout frameLayout) {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void r();
+    }
+
+    public ce4(@NonNull n32 n32Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frameLayout};
+            Object[] objArr = {n32Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,215 +70,78 @@ public class ce4 implements ys1 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.d = false;
-        this.b = frameLayout;
+        this.fontSize = 16.0d;
+        this.opacity = 1.0d;
+        a(n32Var);
     }
 
-    @Override // com.baidu.tieba.ys1
-    public boolean a(View view2, n13 n13Var) {
-        InterceptResult invokeLL;
+    public static int c(@ColorInt int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, n13Var)) == null) {
-            if (!d(view2)) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = (16711680 & i) >> 16;
+            int i3 = (65280 & i) >> 8;
+            int i4 = i & 255;
+            float f = (((-16777216) & i) >>> 24) / 255.0f;
+            if (f > 0.0f) {
+                return Color.argb(255, (int) ((i2 * f) + 0.5d), (int) ((i3 * f) + 0.5d), (int) ((i4 * f) + 0.5d));
             }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(n13Var.f(), n13Var.c());
-            layoutParams.leftMargin = n13Var.d();
-            layoutParams.topMargin = n13Var.e();
-            this.b.updateViewLayout(view2, layoutParams);
-            return true;
+            return i;
         }
-        return invokeLL.booleanValue;
+        return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.ys1
-    public boolean c(View view2, n13 n13Var) {
-        InterceptResult invokeLL;
+    public final void a(@NonNull n32 n32Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, n13Var)) == null) {
-            if (view2 != null && n13Var != null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(n13Var.f(), n13Var.c());
-                layoutParams.leftMargin = n13Var.d();
-                layoutParams.topMargin = n13Var.e();
-                this.b.addView(view2, layoutParams);
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, n32Var) == null) {
+            this.left = n32Var.r("left", this.left);
+            this.top = n32Var.r("top", this.top);
+            this.width = n32Var.r("width", this.width);
+            this.height = n32Var.r("height", this.height);
+            this.backgroundColor = n32Var.C(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, this.backgroundColor);
+            this.borderColor = n32Var.C("borderColor", this.borderColor);
+            this.borderRadius = n32Var.n("borderRadius", this.borderRadius);
+            this.borderWidth = n32Var.r("borderWidth", this.borderWidth);
+            this.fontSize = n32Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
+            this.lineHeight = n32Var.r("lineHeight", this.lineHeight);
+            this.textAlign = n32Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
+            this.fontWeight = n32Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
+            this.hidden = n32Var.m("hidden", this.hidden);
+            this.opacity = n32Var.n(NativeConstants.OPACITY, this.opacity);
+            this.color = n32Var.C("color", this.color);
+            if (qr1.a) {
+                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ys1
-    public boolean b() {
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (qr1.a) {
+                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
+            }
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.r();
+            }
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ys1
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b.getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ys1
-    public FrameLayout getRootView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (FrameLayout) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ys1
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-            }
-        }
-    }
-
-    public final synchronized gq3[] j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                gq3[] gq3VarArr = new gq3[this.a.size()];
-                this.a.toArray(gq3VarArr);
-                return gq3VarArr;
-            }
-        }
-        return (gq3[]) invokeV.objValue;
-    }
-
-    public void k() {
-        gq3[] j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (j = j()) != null) {
-            for (gq3 gq3Var : j) {
-                gq3Var.d();
-            }
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            gq3[] j = j();
-            if (j != null) {
-                for (gq3 gq3Var : j) {
-                    gq3Var.onViewDestroy();
-                }
-            }
-            i();
-        }
-    }
-
-    public void m() {
-        gq3[] j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (j = j()) != null) {
-            for (gq3 gq3Var : j) {
-                gq3Var.k();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ys1
-    public boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
-            }
-            ViewParent parent = view2.getParent();
-            FrameLayout frameLayout = this.b;
-            if (parent != frameLayout || frameLayout.indexOfChild(view2) < 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ys1
-    public synchronized void e(gq3 gq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gq3Var) == null) {
-            synchronized (this) {
-                if (gq3Var == null) {
-                    return;
-                }
-                if (!this.a.contains(gq3Var)) {
-                    this.a.add(gq3Var);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ys1
-    public synchronized void f(gq3 gq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gq3Var) == null) {
-            synchronized (this) {
-                if (gq3Var == null) {
-                    return;
-                }
-                this.a.remove(gq3Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ys1
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.ys1
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) {
-            if (!d(view2)) {
-                return false;
-            }
-            this.b.removeView(view2);
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

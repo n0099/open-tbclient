@@ -24,7 +24,7 @@ import com.baidu.tieba.l35;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseFollowListSwitchMsg;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseLocalPersonListMessage;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseNetPersonListMessage;
-import com.baidu.tieba.ve5;
+import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public d d;
     public int e;
     public PersonListActivity f;
-    public ve5 g;
+    public ze5 g;
     public int h;
     public HttpMessageListener httpListener;
     public int i;
@@ -187,7 +187,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 }
             } else if (this.a.d != null) {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0e40);
+                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0e42);
                 } else {
                     errorString = httpResponsedMessage.getErrorString();
                 }
@@ -385,9 +385,9 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
         this.f = personListActivity;
-        ve5 ve5Var = new ve5(personListActivity.getPageContext());
-        this.g = ve5Var;
-        ve5Var.g(this.mLoadDataCallBack);
+        ze5 ze5Var = new ze5(personListActivity.getPageContext());
+        this.g = ze5Var;
+        ze5Var.g(this.mLoadDataCallBack);
         this.a = true;
         this.b = null;
         this.d = dVar;

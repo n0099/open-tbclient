@@ -2,76 +2,117 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Array;
 /* loaded from: classes8.dex */
 public class tu4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public static String a(char[] cArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cArr)) == null) {
+            if (cArr != null && cArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (char c : cArr) {
+                    if (c != 0) {
+                        sb.append(c);
+                    }
+                }
+                return sb.toString();
             }
-            addParam.eventStat();
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void d(String str) {
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!StringUtils.isNull(str) && str.endsWith("!") && str.startsWith("$")) {
+                return str.replace("$", "").replace("!", "");
             }
-            a = str;
-            addParam.eventStat();
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void b(String str, String str2) {
+    public static char[][] e(char[][] cArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_PARAM3, str2);
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr)) == null) {
+            if (cArr != null && cArr[0] != null) {
+                char[][] cArr2 = (char[][]) Array.newInstance(char.class, cArr.length, cArr[0].length);
+                for (int length = cArr.length - 1; length >= 0; length--) {
+                    cArr2[(cArr.length - length) - 1] = cArr[length];
+                }
+                return cArr2;
             }
-            addParam.eventStat();
+            return null;
         }
+        return (char[][]) invokeL.objValue;
     }
 
-    public static void c(int i, int i2) {
+    public static String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).addParam("obj_source", 3).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, i2);
-            if (!StringUtils.isNull(b)) {
-                addParam.addParam(TiebaStatic.Params.OBJ_PARAM3, b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
-            }
-            addParam.eventStat();
-            b = null;
+            char[] charArray = str.toCharArray();
+            char[][] cArr = (char[][]) Array.newInstance(char.class, (charArray.length / 2) + 1, 2);
+            c(charArray, cArr);
+            return a(b(e(cArr)));
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void e() {
+    public static char[] b(char[][] cArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
+            if (cArr != null && cArr[0] != null) {
+                char[] cArr2 = new char[cArr.length * cArr[0].length];
+                int i = 0;
+                for (int i2 = 0; i2 < cArr.length; i2++) {
+                    for (int i3 = 0; i3 < cArr[i2].length; i3++) {
+                        if (cArr[i2][i3] != 0) {
+                            cArr2[i] = cArr[i2][i3];
+                            i++;
+                        }
+                    }
+                }
+                return cArr2;
             }
-            a = null;
-            addParam.eventStat();
+            return null;
+        }
+        return (char[]) invokeL.objValue;
+    }
+
+    public static void c(char[] cArr, char[][] cArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, cArr, cArr2) == null) {
+            int length = cArr2.length;
+            int length2 = cArr2[0].length;
+            int i = 0;
+            int i2 = 0;
+            for (char c : cArr) {
+                if (i >= length2) {
+                    i2++;
+                    i = 0;
+                }
+                if (i2 < length) {
+                    cArr2[i2][i] = c;
+                    i++;
+                } else {
+                    return;
+                }
+            }
         }
     }
 }

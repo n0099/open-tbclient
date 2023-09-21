@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ci7;
 import com.baidu.tieba.f25;
-import com.baidu.tieba.j3a;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.q75;
+import com.baidu.tieba.h5a;
+import com.baidu.tieba.mi7;
+import com.baidu.tieba.t75;
+import com.baidu.tieba.u75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class CoverFlowAdapter<T extends q75> extends PagerAdapter {
+public class CoverFlowAdapter<T extends u75> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<View> a;
@@ -35,7 +35,7 @@ public class CoverFlowAdapter<T extends q75> extends PagerAdapter {
     public View.OnClickListener d;
     public ArrayList<TbImageView> e;
     public ArrayList<RelativeLayout> f;
-    public p75 g;
+    public t75 g;
 
     public void d() {
         Interceptable interceptable = $ic;
@@ -166,12 +166,12 @@ public class CoverFlowAdapter<T extends q75> extends PagerAdapter {
         return invokeV.intValue;
     }
 
-    public void h(List<T> list, p75 p75Var) {
+    public void h(List<T> list, t75 t75Var) {
         TbImageView tbImageView;
         TbImageView tbImageView2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, list, p75Var) == null) && list != null && !list.isEmpty()) {
-            this.g = p75Var;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, list, t75Var) == null) && list != null && !list.isEmpty()) {
+            this.g = t75Var;
             this.b.clear();
             this.b.addAll(list);
             g(this.b);
@@ -179,9 +179,9 @@ public class CoverFlowAdapter<T extends q75> extends PagerAdapter {
             int size2 = this.b.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
-                    tbImageView = p75Var.d(this.c);
+                    tbImageView = t75Var.d(this.c);
                     this.a.add(tbImageView);
-                    tbImageView2 = p75Var.d(this.c);
+                    tbImageView2 = t75Var.d(this.c);
                     this.e.add(tbImageView2);
                     this.f.add(new RelativeLayout(this.c));
                 } else {
@@ -193,7 +193,7 @@ public class CoverFlowAdapter<T extends q75> extends PagerAdapter {
                     }
                 }
                 if (this.b.get(i) != null && tbImageView != null) {
-                    if (this.b.get(i) instanceof ci7) {
+                    if (this.b.get(i) instanceof mi7) {
                         tbImageView.setImageDrawable(SkinManager.getDrawable(Integer.valueOf(this.b.get(i).getPicUrl()).intValue()));
                     } else {
                         tbImageView.startLoad(this.b.get(i).getPicUrl(), 10, false);
@@ -201,7 +201,7 @@ public class CoverFlowAdapter<T extends q75> extends PagerAdapter {
                     tbImageView.setOnClickListener(this.d);
                     if ((this.b.get(i) instanceof f25) && !((f25) this.b.get(i)).n()) {
                         f25 f25Var = (f25) this.b.get(i);
-                        j3a.k(f25Var.j(), tbImageView2, f25Var.k(), BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f0701e8));
+                        h5a.k(f25Var.j(), tbImageView2, f25Var.k(), BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f0701e8));
                     }
                 }
             }

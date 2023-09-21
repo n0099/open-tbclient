@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.g2a;
+import com.baidu.tieba.e4a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,17 +41,17 @@ public class jz4 {
         return invokeL.booleanValue;
     }
 
-    public static g2a.g b(String str, String str2) {
+    public static e4a.g b(String str, String str2) {
         InterceptResult invokeLL;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            File file = new File(g2a.g + "bdtbNWCache");
+            File file = new File(e4a.g + "bdtbNWCache");
             FileInputStream fileInputStream2 = null;
             if (TextUtils.isEmpty(str2) || !file.exists()) {
                 return null;
             }
-            g2a.g gVar = new g2a.g();
+            e4a.g gVar = new e4a.g();
             File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
             gVar.a = file.getAbsolutePath();
             gVar.c = str2;
@@ -67,17 +67,17 @@ public class jz4 {
                 }
                 try {
                     gVar.b = f(fileInputStream);
-                    fi.e(fileInputStream);
+                    ei.e(fileInputStream);
                 } catch (FileNotFoundException e2) {
                     e = e2;
                     fileInputStream2 = fileInputStream;
                     e.printStackTrace();
-                    fi.e(fileInputStream2);
+                    ei.e(fileInputStream2);
                     return gVar;
                 } catch (Throwable th) {
                     th = th;
                     fileInputStream2 = fileInputStream;
-                    fi.e(fileInputStream2);
+                    ei.e(fileInputStream2);
                     throw th;
                 }
                 return gVar;
@@ -85,25 +85,25 @@ public class jz4 {
                 th = th2;
             }
         } else {
-            return (g2a.g) invokeLL.objValue;
+            return (e4a.g) invokeLL.objValue;
         }
     }
 
     public static boolean c(String str) {
         InterceptResult invokeL;
-        i2a d;
+        g4a d;
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (QuickWebViewSwitch.getInOn() && !g2a.s(str)) {
+            if (QuickWebViewSwitch.getInOn() && !e4a.s(str)) {
                 try {
-                    d = h2a.a().d(new URL(str).getPath());
+                    d = f4a.a().d(new URL(str).getPath());
                 } catch (MalformedURLException | Exception unused) {
                 }
                 if (d != null && d.e) {
-                    String p = g2a.n().p(d.b);
+                    String p = e4a.n().p(d.b);
                     if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
-                        String str2 = g2a.n().m() + "/" + d.b + "/" + p + "/";
+                        String str2 = e4a.n().m() + "/" + d.b + "/" + p + "/";
                         if (!d.c.endsWith(".html")) {
                             file = new File(str2, d.c + ".html");
                         } else {
@@ -143,29 +143,29 @@ public class jz4 {
 
     public static void d(Set<String> set) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !mn6.a(set)) {
-            g2a.f fVar = new g2a.f();
+        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !qn6.a(set)) {
+            e4a.f fVar = new e4a.f();
             fVar.a = new HashMap();
             fVar.b = new HashMap<>();
             for (String str : set) {
-                g2a.g b = b(str, g2a.n().p(str));
-                if (b != null && !TextUtils.isEmpty(b.a) && !mn6.b(b.b)) {
+                e4a.g b = b(str, e4a.n().p(str));
+                if (b != null && !TextUtils.isEmpty(b.a) && !qn6.b(b.b)) {
                     fVar.a.put(str, b);
                     fVar.b.putAll(b.b);
                 }
             }
-            if (!mn6.b(fVar.b)) {
-                h2a.a().i(fVar.b);
+            if (!qn6.b(fVar.b)) {
+                f4a.a().i(fVar.b);
             }
         }
     }
 
-    public static HashMap<String, i2a> f(InputStream inputStream) {
+    public static HashMap<String, g4a> f(InputStream inputStream) {
         InterceptResult invokeL;
         InputStreamReader inputStreamReader;
         Throwable th;
         BufferedReader bufferedReader;
-        HashMap<String, i2a> hashMap;
+        HashMap<String, g4a> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
             InputStreamReader inputStreamReader2 = null;
@@ -192,27 +192,27 @@ public class jz4 {
                             JSONObject jSONObject = new JSONObject(stringBuffer.toString());
                             e(jSONObject.optJSONObject("proxyConfig"), hashMap);
                             e(jSONObject.optJSONObject("config"), hashMap);
-                            fi.g(inputStreamReader);
+                            ei.g(inputStreamReader);
                         } catch (Exception e2) {
                             e = e2;
                             inputStreamReader2 = inputStreamReader;
                             try {
                                 e.printStackTrace();
-                                fi.g(inputStreamReader2);
-                                fi.g(bufferedReader);
+                                ei.g(inputStreamReader2);
+                                ei.g(bufferedReader);
                                 return hashMap;
                             } catch (Throwable th2) {
                                 inputStreamReader = inputStreamReader2;
                                 th = th2;
-                                fi.g(inputStreamReader);
-                                fi.g(bufferedReader);
+                                ei.g(inputStreamReader);
+                                ei.g(bufferedReader);
                                 throw th;
                             }
                         }
                     } catch (Throwable th3) {
                         th = th3;
-                        fi.g(inputStreamReader);
-                        fi.g(bufferedReader);
+                        ei.g(inputStreamReader);
+                        ei.g(bufferedReader);
                         throw th;
                     }
                 } catch (Exception e3) {
@@ -232,13 +232,13 @@ public class jz4 {
                 th = th5;
                 bufferedReader = null;
             }
-            fi.g(bufferedReader);
+            ei.g(bufferedReader);
             return hashMap;
         }
         return (HashMap) invokeL.objValue;
     }
 
-    public static void e(JSONObject jSONObject, HashMap<String, i2a> hashMap) {
+    public static void e(JSONObject jSONObject, HashMap<String, g4a> hashMap) {
         String str;
         String str2;
         String str3;
@@ -284,34 +284,34 @@ public class jz4 {
                             }
                             String optString = jSONObject3.optString("staticPrePath", "");
                             int optInt = jSONObject3.optInt("proxyMode");
-                            h2a.a().j(next, next);
-                            h2a.a().k(next, str2);
+                            f4a.a().j(next, next);
+                            f4a.a().k(next, str2);
                             Iterator<String> it = arrayList2.iterator();
                             while (it.hasNext()) {
                                 String next2 = it.next();
                                 if (!TextUtils.isEmpty(next2)) {
-                                    h2a a = h2a.a();
+                                    f4a a = f4a.a();
                                     String str6 = str5;
                                     a.j(optString + "/" + next2, next);
-                                    h2a a2 = h2a.a();
+                                    f4a a2 = f4a.a();
                                     a2.k(optString + "/" + next2, next2);
                                     str5 = str6;
                                 }
                             }
                             String str7 = str5;
-                            i2a i2aVar = new i2a();
-                            i2aVar.a = arrayList;
-                            i2aVar.b = str;
-                            i2aVar.c = str2;
-                            i2aVar.d = arrayList2;
+                            g4a g4aVar = new g4a();
+                            g4aVar.a = arrayList;
+                            g4aVar.b = str;
+                            g4aVar.c = str2;
+                            g4aVar.d = arrayList2;
                             if (optInt == 1) {
                                 z = true;
                             } else {
                                 z = false;
                             }
-                            i2aVar.f = z;
-                            i2aVar.e = true;
-                            hashMap.put(next, i2aVar);
+                            g4aVar.f = z;
+                            g4aVar.e = true;
+                            hashMap.put(next, g4aVar);
                             jSONObject2 = jSONObject;
                             str4 = str3;
                             str5 = str7;

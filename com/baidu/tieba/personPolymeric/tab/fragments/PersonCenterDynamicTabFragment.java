@@ -16,13 +16,13 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay9;
-import com.baidu.tieba.by9;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.bn;
 import com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel;
-import com.baidu.tieba.xx9;
-import com.baidu.tieba.yx9;
-import com.baidu.tieba.zx9;
+import com.baidu.tieba.vz9;
+import com.baidu.tieba.wz9;
+import com.baidu.tieba.xz9;
+import com.baidu.tieba.yz9;
+import com.baidu.tieba.zz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,24 +34,24 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
 /* loaded from: classes7.dex */
-public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment implements BdListView.p, zx9 {
+public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment implements BdListView.p, xz9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean l = true;
     public static CustomMessageListener m;
     public transient /* synthetic */ FieldHolder $fh;
-    public by9 b;
+    public zz9 b;
     public PersonCenterDynamicTabModel c;
     public long d;
     public boolean e;
     public User f;
     public boolean g;
     public boolean h;
-    public xx9 i;
-    public List<cn> j;
+    public vz9 i;
+    public List<bn> j;
     public PersonCenterDynamicTabModel.b k;
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public int X1() {
+    public int d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -126,7 +126,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
             if (interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) {
                 return;
             }
-            this.a.g2(z);
+            this.a.m2(z);
         }
 
         @Override // com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel.b
@@ -135,7 +135,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
             if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) {
                 return;
             }
-            this.a.h2(list, z, z2);
+            this.a.n2(list, z, z2);
         }
     }
 
@@ -155,16 +155,16 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         m = new a(2921440);
     }
 
-    public void S1() {
-        by9 by9Var;
+    public void Y1() {
+        zz9 zz9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (by9Var = this.b) != null && this.h) {
-            by9Var.k();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (zz9Var = this.b) != null && this.h) {
+            zz9Var.k();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public boolean Y1() {
+    public boolean e2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -173,24 +173,24 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zx9
-    public List<cn> getListData() {
+    @Override // com.baidu.tieba.xz9
+    public List<bn> getListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.j;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zx9
-    public by9 getMainView() {
+    @Override // com.baidu.tieba.xz9
+    public zz9 getMainView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.b;
         }
-        return (by9) invokeV.objValue;
+        return (zz9) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -204,9 +204,9 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
             if (personCenterDynamicTabModel != null) {
                 personCenterDynamicTabModel.onDestroy();
             }
-            by9 by9Var = this.b;
-            if (by9Var != null) {
-                by9Var.j();
+            zz9 zz9Var = this.b;
+            if (zz9Var != null) {
+                zz9Var.j();
             }
         }
     }
@@ -216,12 +216,12 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onNetRefreshButtonClicked();
-            W1(true);
+            c2(true);
         }
     }
 
-    @Override // com.baidu.tieba.zx9
-    public boolean v1() {
+    @Override // com.baidu.tieba.xz9
+    public boolean z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
@@ -255,14 +255,14 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
-        xx9 xx9Var;
+        vz9 vz9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onPrimary();
             if (isAdded() && isPrimary() && !this.h) {
                 this.h = true;
-                W1(true);
-                if (TbSingleton.getInstance().isShowShoubaiDynamicGuide() && (xx9Var = this.i) != null && !xx9Var.c() && this.e) {
+                c2(true);
+                if (TbSingleton.getInstance().isShowShoubaiDynamicGuide() && (vz9Var = this.i) != null && !vz9Var.c() && this.e) {
                     this.i.f();
                 }
             }
@@ -279,7 +279,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public void Z1(MetaData metaData) {
+    public void f2(MetaData metaData) {
         PersonCenterDynamicTabModel personCenterDynamicTabModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, metaData) == null) && (personCenterDynamicTabModel = this.c) != null) {
@@ -288,7 +288,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public void a2(User user) {
+    public void g2(User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, user) == null) {
             this.f = user;
@@ -304,9 +304,9 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.onChangeSkinType(i);
-            by9 by9Var = this.b;
-            if (by9Var != null) {
-                by9Var.i(i);
+            zz9 zz9Var = this.b;
+            if (zz9Var != null) {
+                zz9Var.i(i);
             }
         }
     }
@@ -321,7 +321,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         }
     }
 
-    public static PersonCenterDynamicTabFragment f2(long j, boolean z) {
+    public static PersonCenterDynamicTabFragment l2(long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
@@ -337,28 +337,28 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
-    public void W1(boolean z) {
-        by9 by9Var;
+    public void c2(boolean z) {
+        zz9 zz9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || this.c == null || (by9Var = this.b) == null || !this.h || this.g) {
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || this.c == null || (zz9Var = this.b) == null || !this.h || this.g) {
             return;
         }
-        hideNetRefreshView(by9Var.f());
+        hideNetRefreshView(zz9Var.f());
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             this.g = true;
             if (z && l) {
                 showLoadingView(this.b.f(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703aa));
             }
             this.c.Y();
-            S1();
+            Y1();
             return;
         }
         showNetRefreshView(this.b.f(), null, false);
     }
 
-    public final void e2(Bundle bundle) {
+    public final void k2(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             if (bundle != null) {
                 this.d = bundle.getLong("uid");
                 this.e = bundle.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
@@ -372,9 +372,9 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         }
     }
 
-    public final void g2(boolean z) {
+    public final void m2(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.g = false;
             hideNetRefreshView(this.b.f());
             hideLoadingView(this.b.f());
@@ -390,16 +390,16 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
-            e2(bundle);
+            k2(bundle);
             PersonCenterDynamicTabModel personCenterDynamicTabModel = new PersonCenterDynamicTabModel(getPageContext(), this.d);
             this.c = personCenterDynamicTabModel;
             personCenterDynamicTabModel.a0(this.k);
-            this.i = new xx9(getPageContext());
-            new yx9(getPageContext(), getUniqueId(), this, X1());
+            this.i = new vz9(getPageContext());
+            new wz9(getPageContext(), getUniqueId(), this, d2());
         }
     }
 
-    public final void h2(List<ThreadData> list, boolean z, boolean z2) {
+    public final void n2(List<ThreadData> list, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.g = false;
@@ -410,7 +410,7 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
             } else {
                 this.b.q();
             }
-            List<cn> a2 = ay9.a(list);
+            List<bn> a2 = yz9.a(list);
             this.j = a2;
             this.b.n(a2);
         }
@@ -422,10 +422,10 @@ public class PersonCenterDynamicTabFragment extends PersonCenterTabBaseFragment 
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07da, viewGroup, false);
-            by9 by9Var = new by9(getPageContext(), inflate, this);
-            this.b = by9Var;
-            by9Var.m(1013);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07d8, viewGroup, false);
+            zz9 zz9Var = new zz9(getPageContext(), inflate, this);
+            this.b = zz9Var;
+            zz9Var.m(1013);
             this.b.l(this);
             return inflate;
         }

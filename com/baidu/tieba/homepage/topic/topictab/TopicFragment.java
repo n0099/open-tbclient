@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ca8;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.ea8;
 import com.baidu.tieba.homepage.topic.topictab.model.TopicModel;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicListView;
-import com.baidu.tieba.lj7;
-import com.baidu.tieba.z95;
+import com.baidu.tieba.vj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,17 +29,17 @@ import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes6.dex */
-public class TopicFragment extends BaseFragment implements lj7, z95.g, ca8 {
+public class TopicFragment extends BaseFragment implements vj7, da5.g, ea8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicModel a;
     public TopicListView b;
     public boolean c;
 
-    @Override // com.baidu.tieba.lj7
-    public void Q() {
+    @Override // com.baidu.tieba.vj7
+    public void Y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
@@ -47,13 +47,13 @@ public class TopicFragment extends BaseFragment implements lj7, z95.g, ca8 {
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "a021" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "a021" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lj7
-    public void n0() {
+    @Override // com.baidu.tieba.vj7
+    public void u0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
@@ -73,18 +73,18 @@ public class TopicFragment extends BaseFragment implements lj7, z95.g, ca8 {
         this.c = false;
     }
 
-    @Override // com.baidu.tieba.lj7
-    public void F() {
+    @Override // com.baidu.tieba.vj7
+    public void N() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b.j();
         }
     }
 
-    @Override // com.baidu.tieba.ca8
+    @Override // com.baidu.tieba.ea8
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
             return;
         }
         this.b.e();
@@ -124,18 +124,35 @@ public class TopicFragment extends BaseFragment implements lj7, z95.g, ca8 {
         }
     }
 
-    @Override // com.baidu.tieba.lj7
-    public void r0() {
+    @Override // com.baidu.tieba.vj7
+    public void z0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.z95.g
+    @Override // com.baidu.tieba.ea8
+    public void A0(int i, List<bn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, list) == null) {
+            this.b.d();
+            this.b.p();
+            if (i == 0 && !ListUtils.isEmpty(list)) {
+                this.b.e();
+                this.b.k();
+                this.b.setData(list);
+                this.b.n();
+                return;
+            }
+            this.b.m(false);
+        }
+    }
+
+    @Override // com.baidu.tieba.da5.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.a.M();
         }
     }
@@ -153,7 +170,7 @@ public class TopicFragment extends BaseFragment implements lj7, z95.g, ca8 {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (super.getCurrentPageSourceKeyList() != null) {
                 arrayList = new ArrayList(super.getCurrentPageSourceKeyList());
             } else {
@@ -196,22 +213,5 @@ public class TopicFragment extends BaseFragment implements lj7, z95.g, ca8 {
             return this.b;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ca8
-    public void s0(int i, List<cn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048590, this, i, list) == null) {
-            this.b.d();
-            this.b.p();
-            if (i == 0 && !ListUtils.isEmpty(list)) {
-                this.b.e();
-                this.b.k();
-                this.b.setData(list);
-                this.b.n();
-                return;
-            }
-            this.b.m(false);
-        }
     }
 }

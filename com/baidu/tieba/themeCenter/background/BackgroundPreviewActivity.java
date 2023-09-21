@@ -9,9 +9,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.foa;
-import com.baidu.tieba.sl5;
+import com.baidu.tieba.lqa;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
+import com.baidu.tieba.wl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundPreviewModel a;
-    public foa b;
+    public lqa b;
     public int c;
     public int d;
     public int e;
@@ -32,7 +32,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "b009" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "b009" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
@@ -137,11 +137,20 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         this.f = new a(this);
     }
 
+    public int N0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
     public PageStayDurationItem getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             PageStayDurationItem pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.isRouteStat = true;
@@ -155,46 +164,37 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             BackgroundPreviewModel backgroundPreviewModel = this.a;
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            foa foaVar = this.b;
-            if (foaVar != null) {
-                foaVar.h();
+            lqa lqaVar = this.b;
+            if (lqaVar != null) {
+                lqaVar.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        foa foaVar;
+        lqa lqaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (foaVar = this.b) != null) {
-            showLoadingView(foaVar.f());
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && (lqaVar = this.b) != null) {
+            showLoadingView(lqaVar.f());
             this.a.loadData();
         }
-    }
-
-    public int p1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            foa foaVar = this.b;
-            if (foaVar != null) {
-                foaVar.g();
+            lqa lqaVar = this.b;
+            if (lqaVar != null) {
+                lqaVar.g();
             }
         }
     }
@@ -202,10 +202,10 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity
     public void onUserChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                sl5.d().h();
+                wl5.d().h();
             }
         }
     }
@@ -213,7 +213,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
             Intent intent = getIntent();
@@ -225,9 +225,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.c, this.d);
             this.a = backgroundPreviewModel;
             backgroundPreviewModel.R(this.f);
-            foa foaVar = new foa(this);
-            this.b = foaVar;
-            showLoadingView(foaVar.f());
+            lqa lqaVar = new lqa(this);
+            this.b = lqaVar;
+            showLoadingView(lqaVar.f());
             this.b.j(new b(this));
             this.a.loadData();
         }
@@ -236,7 +236,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
             if (TbadkCoreApplication.getInst().getThemeWebviewOpen()) {
                 TbadkCoreApplication.getInst().setThemeWebviewOpen(false);

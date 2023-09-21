@@ -113,15 +113,15 @@ public final class n extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091339);
-        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133d);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133c);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091340);
-        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f09133f);
-        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133a);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133b);
-        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091338);
-        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091337);
+        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091329);
+        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f09132d);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09132c);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091330);
+        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f09132f);
+        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09132a);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09132b);
+        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091328);
+        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091327);
         this.vM.setOnClickListener(this);
         this.vQ.setOnClickListener(this);
         this.vP.setOnClickListener(this);

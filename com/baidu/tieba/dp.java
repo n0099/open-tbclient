@@ -1,77 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.HttpDnsClient;
-import com.baidu.tieba.cp;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class dp implements HttpDnsClient.b {
+public final class dp {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cp a;
-    public final BDHttpDns b;
-    public final BDHttpDns.CachePolicy c;
-    public final HttpDnsClient d;
 
-    public dp(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448302753, "Lcom/baidu/tieba/dp;")) == null) {
+            return;
         }
-        BDHttpDns service = BDHttpDns.getService(context);
-        this.b = service;
-        this.a = service.getHttpDnsCache();
-        this.c = this.b.getCachePolicy();
-        this.d = this.b.getHttpDnsClient();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448302753, "Lcom/baidu/tieba/dp;");
+        }
     }
 
-    @Override // com.baidu.bdhttpdns.HttpDnsClient.b
-    public void a(int i, HttpDnsClient.RequestParamType requestParamType, Map<String, HttpDnsClient.e> map, String str) {
+    public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), requestParamType, map, str}) == null) {
-            if (i != -1) {
-                if (i != 0) {
-                    ep.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
-                } else {
-                    for (Map.Entry<String, HttpDnsClient.e> entry : map.entrySet()) {
-                        String key = entry.getKey();
-                        HttpDnsClient.e value = entry.getValue();
-                        if (value != null) {
-                            cp.a aVar = new cp.a();
-                            aVar.i(value.c());
-                            aVar.h(System.currentTimeMillis() / 1000);
-                            aVar.f(value.a());
-                            aVar.g(value.b());
-                            this.a.e(key, aVar);
-                        } else if (this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                            this.a.d(key);
-                        }
-                    }
-                }
-            } else if (requestParamType.equals(HttpDnsClient.RequestParamType.DNLIST_HOSTS) && this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                for (String str2 : str.split(",")) {
-                    this.a.d(str2);
-                }
-            }
-            if (this.b.getPreResolveNum() > 0 && !this.d.D()) {
-                this.d.O(true);
-                ep.a("preResolve has finished", new Object[0]);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && a) {
+            Log.v("BDHttpDns", String.format(str, objArr));
+        }
+    }
+
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+            a = z;
         }
     }
 }

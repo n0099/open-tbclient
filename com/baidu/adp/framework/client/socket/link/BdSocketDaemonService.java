@@ -10,7 +10,7 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.ig;
 import com.baidu.tieba.ra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -124,14 +124,14 @@ public class BdSocketDaemonService extends BdBaseService {
     public static void startService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            jg.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+            ig.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
         }
     }
 
     public void bindServiceInternal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jg.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+            ig.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
         }
     }
 

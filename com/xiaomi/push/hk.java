@@ -29,11 +29,11 @@ public class hk implements is<hk, Object>, Serializable, Cloneable {
     public int compareTo(hk hkVar) {
         int a2;
         if (hk.class.equals(hkVar.getClass())) {
-            int compareTo = Boolean.valueOf(m551a()).compareTo(Boolean.valueOf(hkVar.m551a()));
+            int compareTo = Boolean.valueOf(m553a()).compareTo(Boolean.valueOf(hkVar.m553a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m551a() || (a2 = it.a(this.f477a, hkVar.f477a)) == 0) {
+            if (!m553a() || (a2 = it.a(this.f477a, hkVar.f477a)) == 0) {
                 return 0;
             }
             return a2;
@@ -42,7 +42,7 @@ public class hk implements is<hk, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m550a() {
+    public void m552a() {
         if (this.f477a != null) {
             return;
         }
@@ -58,19 +58,19 @@ public class hk implements is<hk, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo701a();
+        jdVar.mo703a();
         while (true) {
-            ja mo697a = jdVar.mo697a();
-            byte b = mo697a.a;
+            ja mo699a = jdVar.mo699a();
+            byte b = mo699a.a;
             if (b == 0) {
                 jdVar.f();
-                m550a();
+                m552a();
                 return;
             }
-            if (mo697a.f813a == 1 && b == 15) {
-                jb mo698a = jdVar.mo698a();
-                this.f477a = new ArrayList(mo698a.f814a);
-                for (int i = 0; i < mo698a.f814a; i++) {
+            if (mo699a.f813a == 1 && b == 15) {
+                jb mo700a = jdVar.mo700a();
+                this.f477a = new ArrayList(mo700a.f814a);
+                for (int i = 0; i < mo700a.f814a; i++) {
                     hl hlVar = new hl();
                     hlVar.a(jdVar);
                     this.f477a.add(hlVar);
@@ -84,26 +84,26 @@ public class hk implements is<hk, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m551a() {
+    public boolean m553a() {
         return this.f477a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m552a(hk hkVar) {
+    public boolean m554a(hk hkVar) {
         if (hkVar == null) {
             return false;
         }
-        boolean m551a = m551a();
-        boolean m551a2 = hkVar.m551a();
-        if (m551a || m551a2) {
-            return m551a && m551a2 && this.f477a.equals(hkVar.f477a);
+        boolean m553a = m553a();
+        boolean m553a2 = hkVar.m553a();
+        if (m553a || m553a2) {
+            return m553a && m553a2 && this.f477a.equals(hkVar.f477a);
         }
         return true;
     }
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m550a();
+        m552a();
         jdVar.a(f476a);
         if (this.f477a != null) {
             jdVar.a(a);
@@ -115,12 +115,12 @@ public class hk implements is<hk, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo705a();
+        jdVar.mo707a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hk)) {
-            return m552a((hk) obj);
+            return m554a((hk) obj);
         }
         return false;
     }

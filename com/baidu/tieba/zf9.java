@@ -1,31 +1,63 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes9.dex */
-public class zf9 {
+public class zf9 implements Comparable<zf9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendForumInfo a;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
 
-    public zf9(RecommendForumInfo recommendForumInfo, boolean z) {
+    public zf9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recommendForumInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = recommendForumInfo;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(zf9 zf9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zf9Var)) == null) {
+            if (this == zf9Var) {
+                return 0;
+            }
+            if (zf9Var == null || this.a <= zf9Var.a) {
+                return -1;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (!(obj instanceof zf9) || compareTo((zf9) obj) != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

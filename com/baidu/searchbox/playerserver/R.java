@@ -4,7 +4,7 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class raw {
-        public static final int tnconfig = 0x7f110075;
+        public static final int tnconfig = 0x7f110074;
     }
 
     /* loaded from: classes4.dex */

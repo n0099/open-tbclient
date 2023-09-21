@@ -1,68 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.ClickBackCard;
-import tbclient.ClickBackCardItem;
-@JvmName(name = "ClickBackCardBuilder")
+import tbclient.YulePostActivity;
 /* loaded from: classes8.dex */
-public final class v45 {
+public class v45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    public static final ClickBackCard a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public v45() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                ClickBackCard.Builder builder = new ClickBackCard.Builder();
-                builder.card_name = jSONObject.optString("card_name");
-                JSONArray optJSONArray = jSONObject.optJSONArray("card_list");
-                ArrayList arrayList = new ArrayList();
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        ClickBackCardItem.Builder builder2 = new ClickBackCardItem.Builder();
-                        builder2.text = optJSONObject.optString("text");
-                        builder2.jump_url = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                        builder2.business_id = Long.valueOf(optJSONObject.optLong("business_id"));
-                        builder2.business_type = optJSONObject.optString("business_type");
-                        ClickBackCardItem build = builder2.build(true);
-                        Intrinsics.checkNotNullExpressionValue(build, "builder1.build(true)");
-                        arrayList.add(build);
-                    }
-                    builder.card_list = arrayList;
-                }
-                return builder.build(true);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (ClickBackCard) invokeL.objValue;
     }
 
-    public static final ClickBackCard b(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            return a(new JSONObject(str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (ClickBackCard) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.optLong("start_time");
+            jSONObject.optLong("end_time");
+            this.a = jSONObject.optString("activity_banner");
+            jSONObject.optString("activity_url");
+            jSONObject.optString("activity_desc");
+            this.b = jSONObject.optString("activity_button");
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void d(YulePostActivity yulePostActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, yulePostActivity) != null) || yulePostActivity == null) {
+            return;
+        }
+        Long l = yulePostActivity.start_time;
+        if (l != null) {
+            l.longValue();
+        }
+        Long l2 = yulePostActivity.end_time;
+        if (l2 != null) {
+            l2.longValue();
+        }
+        this.a = yulePostActivity.activity_banner;
+        String str = yulePostActivity.activity_url;
+        String str2 = yulePostActivity.activity_desc;
+        this.b = yulePostActivity.activity_button;
     }
 }

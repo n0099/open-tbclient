@@ -5,9 +5,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.ef7;
-import com.baidu.tieba.ff7;
-import com.baidu.tieba.gf7;
+import com.baidu.tieba.of7;
+import com.baidu.tieba.pf7;
+import com.baidu.tieba.qf7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,14 +27,14 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u0000 \u00172\u00020\u0001:\u0001\u0017B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\bH\u0016J\u0010\u0010\t\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000bH\u0016J\b\u0010\f\u001a\u00020\u0001H\u0002J\u0010\u0010\r\u001a\u00020\u000e2\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0010\u0010\u000f\u001a\u00020\u00102\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0010\u0010\u0011\u001a\u00020\u00102\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0010\u0010\u0012\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0010\u0010\u0013\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\bH\u0016J\u0018\u0010\u0014\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\bH\u0016J\u0018\u0010\u0015\u001a\u00020\u00162\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\bH\u0016R\u0014\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00010\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0018"}, d2 = {"Lcom/baidu/tieba/filedownloader/FileDownloaderProxy;", "Lcom/baidu/tieba/filedownloader/interfaces/IFileDownloader;", "()V", "downloaderMap", "Landroid/util/SparseArray;", "addGlobalCallback", "", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/tieba/filedownloader/interfaces/IStatusCallback;", "cancel", "data", "Lcom/baidu/tbadk/download/DownloadData;", "getDownloader", "getFilePath", "", "getProgress", "", "getStatus", DownloadStatisticConstants.UBC_TYPE_PAUSE, "removeGlobalCallback", DownloadStatisticConstants.UBC_TYPE_RESUME, "start", "", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class FileDownloaderProxy implements ff7 {
+public final class FileDownloaderProxy implements pf7 {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
     public static final Lazy<FileDownloaderProxy> c;
     @JvmField
     public static final ThreadLocal<Integer> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<ff7> a;
+    public final SparseArray<pf7> a;
 
     public /* synthetic */ FileDownloaderProxy(DefaultConstructorMarker defaultConstructorMarker) {
         this();
@@ -73,14 +73,14 @@ public final class FileDownloaderProxy implements ff7 {
         }
 
         @JvmStatic
-        public final ff7 a(int i) {
+        public final pf7 a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 FileDownloaderProxy.d.set(Integer.valueOf(i));
                 return b();
             }
-            return (ff7) invokeI.objValue;
+            return (pf7) invokeI.objValue;
         }
     }
 
@@ -102,27 +102,27 @@ public final class FileDownloaderProxy implements ff7 {
         d = new ThreadLocal<>();
     }
 
-    public final ff7 k() {
+    public final pf7 k() {
         InterceptResult invokeV;
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Integer num = d.get();
             if (num == null) {
-                intValue = ef7.a.a();
+                intValue = of7.a.a();
             } else {
                 intValue = num.intValue();
             }
             d.remove();
-            ff7 ff7Var = this.a.get(intValue);
-            if (ff7Var == null) {
-                ff7 b2 = ef7.a.b(intValue);
+            pf7 pf7Var = this.a.get(intValue);
+            if (pf7Var == null) {
+                pf7 b2 = of7.a.b(intValue);
                 this.a.put(intValue, b2);
                 return b2;
             }
-            return ff7Var;
+            return pf7Var;
         }
-        return (ff7) invokeV.objValue;
+        return (pf7) invokeV.objValue;
     }
 
     public FileDownloaderProxy() {
@@ -141,8 +141,8 @@ public final class FileDownloaderProxy implements ff7 {
         this.a = new SparseArray<>();
     }
 
-    @Override // com.baidu.tieba.ff7
-    public void a(gf7 callback) {
+    @Override // com.baidu.tieba.pf7
+    public void a(qf7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -150,7 +150,7 @@ public final class FileDownloaderProxy implements ff7 {
         }
     }
 
-    @Override // com.baidu.tieba.ff7
+    @Override // com.baidu.tieba.pf7
     public void d(DownloadData data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -159,7 +159,7 @@ public final class FileDownloaderProxy implements ff7 {
         }
     }
 
-    @Override // com.baidu.tieba.ff7
+    @Override // com.baidu.tieba.pf7
     public int e(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -170,7 +170,7 @@ public final class FileDownloaderProxy implements ff7 {
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.ff7
+    @Override // com.baidu.tieba.pf7
     public void f(DownloadData data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
@@ -179,7 +179,7 @@ public final class FileDownloaderProxy implements ff7 {
         }
     }
 
-    @Override // com.baidu.tieba.ff7
+    @Override // com.baidu.tieba.pf7
     public int g(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -190,7 +190,7 @@ public final class FileDownloaderProxy implements ff7 {
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.ff7
+    @Override // com.baidu.tieba.pf7
     public String h(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -201,8 +201,8 @@ public final class FileDownloaderProxy implements ff7 {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ff7
-    public void i(gf7 callback) {
+    @Override // com.baidu.tieba.pf7
+    public void i(qf7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -210,8 +210,8 @@ public final class FileDownloaderProxy implements ff7 {
         }
     }
 
-    @Override // com.baidu.tieba.ff7
-    public void b(DownloadData data, gf7 callback) {
+    @Override // com.baidu.tieba.pf7
+    public void b(DownloadData data, qf7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, callback) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -220,8 +220,8 @@ public final class FileDownloaderProxy implements ff7 {
         }
     }
 
-    @Override // com.baidu.tieba.ff7
-    public boolean c(DownloadData data, gf7 callback) {
+    @Override // com.baidu.tieba.pf7
+    public boolean c(DownloadData data, qf7 callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, data, callback)) == null) {

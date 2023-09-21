@@ -1,201 +1,273 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
-import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.group.BIMValueCallBack;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.AsyncChatTask;
-import com.baidu.android.imsdk.upload.AsyncUploadTask;
-import com.baidu.android.imsdk.upload.IUploadTransferListener;
-import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.PbFullScreenEditorActivityConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.pb.PbEditorData;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.util.cipher.Base64Util;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class wp8 implements IGenBosObjectUrlListener, IUploadTransferListener, BIMValueCallBack<String>, ISendMessageListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "wp8";
+public class wp8 extends bl5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public vp8 c;
+    public boolean F;
+    public String G;
+    public String H;
+    public String I;
+    public PermissionJudgePolicy J;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948278378, "Lcom/baidu/tieba/wp8;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public class a implements xi5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wp8 a;
+
+        public a(wp8 wp8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wp8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wp8Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948278378, "Lcom/baidu/tieba/wp8;");
+
+        @Override // com.baidu.tieba.xi5
+        public void O(wi5 wi5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, wi5Var) == null) {
+                Object obj = wi5Var.c;
+                if ((obj instanceof id5) && EmotionGroupType.isSendAsPic(((id5) obj).getType())) {
+                    if (this.a.J == null) {
+                        this.a.J = new PermissionJudgePolicy();
+                    }
+                    this.a.J.clearRequestPermissionList();
+                    this.a.J.appendRequestPermission(this.a.m.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+                    if (this.a.J.startRequestPermission(this.a.m.getPageActivity())) {
+                        return;
+                    }
+                    this.a.f((id5) wi5Var.c);
+                    this.a.w(false, null);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-    public void onSendMessageResult(int i, ChatMsg chatMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, chatMsg) == null) {
-        }
-    }
-
-    public wp8(Context context, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wp8(EditorTools editorTools) {
+        super(editorTools);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {editorTools};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = str;
+        editorTools.setActionListener(24, new a(this));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-    /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onResult(int i, String str, String str2) {
-        FileOutputStream fileOutputStream;
-        Throwable th;
-        Exception e;
+    @Override // com.baidu.tieba.bl5
+    public void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
-            if (i == 0 && !TextUtils.isEmpty(str2)) {
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        byte[] decode = Base64Util.decode(str2);
-                        File file = new File(this.b);
-                        if (file.exists()) {
-                            fileOutputStream = new FileOutputStream(file);
-                            try {
-                                try {
-                                    fileOutputStream.write(decode);
-                                    fileOutputStream.flush();
-                                    fileOutputStream2 = fileOutputStream;
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    if (this.c != null) {
-                                        this.c.isFailed();
-                                    }
-                                    LogUtils.e(d, e.getMessage());
-                                    if (fileOutputStream != null) {
-                                        fileOutputStream.close();
-                                    }
-                                    BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
-                                    return;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e3) {
-                                        LogUtils.e(d, e3.getMessage());
-                                    }
-                                }
-                                throw th;
-                            }
-                        } else if (this.c != null) {
-                            this.c.isFailed();
-                        }
-                    } catch (Exception e4) {
-                        LogUtils.e(d, e4.getMessage());
-                    }
-                } catch (Exception e5) {
-                    fileOutputStream = null;
-                    e = e5;
-                } catch (Throwable th3) {
-                    fileOutputStream = null;
-                    th = th3;
-                    if (fileOutputStream != null) {
-                    }
-                    throw th;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (this.F) {
+                cja.t(this.G, this);
+            } else {
+                cja.r(str, this);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bl5
+    public void H(String str, WriteData writeData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, writeData) == null) {
+            if (this.g.c0() == null) {
+                this.g.setWriteData(t0());
+            }
+            if (this.g.c0() == null) {
+                return;
+            }
+            this.g.c0().setIsBJHPost(this.t);
+            this.g.c0().setBotConfig(BotEntranceManager.h().i());
+            this.g.c0().setWriteImagesInfo(this.b);
+            NewWriteModel newWriteModel = this.g;
+            if (this.b.size() > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            newWriteModel.i0(z);
+            if (str == null) {
+                this.g.c0().setContent(this.c);
+            }
+            VoiceData.VoiceModel voiceModel = this.e;
+            if (voiceModel != null) {
+                if (voiceModel.getId() != null) {
+                    this.g.c0().setVoice(this.e.getId());
+                    this.g.c0().setVoiceDuringTime(this.e.getDuration());
+                } else {
+                    this.g.c0().setVoice(null);
+                    this.g.c0().setVoiceDuringTime(-1);
                 }
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
+            } else {
+                this.g.c0().setVoice(null);
+                this.g.c0().setVoiceDuringTime(-1);
+            }
+            if (!this.g.a0()) {
+                this.m.showToast(R.string.write_img_limit);
+                return;
+            }
+            xk5 xk5Var = this.w;
+            if (xk5Var != null && xk5Var.a()) {
+                return;
+            }
+            this.g.c0().onPostDataParse(this.d);
+            if (!this.g.n0()) {
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bl5
+    public void O(String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            WriteData c0 = this.g.c0();
+            if (c0 == null) {
+                if (this.F) {
+                    i = 2;
+                } else {
+                    i = 1;
                 }
-                BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                c0 = new WriteData(i);
+                c0.setThreadId(str);
+                c0.setWriteImagesInfo(this.b);
+            }
+            c0.onSaveDrafDataParse(this.d);
+            if (!di.isEmpty(this.I)) {
+                c0.setFromForumId(this.I);
+            }
+            c0.setContent(this.c);
+            c0.setVoiceModel(this.e);
+            if (this.F) {
+                c0.setReplyId(this.H);
+                c0.setThreadId(this.G);
+                cja.E(this.G, c0);
                 return;
             }
-            vp8 vp8Var = this.c;
-            if (vp8Var != null) {
-                vp8Var.isFailed();
+            cja.C(str, c0);
+        }
+    }
+
+    public WriteData t0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WriteData writeData = new WriteData();
+            if (this.j != null) {
+                if (this.x && !this.F) {
+                    writeData.setCanNoForum(true);
+                    writeData.setVForumId(this.j.getId());
+                    writeData.setVForumName(this.j.getName());
+                    writeData.setForumId("0");
+                    writeData.setForumName("");
+                } else {
+                    writeData.setCanNoForum(false);
+                    writeData.setVForumId("");
+                    writeData.setVForumName("");
+                    writeData.setForumId(this.j.getId());
+                    writeData.setForumName(this.j.getName());
+                }
             }
-        }
-    }
-
-    public void b(@NonNull vp8 vp8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vp8Var) == null) {
-            this.c = vp8Var;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFailed(int i, int i2, String str) {
-        vp8 vp8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) && (vp8Var = this.c) != null) {
-            vp8Var.isFailed();
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFinished(int i, String str) {
-        vp8 vp8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (vp8Var = this.c) != null) {
-            vp8Var.a(str);
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
-            if (i == 0) {
-                new AsyncUploadTask(this.a, 2, map.get(AsyncChatTask.PUT_URL), map.get(AsyncChatTask.GET_URL), this.b, "mp3", str2, str3, this).execute(new Void[0]);
-                return;
+            writeData.setThreadId(this.l);
+            if (!this.F) {
+                writeData.setType(1);
+            } else {
+                writeData.setType(2);
+                writeData.setFloor(this.G);
+                writeData.setFloorNum(0);
+                writeData.setReplyId(this.H);
+                writeData.setRepostId(this.G);
             }
-            vp8 vp8Var = this.c;
-            if (vp8Var != null) {
-                vp8Var.isFailed();
+            return writeData;
+        }
+        return (WriteData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bl5
+    public void w(boolean z, PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, postWriteCallBackData) == null) {
+            PbEditorData pbEditorData = new PbEditorData();
+            pbEditorData.setEditorType(this.F ? 1 : 0);
+            pbEditorData.setContent(this.c);
+            pbEditorData.setWriteImagesInfo(this.b);
+            pbEditorData.setVoiceModel(this.e);
+            PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
+            ForumData forumData = this.j;
+            if (forumData != null) {
+                threadData.setForumId(forumData.getId());
+                threadData.setForumName(this.j.getName());
+                threadData.setFirstDir(this.j.getFirst_class());
+                threadData.setSecondDir(this.j.getSecond_class());
             }
+            threadData.setAuthorId(this.q);
+            threadData.setAuthorName(this.o);
+            threadData.setAuthorNameShow(this.p);
+            threadData.setPostId(this.G);
+            threadData.setThreadId(this.l);
+            threadData.isBJH = this.t;
+            pbEditorData.setThreadData(threadData);
+            pbEditorData.setDisableVoiceMessage(this.n);
+            pbEditorData.setOpenVoiceRecordButton(z);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbFullScreenEditorActivityConfig(this.m.getPageActivity(), 25035, pbEditorData, postWriteCallBackData)));
+        }
+    }
+
+    @Override // com.baidu.tieba.bl5
+    public void x() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String str2 = this.c;
+            ForumData forumData = this.j;
+            if (forumData != null) {
+                str = String.valueOf(forumData.getId());
+            } else {
+                str = "";
+            }
+            bj5.e(str2, str);
         }
     }
 }

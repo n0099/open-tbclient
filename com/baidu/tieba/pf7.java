@@ -1,69 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.oe;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes7.dex */
-public class pf7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public oe<byte[]> a;
+public interface pf7 {
+    void a(qf7 qf7Var);
 
-    public pf7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b();
-    }
+    void b(DownloadData downloadData, qf7 qf7Var);
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            x45.k();
-            this.a = x45.i("tb.bawu_team_info");
-        }
-    }
+    boolean c(DownloadData downloadData, qf7 qf7Var);
 
-    public byte[] a(String str) {
-        InterceptResult invokeL;
-        oe.b<byte[]> bVar;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            oe<byte[]> oeVar = this.a;
-            if (oeVar != null && str != null) {
-                bVar = oeVar.h(str);
-            } else {
-                bVar = null;
-            }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
+    void d(DownloadData downloadData);
 
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
-            b();
-            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
-        }
-    }
+    int e(DownloadData downloadData);
+
+    void f(DownloadData downloadData);
+
+    int g(DownloadData downloadData);
+
+    String h(DownloadData downloadData);
+
+    void i(qf7 qf7Var);
 }

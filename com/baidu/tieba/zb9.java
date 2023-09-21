@@ -1,21 +1,54 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LoginPassV6Switch;
-import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+@Service
 /* loaded from: classes9.dex */
-public class zb9 {
+public final class zb9 implements w1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes9.dex */
+    public static final class a implements CustomMessageTask.CustomRunnable<Context> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<ij5> run(CustomMessage<Context> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null && customMessage.getData() != null) {
+                    return new CustomResponsedMessage<>(2001339, new sa9(customMessage.getData()));
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
 
     public zb9() {
         Interceptable interceptable = $ic;
@@ -31,44 +64,13 @@ public class zb9 {
         }
     }
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.w1b
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void b(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("config");
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("switch")) != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    if (jSONObject2 != null) {
-                        String optString = jSONObject2.optString("name");
-                        Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                        if (LoginPassV6Switch.KEY.equals(optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            fc5.a();
-                        }
-                        if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            fc5.a();
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001339, new a());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
         }
     }
 }

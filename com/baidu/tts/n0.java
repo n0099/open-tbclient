@@ -63,7 +63,7 @@ public final class n0 {
     public static final n0 S0;
 
     /* renamed from: T  reason: collision with root package name */
-    public static final n0 f1188T;
+    public static final n0 f1185T;
     public static final n0 T0;
     public static final n0 U;
     public static final n0 U0;
@@ -190,7 +190,7 @@ public final class n0 {
         Q = new n0("VOLUME", 39, "vol", "volume", "");
         R = new n0("PITCH", 40, "pit", SdkConfigOptions.LivenessConfigOption.q, "");
         S = new n0("LANGUAGE", 41, "lan", "language", "");
-        f1188T = new n0("AUDIO_ENCODE", 42, "aue", "audioEncode", "");
+        f1185T = new n0("AUDIO_ENCODE", 42, "aue", "audioEncode", "");
         U = new n0("BITRATE", 43, "rate", "audioRate", "");
         V = new n0("PLAYER_VOLUME", 44, "player_volume", "player_volume", "");
         W = new n0("PLAYER_STREAM_TYPE", 45, "player_stream_type", "player_stream_type", "");
@@ -253,7 +253,7 @@ public final class n0 {
         b1 = new n0("OFFLINE_SYNTHESIZE_SLEEP_DIVISOR", 102, "offline_synthesize_sleep_divisor", "offline_synthesize_sleep_divisor", "");
         n0 n0Var = new n0("PRE_CREATE_CONNECTIONS", 103, "pre_create_connections", "pre_create_connections", "");
         c1 = n0Var;
-        d1 = new n0[]{d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, f1188T, U, V, W, X, Y, Z, a0, b0, c0, d0, e0, f0, g0, h0, i0, j0, k0, l0, m0, n0, o0, p0, q0, r0, s0, t0, u0, v0, w0, x0, y0, z0, A0, B0, C0, D0, E0, F0, G0, H0, I0, J0, K0, L0, M0, N0, O0, P0, Q0, R0, S0, T0, U0, V0, W0, X0, Y0, Z0, a1, b1, n0Var};
+        d1 = new n0[]{d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, f1185T, U, V, W, X, Y, Z, a0, b0, c0, d0, e0, f0, g0, h0, i0, j0, k0, l0, m0, n0, o0, p0, q0, r0, s0, t0, u0, v0, w0, x0, y0, z0, A0, B0, C0, D0, E0, F0, G0, H0, I0, J0, K0, L0, M0, N0, O0, P0, Q0, R0, S0, T0, U0, V0, W0, X0, Y0, Z0, a1, b1, n0Var};
     }
 
     public n0(String str, int i2, String str2, String str3, String str4) {

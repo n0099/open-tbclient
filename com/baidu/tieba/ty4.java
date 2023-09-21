@@ -50,7 +50,7 @@ public final class ty4 extends AbsJsInterface {
                 if (webView != null && !TextUtils.isEmpty(this.a)) {
                     TbLog hybridLog = HybridLog.getInstance();
                     hybridLog.i("TbNativeInvokeJsInterface", "js注入端能力开始执行:" + this.a + " " + webView);
-                    um6.a().c(webView, this.a, null);
+                    ym6.a().c(webView, this.a, null);
                     return;
                 }
                 TbLog hybridLog2 = HybridLog.getInstance();

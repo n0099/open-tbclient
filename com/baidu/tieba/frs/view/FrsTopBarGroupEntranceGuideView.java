@@ -115,7 +115,7 @@ public final class FrsTopBarGroupEntranceGuideView extends RelativeLayout {
             }
         }
         c();
-        this.f = new Runnable() { // from class: com.baidu.tieba.px7
+        this.f = new Runnable() { // from class: com.baidu.tieba.rx7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

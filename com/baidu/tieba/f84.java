@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,6 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class f84 implements w84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.w84
+    public void a(h13 h13Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, h13Var, context) == null) {
+        }
+    }
 
     public f84() {
         Interceptable interceptable = $ic;
@@ -21,22 +28,6 @@ public class f84 implements w84 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.w84
-    public void a(vb4 vb4Var, ub4 ub4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, vb4Var, ub4Var) == null) && ub4Var != null) {
-            ub4Var.a(vb4Var, "Method 'shareVideo' is not implemented.");
-        }
-    }
-
-    @Override // com.baidu.tieba.w84
-    public void b(mb4 mb4Var, lb4 lb4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mb4Var, lb4Var) == null) && lb4Var != null) {
-            lb4Var.a(mb4Var, "Method 'clipVideo' is not implemented.");
         }
     }
 }

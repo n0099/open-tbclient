@@ -26,10 +26,10 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b25;
+import com.baidu.tieba.d17;
 import com.baidu.tieba.enterForum.adapter.LikeForumItemAdapter;
 import com.baidu.tieba.r35;
-import com.baidu.tieba.tr5;
-import com.baidu.tieba.w07;
+import com.baidu.tieba.ur5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,9 +82,9 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("info_forum_image_rect", this.b.f());
                 bundle.putParcelable("info_forum_name_rect", this.b.g());
-                tr5 tr5Var = new tr5(1, this.a, null, null);
-                tr5Var.g(bundle);
-                this.b.h.dispatchMvcEvent(tr5Var);
+                ur5 ur5Var = new ur5(1, this.a, null, null);
+                ur5Var.g(bundle);
+                this.b.h.dispatchMvcEvent(ur5Var);
             }
         }
     }
@@ -189,23 +189,23 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         }
         this.a = tbPageContext;
         this.h = viewEventCenter;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091fed);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091fb7);
         this.b = findViewById;
-        this.c = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f0918cf);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09224e);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e78);
+        this.c = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f0918bc);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092217);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e71);
         this.f = (BarImageView) this.b.findViewById(R.id.forum_avatar);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bed);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090be0);
         this.f.setPlaceHolder(1);
         this.f.setStrokeColorResId(R.color.CAM_X0201);
     }
 
-    public void e(w07 w07Var) {
+    public void e(d17 d17Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, w07Var) != null) || w07Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, d17Var) != null) || d17Var == null) {
             return;
         }
-        j(w07Var);
+        j(d17Var);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_ba_checkedin16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
     }
@@ -256,31 +256,31 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         this.b.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
         this.b.setVisibility(0);
         this.c.setVisibility(0);
-        if (b25Var instanceof w07) {
-            w07 w07Var = (w07) b25Var;
-            this.c.setText(w07Var.i());
+        if (b25Var instanceof d17) {
+            d17 d17Var = (d17) b25Var;
+            this.c.setText(d17Var.i());
             ImageView imageView = this.d;
-            if (w07Var.u() == 0) {
+            if (d17Var.u() == 0) {
                 i = 8;
             } else {
                 i = 0;
             }
             imageView.setVisibility(i);
-            if (w07Var.h() == 0) {
+            if (d17Var.h() == 0) {
                 this.e.setVisibility(8);
             } else {
                 this.e.setVisibility(0);
-                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(w07Var.h()));
+                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(d17Var.h()));
             }
             this.f.setShowOval(true);
-            this.f.startLoad(w07Var.e(), 10, false);
+            this.f.startLoad(d17Var.e(), 10, false);
             this.f.setShowOuterBorder(false);
             this.f.setShowInnerBorder(true);
             this.f.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.f.setStrokeColorResId(R.color.CAM_X0401);
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0a21), StringHelper.numberUniformFormatExtraWithRoundInt(w07Var.o())));
+            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0a22), StringHelper.numberUniformFormatExtraWithRoundInt(d17Var.o())));
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
-            if (YYLiveUtil.isLiveRoom(w07Var.i())) {
+            if (YYLiveUtil.isLiveRoom(d17Var.i())) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
                 TiebaStaticHelper.addYYParam(statisticItem);
                 TiebaStatic.log(statisticItem);

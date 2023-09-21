@@ -1,31 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.model.data.LiveRoomEntity;
+import android.content.Context;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
-import com.baidu.live.feed.search.model.data.SearchResultBean;
-import java.util.List;
+import com.baidu.live.feed.search.model.data.RequestSearchData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public interface ib0 {
-    void U(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
+    void a(Context context, String str);
 
-    void W0(List<String> list);
+    void b(Context context);
 
-    void h(int i);
+    void c();
 
-    void hideLoading();
+    void d();
 
-    void i();
+    void e(Context context);
 
-    void m(jb0 jb0Var);
+    void f(Context context, int i);
 
-    void o(List<String> list);
+    void g(String str, String str2, RequestSearchData requestSearchData);
 
-    void q(SearchResultBean searchResultBean);
+    void h();
 
-    void showToast(String str);
+    void i(String str);
 
-    void w0(List<? extends LiveRoomEntity> list);
+    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
 
-    void z0();
+    void onDetach();
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static /* synthetic */ void a(ib0 ib0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 4) != 0) {
+                    requestSearchData = new RequestSearchData();
+                }
+                ib0Var.g(str, str2, requestSearchData);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
+        }
+    }
 }

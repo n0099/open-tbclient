@@ -143,7 +143,7 @@ public final class UbcAddCookieSwitch extends ve {
 
     @Override // com.baidu.tieba.ve
     /* renamed from: getCrashKeys */
-    public /* bridge */ /* synthetic */ String[] mo129getCrashKeys() {
+    public /* bridge */ /* synthetic */ String[] mo130getCrashKeys() {
         return (String[]) getCrashKeys();
     }
 }

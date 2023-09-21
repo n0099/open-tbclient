@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.x3a;
+import com.baidu.tieba.v5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,23 +39,23 @@ public class DownloadReceiver extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || (downloadData = (DownloadData) intent.getSerializableExtra(DOWNLOAD_DATA)) == null) {
             return;
         }
-        int p = x3a.p(downloadData);
+        int p = v5a.p(downloadData);
         if (ACTION_PAUSE_DOWNLOAD.equals(intent.getAction())) {
             if (downloadData.getDownloadStaticsData() != null) {
                 downloadData.getDownloadStaticsData().setDa_range_nt("1");
             }
             if (p == 7) {
                 downloadData.setStatus(5);
-                x3a.n().E(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                x3a.n().A(downloadData);
+                v5a.n().E(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                v5a.n().A(downloadData);
             } else if (p == 1 || p == 5) {
                 downloadData.setStatus(4);
-                x3a.n().g(downloadData.getUrl(), downloadData.getId(), true);
-                x3a.n().v(downloadData);
+                v5a.n().g(downloadData.getUrl(), downloadData.getId(), true);
+                v5a.n().v(downloadData);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
         } else if (ACTION_CANCEL_DOWNLOAD.equals(intent.getAction())) {
-            x3a.n().i(downloadData);
+            v5a.n().i(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016483, downloadData));
         }
     }

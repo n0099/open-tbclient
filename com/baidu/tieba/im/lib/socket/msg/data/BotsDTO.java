@@ -284,7 +284,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                         InterceptResult invokeL;
                         Interceptable interceptable = $ic;
                         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                            return String.format("\\$\\{%1$s.value.%2$s\\}", str, "alias");
+                            return String.format(FORMAT, str, "alias");
                         }
                         return (String) invokeL.objValue;
                     }
@@ -294,7 +294,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                         InterceptResult invokeL;
                         Interceptable interceptable = $ic;
                         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                            return String.format("\\$\\{%1$s.value.%2$s\\}", str, "name");
+                            return String.format(FORMAT, str, "name");
                         }
                         return (String) invokeL.objValue;
                     }
@@ -350,7 +350,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        return String.format("\\$\\{%1$s.key.%2$s\\}", this.value, "alias");
+                        return String.format(FORMAT, this.value, "alias");
                     }
                     return (String) invokeV.objValue;
                 }
@@ -378,7 +378,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                        return String.format("\\$\\{%1$s.key.%2$s\\}", this.value, "name");
+                        return String.format(FORMAT, this.value, "name");
                     }
                     return (String) invokeV.objValue;
                 }
@@ -538,7 +538,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                    return String.format("\\$\\{skill.%1$s\\}", "alias");
+                    return String.format(FORMAT, "alias");
                 }
                 return (String) invokeV.objValue;
             }
@@ -622,7 +622,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                    return String.format("\\$\\{skill.%1$s\\}", "keyboard");
+                    return String.format(FORMAT, "keyboard");
                 }
                 return (String) invokeV.objValue;
             }

@@ -1,42 +1,33 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
 /* loaded from: classes8.dex */
 public class ye4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public JSONObject c;
 
-    public ye4() {
+    public static void a(Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
+            b(callback, "6");
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void b(Callback callback, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == 0) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, callback, str) != null) || gb3.M() == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
+        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
+        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, gb3.M().O());
+        newBuilder.addQueryParameter("source", "4");
+        ((n94) gb3.M().i0()).call(new Request.Builder().url(newBuilder.build()).build(), callback);
     }
 }

@@ -1,42 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.database.ContentObserver;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.MediaStore;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.oza;
+import com.baidu.tieba.qza;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.kwad.sdk.core.imageloader.core.ImageLoader;
+import java.io.File;
+import java.util.List;
+import java.util.Vector;
 /* loaded from: classes8.dex */
 public class sza {
     public static /* synthetic */ Interceptable $ic;
-    public static sza g;
+    public static volatile sza c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public BroadcastReceiver b;
-    public ContentObserver c;
-    public ArrayList<d> d;
-    public Handler e;
-    public Runnable f;
+    public qza a;
+    public List<xza> b;
 
     /* loaded from: classes8.dex */
-    public interface d {
-        void J(boolean z);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class a implements wza {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sza a;
@@ -59,81 +47,16 @@ public class sza {
             this.a = szaVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.wza
+        public void a(oza.b bVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h(false);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sza this$0;
-
-        public b(sza szaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {szaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+                oza.a().c(bVar);
+                if (!fkb.e(this.a.b)) {
+                    sza szaVar = this.a;
+                    szaVar.h((xza) fkb.c(szaVar.b, 0));
+                    fkb.g(this.a.b, 0);
                 }
-            }
-            this.this$0 = szaVar;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.this$0.i(intent);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends ContentObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sza a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(sza szaVar, Handler handler) {
-            super(handler);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {szaVar, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Handler) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = szaVar;
-        }
-
-        @Override // android.database.ContentObserver
-        public void onChange(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.e.removeCallbacks(this.a.f);
-                this.a.e.postDelayed(this.a.f, 2000L);
             }
         }
     }
@@ -151,99 +74,110 @@ public class sza {
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.d = new ArrayList<>();
-        this.e = new Handler();
-        this.f = new a(this);
+        this.b = new Vector();
+        this.a = new qza.b().d();
+    }
+
+    public void i(yza yzaVar, pza pzaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, yzaVar, pzaVar) == null) {
+            List<xza> c2 = uza.c(yzaVar, pzaVar);
+            if (!fkb.e(c2)) {
+                for (xza xzaVar : c2) {
+                    h(xzaVar);
+                }
+            }
+        }
+    }
+
+    public void j(zza zzaVar, pza pzaVar) {
+        xza b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, zzaVar, pzaVar) == null) && (b = uza.b(zzaVar, pzaVar)) != null) {
+            h(b);
+        }
     }
 
     public static sza f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (g == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
                 synchronized (sza.class) {
-                    if (g == null) {
-                        sza szaVar = new sza();
-                        g = szaVar;
-                        szaVar.g(TbadkCoreApplication.getInst());
+                    if (c == null) {
+                        c = new sza();
                     }
                 }
             }
-            return g;
+            return c;
         }
         return (sza) invokeV.objValue;
     }
 
-    public void d(d dVar) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) && dVar != null && !this.d.contains(dVar)) {
-            this.d.add(dVar);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
+            return;
         }
+        throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
     }
 
-    public void h(boolean z) {
+    public vza g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            Iterator<d> it = this.d.iterator();
-            while (it.hasNext()) {
-                it.next().J(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c();
+            return this.a.b;
+        }
+        return (vza) invokeV.objValue;
+    }
+
+    public Bitmap d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            Bitmap a2 = g().a(str);
+            if (a2 != null && !a2.isRecycled()) {
+                return a2;
+            }
+            Bitmap a3 = e().a(str);
+            if (a3 == null || a3.isRecycled()) {
+                return null;
+            }
+            return a3;
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public final void i(Intent intent) {
+    public final void h(xza xzaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
-            if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-                h(true);
+        if (interceptable == null || interceptable.invokeL(1048580, this, xzaVar) == null) {
+            c();
+            oza.b b = oza.a().b();
+            if (b != null) {
+                b.n(this.a.a);
+                b.setDataSource(xzaVar.a);
+                b.h(xzaVar, new a(this));
                 return;
             }
-            this.e.removeCallbacks(this.f);
-            this.e.postDelayed(this.f, 2000L);
+            this.b.add(xzaVar);
         }
     }
 
-    public void k(d dVar) {
+    public lza e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) && this.d.contains(dVar)) {
-            this.d.remove(dVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            c();
+            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+            if (!TextUtils.equals(this.a.c.b(), str)) {
+                this.a.c.d(str);
+            }
+            return this.a.c;
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            j();
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            inst.unregisterReceiver(this.b);
-            inst.getContentResolver().unregisterContentObserver(this.c);
-            this.e.removeCallbacks(this.f);
-            g = null;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d.clear();
-        }
-    }
-
-    public final void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.b = new b(this);
-            this.c = new c(this, this.a);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
-            intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
-            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
-            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
-            intentFilter.addAction("android.intent.action.MEDIA_EJECT");
-            intentFilter.addDataScheme("file");
-            context.registerReceiver(this.b, intentFilter);
-            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.c);
-        }
+        return (lza) invokeV.objValue;
     }
 }

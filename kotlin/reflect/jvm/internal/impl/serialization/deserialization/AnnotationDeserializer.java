@@ -127,11 +127,11 @@ public final class AnnotationDeserializer {
                     }
                 }
             } else {
-                ClassifierDescriptor mo2105getDeclarationDescriptor = kotlinType.getConstructor().mo2105getDeclarationDescriptor();
-                if (!(mo2105getDeclarationDescriptor instanceof ClassDescriptor)) {
-                    mo2105getDeclarationDescriptor = null;
+                ClassifierDescriptor mo2107getDeclarationDescriptor = kotlinType.getConstructor().mo2107getDeclarationDescriptor();
+                if (!(mo2107getDeclarationDescriptor instanceof ClassDescriptor)) {
+                    mo2107getDeclarationDescriptor = null;
                 }
-                ClassDescriptor classDescriptor = (ClassDescriptor) mo2105getDeclarationDescriptor;
+                ClassDescriptor classDescriptor = (ClassDescriptor) mo2107getDeclarationDescriptor;
                 if (classDescriptor != null && !KotlinBuiltIns.isKClass(classDescriptor)) {
                     return false;
                 }

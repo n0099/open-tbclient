@@ -5,7 +5,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ac;
 import com.baidu.tieba.vb;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class BdUploadingLogInfo extends ArrayList<ArrayList<xg>> {
+public class BdUploadingLogInfo extends ArrayList<ArrayList<wg>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1737585838278753290L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<xg>> {
             } else {
                 i2 = 0;
             }
-            ArrayList<xg> arrayList2 = get(i);
+            ArrayList<wg> arrayList2 = get(i);
             ArrayList<String> arrayList3 = new ArrayList<>();
             for (int i3 = 0; i3 < arrayList2.size(); i3++) {
                 String readLogFileString = readLogFileString(arrayList2.get(i3).b);
@@ -105,7 +105,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<xg>> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ArrayList<xg> arrayList = get(i);
+            ArrayList<wg> arrayList = get(i);
             ArrayList<String> arrayList2 = new ArrayList<>();
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 String readLogFileString = readLogFileString(arrayList.get(i2).b);

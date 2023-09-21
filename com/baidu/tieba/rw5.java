@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.util.RemoveViewNPE;
+import android.content.Context;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,83 +16,136 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class rw5 {
+public class rw5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final rw5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136057, "Lcom/baidu/tieba/rw5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static rw5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-447009285, "Lcom/baidu/tieba/rw5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-447009285, "Lcom/baidu/tieba/rw5$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948136057, "Lcom/baidu/tieba/rw5;");
-                return;
-            }
+            a = new rw5(null);
         }
-        a = new rw5();
     }
 
     public rw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @JvmStatic
-    public static final void a(BdRecyclerView viewGroup, int i, NullPointerException e) {
-        ww5 ww5Var;
+    public static rw5 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, viewGroup, i, e) == null) {
-            Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
-            Intrinsics.checkNotNullParameter(e, "e");
-            View childAt = viewGroup.getChildAt(i);
-            Intrinsics.checkNotNullExpressionValue(childAt, "viewGroup.getChildAt(index)");
-            if (childAt instanceof ViewGroup) {
-                ww5Var = a.b((ViewGroup) childAt);
-            } else {
-                ww5Var = null;
-            }
-            if (ww5Var != null) {
-                String str = "BdRecyclerView removeViewAt() NPE at index: " + i + ", the out parent is: [class: " + childAt.getClass().getSimpleName() + ", id: " + childAt.getId() + "], internal parent is: [class: " + ww5Var.b().getClass().getSimpleName() + ", id: " + ww5Var.b().getId() + "], child index is: " + ww5Var.a();
-                Throwable initCause = new RemoveViewNPE().initCause(new Throwable(str, e));
-                BdLog.detailException(initCause);
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", str));
-                initCause.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
+        return (rw5) invokeV.objValue;
     }
 
-    public final ww5 b(ViewGroup viewGroup) {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Build.BRAND;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Build.DEVICE;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return DeviceInfoHelper.getModel();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ rw5(a aVar) {
+        this();
+    }
+
+    @RequiresApi(api = 17)
+    public final DisplayMetrics b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt instanceof ViewGroup) {
-                    b((ViewGroup) childAt);
-                } else if (childAt == null) {
-                    return new ww5(viewGroup, i);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            if (context == null) {
+                return displayMetrics;
             }
-            return null;
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRealMetrics(displayMetrics);
+            return displayMetrics;
         }
-        return (ww5) invokeL.objValue;
+        return (DisplayMetrics) invokeL.objValue;
+    }
+
+    @NonNull
+    public String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return DeviceInfoHelper.getMacAddress();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @RequiresApi(api = 17)
+    public String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            return String.valueOf(b(context).heightPixels);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @RequiresApi(api = 17)
+    public String f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            return String.valueOf(b(context).widthPixels);
+        }
+        return (String) invokeL.objValue;
     }
 }

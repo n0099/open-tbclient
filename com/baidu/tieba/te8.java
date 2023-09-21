@@ -1,90 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class te8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public long d;
-        public String e;
-        public long f;
-        public String g;
-        public long h;
-        public int i;
-        public int j;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public te8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.f = 0L;
-            this.g = null;
-            this.h = 0L;
-            this.i = 0;
-            this.j = 0;
         }
     }
 
-    public static a a(String str) {
-        InterceptResult invokeL;
+    public void a(int i, int i2, String str, long j, String str2, long j2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            a aVar = new a();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    aVar.a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
-                    aVar.b = optJSONObject.optString("user_id");
-                    aVar.c = optJSONObject.optString("nick_name");
-                    aVar.d = optJSONObject.optLong("caller_time");
-                    aVar.e = optJSONObject.optString("caller_content");
-                    aVar.f = optJSONObject.optLong("thread_id");
-                    aVar.g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
-                    optJSONObject.optString("forum_name");
-                    aVar.h = optJSONObject.optLong("post_id");
-                    aVar.i = optJSONObject.optInt("msg_type");
-                    aVar.j = optJSONObject.optInt("remind_count");
-                }
-                return aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Long.valueOf(j), str2, Long.valueOf(j2), str3}) == null) {
+            TiebaStatic.log(new StatisticItem("c15134").param("obj_type", i).param("obj_source", i2).param("obj_name", str).param("fid", j).param("fname", str2).param("room_id", j2).param("obj_id", str3).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
-        return (a) invokeL.objValue;
+    }
+
+    public void b(int i, long j, String str, long j2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Long.valueOf(j2), str2}) == null) {
+            TiebaStatic.log(new StatisticItem("c15134").param("obj_type", i).param("fid", j).param("fname", str).param("room_id", j2).param("obj_id", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
+    }
+
+    public void c(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            TiebaStatic.log(new StatisticItem("c15128").param("fid", j).param("room_id", j2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
     }
 }

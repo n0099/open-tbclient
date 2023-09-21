@@ -1,83 +1,130 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.imagepipeline.memory.DefaultByteArrayPoolParams;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /* loaded from: classes7.dex */
 public class n4c {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static volatile String b;
+    public static BufferedWriter c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
 
-    public n4c(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947953932, "Lcom/baidu/tieba/n4c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947953932, "Lcom/baidu/tieba/n4c;");
                 return;
             }
         }
-        this.b = f;
-        this.c = f2;
-        this.d = f3;
-        this.e = f4;
-        this.a = true;
+        a = new Object();
     }
 
-    public n4c(float f, float f2, float f3, float f4, boolean z) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            synchronized (a) {
+                if (c != null) {
+                    try {
+                        c.flush();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
-        this.b = f;
-        this.c = f2;
-        this.d = f3;
-        this.e = f4;
-        this.a = z;
     }
 
-    public static n4c a(String str) {
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            n4c n4cVar = new n4c(0.0f, 1.0f, 1.0f, 0.0f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return false;
+            }
+            new File(str).mkdirs();
+            if (!str.endsWith(File.separator)) {
+                str = str + File.separator;
+            }
+            b = str;
+            b += t4c.n() + ".syslog";
+            q4c.d("CrashLog", "Log file path : " + b);
+            File file = new File(b);
+            if (file.exists()) {
+                file.delete();
+            }
+            if (!file.exists()) {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                n4cVar.b = (float) jSONObject.optDouble("bottomLeftX");
-                n4cVar.c = (float) jSONObject.optDouble("bottomLeftY");
-                n4cVar.d = (float) jSONObject.optDouble("upperRightX");
-                n4cVar.e = (float) jSONObject.optDouble("upperRightY");
-                n4cVar.a = jSONObject.optBoolean("forceEnable");
-            } catch (JSONException e) {
+                c = new BufferedWriter(new FileWriter(b, true), DefaultByteArrayPoolParams.MAX_SIZE_SOFT_CAP);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                c = null;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            e(str, str2, true);
+        }
+    }
+
+    public static void e(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
+            if (z) {
+                q4c.d(str, str2);
+            }
+            try {
+                synchronized (a) {
+                    if (c == null) {
+                        c(t4c.s());
+                        return;
+                    }
+                    long currentTimeMillis = System.currentTimeMillis();
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    new Date(currentTimeMillis);
+                    c.write(String.format("%s\n", str2));
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            return n4cVar;
         }
-        return (n4c) invokeL.objValue;
     }
 }

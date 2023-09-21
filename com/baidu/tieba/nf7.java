@@ -1,32 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.base.BdActivityStack;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.DownloadManagerActivityConfig;
+import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.BawuRoleInfoPub;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nf7 implements uf7 {
+public final class nf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<BawuRoleInfoPub> a;
-    public boolean b;
-    public boolean c;
-    public String d;
-
-    @Override // com.baidu.tieba.uf7
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
+    public final List<String> a;
+    public String b;
+    public String c;
+    public View.OnClickListener d;
 
     public nf7() {
         Interceptable interceptable = $ic;
@@ -41,72 +40,73 @@ public class nf7 implements uf7 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = false;
-        this.c = false;
+        this.a = CollectionsKt__CollectionsKt.mutableListOf("DownloadManagerActivity");
+        String string = TbadkCoreApplication.getInst().getString(R.string.item_first_use_download_manager_toast);
+        Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…e_download_manager_toast)");
+        this.b = string;
+        String string2 = TbadkCoreApplication.getInst().getString(R.string.dialog_confirm_see);
+        Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.string.dialog_confirm_see)");
+        this.c = string2;
+        this.d = new View.OnClickListener() { // from class: com.baidu.tieba.mf7
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    nf7.b(view2);
+                }
+            }
+        };
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ArrayList<BawuRoleInfoPub> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Activity curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity();
+            if (curGlobalActivity == null) {
+                curGlobalActivity = BdActivityStack.getInst().currentActivity();
+            }
+            if (curGlobalActivity == null || this.a.contains(curGlobalActivity.getClass().getSimpleName())) {
+                return;
+            }
+            ScreenTopToast screenTopToast = new ScreenTopToast(curGlobalActivity);
+            screenTopToast.m(this.b);
+            screenTopToast.k(this.c);
+            screenTopToast.j(this.d);
+            screenTopToast.n(this.d);
+            screenTopToast.o((ViewGroup) curGlobalActivity.findViewById(16908290));
         }
     }
 
-    public void g(boolean z) {
+    public static final void b(View view2) {
+        Activity curGlobalActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.b = z;
+        if ((interceptable != null && interceptable.invokeL(65537, null, view2) != null) || (curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity()) == null) {
+            return;
         }
+        DownloadManagerActivityConfig downloadManagerActivityConfig = new DownloadManagerActivityConfig(curGlobalActivity, 3);
+        downloadManagerActivityConfig.setCurrentTab(3);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, downloadManagerActivityConfig));
     }
 
-    public void h(ArrayList<BawuRoleInfoPub> arrayList) {
+    public final nf7 c(String text) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
-            this.a = arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text)) == null) {
+            Intrinsics.checkNotNullParameter(text, "text");
+            if (text.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                this.b = text;
+            }
+            return this;
         }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.d = str;
-        }
+        return (nf7) invokeL.objValue;
     }
 }

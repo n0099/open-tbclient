@@ -1,84 +1,250 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.animation.Animator;
+import android.content.Context;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.searchbox.downloads.ImgDataURISchemeUtil;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.swan.apps.storage.PathType;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.airbnb.lottie.LottieAnimationView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tieba.oh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a72 implements ImageAssetDelegate {
+public final class a72 extends t62<LottieAnimationView, b72> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    @NonNull
+    public String i;
 
-    public a72(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t62
+    /* renamed from: Y */
+    public void R(@NonNull LottieAnimationView lottieAnimationView, @NonNull b72 b72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, lottieAnimationView, b72Var) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b72 a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ LottieAnimationView c;
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+
+        public a(a72 a72Var, b72 b72Var, JSONObject jSONObject, LottieAnimationView lottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a72Var, b72Var, jSONObject, lottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b72Var;
+            this.b = jSONObject;
+            this.c = lottieAnimationView;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                b72 b72Var = this.a;
+                nq3.d(b72Var.c, b72Var.b, "animateview", "ended", this.b);
+                g82.i("Component-AnimationView", "progress: " + this.c.getProgress());
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                g82.i("Component-AnimationView", "onAnimationRepeat ");
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a72(@Nullable Context context, @NonNull b72 b72Var, @NonNull String str) {
+        super(context, b72Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context, b72Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (u62) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        PathType s = pi3.s(str);
-        if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
-            this.a = new File(uw2.T().G().a(str)).getParent();
+        this.i = str;
+    }
+
+    public static void Z(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("json", str);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
+            } catch (Exception e) {
+                if (v62.h) {
+                    e.printStackTrace();
+                }
+            }
+            String jSONObject2 = jSONObject.toString();
+            if (v62.h && TextUtils.isEmpty(jSONObject2)) {
+                Log.d("Component-AnimationView", "reportLottieAnimationCrash: empty");
+                return;
+            }
+            if (v62.h) {
+                Log.d("Component-AnimationView", "reportLottieAnimationCrash: " + jSONObject2);
+            }
+            oh3.b bVar = new oh3.b(10009);
+            bVar.i(jSONObject2);
+            bVar.h(gb3.g0());
+            bVar.m();
         }
     }
 
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v62
+    @NonNull
+    /* renamed from: T */
+    public LottieAnimationView v(@NonNull Context context) {
         InterceptResult invokeL;
-        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lottieImageAsset)) == null) {
-            if (lottieImageAsset == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            return new LottieAnimationView(context);
+        }
+        return (LottieAnimationView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t62
+    /* renamed from: V */
+    public void O(@NonNull LottieAnimationView lottieAnimationView, @NonNull b72 b72Var, @NonNull y72 y72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lottieAnimationView, b72Var, y72Var) == null) {
+            super.C(lottieAnimationView, b72Var, y72Var);
+            W(lottieAnimationView, b72Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t62
+    /* renamed from: X */
+    public void Q(@NonNull LottieAnimationView lottieAnimationView, @NonNull b72 b72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, lottieAnimationView, b72Var) == null) {
+            if (v62.h) {
+                Log.d("Component-AnimationView", "renderBackground");
             }
-            String fileName = lottieImageAsset.getFileName();
-            if (TextUtils.isEmpty(fileName)) {
-                return null;
+            lottieAnimationView.setColorFilter(new PorterDuffColorFilter(b72Var.k, PorterDuff.Mode.ADD));
+        }
+    }
+
+    public final void S(@NonNull LottieAnimationView lottieAnimationView, @NonNull b72 b72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, lottieAnimationView, b72Var) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, b72Var.c);
+                jSONObject.put("vtype", "ended");
+                jSONObject2.putOpt("animationViewId", b72Var.b);
+                jSONObject.put("data", jSONObject2.toString());
+            } catch (JSONException e) {
+                if (v62.h) {
+                    e.printStackTrace();
+                }
             }
-            if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf(ImgDataURISchemeUtil.DATA_URL_SCHEME_BASE64_FLAG) > 0) {
-                try {
-                    byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inScaled = true;
-                    options.inDensity = 160;
-                    return BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
-                } catch (IllegalArgumentException e) {
-                    Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e);
-                    return null;
+            lottieAnimationView.addAnimatorListener(new a(this, b72Var, jSONObject, lottieAnimationView));
+        }
+    }
+
+    public final void W(@NonNull LottieAnimationView lottieAnimationView, @NonNull b72 b72Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048585, this, lottieAnimationView, b72Var) != null) || !t()) {
+            return;
+        }
+        if (v62.h) {
+            Log.d("Component-AnimationView", "renderAction");
+        }
+        String str = b72Var.w;
+        if (TextUtils.equals(str, "play")) {
+            lottieAnimationView.resumeAnimation();
+        } else if (TextUtils.equals(str, DownloadStatisticConstants.UBC_TYPE_PAUSE)) {
+            lottieAnimationView.pauseAnimation();
+        } else if (TextUtils.equals(str, "stop")) {
+            lottieAnimationView.cancelAnimation();
+            lottieAnimationView.setProgress(0.0f);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v62
+    /* renamed from: U */
+    public void A(@NonNull LottieAnimationView lottieAnimationView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, lottieAnimationView) == null) {
+            super.A(lottieAnimationView);
+            try {
+                b72 b72Var = (b72) n();
+                lottieAnimationView.loop(b72Var.u);
+                lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
+                lottieAnimationView.setImageAssetDelegate(new z62(b72Var.t));
+                lottieAnimationView.setAnimationFromJson(this.i, b72Var.b);
+                if (b72Var.v) {
+                    lottieAnimationView.playAnimation();
                 }
-            } else if (TextUtils.isEmpty(this.a)) {
-                return null;
-            } else {
-                String dirName = lottieImageAsset.getDirName();
-                if (TextUtils.isEmpty(dirName)) {
-                    file = new File(this.a);
-                } else {
-                    file = new File(this.a, dirName);
+                if (!b72Var.u) {
+                    S(lottieAnimationView, b72Var);
                 }
-                return BitmapFactory.decodeFile(new File(file, lottieImageAsset.getFileName()).getAbsolutePath());
+            } catch (Exception unused) {
+                Z(this.i, gb3.g0());
             }
         }
-        return (Bitmap) invokeL.objValue;
     }
 }

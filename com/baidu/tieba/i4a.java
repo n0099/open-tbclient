@@ -1,62 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.yy.gslbsdk.db.DelayTB;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.GetWebviewCacheInfo.Offpack;
 /* loaded from: classes6.dex */
 public class i4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public List<a> b;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long b;
-        public long c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                this.a = jSONObject.optInt("style");
-                long optLong = jSONObject.optLong(DelayTB.DELAY);
-                this.b = optLong;
-                if (optLong < 0) {
-                    this.b = 0L;
-                }
-                this.c = jSONObject.optLong("duration");
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
+    public String b;
+    public String c;
+    public boolean d;
 
     public i4a() {
         Interceptable interceptable = $ic;
@@ -68,29 +26,80 @@ public class i4a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = true;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(Offpack offpack) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, offpack) == null) && offpack != null) {
+            this.a = offpack.src;
+            this.b = offpack.md5;
+            this.c = offpack.webview_version;
+            boolean z = true;
+            if (offpack.is_use.intValue() != 1) {
+                z = false;
+            }
+            this.d = z;
         }
     }
 
-    public static i4a a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            i4a i4aVar = new i4a();
-            i4aVar.a = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-            JSONArray optJSONArray = jSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-            i4aVar.b = new ArrayList();
-            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                List<a> list = i4aVar.b;
-                a aVar = new a();
-                aVar.a(optJSONArray.optJSONObject(i));
-                list.add(aVar);
-            }
-            return i4aVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
         }
-        return (i4a) invokeL.objValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
+        }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.widget.Toast;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -12,21 +12,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fc3 extends ed3 {
+public abstract class fc3 extends dd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.dd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @NonNull
+    public abstract String j();
+
+    public abstract boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, gb3 gb3Var);
+
+    public abstract boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, gb3 gb3Var);
+
+    public abstract boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, gb3 gb3Var);
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fc3(ec3 ec3Var) {
-        super(ec3Var, "/swanAPI/abTestConfig");
+    public fc3(dc3 dc3Var, String str) {
+        super(dc3Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ec3Var};
+            Object[] objArr = {dc3Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,81 +60,72 @@ public class fc3 extends ed3 {
         }
     }
 
-    public static String k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dd3
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, gb3 gb3Var) {
+        InterceptResult invokeLLLLL;
+        boolean n;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File a = wn3.a();
-            if (a == null) {
-                return null;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, gb3Var)) == null) {
+            String l = l("insert");
+            String l2 = l(StickerDataChangeType.UPDATE);
+            String l3 = l("remove");
+            if (TextUtils.equals(l, str)) {
+                n = m(context, unitedSchemeEntity, callbackHandler, str, gb3Var);
+            } else if (TextUtils.equals(l2, str)) {
+                n = p(context, unitedSchemeEntity, callbackHandler, str, gb3Var);
+            } else if (TextUtils.equals(l3, str)) {
+                n = o(context, unitedSchemeEntity, callbackHandler, str, gb3Var);
+            } else {
+                n = n(context, unitedSchemeEntity, callbackHandler, str, gb3Var);
             }
-            String path = a.getPath();
-            if (TextUtils.isEmpty(path)) {
-                return null;
-            }
-            return path + "/debug_abtest_config.json";
+            g82.b("AbsSwanAppWidget", "subAction = " + str + " ; handle result = " + n);
+            return n;
         }
-        return (String) invokeV.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ed3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
-        InterceptResult invokeLLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
-            if (!ed3.b) {
-                return false;
-            }
-            JSONObject a = ed3.a(unitedSchemeEntity, "params");
-            if (a != null && context != null) {
-                JSONObject optJSONObject = a.optJSONObject("abtest");
-                if (optJSONObject != null) {
-                    if (l(optJSONObject)) {
-                        i = R.string.obfuscated_res_0x7f0f1535;
-                    } else {
-                        i = R.string.obfuscated_res_0x7f0f1533;
-                    }
-                    Toast.makeText(context, i, 1).show();
-                } else {
-                    j();
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1536, 1).show();
-                }
-                return true;
-            }
-            Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1534, 1).show();
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return;
-            }
-            File file = new File(k);
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-    }
-
-    public final boolean l(JSONObject jSONObject) {
+    public JSONObject k(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
+                g82.c("AbsSwanAppWidget", "getParamsJSONObject entity is null");
+                return null;
             }
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return false;
+            String param = unitedSchemeEntity.getParam("params");
+            if (TextUtils.isEmpty(param)) {
+                g82.c("AbsSwanAppWidget", "getParamsJSONObject paramsJson is empty");
+                return null;
             }
-            return ku2.b(k, jSONObject.toString(), false);
+            try {
+                return new JSONObject(param);
+            } catch (JSONException e) {
+                g82.c("AbsSwanAppWidget", "getParamsJSONObject exception = " + e.getMessage());
+                if (!dd3.b) {
+                    return null;
+                }
+                e.printStackTrace();
+                return null;
+            }
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return j() + "/" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean n(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, gb3 gb3Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, context, unitedSchemeEntity, callbackHandler, str, gb3Var)) == null) {
+            return super.i(context, unitedSchemeEntity, callbackHandler, str, gb3Var);
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

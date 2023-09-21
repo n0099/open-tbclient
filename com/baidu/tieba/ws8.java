@@ -1,30 +1,70 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.base.core.inputtool.callback.uistate.ViewState;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ws8 extends cj8 {
+public class ws8 implements hd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final GroupChatFragment a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ws8() {
-        super(oi8.a(), 2001143);
+    public ws8(@NonNull GroupChatFragment groupChatFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {groupChatFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((ki8) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        this.a = groupChatFragment;
+    }
+
+    @Override // com.baidu.tieba.hd8
+    public void a(ViewState viewState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, viewState) == null) {
+            this.a.f3(viewState);
+        }
+    }
+
+    @Override // com.baidu.tieba.hd8
+    public void c(@NonNull ViewState viewState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewState) == null) {
+            if (ViewState.VISIBLE == viewState) {
+                this.a.h3();
+            } else {
+                this.a.W2();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hd8
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a.b3(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.hd8
+    public void b(@NonNull String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) && this.a.F2() != null) {
+            this.a.F2().w1(str, z);
         }
     }
 }

@@ -1,41 +1,11 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.BigImgCard;
-import com.baidu.tieba.lego.card.model.ButtonCard;
-import com.baidu.tieba.lego.card.model.CardGroup;
-import com.baidu.tieba.lego.card.model.FocusListCard;
-import com.baidu.tieba.lego.card.model.HorRankCard;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
-import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.lego.card.model.LPBigImgCard;
-import com.baidu.tieba.lego.card.model.OnePicInfoCard;
-import com.baidu.tieba.lego.card.model.PlayPicInfoCard;
-import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import com.baidu.tieba.lego.card.model.RankScoreCard;
-import com.baidu.tieba.lego.card.model.SingleLineCard;
-import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.lego.card.view.BaseCardView;
-import com.baidu.tieba.lego.card.view.BigImgView;
-import com.baidu.tieba.lego.card.view.ButtonCardView;
-import com.baidu.tieba.lego.card.view.FocusListCardView;
-import com.baidu.tieba.lego.card.view.HorRankCardView;
-import com.baidu.tieba.lego.card.view.ImmersiveVideoCardViewEx;
-import com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView;
-import com.baidu.tieba.lego.card.view.LPBigImgCardView;
-import com.baidu.tieba.lego.card.view.NewImmersiveWebViewCardView;
-import com.baidu.tieba.lego.card.view.NewWebViewCardView;
-import com.baidu.tieba.lego.card.view.OnePicInfoCardView;
-import com.baidu.tieba.lego.card.view.PlayPicInfoCardView;
-import com.baidu.tieba.lego.card.view.RankDetailTrendCardView;
-import com.baidu.tieba.lego.card.view.RankScoreCardView;
-import com.baidu.tieba.lego.card.view.SingleLineCardView;
-import com.baidu.tieba.lego.card.view.WebViewCardView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,265 +13,257 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Vector;
+import kotlin.collections.CollectionsKt__MutableCollectionsKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class x29 extends y29 {
+public final class x29 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Vector<String> e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final long b;
+    public final String c;
+    public final Runnable d;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ x29 a;
 
-    @Override // com.baidu.tieba.y29
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final x29 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-338838164, "Lcom/baidu/tieba/x29$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-338838164, "Lcom/baidu/tieba/x29$b;");
+        public a(x29 x29Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x29Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new x29(null);
+            this.a = x29Var;
         }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
+                if (this.a.i()) {
+                    return;
+                }
+                String loadingTimeOutContent = this.a.c;
+                Intrinsics.checkNotNullExpressionValue(loadingTimeOutContent, "loadingTimeOutContent");
+                go5.k(loadingTimeOutContent, this.a.j());
+                x29.e.clear();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248618, "Lcom/baidu/tieba/x29;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948248618, "Lcom/baidu/tieba/x29;");
+                return;
+            }
+        }
+        e = new Vector<>();
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (e.isEmpty()) {
+                e();
+                return;
+            }
+            skb.a().removeCallbacks(this.d);
+            skb.a().postDelayed(this.d, this.b);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            skb.a().removeCallbacks(this.d);
+        }
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object first = CollectionsKt___CollectionsKt.first((List<? extends Object>) e);
+            Intrinsics.checkNotNullExpressionValue(first, "sendMsgkeyList.first()");
+            return (String) first;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            long j = SharedPrefHelper.getInstance().getLong("key_funny_sprite_loading_animation_show", 0L);
+            if (i() || j <= 0) {
+                return 0L;
+            }
+            return this.b - (System.currentTimeMillis() - j);
+        }
+        return invokeV.longValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String loadingTimeOutContent = this.c;
+            Intrinsics.checkNotNullExpressionValue(loadingTimeOutContent, "loadingTimeOutContent");
+            return loadingTimeOutContent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return e.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String lastElement = e.lastElement();
+            Intrinsics.checkNotNullExpressionValue(lastElement, "sendMsgkeyList.lastElement()");
+            return lastElement;
+        }
+        return (String) invokeV.objValue;
     }
 
     public x29() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1450);
+        Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.sprite_time_out_hint)");
+        this.a = string;
+        this.b = SharedPrefHelper.getInstance().getInt("key_funny_sprite_msg_time_out", 60) * 1000;
+        this.c = SharedPrefHelper.getInstance().getString("key_funny_sprite_msg_time_out_content", this.a);
+        this.d = new a(this);
     }
 
-    public static x29 f() {
-        InterceptResult invokeV;
+    public final void c(String msgKey) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, msgKey) == null) {
+            Intrinsics.checkNotNullParameter(msgKey, "msgKey");
+            if (!e.contains(msgKey)) {
+                e.add(msgKey);
+            }
+            d();
+            SharedPrefHelper.getInstance().putLong("key_funny_sprite_loading_animation_show", System.currentTimeMillis());
         }
-        return (x29) invokeV.objValue;
     }
 
-    public /* synthetic */ x29(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.y29
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        ICardInfo playPicInfoCard;
+    public final void k(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 5) {
-                            if (i != 6) {
-                                if (i != 7) {
-                                    if (i != 8) {
-                                        if (i != 11) {
-                                            if (i != 28) {
-                                                if (i != 18) {
-                                                    if (i != 19) {
-                                                        switch (i) {
-                                                            case 21:
-                                                                playPicInfoCard = new LPBigImgCard(jSONObject);
-                                                                break;
-                                                            case 22:
-                                                                playPicInfoCard = new ImmersiveVideoCardEx(jSONObject);
-                                                                break;
-                                                            case 23:
-                                                                playPicInfoCard = new ImmersiveWebViewCard(jSONObject);
-                                                                break;
-                                                            default:
-                                                                return null;
-                                                        }
-                                                    } else {
-                                                        playPicInfoCard = new BigImgCard(jSONObject);
-                                                    }
-                                                } else {
-                                                    playPicInfoCard = new WebViewCard(jSONObject);
-                                                }
-                                            } else {
-                                                playPicInfoCard = new ButtonCard(jSONObject);
-                                            }
-                                        } else {
-                                            playPicInfoCard = new CardGroup(jSONObject);
-                                        }
-                                    } else {
-                                        playPicInfoCard = new RankScoreCard(jSONObject);
-                                    }
-                                } else {
-                                    playPicInfoCard = new RankDetailTrendCard(jSONObject);
-                                }
-                            } else {
-                                playPicInfoCard = new HorRankCard(jSONObject);
-                            }
-                        } else {
-                            playPicInfoCard = new FocusListCard(jSONObject);
-                        }
-                    } else {
-                        playPicInfoCard = new OnePicInfoCard(jSONObject);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            skb.a().removeCallbacks(this.d);
+            skb.a().postDelayed(this.d, j);
+        }
+    }
+
+    public final void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            if (z) {
+                e.clear();
+            }
+            e();
+        }
+    }
+
+    public final void l(String msgKey, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, msgKey, z) == null) {
+            Intrinsics.checkNotNullParameter(msgKey, "msgKey");
+            if (z) {
+                e.remove(msgKey);
+            } else if (!i()) {
+                CollectionsKt__MutableCollectionsKt.removeFirst(e);
+            }
+            d();
+        }
+    }
+
+    public final boolean m(SizedSyncTreeSet<k09> set) {
+        InterceptResult invokeL;
+        Object obj;
+        p09 p09Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, set)) == null) {
+            Intrinsics.checkNotNullParameter(set, "set");
+            if (i()) {
+                return true;
+            }
+            ArrayList arrayList = new ArrayList(set);
+            ListIterator listIterator = arrayList.listIterator(arrayList.size());
+            while (true) {
+                if (listIterator.hasPrevious()) {
+                    obj = listIterator.previous();
+                    if (Intrinsics.areEqual(((k09) obj).b(), f())) {
+                        break;
                     }
                 } else {
-                    playPicInfoCard = new SingleLineCard(jSONObject);
+                    obj = null;
+                    break;
                 }
-            } else {
-                playPicInfoCard = new PlayPicInfoCard(jSONObject);
             }
-            return playPicInfoCard;
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.y29
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = y29.a;
-            sparseIntArray.put(1, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = y29.a;
-            sparseIntArray2.put(2, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = y29.a;
-            sparseIntArray3.put(3, sparseIntArray3.size() + 1);
-            SparseIntArray sparseIntArray4 = y29.a;
-            sparseIntArray4.put(5, sparseIntArray4.size() + 1);
-            SparseIntArray sparseIntArray5 = y29.a;
-            sparseIntArray5.put(6, sparseIntArray5.size() + 1);
-            SparseIntArray sparseIntArray6 = y29.a;
-            sparseIntArray6.put(7, sparseIntArray6.size() + 1);
-            SparseIntArray sparseIntArray7 = y29.a;
-            sparseIntArray7.put(8, sparseIntArray7.size() + 1);
-            SparseIntArray sparseIntArray8 = y29.a;
-            sparseIntArray8.put(18, sparseIntArray8.size() + 1);
-            SparseIntArray sparseIntArray9 = y29.a;
-            sparseIntArray9.put(19, sparseIntArray9.size() + 1);
-            SparseIntArray sparseIntArray10 = y29.a;
-            sparseIntArray10.put(21, sparseIntArray10.size() + 1);
-            SparseIntArray sparseIntArray11 = y29.a;
-            sparseIntArray11.put(22, sparseIntArray11.size() + 1);
-            SparseIntArray sparseIntArray12 = y29.a;
-            sparseIntArray12.put(23, sparseIntArray12.size() + 1);
-            SparseIntArray sparseIntArray13 = y29.a;
-            sparseIntArray13.put(28, sparseIntArray13.size() + 1);
-            y29.b.put(1, BdUniqueId.gen());
-            y29.b.put(2, BdUniqueId.gen());
-            y29.b.put(3, BdUniqueId.gen());
-            y29.b.put(5, BdUniqueId.gen());
-            y29.b.put(6, BdUniqueId.gen());
-            y29.b.put(7, BdUniqueId.gen());
-            y29.b.put(8, BdUniqueId.gen());
-            y29.b.put(18, BdUniqueId.gen());
-            y29.b.put(19, BdUniqueId.gen());
-            y29.b.put(21, BdUniqueId.gen());
-            y29.b.put(22, BdUniqueId.gen());
-            y29.b.put(23, BdUniqueId.gen());
-            y29.b.put(28, BdUniqueId.gen());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.y29
-    /* renamed from: e */
-    public <T> BaseCardView a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
-        BaseCardView playPicInfoCardView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            if (iCardInfo == null) {
-                cardType = -1;
-            } else {
-                cardType = iCardInfo.getCardType();
-            }
-            if (cardType != 1) {
-                if (cardType != 2) {
-                    if (cardType != 3) {
-                        if (cardType != 5) {
-                            if (cardType != 6) {
-                                if (cardType != 7) {
-                                    if (cardType != 8) {
-                                        if (cardType != 18) {
-                                            if (cardType != 19) {
-                                                if (cardType != 28) {
-                                                    switch (cardType) {
-                                                        case 21:
-                                                            playPicInfoCardView = new LPBigImgCardView(tbPageContext);
-                                                            break;
-                                                        case 22:
-                                                            playPicInfoCardView = new ImmersiveVideoCardViewEx(tbPageContext);
-                                                            break;
-                                                        case 23:
-                                                            if (pm6.e("https://unknown-tmp/")) {
-                                                                playPicInfoCardView = new NewImmersiveWebViewCardView(tbPageContext);
-                                                                break;
-                                                            } else {
-                                                                playPicInfoCardView = new ImmersiveWebViewCardView(tbPageContext);
-                                                                break;
-                                                            }
-                                                        default:
-                                                            return null;
-                                                    }
-                                                } else {
-                                                    playPicInfoCardView = new ButtonCardView(tbPageContext);
-                                                }
-                                            } else {
-                                                playPicInfoCardView = new BigImgView(tbPageContext);
-                                            }
-                                        } else if (pm6.e("https://unknown-tmp/")) {
-                                            playPicInfoCardView = new NewWebViewCardView(tbPageContext);
-                                        } else {
-                                            playPicInfoCardView = new WebViewCardView(tbPageContext);
-                                        }
-                                    } else {
-                                        playPicInfoCardView = new RankScoreCardView(tbPageContext);
-                                    }
-                                } else {
-                                    playPicInfoCardView = new RankDetailTrendCardView(tbPageContext);
-                                }
-                            } else {
-                                playPicInfoCardView = new HorRankCardView(tbPageContext);
-                            }
-                        } else {
-                            playPicInfoCardView = new FocusListCardView(tbPageContext);
-                        }
+            int lastIndexOf = CollectionsKt___CollectionsKt.lastIndexOf((List<? extends k09>) arrayList, (k09) obj);
+            if (lastIndexOf >= -1 && lastIndexOf < arrayList.size() - 1) {
+                int size = arrayList.size();
+                for (int i = lastIndexOf + 1; i < size; i++) {
+                    Object item = ListUtils.getItem(arrayList, i);
+                    if (item instanceof p09) {
+                        p09Var = (p09) item;
                     } else {
-                        playPicInfoCardView = new OnePicInfoCardView(tbPageContext);
+                        p09Var = null;
                     }
-                } else {
-                    playPicInfoCardView = new SingleLineCardView(tbPageContext);
+                    if (p09Var != null && !p09Var.e().d() && !di.isEmpty(p09Var.g().a())) {
+                        l(p09Var.g().a(), true);
+                    }
                 }
-            } else {
-                playPicInfoCardView = new PlayPicInfoCardView(tbPageContext);
             }
-            return playPicInfoCardView;
+            return i();
         }
-        return (BaseCardView) invokeLLI.objValue;
+        return invokeL.booleanValue;
     }
 }

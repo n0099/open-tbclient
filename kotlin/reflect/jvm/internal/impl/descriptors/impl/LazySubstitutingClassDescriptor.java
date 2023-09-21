@@ -262,8 +262,8 @@ public class LazySubstitutingClassDescriptor extends ModuleAwareClassDescriptor 
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor */
-    public ClassDescriptor mo2098getCompanionObjectDescriptor() {
-        return this.original.mo2098getCompanionObjectDescriptor();
+    public ClassDescriptor mo2100getCompanionObjectDescriptor() {
+        return this.original.mo2100getCompanionObjectDescriptor();
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor, kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptorNonRoot, kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor
@@ -383,8 +383,8 @@ public class LazySubstitutingClassDescriptor extends ModuleAwareClassDescriptor 
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    public ClassConstructorDescriptor mo2099getUnsubstitutedPrimaryConstructor() {
-        return this.original.mo2099getUnsubstitutedPrimaryConstructor();
+    public ClassConstructorDescriptor mo2101getUnsubstitutedPrimaryConstructor() {
+        return this.original.mo2101getUnsubstitutedPrimaryConstructor();
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor, kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptorWithVisibility, kotlin.reflect.jvm.internal.impl.descriptors.MemberDescriptor
@@ -452,9 +452,9 @@ public class LazySubstitutingClassDescriptor extends ModuleAwareClassDescriptor 
         }
         if (this.typeConstructor == null) {
             TypeSubstitutor substitutor = getSubstitutor();
-            Collection<KotlinType> mo2106getSupertypes = typeConstructor.mo2106getSupertypes();
-            ArrayList arrayList = new ArrayList(mo2106getSupertypes.size());
-            for (KotlinType kotlinType : mo2106getSupertypes) {
+            Collection<KotlinType> mo2108getSupertypes = typeConstructor.mo2108getSupertypes();
+            ArrayList arrayList = new ArrayList(mo2108getSupertypes.size());
+            for (KotlinType kotlinType : mo2108getSupertypes) {
                 arrayList.add(substitutor.substitute(kotlinType, Variance.INVARIANT));
             }
             this.typeConstructor = new ClassTypeConstructorImpl(this, this.typeConstructorParameters, arrayList, LockBasedStorageManager.NO_LOCKS);

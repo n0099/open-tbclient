@@ -50,12 +50,12 @@ public final class BotSkillMenuItemViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f09044e);
+            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090446);
             if (tbImage != null) {
                 RelativeLayout relativeLayout = (RelativeLayout) view2;
                 return new BotSkillMenuItemViewBinding(relativeLayout, tbImage, relativeLayout);
             }
-            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f09044e)));
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f090446)));
         }
         return (BotSkillMenuItemViewBinding) invokeL.objValue;
     }

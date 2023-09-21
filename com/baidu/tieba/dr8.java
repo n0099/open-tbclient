@@ -1,75 +1,72 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.AbilityTagItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.AddEmojiPendantVH;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.ElementFileItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.ElementItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.EmojiReplyPendantVH;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.SkillIconViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.SkillTagItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.TagItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.TagSugItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dr8 extends ks8 {
-    public static /* synthetic */ Interceptable $ic;
+public class dr8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "1";
+    public static String b = "2";
+    public static String c = "3";
+    public static String d = "1";
+    public static String e = "2";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dr8() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947714271, "Lcom/baidu/tieba/dr8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947714271, "Lcom/baidu/tieba/dr8;");
         }
     }
 
-    @Override // com.baidu.tieba.ks8
-    public BaseTagItemViewHolder b(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    public static void a(long j, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i == nr8.b) {
-                return new TagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0973, viewGroup, false), this.a);
-            }
-            if (i == lr8.d) {
-                return new ElementItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0970, viewGroup, false), this.a);
-            }
-            if (i == kr8.c) {
-                return new SkillTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d8, viewGroup, false), this.a);
-            }
-            if (i == jr8.a) {
-                return new SkillIconViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d7, viewGroup, false), this.a);
-            }
-            if (i == mr8.f) {
-                return new ElementFileItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0972, viewGroup, false), this.a);
-            }
-            if (i == gr8.d) {
-                return new AbilityTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d096f, viewGroup, false), this.b, this.c);
-            }
-            if (i == or8.b) {
-                return new TagSugItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0970, viewGroup, false), this.a);
-            }
-            if (i == ir8.d) {
-                return new EmojiReplyPendantVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0523, viewGroup, false), this.b);
-            }
-            if (i == hr8.b) {
-                return new AddEmojiPendantVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0523, viewGroup, false), this.b);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), str, str2, str3, str4}) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_DIALOG_SHOW);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("fname", str);
+            statisticItem.param("room_id", str4);
+            statisticItem.param("obj_source", str2);
+            statisticItem.param("obj_locate", str3);
+            TiebaStatic.log(statisticItem);
         }
-        return (BaseTagItemViewHolder) invokeLI.objValue;
+    }
+
+    public static void b(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(65538, null, j, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_CREATE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void c(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(65539, null, j, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_MANAGE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

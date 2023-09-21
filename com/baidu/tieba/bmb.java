@@ -1,120 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class bmb {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
+    public static long e = 300000;
+    public static int f = 10;
+    public static long g = 604800000;
+    public static long h = 104857600;
+    public static int i = 100;
+    public static int j = 5;
+    public static int k = 10;
+    public static long l = 104857600;
+    public static int m = 0;
+    public static int n = 1;
+    public static int o = 1;
+    public static int p = 0;
+    public static int q = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized int a(Context context, String str, ContentValues contentValues, String str2, String[] strArr) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, context, str, contentValues, str2, strArr)) == null) {
-            synchronized (bmb.class) {
-                if (contentValues != null) {
-                    if (!TextUtils.isEmpty(str)) {
-                        try {
-                            ContentResolver e = e(context);
-                            if (e != null) {
-                                return e.update(Uri.parse(c(context.getPackageName()) + str), contentValues, str2, strArr);
-                            }
-                        } catch (Throwable unused) {
-                        }
-                        return 0;
-                    }
-                }
-                return 0;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947651186, "Lcom/baidu/tieba/bmb;")) == null) {
+            return;
         }
-        return invokeLLLLL.intValue;
-    }
-
-    public static synchronized Cursor b(Context context, String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, strArr, str2, strArr2, str3, str4, str5})) == null) {
-            synchronized (bmb.class) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                try {
-                    ContentResolver e = e(context);
-                    if (e != null) {
-                        return e.query(Uri.parse(c(context.getPackageName()) + str), strArr, str2, strArr2, str5);
-                    }
-                } catch (Throwable unused) {
-                }
-                return null;
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return (Cursor) invokeCommon.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return DownloadConstants.LOCAL_DATA_URI_PREFIX + str + ".TTMultiProvider/t_db/ttopensdk.db/";
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947651186, "Lcom/baidu/tieba/bmb;");
         }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            Cursor cursor = null;
-            try {
-                cursor = b(context, "setting_base_info", new String[]{"_id"}, null, null, null, null, null);
-                if (cursor != null) {
-                    if (cursor.moveToNext()) {
-                        if (cursor != null) {
-                            cursor.close();
-                            return true;
-                        }
-                        return true;
-                    }
-                }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return false;
-            } catch (Exception unused) {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return false;
-            } catch (Throwable th) {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                throw th;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static ContentResolver e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                return context.getContentResolver();
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (ContentResolver) invokeL.objValue;
     }
 }

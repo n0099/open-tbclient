@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lx5;
+import com.baidu.tieba.mx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +72,7 @@ public class FrsPraiseView extends LinearLayout {
                 } else {
                     str = "";
                 }
-                lx5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, str, this.a.i));
+                mx5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, str, this.a.i));
             }
         }
     }

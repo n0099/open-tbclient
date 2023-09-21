@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.Map;
 /* loaded from: classes5.dex */
-public interface d46 {
-    void J0(int i, c46 c46Var);
+public interface d46<T> {
+    void b(Map<String, String> map);
 
-    void Z(b46 b46Var);
-
-    c46 o1(int i);
+    void f(T t, String str);
 }

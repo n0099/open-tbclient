@@ -1,61 +1,84 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class mw6 extends uv6 {
+public abstract class mw6<T> extends hw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean b;
+    public final Set<T> c;
+    public boolean d;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public mw6(pv6 context) {
-        super(context, r3, null, 4, null);
+    public abstract T c(rv6 rv6Var);
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mw6(int i, boolean z) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((pv6) objArr2[0], (l0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        l0 b = l0.i(zv6.class).b();
-        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
+        this.b = z;
+        this.c = Collections.synchronizedSet(new LinkedHashSet());
+        this.d = true;
     }
 
-    @Override // com.baidu.tieba.uv6
-    public void l(i0 entity, float f) {
-        kv6 a;
-        zv6 a2;
+    public /* synthetic */ mw6(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i2 & 2) != 0 ? false : z);
+    }
+
+    @Override // com.baidu.tieba.hw6
+    public boolean b(qv6 item, tx6 timer, kv6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            wv6 b = uw6.b(entity);
-            if (b == null || (a = b.a()) == null || (a2 = uw6.a(entity)) == null) {
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (!this.d) {
+                return false;
             }
-            if (tw6.b(this) >= a.e().k()) {
-                a2.h(true);
-                a2.c(tw6.b(this) - a.e().k());
-                return;
+            boolean contains = this.c.contains(c(item.e()));
+            if (this.b) {
+                if (contains) {
+                    return false;
+                }
+                return true;
             }
-            a2.h(false);
+            return contains;
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public final Set<T> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Set<T> mFilterSet = this.c;
+            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
+            return mFilterSet;
+        }
+        return (Set) invokeV.objValue;
     }
 }

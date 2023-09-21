@@ -1,50 +1,136 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.text.TextUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.retrieve.YaLogInitManager;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.log.TbLogManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.data.CreateTagResponseData;
+import com.baidu.tieba.write.write.message.QuestionTagCreateRequestMessage;
+import com.baidu.tieba.write.write.message.QuestionTagCreateResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class y8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public boolean b;
+    public final HttpMessageListener c;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            ci.d().h(SwanKV.LIB_CPP_SHARED, 2);
-            YaLogInitManager.getInstance().initYaLog(true, true, true, String.valueOf(10773430L));
-            TbLogManager.initTbUbcLog(new x8b());
-            c();
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(CreateTagResponseData createTagResponseData);
+
+        void onFail(String str);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y8b a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(y8b y8bVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y8bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y8bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.b = false;
+                if (!(httpResponsedMessage instanceof QuestionTagCreateResponseMessage)) {
+                    return;
+                }
+                CreateTagResponseData createTagResponseData = ((QuestionTagCreateResponseMessage) httpResponsedMessage).data;
+                if (createTagResponseData != null && createTagResponseData.tagInfo != null) {
+                    if (this.a.a != null) {
+                        this.a.a.a(createTagResponseData);
+                    }
+                } else if (this.a.a != null) {
+                    this.a.a.onFail(httpResponsedMessage.getErrorString());
+                }
+            }
         }
     }
 
-    public static void c() {
+    public y8b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            String string = SharedPrefHelper.getInstance().getString("key_ubc_yalog_config", "");
-            if (TextUtils.isEmpty(string)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            try {
-                ((flb) ServiceManager.getService(flb.a)).a(new JSONObject(string));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        }
+        this.c = new a(this, CmdConfigHttp.CMD_QUESTION_THREAD_CREATE_TAG);
+        d();
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
-    public static void b(Application application) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
-            YaLogInitManager.getInstance().initYaLogBaseContext(application);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+        }
+    }
+
+    public void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.b) {
+            return;
+        }
+        this.b = true;
+        MessageManager.getInstance().sendMessage(new QuestionTagCreateRequestMessage().setForumId(str2).setName(str));
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_QUESTION_THREAD_CREATE_TAG, TbConfig.SERVER_ADDRESS + TbConfig.QUESTION_THREAD_CREATE_TAG);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setResponsedClass(QuestionTagCreateResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 }

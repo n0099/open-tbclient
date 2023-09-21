@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.share.InitWeiboSdkEvent;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dr5 implements eq5<InitWeiboSdkEvent> {
+public class dr5 implements fq5<PushRecevierEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,16 +28,16 @@ public class dr5 implements eq5<InitWeiboSdkEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.eq5
+    @Override // com.baidu.tieba.fq5
     /* renamed from: a */
-    public boolean onEvent(InitWeiboSdkEvent initWeiboSdkEvent) {
+    public boolean onEvent(PushRecevierEvent pushRecevierEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, initWeiboSdkEvent)) == null) {
-            if (!iq5.l()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pushRecevierEvent)) == null) {
+            if (pushRecevierEvent == null) {
                 return false;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921711, pushRecevierEvent.generalData));
             return true;
         }
         return invokeL.booleanValue;

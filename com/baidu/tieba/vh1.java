@@ -1,38 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
 /* loaded from: classes8.dex */
 public class vh1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile vh1 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public HandlerThread a;
+    public Handler b;
+    public int c;
+    public int d;
+    public Runnable e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948240682, "Lcom/baidu/tieba/vh1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vh1 a;
+
+        public a(vh1 vh1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vh1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948240682, "Lcom/baidu/tieba/vh1;");
-                return;
-            }
+            this.a = vh1Var;
         }
-        if (vg1.a() != 1) {
-            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fi1.g("开始重试");
+                if (wh1.n()) {
+                    fi1.g("重试成功");
+                    this.a.c = 0;
+                    this.a.a.quitSafely();
+                    this.a.b.removeCallbacks(this);
+                    return;
+                }
+                vh1.c(this.a);
+                if (this.a.c < 3) {
+                    fi1.g("重试失败继续重试");
+                    this.a.b.postDelayed(this, this.a.d);
+                    return;
+                }
+                this.a.c = 0;
+                fi1.g("重试三次结束重试");
+                this.a.a.quitSafely();
+                this.a.b.removeCallbacks(this);
+            }
         }
     }
 
@@ -40,69 +72,51 @@ public class vh1 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = 10000;
+        this.e = new a(this);
     }
 
-    public void a(qg1 qg1Var, pg1 pg1Var, og1 og1Var) {
-        DataOutputStream dataOutputStream;
+    public static vh1 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, qg1Var, pg1Var, og1Var) == null) {
-            try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
-                for (Map.Entry<String, String> entry : qg1Var.c().entrySet()) {
-                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                }
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setUseCaches(false);
-                httpURLConnection.setConnectTimeout(5000);
-                httpURLConnection.setReadTimeout(5000);
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry2 : pg1Var.c().entrySet()) {
-                    String encode = URLEncoder.encode(entry2.getValue(), "utf-8");
-                    sb.append(entry2.getKey());
-                    sb.append("=");
-                    sb.append(encode);
-                    sb.append("&");
-                }
-                byte[] bytes = sb.toString().getBytes();
-                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
-                httpURLConnection.connect();
-                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                try {
-                    dataOutputStream.write(bytes);
-                    dataOutputStream.flush();
-                    int responseCode = httpURLConnection.getResponseCode();
-                    if (og1Var != null) {
-                        if (responseCode >= 200 && responseCode <= 299) {
-                            og1Var.c(null);
-                        } else {
-                            og1Var.a(null, 119501, null);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (f == null) {
+                synchronized (vh1.class) {
+                    if (f == null) {
+                        f = new vh1();
                     }
-                    ei1.a(dataOutputStream);
-                } catch (Throwable unused) {
-                    if (og1Var != null) {
-                        try {
-                            og1Var.a(null, 119501, null);
-                        } catch (Throwable th) {
-                            ei1.a(dataOutputStream);
-                            throw th;
-                        }
-                    }
-                    ei1.a(dataOutputStream);
                 }
-            } catch (Throwable unused2) {
-                dataOutputStream = null;
             }
+            return f;
+        }
+        return (vh1) invokeV.objValue;
+    }
+
+    public static /* synthetic */ int c(vh1 vh1Var) {
+        int i = vh1Var.c;
+        vh1Var.c = i + 1;
+        return i;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            fi1.g("触发重试");
+            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
+            this.a = handlerThread;
+            handlerThread.start();
+            Handler handler = new Handler(this.a.getLooper());
+            this.b = handler;
+            handler.postDelayed(this.e, this.d);
         }
     }
 }

@@ -14,13 +14,13 @@ public class bj extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo756a() {
+    public String mo758a() {
         return "check peer job";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo473a() {
+    public void mo475a() {
         bg a = bg.a();
         bg.b bVar = this.a.f942a;
         if (a.a(bVar.g, bVar.f938b).f929a == null) {

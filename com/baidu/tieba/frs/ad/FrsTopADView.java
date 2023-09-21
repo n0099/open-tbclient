@@ -21,25 +21,25 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ega;
-import com.baidu.tieba.el7;
+import com.baidu.tieba.cl7;
 import com.baidu.tieba.frs.view.RoundAdapterLinearLayout;
-import com.baidu.tieba.jw7;
+import com.baidu.tieba.kia;
 import com.baidu.tieba.lw7;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.sk7;
-import com.baidu.tieba.u16;
+import com.baidu.tieba.nw7;
+import com.baidu.tieba.ol7;
+import com.baidu.tieba.v16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FrsTopADView extends FrameLayout implements el7 {
+public class FrsTopADView extends FrameLayout implements ol7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ega b;
+    public kia b;
     public ForumData c;
     public RoundAdapterLinearLayout d;
     public TextView e;
@@ -47,7 +47,7 @@ public class FrsTopADView extends FrameLayout implements el7 {
     public TextView g;
     public FrsAdCommentScrollView h;
     public TextView i;
-    public sk7 j;
+    public cl7 j;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -77,8 +77,8 @@ public class FrsTopADView extends FrameLayout implements el7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && !StringUtils.isNull(this.a.b.p())) {
-                if (!u16.a(this.a.a, this.a.b.i())) {
-                    lw7.b((TbPageContext) m9.a(this.a.a), this.a.b.k(), this.a.b.p(), this.a.b.j());
+                if (!v16.a(this.a.a, this.a.b.i())) {
+                    nw7.b((TbPageContext) m9.a(this.a.a), this.a.b.k(), this.a.b.p(), this.a.b.j());
                 }
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
                 httpMessage.addParam("id", this.a.b.c());
@@ -181,7 +181,7 @@ public class FrsTopADView extends FrameLayout implements el7 {
         f(context);
     }
 
-    @Override // com.baidu.tieba.el7
+    @Override // com.baidu.tieba.ol7
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -189,7 +189,7 @@ public class FrsTopADView extends FrameLayout implements el7 {
         }
     }
 
-    @Override // com.baidu.tieba.el7
+    @Override // com.baidu.tieba.ol7
     public void onPrimary(boolean z) {
         FrsAdCommentScrollView frsAdCommentScrollView;
         Interceptable interceptable = $ic;
@@ -198,26 +198,26 @@ public class FrsTopADView extends FrameLayout implements el7 {
         }
     }
 
-    public void e(ForumData forumData, ega egaVar, boolean z) {
+    public void e(ForumData forumData, kia kiaVar, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, forumData, egaVar, z) != null) || egaVar == null) {
+        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, forumData, kiaVar, z) != null) || kiaVar == null) {
             return;
         }
         this.c = forumData;
-        this.b = egaVar;
-        this.e.setText(egaVar.o());
-        if (egaVar.getType() == 3) {
+        this.b = kiaVar;
+        this.e.setText(kiaVar.o());
+        if (kiaVar.getType() == 3) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0883, Integer.valueOf(this.b.h())));
-        } else if (egaVar.getType() == 1) {
+        } else if (kiaVar.getType() == 1) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0885, Integer.valueOf(this.b.h())));
-        } else if (egaVar.getType() == 2) {
+        } else if (kiaVar.getType() == 2) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0881, Integer.valueOf(this.b.h())));
-        } else if (egaVar.getType() == 4) {
+        } else if (kiaVar.getType() == 4) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0882, Integer.valueOf(this.b.h())));
         }
         this.f.startLoad(this.b.d(), 10, false);
-        ega egaVar2 = this.b;
-        if (egaVar2 != null && egaVar2.f()) {
+        kia kiaVar2 = this.b;
+        if (kiaVar2 != null && kiaVar2.f()) {
             this.i.setVisibility(0);
         } else {
             this.i.setVisibility(8);
@@ -226,7 +226,7 @@ public class FrsTopADView extends FrameLayout implements el7 {
         if (frsAdCommentScrollView != null) {
             frsAdCommentScrollView.m(this.b.a());
         }
-        if (!z && forumData != null && jw7.j(this.b, forumData.getId())) {
+        if (!z && forumData != null && lw7.j(this.b, forumData.getId())) {
             this.j.s(this.b, forumData, Long.parseLong(forumData.getId()));
             this.h.post(new b(this));
         }
@@ -236,20 +236,20 @@ public class FrsTopADView extends FrameLayout implements el7 {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            RoundAdapterLinearLayout roundAdapterLinearLayout = (RoundAdapterLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03aa, (ViewGroup) null);
+            RoundAdapterLinearLayout roundAdapterLinearLayout = (RoundAdapterLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ab, (ViewGroup) null);
             this.d = roundAdapterLinearLayout;
             roundAdapterLinearLayout.setRadius(this.a.getResources().getDimension(R.dimen.tbds20));
-            this.e = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090d8c);
-            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090d91);
-            TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090d8a);
+            this.e = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090d7f);
+            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090d84);
+            TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090d7d);
             this.f = tbImageView;
             tbImageView.setDefaultBgResource(R.color.white_alpha100);
             this.h = (FrsAdCommentScrollView) this.d.findViewById(R.id.obfuscated_res_0x7f0900a5);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090d8b);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090d7e);
             this.i = textView;
             EMManager.from(textView).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0602);
             EMManager.from(this.i).setTextColor(R.color.CAM_X0617);
-            this.j = new sk7(context, this.d, this.f);
+            this.j = new cl7(context, this.d, this.f);
             addView(this.d);
             this.d.setOnClickListener(new a(this));
         }
@@ -264,7 +264,7 @@ public class FrsTopADView extends FrameLayout implements el7 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.el7
+    @Override // com.baidu.tieba.ol7
     public void onDestroy() {
         FrsAdCommentScrollView frsAdCommentScrollView;
         Interceptable interceptable = $ic;
@@ -273,21 +273,21 @@ public class FrsTopADView extends FrameLayout implements el7 {
         }
     }
 
-    @Override // com.baidu.tieba.el7
+    @Override // com.baidu.tieba.ol7
     public void onPause() {
-        sk7 sk7Var;
+        cl7 cl7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (sk7Var = this.j) != null) {
-            sk7Var.q();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (cl7Var = this.j) != null) {
+            cl7Var.q();
         }
     }
 
-    @Override // com.baidu.tieba.el7
+    @Override // com.baidu.tieba.ol7
     public void onResume() {
-        sk7 sk7Var;
+        cl7 cl7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (sk7Var = this.j) != null) {
-            sk7Var.r();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (cl7Var = this.j) != null) {
+            cl7Var.r();
         }
     }
 }

@@ -1,85 +1,134 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetLockWindowMsg.DataRes;
 /* loaded from: classes8.dex */
-public class w1a {
+public class w1a extends v1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public x1a c;
-    public MetaData d;
+    public int U0;
+    public int V0;
 
-    public w1a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w1a(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        u0(false);
+        this.U0 = BdUtilHelper.getEquipmentWidth(this.S) / 10;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void H0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.Y = str2;
+            U();
+            V();
+            x0(this.b);
+            this.F.setPlayer(this.t.getControl());
+            this.B.setVisibility(8);
+            this.u.setPlaceHolder(3);
+            this.u.startLoad(str, 10, false);
+            this.H.setShareData(null);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v1a
+    public void b0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            Context context = this.S;
+            if (context instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.c0);
+            } else if (context instanceof BaseActivity) {
+                ((BaseActivity) context).setSwipeBackEnabled(this.c0);
+            }
+            super.b0(z);
+            if (this.c0) {
+                this.U.getLayoutParams().height = -1;
+                return;
+            }
+            this.U.getLayoutParams().height = this.V0;
         }
-        return (String) invokeV.objValue;
     }
 
-    public x1a c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v1a
+    public void j0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.t.getControl().setVolume(1.0f, 1.0f);
         }
-        return (x1a) invokeV.objValue;
     }
 
-    public MetaData d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v1a
+    public boolean k0(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (!this.c0 && motionEvent.getX() <= this.U0) {
+                return false;
+            }
+            return true;
         }
-        return (MetaData) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void e(DataRes dataRes) {
+    @Override // com.baidu.tieba.v1a
+    public void x0(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.x0(i);
+            this.J.setVisibility(8);
+            this.D.setVisibility(8);
         }
-        this.a = dataRes.publish_user;
-        this.b = dataRes.publish_pic;
-        MetaData metaData = new MetaData();
-        this.d = metaData;
-        metaData.parserProtobuf(dataRes.author);
-        this.d.setPendantData(null);
-        x1a x1aVar = new x1a();
-        this.c = x1aVar;
-        x1aVar.e(dataRes.thread_info);
+    }
+
+    @Override // com.baidu.tieba.v1a, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPrepared();
+            if (this.t.getControl().getPlayerWidth() == 0) {
+                return;
+            }
+            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.X = z;
+            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * BdUtilHelper.getEquipmentWidth(this.S));
+            this.V0 = playerHeight;
+            if (playerHeight > BdUtilHelper.getEquipmentHeight(this.S)) {
+                this.V0 = BdUtilHelper.getEquipmentHeight(this.S);
+            }
+            this.U.getLayoutParams().height = this.V0;
+            this.U.requestLayout();
+        }
     }
 }

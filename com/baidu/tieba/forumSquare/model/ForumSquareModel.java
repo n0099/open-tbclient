@@ -17,16 +17,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a17;
-import com.baidu.tieba.ah7;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.bn;
 import com.baidu.tieba.enterForum.data.ForumSquareHttpResponsedMessage;
-import com.baidu.tieba.enterForum.data.ForumSquareSocketResponsedMessage;
 import com.baidu.tieba.forumSquare.ForumSquareStatic;
 import com.baidu.tieba.forumSquare.message.ForumSquareRequestMessage;
+import com.baidu.tieba.gh7;
+import com.baidu.tieba.h17;
+import com.baidu.tieba.jh7;
+import com.baidu.tieba.kh7;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
-import com.baidu.tieba.wg7;
-import com.baidu.tieba.zg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,9 +40,9 @@ import org.chromium.net.NetError;
 public class ForumSquareModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wg7 a;
+    public gh7 a;
     public boolean b;
-    public final HashMap<String, ah7> c;
+    public final HashMap<String, kh7> c;
     public final List<String> d;
     public boolean e;
     public CustomMessageListener f;
@@ -171,7 +170,7 @@ public class ForumSquareModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String str;
-            a17 a17Var;
+            h17 h17Var;
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
                 return;
@@ -191,7 +190,7 @@ public class ForumSquareModel extends BdBaseModel {
             }
             this.a.mErrorString = responsedMessage.getErrorString();
             if (StringUtils.isNull(this.a.mErrorString)) {
-                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e40);
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e42);
             } else {
                 str = this.a.mErrorString;
             }
@@ -200,39 +199,37 @@ public class ForumSquareModel extends BdBaseModel {
             errorData.setError_msg(str);
             String str2 = null;
             if (responsedMessage instanceof ForumSquareHttpResponsedMessage) {
-                a17Var = ((ForumSquareHttpResponsedMessage) responsedMessage).getData();
-            } else if (responsedMessage instanceof ForumSquareSocketResponsedMessage) {
-                a17Var = ((ForumSquareSocketResponsedMessage) responsedMessage).getData();
+                h17Var = ((ForumSquareHttpResponsedMessage) responsedMessage).getData();
             } else {
-                a17Var = null;
+                h17Var = null;
             }
             Object extra = responsedMessage.getOrginalMessage().getExtra();
             if (extra instanceof ForumSquareRequestMessage) {
                 str2 = ((ForumSquareRequestMessage) extra).className;
             }
-            this.a.f0(a17Var);
+            this.a.f0(h17Var);
             if (ListUtils.isEmpty(this.a.d)) {
                 if (this.a.a != null) {
                     this.a.a.onNoData(errorData);
                 }
-            } else if (this.a.mErrorCode != 0 || a17Var == null) {
+            } else if (this.a.mErrorCode != 0 || h17Var == null) {
                 if (this.a.a != null) {
                     this.a.a.onError(str2, errorData);
                 }
             } else {
-                this.a.g0(a17Var);
+                this.a.g0(h17Var);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumSquareModel(Context context, wg7 wg7Var) {
+    public ForumSquareModel(Context context, gh7 gh7Var) {
         super(UtilHelper.getTbPageContext(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, wg7Var};
+            Object[] objArr = {context, gh7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -250,7 +247,7 @@ public class ForumSquareModel extends BdBaseModel {
         this.g = new b(this, 2001438);
         this.h = new c(this, CmdConfigHttp.CMD_FORUM_SQUARE, 309653);
         new ForumSquareStatic();
-        this.a = wg7Var;
+        this.a = gh7Var;
         this.h.getHttpMessageListener().setSelfListener(true);
         this.h.getSocketMessageListener().setSelfListener(true);
         registerListener(this.h);
@@ -267,7 +264,7 @@ public class ForumSquareModel extends BdBaseModel {
         return invokeL.booleanValue;
     }
 
-    public ah7 b0(String str) {
+    public kh7 b0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -276,18 +273,18 @@ public class ForumSquareModel extends BdBaseModel {
             }
             return this.c.get(str);
         }
-        return (ah7) invokeL.objValue;
+        return (kh7) invokeL.objValue;
     }
 
     public boolean c0(String str) {
         InterceptResult invokeL;
-        ah7 ah7Var;
+        kh7 kh7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (ah7Var = this.c.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || (kh7Var = this.c.get(str)) == null) {
                 return false;
             }
-            return ah7Var.d;
+            return kh7Var.d;
         }
         return invokeL.booleanValue;
     }
@@ -329,31 +326,31 @@ public class ForumSquareModel extends BdBaseModel {
     }
 
     public void e0(String str) {
-        ah7 ah7Var;
+        kh7 kh7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             ForumSquareRequestMessage forumSquareRequestMessage = new ForumSquareRequestMessage();
             forumSquareRequestMessage.className = str;
             if (TextUtils.isEmpty(str)) {
-                ah7Var = new ah7();
+                kh7Var = new kh7();
             } else {
-                ah7 ah7Var2 = this.c.get(str);
-                if (ah7Var2 == null) {
-                    ah7Var2 = new ah7();
-                    this.c.put(str, ah7Var2);
+                kh7 kh7Var2 = this.c.get(str);
+                if (kh7Var2 == null) {
+                    kh7Var2 = new kh7();
+                    this.c.put(str, kh7Var2);
                 }
-                ah7Var = ah7Var2;
+                kh7Var = kh7Var2;
             }
-            forumSquareRequestMessage.pn = ah7Var.e + 1;
+            forumSquareRequestMessage.pn = kh7Var.e + 1;
             this.b = true;
             sendMessage(forumSquareRequestMessage);
         }
     }
 
-    public final void f0(a17 a17Var) {
+    public final void f0(h17 h17Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, a17Var) == null) && ListUtils.isEmpty(this.d) && a17Var != null && !ListUtils.isEmpty(a17Var.b)) {
-            for (String str : a17Var.b) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h17Var) == null) && ListUtils.isEmpty(this.d) && h17Var != null && !ListUtils.isEmpty(h17Var.b)) {
+            for (String str : h17Var.b) {
                 if (!TextUtils.isEmpty(str) && !this.d.contains(str)) {
                     this.d.add(str);
                 }
@@ -361,28 +358,28 @@ public class ForumSquareModel extends BdBaseModel {
         }
     }
 
-    public final void g0(a17 a17Var) {
+    public final void g0(h17 h17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, a17Var) == null) {
-            String str = a17Var.d;
+        if (interceptable == null || interceptable.invokeL(1048585, this, h17Var) == null) {
+            String str = h17Var.d;
             if (TextUtils.isEmpty(str)) {
                 str = (String) ListUtils.getItem(this.d, 0);
-                a17Var.d = str;
+                h17Var.d = str;
             }
-            ah7 ah7Var = this.c.get(str);
-            if (ah7Var == null) {
-                ah7Var = new ah7();
-                this.c.put(str, ah7Var);
+            kh7 kh7Var = this.c.get(str);
+            if (kh7Var == null) {
+                kh7Var = new kh7();
+                this.c.put(str, kh7Var);
             }
-            ah7Var.b(a17Var);
-            wg7 wg7Var = this.a;
-            if (wg7Var != null) {
-                wg7Var.onSucc(str, this.d, ah7Var.a());
+            kh7Var.b(h17Var);
+            gh7 gh7Var = this.a;
+            if (gh7Var != null) {
+                gh7Var.onSucc(str, this.d, kh7Var.a());
             }
         }
     }
 
-    public int h0(List<cn> list, int i) {
+    public int h0(List<bn> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, list, i)) == null) {
@@ -405,14 +402,14 @@ public class ForumSquareModel extends BdBaseModel {
     public final void i0(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            for (Map.Entry<String, ah7> entry : this.c.entrySet()) {
-                ah7 value = entry.getValue();
+            for (Map.Entry<String, kh7> entry : this.c.entrySet()) {
+                kh7 value = entry.getValue();
                 if (value != null && !ListUtils.isEmpty(value.a())) {
-                    for (cn cnVar : value.a()) {
-                        if (cnVar instanceof zg7) {
-                            zg7 zg7Var = (zg7) cnVar;
-                            if (zg7Var.a == j) {
-                                zg7Var.d = z;
+                    for (bn bnVar : value.a()) {
+                        if (bnVar instanceof jh7) {
+                            jh7 jh7Var = (jh7) bnVar;
+                            if (jh7Var.a == j) {
+                                jh7Var.d = z;
                             }
                         }
                     }

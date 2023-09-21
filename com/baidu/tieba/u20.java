@@ -1,36 +1,128 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Process;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.r20;
+import com.baidu.tieba.q20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
 /* loaded from: classes8.dex */
-public class u20 extends r20 {
+public class u20 extends q20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r20 c;
-    public boolean d;
+    public volatile com.baidu.helios.bridge.multiprocess.g c;
+    public volatile s20 d;
+    public volatile boolean e;
+    public volatile boolean f;
+    public volatile boolean g;
+    public volatile Future<Boolean> h;
+    public volatile Future<Boolean> i;
+    public volatile boolean j;
+    public String k;
+    public Object l;
+    public Object m;
 
-    public u20(boolean z) {
+    /* loaded from: classes8.dex */
+    public class a implements Callable<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u20 a;
+
+        public a(u20 u20Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u20Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u20Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public Boolean call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.a.d = new s20();
+                this.a.d.b(this.a.a);
+                this.a.d.c(this.a.b);
+                this.a.f = true;
+                return Boolean.TRUE;
+            }
+            return (Boolean) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Callable<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u20 a;
+
+        public b(u20 u20Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u20Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u20Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public Boolean call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                u20 u20Var = this.a;
+                u20Var.c = new com.baidu.helios.bridge.multiprocess.g(u20Var, u20Var.k);
+                this.a.c.b(this.a.a);
+                this.a.c.c(this.a.b);
+                this.a.g = true;
+                if (this.a.c.o()) {
+                    this.a.j = true;
+                    return Boolean.TRUE;
+                }
+                this.a.j = false;
+                this.a.e = false;
+                this.a.q();
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeV.objValue;
+        }
+    }
+
+    public u20(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,124 +132,149 @@ public class u20 extends r20 {
                 return;
             }
         }
-        this.d = z;
+        this.l = new Object();
+        this.m = new Object();
+        this.e = true;
+        this.f = false;
+        this.k = str;
     }
 
-    @Override // com.baidu.tieba.r20
-    public void a(String str, Bundle bundle, r20.c<String> cVar) {
+    @Override // com.baidu.tieba.q20
+    public void a(String str, Bundle bundle, q20.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
-            this.c.a(str, bundle, cVar);
+            if (this.e) {
+                t();
+                if (this.j) {
+                    this.c.a(str, bundle, cVar);
+                    return;
+                }
+            }
+            n();
+            this.d.a(str, bundle, cVar);
         }
     }
 
-    @Override // com.baidu.tieba.r20
+    @Override // com.baidu.tieba.q20
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.d();
+            if (this.e) {
+                t();
+                if (this.j && this.c != null) {
+                    this.c.d();
+                    return;
+                }
+            }
+            n();
+            if (this.d != null) {
+                this.d.d();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.r20
+    @Override // com.baidu.tieba.q20
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.c.e(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.e) {
+                t();
+                if (this.j) {
+                    return this.c.e(str);
+                }
+            }
+            n();
+            return this.d.e(str);
+        }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.r20
-    public void f(r20.b bVar) {
-        r20 v20Var;
+    @Override // com.baidu.tieba.q20
+    public void f(q20.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (this.d ? j() : i()) {
-                v20Var = new t20();
-            } else {
-                v20Var = new v20(this.d ? ".helios.ipc.default" : ".helios.ipc.isolate");
+            if (this.e) {
+                synchronized (this.l) {
+                    w();
+                }
+                return;
             }
-            this.c = v20Var;
-            v20Var.b(this.a);
-            this.c.c(bVar);
+            synchronized (this.m) {
+                q();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.r20
-    public r20.d g(String str, Bundle bundle) {
+    @Override // com.baidu.tieba.q20
+    public q20.d g(String str, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) ? this.c.g(str, bundle) : (r20.d) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) {
+            if (this.e) {
+                t();
+                if (this.j) {
+                    q20.d g = this.c.g(str, bundle);
+                    if (g.b()) {
+                        return g;
+                    }
+                    this.e = false;
+                }
+            }
+            n();
+            return this.d.g(str, bundle);
+        }
+        return (q20.d) invokeLL.objValue;
     }
 
-    public final String h() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Throwable th;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.e = false;
+            q();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.e || this.f) {
+            return;
+        }
+        synchronized (this.m) {
+            q();
+        }
+        try {
+            this.i.get();
+        } catch (Exception unused) {
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !this.f && this.i == null) {
+            this.i = this.a.d.submit(new a(this));
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.e) {
+            if (!this.g) {
+                synchronized (this.l) {
+                    w();
+                }
+            }
             try {
-                bufferedReader = new BufferedReader(new FileReader(new File(ProcessUtils.CMD_LINE_NAME)));
-                try {
-                    String readLine = bufferedReader.readLine();
-                    if (!TextUtils.isEmpty(readLine)) {
-                        a50.b(bufferedReader);
-                        return readLine;
-                    }
-                } catch (IOException unused) {
-                } catch (Throwable th2) {
-                    th = th2;
-                    a50.b(bufferedReader);
-                    throw th;
-                }
-            } catch (IOException unused2) {
-                bufferedReader = null;
-            } catch (Throwable th3) {
-                bufferedReader = null;
-                th = th3;
+                this.h.get();
+            } catch (Exception unused) {
             }
-            a50.b(bufferedReader);
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.a.c.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses != null) {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo.pid == Process.myPid()) {
-                        return runningAppProcessInfo.processName;
-                    }
-                }
-                return null;
-            }
-            return null;
         }
-        return (String) invokeV.objValue;
     }
 
-    public final boolean i() {
-        InterceptResult invokeV;
+    public final void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String h = h();
-            return h != null && h.contains(":helios");
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.g && this.h == null) {
+            this.h = this.a.d.submit(new b(this));
         }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String h = h();
-            if (h == null) {
-                return true;
-            }
-            Context context = this.a.c;
-            String str = context.getApplicationInfo().processName;
-            if (TextUtils.isEmpty(str)) {
-                str = context.getPackageName();
-            }
-            if (h.startsWith(str)) {
-                return h.length() == str.length() || h.charAt(str.length()) != ':';
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

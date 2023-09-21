@@ -1,33 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes8.dex */
 public final class wf1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] ValidationWebView;
-    public static final int ValidationWebView_bottom_left = 0;
-    public static final int ValidationWebView_bottom_right = 1;
-    public static final int ValidationWebView_top_left = 2;
-    public static final int ValidationWebView_top_right = 3;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948268551, "Lcom/baidu/tieba/wf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948268551, "Lcom/baidu/tieba/wf1;");
-                return;
-            }
+    @Inject
+    public static gg1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return fg1.a();
         }
-        ValidationWebView = new int[]{R.attr.bottom_left, R.attr.bottom_right, R.attr.top_left, R.attr.top_right};
+        return (gg1) invokeV.objValue;
     }
 }

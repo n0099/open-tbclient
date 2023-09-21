@@ -1,26 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.dw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yh3 {
+public final class yh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yh3 b;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(String str, String str2);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,59 +29,135 @@ public class yh3 {
                 return;
             }
         }
-        boolean z = rr1.a;
+        boolean z = qr1.a;
+        a = 0;
     }
 
-    public yh3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static yh3 a() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (yh3.class) {
-                    if (b == null) {
-                        b = new yh3();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
-        return (yh3) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void b(String str) {
-        a aVar;
+    public static void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (ProcessUtils.isMainProcess() && (aVar = this.a) != null) {
-                aVar.a("swanLauncherTag", str);
+        if ((interceptable != null && interceptable.invokeL(65537, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        dw2.a W = fb3.K().q().W();
+        String i = lk3.i(W.j0(), W.G());
+        if (!jSONObject.has("appid")) {
+            go3.f(jSONObject, "appid", W.H());
+        }
+        if (!jSONObject.has("swan")) {
+            go3.f(jSONObject, "swan", i);
+        }
+        if (!jSONObject.has("appversion")) {
+            go3.f(jSONObject, "appversion", W.v1());
+        }
+        if (!jSONObject.has("swanNativeVersion")) {
+            go3.f(jSONObject, "swanNativeVersion", rr1.a());
+        }
+        if (!jSONObject.has("thirdversion")) {
+            go3.f(jSONObject, "thirdversion", W.w1());
+        }
+        if (fb3.K().q().y0() && !jSONObject.has("isWebDowngrade")) {
+            go3.f(jSONObject, "isWebDowngrade", "1");
+        }
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String o = yo3.o(str);
+            if (TextUtils.isEmpty(o)) {
+                return str;
+            }
+            HashSet hashSet = new HashSet();
+            hashSet.add("bduss");
+            hashSet.add("bduss".toUpperCase());
+            String i = yo3.i(o, hashSet);
+            String f = yo3.f(str);
+            return f + "?" + i;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            a = i;
+        }
+    }
+
+    public static <EvenT extends ii3> EvenT f(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
+            e(event, "isDownloading", String.valueOf(fb3.K().q().F0() ? 1 : 0));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ii3> EvenT g(EvenT event) {
+        InterceptResult invokeL;
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
+            if (c() == 2) {
+                z = true;
             } else {
-                c("swanLauncherTag", str);
+                z = false;
             }
+            if (z) {
+                str = "2";
+            } else {
+                str = "1";
+            }
+            e(event, "launchType", str);
+            return event;
         }
+        return (EvenT) invokeL.objValue;
     }
 
-    public final void c(String str, String str2) {
-        c83 y;
+    public static <EvenT extends ii3> EvenT h(EvenT event) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (y = gb3.K().y()) != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("statTag", str);
-            bundle.putString("statisticData", str2);
-            y.W(bundle, xh3.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
+            e(event, "packageState", String.valueOf(fb3.K().q().E0()));
+            return event;
         }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ii3> EvenT i(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
+            e(event, "coreState", String.valueOf(ai2.B0()));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ii3> EvenT e(EvenT event, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
+            if (event != null && !TextUtils.isEmpty(str)) {
+                event.a(str, obj);
+            }
+            return event;
+        }
+        return (EvenT) invokeLLL.objValue;
     }
 }

@@ -1,50 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes5.dex */
-public class el2 implements lw2 {
+public abstract class el2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<fl2> c;
+    public boolean a;
+    public String b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final el2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-829436352, "Lcom/baidu/tieba/el2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-829436352, "Lcom/baidu/tieba/el2$b;");
-                    return;
-                }
-            }
-            a = new el2(null);
-        }
-    }
+    public abstract void c();
 
     public el2() {
         Interceptable interceptable = $ic;
@@ -59,59 +29,55 @@ public class el2 implements lw2 {
                 return;
             }
         }
-        this.c = new ConcurrentLinkedQueue();
+        this.a = true;
     }
 
-    public static el2 b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (el2) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public synchronized void a() {
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.c.clear();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
+            this.a = false;
+        }
+    }
+
+    public el2(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        this.b = str;
     }
 
-    public /* synthetic */ el2(a aVar) {
-        this();
-    }
-
-    public synchronized void c(@NonNull fl2 fl2Var, String str) {
+    public boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fl2Var, str) == null) {
-            synchronized (this) {
-                while (this.c.size() > 0) {
-                    fl2 peek = this.c.peek();
-                    if (peek == null) {
-                        this.c.remove();
-                    } else if (peek.a()) {
-                        break;
-                    } else {
-                        this.c.remove();
-                    }
-                }
-                int size = this.c.size();
-                if (size == 0) {
-                    this.c.offer(fl2Var);
-                    bp3.g0(fl2Var);
-                } else {
-                    fl2 peek2 = this.c.peek();
-                    this.c.offer(fl2Var);
-                    if (size == 1 && peek2 != null && peek2.b(str)) {
-                        bp3.g0(fl2Var);
-                    } else {
-                        bp3.q().post(fl2Var);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b)) {
+                return false;
             }
+            return this.b.endsWith(str);
         }
+        return invokeL.booleanValue;
     }
 }

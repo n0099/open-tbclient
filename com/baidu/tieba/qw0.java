@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.StateEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class qw0 {
+public class qw0 extends vw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d01 a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qw0() {
+        super(StateEvent.ACTION_STATE_CHANGED);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,32 +22,24 @@ public abstract class qw0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        v(5);
     }
 
-    public void a() {
+    public static vw0 w(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, playerStatus, playerStatus2)) == null) {
+            vw0 m = vw0.m(StateEvent.ACTION_STATE_CHANGED, 5);
+            m.n(1, playerStatus);
+            m.n(2, playerStatus2);
+            return m;
         }
-    }
-
-    public void b(@NonNull d01 d01Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d01Var) == null) {
-            this.a = d01Var;
-        }
-    }
-
-    public void c(@NonNull ww0 ww0Var) {
-        d01 d01Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ww0Var) != null) || (d01Var = this.a) == null) {
-            return;
-        }
-        d01Var.d(ww0Var);
+        return (vw0) invokeLL.objValue;
     }
 }

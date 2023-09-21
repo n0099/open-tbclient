@@ -158,7 +158,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         if (view2 == this.rW || view2 == this.rX) {
-            com.kwad.components.core.c.a.a.a(new a.C0643a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
+            com.kwad.components.core.c.a.a.a(new a.C0636a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
                 @Override // com.kwad.components.core.c.a.a.b
                 public final void onAdClicked() {
                     a.this.notifyAdClick();
@@ -170,10 +170,10 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f091443);
-        this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912be);
-        this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f09138b);
-        this.rX = findViewById(R.id.obfuscated_res_0x7f0912bc);
+        this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f091433);
+        this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ae);
+        this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f09137b);
+        this.rX = findViewById(R.id.obfuscated_res_0x7f0912ac);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

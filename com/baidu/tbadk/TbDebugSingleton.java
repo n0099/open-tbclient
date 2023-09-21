@@ -1,7 +1,7 @@
 package com.baidu.tbadk;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bx4;
+import com.baidu.tieba.ax4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ public class TbDebugSingleton {
     public static /* synthetic */ Interceptable $ic;
     public static volatile TbDebugSingleton mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public bx4 mUrlSwitchMap;
+    public ax4 mUrlSwitchMap;
 
     public TbDebugSingleton() {
         Interceptable interceptable = $ic;
@@ -46,19 +46,19 @@ public class TbDebugSingleton {
         return (TbDebugSingleton) invokeV.objValue;
     }
 
-    public bx4 getUrlSwitchMap() {
+    public ax4 getUrlSwitchMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mUrlSwitchMap;
         }
-        return (bx4) invokeV.objValue;
+        return (ax4) invokeV.objValue;
     }
 
-    public void setUrlSwitchMap(bx4 bx4Var) {
+    public void setUrlSwitchMap(ax4 ax4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bx4Var) == null) {
-            this.mUrlSwitchMap = bx4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ax4Var) == null) {
+            this.mUrlSwitchMap = ax4Var;
         }
     }
 }

@@ -22,8 +22,8 @@ import com.baidu.tbadk.browser.XiubaTbJsBridge;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.dn6;
 import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.zm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,7 +133,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements zm6 {
+    public class c implements dn6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewWebViewCardView a;
@@ -156,7 +156,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
             this.a = newWebViewCardView;
         }
 
-        @Override // com.baidu.tieba.zm6
+        @Override // com.baidu.tieba.dn6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -239,7 +239,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.q39
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.b59
     public void g(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, bdUniqueId) != null) || bdUniqueId == null) {

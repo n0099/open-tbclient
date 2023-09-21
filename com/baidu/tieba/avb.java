@@ -1,25 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public final class avb extends Thread {
+public class avb extends fvb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final kvb b;
-    public volatile boolean c;
+    public boolean a;
+    public final /* synthetic */ lub b;
+    public final /* synthetic */ String c;
+    public final /* synthetic */ yub d;
 
-    public avb(Context context, kvb kvbVar) {
+    public avb(yub yubVar, lub lubVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, kvbVar};
+            Object[] objArr = {yubVar, lubVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,31 +30,62 @@ public final class avb extends Thread {
                 return;
             }
         }
-        this.a = context;
-        this.b = kvbVar;
+        this.d = yubVar;
+        this.b = lubVar;
+        this.c = str;
     }
 
-    public final void a() {
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = true;
+            LogPrinter.d();
+            this.d.onAdClicked((yub) this.b, this.a, this.c);
+            this.a = true;
         }
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onPageDismiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.c) {
-                if (dvb.d().h(this.a)) {
-                    this.b.a(com.google.ar.core.p.COMPLETED);
-                    return;
-                }
-                try {
-                    Thread.sleep(200L);
-                } catch (InterruptedException unused) {
-                }
-            }
+            LogPrinter.d();
+            this.d.onAdClose((yub) this.b, this.c);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onRewardVerify() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.d.onRewardedVideo((yub) this.b, this.c);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            LogPrinter.d();
+            this.d.onAdError(this.b, i, String.valueOf(i2), this.c);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow((yub) this.b, false, this.c);
         }
     }
 }

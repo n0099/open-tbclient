@@ -23,7 +23,7 @@ public class pz4 {
             if (webView == null) {
                 return BdActivityStack.getInst().currentActivity();
             }
-            Activity a = im6.a(webView.getContext());
+            Activity a = mm6.a(webView.getContext());
             if (a == null) {
                 a = TbadkCoreApplication.getInst().getCurrentActivity();
             }
@@ -43,7 +43,7 @@ public class pz4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
-                if (!TextUtils.isEmpty(str) && str.startsWith(ax4.a)) {
+                if (!TextUtils.isEmpty(str) && str.startsWith(zw4.a)) {
                     Uri parse = Uri.parse(str);
                     if (parse == null) {
                         return str;

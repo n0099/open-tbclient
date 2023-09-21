@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageDownloadCallback;
-import com.baidu.nps.interfa.IPackageGetCallback;
-import com.baidu.nps.interfa.IPackageGetter;
-import com.baidu.nps.pm.IBundleInfo;
+import com.baidu.nps.interfa.IThreadManager;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.concurrent.Executor;
 @Service
 /* loaded from: classes8.dex */
-public class uk implements IPackageGetter {
+public class uk implements IThreadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Executor a;
 
     public uk() {
         Interceptable interceptable = $ic;
@@ -27,23 +25,17 @@ public class uk implements IPackageGetter {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
     }
 
-    @Override // com.baidu.nps.interfa.IPackageGetter
-    public void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
+    @Override // com.baidu.nps.interfa.IThreadManager
+    public void run(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
-            tk.f().g().i(iBundleInfo, str, i, iPackageDownloadCallback);
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.IPackageGetter
-    public void getBundleInfo(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, iPackageGetCallback) == null) {
-            tk.f().g().k(list, iPackageGetCallback);
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.a.execute(runnable);
         }
     }
 }

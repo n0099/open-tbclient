@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.BitmapDrawable;
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,100 +10,71 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hk {
     public static /* synthetic */ Interceptable $ic;
+    public static hk a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BitmapDrawable a;
-    public BdImage b;
-    public volatile boolean c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448306442, "Lcom/baidu/tieba/hk;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448306442, "Lcom/baidu/tieba/hk;");
+                return;
+            }
+        }
+        a = new hk();
+    }
 
     public hk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = true;
     }
 
-    public int a() {
+    public static hk b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicHeight();
-            }
-            if (d()) {
-                return this.b.getHeight();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return invokeV.intValue;
+        return (hk) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public dk a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicWidth();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            switch (i) {
+                case 0:
+                    return new fk();
+                case 1:
+                    return new nk();
+                case 2:
+                    return new jk();
+                case 3:
+                    return new pk();
+                case 4:
+                    return new ok();
+                case 5:
+                    return new ik();
+                case 6:
+                    return new lk();
+                default:
+                    return new fk();
             }
-            if (d()) {
-                return this.b.getWidth();
-            }
-            return 0;
         }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!e() && !d()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            BdImage bdImage = this.b;
-            if (bdImage != null && bdImage.isValidNow()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapDrawable bitmapDrawable = this.a;
-            if (bitmapDrawable != null && bitmapDrawable.getBitmap() != null && !this.a.getBitmap().isRecycled()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = null;
-            this.a = null;
-        }
+        return (dk) invokeI.objValue;
     }
 }

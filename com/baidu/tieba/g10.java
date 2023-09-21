@@ -1,143 +1,86 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.android.util.devices.DeviceUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes6.dex */
 public class g10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
 
-    /* loaded from: classes6.dex */
-    public class a implements s10 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.s10
-        public String a(String str, String... strArr) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? str : (String) invokeLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.s10
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
+    public g10() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return (String) invokeV.objValue;
         }
+    }
 
-        @Override // com.baidu.tieba.s10
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!this.d) {
                 return false;
             }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.s10
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return false;
+            if (!this.c) {
+                this.c = c();
             }
-            return invokeV.booleanValue;
+            return this.c;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.s10
-        public String getSchemeHeader() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return null;
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (DeviceInfoManager.INSTANCE.getHarmonyVersion(AppRuntime.getAppContext(), "pub_param", "").errorCode == 3) {
+                return true;
             }
-            return (String) invokeV.objValue;
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.b) {
+                StringBuilder sb = new StringBuilder();
+                if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
+                    this.d = true;
+                    String str = DeviceInfoManager.INSTANCE.getHarmonyVersion(AppRuntime.getAppContext(), "pub_param", "").deviceId;
+                    if (TextUtils.isEmpty(str)) {
+                        str = "0.0";
+                    }
+                    sb.append("HMS");
+                    sb.append("_");
+                    sb.append(str);
                 }
+                this.a = sb.toString();
+                this.b = true;
             }
+            return this.a;
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends k10 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    @Inject(force = false)
-    public static j10 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return baa.a();
-        }
-        return (j10) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static k10 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new b();
-        }
-        return (k10) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static l10 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return daa.a();
-        }
-        return (l10) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static s10 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new a();
-        }
-        return (s10) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,139 +1,45 @@
 package com.baidu.tieba;
 
 import android.text.Editable;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mb5 extends hb5<mb5> {
+public class mb5 extends Editable.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
+    public nb5 a;
 
-    public mb5() {
+    public mb5(nb5 nb5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nb5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            q(true);
-            x();
-        }
-    }
-
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "#[视频]" + this.i + "#";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public mb5(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = str;
+        this.a = nb5Var;
     }
 
-    @Override // com.baidu.tieba.hb5
-    public void r(Editable editable) {
+    @Override // android.text.Editable.Factory
+    public Editable newEditable(CharSequence charSequence) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            k(sb);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
+            spannableStringBuilder.setSpan(this.a, 0, charSequence.length(), 18);
+            return spannableStringBuilder;
         }
-    }
-
-    public static mb5 w(@NonNull mb5 mb5Var, @NonNull Editable editable) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, mb5Var, editable)) == null) {
-            mb5 mb5Var2 = new mb5();
-            mb5Var2.b(mb5Var);
-            mb5Var2.p(editable);
-            return mb5Var2;
-        }
-        return (mb5) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.hb5
-    public void s(Editable editable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            k(sb);
-        }
-    }
-
-    @Override // com.baidu.tieba.hb5
-    public void a(Editable editable, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
-            super.a(editable, i, i2, i3);
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            k(u());
-            if (!bx5.g(this.c, f())) {
-                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
-                eMRichTextAnyIconSpan.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-                eMRichTextAnyIconSpan.j(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-                eMRichTextAnyIconSpan.h(true);
-                n(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
-                n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
-            }
-        }
+        return (Editable) invokeL.objValue;
     }
 }

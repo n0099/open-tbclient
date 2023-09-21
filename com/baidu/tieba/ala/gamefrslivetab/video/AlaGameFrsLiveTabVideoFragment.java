@@ -15,14 +15,14 @@ import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.oj7;
+import com.baidu.tieba.yj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements yj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -32,7 +32,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
     public CustomMessageListener e;
     public CustomMessageListener f;
 
-    public void Z1(String str) {
+    public void f2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
@@ -128,7 +128,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.a.X1().contains(str) || str.contains(this.a.X1())) {
+                if (this.a.d2().contains(str) || str.contains(this.a.d2())) {
                     this.a.d.hideLoadingView();
                 }
             }
@@ -154,14 +154,14 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
         this.f = new b(this, 2921023);
     }
 
-    public void Y1(String str) {
+    public void e2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void a2(boolean z) {
+    public void g2(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.a = z;
@@ -171,7 +171,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.d.t(this);
             registerListener(this.f);
@@ -181,12 +181,12 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
             if (this.c) {
                 return;
             }
-            this.d.loadUrl(X1());
+            this.d.loadUrl(d2());
             this.d.onChangeSkinType(i);
         }
     }
@@ -194,13 +194,13 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             registerListener(2001446, this.e, getBaseFragmentActivity().getUniqueId());
         }
     }
 
-    public String X1() {
+    public String d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -221,20 +221,25 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oj7
-    public NavigationBar o() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d.o();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            if (BrowserHelper.allowedUseNewWebContainer(d2())) {
+                this.d = new NewAlaGameFrsLiveTabVideoView(this.a);
+            } else {
+                this.d = new AlaGameFrsLiveTabVideoView(this.a);
+            }
+            return this.d.G(layoutInflater, viewGroup);
         }
-        return (NavigationBar) invokeV.objValue;
+        return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
             IGameFrsLiveTabVideoView iGameFrsLiveTabVideoView = this.d;
             if (iGameFrsLiveTabVideoView != null) {
@@ -246,7 +251,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
             IGameFrsLiveTabVideoView iGameFrsLiveTabVideoView = this.d;
             if (iGameFrsLiveTabVideoView != null) {
@@ -258,10 +263,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPrimary();
             if (this.c || StringUtils.isNull(this.d.getUrl())) {
-                this.d.loadUrl(X1());
+                this.d.loadUrl(d2());
                 this.c = false;
             }
         }
@@ -270,7 +275,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
             IGameFrsLiveTabVideoView iGameFrsLiveTabVideoView = this.d;
             if (iGameFrsLiveTabVideoView != null) {
@@ -279,18 +284,13 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements oj7 
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.yj7
+    public NavigationBar q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (BrowserHelper.allowedUseNewWebContainer(X1())) {
-                this.d = new NewAlaGameFrsLiveTabVideoView(this.a);
-            } else {
-                this.d = new AlaGameFrsLiveTabVideoView(this.a);
-            }
-            return this.d.C(layoutInflater, viewGroup);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.d.q();
         }
-        return (View) invokeLLL.objValue;
+        return (NavigationBar) invokeV.objValue;
     }
 }

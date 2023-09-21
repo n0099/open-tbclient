@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.fv9;
+import com.baidu.tieba.dx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fv9 data;
+    public dx9 data;
     public int errCode;
     public String resultString;
 
@@ -36,7 +36,7 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = 0;
-        this.data = new fv9();
+        this.data = new dx9();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -62,13 +62,13 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public fv9 getPersonBarData() {
+    public dx9 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.data;
         }
-        return (fv9) invokeV.objValue;
+        return (dx9) invokeV.objValue;
     }
 
     public String getResultString() {
@@ -87,10 +87,10 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonBarData(fv9 fv9Var) {
+    public void setPersonBarData(dx9 dx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fv9Var) == null) {
-            this.data = fv9Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dx9Var) == null) {
+            this.data = dx9Var;
         }
     }
 

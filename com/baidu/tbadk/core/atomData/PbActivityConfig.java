@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.dca;
 import com.baidu.tieba.p35;
-import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -189,7 +189,7 @@ public class PbActivityConfig extends IntentConfig {
         }
         this.key_video_source_value = "";
         this.mContext = context;
-        x9a.b("pb");
+        dca.b("pb");
     }
 
     private void addMoreIntentExtraParam() {
@@ -246,6 +246,10 @@ public class PbActivityConfig extends IntentConfig {
                 String queryParameter3 = uri.getQueryParameter("target_scheme");
                 if (!TextUtils.isEmpty(queryParameter3)) {
                     pbActivityConfig.setTargetScheme(queryParameter3);
+                }
+                String queryParameter4 = uri.getQueryParameter("novelChannel");
+                if (!TextUtils.isEmpty(queryParameter4)) {
+                    pbActivityConfig.setChannelId(queryParameter4);
                 }
             } catch (Exception e) {
                 BdLog.e(e);

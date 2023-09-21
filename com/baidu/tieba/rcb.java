@@ -1,17 +1,25 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class rcb {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final int c;
+    public long d;
+    public int e;
 
     static {
         InterceptResult invokeClinit;
@@ -26,45 +34,71 @@ public class rcb {
                 return;
             }
         }
-        a = pbb.m();
+        f = qcb.a & true;
+        g = "ControlData";
     }
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (a) {
-                Log.d("UBCFileUtils", "delete file:" + file);
-            }
-            if (file == null) {
-                return false;
-            }
-            boolean z = true;
-            if (file.exists()) {
-                if (file.isFile()) {
-                    return true & file.delete();
-                }
-                if (file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null) {
-                        for (File file2 : listFiles) {
-                            z &= a(file2);
-                        }
-                    }
-                    return z & file.delete();
-                } else if (!a) {
-                    return true;
-                } else {
-                    Log.d("UBCFileUtils", "a special file:" + file);
-                    return true;
-                }
-            } else if (!a) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i == this.c) {
                 return true;
-            } else {
-                Log.d("UBCFileUtils", "not found the file to delete:" + file);
-                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public rcb(String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeL.booleanValue;
+        this.a = str;
+        this.b = i;
+        this.c = i2;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != 0 && this.c != 0) {
+                Long valueOf = Long.valueOf(System.currentTimeMillis());
+                if (f) {
+                    Log.d(g, "id " + this.a + " mLimitUnit " + this.b + " mLimitCnt " + this.c + "mCount =  " + this.e + " duration " + ((valueOf.longValue() - this.d) / 1000));
+                }
+                if (this.d != 0 && (valueOf.longValue() - this.d) / 1000 <= this.b && this.e >= this.c) {
+                    if (f) {
+                        Log.d(g, "control");
+                    }
+                    return true;
+                }
+                if (this.d == 0) {
+                    this.d = valueOf.longValue();
+                } else if ((valueOf.longValue() - this.d) / 1000 > this.b) {
+                    this.d = valueOf.longValue();
+                    this.e = 0;
+                    if (f) {
+                        Log.d(g, "reset");
+                    }
+                }
+                this.e++;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

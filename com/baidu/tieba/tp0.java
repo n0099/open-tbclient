@@ -1,34 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.LottieComposition;
-import com.airbnb.lottie.LottieCompositionFactory;
-import com.airbnb.lottie.LottieListener;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.util.HashMap;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tp0 {
+public final class tp0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final tp0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements LottieListener<Throwable> {
+    public interface a {
+        void a(fs0 fs0Var);
+
+        void onFail(Exception exc);
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b implements lt0<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LottieAnimationView a;
+        public final /* synthetic */ Function2 a;
+        public final /* synthetic */ ms0 b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Function2 d;
 
-        public a(LottieAnimationView lottieAnimationView) {
+        @Override // com.baidu.tieba.kt0
+        public void c(Headers headers, InputStream stream, int i) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, headers, stream, i) == null) {
+                Intrinsics.checkNotNullParameter(headers, "headers");
+                Intrinsics.checkNotNullParameter(stream, "stream");
+            }
+        }
+
+        public b(Function2 function2, ms0 ms0Var, String str, Function2 function22) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lottieAnimationView};
+                Object[] objArr = {function2, ms0Var, str, function22};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,32 +66,89 @@ public class tp0 {
                     return;
                 }
             }
-            this.a = lottieAnimationView;
+            this.a = function2;
+            this.b = ms0Var;
+            this.c = str;
+            this.d = function22;
+        }
+
+        @Override // com.baidu.tieba.kt0
+        public void a(Exception exception, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exception, i) == null) {
+                Intrinsics.checkNotNullParameter(exception, "exception");
+                this.a.invoke(exception, 1);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(Throwable th) {
+        @Override // com.baidu.tieba.lt0
+        /* renamed from: f */
+        public JSONObject d(Headers headers, String response, int i) throws Exception {
+            InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.a.setVisibility(8);
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, headers, response, i)) == null) {
+                Intrinsics.checkNotNullParameter(headers, "headers");
+                Intrinsics.checkNotNullParameter(response, "response");
+                return new JSONObject(response);
+            }
+            return (JSONObject) invokeLLI.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lt0
+        /* renamed from: e */
+        public void b(Headers headers, JSONObject jSONObject, int i) {
+            String str;
+            boolean z;
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048580, this, headers, jSONObject, i) == null) {
+                Intrinsics.checkNotNullParameter(headers, "headers");
+                if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                    str = optJSONObject.optString("token");
+                } else {
+                    str = null;
+                }
+                String str2 = str;
+                if (str2 != null && str2.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    tp0.a.e(this.b, this.c, str2, this.d, this.a);
+                    return;
+                }
+                Function2 function2 = this.a;
+                function2.invoke(new IllegalStateException("token 为空, taskId: " + this.c), 1);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements LottieListener<LottieComposition> {
+    public static final class c extends mt0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LottieAnimationView a;
+        public final /* synthetic */ a a;
 
-        public b(LottieAnimationView lottieAnimationView) {
+        public String f(Headers headers, String response, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, response, i)) == null) {
+                Intrinsics.checkNotNullParameter(headers, "headers");
+                Intrinsics.checkNotNullParameter(response, "response");
+                return response;
+            }
+            return (String) invokeLLI.objValue;
+        }
+
+        public c(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lottieAnimationView};
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,31 +158,235 @@ public class tp0 {
                     return;
                 }
             }
-            this.a = lottieAnimationView;
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.tieba.kt0
+        public void a(Exception exception, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exception, i) == null) {
+                Intrinsics.checkNotNullParameter(exception, "exception");
+                this.a.onFail(exception);
+            }
+        }
+
+        @Override // com.baidu.tieba.lt0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) {
+            f(headers, str, i);
+            return str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(LottieComposition lottieComposition) {
+        @Override // com.baidu.tieba.lt0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                this.a.setComposition(lottieComposition);
-                this.a.setRepeatCount(-1);
-                this.a.playAnimation();
-                this.a.setVisibility(0);
+            if ((interceptable != null && interceptable.invokeLLI(1048579, this, headers, str, i) != null) || str == null) {
+                return;
+            }
+            try {
+                this.a.a(fs0.g.a(new JSONObject(str)));
+            } catch (Exception unused) {
             }
         }
     }
 
-    public static void a(@NonNull Context context, @NonNull LottieAnimationView lottieAnimationView, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, context, lottieAnimationView, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                lottieAnimationView.setVisibility(8);
-            } else {
-                LottieCompositionFactory.fromUrl(context, str, String.valueOf(str.hashCode())).addListener(new b(lottieAnimationView)).addFailureListener(new a(lottieAnimationView));
+    /* loaded from: classes8.dex */
+    public static final class d implements rq {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function2 a;
+        public final /* synthetic */ Function2 b;
+
+        public d(Function2 function2, Function2 function22) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {function2, function22};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = function2;
+            this.b = function22;
+        }
+
+        @Override // com.baidu.tieba.rq
+        public void a(TaskResponseData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                try {
+                    String coin = new JSONObject(data.getUi().getExtra()).optString("coin");
+                    String nextCoin = new JSONObject(data.getUi().getExtra()).optString("invokeCoin");
+                    Function2 function2 = this.a;
+                    Intrinsics.checkNotNullExpressionValue(coin, "coin");
+                    Intrinsics.checkNotNullExpressionValue(nextCoin, "nextCoin");
+                    function2.invoke(coin, nextCoin);
+                } catch (Exception e) {
+                    this.b.invoke(e, 2);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.rq
+        public void onError(int i, String errorMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, errorMsg) == null) {
+                Intrinsics.checkNotNullParameter(errorMsg, "errorMsg");
+                this.b.invoke(new RuntimeException(errorMsg), 2);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948188757, "Lcom/baidu/tieba/tp0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948188757, "Lcom/baidu/tieba/tp0;");
+                return;
+            }
+        }
+        a = new tp0();
+    }
+
+    public tp0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final HashMap<String, String> a(ms0 ms0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ms0Var)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            try {
+                hashMap.put("logid", ms0Var.t());
+                hashMap.put("id_from", ms0Var.B());
+                hashMap.put("task_policy", ms0Var.v());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public final JSONObject b(ms0 ms0Var) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ms0Var)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (ms0Var != null) {
+                    str = ms0Var.t();
+                } else {
+                    str = null;
+                }
+                jSONObject.put("id_from", str);
+                if (ms0Var != null) {
+                    str2 = ms0Var.B();
+                } else {
+                    str2 = null;
+                }
+                jSONObject.put("logid", str2);
+                if (ms0Var != null) {
+                    str3 = ms0Var.v();
+                } else {
+                    str3 = null;
+                }
+                jSONObject.put("task_policy", str3);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final void c(ms0 ms0Var, String activeUrl, String completeTaskId, Function2<? super String, ? super String, Unit> success, Function2<? super Throwable, ? super Integer, Unit> fail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, ms0Var, activeUrl, completeTaskId, success, fail) == null) {
+            Intrinsics.checkNotNullParameter(activeUrl, "activeUrl");
+            Intrinsics.checkNotNullParameter(completeTaskId, "completeTaskId");
+            Intrinsics.checkNotNullParameter(success, "success");
+            Intrinsics.checkNotNullParameter(fail, "fail");
+            at0 b2 = at0.b();
+            Intrinsics.checkNotNullExpressionValue(b2, "HttpFactory.getInstance()");
+            et0 a2 = b2.a();
+            tt0 tt0Var = new tt0();
+            tt0Var.l(activeUrl);
+            tt0Var.h(ot0.c);
+            tt0Var.d("User-Agent", sj0.c().a().h());
+            a2.a(tt0Var, new b(fail, ms0Var, completeTaskId, success));
+        }
+    }
+
+    public final void d(ms0 rewardData, String str, a callback) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, rewardData, str, callback) == null) {
+            Intrinsics.checkNotNullParameter(rewardData, "rewardData");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return;
+            }
+            hp0 hp0Var = (hp0) ServiceManager.getService(hp0.a);
+            if (hp0Var != null) {
+                str = hp0Var.a(str);
+            }
+            tt0 tt0Var = new tt0();
+            tt0Var.h(ot0.c);
+            tt0Var.d("User-Agent", sj0.c().a().h());
+            tt0Var.l(str);
+            tt0Var.f(st0.e(a(rewardData)));
+            tt0Var.g(3000);
+            at0 b2 = at0.b();
+            Intrinsics.checkNotNullExpressionValue(b2, "HttpFactory.getInstance()");
+            b2.a().a(tt0Var, new c(callback));
+        }
+    }
+
+    public final void e(ms0 ms0Var, String completeTaskId, String token, Function2<? super String, ? super String, Unit> success, Function2<? super Throwable, ? super Integer, Unit> fail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, ms0Var, completeTaskId, token, success, fail) == null) {
+            Intrinsics.checkNotNullParameter(completeTaskId, "completeTaskId");
+            Intrinsics.checkNotNullParameter(token, "token");
+            Intrinsics.checkNotNullParameter(success, "success");
+            Intrinsics.checkNotNullParameter(fail, "fail");
+            if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(completeTaskId)) {
+                BDPTask.m.G(token, completeTaskId, 0, b(ms0Var), new d(success, fail));
+                return;
+            }
+            fail.invoke(new IllegalArgumentException("token: " + token + " taskId: " + completeTaskId), 2);
         }
     }
 }

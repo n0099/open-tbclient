@@ -1,123 +1,112 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final kka b;
-    public yt6 c;
-    public yt6 d;
-    public yt6 e;
 
-    public wka(MainTabActivity mainTabActivity, kka kkaVar) {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String[] split3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, kkaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (di.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
+                return null;
+            }
+            return split3[split3.length - 1];
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (di.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (di.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("upgrade");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (di.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("notificationName");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String str2;
+        String[] split3;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                if (!di.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
+                    return str2.substring(0, (str2.length() - str3.length()) - 1);
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
         }
-        this.a = mainTabActivity;
-        this.b = kkaVar;
+        return (String) invokeL.objValue;
     }
 
-    public void a() {
-        yt6 yt6Var;
+    public static JSONObject f(String str) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (yt6Var = this.e) != null && yt6Var.i()) {
-            this.e.h();
-        }
-    }
-
-    public void b() {
-        yt6 yt6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (yt6Var = this.d) != null && yt6Var.i()) {
-            this.d.h();
-            this.d = null;
-        }
-    }
-
-    public void c() {
-        yt6 yt6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (yt6Var = this.c) != null && yt6Var.i()) {
-            this.c.h();
-            this.c = null;
-        }
-    }
-
-    public void d() {
-        kka kkaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (kkaVar = this.b) != null && kkaVar.A() != null) {
-            FragmentTabWidget fragmentTabWidget = this.b.A().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (di.isEmpty(str)) {
+                return new JSONObject();
             }
-            yt6 yt6Var = new yt6(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
-            this.e = yt6Var;
-            yt6Var.L(R.drawable.bg_tip_blue_down);
-            this.e.l(2);
-            this.e.o(32);
-            this.e.N(true);
-            this.e.R(-BdUtilHelper.getDimens(this.a, R.dimen.tbds10));
-            this.e.C(R.color.CAM_X0101);
-            this.e.p(R.dimen.tbds54);
-            this.e.w(1);
-            this.e.n(4000);
-            this.e.F(BdUtilHelper.getDimens(this.a, R.dimen.tbds44));
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
-            FragmentTabWidget fragmentTabWidget = this.b.A().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return new JSONObject();
             }
-            yt6 yt6Var = new yt6(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
-            this.c = yt6Var;
-            yt6Var.L(R.drawable.bg_tip_blue_down);
-            this.c.l(2);
-            this.c.o(32);
-            this.c.N(true);
-            this.c.R(-BdUtilHelper.getDimens(this.a, R.dimen.tbds10));
-            this.c.C(R.color.CAM_X0101);
-            this.c.p(R.dimen.tbds54);
-            this.c.w(999);
-            this.c.n(5000);
-            this.c.F(BdUtilHelper.getDimens(this.a, R.dimen.tbds44));
-            this.c.V(str, "categoryUpdate", false, true);
+            String queryParameter = parse.getQueryParameter("params");
+            if (di.isEmpty(queryParameter)) {
+                return new JSONObject();
+            }
+            return new JSONObject(queryParameter);
         }
-    }
-
-    public void f() {
-        yt6 yt6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (yt6Var = this.e) != null && !yt6Var.i()) {
-            yt6 yt6Var2 = this.e;
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f067d);
-            yt6Var2.T(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

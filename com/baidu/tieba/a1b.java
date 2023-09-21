@@ -1,100 +1,195 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.base.BdPageContext;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a1b extends z0b {
-    public static /* synthetic */ Interceptable $ic;
-    public static int g;
+public final class a1b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final a a;
+    public static final String b = "#\\(rich-image_[\\s\\S]+?_img\\)";
+    @JvmField
+    public static final String c = "#(rich-image_";
+    public static final String d = "_img)";
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a1b(BdPageContext bdPageContext) {
-        super(bdPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((BdPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947563735, "Lcom/baidu/tieba/a1b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947563735, "Lcom/baidu/tieba/a1b;");
                 return;
             }
         }
-        g = bdPageContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070420);
+        a = new a(null);
     }
 
-    public void onChangeSkinType() {
+    @JvmStatic
+    public static final String c(WriteData writeData, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
-            this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
-            this.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
-            this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
-            this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
-            this.c.setCompoundDrawablePadding(g);
-            this.d.setCompoundDrawablePadding(g);
-            this.f.setCompoundDrawablePadding(g);
-            this.e.setCompoundDrawablePadding(g);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, writeData, str)) == null) ? a.a(writeData, str) : (String) invokeLL.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-    }
 
-    @Override // com.baidu.tieba.z0b
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0816, (ViewGroup) null);
-            this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.rotate_left);
-            this.d = (TextView) this.b.findViewById(R.id.rotate_right);
-            this.e = (TextView) this.b.findViewById(R.id.rotate_left_right);
-            this.f = (TextView) this.b.findViewById(R.id.rotate_up_down);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-    }
 
-    public View u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        public final String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return a1b.b;
+            }
+            return (String) invokeV.objValue;
         }
-        return (View) invokeV.objValue;
-    }
 
-    public void x(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c.setTag(0);
-            this.d.setTag(1);
-            this.e.setTag(2);
-            this.f.setTag(3);
-            this.c.setOnClickListener(onClickListener);
-            this.d.setOnClickListener(onClickListener);
-            this.e.setOnClickListener(onClickListener);
-            this.f.setOnClickListener(onClickListener);
+        public final String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return a1b.d;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @JvmStatic
+        public final String a(WriteData writeData, String content) {
+            InterceptResult invokeLL;
+            String replace$default;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, writeData, content)) == null) {
+                Intrinsics.checkNotNullParameter(writeData, "writeData");
+                Intrinsics.checkNotNullParameter(content, "content");
+                if (TextUtils.isEmpty(content)) {
+                    return content;
+                }
+                Matcher matcher = Pattern.compile(c()).matcher(content);
+                if (matcher.find()) {
+                    String result = matcher.group();
+                    Intrinsics.checkNotNullExpressionValue(result, "result");
+                    String substring = result.substring(a1b.c.length(), result.length() - d().length());
+                    Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
+                    if (!TextUtils.isEmpty(substring) && StringsKt__StringsJVMKt.startsWith$default(substring, "%7B%22", false, 2, null)) {
+                        substring = URLDecoder.decode(substring);
+                        Intrinsics.checkNotNullExpressionValue(substring, "decode(commodityJson)");
+                    }
+                    try {
+                        ImageFileInfo b = b(writeData, new JSONObject(substring));
+                        if (b != null && !TextUtils.isEmpty(b.getServerImageCode())) {
+                            TbLog hybridLog = HybridLog.getInstance();
+                            hybridLog.e("WriteDataHelper", "富文本图片数据替换成功，to：" + b.getServerImageCode() + " from " + result);
+                            String serverImageCode = b.getServerImageCode();
+                            Intrinsics.checkNotNullExpressionValue(serverImageCode, "data.serverImageCode");
+                            replace$default = StringsKt__StringsJVMKt.replace$default(content, result, serverImageCode, false, 4, (Object) null);
+                        } else {
+                            HybridLog.getInstance().e("WriteDataHelper", "富文本图片数据替换失败，没有对应的serverImageCode");
+                            replace$default = StringsKt__StringsJVMKt.replace$default(content, result, "", false, 4, (Object) null);
+                        }
+                    } catch (Exception e) {
+                        TbLog hybridLog2 = HybridLog.getInstance();
+                        hybridLog2.e("WriteDataHelper", "富文本数据解析失败：" + e);
+                        replace$default = StringsKt__StringsJVMKt.replace$default(content, result, "", false, 4, (Object) null);
+                    }
+                    return a(writeData, replace$default);
+                }
+                return content;
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        public final ImageFileInfo b(WriteData writeData, JSONObject jsonFromH5) {
+            InterceptResult invokeLL;
+            LinkedList<ImageFileInfo> linkedList;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData, jsonFromH5)) == null) {
+                Intrinsics.checkNotNullParameter(writeData, "writeData");
+                Intrinsics.checkNotNullParameter(jsonFromH5, "jsonFromH5");
+                String optString = jsonFromH5.optString("tag");
+                String optString2 = jsonFromH5.optString("name");
+                int optInt = jsonFromH5.optInt("imageIndex");
+                ImageFileInfo imageFileInfo = null;
+                if (TextUtils.isEmpty(optString)) {
+                    HybridLog.getInstance().e("WriteDataHelper", "图片解析失败：FE传递的tag错误，info=" + jsonFromH5);
+                    return null;
+                }
+                WriteImagesInfo writeImagesInfo = writeData.getWriteImagesInfo();
+                if (writeImagesInfo != null) {
+                    linkedList = writeImagesInfo.getChosedFiles();
+                } else {
+                    linkedList = null;
+                }
+                if (ListUtils.isEmpty(linkedList)) {
+                    HybridLog.getInstance().e("WriteDataHelper", "图片解析失败：端上没有图片数据，info=" + jsonFromH5);
+                    return null;
+                }
+                LinkedList<ImageFileInfo> chosedFiles = writeData.getWriteImagesInfo().getChosedFiles();
+                Intrinsics.checkNotNull(chosedFiles);
+                Iterator<ImageFileInfo> it = chosedFiles.iterator();
+                int i = 0;
+                while (it.hasNext()) {
+                    int i2 = i + 1;
+                    ImageFileInfo item = it.next();
+                    Intrinsics.checkNotNullExpressionValue(item, "item");
+                    if (!optString.equals(b1b.a(item)) && !optString2.equals(b1b.b(item))) {
+                        i = i2;
+                    } else if (optInt == i) {
+                        return item;
+                    } else {
+                        i = i2;
+                        imageFileInfo = item;
+                    }
+                }
+                return imageFileInfo;
+            }
+            return (ImageFileInfo) invokeLL.objValue;
         }
     }
 }

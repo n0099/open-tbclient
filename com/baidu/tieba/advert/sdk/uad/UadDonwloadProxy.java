@@ -15,16 +15,16 @@ import com.baidu.searchbox.download.unified.EventCallback;
 import com.baidu.searchbox.download.unified.EventControlInfoForResume;
 import com.baidu.searchbox.download.unified.EventControlInfoForStart;
 import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.tieba.em0;
-import com.baidu.tieba.g96;
-import com.baidu.tieba.i31;
+import com.baidu.tieba.dm0;
+import com.baidu.tieba.h31;
+import com.baidu.tieba.hl0;
 import com.baidu.tieba.il0;
-import com.baidu.tieba.jl0;
-import com.baidu.tieba.my6;
-import com.baidu.tieba.ql0;
-import com.baidu.tieba.tj0;
-import com.baidu.tieba.un0;
-import com.baidu.tieba.vk0;
+import com.baidu.tieba.j96;
+import com.baidu.tieba.pl0;
+import com.baidu.tieba.sj0;
+import com.baidu.tieba.sy6;
+import com.baidu.tieba.tn0;
+import com.baidu.tieba.uk0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,9 +37,9 @@ public class UadDonwloadProxy implements IAdDownloader {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.nadcore.download.proxy.IAdDownloader
-    public void b(@NonNull il0 il0Var) {
+    public void b(@NonNull hl0 hl0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, il0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hl0Var) == null) {
         }
     }
 
@@ -47,8 +47,8 @@ public class UadDonwloadProxy implements IAdDownloader {
     public class ListenerFacade implements IDownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public em0 mListener;
-        public il0 model;
+        public dm0 mListener;
+        public hl0 model;
         public final /* synthetic */ UadDonwloadProxy this$0;
 
         @Override // com.baidu.searchbox.download.callback.IDownloadListener
@@ -58,12 +58,12 @@ public class UadDonwloadProxy implements IAdDownloader {
             }
         }
 
-        public ListenerFacade(UadDonwloadProxy uadDonwloadProxy, il0 il0Var, em0 em0Var) {
+        public ListenerFacade(UadDonwloadProxy uadDonwloadProxy, hl0 hl0Var, dm0 dm0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uadDonwloadProxy, il0Var, em0Var};
+                Object[] objArr = {uadDonwloadProxy, hl0Var, dm0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -74,19 +74,19 @@ public class UadDonwloadProxy implements IAdDownloader {
                 }
             }
             this.this$0 = uadDonwloadProxy;
-            this.model = il0Var;
-            this.mListener = em0Var;
+            this.model = hl0Var;
+            this.mListener = dm0Var;
         }
 
         @Override // com.baidu.searchbox.download.callback.IDownloadListener
         public void onPause(Uri uri, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, uri, i) == null) {
-                il0 il0Var = this.model;
-                if (il0Var.k != uri) {
+                hl0 hl0Var = this.model;
+                if (hl0Var.k != uri) {
                     return;
                 }
-                this.mListener.c(il0Var.b, i);
+                this.mListener.c(hl0Var.b, i);
             }
         }
 
@@ -94,14 +94,14 @@ public class UadDonwloadProxy implements IAdDownloader {
         public void onProgress(Uri uri, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{uri, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                il0 il0Var = this.model;
-                if (il0Var.k != uri || il0Var.c == AdDownloadStatus.PAUSE) {
+                hl0 hl0Var = this.model;
+                if (hl0Var.k != uri || hl0Var.c == AdDownloadStatus.PAUSE) {
                     return;
                 }
                 if (j2 > 0) {
-                    jl0 jl0Var = il0Var.q;
-                    if (jl0Var.e <= 0) {
-                        jl0Var.e = j2;
+                    il0 il0Var = hl0Var.q;
+                    if (il0Var.e <= 0) {
+                        il0Var.e = j2;
                     }
                 }
                 this.mListener.a(this.model.b, j, j2);
@@ -112,12 +112,12 @@ public class UadDonwloadProxy implements IAdDownloader {
         public void onStopped(StopStatus stopStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, stopStatus) == null) {
-                ql0 ql0Var = new ql0();
-                ql0Var.b = stopStatus.name();
+                pl0 pl0Var = new pl0();
+                pl0Var.b = stopStatus.name();
                 if (stopStatus == StopStatus.DOWNLOAD_FAIL) {
-                    ql0Var.c = true;
+                    pl0Var.c = true;
                 }
-                this.mListener.d(ql0Var);
+                this.mListener.d(pl0Var);
             }
         }
 
@@ -125,11 +125,11 @@ public class UadDonwloadProxy implements IAdDownloader {
         public void onSuccess(Uri uri) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, uri) == null) {
-                il0 il0Var = this.model;
-                if (il0Var.k != uri) {
+                hl0 hl0Var = this.model;
+                if (hl0Var.k != uri) {
                     return;
                 }
-                il0Var.h = g96.j(tj0.b(), this.model.k);
+                hl0Var.h = j96.j(sj0.b(), this.model.k);
                 this.mListener.onSuccess(this.model.b);
             }
         }
@@ -139,15 +139,15 @@ public class UadDonwloadProxy implements IAdDownloader {
     public class a implements EventCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public il0 a;
-        public em0 b;
+        public hl0 a;
+        public dm0 b;
 
-        public a(UadDonwloadProxy uadDonwloadProxy, il0 il0Var, em0 em0Var) {
+        public a(UadDonwloadProxy uadDonwloadProxy, hl0 hl0Var, dm0 dm0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uadDonwloadProxy, il0Var, em0Var};
+                Object[] objArr = {uadDonwloadProxy, hl0Var, dm0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -157,8 +157,8 @@ public class UadDonwloadProxy implements IAdDownloader {
                     return;
                 }
             }
-            this.a = il0Var;
-            this.b = em0Var;
+            this.a = hl0Var;
+            this.b = dm0Var;
         }
 
         @Override // com.baidu.searchbox.download.unified.EventCallback
@@ -169,7 +169,7 @@ public class UadDonwloadProxy implements IAdDownloader {
                 if (i != 1) {
                     if (i == 2) {
                         this.a.c = AdDownloadStatus.NONE;
-                        vk0.c().g(AdDownloadAction.FAIL_PERMISSION_DENY, this.a);
+                        uk0.c().g(AdDownloadAction.FAIL_PERMISSION_DENY, this.a);
                         return;
                     }
                     return;
@@ -178,15 +178,15 @@ public class UadDonwloadProxy implements IAdDownloader {
                     this.a.k = uri;
                 }
                 if (eventBackInfo != null) {
-                    il0 il0Var = this.a;
-                    il0Var.i = 0.0f;
-                    il0Var.j = 0.0f;
-                    this.b.b(il0Var.q.e, g96.j(tj0.b(), this.a.k));
+                    hl0 hl0Var = this.a;
+                    hl0Var.i = 0.0f;
+                    hl0Var.j = 0.0f;
+                    this.b.b(hl0Var.q.e, j96.j(sj0.b(), this.a.k));
                     return;
                 }
-                em0 em0Var = this.b;
-                il0 il0Var2 = this.a;
-                em0Var.b(il0Var2.q.e, il0Var2.h);
+                dm0 dm0Var = this.b;
+                hl0 hl0Var2 = this.a;
+                dm0Var.b(hl0Var2.q.e, hl0Var2.h);
             }
         }
     }
@@ -206,58 +206,58 @@ public class UadDonwloadProxy implements IAdDownloader {
     }
 
     @Override // com.baidu.nadcore.download.proxy.IAdDownloader
-    public int a(@NonNull il0 il0Var, @NonNull em0 em0Var) {
+    public int a(@NonNull hl0 hl0Var, @NonNull dm0 dm0Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, il0Var, em0Var)) == null) {
-            if (TextUtils.isEmpty(il0Var.g)) {
-                ql0 ql0Var = new ql0();
-                ql0Var.b = "download url is null";
-                em0Var.d(ql0Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, hl0Var, dm0Var)) == null) {
+            if (TextUtils.isEmpty(hl0Var.g)) {
+                pl0 pl0Var = new pl0();
+                pl0Var.b = "download url is null";
+                dm0Var.d(pl0Var);
                 return -1;
             }
-            my6.b().f(tj0.b(), "ad", e(il0Var), new ListenerFacade(this, il0Var, em0Var), new EventControlInfoForStart(false, false, true), new a(this, il0Var, em0Var));
-            return il0Var.g.hashCode();
+            sy6.b().f(sj0.b(), "ad", e(hl0Var), new ListenerFacade(this, hl0Var, dm0Var), new EventControlInfoForStart(false, false, true), new a(this, hl0Var, dm0Var));
+            return hl0Var.g.hashCode();
         }
         return invokeLL.intValue;
     }
 
     @Override // com.baidu.nadcore.download.proxy.IAdDownloader
-    public void c(@NonNull il0 il0Var) {
+    public void c(@NonNull hl0 hl0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, il0Var) == null) {
-            my6.b().c(il0Var.k);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hl0Var) == null) {
+            sy6.b().c(hl0Var.k);
         }
     }
 
     @Override // com.baidu.nadcore.download.proxy.IAdDownloader
-    public void d(@NonNull il0 il0Var, @NonNull em0 em0Var) {
+    public void d(@NonNull hl0 hl0Var, @NonNull dm0 dm0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, il0Var, em0Var) == null) {
-            ListenerFacade listenerFacade = new ListenerFacade(this, il0Var, em0Var);
-            a aVar = new a(this, il0Var, em0Var);
-            my6.b().e(tj0.b(), "ad", il0Var.k, listenerFacade, new EventControlInfoForResume(false, true), aVar);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, hl0Var, dm0Var) == null) {
+            ListenerFacade listenerFacade = new ListenerFacade(this, hl0Var, dm0Var);
+            a aVar = new a(this, hl0Var, dm0Var);
+            sy6.b().e(sj0.b(), "ad", hl0Var.k, listenerFacade, new EventControlInfoForResume(false, true), aVar);
         }
     }
 
-    public final DownloadParams e(@NonNull il0 il0Var) {
+    public final DownloadParams e(@NonNull hl0 hl0Var) {
         InterceptResult invokeL;
         boolean z;
         int i;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, il0Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hl0Var)) == null) {
             DownloadParams downloadParams = new DownloadParams();
             JSONObject jSONObject = new JSONObject();
-            String str = il0Var.q.c;
+            String str = hl0Var.q.c;
             if (TextUtils.isEmpty(str)) {
                 str = "apk_yuansheng_unknown";
             }
-            i31.f(jSONObject, "source", str);
-            if (!TextUtils.isEmpty(il0Var.p.c)) {
-                i31.d(jSONObject, DownloadConstants.HIDE_INSTALL_COMPLETE, 1);
+            h31.f(jSONObject, "source", str);
+            if (!TextUtils.isEmpty(hl0Var.p.c)) {
+                h31.d(jSONObject, DownloadConstants.HIDE_INSTALL_COMPLETE, 1);
             }
-            if (un0.b().a().a("tb_uad_is_visible_notification", 0) == 1) {
+            if (tn0.b().a().a("tb_uad_is_visible_notification", 0) == 1) {
                 z = true;
             } else {
                 z = false;
@@ -268,25 +268,25 @@ public class UadDonwloadProxy implements IAdDownloader {
                 i = 2;
             }
             if (z) {
-                if (!TextUtils.isEmpty(il0Var.p.g)) {
-                    i31.f(jSONObject, "icon", il0Var.p.g);
+                if (!TextUtils.isEmpty(hl0Var.p.g)) {
+                    h31.f(jSONObject, "icon", hl0Var.p.g);
                 }
-                if (!TextUtils.isEmpty(il0Var.p.i)) {
-                    i31.f(jSONObject, "versioncode", il0Var.p.i);
+                if (!TextUtils.isEmpty(hl0Var.p.i)) {
+                    h31.f(jSONObject, "versioncode", hl0Var.p.i);
                 }
             }
-            i31.g(jSONObject, Downloads.Impl.COLUMN_EXTRA_INFO_CLOSE_AUTO_INSTALL, true);
+            h31.g(jSONObject, Downloads.Impl.COLUMN_EXTRA_INFO_CLOSE_AUTO_INSTALL, true);
             downloadParams.setVisibleInNotification(i);
-            if (un0.b().a().a("tb_uad_is_visible_in_download_center", 0) == 1) {
+            if (tn0.b().a().a("tb_uad_is_visible_in_download_center", 0) == 1) {
                 z2 = true;
             } else {
                 z2 = false;
             }
             downloadParams.setVisibleInDownloadsUI(z2);
-            downloadParams.setUrl(il0Var.g);
+            downloadParams.setUrl(hl0Var.g);
             downloadParams.setExtraInfo(jSONObject.toString());
-            if (un0.b().a().a("tb_uad_download_center_title_switch", 0) == 1 && !TextUtils.isEmpty(il0Var.p.h)) {
-                downloadParams.setTitle(il0Var.p.h);
+            if (tn0.b().a().a("tb_uad_download_center_title_switch", 0) == 1 && !TextUtils.isEmpty(hl0Var.p.h)) {
+                downloadParams.setTitle(hl0Var.p.h);
             }
             return downloadParams;
         }

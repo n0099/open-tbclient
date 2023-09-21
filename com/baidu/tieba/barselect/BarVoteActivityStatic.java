@@ -19,11 +19,10 @@ import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.barselect.data.VoteElectionHttpResMessage;
-import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
 import com.baidu.tieba.barselect.idCard.CameraActivity;
 import com.baidu.tieba.barselect.idCard.IdentityReviewActivity;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.fh9;
+import com.baidu.tieba.hja;
+import com.baidu.tieba.qi9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,10 +162,10 @@ public class BarVoteActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof fh9)) {
-                    fh9 fh9Var = (fh9) customMessage.getData();
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(fh9Var.a(), fh9Var.b(), fh9Var.d(), fh9Var.c());
-                    commitVoteReqMsg.setTag(fh9Var.e());
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof qi9)) {
+                    qi9 qi9Var = (qi9) customMessage.getData();
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(qi9Var.a(), qi9Var.b(), qi9Var.d(), qi9Var.c());
+                    commitVoteReqMsg.setTag(qi9Var.e());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 }
                 return null;
@@ -293,8 +292,7 @@ public class BarVoteActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            bha.h(309642, VoteElectionSocketResMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, bha.a("c/f/bawu/electionInfo", 309642));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, hja.a("c/f/bawu/electionInfo", 309642));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

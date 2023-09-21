@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.RecommendPersonAttentionCardView;
+import com.baidu.tieba.feed.component.CardVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yd7 extends yb7<RecommendPersonAttentionCardView, x77> {
+public class yd7 extends hc7<CardVideoView, x77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,13 +35,26 @@ public class yd7 extends yb7<RecommendPersonAttentionCardView, x77> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc7
-    /* renamed from: e */
-    public void b(@NonNull RecommendPersonAttentionCardView recommendPersonAttentionCardView, @NonNull x77 x77Var) {
+    @Override // com.baidu.tieba.hc7, com.baidu.tieba.xc7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendPersonAttentionCardView, x77Var) == null) {
-            recommendPersonAttentionCardView.update(x77Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            me7.j(a);
+            return a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xc7
+    /* renamed from: e */
+    public void b(@NonNull CardVideoView cardVideoView, @NonNull x77 x77Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoView, x77Var) == null) {
+            cardVideoView.f(x77Var);
         }
     }
 }

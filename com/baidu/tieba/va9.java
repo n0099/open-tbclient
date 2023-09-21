@@ -6,42 +6,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SetTail.ResData;
+import tbclient.GetVipInfo.VipBannerItem;
 /* loaded from: classes8.dex */
-public class va9 {
+public class va9 implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
+    public String b;
 
-    public va9() {
+    public va9(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipBannerItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        if (vipBannerItem == null) {
+            return;
+        }
+        this.a = vipBannerItem.img_url;
+        this.b = vipBannerItem.link;
     }
 
-    public int a() {
+    @Override // com.baidu.tieba.u75
+    public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(ResData resData) {
-        Long l;
+    @Override // com.baidu.tieba.u75
+    public String getPicUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) != null) || resData == null || (l = resData.tailId) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        this.a = l.intValue();
+        return (String) invokeV.objValue;
     }
 }

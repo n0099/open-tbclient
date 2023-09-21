@@ -15,7 +15,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.spswitch.emotion.SpanStringUtils;
 import com.baidu.spswitch.utils.SPConfig;
-import com.baidu.tieba.i80;
+import com.baidu.tieba.h80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -203,7 +203,7 @@ public class EmotionLoader {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{emotionType, context, charSequence, textView, Float.valueOf(f)})) == null) {
-            if (!i80.a()) {
+            if (!h80.a()) {
                 EmotionUtils.getInstance().waitForEmotionLoadedIfNeeded(350L);
             }
             if (charSequence == null) {
@@ -212,7 +212,7 @@ public class EmotionLoader {
             SpannableString spannableString = new SpannableString(charSequence);
             Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
             while (matcher.find()) {
-                if (i80.a()) {
+                if (h80.a()) {
                     EmotionUtils.getInstance().waitForEmotionLoadedIfNeeded(350L);
                 }
                 String group = matcher.group();

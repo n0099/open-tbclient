@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.sac;
-import com.baidu.tieba.yac;
+import com.baidu.tieba.kcc;
+import com.baidu.tieba.qcc;
 /* loaded from: classes2.dex */
-public enum EmptyObservableHolder implements sac.a<Object> {
+public enum EmptyObservableHolder implements kcc.a<Object> {
     INSTANCE;
     
-    public static final sac<Object> EMPTY = sac.d(INSTANCE);
+    public static final kcc<Object> EMPTY = kcc.d(INSTANCE);
 
-    public static <T> sac<T> instance() {
-        return (sac<T>) EMPTY;
+    public static <T> kcc<T> instance() {
+        return (kcc<T>) EMPTY;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
-    public void call(yac<? super Object> yacVar) {
-        yacVar.onCompleted();
+    @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
+    public void call(qcc<? super Object> qccVar) {
+        qccVar.onCompleted();
     }
 }

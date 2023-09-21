@@ -1,73 +1,169 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.frs.brand.buttommenu.BottomMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.BottomMenu;
+import tbclient.SubBottomMenu;
 /* loaded from: classes8.dex */
-public class tl7 extends fi7<v66, CardViewHolder<r66>> {
+public class tl7 implements BottomMenuView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext l;
-    public r66 m;
+    public TbPageContext<?> a;
+    public View b;
+    public ImageView c;
+    public BottomMenuView d;
+    public ForumData e;
+    public int f;
+    public int g;
+    public int h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tl7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public tl7(TbPageContext tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = null;
-        this.l = tbPageContext;
+        this.a = tbPageContext;
+        this.b = view2;
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919ac);
+        BottomMenuView bottomMenuView = (BottomMenuView) view2.findViewById(R.id.obfuscated_res_0x7f090476);
+        this.d = bottomMenuView;
+        bottomMenuView.setOnMenuItemClickListener(this);
+        this.f = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds160);
+        this.g = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds44);
+        this.h = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: G */
-    public CardViewHolder<r66> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
+    public void b(BottomMenuView.MenuItemView menuItemView, BottomMenu bottomMenu) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            this.m = new r66(this.l);
-            return new CardViewHolder<>(this.m);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuItemView, bottomMenu) == null) {
+            long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
+            if (bottomMenu != null && ListUtils.getCount(bottomMenu.submenu) == 0) {
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{bottomMenu.url});
+                ForumData forumData = this.e;
+                String str2 = "";
+                if (forumData == null) {
+                    str = "";
+                } else {
+                    str = forumData.getId();
+                }
+                ForumData forumData2 = this.e;
+                if (forumData2 != null) {
+                    str2 = forumData2.getName();
+                }
+                TiebaStatic.log(new StatisticItem("c13117").param("fid", str).param("fname", str2).param("uid", currentAccountId).param("obj_param1", bottomMenu.name));
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c13118").param("uid", currentAccountId));
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    public View H(int i, View view2, ViewGroup viewGroup, v66 v66Var, CardViewHolder<r66> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
+    public void a(BottomMenuView.SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v66Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(v66Var);
-            return view2;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, subMenuItemView, subBottomMenu) == null) && subBottomMenu != null) {
+            UrlManager.getInstance().dealOneLink(this.a, new String[]{subBottomMenu.url});
+            ForumData forumData = this.e;
+            String str2 = "";
+            if (forumData == null) {
+                str = "";
+            } else {
+                str = forumData.getId();
+            }
+            ForumData forumData2 = this.e;
+            if (forumData2 != null) {
+                str2 = forumData2.getName();
+            }
+            TiebaStatic.log(new StatisticItem("c13117").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", subBottomMenu.name));
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.fi7, com.baidu.tieba.pm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (v66) obj, (CardViewHolder) viewHolder);
-        return view2;
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+            if (z) {
+                layoutParams.addRule(11);
+                layoutParams.addRule(12);
+                layoutParams.addRule(14, 0);
+                layoutParams.bottomMargin = this.f;
+                layoutParams.rightMargin = this.g;
+                return;
+            }
+            layoutParams.addRule(11, 0);
+            layoutParams.addRule(12);
+            layoutParams.addRule(14);
+            layoutParams.bottomMargin = this.h;
+            layoutParams.rightMargin = 0;
+        }
+    }
+
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && this.d.getVisibility() == 0) {
+            this.d.a(tbPageContext, i);
+        }
+    }
+
+    public void e(List<BottomMenu> list, ForumData forumData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, forumData) == null) {
+            this.e = forumData;
+            if (ListUtils.getCount(list) > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            c(z);
+            if (z) {
+                this.d.setVisibility(0);
+                this.d.b(list, this.a);
+                return;
+            }
+            this.d.setVisibility(8);
+        }
+    }
+
+    public void f(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            BottomMenuView bottomMenuView = this.d;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            bottomMenuView.setVisibility(i);
+        }
     }
 }

@@ -1,122 +1,38 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class d5a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final View b;
-    public AdvertAppInfo c;
-    public c39 d;
-    public TbPageContext e;
-    public AdCard f;
-    public View.OnClickListener g;
+public interface d5a {
+    om<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
+    y4a b();
 
-    public void c(o4a o4aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o4aVar) == null) {
-        }
-    }
+    void c(AdvertAppInfo advertAppInfo, b59<?> b59Var, String str, String str2, int i, int i2);
 
-    public void j(CountDownTextView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-        }
-    }
+    t4a d();
 
-    public d5a(View view2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = view2;
-        this.a = str;
-    }
+    om<?, ?> e(c5a c5aVar, BdUniqueId bdUniqueId);
 
-    public final <T> T a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (T) this.b.findViewById(i);
-        }
-        return (T) invokeI.objValue;
-    }
+    void f();
 
-    public void f(AdvertAppInfo advertAppInfo) {
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
-            this.c = advertAppInfo;
-            if (advertAppInfo != null && (iLegoAdvert = advertAppInfo.h) != null && (iLegoAdvert instanceof AdCard)) {
-                this.f = (AdCard) iLegoAdvert;
-            }
-        }
-    }
+    List<AdvertAppInfo> g();
 
-    public void g(c39 c39Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, c39Var) == null) {
-            this.d = c39Var;
-        }
-    }
+    om<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
 
-    public void h(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
-            this.e = tbPageContext;
-        }
-    }
+    IAdBaseAsyncController i(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
 
-    public void i(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
+    a5a j();
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setVisibility(0);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.v(this.c.j).q(String.valueOf(this.c.position + 1)).p(this.c.g).z(String.valueOf(303));
-            x31.e(clogBuilder);
-        }
-    }
+    void k(AdvertAppInfo advertAppInfo);
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setVisibility(8);
-        }
-    }
+    void l(HashMap<String, String> hashMap, Context context);
 }

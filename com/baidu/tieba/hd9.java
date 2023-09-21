@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface hd9 {
-    void b();
+    void a();
 
-    boolean hasMore();
+    void c();
 
-    void refresh();
-
-    void reload();
+    void resetData();
 }

@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
 /* loaded from: classes7.dex */
 public interface qc8 {
-    void A1(int i, boolean z);
-
-    void B(AibotChatDetail aibotChatDetail);
+    @Nullable
+    BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i, String str);
 }

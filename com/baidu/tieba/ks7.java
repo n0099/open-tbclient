@@ -1,30 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.mc.FrsModelController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ks7 extends PriorityOrganizer.Task {
+public class ks7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public FrsActivity b;
-    public boolean c;
+    public final vi7 a;
+    public final FrsFragment b;
+    public final nx7 c;
+    public final hx7 d;
+    public final FrsModelController e;
+    public final ck7 f;
+    public final ds7 g;
 
-    public ks7(FrsActivity frsActivity, FrsFragment frsFragment) {
+    public ks7(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,49 +33,16 @@ public class ks7 extends PriorityOrganizer.Task {
                 return;
             }
         }
-        this.b = frsActivity;
-        this.a = frsFragment;
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c = z;
+        if (frsFragment != null) {
+            this.b = frsFragment;
+            this.d = frsFragment.O0();
+            this.a = this.b.R1();
+            this.c = this.b.s4();
+            this.e = this.b.m1();
+            this.f = this.b.l4();
+            this.g = this.b.F1();
+            return;
         }
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isDataReady() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrsFragment frsFragment = this.a;
-            if (frsFragment != null && !frsFragment.Z3() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isNeedExecute() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (YunDialogManager.isShowingDialog() || !this.c || !bw7.d(TbSingleton.getInstance().getFrsResponseData(), this.a)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void onExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            finish();
-        }
+        throw new NullPointerException("FrsActivity is NullPointerException");
     }
 }

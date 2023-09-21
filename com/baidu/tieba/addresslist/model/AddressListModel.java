@@ -7,9 +7,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
-import com.baidu.tieba.g76;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.pf5;
+import com.baidu.tieba.h76;
+import com.baidu.tieba.rf5;
+import com.baidu.tieba.tf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.List;
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g76 a;
+    public h76 a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -60,20 +60,20 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.a = g76.d();
+        this.a = h76.d();
     }
 
     public int N(String str) {
         InterceptResult invokeL;
-        List<nf5> c;
+        List<rf5> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!pf5.a(str) || (c = this.a.c()) == null) {
+            if (!tf5.a(str) || (c = this.a.c()) == null) {
                 return -1;
             }
-            for (nf5 nf5Var : c) {
-                if (str.equals(nf5Var.a())) {
-                    return c.indexOf(nf5Var);
+            for (rf5 rf5Var : c) {
+                if (str.equals(rf5Var.a())) {
+                    return c.indexOf(rf5Var);
                 }
             }
             return -1;
@@ -81,10 +81,10 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeL.intValue;
     }
 
-    public void M(nf5 nf5Var) {
+    public void M(rf5 rf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nf5Var) == null) {
-            this.a.a(nf5Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, rf5Var) == null) {
+            this.a.a(rf5Var);
         }
     }
 
@@ -95,28 +95,28 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void S(g76.a aVar) {
+    public void S(h76.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.a.f(aVar);
         }
     }
 
-    public void T(List<nf5> list) {
+    public void T(List<rf5> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.a.g(list);
         }
     }
 
-    public void U(g76.a aVar) {
+    public void U(h76.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             this.a.h(aVar);
         }
     }
 
-    public List<nf5> P() {
+    public List<rf5> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

@@ -1,46 +1,71 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import com.airbnb.lottie.LottieComposition;
-import com.airbnb.lottie.LottieCompositionFactory;
-import com.airbnb.lottie.LottieListener;
+import android.util.Log;
+import android.webkit.WebSettings;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.Config;
+import com.baidu.nad.jni.NADNativeHelper;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.prologue.business.data.ParseError;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.zip.ZipInputStream;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class kj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Handler a;
+    public lj1 b;
+    public int c;
+    public volatile boolean d;
 
     /* loaded from: classes6.dex */
-    public interface f {
-        void a(LottieComposition lottieComposition);
-
-        void b();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements LottieListener<Throwable> {
+    public class a extends mt0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
 
-        public a(kj1 kj1Var, f fVar) {
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+
+        public a(kj1 kj1Var, String str, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kj1Var, fVar};
+                Object[] objArr = {kj1Var, str, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,33 +75,63 @@ public class kj1 {
                     return;
                 }
             }
-            this.a = fVar;
+            this.a = str;
+            this.b = j;
+            this.c = j2;
+        }
+
+        @Override // com.baidu.tieba.kt0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                BaseVM.n(this.a, this.b, this.c, exc.getMessage(), StickerDataChangeType.UPDATE);
+            }
+        }
+
+        @Override // com.baidu.tieba.lt0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(Throwable th) {
-            f fVar;
+        @Override // com.baidu.tieba.lt0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && (fVar = this.a) != null) {
-                fVar.b();
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+                BaseVM.n(this.a, this.b, this.c, BasicPushStatus.SUCCESS_CODE, StickerDataChangeType.UPDATE);
+                try {
+                    pj1.e(str, this.a);
+                } catch (ParseError e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements LottieListener<LottieComposition> {
+    public class b extends mt0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ lj1 d;
+        public final /* synthetic */ kj1 e;
 
-        public b(kj1 kj1Var, f fVar) {
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+
+        public b(kj1 kj1Var, String str, long j, long j2, lj1 lj1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kj1Var, fVar};
+                Object[] objArr = {kj1Var, str, Long.valueOf(j), Long.valueOf(j2), lj1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -86,43 +141,70 @@ public class kj1 {
                     return;
                 }
             }
-            this.a = fVar;
+            this.e = kj1Var;
+            this.a = str;
+            this.b = j;
+            this.c = j2;
+            this.d = lj1Var;
+        }
+
+        @Override // com.baidu.tieba.kt0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                BaseVM.o(this.a, this.b, this.c, exc.getMessage(), "query", this.e.d, "");
+                if (!this.e.d && this.e.a != null) {
+                    this.e.a.removeCallbacksAndMessages(null);
+                    this.e.a.post(new c(this.e, this.a));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.lt0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(LottieComposition lottieComposition) {
+        @Override // com.baidu.tieba.lt0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                if (lottieComposition != null) {
-                    f fVar = this.a;
-                    if (fVar != null) {
-                        fVar.a(lottieComposition);
-                        return;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+                BaseVM.o(this.a, this.b, this.c, BasicPushStatus.SUCCESS_CODE, "query", this.e.d, str);
+                if (!this.e.d) {
+                    this.e.a.removeCallbacksAndMessages(null);
+                    try {
+                        List<wj1> e = pj1.e(str, this.a);
+                        if (e != null && e.size() > 0 && e.get(0) != null) {
+                            this.d.b(e.get(0));
+                        } else if (pj1.a(str)) {
+                            this.d.a(new Throwable("no ad"));
+                        } else {
+                            new c(this.e, this.a).run();
+                        }
+                    } catch (ParseError e2) {
+                        e2.printStackTrace();
+                        this.d.a(e2);
                     }
-                    return;
-                }
-                f fVar2 = this.a;
-                if (fVar2 != null) {
-                    fVar2.b();
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements LottieListener<Throwable> {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
+        public final /* synthetic */ kj1 a;
 
-        public c(kj1 kj1Var, f fVar) {
+        public c(kj1 kj1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kj1Var, fVar};
+                Object[] objArr = {kj1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -132,87 +214,26 @@ public class kj1 {
                     return;
                 }
             }
-            this.a = fVar;
+            this.a = kj1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(Throwable th) {
-            f fVar;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && (fVar = this.a) != null) {
-                fVar.b();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements LottieListener<LottieComposition> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-
-        public d(kj1 kj1Var, f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kj1Var, fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            this.a.d = true;
+            wj1 n = uj1.n(oj1.b());
+            if (this.a.b == null) {
+                return;
             }
-            this.a = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(LottieComposition lottieComposition) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                if (lottieComposition != null) {
-                    f fVar = this.a;
-                    if (fVar != null) {
-                        fVar.a(lottieComposition);
-                        return;
-                    }
-                    return;
-                }
-                f fVar2 = this.a;
-                if (fVar2 != null) {
-                    fVar2.b();
-                }
+            if (n != null) {
+                n.D = 2;
+                this.a.b.b(n);
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static kj1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-659538186, "Lcom/baidu/tieba/kj1$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-659538186, "Lcom/baidu/tieba/kj1$e;");
-                    return;
-                }
-            }
-            a = new kj1(null);
+            this.a.b.a(new Throwable("no ad"));
         }
     }
 
@@ -226,66 +247,364 @@ public class kj1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new Handler(Looper.getMainLooper());
+        this.c = 5000;
+        this.d = false;
     }
 
-    public static kj1 d() {
-        InterceptResult invokeV;
+    public final void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return e.a;
-        }
-        return (kj1) invokeV.objValue;
-    }
-
-    public /* synthetic */ kj1(a aVar) {
-        this();
-    }
-
-    public void a(File file, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, file, fVar) == null) && file != null && file.exists()) {
-            try {
-                b(new FileInputStream(file), fVar);
-            } catch (FileNotFoundException e2) {
-                e2.printStackTrace();
-                if (fVar != null) {
-                    fVar.b();
-                }
-            }
-        }
-    }
-
-    public void b(InputStream inputStream, f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream, fVar) == null) {
-            try {
-                LottieCompositionFactory.fromZipStream(new ZipInputStream(inputStream), null).addListener(new b(this, fVar)).addFailureListener(new a(this, fVar));
-            } catch (Exception unused) {
-                if (fVar != null) {
-                    fVar.b();
-                }
-            }
-        }
-    }
-
-    public void c(String str, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, fVar) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || ij1.a().d() == null || !ij1.a().d().has("client_ext") || (optJSONObject = ij1.a().d().optJSONObject("client_ext")) == null) {
             return;
         }
-        File r = vj1.r(str);
-        if (r != null && r.exists()) {
-            a(r, fVar);
-            return;
-        }
-        try {
-            LottieCompositionFactory.fromUrl(tj0.b(), str).addListener(new d(this, fVar)).addFailureListener(new c(this, fVar));
-        } catch (Exception unused) {
-            if (fVar != null) {
-                fVar.b();
+        Iterator<String> keys = optJSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            try {
+                jSONObject.put(next, optJSONObject.opt(next));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+        }
+    }
+
+    public final void f(HashMap<String, String> hashMap) {
+        String p;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
+            ak0 a2 = sj0.a();
+            if (TextUtils.isEmpty(a2.p())) {
+                p = a2.w();
+            } else {
+                p = a2.p();
+            }
+            hashMap.put("ver", p);
+            hashMap.put("sv", "1.0");
+            hashMap.put("uid", a2.t());
+            hashMap.put(TiebaStatic.Params.BDID, a2.o());
+            hashMap.put("cuid", a2.g());
+            String e = kk0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                hashMap.put(SearchJsBridge.COOKIE_MOD, e);
+            }
+            String h = kk0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                hashMap.put("ov", h);
+            }
+            String b2 = kk0.c().b(false);
+            if (!TextUtils.isEmpty(b2)) {
+                hashMap.put("imei", b2);
+            }
+            hashMap.put("ua", a2.q());
+            hashMap.put("fmt", "json");
+            hashMap.put("apna", a2.packageName());
+            hashMap.put("eid", a2.i());
+            hashMap.put("st", "1");
+            hashMap.put("ot", "2");
+            hashMap.put("nt", String.valueOf(new it0().c()));
+            hashMap.put(Config.EXCEPTION_CRASH_TYPE, "2");
+            hashMap.put("is_https", "1");
+            String a3 = kk0.c().a(false);
+            if (!TextUtils.isEmpty(a3)) {
+                hashMap.put(HttpRequest.ANDROID_ID, a3);
+            }
+            hashMap.put("from", ij1.a().from());
+            hashMap.put("cfrom", ij1.a().a());
+            hashMap.put("User-Agent", sj0.e());
+        }
+    }
+
+    public final void g(@NonNull HashMap<String, String> hashMap, String str, String str2, long j) {
+        JSONArray jSONArray;
+        JSONObject jSONObject;
+        int i;
+        JSONObject jSONObject2;
+        JSONObject jSONObject3;
+        String defaultUserAgent;
+        int i2;
+        Iterator<wj1> it;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{hashMap, str, str2, Long.valueOf(j)}) == null) {
+            try {
+                jSONArray = new JSONArray();
+                JSONObject jSONObject4 = new JSONObject();
+                new JSONObject();
+                if (q8.f().h()) {
+                    jSONObject4.put("k", "cmd");
+                    jSONObject4.put("v", str2);
+                    jSONArray.put(jSONObject4);
+                }
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("k", AdExtParam.KEY_NAD_CORE_VERSION);
+                jSONObject5.put("v", "5.12.0.110");
+                jSONArray.put(jSONObject5);
+                jSONObject = new JSONObject();
+                List<wj1> s = uj1.s();
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                JSONArray jSONArray2 = new JSONArray();
+                TextUtils.equals(str, ij1.a().e());
+                if (s != null && s.size() > 0) {
+                    Iterator<wj1> it2 = s.iterator();
+                    i = 0;
+                    while (it2.hasNext()) {
+                        wj1 next = it2.next();
+                        JSONObject jSONObject6 = new JSONObject();
+                        jSONObject6.put("k", next.c);
+                        if (!TextUtils.isEmpty(next.c)) {
+                            int f = uj1.f(next, oj1.b());
+                            StringBuilder sb = new StringBuilder();
+                            it = it2;
+                            sb.append("onAdSuccess: ");
+                            sb.append(f);
+                            Log.e("Afd", sb.toString());
+                            if (f == 0) {
+                                if (next.m()) {
+                                    g31.b(arrayList2, next.c);
+                                }
+                                if (next.k()) {
+                                    g31.b(arrayList, next.c);
+                                }
+                            } else if (next.m()) {
+                                i |= f;
+                            }
+                        } else {
+                            it = it2;
+                        }
+                        jSONObject6.put("r", String.valueOf(next.x));
+                        if (next.m()) {
+                            jSONArray2.put(jSONObject6);
+                        }
+                        it2 = it;
+                    }
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("d", jSONArray2);
+                jSONObject.put("s", yj1.d());
+                jSONArray.put(new JSONObject());
+                if (TextUtils.equals(str2, "query")) {
+                    JSONObject jSONObject7 = new JSONObject();
+                    jSONObject7.put("k", "ukey");
+                    jSONObject7.put("v", TextUtils.join(",", arrayList));
+                    jSONArray.put(jSONObject7);
+                    JSONObject jSONObject8 = new JSONObject();
+                    jSONObject8.put("k", "xz_ukey");
+                    jSONObject8.put("v", TextUtils.join(",", arrayList2));
+                    jSONArray.put(jSONObject8);
+                    if (arrayList2.isEmpty()) {
+                        if (i == 0) {
+                            i = 1;
+                        }
+                        BaseVM.d = String.valueOf(i);
+                    } else {
+                        BaseVM.d = "";
+                    }
+                }
+                JSONObject jSONObject9 = new JSONObject();
+                jSONObject9.put("k", "logid");
+                jSONObject9.put("v", String.valueOf(j));
+                jSONArray.put(jSONObject9);
+                JSONObject jSONObject10 = new JSONObject();
+                jSONObject10.put("k", "uid");
+                jSONObject10.put("v", sj0.a().t());
+                jSONArray.put(jSONObject10);
+                jSONObject2 = new JSONObject();
+                jSONObject2.put("k", MigrateStatisticUtils.EXT_INFO);
+                jSONObject3 = new JSONObject();
+                jSONObject3.put("ipdx", jo0.a().a());
+                jSONObject3.put("update_mark", NADNativeHelper.b());
+                jSONObject3.put("boot_mark", NADNativeHelper.a());
+            } catch (JSONException e) {
+                e = e;
+            }
+            try {
+                e(jSONObject3);
+                jSONObject3.put("adinfo", jSONObject);
+                if (Build.VERSION.SDK_INT < 19) {
+                    defaultUserAgent = uj0.c().a();
+                } else if (oj1.b() == 0) {
+                    defaultUserAgent = t31.a().b("splash_sp_name").getString("web_view_ua", uj0.c().a());
+                } else {
+                    defaultUserAgent = WebSettings.getDefaultUserAgent(sj0.b());
+                    if (!TextUtils.isEmpty(defaultUserAgent)) {
+                        t31.a().b("splash_sp_name").h("web_view_ua", defaultUserAgent);
+                    }
+                }
+                jSONObject3.put("sys_ua", defaultUserAgent);
+                String a2 = n61.b().a();
+                if (!TextUtils.isEmpty(a2)) {
+                    jSONObject3.put("custom_ua", a2);
+                }
+                jSONObject2.put("v", jSONObject3.toString());
+                jSONArray.put(jSONObject2);
+                JSONObject jSONObject11 = new JSONObject();
+                jSONObject11.put("k", AdExtParam.KEY_IADEX);
+                jSONObject11.put("v", sj0.d().m());
+                jSONArray.put(jSONObject11);
+                String f2 = kk0.c().f(false);
+                if (!TextUtils.isEmpty(f2)) {
+                    JSONObject jSONObject12 = new JSONObject();
+                    jSONObject12.put("k", "oaid_v");
+                    jSONObject12.put("v", f2);
+                    jSONArray.put(jSONObject12);
+                }
+                try {
+                    JSONObject jSONObject13 = new JSONObject();
+                    jSONObject13.put("k", "encoded_ua_new");
+                    jSONObject13.put("v", URLEncoder.encode(sj0.e(), "utf-8"));
+                    jSONArray.put(jSONObject13);
+                } catch (UnsupportedEncodingException unused) {
+                }
+                JSONObject jSONObject14 = new JSONObject();
+                jSONObject14.put("k", "boot_type");
+                jSONObject14.put("v", oj1.b());
+                jSONArray.put(jSONObject14);
+                JSONObject jSONObject15 = new JSONObject();
+                jSONObject15.put("k", "hot_background_time");
+                jSONObject15.put("v", ((int) (System.currentTimeMillis() - oj1.a())) / 1000);
+                jSONArray.put(jSONObject15);
+                JSONObject jSONObject16 = new JSONObject();
+                jSONObject16.put("k", "is_block_shake_gesture");
+                if (vj1.N()) {
+                    i2 = 1;
+                } else {
+                    i2 = 0;
+                }
+                jSONObject16.put("v", i2);
+                jSONArray.put(jSONObject16);
+                hashMap.put("ext", jSONArray.toString());
+            } catch (JSONException e2) {
+                e = e2;
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final String h(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, map)) == null) {
+            if (map != null && map.size() != 0) {
+                URI create = URI.create(str);
+                if (TextUtils.isEmpty(create.getQuery())) {
+                    query = "";
+                } else {
+                    query = create.getQuery();
+                }
+                StringBuilder sb = new StringBuilder(query);
+                if (sb.length() > 0) {
+                    sb.append('&');
+                }
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append('&');
+                }
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
+                try {
+                    return new URI(create.getScheme(), create.getAuthority(), create.getPath(), sb.toString(), create.getFragment()).toString();
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final tt0 i(String str, String str2, long j) {
+        InterceptResult invokeCommon;
+        String str3;
+        String str4;
+        String h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            if (TextUtils.equals("query", str) && vj1.v() && oj1.b() == 0) {
+                h = tj1.m().k(str);
+            } else {
+                String a2 = ej1.a();
+                if (TextUtils.equals(str, "query") && vj1.O() && ij1.a().d() != null && !TextUtils.isEmpty(ij1.a().d().optString("host_url"))) {
+                    a2 = ij1.a().d().optString("host_url");
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append(a2);
+                if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                    str3 = "?action=update";
+                } else {
+                    str3 = "?action=query";
+                }
+                sb.append(str3);
+                String sb2 = sb.toString();
+                HashMap<String, String> hashMap = new HashMap<>();
+                if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                    str4 = String.valueOf(vj1.o());
+                } else {
+                    str4 = "1";
+                }
+                hashMap.put("ac", str4);
+                hashMap.put("pid", str2);
+                hashMap.put("product_id ", sj0.a().s());
+                f(hashMap);
+                g(hashMap, str2, str, j);
+                h = h(sb2, hashMap);
+            }
+            tt0 tt0Var = new tt0();
+            tt0Var.l(h);
+            tt0Var.a("User-Agent", sj0.e());
+            tt0Var.c();
+            return tt0Var;
+        }
+        return (tt0) invokeCommon.objValue;
+    }
+
+    public void j(String str, lj1 lj1Var) {
+        Handler handler;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, lj1Var) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            qj1.a(String.valueOf(currentTimeMillis));
+            tt0 i = i("query", str, currentTimeMillis);
+            i.g(this.c);
+            JSONObject d = ij1.a().d();
+            if (d != null && d.has("query_response_thread")) {
+                if (d.optInt("query_response_thread", 0) == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                i.i(z);
+            }
+            at0.b().a().a(i, new b(this, str, currentTimeMillis, System.currentTimeMillis(), lj1Var));
+            this.b = lj1Var;
+            this.d = false;
+            int f = ij1.a().f() - vj1.m();
+            this.c = f;
+            if (f > 0 && (handler = this.a) != null) {
+                handler.postDelayed(new c(this, str), this.c);
+            }
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            String optString = ij1.a().d().optString("na_cpc_update_pid");
+            if (TextUtils.isEmpty(optString)) {
+                optString = ij1.a().e();
+            }
+            String str = optString;
+            at0.b().a().a(i(StickerDataChangeType.UPDATE, str, currentTimeMillis), new a(this, str, currentTimeMillis, System.currentTimeMillis()));
         }
     }
 }

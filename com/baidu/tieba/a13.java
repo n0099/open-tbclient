@@ -1,115 +1,63 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a13 extends n12 {
+public class a13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    @Override // com.baidu.tieba.kz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a13(@NonNull iz1 iz1Var) {
-        super(iz1Var);
+    public a13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((iz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final int y(String str) {
-        InterceptResult invokeL;
-        char c;
+    public static a13 a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1866956286) {
-                if (hashCode == -838846263 && str.equals(StickerDataChangeType.UPDATE)) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("webDegrade")) {
-                    c = 1;
-                }
-                c = 65535;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    return 12;
-                }
-                return 20;
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+            String optString = jSONObject.optString("error");
+            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
+                return null;
             }
-            return 19;
+            a13 a13Var = new a13();
+            a13Var.a = optJSONObject2.optString("ak");
+            a13Var.b = optJSONObject2.optString("sk");
+            a13Var.c = optJSONObject2.optString("token");
+            a13Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
+            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
+                a13Var.f = optJSONObject.optString("bosobject");
+                a13Var.e = optJSONObject.optString("bosurl");
+            }
+            return a13Var;
         }
-        return invokeL.intValue;
-    }
-
-    public h32 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#changeMenuStyle", false);
-            Pair<h32, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((h32) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("type");
-                if (TextUtils.isEmpty(optString)) {
-                    return new h32(202);
-                }
-                int y = y(optString);
-                uw2 T2 = uw2.T();
-                if (T2 == null) {
-                    return new h32(1001);
-                }
-                qa2 U = T2.U();
-                if (U == null) {
-                    return new h32(1001);
-                }
-                na2 m = U.m();
-                if (m == null) {
-                    return new h32(1001);
-                }
-                oh4 P1 = m.P1();
-                if (P1 == null) {
-                    if (m instanceof ua2) {
-                        ((ua2) m).l3(y);
-                        return h32.f();
-                    }
-                    return new h32(1001);
-                }
-                P1.e(y);
-                P1.y();
-                return h32.f();
-            }
-            return new h32(202);
-        }
-        return (h32) invokeL.objValue;
+        return (a13) invokeLL.objValue;
     }
 }

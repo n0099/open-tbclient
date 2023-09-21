@@ -1,50 +1,41 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.VoiceRoom;
 /* loaded from: classes6.dex */
 public class hy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final int d;
-    public final int e;
-    public final double f;
 
-    public hy7(String str, String str2, String str3, int i, int i2, double d) {
+    public static List<dy7> a(List<VoiceRoom> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (VoiceRoom voiceRoom : list) {
+                if (voiceRoom != null) {
+                    ArrayList arrayList2 = new ArrayList();
+                    dy7 dy7Var = new dy7();
+                    dy7Var.a = voiceRoom.room_name;
+                    dy7Var.c = String.valueOf(voiceRoom.talker_num);
+                    dy7Var.d = String.valueOf(voiceRoom.joined_num);
+                    dy7Var.e = voiceRoom.room_id.longValue();
+                    for (User user : voiceRoom.talker) {
+                        if (user != null) {
+                            arrayList2.add(user.portrait);
+                        }
+                    }
+                    dy7Var.b = arrayList2;
+                    arrayList.add(dy7Var);
+                }
             }
+            return arrayList;
         }
-        this.a = str;
-        this.b = str2;
-        this.d = i;
-        this.c = str3;
-        this.e = i2;
-        this.f = d;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "FunAdCacheInfo{adType='" + this.a + "', platform='" + this.b + "', pid='" + this.c + "', adHashCode=" + this.d + ", count=" + this.e + ", basePrice=" + this.f + '}';
-        }
-        return (String) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 }

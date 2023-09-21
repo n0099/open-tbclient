@@ -1,40 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mj5 extends ej5 {
+public abstract class mj5 implements Comparable<mj5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mj5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_evaluate), 39, i);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(pj5 pj5Var);
+    }
+
+    public abstract void b(a aVar);
+
+    public abstract int c();
+
+    public abstract void d();
+
+    public mj5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.icon_pure_post_evaluate64;
-        this.h = R.drawable.icon_pure_post_evaluate64;
-        this.i = false;
-        this.j = true;
-        this.k = false;
-        this.p = new int[]{69};
+        d();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(mj5 mj5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mj5Var)) == null) {
+            if (mj5Var == null) {
+                return 1;
+            }
+            return c() - mj5Var.c();
+        }
+        return invokeL.intValue;
     }
 }

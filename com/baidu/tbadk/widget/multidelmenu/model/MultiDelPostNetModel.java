@@ -7,8 +7,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.k16;
 import com.baidu.tieba.l16;
+import com.baidu.tieba.m16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiDelPostNetModel<T>.b a;
-    public k16 b;
+    public l16 b;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -32,7 +32,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<String, Integer, l16> {
+    public class b extends BdAsyncTask<String, Integer, m16> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -60,13 +60,13 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(l16 l16Var) {
+        public void onPostExecute(m16 m16Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l16Var) == null) {
-                super.onPostExecute(l16Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m16Var) == null) {
+                super.onPostExecute(m16Var);
                 this.b.a = null;
                 if (this.b.mLoadDataCallBack != null) {
-                    this.b.mLoadDataCallBack.c(l16Var);
+                    this.b.mLoadDataCallBack.c(m16Var);
                 }
             }
         }
@@ -78,7 +78,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public l16 doInBackground(String... strArr) {
+        public m16 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -94,18 +94,18 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
                 this.a.addPostData("type", this.b.b.e);
                 this.a.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = this.a.postNetData();
-                l16 l16Var = new l16();
+                m16 m16Var = new m16();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    l16Var.a = true;
-                    l16Var.a(postNetData);
+                    m16Var.a = true;
+                    m16Var.a(postNetData);
                 } else {
-                    l16Var.a = false;
-                    l16Var.b = this.a.getErrorString();
+                    m16Var.a = false;
+                    m16Var.b = this.a.getErrorString();
                     this.a.getServerErrorCode();
                 }
-                return l16Var;
+                return m16Var;
             }
-            return (l16) invokeL.objValue;
+            return (m16) invokeL.objValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -195,10 +195,10 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         return invokeV.booleanValue;
     }
 
-    public void T(k16 k16Var) {
+    public void T(l16 l16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k16Var) == null) {
-            this.b = k16Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, l16Var) == null) {
+            this.b = l16Var;
         }
     }
 }

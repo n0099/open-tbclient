@@ -1,47 +1,72 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class mc9 implements lc9 {
+public class mc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
+    public String b;
 
-    public mc9() {
+    public mc9(BdPageContext<?> bdPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = "7a7c80";
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add("7a7c80");
+        this.a.add("f55925");
+        this.a.add("ff5460");
+        this.a.add("cc3314");
+        this.a.add("26bf85");
+        this.a.add("33aaff");
+        this.a.add("3385ff");
+        this.a.add("3668b2");
+        this.a.add("673699");
     }
 
-    @Override // com.baidu.tieba.lc9
-    public hc9 get() {
+    public List<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return m0a.m();
+            return this.b;
         }
-        return (hc9) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lc9
-    public ic9 a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            return new jc9(str, str2, str3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
         }
-        return (ic9) invokeLLL.objValue;
     }
 }

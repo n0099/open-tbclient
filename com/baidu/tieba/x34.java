@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Intent;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,10 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x34 extends n34 {
+public class x34 extends m34 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,12 +30,12 @@ public class x34 extends n34 {
                 return;
             }
         }
-        c = rr1.a;
+        c = qr1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x34() {
-        super("GetSwanGameDuration");
+        super("StartAppUsagePage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,55 +51,30 @@ public class x34 extends n34 {
         }
     }
 
-    public static boolean b(Long l, Long l2) {
+    @Override // com.baidu.tieba.m34
+    public g32 a(@NonNull JSONObject jSONObject, @NonNull ko2 ko2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.n34
-    public h32 a(@NonNull JSONObject jSONObject, @NonNull lo2 lo2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lo2Var)) == null) {
-            if (jSONObject == null) {
-                lo2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (c) {
-                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("swanGameId");
-            if (TextUtils.isEmpty(optString)) {
-                lo2Var.onFail(202, "params may be error");
-            } else {
-                pj3 a = vj3.a();
-                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                    pj3 a2 = vj3.a();
-                    a2.putLong(optString + "_Duration", 0L);
-                }
-                pj3 a3 = vj3.a();
-                long j = a3.getLong(optString + "_Duration", 0L);
-                JSONObject jSONObject2 = new JSONObject();
-                JSONObject jSONObject3 = new JSONObject();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ko2Var)) == null) {
+            gb3 b0 = gb3.b0();
+            if (b0 != null && b0.w() != null) {
                 try {
-                    jSONObject3.put("swanGameDuration", j);
-                    jSONObject2.put("data", jSONObject3);
-                } catch (JSONException e) {
+                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
+                } catch (Exception e) {
                     if (c) {
                         e.printStackTrace();
                     }
+                    ko3.f(b0.w());
                 }
-                lo2Var.onSuccess(jSONObject2);
+                ko2Var.onSuccess(null);
+            } else {
+                ko2Var.onFail(100, "swan or activity is null");
+                if (c) {
+                    Log.d("StartAppUsagePage", "swan or activity is null");
+                }
             }
             return null;
         }
-        return (h32) invokeLL.objValue;
+        return (g32) invokeLL.objValue;
     }
 }

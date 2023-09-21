@@ -18,7 +18,7 @@ import tbclient.FrsPage.CoverImageColor;
 import tbclient.FrsPage.HeadImgs;
 import tbclient.FrsPage.VideoImageColor;
 /* loaded from: classes5.dex */
-public class f25 implements q75 {
+public class f25 implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -36,7 +36,7 @@ public class f25 implements q75 {
     public String m;
     public float n;
     public List<String> o;
-    public uga p;
+    public aja p;
 
     /* loaded from: classes5.dex */
     public class a implements Comparator<VideoImageColor> {
@@ -122,13 +122,13 @@ public class f25 implements q75 {
         return (String) invokeV.objValue;
     }
 
-    public uga f() {
+    public aja f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.p;
         }
-        return (uga) invokeV.objValue;
+        return (aja) invokeV.objValue;
     }
 
     public String g() {
@@ -140,7 +140,7 @@ public class f25 implements q75 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q75
+    @Override // com.baidu.tieba.u75
     public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class f25 implements q75 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q75
+    @Override // com.baidu.tieba.u75
     public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -309,9 +309,9 @@ public class f25 implements q75 {
             this.k = str4.trim();
         }
         this.o = headImgs.third_statistics_url;
-        uga ugaVar = new uga();
-        this.p = ugaVar;
-        ugaVar.d(headImgs);
+        aja ajaVar = new aja();
+        this.p = ajaVar;
+        ajaVar.d(headImgs);
     }
 
     public void p(String str) {

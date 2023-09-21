@@ -81,7 +81,7 @@ public class SimpleFloatingRePlayElement extends AbsElement {
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
         getView().setId(ViewCompat.generateViewId());
-        getView().findViewById(R.id.obfuscated_res_0x7f091ce9).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tn1
+        getView().findViewById(R.id.obfuscated_res_0x7f091cb7).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sn1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

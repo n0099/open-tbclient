@@ -3,13 +3,13 @@ package com.baidu.tieba.tracker;
 import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.gpa;
-import com.baidu.tieba.hpa;
-import com.baidu.tieba.ipa;
-import com.baidu.tieba.lpa;
-import com.baidu.tieba.mpa;
-import com.baidu.tieba.npa;
-import com.baidu.tieba.qpa;
+import com.baidu.tieba.nra;
+import com.baidu.tieba.ora;
+import com.baidu.tieba.pra;
+import com.baidu.tieba.sra;
+import com.baidu.tieba.tra;
+import com.baidu.tieba.ura;
+import com.baidu.tieba.xra;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class Monitor {
     public static /* synthetic */ Interceptable $ic;
     public static final Monitor a;
-    public static Map<String, npa<qpa>> b;
+    public static Map<String, ura<xra>> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,16 +61,16 @@ public final class Monitor {
         }
     }
 
-    public final npa<qpa> a(Fragment fragment, qpa ref) {
+    public final ura<xra> a(Fragment fragment, xra ref) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fragment, ref)) == null) {
             Intrinsics.checkNotNullParameter(fragment, "fragment");
             Intrinsics.checkNotNullParameter(ref, "ref");
             final String traceId = ref.getTraceId();
-            npa<qpa> npaVar = b.get(traceId);
-            if (npaVar == null) {
-                npaVar = new mpa<>(fragment, ref, new Function1<qpa, hpa>(traceId) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$1
+            ura<xra> uraVar = b.get(traceId);
+            if (uraVar == null) {
+                uraVar = new tra<>(fragment, ref, new Function1<xra, ora>(traceId) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String $pid;
@@ -98,33 +98,33 @@ public final class Monitor {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final hpa invoke(qpa it) {
+                    public final ora invoke(xra it) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, it)) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            return gpa.a.b(this.$pid);
+                            return nra.a.b(this.$pid);
                         }
-                        return (hpa) invokeL.objValue;
+                        return (ora) invokeL.objValue;
                     }
                 });
             }
-            b.put(traceId, npaVar);
-            return npaVar;
+            b.put(traceId, uraVar);
+            return uraVar;
         }
-        return (npa) invokeLL.objValue;
+        return (ura) invokeLL.objValue;
     }
 
-    public final npa<qpa> b(final ipa event) {
+    public final ura<xra> b(final pra event) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            npa<qpa> npaVar = b.get(event.getTraceId());
-            if (npaVar == null) {
-                npaVar = new lpa<>(event, new Function1<qpa, hpa>(event) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$3
+            ura<xra> uraVar = b.get(event.getTraceId());
+            if (uraVar == null) {
+                uraVar = new sra<>(event, new Function1<xra, ora>(event) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$3
                     public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ ipa $event;
+                    public final /* synthetic */ pra $event;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,30 +150,30 @@ public final class Monitor {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final hpa invoke(qpa it) {
+                    public final ora invoke(xra it) {
                         InterceptResult invokeL2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, it)) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            return gpa.a.b(this.$event.getTraceId());
+                            return nra.a.b(this.$event.getTraceId());
                         }
-                        return (hpa) invokeL2.objValue;
+                        return (ora) invokeL2.objValue;
                     }
                 });
             }
-            b.put(event.getTraceId(), npaVar);
-            return npaVar;
+            b.put(event.getTraceId(), uraVar);
+            return uraVar;
         }
-        return (npa) invokeL.objValue;
+        return (ura) invokeL.objValue;
     }
 
-    public final npa<qpa> c(String pid) {
+    public final ura<xra> c(String pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pid)) == null) {
             Intrinsics.checkNotNullParameter(pid, "pid");
             return b.remove(pid);
         }
-        return (npa) invokeL.objValue;
+        return (ura) invokeL.objValue;
     }
 }

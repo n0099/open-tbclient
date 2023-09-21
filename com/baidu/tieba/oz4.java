@@ -5,7 +5,7 @@ import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.eu4;
+import com.baidu.tieba.du4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,11 +21,11 @@ public class oz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public eu4 b;
+    public du4 b;
     public WeakReference<WebView> c;
 
     /* loaded from: classes7.dex */
-    public class a implements eu4.b {
+    public class a implements du4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oz4 a;
@@ -48,7 +48,7 @@ public class oz4 {
             this.a = oz4Var;
         }
 
-        @Override // com.baidu.tieba.eu4.b
+        @Override // com.baidu.tieba.du4.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a.a)) {
@@ -112,12 +112,12 @@ public class oz4 {
     }
 
     public void g() {
-        eu4 eu4Var;
+        du4 du4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (eu4Var = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (du4Var = this.b) == null) {
             return;
         }
-        if (eu4Var.d()) {
+        if (du4Var.d()) {
             this.b.c();
         }
         WeakReference<WebView> weakReference = this.c;
@@ -128,16 +128,16 @@ public class oz4 {
         this.b = null;
     }
 
-    public eu4 f(WebView webView) {
+    public du4 f(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView)) == null) {
             this.c = new WeakReference<>(webView);
-            eu4 eu4Var = new eu4(TbadkCoreApplication.getInst(), new a(this));
-            this.b = eu4Var;
-            return eu4Var;
+            du4 du4Var = new du4(TbadkCoreApplication.getInst(), new a(this));
+            this.b = du4Var;
+            return du4Var;
         }
-        return (eu4) invokeL.objValue;
+        return (du4) invokeL.objValue;
     }
 
     public void h(String str) {

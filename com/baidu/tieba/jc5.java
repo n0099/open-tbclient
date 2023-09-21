@@ -1,166 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jc5 {
     public static /* synthetic */ Interceptable $ic;
+    public static Domain a;
+    public static boolean b;
+    public static kc5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qc5 a;
-    public int b;
-    public long c;
-    public long d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public String i;
-    public boolean j;
-    public String k;
-    public String l;
 
-    public jc5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947878509, "Lcom/baidu/tieba/jc5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947878509, "Lcom/baidu/tieba/jc5;");
                 return;
             }
         }
-        this.e = 0;
-        this.f = 0;
-        this.g = 300;
-        this.h = 1;
-        this.a = new qc5();
-    }
-
-    public qc5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        a = Domain.DOMAIN_ONLINE;
+        if (fra.a(AppRuntime.getAppContext(), "USE_QA_PASS_LOGIN_ADDRESS")) {
+            a = Domain.DOMAIN_QA;
         }
-        return (qc5) invokeV.objValue;
+        b = true;
+        c = null;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void c() {
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && c == null && (runTask = MessageManager.getInstance().runTask(2001268, kc5.class)) != null && runTask.getData() != null) {
+            c = (kc5) runTask.getData();
         }
-        return invokeV.intValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.e == 1) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (TbConfig.USE_OLD_LOGIN) {
+                b = true;
+                return;
             }
-            return false;
+            if (Build.VERSION.SDK_INT < 9) {
+                if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
+                    b = false;
+                } else {
+                    b = true;
+                }
+            } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
+                b = false;
+            } else {
+                b = true;
+            }
+            if (Build.VERSION.SDK_INT <= 10 && !b && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+                TbadkCoreApplication.getInst().incPassportV6CrashCount();
+                b = true;
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean e() {
+    public static kc5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b != 1) {
-                return false;
-            }
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.c >= currentTimeMillis || currentTimeMillis >= this.d) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        boolean z = true;
-        jSONObject.optInt("als_control", 1);
-        jSONObject.optInt("not_use_lego_patch", 0);
-        jSONObject.optInt("ad_video_not_autoplay", 1);
-        this.f = jSONObject.optInt("lp_video_not_autoplay", 0);
-        this.a.a(jSONObject);
-        JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
-        if (optJSONObject != null) {
-            this.b = optJSONObject.optInt("log_feed_switch", 0);
-            this.c = optJSONObject.optLong("start_time", -1L);
-            this.d = optJSONObject.optLong("end_time", -1L);
-            optJSONObject.optString(MigrateStatisticUtils.EXT_INFO);
-        }
-        this.e = jSONObject.optInt("ad_collect_switch", 0);
-        JSONObject optJSONObject2 = jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
-        if (optJSONObject2 != null) {
-            this.g = optJSONObject2.optInt("interval", 300);
-        }
-        this.h = jSONObject.optInt("video_page_style", 1);
-        SharedPrefHelper.getInstance().putInt("video_page_style", this.h);
-        jSONObject.optInt("ad_download_lib", 0);
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("action_control");
-        if (optJSONObject3 != null) {
-            this.i = optJSONObject3.optString("url");
-            optJSONObject3.optString("name");
-            optJSONObject3.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-            optJSONObject3.optString("text_color_pressed");
-        }
-        if (jSONObject.optInt("afd_jump_pb") != 1) {
-            z = false;
-        }
-        this.j = z;
-        this.k = jSONObject.optString("afd_eid");
-        JSONObject optJSONObject4 = jSONObject.optJSONObject("iadex_sniff_list_url");
-        if (optJSONObject4 != null) {
-            String optString = optJSONObject4.optString("os_type2_iadex_url");
-            this.l = optString;
-            lw5.h(optString);
-            return;
-        }
-        lw5.h(null);
+        return (kc5) invokeV.objValue;
     }
 }

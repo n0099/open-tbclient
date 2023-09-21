@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.showreplyinpb.ShowReplyInPbEvent;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fr5 implements eq5<ShowReplyInPbEvent> {
+public class fr5 implements fq5<ShareEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,21 +30,28 @@ public class fr5 implements eq5<ShowReplyInPbEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.eq5
+    @Override // com.baidu.tieba.fq5
     /* renamed from: a */
-    public boolean onEvent(ShowReplyInPbEvent showReplyInPbEvent) {
+    public boolean onEvent(ShareEvent shareEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, showReplyInPbEvent)) == null) {
-            if (showReplyInPbEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareEvent)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
                 return false;
             }
-            if (showReplyInPbEvent.isSubPbReply) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921481, showReplyInPbEvent.writeData));
-                return true;
+            int i = shareEvent.status;
+            if (shareEvent.from == 1) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921696, Integer.valueOf(i)));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921480, showReplyInPbEvent.writeData));
-            return true;
+            if (i == 1) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, shareEvent));
+                String str = shareEvent.tid;
+                if (!TextUtils.isEmpty(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921417, str));
+                    return true;
+                }
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

@@ -90,7 +90,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
 
     @Nullable
     private ViewGroup calculateChildContentContainer(@NonNull View view2) {
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091837);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091824);
         if (findViewById != null) {
             return toViewGroupOrNull(findViewById);
         }

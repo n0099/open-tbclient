@@ -1,45 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.Thread;
 /* loaded from: classes9.dex */
-public class zl {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "http://mbd.baidu.com";
+public class zl implements Thread.UncaughtExceptionHandler {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Thread.UncaughtExceptionHandler a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448323771, "Lcom/baidu/tieba/zl;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public zl(Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uncaughtExceptionHandler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448323771, "Lcom/baidu/tieba/zl;");
-        }
+        this.a = uncaughtExceptionHandler;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // java.lang.Thread.UncaughtExceptionHandler
+    public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return String.format(CloudControlUrlConfig.mUrl, a);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a = str;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
+            TitanDownloadService.startServiceIfNeeded(BdBaseApplication.getInst().getContext());
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.a;
+            if (uncaughtExceptionHandler != null) {
+                uncaughtExceptionHandler.uncaughtException(thread, th);
+            }
         }
     }
 }

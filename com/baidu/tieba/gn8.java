@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.squareup.wire.Wire;
+import java.util.Date;
+import java.util.LinkedList;
+import protobuf.QueryHistoryMsg.MsgInfo;
+import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes6.dex */
-public class gn8 {
+public class gn8 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BotsDTO.BotListDTO.UserDTO a;
-    public BotsDTO.BotListDTO.SkillDTO b;
-    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> c;
-    @NonNull
-    public boolean d;
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
 
     public gn8() {
         Interceptable interceptable = $ic;
@@ -36,53 +32,46 @@ public class gn8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = true;
     }
 
-    public void a() {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = false;
-        }
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Nullable
-    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = this.c;
-            if (list != null && !list.isEmpty()) {
-                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : this.c) {
-                    if (itemsDTO.isFileType()) {
-                        return itemsDTO;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
+                y45.k();
+                oe<byte[]> i = y45.i("tb.im_official_history");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                byte[] bArr = i.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+                if (bArr == null) {
+                    return null;
+                }
+                LinkedList linkedList = new LinkedList();
+                try {
+                    QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
+                    if (queryHistoryMsgResIdl.data.res != null) {
+                        for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
+                            ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
+                            if (msgInfo != null) {
+                                Date date = new Date();
+                                date.setTime(msgInfo.sendTime.longValue() * 1000);
+                                di.getDateStringMouth(date);
+                                msgInfo.type.intValue();
+                                String str = msgInfo.content;
+                                msgInfo.id.intValue();
+                                linkedList.add(aVar);
+                            }
+                        }
                     }
+                    return new ResponseLocalHistoryMessage(linkedList);
+                } catch (Exception unused) {
                 }
             }
             return null;
         }
-        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

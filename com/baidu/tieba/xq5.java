@@ -2,14 +2,16 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.mutiprocess.live.ImageViewLiveEvent;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xq5 implements eq5<LiveRemindDataEvent> {
+public class xq5 implements fq5<ImageViewLiveEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,17 +30,16 @@ public class xq5 implements eq5<LiveRemindDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.eq5
+    @Override // com.baidu.tieba.fq5
     /* renamed from: a */
-    public boolean onEvent(LiveRemindDataEvent liveRemindDataEvent) {
+    public boolean onEvent(ImageViewLiveEvent imageViewLiveEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveRemindDataEvent)) == null) {
-            if (liveRemindDataEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageViewLiveEvent)) == null) {
+            if (imageViewLiveEvent == null) {
                 return false;
             }
-            a95.a().d(liveRemindDataEvent.liveRemindData);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921733));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921752, new YyLiveRoomConfig(TbadkApplication.getInst().getContext(), imageViewLiveEvent.sid, imageViewLiveEvent.ssid, imageViewLiveEvent.templateId, imageViewLiveEvent.roomId, imageViewLiveEvent.streamInfo, imageViewLiveEvent.from)));
             return true;
         }
         return invokeL.booleanValue;

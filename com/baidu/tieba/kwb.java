@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,17 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
-public class kwb {
+public class kwb extends cwb {
     public static /* synthetic */ Interceptable $ic;
-    public static final kwb e;
+    public static final LinkedHashMap<Long, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Context> a;
-    public volatile boolean b;
-    public volatile boolean c;
-    public mwb d;
+    public int d;
+    public Thread e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,114 +31,85 @@ public class kwb {
                 return;
             }
         }
-        e = new kwb();
+        f = new LinkedHashMap<>();
     }
 
-    public kwb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kwb(Thread thread, int i, long j) {
+        super(j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {thread, Integer.valueOf(i), Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
+        this.d = 100;
+        this.e = thread;
+        this.d = i;
     }
 
-    public Context a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public kwb(Thread thread, long j) {
+        this(thread, 100, j);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void e(zvb zvbVar, boolean z) {
-        this.d.d(zvbVar, z);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void g(Runnable runnable, zvb zvbVar) {
-        if (this.b) {
-            runnable.run();
-        } else if (zvbVar != null) {
-            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_NOT_INITIALIZED;
-            zvbVar.onFailure(honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
-        }
-    }
-
-    public void b(final zvb<String> zvbVar, final boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zvbVar, z) == null) {
-            d(new Runnable() { // from class: com.baidu.tieba.vvb
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        kwb.this.e(zvbVar, z);
-                    }
-                }
-            }, zvbVar);
-        }
-    }
-
-    public final void d(final Runnable runnable, final zvb<?> zvbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, runnable, zvbVar) == null) {
-            xwb.b(new Runnable() { // from class: com.baidu.tieba.uvb
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        kwb.this.g(runnable, zvbVar);
-                    }
-                }
-            });
-        }
-    }
-
-    public void c(final owb owbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, owbVar) == null) {
-            xwb.b(new Runnable() { // from class: com.baidu.tieba.tvb
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        kwb.this.f(owbVar);
-                    }
-                }
-            });
-        }
-    }
-
-    public final void f(owb owbVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, owbVar) == null) && !this.b) {
-            this.b = true;
-            this.a = new WeakReference<>(owbVar.a);
-            this.c = owbVar.b;
-            this.d = new mwb(owbVar.a);
-            if (this.c) {
-                b(null, true);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {thread, Long.valueOf(j)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Thread) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.cwb
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (StackTraceElement stackTraceElement : this.e.getStackTrace()) {
+                sb.append(stackTraceElement.toString());
+                sb.append("\r\n");
+            }
+            synchronized (f) {
+                if (f.size() == this.d && this.d > 0) {
+                    f.remove(f.keySet().iterator().next());
+                }
+                f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            }
+        }
+    }
+
+    public ArrayList<String> e(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            synchronized (f) {
+                for (Long l : f.keySet()) {
+                    if (j < l.longValue() && l.longValue() < j2) {
+                        arrayList.add(lwb.x.format(l) + "\r\n\r\n" + f.get(l));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeCommon.objValue;
     }
 }

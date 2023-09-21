@@ -1,45 +1,17 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ft3 {
     public static /* synthetic */ Interceptable $ic;
-    public static tr1 a;
-    public static final tr1 b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements tr1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.tr1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -54,33 +26,25 @@ public class ft3 {
                 return;
             }
         }
-        b = new a();
+        a = qr1.a;
     }
 
-    public static tr1 a() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            tr1 tr1Var = a;
-            if (tr1Var == null) {
-                return b;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
+            ji3 ji3Var = new ji3();
+            ji3Var.a = "swan";
+            ji3Var.b = str;
+            ji3Var.g = str2;
+            if (TextUtils.equals(str, "click")) {
+                ji3Var.e = str3;
             }
-            return tr1Var;
-        }
-        return (tr1) invokeV.objValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = null;
-        }
-    }
-
-    public static void c(tr1 tr1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, tr1Var) == null) && a != tr1Var) {
-            a = tr1Var;
+            ji3Var.f = str5;
+            ji3Var.a("source", str4);
+            if (a) {
+                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + ji3Var.f());
+            }
+            zh3.x("1372", ji3Var);
         }
     }
 }

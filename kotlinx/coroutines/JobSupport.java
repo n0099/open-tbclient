@@ -552,7 +552,7 @@ public class JobSupport implements Job, ChildJob, ParentJob, SelectClause0 {
                 atomicReferenceFieldUpdater = _state$FU;
                 empty = JobSupportKt.EMPTY_ACTIVE;
             } else if ((state$kotlinx_coroutines_core instanceof Incomplete) && ((Incomplete) state$kotlinx_coroutines_core).getList() != null) {
-                jobNode.mo2344remove();
+                jobNode.mo2346remove();
                 return;
             } else {
                 return;

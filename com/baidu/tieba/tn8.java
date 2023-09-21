@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.ImGroupChatLog;
-import com.baidu.tieba.un8;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,38 +13,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tn8 {
+public class tn8 extends kf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final un8 a;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public class a implements un8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.un8.a
-        public void a(@NonNull String str, @NonNull String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                ImGroupChatLog.getInstance().i(str, str2);
-            }
-        }
-    }
+    public AbilityItem a;
+    public TbBaseMsg b;
+    public BaseItem c;
+    public long d;
 
     static {
         InterceptResult invokeClinit;
@@ -60,103 +35,87 @@ public class tn8 {
                 return;
             }
         }
-        a = new un8(new a());
+        e = BdUniqueId.gen().getId();
     }
 
-    public static void d() {
+    public tn8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            a.b();
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a.c();
-        }
-    }
-
-    public static void a(@NonNull StringBuilder sb, long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sb, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            sb.append("roomId");
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_CODE);
-            sb.append("=");
-            sb.append(i);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_MSG);
-            sb.append("=");
-            sb.append(str);
-            sb.append(",");
-        }
-    }
-
-    public static void b(@NonNull StringBuilder sb, long j, @NonNull Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{sb, Long.valueOf(j), th}) == null) {
-            sb.append("roomId");
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append("stackTrace");
-            sb.append("=");
-            sb.append(Log.getStackTraceString(th));
-            sb.append(",");
-        }
-    }
-
-    public static void c(@NonNull StringBuilder sb, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, sb, z) == null) {
-            if (z) {
-                str = "success";
-            } else {
-                str = "fail";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            sb.append(str);
-            sb.append(",");
         }
     }
 
-    public static void f(long j, int i, @NonNull String str) {
+    @Override // com.baidu.tieba.kf8
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            a.a("enter_chat_room_user", sb.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public AbilityItem b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (AbilityItem) invokeV.objValue;
+    }
+
+    public BaseItem c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (BaseItem) invokeV.objValue;
+    }
+
+    public TbBaseMsg d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (TbBaseMsg) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public void f(AbilityItem abilityItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, abilityItem) == null) {
+            this.a = abilityItem;
         }
     }
 
-    public static void g(@NonNull String str, long j, @NonNull Throwable th) {
+    public void g(TbBaseMsg tbBaseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Long.valueOf(j), th}) == null) {
-            StringBuilder sb = new StringBuilder();
-            b(sb, j, th);
-            a.a(str, sb.toString());
+        if (interceptable == null || interceptable.invokeL(1048582, this, tbBaseMsg) == null) {
+            this.b = tbBaseMsg;
         }
     }
 
-    public static void h(long j, int i, @NonNull String str) {
+    public void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            a.a("exit_chat_room_user", sb.toString());
-        }
-    }
-
-    public static void i(boolean z, long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            c(sb, z);
-            a(sb, j, i, str);
-            a.a("get_chat_room_detail", sb.toString());
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.d = j;
         }
     }
 }

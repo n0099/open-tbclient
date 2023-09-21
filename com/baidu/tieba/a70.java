@@ -5,9 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 /* loaded from: classes5.dex */
-public class a70 {
+public class a70 implements c70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,28 +27,13 @@ public class a70 {
         }
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c70
+    public HttpURLConnection openHttpURLConnection(URL url) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, a70.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
-                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, a70.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
-                declaredMethod2.setAccessible(true);
-                if (!booleanValue) {
-                    return false;
-                }
-                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
+            return (HttpURLConnection) url.openConnection();
         }
-        return invokeV.booleanValue;
+        return (HttpURLConnection) invokeL.objValue;
     }
 }

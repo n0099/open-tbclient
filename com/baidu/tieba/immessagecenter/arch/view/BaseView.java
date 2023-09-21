@@ -8,19 +8,18 @@ import androidx.annotation.IdRes;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cbc;
-import com.baidu.tieba.gbc;
-import com.baidu.tieba.il8;
+import com.baidu.tieba.ddc;
 import com.baidu.tieba.immessagecenter.arch.utils.IMException;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
 import com.baidu.tieba.immessagecenter.msgtab.obs.SkinTypeChangedMonitor;
-import com.baidu.tieba.lbc;
-import com.baidu.tieba.qx5;
-import com.baidu.tieba.tfc;
+import com.baidu.tieba.lhc;
+import com.baidu.tieba.nq8;
+import com.baidu.tieba.rx5;
+import com.baidu.tieba.ucc;
+import com.baidu.tieba.ycc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,29 +32,29 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\b&\u0018\u0000*\b\b\u0000\u0010\u0001*\u00020\u0002*\b\b\u0001\u0010\u0003*\u00020\u0004*\u0014\b\u0002\u0010\u0005*\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00030\u00062\u00020\u0007B\r\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ#\u0010!\u001a\u0002H\"\"\n\b\u0003\u0010\"*\u0004\u0018\u00010#2\b\b\u0001\u0010$\u001a\u00020\tH\u0004¢\u0006\u0002\u0010%J\u0010\u0010&\u001a\u00020'2\u0006\u0010(\u001a\u00020)H$J\r\u0010*\u001a\u00028\u0002H$¢\u0006\u0002\u0010\u001eJ\b\u0010+\u001a\u00020'H\u0016J\b\u0010,\u001a\u00020'H\u0016J\b\u0010-\u001a\u00020'H$J\u0015\u0010.\u001a\u00020'2\u0006\u0010/\u001a\u00028\u0000H$¢\u0006\u0002\u00100J\u0010\u00101\u001a\u00020'2\u0006\u0010\u000b\u001a\u00020\fH\u0016J*\u00102\u001a\u00020#2\u0006\u0010(\u001a\u00020)2\b\u00103\u001a\u0004\u0018\u0001042\u0006\u00105\u001a\u00020\f2\b\b\u0002\u00106\u001a\u00020\fJ\b\u00107\u001a\u00020'H\u0002R$\u0010\r\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\f@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u001e\u0010\u0019\u001a\u00020\u00182\u0006\u0010\u0017\u001a\u00020\u0018@BX\u0086.¢\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\u001bR\u001b\u0010\u001c\u001a\u00028\u00028FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u001f\u0010 \u001a\u0004\b\u001d\u0010\u001e¨\u00068"}, d2 = {"Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;", "UiState", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;", "UiIntent", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiIntent;", "VM", "Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "Lcom/baidu/tieba/immessagecenter/arch/view/IView;", "layoutId", "", "(I)V", "value", "", "isSelected", "()Z", "setSelected", "(Z)V", "mSubscriptions", "Lrx/subscriptions/CompositeSubscription;", "getMSubscriptions", "()Lrx/subscriptions/CompositeSubscription;", "setMSubscriptions", "(Lrx/subscriptions/CompositeSubscription;)V", "<set-?>", "Lcom/baidu/tieba/immessagecenter/arch/view/LifecycleRootView;", "rootView", "getRootView", "()Lcom/baidu/tieba/immessagecenter/arch/view/LifecycleRootView;", "viewModel", "getViewModel", "()Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "viewModel$delegate", "Lkotlin/Lazy;", "findViewById", ExifInterface.GPS_DIRECTION_TRUE, "Landroid/view/View;", "id", "(I)Landroid/view/View;", "init", "", "context", "Landroid/content/Context;", "initViewModel", "onAttachedUi", "onDetachedUi", "onFinishInflate", "onRender", "state", "(Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;)V", "onSelected", "syncInflate", "root", "Landroid/view/ViewGroup;", "attachToRoot", "isAutoAttache", "unsubscribeAll", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiIntent, VM extends BaseViewModel<UiState, UiIntent>> implements il8 {
+public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiIntent, VM extends BaseViewModel<UiState, UiIntent>> implements nq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-    public tfc b;
+    public lhc b;
     public LifecycleRootView c;
     public final Lazy d;
     public boolean e;
 
-    public abstract void G();
+    public abstract void F();
 
     public abstract void H(UiState uistate);
 
-    @Override // com.baidu.tieba.il8
+    @Override // com.baidu.tieba.nq8
     public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
         }
     }
 
     public abstract void p(Context context);
 
-    public abstract VM q();
+    public abstract VM r();
 
     public BaseView(int i) {
         Interceptable interceptable = $ic;
@@ -106,14 +105,14 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return this.this$0.q();
+                    return this.this$0.r();
                 }
                 return (BaseViewModel) invokeV.objValue;
             }
         });
     }
 
-    public static final void A(BaseView this$0, Integer skinType) {
+    public static final void B(BaseView this$0, Integer skinType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, skinType) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -122,7 +121,7 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         }
     }
 
-    public static final void E(BaseView this$0, IUiState state) {
+    public static final void D(BaseView this$0, IUiState state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -131,7 +130,7 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         }
     }
 
-    public static final Boolean D(IUiState iUiState) {
+    public static final Boolean C(IUiState iUiState) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -146,7 +145,7 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         return (Boolean) invokeL.objValue;
     }
 
-    public static final void F(Throwable th) {
+    public static final void E(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
             BdLog.e(new IMException("MVI-View subscribe occur error!", th));
@@ -155,18 +154,18 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
 
     public final void I(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.e = z;
-            l().setSelected(z);
+            n().setSelected(z);
         }
     }
 
-    public final <T extends View> T j(@IdRes int i) {
+    public final <T extends View> T k(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            qx5.b(l());
-            return (T) l().findViewById(i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            rx5.b(n());
+            return (T) n().findViewById(i);
         }
         return (T) invokeI.objValue;
     }
@@ -181,59 +180,52 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: syncInflate");
     }
 
-    public final View K(Context context, ViewGroup viewGroup, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public final boolean A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, viewGroup, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            View inflate = LayoutInflater.from(context).inflate(this.a, viewGroup, z);
-            LifecycleRootView lifecycleRootView = new LifecycleRootView(context, this, z2);
-            lifecycleRootView.addView(inflate);
-            this.c = lifecycleRootView;
-            G();
-            p(context);
-            return l();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
     public final void M() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            tfc tfcVar = this.b;
-            if (tfcVar != null) {
-                tfcVar.unsubscribe();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            lhc lhcVar = this.b;
+            if (lhcVar != null) {
+                lhcVar.unsubscribe();
             }
-            tfc tfcVar2 = this.b;
-            if (tfcVar2 != null) {
-                tfcVar2.c();
+            lhc lhcVar2 = this.b;
+            if (lhcVar2 != null) {
+                lhcVar2.c();
             }
             this.b = null;
         }
     }
 
-    @Override // com.baidu.tieba.al8
+    @Override // com.baidu.tieba.fq8
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            n().g();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            o().g();
             M();
         }
     }
 
-    public final tfc k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.b;
-        }
-        return (tfc) invokeV.objValue;
-    }
-
-    public final LifecycleRootView l() {
+    public final lhc l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return (lhc) invokeV.objValue;
+    }
+
+    public final LifecycleRootView n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             LifecycleRootView lifecycleRootView = this.c;
             if (lifecycleRootView != null) {
                 return lifecycleRootView;
@@ -244,77 +236,84 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         return (LifecycleRootView) invokeV.objValue;
     }
 
-    public final VM n() {
+    public final VM o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return (VM) this.d.getValue();
         }
         return (VM) invokeV.objValue;
     }
 
-    public final boolean r() {
-        InterceptResult invokeV;
+    public final View K(Context context, ViewGroup viewGroup, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, viewGroup, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            View inflate = LayoutInflater.from(context).inflate(this.a, viewGroup, z);
+            LifecycleRootView lifecycleRootView = new LifecycleRootView(context, this, z2);
+            lifecycleRootView.addView(inflate);
+            this.c = lifecycleRootView;
+            F();
+            p(context);
+            return n();
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.al8
+    @Override // com.baidu.tieba.fq8
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            n().b();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            o().b();
             M();
-            tfc tfcVar = new tfc();
-            tfcVar.a(SkinTypeChangedMonitor.c.a().d().s(cbc.b()).g().H(new gbc() { // from class: com.baidu.tieba.gl8
+            lhc lhcVar = new lhc();
+            lhcVar.a(SkinTypeChangedMonitor.c.a().d().s(ucc.b()).g().H(new ycc() { // from class: com.baidu.tieba.lq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.gbc
+                @Override // com.baidu.tieba.ycc
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        BaseView.A(BaseView.this, (Integer) obj);
+                        BaseView.B(BaseView.this, (Integer) obj);
                     }
                 }
             }));
-            tfcVar.a(n().f().k(new lbc() { // from class: com.baidu.tieba.el8
+            lhcVar.a(o().f().k(new ddc() { // from class: com.baidu.tieba.jq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.lbc
+                @Override // com.baidu.tieba.ddc
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? BaseView.D((IUiState) obj) : invokeL.objValue;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? BaseView.C((IUiState) obj) : invokeL.objValue;
                 }
-            }).I(new gbc() { // from class: com.baidu.tieba.hl8
+            }).I(new ycc() { // from class: com.baidu.tieba.mq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.gbc
+                @Override // com.baidu.tieba.ycc
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        BaseView.E(BaseView.this, (IUiState) obj);
+                        BaseView.D(BaseView.this, (IUiState) obj);
                     }
                 }
-            }, new gbc() { // from class: com.baidu.tieba.fl8
+            }, new ycc() { // from class: com.baidu.tieba.kq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.gbc
+                @Override // com.baidu.tieba.ycc
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        BaseView.F((Throwable) obj);
+                        BaseView.E((Throwable) obj);
                     }
                 }
             }));
-            this.b = tfcVar;
+            this.b = lhcVar;
         }
     }
 }

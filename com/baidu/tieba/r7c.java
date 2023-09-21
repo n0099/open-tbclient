@@ -1,806 +1,184 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.media.MediaFormat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import java.nio.ByteBuffer;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public final class r7c {
+public final class r7c extends q7c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AtomicBoolean l;
+    public MediaFormat m;
+    public long n;
+    public long o;
+    public boolean p;
 
-    public static void a(int i2) {
+    @Override // com.baidu.tieba.q7c
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65536, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int alpha = 2130771969;
-        public static int font = 2130771969;
-        public static int fontProviderAuthority = 2130771969;
-        public static int fontProviderCerts = 2130771969;
-        public static int fontProviderFetchStrategy = 2130771969;
-        public static int fontProviderFetchTimeout = 2130771969;
-        public static int fontProviderPackage = 2130771969;
-        public static int fontProviderQuery = 2130771969;
-        public static int fontStyle = 2130771969;
-        public static int fontVariationSettings = 2130771969;
-        public static int fontWeight = 2130771969;
-        public static int ttcIndex = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-504744181, "Lcom/baidu/tieba/r7c$d;")) == null) {
+    public r7c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-504744181, "Lcom/baidu/tieba/r7c$d;");
-            }
         }
+        this.l = new AtomicBoolean(false);
+        this.m = null;
+        this.n = -1L;
+        this.o = -1L;
+        this.p = false;
+        this.b = i;
+    }
 
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.o7c
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TLog.g(this, "MediaInputFilter.setup enter");
+            this.l.set(true);
+            this.j = false;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.q7c
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TLog.g(this, "MediaInputFilter.stop enter");
+            this.n = -1L;
+            this.o = -1L;
+            this.m = null;
+            this.p = false;
+            this.l.set(false);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int androidx_core_ripple_material_light = 2130771969;
-        public static int androidx_core_secondary_text_default_material_light = 2130771969;
-        public static int notification_action_color_filter = 2130771969;
-        public static int notification_icon_bg_color = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-504744119, "Lcom/baidu/tieba/r7c$f;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-504744119, "Lcom/baidu/tieba/r7c$f;");
-            }
-        }
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+    @Override // com.baidu.tieba.q7c, com.baidu.tieba.o7c
+    public void d(String str, Object obj, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !this.j) {
+            synchronized (this.k) {
+                if (this.d != null) {
+                    this.d.d("setFormat", (MediaFormat) obj, i, true);
                 }
             }
+            this.j = true;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class g {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int compat_button_inset_horizontal_material = 2130771969;
-        public static int compat_button_inset_vertical_material = 2130771969;
-        public static int compat_button_padding_horizontal_material = 2130771969;
-        public static int compat_button_padding_vertical_material = 2130771969;
-        public static int compat_control_corner_material = 2130771969;
-        public static int compat_notification_large_icon_max_height = 2130771969;
-        public static int compat_notification_large_icon_max_width = 2130771969;
-        public static int notification_action_icon_size = 2130771969;
-        public static int notification_action_text_size = 2130771969;
-        public static int notification_big_circle_margin = 2130771969;
-        public static int notification_content_margin_start = 2130771969;
-        public static int notification_large_icon_height = 2130771969;
-        public static int notification_large_icon_width = 2130771969;
-        public static int notification_main_column_padding_top = 2130771969;
-        public static int notification_media_narrow_margin = 2130771969;
-        public static int notification_right_icon_size = 2130771969;
-        public static int notification_right_side_padding_top = 2130771969;
-        public static int notification_small_icon_background_padding = 2130771969;
-        public static int notification_small_icon_size_as_large = 2130771969;
-        public static int notification_subtext_size = 2130771969;
-        public static int notification_top_pad = 2130771969;
-        public static int notification_top_pad_large_text = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-504744088, "Lcom/baidu/tieba/r7c$g;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-504744088, "Lcom/baidu/tieba/r7c$g;");
-            }
-        }
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class h {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int notification_action_background = 2130771969;
-        public static int notification_bg = 2130771969;
-        public static int notification_bg_low = 2130771969;
-        public static int notification_bg_low_normal = 2130771969;
-        public static int notification_bg_low_pressed = 2130771969;
-        public static int notification_bg_normal = 2130771969;
-        public static int notification_bg_normal_pressed = 2130771969;
-        public static int notification_icon_background = 2130771969;
-        public static int notification_template_icon_bg = 2130771969;
-        public static int notification_template_icon_low_bg = 2130771969;
-        public static int notification_tile_bg = 2130771969;
-        public static int notify_panel_notification_icon_bg = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-504744057, "Lcom/baidu/tieba/r7c$h;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-504744057, "Lcom/baidu/tieba/r7c$h;");
-            }
-        }
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public i() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public j() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class k {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int accessibility_action_clickable_span = 2130771969;
-        public static int accessibility_custom_action_0 = 2130771969;
-        public static int accessibility_custom_action_1 = 2130771969;
-        public static int accessibility_custom_action_10 = 2130771969;
-        public static int accessibility_custom_action_11 = 2130771969;
-        public static int accessibility_custom_action_12 = 2130771969;
-        public static int accessibility_custom_action_13 = 2130771969;
-        public static int accessibility_custom_action_14 = 2130771969;
-        public static int accessibility_custom_action_15 = 2130771969;
-        public static int accessibility_custom_action_16 = 2130771969;
-        public static int accessibility_custom_action_17 = 2130771969;
-        public static int accessibility_custom_action_18 = 2130771969;
-        public static int accessibility_custom_action_19 = 2130771969;
-        public static int accessibility_custom_action_2 = 2130771969;
-        public static int accessibility_custom_action_20 = 2130771969;
-        public static int accessibility_custom_action_21 = 2130771969;
-        public static int accessibility_custom_action_22 = 2130771969;
-        public static int accessibility_custom_action_23 = 2130771969;
-        public static int accessibility_custom_action_24 = 2130771969;
-        public static int accessibility_custom_action_25 = 2130771969;
-        public static int accessibility_custom_action_26 = 2130771969;
-        public static int accessibility_custom_action_27 = 2130771969;
-        public static int accessibility_custom_action_28 = 2130771969;
-        public static int accessibility_custom_action_29 = 2130771969;
-        public static int accessibility_custom_action_3 = 2130771969;
-        public static int accessibility_custom_action_30 = 2130771969;
-        public static int accessibility_custom_action_31 = 2130771969;
-        public static int accessibility_custom_action_4 = 2130771969;
-        public static int accessibility_custom_action_5 = 2130771969;
-        public static int accessibility_custom_action_6 = 2130771969;
-        public static int accessibility_custom_action_7 = 2130771969;
-        public static int accessibility_custom_action_8 = 2130771969;
-        public static int accessibility_custom_action_9 = 2130771969;
-        public static int action_container = 2130771969;
-        public static int action_divider = 2130771969;
-        public static int action_image = 2130771969;
-        public static int action_text = 2130771969;
-        public static int actions = 2130771969;
-        public static int async = 2130771969;
-        public static int blocking = 2130771969;
-        public static int chronometer = 2130771969;
-        public static int dialog_button = 2130771969;
-        public static int forever = 2130771969;
-        public static int icon = 2130771969;
-        public static int icon_group = 2130771969;
-        public static int info = 2130771969;
-        public static int italic = 2130771969;
-        public static int line1 = 2130771969;
-        public static int line3 = 2130771969;
-        public static int normal = 2130771969;
-        public static int notification_background = 2130771969;
-        public static int notification_main_column = 2130771969;
-        public static int notification_main_column_container = 2130771969;
-        public static int right_icon = 2130771969;
-        public static int right_side = 2130771969;
-        public static int tag_accessibility_actions = 2130771969;
-        public static int tag_accessibility_clickable_spans = 2130771969;
-        public static int tag_accessibility_heading = 2130771969;
-        public static int tag_accessibility_pane_title = 2130771969;
-        public static int tag_screen_reader_focusable = 2130771969;
-        public static int tag_state_description = 2130771969;
-        public static int tag_transition_group = 2130771969;
-        public static int tag_unhandled_key_event_manager = 2130771969;
-        public static int tag_unhandled_key_listeners = 2130771969;
-        public static int text = 2130771969;
-        public static int text2 = 2130771969;
-        public static int time = 2130771969;
-        public static int title = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-504743964, "Lcom/baidu/tieba/r7c$k;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-504743964, "Lcom/baidu/tieba/r7c$k;");
-            }
-        }
-
-        public k() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class l {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int status_bar_notification_info_maxnum = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-504743933, "Lcom/baidu/tieba/r7c$l;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-504743933, "Lcom/baidu/tieba/r7c$l;");
-            }
-        }
-
-        public l() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class m {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public m() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class n {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int custom_dialog = 2130771969;
-        public static int notification_action = 2130771969;
-        public static int notification_action_tombstone = 2130771969;
-        public static int notification_template_custom_big = 2130771969;
-        public static int notification_template_icon_group = 2130771969;
-        public static int notification_template_part_chronometer = 2130771969;
-        public static int notification_template_part_time = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-504743871, "Lcom/baidu/tieba/r7c$n;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-504743871, "Lcom/baidu/tieba/r7c$n;");
-            }
-        }
-
-        public n() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class o {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public o() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class p {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public p() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class q {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public q() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class r {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public r() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class s {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int status_bar_notification_info_overflow = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-504743716, "Lcom/baidu/tieba/r7c$s;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-504743716, "Lcom/baidu/tieba/r7c$s;");
-            }
-        }
-
-        public s() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class t {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int TextAppearance_Compat_Notification = 2130771969;
-        public static int TextAppearance_Compat_Notification_Info = 2130771969;
-        public static int TextAppearance_Compat_Notification_Line2 = 2130771969;
-        public static int TextAppearance_Compat_Notification_Time = 2130771969;
-        public static int TextAppearance_Compat_Notification_Title = 2130771969;
-        public static int Widget_Compat_NotificationActionContainer = 2130771969;
-        public static int Widget_Compat_NotificationActionText = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-504743685, "Lcom/baidu/tieba/r7c$t;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-504743685, "Lcom/baidu/tieba/r7c$t;");
-            }
-        }
-
-        public t() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class u {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int[] ColorStateListItem = null;
-        public static int ColorStateListItem_alpha = 1;
-        public static int ColorStateListItem_android_alpha = 1;
-        public static int ColorStateListItem_android_color = 1;
-        public static int[] FontFamily = null;
-        public static int[] FontFamilyFont = null;
-        public static int FontFamilyFont_android_font = 1;
-        public static int FontFamilyFont_android_fontStyle = 1;
-        public static int FontFamilyFont_android_fontVariationSettings = 1;
-        public static int FontFamilyFont_android_fontWeight = 1;
-        public static int FontFamilyFont_android_ttcIndex = 1;
-        public static int FontFamilyFont_font = 1;
-        public static int FontFamilyFont_fontStyle = 1;
-        public static int FontFamilyFont_fontVariationSettings = 1;
-        public static int FontFamilyFont_fontWeight = 1;
-        public static int FontFamilyFont_ttcIndex = 1;
-        public static int FontFamily_fontProviderAuthority = 1;
-        public static int FontFamily_fontProviderCerts = 1;
-        public static int FontFamily_fontProviderFetchStrategy = 1;
-        public static int FontFamily_fontProviderFetchTimeout = 1;
-        public static int FontFamily_fontProviderPackage = 1;
-        public static int FontFamily_fontProviderQuery = 1;
-        public static int[] GradientColor = null;
-        public static int[] GradientColorItem = null;
-        public static int GradientColorItem_android_color = 1;
-        public static int GradientColorItem_android_offset = 1;
-        public static int GradientColor_android_centerColor = 1;
-        public static int GradientColor_android_centerX = 1;
-        public static int GradientColor_android_centerY = 1;
-        public static int GradientColor_android_endColor = 1;
-        public static int GradientColor_android_endX = 1;
-        public static int GradientColor_android_endY = 1;
-        public static int GradientColor_android_gradientRadius = 1;
-        public static int GradientColor_android_startColor = 1;
-        public static int GradientColor_android_startX = 1;
-        public static int GradientColor_android_startY = 1;
-        public static int GradientColor_android_tileMode = 1;
-        public static int GradientColor_android_type = 1;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-504743654, "Lcom/baidu/tieba/r7c$u;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-504743654, "Lcom/baidu/tieba/r7c$u;");
+    /* JADX WARN: Removed duplicated region for block: B:96:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.q7c, com.baidu.tieba.o7c
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void f(MediaSample mediaSample) {
+        int g;
+        MediaFormat mediaFormat;
+        ByteBuffer byteBuffer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample) == null) {
+            if (this.e.g() != 9) {
+                if (!this.l.get()) {
+                    TLog.g(this, "render processAVFrame error");
                     return;
                 }
-            }
-            GradientColorItem = new int[]{R.anim.obfuscated_res_0x7f010001};
-            FontFamily = new int[]{R.anim.obfuscated_res_0x7f010001};
-            GradientColor = new int[]{R.anim.obfuscated_res_0x7f010001};
-            FontFamilyFont = new int[]{R.anim.obfuscated_res_0x7f010001};
-            ColorStateListItem = new int[]{R.anim.obfuscated_res_0x7f010001};
-        }
-
-        public u() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                if (mediaSample.f && mediaSample.g != null) {
+                    TLog.g(this, "got bForVideoCodecConfigfOnly, playTaskId=" + mediaSample.g.e);
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class v {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public v() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                boolean z = false;
+                if (mediaSample.G && mediaSample.d && !this.p) {
+                    this.p = true;
+                    x7c x7cVar = (x7c) this.d;
+                    if (x7cVar != null) {
+                        x7cVar.y();
+                    }
+                    TLog.g(this, "MediaInputFilter forceToSoftDecode");
+                    z = true;
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class w {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public w() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                ByteBuffer byteBuffer2 = null;
+                MediaFormat mediaFormat2 = null;
+                byteBuffer2 = null;
+                if (mediaSample.c) {
+                    AVframe aVframe = mediaSample.g;
+                    int i = aVframe.f;
+                    if (i != this.o) {
+                        this.o = i;
+                        if (j7c.i(i)) {
+                            mediaFormat2 = j7c.a(aVframe);
+                            this.j = true;
+                        }
+                        MediaFormat mediaFormat3 = this.m;
+                        if (mediaFormat3 == null || !mediaFormat3.equals(mediaFormat2)) {
+                            this.m = mediaFormat2;
+                            synchronized (this.k) {
+                                if (this.d != null) {
+                                    this.d.d("setFormat", mediaFormat2, aVframe.e, true);
+                                    TLog.g(this, "MediaInputFilter audioConfig taskId " + aVframe.e + " netCodec " + aVframe.f);
+                                }
+                            }
+                        }
+                        synchronized (this.k) {
+                            if (this.d != null) {
+                                this.d.f(mediaSample);
+                            }
+                        }
+                        return;
+                    }
                 }
+                if (!mediaSample.c && (mediaSample.g.f != this.n || z)) {
+                    AVframe aVframe2 = mediaSample.g;
+                    if (aVframe2.f == 2000) {
+                        if (aVframe2.a && !aVframe2.b) {
+                            byteBuffer = ByteBuffer.wrap(aVframe2.q);
+                        } else {
+                            byteBuffer = null;
+                        }
+                        mediaFormat = j7c.b((int) aVframe2.j, (int) aVframe2.k, byteBuffer, true);
+                        this.n = aVframe2.f;
+                    } else {
+                        mediaFormat = null;
+                    }
+                    if (aVframe2.f == 2002) {
+                        if (aVframe2.a && !aVframe2.b) {
+                            byteBuffer2 = ByteBuffer.wrap(aVframe2.q);
+                        }
+                        mediaFormat = j7c.c((int) aVframe2.j, (int) aVframe2.k, byteBuffer2, true);
+                        this.n = aVframe2.f;
+                    }
+                    synchronized (this.k) {
+                        if (this.d != null) {
+                            this.d.b(aVframe2.f);
+                            this.d.d("setFormat", mediaFormat, aVframe2.e, true);
+                            TLog.g(this, "MediaInputFilter videoConfig taskId " + aVframe2.e + " netCodec " + aVframe2.f);
+                        }
+                    }
+                }
+                synchronized (this.k) {
+                }
+            } else {
+                mediaSample.g.a();
+                TLog.c(this, "fatal error, ignore all frames. mCurrentState:" + l6c.a[g]);
             }
         }
     }

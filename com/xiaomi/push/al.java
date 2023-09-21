@@ -19,7 +19,7 @@ public class al extends aj.b {
         obj = this.a.f98a;
         synchronized (obj) {
             map = this.a.f99a;
-            map.remove(super.a.mo301a());
+            map.remove(super.a.mo303a());
         }
     }
 }

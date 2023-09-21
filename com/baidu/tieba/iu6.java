@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public abstract class iu6 {
+public final class iu6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicReference<T> a;
+    public final CountDownLatch b;
 
     public iu6() {
         Interceptable interceptable = $ic;
@@ -19,7 +25,32 @@ public abstract class iu6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new AtomicReference<>();
+        this.b = new CountDownLatch(1);
+    }
+
+    public final T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                this.b.await();
+                return this.a.get();
+            } catch (InterruptedException unused) {
+                return null;
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public final void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.a.set(t);
+            this.b.countDown();
         }
     }
 }

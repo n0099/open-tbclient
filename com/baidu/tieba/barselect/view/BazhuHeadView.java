@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BazhuHeadView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView n;
+    public TbImageView o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BazhuHeadView(Context context) {
@@ -96,10 +96,10 @@ public class BazhuHeadView extends HeadPendantView {
                 getLayerImageView().setLayoutParams(new RelativeLayout.LayoutParams(dimens, dimens2));
             }
             TbImageView tbImageView = new TbImageView(getContext());
-            this.n = tbImageView;
+            this.o = tbImageView;
             tbImageView.setDefaultBgResource(0);
-            this.n.setDefaultResource(0);
-            this.n.setImageDrawable(null);
+            this.o.setDefaultResource(0);
+            this.o.setImageDrawable(null);
             int dimens3 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds115);
             int dimens4 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds34);
             int dimens5 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds154);
@@ -107,8 +107,8 @@ public class BazhuHeadView extends HeadPendantView {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens3, dimens4);
             layoutParams.topMargin = dimens5;
             layoutParams.leftMargin = dimens6;
-            this.n.setLayoutParams(layoutParams);
-            this.n.setVisibility(8);
+            this.o.setLayoutParams(layoutParams);
+            this.o.setVisibility(8);
         }
     }
 
@@ -116,7 +116,7 @@ public class BazhuHeadView extends HeadPendantView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.n;
+            return this.o;
         }
         return (TbImageView) invokeV.objValue;
     }
@@ -142,7 +142,7 @@ public class BazhuHeadView extends HeadPendantView {
             getHeadView().setBorderWidth(0);
             getHeadView().setDrawBorder(false);
             getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(dimens5, dimens5));
-            TbImageView tbImageView = this.n;
+            TbImageView tbImageView = this.o;
             if (tbImageView != null) {
                 tbImageView.setVisibility(8);
             }
@@ -156,11 +156,11 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i == 0) {
-                this.n.setVisibility(8);
+                this.o.setVisibility(8);
                 return;
             }
-            this.n.setImageResource(i);
-            this.n.setVisibility(0);
+            this.o.setImageResource(i);
+            this.o.setVisibility(0);
         }
     }
 

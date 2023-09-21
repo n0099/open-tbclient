@@ -23,7 +23,7 @@ public class a {
     public static a a;
     public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0576a c;
+    public C0569a c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,13 +42,13 @@ public class a {
 
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0576a {
+    public static class C0569a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
 
-        public C0576a() {
+        public C0569a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,17 +103,17 @@ public class a {
         return (a) invokeV.objValue;
     }
 
-    public C0576a b() {
+    public C0569a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            C0576a c0576a = this.c;
-            if (c0576a == null) {
-                return new C0576a();
+            C0569a c0569a = this.c;
+            if (c0569a == null) {
+                return new C0569a();
             }
-            return c0576a;
+            return c0569a;
         }
-        return (C0576a) invokeV.objValue;
+        return (C0569a) invokeV.objValue;
     }
 
     private void a(Context context) {
@@ -221,7 +221,7 @@ public class a {
             if (currentTimeMillis < 5000 && currentTimeMillis > 0) {
                 return;
             }
-            this.c = new C0576a();
+            this.c = new C0569a();
             if (!z) {
                 return;
             }
@@ -230,8 +230,8 @@ public class a {
                 c.b("UMCTelephonyManagement", "华为手机兼容性处理");
                 if (this.c.b == 0 || this.c.b == 1) {
                     if (this.c.a == -1) {
-                        C0576a c0576a = this.c;
-                        c0576a.a = c0576a.b;
+                        C0569a c0569a = this.c;
+                        c0569a.a = c0569a.b;
                     }
                     this.c.b = -1;
                 }

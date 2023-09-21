@@ -13,7 +13,11 @@ public class tn2 {
     public int a;
     public int b;
     @V8JavascriptField
+    public String digest;
+    @V8JavascriptField
     public String errMsg;
+    @V8JavascriptField
+    public int size;
 
     public tn2() {
         Interceptable interceptable = $ic;
@@ -37,7 +41,7 @@ public class tn2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "FileSystemJsCallBack" + this.b;
+            return "GetFileInfoCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

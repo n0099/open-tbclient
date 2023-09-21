@@ -39,7 +39,7 @@ public class x05 extends PopupWindow {
     public TextView b;
     public TextView c;
     public Button d;
-    public mu4 e;
+    public lu4 e;
     public int f;
     public int g;
     public RelativeLayout h;
@@ -75,12 +75,12 @@ public class x05 extends PopupWindow {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.e == null) {
                 return;
             }
-            if (this.a.e.d == mu4.C) {
-                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.a.e.l) && !ei.isEmpty(this.a.e.k)) {
+            if (this.a.e.d == lu4.C) {
+                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.a.e.l) && !di.isEmpty(this.a.e.k)) {
                     x05 x05Var = this.a;
                     x05Var.e(x05Var.e.k);
                 }
-            } else if (this.a.e.d == mu4.D && !ei.isEmpty(this.a.e.k)) {
+            } else if (this.a.e.d == lu4.D && !di.isEmpty(this.a.e.k)) {
                 x05 x05Var2 = this.a;
                 x05Var2.e(x05Var2.e.k);
             }
@@ -217,7 +217,7 @@ public class x05 extends PopupWindow {
     public final void e(String str) {
         TbPageContext<?> f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !ei.isEmpty(str) && (f = f(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !di.isEmpty(str) && (f = f(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
             UrlManager.getInstance().dealOneLink(f, new String[]{str});
         }
     }
@@ -237,37 +237,37 @@ public class x05 extends PopupWindow {
         return (TbPageContext) invokeL.objValue;
     }
 
-    public void d(Context context, mu4 mu4Var) {
+    public void d(Context context, lu4 lu4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, mu4Var) != null) || mu4Var == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, lu4Var) != null) || lu4Var == null) {
             return;
         }
-        this.e = mu4Var;
-        if (ei.isEmpty(mu4Var.e)) {
+        this.e = lu4Var;
+        if (di.isEmpty(lu4Var.e)) {
             this.b.setText(context.getResources().getString(R.string.task_already_finish));
         } else {
-            this.b.setText(mu4Var.e);
+            this.b.setText(lu4Var.e);
         }
-        if (ei.isEmpty(mu4Var.p)) {
+        if (di.isEmpty(lu4Var.p)) {
             this.b.setTextColor(context.getResources().getColor(R.color.CAM_X0107));
         } else {
-            this.b.setTextColor(ColorUtils.parseColor(mu4Var.p));
+            this.b.setTextColor(ColorUtils.parseColor(lu4Var.p));
         }
-        if (ei.isEmpty(mu4Var.f)) {
+        if (di.isEmpty(lu4Var.f)) {
             this.c.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f030a));
         } else {
-            this.c.setText(mu4Var.f);
+            this.c.setText(lu4Var.f);
         }
-        if (ei.isEmpty(mu4Var.q)) {
+        if (di.isEmpty(lu4Var.q)) {
             this.c.setTextColor(context.getResources().getColor(R.color.CAM_X0101));
         } else {
-            this.c.setTextColor(ColorUtils.parseColor(mu4Var.q));
+            this.c.setTextColor(ColorUtils.parseColor(lu4Var.q));
         }
-        if (!ei.isEmpty(mu4Var.o)) {
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(BdUtilHelper.getDimens(context, R.dimen.tbds120), ColorUtils.parseColor(mu4Var.o)));
+        if (!di.isEmpty(lu4Var.o)) {
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(BdUtilHelper.getDimens(context, R.dimen.tbds120), ColorUtils.parseColor(lu4Var.o)));
         }
-        if (!ei.isEmpty(mu4Var.j)) {
-            this.a.startLoad(mu4Var.j, 10, false);
+        if (!di.isEmpty(lu4Var.j)) {
+            this.a.startLoad(lu4Var.j, 10, false);
         } else {
             SkinManager.setImageResource(this.a, R.drawable.banner_size);
         }
@@ -283,7 +283,7 @@ public class x05 extends PopupWindow {
             this.a.setConrers(3);
             this.b = (TextView) inflate.findViewById(R.id.lower_hair_text_1);
             this.c = (TextView) inflate.findViewById(R.id.lower_hair_text_2);
-            this.d = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0904c4);
+            this.d = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0904bd);
             this.h = (RelativeLayout) inflate.findViewById(R.id.lower_hair_content);
             this.c.setOnClickListener(new a(this));
             this.d.setOnClickListener(new b(this));

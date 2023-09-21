@@ -1,41 +1,56 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes8.dex */
 public class w70 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "liteUBC";
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] bArr2 = null;
-            if (bArr == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948223353, "Lcom/baidu/tieba/w70;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                if (bArr.length <= 0) {
-                    return null;
-                }
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                gZIPOutputStream.write(bArr);
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                bArr2 = byteArrayOutputStream.toByteArray();
-                byteArrayOutputStream.close();
-                return bArr2;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return bArr2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948223353, "Lcom/baidu/tieba/w70;");
+                return;
             }
         }
-        return (byte[]) invokeL.objValue;
+        b = m70.d().b();
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void b(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && b) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+        }
     }
 }

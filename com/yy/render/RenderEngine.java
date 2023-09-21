@@ -14,11 +14,11 @@ import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.nps.main.manager.Bundle;
-import com.baidu.tieba.g2c;
-import com.baidu.tieba.j2c;
-import com.baidu.tieba.k2c;
-import com.baidu.tieba.p2c;
-import com.baidu.tieba.r2c;
+import com.baidu.tieba.b4c;
+import com.baidu.tieba.c4c;
+import com.baidu.tieba.h4c;
+import com.baidu.tieba.j4c;
+import com.baidu.tieba.y3c;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.yy.render.IRemoteListener;
@@ -49,9 +49,9 @@ public final class RenderEngine {
     public Handler c = new Handler(Looper.getMainLooper());
     public final ConcurrentHashMap<String, RenderSurfaceView> d = new ConcurrentHashMap<>();
     public final ConcurrentHashMap<String, RenderTextureView> e = new ConcurrentHashMap<>();
-    public final HashMap<String, k2c> f = new HashMap<>();
-    public ArrayList<g2c> k = new ArrayList<>();
-    public ArrayList<j2c> l = new ArrayList<>();
+    public final HashMap<String, c4c> f = new HashMap<>();
+    public ArrayList<y3c> k = new ArrayList<>();
+    public ArrayList<b4c> l = new ArrayList<>();
     public final RenderEngine$iRemoteListener$1 m = new IRemoteListener.Stub() { // from class: com.yy.render.RenderEngine$iRemoteListener$1
 
         /* loaded from: classes10.dex */
@@ -87,9 +87,9 @@ public final class RenderEngine {
             public final void run() {
                 HashMap hashMap;
                 hashMap = RenderEngine.this.f;
-                k2c k2cVar = (k2c) hashMap.get(this.b);
-                if (k2cVar != null) {
-                    k2cVar.c(this.c);
+                c4c c4cVar = (c4c) hashMap.get(this.b);
+                if (c4cVar != null) {
+                    c4cVar.c(this.c);
                 }
             }
         }
@@ -108,13 +108,13 @@ public final class RenderEngine {
             public final void run() {
                 HashMap hashMap;
                 hashMap = RenderEngine.this.f;
-                k2c k2cVar = (k2c) hashMap.get(this.b);
-                if (k2cVar != null) {
+                c4c c4cVar = (c4c) hashMap.get(this.b);
+                if (c4cVar != null) {
                     android.os.Bundle bundle = this.c;
                     if (bundle == null) {
                         Intrinsics.throwNpe();
                     }
-                    k2cVar.b(bundle);
+                    c4cVar.b(bundle);
                 }
             }
         }
@@ -133,20 +133,20 @@ public final class RenderEngine {
             public final void run() {
                 HashMap hashMap;
                 hashMap = RenderEngine.this.f;
-                k2c k2cVar = (k2c) hashMap.get(this.b);
-                if (k2cVar != null) {
+                c4c c4cVar = (c4c) hashMap.get(this.b);
+                if (c4cVar != null) {
                     String str = this.c;
                     if (str == null) {
                         Intrinsics.throwNpe();
                     }
-                    k2cVar.d(str);
+                    c4cVar.d(str);
                 }
             }
         }
 
         @Override // com.yy.render.IRemoteListener
         public void action(String str, String str2) {
-            p2c.a aVar = p2c.b;
+            h4c.a aVar = h4c.b;
             String str3 = RenderEngine.q;
             aVar.g(str3, "[RenderEngine](action) action:" + str + ", detail:" + str2);
             if (str != null && str.hashCode() == -272482605 && str.equals("reportCrash")) {
@@ -156,7 +156,7 @@ public final class RenderEngine {
 
         @Override // com.yy.render.IRemoteListener
         public void transBitmap(String str, Bitmap bitmap) {
-            p2c.a aVar = p2c.b;
+            h4c.a aVar = h4c.b;
             String str2 = RenderEngine.q;
             aVar.g(str2, "[RenderEngine](transBitmap) channelId: " + str);
             RenderEngine.this.c.post(new b(str, bitmap));
@@ -171,14 +171,14 @@ public final class RenderEngine {
 
         @Override // com.yy.render.IRemoteListener
         public void transBundle(String str, android.os.Bundle bundle) {
-            p2c.a aVar = p2c.b;
+            h4c.a aVar = h4c.b;
             String str2 = RenderEngine.q;
             aVar.g(str2, "[RenderEngine](transBundle) channelId: " + str);
             if (bundle != null) {
                 RenderEngine.this.c.post(new c(str, bundle));
                 return;
             }
-            p2c.a aVar2 = p2c.b;
+            h4c.a aVar2 = h4c.b;
             String str3 = RenderEngine.q;
             aVar2.g(str3, "[RenderEngine](transBundle) channelId: " + str + ", bundle is null");
         }
@@ -217,10 +217,10 @@ public final class RenderEngine {
 
         /* renamed from: com.yy.render.RenderEngine$c$c  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class RunnableC0789c implements Runnable {
+        public static final class RunnableC0782c implements Runnable {
             public final /* synthetic */ IBinder b;
 
-            public RunnableC0789c(IBinder iBinder) {
+            public RunnableC0782c(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -235,7 +235,7 @@ public final class RenderEngine {
                         iRemoteRender.setListener(RenderEngine.this.m);
                     }
                 } catch (Exception e) {
-                    p2c.a aVar = p2c.b;
+                    h4c.a aVar = h4c.b;
                     String str = RenderEngine.q;
                     aVar.d(str, "[RenderEngine] setListener ex:" + e.getMessage());
                     e.printStackTrace();
@@ -274,7 +274,7 @@ public final class RenderEngine {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            p2c.b.g(RenderEngine.q, "[RenderEngine] crash onServiceDisconnected ");
+            h4c.b.g(RenderEngine.q, "[RenderEngine] crash onServiceDisconnected ");
             RenderEngine.this.a = null;
             RenderEngine.this.c.post(new d());
         }
@@ -282,7 +282,7 @@ public final class RenderEngine {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Boolean bool;
-            p2c.a aVar = p2c.b;
+            h4c.a aVar = h4c.b;
             String str = RenderEngine.q;
             StringBuilder sb = new StringBuilder();
             sb.append("[RenderEngine] onServiceConnected bind is alive: ");
@@ -303,8 +303,8 @@ public final class RenderEngine {
             if (iBinder == null) {
                 RenderEngine.this.c.post(new a());
             } else if (iBinder.isBinderAlive() && iBinder.pingBinder()) {
-                p2c.b.g(RenderEngine.q, "[RenderEngine] onServiceConnected");
-                RenderEngine.this.c.post(new RunnableC0789c(iBinder));
+                h4c.b.g(RenderEngine.q, "[RenderEngine] onServiceConnected");
+                RenderEngine.this.c.post(new RunnableC0782c(iBinder));
             } else {
                 RenderEngine.this.c.post(new b());
             }
@@ -380,7 +380,7 @@ public final class RenderEngine {
                             iRemoteRender.sendData2Channel(next.a(), next.b());
                         }
                     } catch (Exception e) {
-                        p2c.a aVar = p2c.b;
+                        h4c.a aVar = h4c.b;
                         aVar.c("sendData2Channel ex: " + e.getMessage());
                         e.printStackTrace();
                     }
@@ -403,15 +403,15 @@ public final class RenderEngine {
             Intrinsics.throwNpe();
         }
         this.h = context2.bindService(intent, this.n, 65);
-        p2c.a aVar = p2c.b;
+        h4c.a aVar = h4c.b;
         String str = q;
         aVar.d(str, "[RenderEngine] bindService result " + this.h + ")}");
         return this.h;
     }
 
-    public final synchronized void C(g2c g2cVar) {
+    public final synchronized void C(y3c y3cVar) {
         if (this.k.size() > 0) {
-            this.k.remove(g2cVar);
+            this.k.remove(y3cVar);
         }
     }
 
@@ -421,38 +421,38 @@ public final class RenderEngine {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final synchronized void D(j2c j2cVar) {
+    public final synchronized void D(b4c b4cVar) {
         if (this.l.size() > 0) {
-            Iterator<j2c> it = this.l.iterator();
+            Iterator<b4c> it = this.l.iterator();
             Intrinsics.checkExpressionValueIsNotNull(it, "mConnectList.iterator()");
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (it.next() == j2cVar) {
+                } else if (it.next() == b4cVar) {
                     break;
                 }
             }
         }
     }
 
-    public final synchronized void q(g2c g2cVar) {
-        if (this.k.size() > 0 && this.k.contains(g2cVar)) {
+    public final synchronized void q(y3c y3cVar) {
+        if (this.k.size() > 0 && this.k.contains(y3cVar)) {
             return;
         }
-        this.k.add(g2cVar);
+        this.k.add(y3cVar);
     }
 
-    public final synchronized void r(j2c j2cVar) {
+    public final synchronized void r(b4c b4cVar) {
         if (this.i) {
-            j2cVar.b();
+            b4cVar.b();
         }
-        if (this.l.size() > 0 && this.l.contains(j2cVar)) {
+        if (this.l.size() > 0 && this.l.contains(b4cVar)) {
             return;
         }
-        this.l.add(j2cVar);
+        this.l.add(b4cVar);
     }
 
-    public final boolean u(Context context, g2c g2cVar) {
+    public final boolean u(Context context, y3c y3cVar) {
         if (!x()) {
             return false;
         }
@@ -460,24 +460,24 @@ public final class RenderEngine {
             context = context.getApplicationContext();
         }
         this.g = context;
-        if (g2cVar != null) {
-            q(g2cVar);
+        if (y3cVar != null) {
+            q(y3cVar);
         }
         this.j = false;
         this.i = false;
         return H();
     }
 
-    public final String A(RenderSurfaceView renderSurfaceView, Class<?> cls, k2c k2cVar) {
-        if (!r2c.class.isAssignableFrom(cls)) {
-            p2c.b.d(q, "registerView error");
+    public final String A(RenderSurfaceView renderSurfaceView, Class<?> cls, c4c c4cVar) {
+        if (!j4c.class.isAssignableFrom(cls)) {
+            h4c.b.d(q, "registerView error");
             return "";
         } else if (renderSurfaceView == null) {
             return "";
         } else {
             String channelId = renderSurfaceView.getChannelId();
             if (this.d.containsKey(channelId)) {
-                p2c.b.d(q, "registerView has already created");
+                h4c.b.d(q, "registerView has already created");
                 return "";
             }
             this.d.put(channelId, renderSurfaceView);
@@ -491,23 +491,23 @@ public final class RenderEngine {
             if (this.b != null) {
                 renderSurfaceView.setRemote(this.b);
             }
-            if (k2cVar != null) {
-                this.f.put(channelId, k2cVar);
+            if (c4cVar != null) {
+                this.f.put(channelId, c4cVar);
             }
             return channelId;
         }
     }
 
-    public final String B(RenderTextureView renderTextureView, Class<?> cls, k2c k2cVar) {
-        if (!r2c.class.isAssignableFrom(cls)) {
-            p2c.b.d(q, "registerView error");
+    public final String B(RenderTextureView renderTextureView, Class<?> cls, c4c c4cVar) {
+        if (!j4c.class.isAssignableFrom(cls)) {
+            h4c.b.d(q, "registerView error");
             return "";
         } else if (renderTextureView == null) {
             return "";
         } else {
             String channelId = renderTextureView.getChannelId();
             if (this.e.containsKey(channelId)) {
-                p2c.b.d(q, "registerView has already created");
+                h4c.b.d(q, "registerView has already created");
                 return "";
             }
             this.e.put(channelId, renderTextureView);
@@ -521,15 +521,15 @@ public final class RenderEngine {
             if (this.b != null) {
                 renderTextureView.setRemote(this.b);
             }
-            if (k2cVar != null) {
-                this.f.put(channelId, k2cVar);
+            if (c4cVar != null) {
+                this.f.put(channelId, c4cVar);
             }
             return channelId;
         }
     }
 
     public final void E(String str) {
-        p2c.a aVar = p2c.b;
+        h4c.a aVar = h4c.b;
         aVar.c("[RenderEngine] (reportCrash) info: " + str);
         if (this.j) {
             return;
@@ -544,13 +544,13 @@ public final class RenderEngine {
             entry2.getValue().n();
         }
         if (this.k.size() > 0) {
-            ArrayList<g2c> arrayList = new ArrayList();
-            for (g2c g2cVar : this.k) {
-                arrayList.add(g2cVar);
+            ArrayList<y3c> arrayList = new ArrayList();
+            for (y3c y3cVar : this.k) {
+                arrayList.add(y3cVar);
             }
-            for (g2c g2cVar2 : arrayList) {
-                if (g2cVar2 != null) {
-                    g2cVar2.a(str);
+            for (y3c y3cVar2 : arrayList) {
+                if (y3cVar2 != null) {
+                    y3cVar2.a(str);
                 }
             }
             arrayList.clear();
@@ -583,17 +583,17 @@ public final class RenderEngine {
                 }
                 return;
             } catch (Exception e) {
-                p2c.a aVar = p2c.b;
+                h4c.a aVar = h4c.b;
                 aVar.c("sendData2Channel ex: " + e.getMessage());
                 e.printStackTrace();
                 return;
             }
         }
-        p2c.b.g(q, "[RenderEngine] sendData2View channelId or data is null or empty");
+        h4c.b.g(q, "[RenderEngine] sendData2View channelId or data is null or empty");
     }
 
     public final boolean I(HashMap<String, String> hashMap) {
-        p2c.a aVar;
+        h4c.a aVar;
         String str;
         StringBuilder sb;
         Intent intent = new Intent();
@@ -615,11 +615,11 @@ public final class RenderEngine {
                 Intrinsics.throwNpe();
             }
             this.h = context2.bindService(intent, this.n, 65);
-            aVar = p2c.b;
+            aVar = h4c.b;
             str = q;
             sb = new StringBuilder();
         } catch (Throwable unused) {
-            aVar = p2c.b;
+            aVar = h4c.b;
             str = q;
             sb = new StringBuilder();
         }
@@ -636,14 +636,14 @@ public final class RenderEngine {
         this.l.clear();
         if (this.h) {
             this.h = false;
-            p2c.b.g(q, "destroy unBindService");
+            h4c.b.g(q, "destroy unBindService");
             try {
                 Context context = this.g;
                 if (context != null) {
                     context.unbindService(this.n);
                 }
             } catch (Exception e) {
-                p2c.a aVar = p2c.b;
+                h4c.a aVar = h4c.b;
                 String str = q;
                 aVar.d(str, "unbindService ex: " + e.getMessage());
                 e.printStackTrace();
@@ -661,7 +661,7 @@ public final class RenderEngine {
         this.g = null;
     }
 
-    public final boolean v(Context context, g2c g2cVar, HashMap<String, String> hashMap) {
+    public final boolean v(Context context, y3c y3cVar, HashMap<String, String> hashMap) {
         if (!x()) {
             return false;
         }
@@ -669,8 +669,8 @@ public final class RenderEngine {
             context = context.getApplicationContext();
         }
         this.g = context;
-        if (g2cVar != null) {
-            q(g2cVar);
+        if (y3cVar != null) {
+            q(y3cVar);
         }
         this.j = false;
         this.i = false;
@@ -679,12 +679,12 @@ public final class RenderEngine {
 
     public final synchronized void y() {
         if (this.l.size() > 0) {
-            ArrayList<j2c> arrayList = new ArrayList();
-            for (j2c j2cVar : this.l) {
-                arrayList.add(j2cVar);
+            ArrayList<b4c> arrayList = new ArrayList();
+            for (b4c b4cVar : this.l) {
+                arrayList.add(b4cVar);
             }
-            for (j2c j2cVar2 : arrayList) {
-                j2cVar2.b();
+            for (b4c b4cVar2 : arrayList) {
+                b4cVar2.b();
             }
             arrayList.clear();
         }
@@ -692,12 +692,12 @@ public final class RenderEngine {
 
     public final synchronized void z() {
         if (this.l.size() > 0) {
-            ArrayList<j2c> arrayList = new ArrayList();
-            for (j2c j2cVar : arrayList) {
-                j2cVar.c();
+            ArrayList<b4c> arrayList = new ArrayList();
+            for (b4c b4cVar : arrayList) {
+                b4cVar.c();
             }
-            for (j2c j2cVar2 : this.l) {
-                arrayList.add(j2cVar2);
+            for (b4c b4cVar2 : this.l) {
+                arrayList.add(b4cVar2);
             }
             arrayList.clear();
         }

@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj5;
-import com.baidu.tieba.oj5;
-import com.baidu.tieba.si5;
-import com.baidu.tieba.zfa;
+import com.baidu.tieba.fia;
+import com.baidu.tieba.jj5;
+import com.baidu.tieba.sj5;
+import com.baidu.tieba.wi5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class SendView extends TextView implements fj5 {
+public class SendView extends TextView implements jj5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int f = 2;
     public static int g = 1;
@@ -78,7 +78,7 @@ public class SendView extends TextView implements fj5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.U(new si5(8, -1, null));
+                this.a.d0(new wi5(8, -1, null));
             }
         }
     }
@@ -114,13 +114,13 @@ public class SendView extends TextView implements fj5 {
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.ti5
-    public void G(si5 si5Var) {
+    @Override // com.baidu.tieba.xi5
+    public void O(wi5 wi5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, si5Var) != null) || si5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, wi5Var) != null) || wi5Var == null) {
             return;
         }
-        int i = si5Var.a;
+        int i = wi5Var.a;
         if (i != 4) {
             if (i != 39 && i != 28) {
                 if (i != 29) {
@@ -143,15 +143,15 @@ public class SendView extends TextView implements fj5 {
                             this.c[2] = false;
                             break;
                         case 12:
-                            Object obj = si5Var.c;
-                            if (!(obj instanceof oj5)) {
+                            Object obj = wi5Var.c;
+                            if (!(obj instanceof sj5)) {
                                 return;
                             }
-                            oj5 oj5Var = (oj5) obj;
-                            WriteImagesInfo writeImagesInfo = oj5Var.a;
+                            sj5 sj5Var = (sj5) obj;
+                            WriteImagesInfo writeImagesInfo = sj5Var.a;
                             if (writeImagesInfo != null) {
                                 if (writeImagesInfo.getChosedFiles() != null) {
-                                    this.d[0] = oj5Var.a.getChosedFiles().size();
+                                    this.d[0] = sj5Var.a.getChosedFiles().size();
                                 } else {
                                     this.d[0] = 0;
                                 }
@@ -181,7 +181,7 @@ public class SendView extends TextView implements fj5 {
                 this.c[3] = true;
             }
         } else {
-            Object obj2 = si5Var.c;
+            Object obj2 = wi5Var.c;
             if (obj2 != null && (!(obj2 instanceof String) || !StringUtils.isNull((String) obj2))) {
                 this.c[0] = true;
             } else {
@@ -191,41 +191,9 @@ public class SendView extends TextView implements fj5 {
         a(this.e);
     }
 
-    @Override // com.baidu.tieba.fj5
-    public void U(si5 si5Var) {
-        EditorTools editorTools;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, si5Var) == null) && (editorTools = this.a) != null) {
-            editorTools.D(si5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.fj5
-    public void setEditorTools(EditorTools editorTools) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
-            this.a = editorTools;
-        }
-    }
-
-    @Override // com.baidu.tieba.fj5
-    public void setToolId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void setType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
-        }
-    }
-
     public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == h) {
                 boolean[] zArr = this.c;
                 if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
@@ -243,16 +211,48 @@ public class SendView extends TextView implements fj5 {
         }
     }
 
-    @Override // com.baidu.tieba.fj5
+    @Override // com.baidu.tieba.jj5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{zfa.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), zfa.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{fia.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), fia.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
-    @Override // com.baidu.tieba.fj5
+    @Override // com.baidu.tieba.jj5
+    public void d0(wi5 wi5Var) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wi5Var) == null) && (editorTools = this.a) != null) {
+            editorTools.D(wi5Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.jj5
+    public void setEditorTools(EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
+            this.a = editorTools;
+        }
+    }
+
+    @Override // com.baidu.tieba.jj5
+    public void setToolId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void setType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.jj5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -260,7 +260,7 @@ public class SendView extends TextView implements fj5 {
         }
     }
 
-    @Override // com.baidu.tieba.fj5
+    @Override // com.baidu.tieba.jj5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -270,7 +270,7 @@ public class SendView extends TextView implements fj5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.fj5
+    @Override // com.baidu.tieba.jj5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -278,7 +278,7 @@ public class SendView extends TextView implements fj5 {
         }
     }
 
-    @Override // com.baidu.tieba.fj5
+    @Override // com.baidu.tieba.jj5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

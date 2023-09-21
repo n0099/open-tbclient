@@ -1,317 +1,386 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
-import android.view.KeyEvent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.y45;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.videoupload.VideoBlockUploadResult;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes7.dex */
-public class mla {
+public class mla implements lla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final kka b;
-    public final yka c;
-    public long d;
-    public e e;
+    public NetWork a;
+    public boolean b;
+    public final String c;
+    public final int d;
+    public final int e;
+    public ola f;
+    public sd9 g;
 
-    /* loaded from: classes7.dex */
-    public class a implements oi5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mla a;
-
-        public a(mla mlaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mlaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mlaVar;
-        }
-
-        @Override // com.baidu.tieba.oi5
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.sendEmptyMessage(1);
-            }
-        }
-
-        @Override // com.baidu.tieba.oi5
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.sendEmptyMessage(1);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements im0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mla a;
-
-        public b(mla mlaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mlaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mlaVar;
-        }
-
-        @Override // com.baidu.tieba.im0
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.sendEmptyMessage(1);
-            }
-        }
-
-        @Override // com.baidu.tieba.im0
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.sendEmptyMessage(1);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements y45.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mla a;
-
-        public c(mla mlaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mlaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mlaVar;
-        }
-
-        @Override // com.baidu.tieba.y45.e
-        public void onClick(y45 y45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
-                y45Var.dismiss();
-                if (this.a.c != null && this.a.c.d() != null) {
-                    this.a.c.d().b();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements y45.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mla a;
-
-        public d(mla mlaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mlaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mlaVar;
-        }
-
-        @Override // com.baidu.tieba.y45.e
-        public void onClick(y45 y45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
-                try {
-                    this.a.a.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-                    y45Var.dismiss();
-                } catch (Exception unused) {
-                    this.a.a.showToast(R.string.goto_developActivity_error_toast);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mla a;
-
-        public e(mla mlaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mlaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mlaVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 1) {
-                    return;
-                }
-                this.a.g();
-            }
-        }
-
-        public /* synthetic */ e(mla mlaVar, a aVar) {
-            this(mlaVar);
-        }
-    }
-
-    public mla(MainTabActivity mainTabActivity, kka kkaVar) {
+    public mla(String str, int i, int i2, sd9 sd9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, kkaVar};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), sd9Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = 0L;
-        this.e = new e(this, null);
-        this.a = mainTabActivity;
-        this.b = kkaVar;
-        this.c = mainTabActivity.e;
+        this.b = false;
+        this.c = str;
+        this.e = i;
+        this.d = i2 / i;
+        this.g = sd9Var;
     }
 
-    public void e() {
+    public final byte[] c(RandomAccessFile randomAccessFile, int i, int i2, long j) {
+        InterceptResult invokeCommon;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new y45(this.a).setTitle(R.string.confirm_title).setCancelable(false).setMessageId(R.string.background_process_permission).setPositiveButton(R.string.now_goto_setting, new d(this)).setNegativeButton(R.string.next_time, new c(this)).create(m9.a(this.a)).show();
-        }
-    }
-
-    public boolean f(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
-            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                return false;
-            }
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016322, (Class) null);
-            if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
-                return true;
-            }
-            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2016323, (Class) null);
-            if (runTask2 != null && ((Boolean) runTask2.getData()).booleanValue()) {
-                return true;
-            }
-            hza hzaVar = this.a.r;
-            if (hzaVar != null && hzaVar.b()) {
-                this.a.r.a(true);
-                return true;
-            } else if (this.b.C()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007010));
-                return true;
-            } else {
-                CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(2921405, Boolean.class, Boolean.FALSE);
-                if (runTask3 != null && runTask3.getData() != null && (runTask3.getData() instanceof Boolean) && ((Boolean) runTask3.getData()).booleanValue()) {
-                    return true;
-                }
-                if (System.currentTimeMillis() - this.d > 2000) {
-                    this.a.showToast(R.string.double_back_quit);
-                    this.d = System.currentTimeMillis();
-                } else if (UbsABTestHelper.isAdNotInstallRemindA()) {
-                    mi5 mi5Var = new mi5();
-                    if (mi5Var.a() != null && mi5Var.a().get() != null) {
-                        mi5Var.a().get().a(this.a, new a(this));
-                    } else {
-                        g();
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{randomAccessFile, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            if (randomAccessFile != null && i >= 0) {
+                boolean z = true;
+                if (i == i2 - 1) {
+                    i3 = (int) (j - (i * this.e));
                 } else {
-                    km0.f().l();
-                    km0.f().i(this.a, new b(this));
+                    i3 = this.e;
                 }
-                return false;
+                byte[] bArr = new byte[i3];
+                boolean z2 = false;
+                try {
+                    if (randomAccessFile.read(bArr, 0, i3) == -1) {
+                        z = false;
+                    }
+                    z2 = z;
+                } catch (IOException unused) {
+                }
+                if (z2) {
+                    return bArr;
+                }
             }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public final void g() {
+    public final VideoBlockUploadResult h(byte[] bArr, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (UtilHelper.isBackgroundProcessLimitNone() && Build.VERSION.SDK_INT >= 14) {
-                e();
-                return;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2, i3)) == null) {
+            int i5 = this.d;
+            int length = bArr.length;
+            int i6 = i / i5;
+            if (i6 == i2) {
+                i4 = i3 - ((i6 - 1) * i5);
+            } else {
+                i4 = i5;
             }
-            yka ykaVar = this.c;
-            if (ykaVar != null && ykaVar.d() != null) {
-                this.c.d().b();
+            k(this.a, i5, length, i4, i6, bArr);
+            NetWork netWork = this.a;
+            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_BLOCK);
+            return g(this.a);
+        }
+        return (VideoBlockUploadResult) invokeLIII.objValue;
+    }
+
+    public final VideoBlockUploadResult j(byte[] bArr, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
+        int i4;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048586, this, bArr, i, i2, i3)) == null) {
+            int length = bArr.length;
+            int i6 = this.d;
+            if (i % i6 == 0) {
+                i4 = i / i6;
+            } else {
+                i4 = (i / i6) + 1;
+            }
+            int i7 = i4;
+            if (i7 == i2) {
+                i5 = i3 - ((i7 - 1) * this.d);
+            } else {
+                i5 = this.d;
+            }
+            k(this.a, i5, length, i5, i7, bArr);
+            NetWork netWork = this.a;
+            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_FILE);
+            return g(this.a);
+        }
+        return (VideoBlockUploadResult) invokeLIII.objValue;
+    }
+
+    @Override // com.baidu.tieba.lla
+    public void a(ola olaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, olaVar) == null) {
+            this.f = olaVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.lla
+    public VideoFinishResult b(String str, int i) throws IOException {
+        InterceptResult invokeLI;
+        String str2;
+        int i2;
+        long j;
+        VideoBlockUploadResult i3;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            String str4 = null;
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            File file = new File(str);
+            if (!file.exists()) {
+                return null;
+            }
+            ila.a();
+            VideoFinishResult videoFinishResult = new VideoFinishResult();
+            String b = ji.b(FileHelper.GetStreamFromFile(file));
+            if (!StringUtils.isNull(b)) {
+                b = b.toLowerCase();
+            }
+            String str5 = b;
+            jla c = ila.c(str5);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
+            long length = file.length();
+            int d = d(length, this.e);
+            int d2 = d(d, this.d);
+            if (c != null) {
+                str2 = c.a;
+            } else {
+                str2 = null;
+            }
+            if (c != null) {
+                i2 = c.b;
+            } else {
+                i2 = 0;
+            }
+            if (i2 < d && randomAccessFile.skipBytes(this.e * i2) < this.e * i2) {
+                randomAccessFile.close();
+                return null;
+            }
+            String str6 = str2;
+            int i4 = i2;
+            VideoBlockUploadResult videoBlockUploadResult = null;
+            while (i4 < d) {
+                f(i4, d, 10);
+                int i5 = i4 + 1;
+                int i6 = i4;
+                VideoBlockUploadResult videoBlockUploadResult2 = videoBlockUploadResult;
+                byte[] c2 = c(randomAccessFile, i4, d, length);
+                f(i6, d, 25);
+                if (c2 != null && c2.length > 0) {
+                    f(i6, d, 40);
+                    j = length;
+                    this.a = e(str5, length, d2, str6);
+                    f(i6, d, 55);
+                    if (i5 == d) {
+                        i3 = j(c2, i5, d2, d);
+                    } else if (i5 % this.d == 0) {
+                        VideoBlockUploadResult h = h(c2, i5, d2, d);
+                        str3 = h.upload_id;
+                        videoBlockUploadResult = h;
+                        f(i6, d, 80);
+                        if (videoBlockUploadResult == null && !videoBlockUploadResult.isSuccess()) {
+                            videoFinishResult.setUserMessage(videoBlockUploadResult.getErrorMessage());
+                            videoFinishResult.setErrorNo(videoBlockUploadResult.getErrorCode());
+                            sd9 sd9Var = this.g;
+                            if (sd9Var != null) {
+                                sd9Var.f(305, videoBlockUploadResult.getErrorCode(), videoBlockUploadResult.getErrorMessage());
+                            }
+                            if (videoFinishResult.getErrorNo() == 320033) {
+                                ila.b(str5);
+                            }
+                            randomAccessFile.close();
+                            TiebaStatic.log(new StatisticItem("c12024").param("params", videoBlockUploadResult.getErrorMessage()));
+                            return videoFinishResult;
+                        }
+                        ila.d(str5, str3, i5);
+                        f(i6, d, 100);
+                        str6 = str3;
+                    } else {
+                        i3 = i(i5, c2, d2, d);
+                    }
+                    videoBlockUploadResult = i3;
+                    str3 = str6;
+                    f(i6, d, 80);
+                    if (videoBlockUploadResult == null) {
+                    }
+                    ila.d(str5, str3, i5);
+                    f(i6, d, 100);
+                    str6 = str3;
+                } else {
+                    j = length;
+                    videoBlockUploadResult = videoBlockUploadResult2;
+                }
+                i4 = i5;
+                length = j;
+                str4 = null;
+            }
+            videoFinishResult.setErrorMessage(str4);
+            videoFinishResult.setErrorNo(0);
+            if (videoBlockUploadResult != null) {
+                videoFinishResult.setVideoUrl(videoBlockUploadResult.video_url);
+            }
+            ila.b(str5);
+            videoFinishResult.setVideoMd5(str5);
+            randomAccessFile.close();
+            sd9 sd9Var2 = this.g;
+            if (sd9Var2 != null) {
+                sd9Var2.j();
+            }
+            return videoFinishResult;
+        }
+        return (VideoFinishResult) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.lla
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
             }
         }
+    }
+
+    public final int d(long j, int i) {
+        InterceptResult invokeCommon;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            long j3 = i;
+            if (j % j3 == 0) {
+                j2 = j / j3;
+            } else {
+                j2 = (j / j3) + 1;
+            }
+            return (int) j2;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public final NetWork e(String str, long j, int i, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2})) == null) {
+            NetWork netWork = new NetWork();
+            netWork.addPostData("forum_id", this.c);
+            netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+            netWork.addPostData("total_length", String.valueOf(j));
+            netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, str);
+            netWork.addPostData("block_num", String.valueOf(i));
+            netWork.addPostData("upload_id", str2);
+            return netWork;
+        }
+        return (NetWork) invokeCommon.objValue;
+    }
+
+    public final VideoBlockUploadResult i(int i, byte[] bArr, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            int i4 = this.d;
+            int i5 = i % i4;
+            int length = bArr.length;
+            int i6 = (i / i4) + 1;
+            if (i6 == i2) {
+                i4 = i3 - ((i6 - 1) * i4);
+            }
+            k(this.a, i5, length, i4, i6, bArr);
+            NetWork netWork = this.a;
+            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.VIDEO_UPLOAD_CHUNK);
+            return g(this.a);
+        }
+        return (VideoBlockUploadResult) invokeCommon.objValue;
+    }
+
+    public final void f(int i, int i2, int i3) {
+        ola olaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) && (olaVar = this.f) != null) {
+            olaVar.onProgressUpdate((i + (i3 / 100.0f)) / i2);
+        }
+    }
+
+    public final VideoBlockUploadResult g(NetWork netWork) {
+        InterceptResult invokeL;
+        int netErrorCode;
+        String errMsg;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, netWork)) == null) {
+            VideoBlockUploadResult videoBlockUploadResult = new VideoBlockUploadResult();
+            if (this.b) {
+                netErrorCode = netWork.getServerErrorCode();
+                errMsg = netWork.getErrorString();
+            } else {
+                String postMultiNetData = netWork.postMultiNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    OrmObject objectWithJsonStr = OrmObject.objectWithJsonStr(postMultiNetData, VideoBlockUploadResult.class);
+                    if (objectWithJsonStr instanceof VideoBlockUploadResult) {
+                        VideoBlockUploadResult videoBlockUploadResult2 = (VideoBlockUploadResult) objectWithJsonStr;
+                        if (videoBlockUploadResult2.isSuccess()) {
+                            netErrorCode = videoBlockUploadResult2.getErrorCode();
+                            String errorMessage = videoBlockUploadResult2.getErrorMessage();
+                            videoBlockUploadResult.upload_id = videoBlockUploadResult2.upload_id;
+                            videoBlockUploadResult.video_url = videoBlockUploadResult2.video_url;
+                            errMsg = errorMessage;
+                        }
+                    }
+                    errMsg = null;
+                    netErrorCode = 0;
+                } else if (netWork.getNetErrorCode() == 200) {
+                    netErrorCode = netWork.getServerErrorCode();
+                    errMsg = netWork.getErrorString();
+                } else {
+                    netErrorCode = netWork.getNetErrorCode();
+                    errMsg = TbErrInfo.getErrMsg(-7);
+                }
+            }
+            videoBlockUploadResult.setErrorNo(netErrorCode);
+            videoBlockUploadResult.setErrorMessage(errMsg);
+            return videoBlockUploadResult;
+        }
+        return (VideoBlockUploadResult) invokeL.objValue;
+    }
+
+    public final void k(NetWork netWork, int i, long j, int i2, int i3, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{netWork, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), bArr}) != null) || netWork == null) {
+            return;
+        }
+        netWork.addPostData("chunk_no", String.valueOf(i));
+        netWork.addPostData("chunk_length", String.valueOf(j));
+        netWork.addPostData("chunk_num", String.valueOf(i2));
+        netWork.addPostData("block_no", String.valueOf(i3));
+        netWork.addPostData("video_chunk", bArr);
     }
 }

@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import android.webkit.CookieManager;
-import android.webkit.ValueCallback;
 import android.webkit.WebView;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class uw4 extends CookieManager {
+public class uw4 implements ItemCardHelper.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CookieManager a;
+    public final vj6<WebView> a;
 
-    public uw4() {
+    public uw4(@NonNull vj6<WebView> vj6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vj6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,129 +30,33 @@ public class uw4 extends CookieManager {
                 return;
             }
         }
-        this.a = CookieManager.getInstance();
+        this.a = vj6Var;
     }
 
-    @Override // android.webkit.CookieManager
-    public boolean acceptCookie() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.acceptCookie();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.webkit.CookieManager
-    public void flush() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.flush();
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            c(this.a.call(), String.valueOf(j), 0);
         }
     }
 
-    @Override // android.webkit.CookieManager
-    public boolean hasCookies() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.hasCookies();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.webkit.CookieManager
-    public void removeAllCookie() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.removeAllCookie();
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            c(this.a.call(), String.valueOf(j), 1);
         }
     }
 
-    @Override // android.webkit.CookieManager
-    public void removeExpiredCookie() {
+    public final void c(WebView webView, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.removeExpiredCookie();
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void removeSessionCookie() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.removeSessionCookie();
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public boolean acceptThirdPartyCookies(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView)) == null) {
-            return this.a.acceptThirdPartyCookies(webView);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.webkit.CookieManager
-    public String getCookie(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.getCookie(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // android.webkit.CookieManager
-    public void removeAllCookies(@Nullable ValueCallback<Boolean> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, valueCallback) == null) {
-            this.a.removeAllCookies(valueCallback);
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void removeSessionCookies(@Nullable ValueCallback<Boolean> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, valueCallback) == null) {
-            this.a.removeSessionCookies(valueCallback);
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void setAcceptCookie(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.a.setAcceptCookie(z);
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void setAcceptThirdPartyCookies(WebView webView, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, webView, z) == null) {
-            this.a.setAcceptThirdPartyCookies(webView, z);
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void setCookie(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.a.setCookie(str, str2);
-            if (GlobalBuildConfig.isTiebaDebugTool()) {
-                this.a.setCookie(".baidu-int.com", str2);
-            }
-        }
-    }
-
-    @Override // android.webkit.CookieManager
-    public void setCookie(String str, String str2, @Nullable ValueCallback<Boolean> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, str, str2, valueCallback) == null) {
-            this.a.setCookie(str, str2, valueCallback);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, webView, str, i) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("id", str);
+            hashMap.put("resultCode", Integer.valueOf(i));
+            hashMap.put("name", null);
+            ym6.a().d(webView, "orderGameApkResult", hashMap);
         }
     }
 }

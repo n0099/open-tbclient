@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.h69;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
-import com.baidu.tieba.w49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,12 +88,12 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, w49 w49Var) {
+        public void a(int i, String str, h69 h69Var) {
             int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, w49Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, h69Var) == null) {
                 this.a.closeLoadingDialog();
-                if (i == 0 && w49Var != null) {
+                if (i == 0 && h69Var != null) {
                     BdToast.makeText(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.share_alert_success)).setIcon(BdToast.ToastIcon.SUCCESS).setDuration(3000).show();
                     i2 = 1;
                 } else {
@@ -128,7 +128,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
             AlaShareInBarModel alaShareInBarModel = this.d;
             if (alaShareInBarModel != null) {
@@ -140,25 +140,17 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            p1(bundle);
-            q1();
+            N0(bundle);
+            O0();
         }
     }
 
-    @Override // android.app.Activity
-    public void overridePendingTransition(int i, int i2) {
+    public final void N0(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            super.overridePendingTransition(0, 0);
-        }
-    }
-
-    public final void p1(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             AlaShareInBarModel alaShareInBarModel = new AlaShareInBarModel();
             this.d = alaShareInBarModel;
             alaShareInBarModel.P(this.e);
@@ -175,11 +167,11 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
     }
 
-    public final void q1() {
+    public final void O0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                showToast(R.string.obfuscated_res_0x7f0f0e40);
+                showToast(R.string.obfuscated_res_0x7f0f0e42);
                 finish();
             } else if ((StringUtils.isNull(this.a) && TextUtils.isEmpty(this.b)) || ListUtils.isEmpty(this.c)) {
                 finish();
@@ -190,6 +182,14 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     this.d.O(this.a, this.b, String.valueOf(transmitForumData.forumId), "");
                 }
             }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void overridePendingTransition(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            super.overridePendingTransition(0, 0);
         }
     }
 }

@@ -11,14 +11,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cy2 implements g13 {
+public class cy2 implements f13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ay2> a;
+    public ArrayList<zx2> a;
     public int b;
-    public int c;
-    public int d;
-    public int e;
+    public float c;
+    public boolean d;
 
     public cy2() {
         Interceptable interceptable = $ic;
@@ -33,19 +32,18 @@ public class cy2 implements g13 {
                 return;
             }
         }
-        this.b = 1;
-        this.c = -16777216;
-        this.d = 0;
-        this.e = 0;
+        this.b = 0;
+        this.c = 0.0f;
+        this.d = false;
     }
 
-    @Override // com.baidu.tieba.g13
+    @Override // com.baidu.tieba.f13
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<ay2> arrayList = this.a;
-            if (arrayList != null && !arrayList.isEmpty()) {
+            ArrayList<zx2> arrayList = this.a;
+            if (arrayList != null && arrayList.size() > 0) {
                 return true;
             }
             return false;
@@ -53,7 +51,7 @@ public class cy2 implements g13 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.g13
+    @Override // com.baidu.tieba.f13
     public void a(JSONObject jSONObject) throws JSONException {
         int length;
         Interceptable interceptable = $ic;
@@ -71,20 +69,23 @@ public class cy2 implements g13 {
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    ay2 ay2Var = new ay2();
-                    ay2Var.a(optJSONObject);
-                    if (ay2Var.isValid()) {
-                        this.a.add(ay2Var);
+                    zx2 zx2Var = new zx2();
+                    zx2Var.a(optJSONObject);
+                    if (zx2Var.isValid()) {
+                        this.a.add(zx2Var);
                     }
                 }
             }
         }
-        ArrayList<ay2> arrayList = this.a;
+        ArrayList<zx2> arrayList = this.a;
         if (arrayList != null && arrayList.size() > 0) {
-            this.b = (int) Math.abs(ux2.b(jSONObject.optInt("strokeWidth", 1)));
-            this.c = ux2.a(jSONObject.optString("strokeColor"), -16777216);
-            this.d = ux2.a(jSONObject.optString("fillColor"), 0);
-            this.e = jSONObject.optInt("zIndex", 0);
+            this.b = tx2.a(jSONObject.optString("color"), 0);
+            this.c = Math.abs(tx2.b(jSONObject.optDouble("width", 0.0d)));
+            this.d = jSONObject.optBoolean("dottedLine", false);
+            jSONObject.optBoolean("arrowLine", false);
+            jSONObject.optString("arrowIconPath");
+            tx2.a(jSONObject.optString("borderColor"), 0);
+            Math.abs(tx2.b(jSONObject.optDouble("borderWidth", 0.0d)));
         }
     }
 }

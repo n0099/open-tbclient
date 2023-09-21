@@ -1,108 +1,156 @@
 package com.baidu.tieba;
 
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Process;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class bjb {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static float b;
-    public static int c;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile boolean a;
+    public njb b;
+    public b c;
+    public sjb d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947648303, "Lcom/baidu/tieba/bjb;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bjb a;
+
+        public b(bjb bjbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bjbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bjbVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+
+        public /* synthetic */ b(bjb bjbVar, a aVar) {
+            this(bjbVar);
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.setThreadPriority(-19);
+                try {
+                    try {
+                        this.a.b = new njb(-100);
+                        if (this.a.b.d() != null) {
+                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(njb.d);
+                            this.a.b.c();
+                            if (this.a.b.e() != 3) {
+                                return;
+                            }
+                            while (!this.a.a) {
+                                allocateDirect.clear();
+                                int a = this.a.b.a(allocateDirect, njb.d);
+                                if (a > 0) {
+                                    double a2 = ujb.a(allocateDirect, a);
+                                    if (this.a.d != null && a2 > 0.0d) {
+                                        this.a.d.a(a2);
+                                    }
+                                }
+                            }
+                        } else if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    } catch (Exception unused) {
+                        if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    }
+                } finally {
+                    this.a.i();
+                }
+            }
+        }
+    }
+
+    public bjb() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947648303, "Lcom/baidu/tieba/bjb;");
-        }
-    }
-
-    public static int a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            if (!a) {
-                f();
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (int) ((f * b) + 0.5f);
         }
-        return invokeF.intValue;
+        this.a = false;
     }
 
-    public static int b() {
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = true;
+            this.a = false;
+            b bVar = new b(this, null);
+            this.c = bVar;
+            bVar.start();
+        }
+    }
+
+    public void d(sjb sjbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sjbVar) == null) {
+            this.d = sjbVar;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = true;
+            this.e = false;
+        }
+    }
+
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!a) {
-                f();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
+            this.e = false;
+            njb njbVar = this.b;
+            if (njbVar != null) {
+                njbVar.b();
             }
-            return d;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!a) {
-                f();
+            if (this.c != null) {
+                this.c = null;
             }
-            return c;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b();
-        }
-        return invokeV.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c();
-        }
-        return invokeV.intValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            WindowManager windowManager = (WindowManager) leb.c().getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            int orientation = windowManager.getDefaultDisplay().getOrientation();
-            if (orientation != 1 && orientation != 3) {
-                c = displayMetrics.widthPixels;
-                d = displayMetrics.heightPixels;
-            } else {
-                c = displayMetrics.heightPixels;
-                d = displayMetrics.widthPixels;
-            }
-            b = displayMetrics.density;
-            a = true;
         }
     }
 }

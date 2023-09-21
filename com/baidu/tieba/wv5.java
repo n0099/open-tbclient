@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.dv5;
-import com.baidu.tieba.ev5;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class wv5<Q extends dv5, P extends ev5> extends vv5 implements zv5<P> {
+public abstract class wv5 implements bw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public abstract void d();
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g();
-
-    public abstract void h(BdUniqueId bdUniqueId);
-
-    public abstract void i(du5 du5Var);
+    public abstract View getView();
 
     public wv5() {
         Interceptable interceptable = $ic;
@@ -34,7 +31,29 @@ public abstract class wv5<Q extends dv5, P extends ev5> extends vv5 implements z
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = false;
+        new SparseArray();
+    }
+
+    public void a(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            b(view2, false);
+        }
+    }
+
+    public void b(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) && view2 != null && getView() != null) {
+            View view3 = getView();
+            if (view3.getParent() != null) {
+                return;
+            }
+            yn5.a(view2, this.a).a(view2, view3, z);
+            c();
         }
     }
 }

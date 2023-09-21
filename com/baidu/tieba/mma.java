@@ -1,175 +1,223 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.data.UserPendantData;
-import com.baidu.tieba.person.ProfileHttpResponseMessage;
-import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Pendant;
+import java.util.PriorityQueue;
 /* loaded from: classes7.dex */
-public class mma extends NetMessageListener {
+public class mma {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static MainTabScheduleStrategy b;
+    public static boolean c;
+    public static final PriorityQueue<sma> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final yka b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mma(MainTabActivity mainTabActivity, kka kkaVar) {
-        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, kkaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                mma.d();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                mma.d();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sma a;
+
+        public c(sma smaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {smaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = smaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947978856, "Lcom/baidu/tieba/mma;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947978856, "Lcom/baidu/tieba/mma;");
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
-        setSelfListener(true);
+        b = MainTabScheduleStrategy.FLUSHING;
+        c = false;
+        d = new PriorityQueue<>();
     }
 
-    public final void a() {
-        yka ykaVar;
+    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ykaVar = this.b) != null && ykaVar.a() != null && this.a.y == 1) {
-            this.b.a().d();
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            MainTabActivity mainTabActivity = this.a;
-            if (currentActivity == mainTabActivity && mainTabActivity.z.intValue() != 1) {
-                this.b.a().f();
+        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
+            kma.a("MainTabScheduler changeScheduleStrategy:" + mainTabScheduleStrategy);
+            b = mainTabScheduleStrategy;
+            if (mainTabScheduleStrategy != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+                g(true);
             }
         }
     }
 
-    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        boolean z;
-        boolean z2;
-        yka ykaVar;
+    public static void c(sma smaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
-                this.a.y = profileHttpResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.y == 1 && (ykaVar = this.b) != null && ykaVar.a() != null) {
-                    this.b.a().d();
-                    this.b.a().f();
-                }
-                a();
-                ProfileVirtualImageInfo.getInstance().parseProto(profileHttpResponseMessage.GetUser().virtual_image_info);
-                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileHttpResponseMessage.GetUser().theme_tail));
-                d(profileHttpResponseMessage.GetUser().pendant);
-            }
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.J = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.K = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
+        if (interceptable == null || interceptable.invokeL(65539, null, smaVar) == null) {
+            kma.a("MainTabScheduler execStep onStep:" + smaVar.a);
+            System.nanoTime();
+            smaVar.b();
+            SafeHandler.getInst().postAtFrontOfQueue(new c(smaVar));
         }
     }
 
-    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        boolean z;
-        boolean z2;
+    public static void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
-                this.a.y = profileSocketResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.y == 1) {
-                    yka ykaVar = this.b;
-                    if (ykaVar != null && ykaVar.a() != null) {
-                        this.b.a().d();
-                    }
-                    a();
-                }
-                ProfileVirtualImageInfo.getInstance().parseProto(profileSocketResponseMessage.GetUser().virtual_image_info);
-                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileSocketResponseMessage.GetUser().theme_tail));
-                d(profileSocketResponseMessage.GetUser().pendant);
-            }
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.J = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.K = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || c) {
+            return;
+        }
+        c = true;
+        if (z) {
+            SafeHandler.getInst().postAtFrontOfQueue(new a());
+        } else {
+            SafeHandler.getInst().post(new b());
         }
     }
 
-    public final void d(Pendant pendant) {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pendant) == null) {
-            UserPendantData userPendantData = new UserPendantData();
-            userPendantData.parserProtobuf(pendant);
-            TbSingleton.getInstance().setUserPendantData(userPendantData);
-        }
-    }
-
-    @Override // com.baidu.adp.framework.listener.NetMessageListener
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
-            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-            if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c = false;
+            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
                 return;
             }
-            if (z) {
-                c((ProfileSocketResponseMessage) responsedMessage);
+            if (b == MainTabScheduleStrategy.FLUSHING) {
+                e();
+                return;
             }
-            if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                b((ProfileHttpResponseMessage) responsedMessage);
+            if (d.peek() != null && a >= d.peek().a) {
+                sma poll = d.poll();
+                if (poll == null) {
+                    return;
+                }
+                c(poll);
             }
+            if (b == MainTabScheduleStrategy.SCHEDULE) {
+                g(false);
+            }
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            while (!d.isEmpty()) {
+                sma poll = d.poll();
+                if (poll != null) {
+                    kma.a("MainTabScheduler flushAllSteps onStep:" + poll.a);
+                    poll.b();
+                    poll.c();
+                }
+            }
+        }
+    }
+
+    public static void f(sma smaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, smaVar) != null) || smaVar == null) {
+            return;
+        }
+        if (b == MainTabScheduleStrategy.FLUSHING) {
+            if (!(smaVar instanceof tma)) {
+                kma.a("MainTabScheduler registerNextStep onStep:" + smaVar.a);
+                smaVar.d();
+                smaVar.b();
+            }
+            smaVar.c();
+            return;
+        }
+        smaVar.d();
+        kma.a("MainTabScheduler registerNextStep:" + smaVar.a);
+        d.add(smaVar);
+        if (b != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+            g(false);
         }
     }
 }

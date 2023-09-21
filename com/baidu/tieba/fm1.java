@@ -1,119 +1,204 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tieba.q61;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fm1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 120;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public fm1(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947768831, "Lcom/baidu/tieba/fm1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947768831, "Lcom/baidu/tieba/fm1;");
+        }
+    }
+
+    public fm1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = context;
     }
 
-    public final int b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final JSONObject a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        char c;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            return jSONObject.optInt("l_gravity");
-        }
-        return invokeL.intValue;
-    }
-
-    public final void a(RelativeLayout.LayoutParams layoutParams, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(1048576, this, layoutParams, i, i2, i3) == null) && (i & i2) == i2) {
-            layoutParams.addRule(i3);
-        }
-    }
-
-    public final int[] c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            int[] iArr = {0, 0, 0, 0};
-            String optString = jSONObject.optString(CriusAttrConstants.MARGIN);
-            boolean z = true;
-            if (jSONObject.optInt("is_equal_bottom_logo", 0) != 1) {
-                z = false;
-            }
-            if (!TextUtils.isEmpty(optString)) {
-                String[] split = optString.split("_");
-                if (split.length == 4) {
-                    for (int i = 0; i < 4; i++) {
-                        try {
-                            iArr[i] = Integer.parseInt(split[i]);
-                        } catch (Exception unused) {
-                            iArr[i] = 0;
-                        }
-                        if (i == 3 && z) {
-                            iArr[i] = iArr[i] + tj1.b();
-                        }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            switch (str.hashCode()) {
+                case -1472943047:
+                    if (str.equals("click_float_lottie")) {
+                        c = 7;
+                        break;
                     }
-                }
+                    c = 65535;
+                    break;
+                case -1340273551:
+                    if (str.equals("wifi_tip")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1152479161:
+                    if (str.equals("ad_logo")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -264975480:
+                    if (str.equals("bd_logo")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3327403:
+                    if (str.equals("logo")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3532159:
+                    if (str.equals(FreeSpaceBox.TYPE)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 31392744:
+                    if (str.equals("download_desc")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 102727412:
+                    if (str.equals("label")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            return iArr;
+            switch (c) {
+                case 0:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_0\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_" + a + "\"}";
+                        break;
+                    }
+                case 1:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_0\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_" + a + "\"}";
+                        break;
+                    }
+                case 2:
+                    str2 = "{\"l_gravity\": 9,\"margin\": \"0_20_15_0\"}";
+                    break;
+                case 3:
+                    str2 = "{\"l_gravity\": 5,\"margin\": \"15_20_0_0\"}";
+                    break;
+                case 4:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_15\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 15) + "\"}";
+                        break;
+                    }
+                case 5:
+                    str2 = "{\"l_gravity\": 5,\"margin\": \"14_14_0_0\"}";
+                    break;
+                case 6:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_65\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_" + a + "\"}";
+                        break;
+                    }
+                case 7:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_37\"}";
+                        break;
+                    } else {
+                        str2 = "{\"is_equal_bottom_logo\":0,\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 39) + "\"}";
+                        break;
+                    }
+                default:
+                    str2 = "";
+                    break;
+            }
+            try {
+                return new JSONObject(str2);
+            } catch (Throwable unused) {
+                return null;
+            }
         }
-        return (int[]) invokeL.objValue;
+        return (JSONObject) invokeLZ.objValue;
     }
 
-    public final void d(RelativeLayout.LayoutParams layoutParams, int i) {
+    public JSONObject b(JSONObject jSONObject, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, layoutParams, i) == null) && i > 0) {
-            a(layoutParams, i, 1, 10);
-            a(layoutParams, i, 2, 12);
-            a(layoutParams, i, 4, 9);
-            a(layoutParams, i, 8, 11);
-            a(layoutParams, i, 16, 14);
-            a(layoutParams, i, 32, 15);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, z)) == null) {
+            JSONObject jSONObject2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (jSONObject != null) {
+                if (z) {
+                    str2 = str + "_f";
+                } else {
+                    str2 = str;
+                }
+                jSONObject2 = jSONObject.optJSONObject(str2);
+            }
+            if (jSONObject2 != null && !jSONObject2.isNull("l_gravity")) {
+                return jSONObject2;
+            }
+            return a(str, z);
         }
-    }
-
-    public final void e(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, marginLayoutParams, iArr) == null) && iArr != null && iArr.length == 4) {
-            marginLayoutParams.setMargins(q61.c.a(this.a, iArr[0]), q61.c.a(this.a, iArr[1]), q61.c.a(this.a, iArr[2]), q61.c.a(this.a, iArr[3]));
-        }
-    }
-
-    public final void f(RelativeLayout.LayoutParams layoutParams, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, layoutParams, jSONObject) == null) && jSONObject != null) {
-            d(layoutParams, b(jSONObject));
-            e(layoutParams, c(jSONObject));
-        }
-    }
-
-    public void g(ViewGroup.LayoutParams layoutParams, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, layoutParams, jSONObject) == null) && layoutParams != null && jSONObject != null && (layoutParams instanceof RelativeLayout.LayoutParams)) {
-            f((RelativeLayout.LayoutParams) layoutParams, jSONObject);
-        }
+        return (JSONObject) invokeLLZ.objValue;
     }
 }

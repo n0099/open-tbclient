@@ -1,97 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.content.Context;
+import android.os.Build;
+import android.util.Pair;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class wk6 extends ve {
+public abstract class wk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WebView a;
 
-    @Override // com.baidu.tieba.ve
-    public void changeSettingByType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ve
-    /* renamed from: getCrashKeys */
-    public String[] mo129getCrashKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ve
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ve
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ve
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "jump_web_container_intercept_url" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ve
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public wk6() {
+    public wk6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = webView;
+        webView.setDrawingCacheEnabled(false);
+        webView.setLayerType(2, null);
+        webView.setScrollBarStyle(0);
+        webView.requestFocusFromTouch();
+        if (Build.VERSION.SDK_INT >= 26) {
+            try {
+                webView.setRendererPriorityPolicy(2, false);
+            } catch (Exception e) {
+                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                    throw e;
+                }
             }
         }
     }
 
-    public static boolean isOn() {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            WebSettings c = c();
+            c.setJavaScriptEnabled(true);
+            c.setCacheMode(-1);
+            if (Build.VERSION.SDK_INT >= 21) {
+                c.setMixedContentMode(0);
+            }
+            c.setGeolocationEnabled(true);
+            c.setLoadsImagesAutomatically(true);
+            c.setBlockNetworkImage(false);
+            c.setBlockNetworkLoads(false);
+            c.setLoadWithOverviewMode(true);
+            c.setAllowFileAccess(true);
+            c.setUseWideViewPort(true);
+            c.setSupportZoom(true);
+            c.setBuiltInZoomControls(false);
+            c.setDisplayZoomControls(false);
+            c.setMediaPlaybackRequiresUserGesture(false);
+            c.setDomStorageEnabled(true);
+            try {
+                c.setAppCacheEnabled(true);
+                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
+            } catch (IOException unused) {
+                c.setAppCachePath(getContext().getCacheDir().getPath());
+            }
+            String userAgentString = c().getUserAgentString();
+            Pair<Boolean, String> k = dk6.k(userAgentString);
+            if (((Boolean) k.first).booleanValue()) {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.i("WebSetting", "更新UA信息：" + ((String) k.second) + " 原UA：" + userAgentString);
+                c.setUserAgentString((String) k.second);
+            }
+            c.setJavaScriptCanOpenWindowsAutomatically(true);
+            c.setTextZoom(100);
+        }
+    }
+
+    public final File b(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            File file = new File(context.getCacheDir(), str);
+            if (!file.exists() && !file.mkdirs()) {
+                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public WebSettings c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (SwitchManager.getInstance().findType("jump_web_container_intercept_url") == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getSettings();
         }
-        return invokeV.booleanValue;
+        return (WebSettings) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getContext();
+        }
+        return (Context) invokeV.objValue;
     }
 }

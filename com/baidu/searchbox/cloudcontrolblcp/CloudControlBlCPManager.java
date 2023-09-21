@@ -15,9 +15,9 @@ import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import com.baidu.tieba.a90;
 import com.baidu.tieba.b90;
-import com.baidu.tieba.c90;
-import com.baidu.tieba.w80;
+import com.baidu.tieba.v80;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,8 +33,8 @@ public class CloudControlBlCPManager {
     public static final String UBC_CLOUD_CTROL_LCP_ID = "1312";
     public static CloudControlBlCPManager mCloudControlManager;
     public String TAG = "CloudControlBlCPManager";
-    public c90 blcpResponse = new c90() { // from class: com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager.1
-        @Override // com.baidu.tieba.c90
+    public b90 blcpResponse = new b90() { // from class: com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager.1
+        @Override // com.baidu.tieba.b90
         public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
             String str2;
             if (AppConfig.isDebug()) {
@@ -107,11 +107,11 @@ public class CloudControlBlCPManager {
     }
 
     public void registerConnectStateListener(Context context) {
-        this.isSmallFlow = w80.e(context);
+        this.isSmallFlow = v80.e(context);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
         LocalBroadcastManager.getInstance(context).registerReceiver(this.iConnectListener, intentFilter);
-        if (w80.b() == 0) {
+        if (v80.b() == 0) {
             invoke();
         }
     }
@@ -153,10 +153,10 @@ public class CloudControlBlCPManager {
         if (bLCPRequest.c.length <= 0) {
             return;
         }
-        w80.d(bLCPRequest, this.blcpResponse);
-        b90 b90Var = new b90();
-        b90Var.a = 4L;
-        b90Var.b = 2L;
-        w80.d(b90Var, this.blcpResponse);
+        v80.d(bLCPRequest, this.blcpResponse);
+        a90 a90Var = new a90();
+        a90Var.a = 4L;
+        a90Var.b = 2L;
+        v80.d(a90Var, this.blcpResponse);
     }
 }

@@ -1,77 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class q5a {
+public class q5a {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948044204, "Lcom/baidu/tieba/q5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(int i, p5a p5aVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, p5aVar)) == null) {
+            if (i <= 0) {
+                return p5aVar.a();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948044204, "Lcom/baidu/tieba/q5a;");
-                return;
+            if (p5aVar.c()) {
+                return i + p5aVar.b();
             }
+            return i + p5aVar.b() + 1;
         }
-        a = new a(null);
+        return invokeIL.intValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull p5a p5aVar, int i2, @Nullable T t, @Nullable r5a r5aVar, @Nullable s5a s5aVar) {
+        InterceptResult invokeCommon;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), p5aVar, Integer.valueOf(i2), t, r5aVar, s5aVar})) == null) {
+            if (p5aVar.a() != -1 && p5aVar.b() != -1) {
+                int a = a(i2, p5aVar);
+                if (r5aVar != null && t != null) {
+                    if (i <= i2) {
+                        if (s5aVar != 0) {
+                            s5aVar.a(i, a);
+                        }
+                        return false;
+                    }
+                    int i4 = i + 1;
+                    if (i4 < a) {
+                        if (s5aVar != 0) {
+                            s5aVar.a(i, a);
+                        }
+                        return false;
+                    }
+                    if (i > a) {
+                        i3 = i4;
+                    } else {
+                        i3 = a;
+                    }
+                    int i5 = t49.i(list);
+                    if (i3 >= i5 && (r5aVar.b() || i3 > i5)) {
+                        if (s5aVar != 0) {
+                            s5aVar.d(i, i3, i5, r5aVar, t);
+                        }
+                        return false;
+                    }
+                    r5aVar.a(i3);
+                    if (!r5aVar.b()) {
+                        t49.b(list, t, i3);
+                        if (s5aVar != 0) {
+                            s5aVar.c(i, i3, r5aVar, t);
+                            return true;
+                        }
+                        return true;
+                    } else if (s5aVar != 0) {
+                        s5aVar.e(i, i3, t49.d(list, i3), r5aVar, t);
+                        return true;
+                    } else {
+                        return true;
+                    }
+                } else if (s5aVar != 0) {
+                    s5aVar.a(i, a);
                 }
             }
+            return false;
         }
-
-        public final e87 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                e87 e87Var = new e87();
-                e87Var.d = q5a.b;
-                return e87Var;
-            }
-            return (e87) invokeV.objValue;
-        }
-
-        public final void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
-            }
-            q5a.b = System.currentTimeMillis();
-        }
+        return invokeCommon.booleanValue;
     }
 }

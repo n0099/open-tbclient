@@ -1,154 +1,224 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class t1a {
+public class t1a extends v1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PushDialogActivity a;
-    public String b;
-    public long c;
+    public VideoItemData U0;
+    public VideoSerializeVideoThreadInfo V0;
+    public ThreadData W0;
+    public a X0;
 
     /* loaded from: classes8.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t1a a;
+    public interface a {
+        void a();
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(t1a t1aVar, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t1aVar, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t1aVar;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage instanceof PushDialogHttpResMsg) {
-                    this.a.f((PushDialogHttpResMsg) responsedMessage);
-                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
-                    this.a.g((PushDialogSocketResMsg) responsedMessage);
-                }
-            }
+    @Override // com.baidu.tieba.v1a
+    public void V() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    public t1a(PushDialogActivity pushDialogActivity) {
+    @Override // com.baidu.tieba.v1a, com.baidu.tieba.s1a
+    public boolean onBackPress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t1a(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pushDialogActivity};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = pushDialogActivity;
-        pushDialogActivity.registerListener(new a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
-        Intent intent = this.a.getIntent();
-        if (intent != null) {
-            this.b = intent.getStringExtra("thread_id");
-            this.c = intent.getLongExtra("task_id", 0L);
-            if (StringUtils.isNull(this.b)) {
-                this.a.finish();
-            }
-        }
+        this.a = 5000;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public t1a(Context context, View view2, boolean z) {
+        this(context, view2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long j = JavaTypesHelper.toLong(this.b, 0L);
-            if (j == 0) {
-                PushDialogActivity pushDialogActivity = this.a;
-                if (pushDialogActivity != null) {
-                    pushDialogActivity.s1(false, null);
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
-            pushDialogReqNetMsg.setTask_id(this.c);
-            pushDialogReqNetMsg.setTid(j);
-            MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
         }
+        u0(z);
     }
 
-    public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        PushDialogActivity pushDialogActivity;
-        boolean z;
+    public final void H0(Rect rect) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) && (pushDialogActivity = this.a) != null) {
-            if (pushDialogHttpResMsg.getError() == 0) {
-                z = true;
-            } else {
-                z = false;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, rect) != null) || this.W0 == null) {
+            return;
+        }
+        if (this.U0 == null) {
+            this.U0 = new VideoItemData();
+        }
+        ArrayList arrayList = new ArrayList();
+        this.U0.buildWithThreadData(this.W0);
+        arrayList.add(this.U0);
+        String str = null;
+        ThreadData threadData = this.W0;
+        if (threadData != null && threadData.getBaijiahaoData() != null) {
+            str = this.W0.getBaijiahaoData().oriUgcNid;
+        }
+        String str2 = str;
+        Context context = this.S;
+        boolean z = this.X;
+        String str3 = this.f0;
+        ThreadData threadData2 = this.W0;
+        jx5.e(context, arrayList, str2, z, 0, rect, "from_nani_video", "personalize_page", "", str3, str3, false, threadData2.isJumpToFrsVideoTabPlay, true, threadData2.getFid());
+    }
+
+    @Override // com.baidu.tieba.v1a, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) != null) || view2 == null) {
+            return;
+        }
+        int id = view2.getId();
+        if (id == R.id.video_mute) {
+            c0();
+        } else if (id == R.id.obfuscated_res_0x7f091f03) {
+            x0(this.b);
+            startPlay();
+        } else {
+            a aVar = this.X0;
+            if (aVar != null) {
+                aVar.a();
+                return;
             }
-            pushDialogActivity.s1(z, pushDialogHttpResMsg.getData());
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                BdUtilHelper.showToast(this.S, (int) R.string.no_network_guide);
+            } else {
+                H0(ThreadCardUtils.computeViewArea(this.U));
+                TbSingleton.getInstance().setIsNeedReuseVideoPlayer(isPlaying());
+            }
+            View.OnClickListener onClickListener = this.F0;
+            if (onClickListener != null) {
+                onClickListener.onClick(getMainView());
+            }
         }
     }
 
-    public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        PushDialogActivity pushDialogActivity;
+    public void I0(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) && (pushDialogActivity = this.a) != null) {
-            pushDialogActivity.s1(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.X0 = aVar;
+        }
+    }
+
+    public void J0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            x0(this.f);
+        }
+    }
+
+    @Override // com.baidu.tieba.v1a
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.p;
+            if (i == this.e || i == this.n) {
+                J0();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v1a
+    public void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f = 32;
+        }
+    }
+
+    @Override // com.baidu.tieba.v1a
+    public void i0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.i0();
+            this.U.setOnTouchListener(null);
+            this.U.setOnClickListener(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.v1a, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.v1a, com.baidu.tieba.s1a
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) {
+            super.setData(threadData);
+            this.W0 = threadData;
+            if (this.X) {
+                VideoItemData videoItemData = new VideoItemData();
+                this.U0 = videoItemData;
+                videoItemData.buildWithThreadData(threadData);
+                return;
+            }
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
+            this.V0 = videoSerializeVideoThreadInfo;
+            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.V0;
+            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
+            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
+            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
+            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
         }
     }
 }

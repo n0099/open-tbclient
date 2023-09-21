@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class dr2 extends bp2<sr2> {
+public class dr2 extends ap2<rr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCameraFace" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCheekThin" : (String) invokeV.objValue;
     }
 
     public dr2() {
@@ -37,21 +36,16 @@ public class dr2 extends bp2<sr2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull sr2 sr2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sr2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rr2Var) == null) {
             String str = command.what;
-            d(sr2Var, str, "" + command.obj, true);
+            d(rr2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof String) {
-                String str2 = (String) obj;
-                if (TextUtils.equals(str2, "back")) {
-                    sr2Var.setCameraFace(false);
-                } else if (TextUtils.equals(str2, "front")) {
-                    sr2Var.setCameraFace(true);
-                }
+            if (obj instanceof Integer) {
+                rr2Var.J(((Integer) obj).intValue());
             }
         }
     }

@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eg;
+import com.baidu.tieba.dg;
 import com.baidu.tieba.vb;
 import com.baidu.tieba.zb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -131,7 +131,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.fg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.eg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -175,11 +175,11 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
                 zbVar.setGif(booleanValue3);
                 zbVar.f(this.mIsNeedFormat);
                 vb.f().a(zbVar);
-                eg egVar = (eg) objArr[3];
-                if (egVar != null) {
+                dg dgVar = (dg) objArr[3];
+                if (dgVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(zbVar);
-                    egVar.a = diskCancelWorker;
+                    dgVar.a = diskCancelWorker;
                 }
             }
         }

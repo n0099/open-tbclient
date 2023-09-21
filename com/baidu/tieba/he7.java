@@ -1,37 +1,44 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.RecommendPersonAttentionCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class he7 {
+public class he7 extends hc7<RecommendPersonAttentionCardView, e87> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmOverloads
-    public static final boolean a(View view2, Object obj, boolean z) {
-        InterceptResult invokeLLZ;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public he7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, view2, obj, z)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<this>");
-            if (Intrinsics.areEqual(view2.getTag(R.id.obfuscated_res_0x7f09299f), obj)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (z) {
-                view2.setTag(R.id.obfuscated_res_0x7f09299f, obj);
-            }
-            return false;
         }
-        return invokeLLZ.booleanValue;
     }
 
-    public static /* synthetic */ boolean b(View view2, Object obj, boolean z, int i, Object obj2) {
-        if ((i & 2) != 0) {
-            z = true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xc7
+    /* renamed from: e */
+    public void b(@NonNull RecommendPersonAttentionCardView recommendPersonAttentionCardView, @NonNull e87 e87Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendPersonAttentionCardView, e87Var) == null) {
+            recommendPersonAttentionCardView.update(e87Var);
         }
-        return a(view2, obj, z);
     }
 }

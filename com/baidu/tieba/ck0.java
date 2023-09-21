@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,32 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface ck0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "deviceInfo.bag");
-    public static final ck0 b = new a();
+    public static final ServiceReference b = new ServiceReference("nad.core", "deviceInfoInner");
+    public static final ck0 c = new a();
 
-    @Nullable
-    hs0 a();
-
-    @Nullable
-    hs0 b();
-
-    @Nullable
-    hs0 c();
-
-    @Nullable
-    hs0 d();
-
-    @Nullable
-    hs0 e();
-
-    @Nullable
-    hs0 f();
-
-    @Nullable
-    hs0 g();
-
-    @Nullable
-    boolean h();
+    String m();
 
     /* loaded from: classes5.dex */
     public class a implements ck0 {
@@ -43,83 +19,10 @@ public interface ck0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.ck0
-        public hs0 a() {
+        public String m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (hs0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ck0
-        public hs0 b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
-            }
-            return (hs0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ck0
-        public hs0 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (hs0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ck0
-        public hs0 d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return null;
-            }
-            return (hs0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ck0
-        public hs0 e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return null;
-            }
-            return (hs0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ck0
-        public hs0 f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return null;
-            }
-            return (hs0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ck0
-        public hs0 g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return null;
-            }
-            return (hs0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ck0
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
         }
 
         public a() {

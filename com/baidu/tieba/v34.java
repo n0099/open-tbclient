@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
+import android.app.AppOpsManager;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Process;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.appsearchlib.Info;
-import com.baidu.tieba.ug3;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,53 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import java.util.Calendar;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class v34 extends n34 {
+public class v34 extends m34 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public class a implements ug3.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lo2 a;
-
-        public a(v34 v34Var, lo2 lo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v34Var, lo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lo2Var;
-        }
-
-        @Override // com.baidu.tieba.ug3.f
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == -1) {
-                    v34.c(this.a, "202");
-                } else if (i == 1) {
-                    v34.c(this.a, BasicPushStatus.SUCCESS_CODE);
-                } else {
-                    this.a.onFail(101, "noPermission");
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -71,12 +41,12 @@ public class v34 extends n34 {
                 return;
             }
         }
-        c = rr1.a;
+        c = qr1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v34() {
-        super("addShortcutToDesktop");
+        super("GetAppUseDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,42 +62,76 @@ public class v34 extends n34 {
         }
     }
 
-    public static void c(lo2 lo2Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, lo2Var, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", str);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-            }
-            lo2Var.onSuccess(jSONObject);
-        }
-    }
-
-    @Override // com.baidu.tieba.n34
-    public h32 a(JSONObject jSONObject, lo2 lo2Var) {
+    @Override // com.baidu.tieba.m34
+    public g32 a(@NonNull JSONObject jSONObject, @NonNull ko2 ko2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lo2Var)) == null) {
-            hb3 b0 = hb3.b0();
-            if (b0 != null && b0.w() != null && b0.W() != null) {
-                if (ug3.s(b0.w(), b0.W().K(), b0.W().H()) == 1) {
-                    c(lo2Var, Info.kBaiduPIDValue);
-                    return null;
-                }
-                ug3.j(b0.w(), b0.W(), 1, new a(this, lo2Var));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ko2Var)) == null) {
+            if (jSONObject == null) {
+                ko2Var.onFail(202, "params may be error");
                 return null;
             }
-            lo2Var.onFail(100, "swan or activity is null");
             if (c) {
-                Log.d("AddShortcutToDesktop", "swan or activity is null");
-                return null;
+                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                ko2Var.onFail(202, "params may be error");
+            } else {
+                b(optString, ko2Var);
             }
             return null;
         }
-        return (h32) invokeLL.objValue;
+        return (g32) invokeLL.objValue;
+    }
+
+    public final void b(String str, @NonNull ko2 ko2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ko2Var) == null) {
+            try {
+                if (c()) {
+                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
+                    if (packageInfo != null) {
+                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
+                        if (queryUsageStats.size() == 0) {
+                            ko2Var.onFail(101, "noPermission");
+                            return;
+                        }
+                        for (UsageStats usageStats : queryUsageStats) {
+                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
+                                JSONObject jSONObject = new JSONObject();
+                                JSONObject jSONObject2 = new JSONObject();
+                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
+                                jSONObject.put("data", jSONObject2);
+                                ko2Var.onSuccess(jSONObject);
+                                return;
+                            }
+                        }
+                        ko2Var.onFail(31016, "no package info");
+                        return;
+                    }
+                    ko2Var.onFail(31016, "no package info");
+                    return;
+                }
+                ko2Var.onFail(101, "noPermission");
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                ko2Var.onFail(31011, "app is not installed");
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

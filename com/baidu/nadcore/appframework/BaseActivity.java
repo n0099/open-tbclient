@@ -18,15 +18,15 @@ import com.baidu.nadcore.widget.SlideHelper;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch0;
-import com.baidu.tieba.eh0;
-import com.baidu.tieba.h71;
-import com.baidu.tieba.ic1;
-import com.baidu.tieba.ik0;
-import com.baidu.tieba.kc1;
-import com.baidu.tieba.mo0;
-import com.baidu.tieba.q61;
-import com.baidu.tieba.s51;
+import com.baidu.tieba.bh0;
+import com.baidu.tieba.dh0;
+import com.baidu.tieba.g71;
+import com.baidu.tieba.hc1;
+import com.baidu.tieba.hk0;
+import com.baidu.tieba.jc1;
+import com.baidu.tieba.lo0;
+import com.baidu.tieba.p61;
+import com.baidu.tieba.r51;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -60,15 +60,15 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @CallSuper
-    public void B1(Bundle bundle) {
+    public void A1(Bundle bundle) {
     }
 
     @CallSuper
-    public void C1() {
+    public void B1() {
     }
 
     @CallSuper
-    public void D1(Intent intent) {
+    public void C1(Intent intent) {
     }
 
     @CallSuper
@@ -101,8 +101,8 @@ public class BaseActivity extends FragmentActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements ic1 {
-        @Override // com.baidu.tieba.ic1
+    public class a implements hc1 {
+        @Override // com.baidu.tieba.hc1
         public void onTranslucent(boolean z) {
         }
 
@@ -129,7 +129,7 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && this.a) {
                 this.a = false;
-                kc1.c(BaseActivity.this, null);
+                jc1.c(BaseActivity.this, null);
             }
             BaseActivity.this.setPreDecorPosition(0.0f);
         }
@@ -166,7 +166,7 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && !this.a) {
                 this.a = true;
-                kc1.d(BaseActivity.this, null);
+                jc1.d(BaseActivity.this, null);
             }
             float f3 = this.b >> 2;
             BaseActivity.this.setPreDecorPosition((f * f3) - f3);
@@ -211,7 +211,7 @@ public class BaseActivity extends FragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public final void onDestroy() {
         super.onDestroy();
-        C1();
+        B1();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -262,7 +262,7 @@ public class BaseActivity extends FragmentActivity {
     }
 
     public void setCurrentActivityNoTransparent() {
-        kc1.c(this, new a());
+        jc1.c(this, new a());
     }
 
     public final void startEnterActivityAnim() {
@@ -281,33 +281,13 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
-    public void L1(boolean z, SlideInterceptor slideInterceptor) {
-        this.f = z;
-        this.j = slideInterceptor;
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 82 && keyEvent.isLongPress()) {
-            return true;
-        }
-        return super.onKeyDown(i, keyEvent);
-    }
-
-    public final void setPreActivityPosition(Activity activity, float f) {
-        View decorView;
-        if (activity != null && activity.getWindow() != null && (decorView = activity.getWindow().getDecorView()) != null) {
-            decorView.setX(f);
-        }
-    }
-
     public static void setHasMultiWindowShow(boolean z) {
         s = z;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int checkSelfPermission(String str) {
-        if (q61.b.d()) {
+        if (p61.b.d()) {
             return super.checkSelfPermission(str);
         }
         return 0;
@@ -337,9 +317,9 @@ public class BaseActivity extends FragmentActivity {
     public void onMultiWindowModeChanged(boolean z) {
         super.onMultiWindowModeChanged(z);
         if (z && !s) {
-            s51.a().c(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
+            r51.a().c(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
             setHasMultiWindowShow(true);
-        } else if (!z && !q61.c()) {
+        } else if (!z && !p61.c()) {
             setHasMultiWindowShow(false);
         }
     }
@@ -376,7 +356,7 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // android.app.Activity
     public boolean shouldShowRequestPermissionRationale(@NonNull String str) {
-        if (q61.b.d() && super.shouldShowRequestPermissionRationale(str)) {
+        if (p61.b.d() && super.shouldShowRequestPermissionRationale(str)) {
             return true;
         }
         return false;
@@ -396,6 +376,26 @@ public class BaseActivity extends FragmentActivity {
         this.d = i4;
     }
 
+    public void L1(boolean z, SlideInterceptor slideInterceptor) {
+        this.f = z;
+        this.j = slideInterceptor;
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 82 && keyEvent.isLongPress()) {
+            return true;
+        }
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    public final void setPreActivityPosition(Activity activity, float f) {
+        View decorView;
+        if (activity != null && activity.getWindow() != null && (decorView = activity.getWindow().getDecorView()) != null) {
+            decorView.setX(f);
+        }
+    }
+
     public final void applySliding() {
         if (this.f) {
             boolean z = true;
@@ -406,7 +406,7 @@ public class BaseActivity extends FragmentActivity {
             if (this.h || !isTaskRoot()) {
                 z2 = z;
             }
-            int e = q61.c.e(this);
+            int e = p61.c.e(this);
             SlideHelper slideHelper = new SlideHelper();
             this.k = slideHelper;
             slideHelper.attachSlideView(this, findViewById(16908290));
@@ -426,7 +426,7 @@ public class BaseActivity extends FragmentActivity {
             str = "0";
         }
         if ((this.e || TextUtils.equals("1", str)) && findViewById(16908290) != null) {
-            ik0.c(new c());
+            hk0.c(new c());
         }
     }
 
@@ -437,32 +437,32 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public final void onCreate(Bundle bundle) {
-        if (eh0.a(this)) {
+        if (dh0.a(this)) {
             return;
         }
         try {
             if (!K1(bundle)) {
-                if (!ch0.a) {
+                if (!bh0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException("Class " + getClass() + " failed at preCreate");
             }
-            int d2 = h71.d(this);
+            int d2 = g71.d(this);
             super.onCreate(bundle);
-            h71.a(this, d2);
+            g71.a(this, d2);
             resetActivityAnim();
             try {
-                B1(bundle);
+                A1(bundle);
             } catch (Throwable th) {
-                if (!ch0.a) {
+                if (!bh0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException(th);
             }
         } catch (Throwable unused) {
-            if (!ch0.a) {
+            if (!bh0.a) {
                 finish();
                 return;
             }
@@ -487,9 +487,9 @@ public class BaseActivity extends FragmentActivity {
             }
         }
         try {
-            D1(intent);
+            C1(intent);
         } catch (Throwable th) {
-            if (!ch0.a) {
+            if (!bh0.a) {
                 finish();
                 return;
             }
@@ -514,10 +514,10 @@ public class BaseActivity extends FragmentActivity {
     public final void setPreDecorPosition(float f) {
         try {
             if (this.m == null || this.m.get() == null) {
-                this.m = new WeakReference<>(mo0.e());
+                this.m = new WeakReference<>(lo0.e());
             }
             if (this.m.get() != null) {
-                Activity f2 = mo0.f();
+                Activity f2 = lo0.f();
                 Activity activity = this.m.get();
                 if (f2 != null && activity != null && f2.getLocalClassName().equals(activity.getLocalClassName())) {
                     setPreActivityPosition(activity, 0.0f);

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE = "text";
     public int backgroundB;

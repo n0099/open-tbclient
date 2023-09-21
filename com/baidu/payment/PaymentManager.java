@@ -15,17 +15,17 @@ import com.baidu.tieba.ag1;
 import com.baidu.tieba.bg1;
 import com.baidu.tieba.cg1;
 import com.baidu.tieba.dg1;
-import com.baidu.tieba.eg1;
-import com.baidu.tieba.mg1;
-import com.baidu.tieba.pi1;
-import com.baidu.tieba.rh1;
+import com.baidu.tieba.lg1;
+import com.baidu.tieba.oi1;
+import com.baidu.tieba.qh1;
+import com.baidu.tieba.ri1;
 import com.baidu.tieba.si1;
-import com.baidu.tieba.ti1;
+import com.baidu.tieba.wf1;
+import com.baidu.tieba.wi1;
 import com.baidu.tieba.xf1;
-import com.baidu.tieba.xi1;
 import com.baidu.tieba.yf1;
+import com.baidu.tieba.yi1;
 import com.baidu.tieba.zf1;
-import com.baidu.tieba.zi1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,8 +40,8 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PaymentManager {
     public static /* synthetic */ Interceptable $ic = null;
-    public static mg1 b = null;
-    public static si1 c = null;
+    public static lg1 b = null;
+    public static ri1 c = null;
     public static int d = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -71,17 +71,17 @@ public class PaymentManager {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends mg1.c {
+    public class a extends lg1.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cg1 a;
+        public final /* synthetic */ bg1 a;
 
-        public a(PaymentManager paymentManager, cg1 cg1Var) {
+        public a(PaymentManager paymentManager, bg1 bg1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {paymentManager, cg1Var};
+                Object[] objArr = {paymentManager, bg1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,10 +91,10 @@ public class PaymentManager {
                     return;
                 }
             }
-            this.a = cg1Var;
+            this.a = bg1Var;
         }
 
-        @Override // com.baidu.tieba.mg1.c
+        @Override // com.baidu.tieba.lg1.c
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -116,93 +116,12 @@ public class PaymentManager {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements mg1.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eg1 a;
-
-        public b(PaymentManager paymentManager, eg1 eg1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {paymentManager, eg1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eg1Var;
-        }
-
-        @Override // com.baidu.tieba.mg1.d
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onError(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.mg1.d
-        public void onSuccess(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.onSuccess(str);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements xi1.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bg1 a;
-
-        public c(PaymentManager paymentManager, bg1 bg1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {paymentManager, bg1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bg1Var;
-        }
-
-        @Override // com.baidu.tieba.xi1.d
-        public void a(boolean z, zi1.a aVar) {
-            JSONObject a;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, aVar) == null) {
-                bg1 bg1Var = this.a;
-                if (aVar == null) {
-                    a = null;
-                } else {
-                    a = aVar.a();
-                }
-                bg1Var.a(z, a);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements pi1 {
+    public class b implements lg1.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dg1 a;
 
-        public d(PaymentManager paymentManager, dg1 dg1Var) {
+        public b(PaymentManager paymentManager, dg1 dg1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,11 +139,92 @@ public class PaymentManager {
             this.a = dg1Var;
         }
 
-        @Override // com.baidu.tieba.pi1
-        public void a(pi1.a aVar) {
+        @Override // com.baidu.tieba.lg1.d
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.onError(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.lg1.d
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.onSuccess(str);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements wi1.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ag1 a;
+
+        public c(PaymentManager paymentManager, ag1 ag1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {paymentManager, ag1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ag1Var;
+        }
+
+        @Override // com.baidu.tieba.wi1.d
+        public void a(boolean z, yi1.a aVar) {
+            JSONObject a;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, aVar) == null) {
+                ag1 ag1Var = this.a;
+                if (aVar == null) {
+                    a = null;
+                } else {
+                    a = aVar.a();
+                }
+                ag1Var.a(z, a);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements oi1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cg1 a;
+
+        public d(PaymentManager paymentManager, cg1 cg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {paymentManager, cg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cg1Var;
+        }
+
+        @Override // com.baidu.tieba.oi1
+        public void a(oi1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.a.a(pi1.a.a(aVar));
+                this.a.a(oi1.a.a(aVar));
             }
         }
     }
@@ -257,18 +257,18 @@ public class PaymentManager {
 
                 /* renamed from: com.baidu.payment.PaymentManager$2$a */
                 /* loaded from: classes3.dex */
-                public class a implements cg1 {
+                public class a implements bg1 {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ si1 a;
+                    public final /* synthetic */ ri1 a;
                     public final /* synthetic */ AnonymousClass2 b;
 
-                    public a(AnonymousClass2 anonymousClass2, si1 si1Var) {
+                    public a(AnonymousClass2 anonymousClass2, ri1 ri1Var) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass2, si1Var};
+                            Object[] objArr = {anonymousClass2, ri1Var};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -279,33 +279,33 @@ public class PaymentManager {
                             }
                         }
                         this.b = anonymousClass2;
-                        this.a = si1Var;
+                        this.a = ri1Var;
                     }
 
-                    @Override // com.baidu.tieba.cg1
+                    @Override // com.baidu.tieba.bg1
                     public void onPayResult(int i, String str) {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                            si1 si1Var = this.a;
-                            PaymentManager.g(si1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f029c) + str);
+                            ri1 ri1Var = this.a;
+                            PaymentManager.g(ri1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f029c) + str);
                         }
                     }
                 }
 
                 /* renamed from: com.baidu.payment.PaymentManager$2$b */
                 /* loaded from: classes3.dex */
-                public class b implements cg1 {
+                public class b implements bg1 {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ si1 a;
+                    public final /* synthetic */ ri1 a;
                     public final /* synthetic */ AnonymousClass2 b;
 
-                    public b(AnonymousClass2 anonymousClass2, si1 si1Var) {
+                    public b(AnonymousClass2 anonymousClass2, ri1 ri1Var) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass2, si1Var};
+                            Object[] objArr = {anonymousClass2, ri1Var};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -316,33 +316,33 @@ public class PaymentManager {
                             }
                         }
                         this.b = anonymousClass2;
-                        this.a = si1Var;
+                        this.a = ri1Var;
                     }
 
-                    @Override // com.baidu.tieba.cg1
+                    @Override // com.baidu.tieba.bg1
                     public void onPayResult(int i, String str) {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                            si1 si1Var = this.a;
-                            PaymentManager.g(si1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f1916) + str);
+                            ri1 ri1Var = this.a;
+                            PaymentManager.g(ri1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f191a) + str);
                         }
                     }
                 }
 
                 /* renamed from: com.baidu.payment.PaymentManager$2$c */
                 /* loaded from: classes3.dex */
-                public class c implements cg1 {
+                public class c implements bg1 {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ si1 a;
+                    public final /* synthetic */ ri1 a;
                     public final /* synthetic */ AnonymousClass2 b;
 
-                    public c(AnonymousClass2 anonymousClass2, si1 si1Var) {
+                    public c(AnonymousClass2 anonymousClass2, ri1 ri1Var) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass2, si1Var};
+                            Object[] objArr = {anonymousClass2, ri1Var};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -353,33 +353,33 @@ public class PaymentManager {
                             }
                         }
                         this.b = anonymousClass2;
-                        this.a = si1Var;
+                        this.a = ri1Var;
                     }
 
-                    @Override // com.baidu.tieba.cg1
+                    @Override // com.baidu.tieba.bg1
                     public void onPayResult(int i, String str) {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                            si1 si1Var = this.a;
-                            PaymentManager.g(si1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f0318) + str);
+                            ri1 ri1Var = this.a;
+                            PaymentManager.g(ri1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f0318) + str);
                         }
                     }
                 }
 
                 /* renamed from: com.baidu.payment.PaymentManager$2$d */
                 /* loaded from: classes3.dex */
-                public class d implements cg1 {
+                public class d implements bg1 {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ si1 a;
+                    public final /* synthetic */ ri1 a;
                     public final /* synthetic */ AnonymousClass2 b;
 
-                    public d(AnonymousClass2 anonymousClass2, si1 si1Var) {
+                    public d(AnonymousClass2 anonymousClass2, ri1 ri1Var) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {anonymousClass2, si1Var};
+                            Object[] objArr = {anonymousClass2, ri1Var};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -390,15 +390,15 @@ public class PaymentManager {
                             }
                         }
                         this.b = anonymousClass2;
-                        this.a = si1Var;
+                        this.a = ri1Var;
                     }
 
-                    @Override // com.baidu.tieba.cg1
+                    @Override // com.baidu.tieba.bg1
                     public void onPayResult(int i, String str) {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                            si1 si1Var = this.a;
-                            PaymentManager.g(si1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f043c) + str);
+                            ri1 ri1Var = this.a;
+                            PaymentManager.g(ri1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f043c) + str);
                         }
                     }
                 }
@@ -430,12 +430,12 @@ public class PaymentManager {
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public void pay(Activity activity2, ti1 ti1Var, si1 si1Var) {
+                public void pay(Activity activity2, si1 si1Var, ri1 ri1Var) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, activity2, ti1Var, si1Var) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, activity2, si1Var, ri1Var) == null) {
                         char c2 = 6;
-                        if (ti1Var != null && !TextUtils.isEmpty(ti1Var.a) && ti1Var.b != null) {
-                            String str = ti1Var.a;
+                        if (si1Var != null && !TextUtils.isEmpty(si1Var.a) && si1Var.b != null) {
+                            String str = si1Var.a;
                             switch (str.hashCode()) {
                                 case -1844318602:
                                     if (str.equals("BAIDU-ALIPAY-WISE-HUABEI-INSTALLMENT")) {
@@ -489,40 +489,40 @@ public class PaymentManager {
                                 case 0:
                                 case 1:
                                 case 2:
-                                    yf1 f = yf1.f();
+                                    xf1 f = xf1.f();
                                     Activity activity3 = this.val$businessActivity;
                                     if (activity3 == null) {
                                         activity3 = activity2;
                                     }
-                                    f.a(activity3, ti1Var.b.optString("orderInfo"), new a(this, si1Var));
+                                    f.a(activity3, si1Var.b.optString("orderInfo"), new a(this, ri1Var));
                                     break;
                                 case 3:
-                                    yf1.f().e(activity2, ti1Var.b, new b(this, si1Var));
+                                    xf1.f().e(activity2, si1Var.b, new b(this, ri1Var));
                                     break;
                                 case 4:
-                                    yf1 f2 = yf1.f();
+                                    xf1 f2 = xf1.f();
                                     Activity activity4 = this.val$businessActivity;
                                     if (activity4 == null) {
                                         activity4 = activity2;
                                     }
-                                    f2.b(activity4, ti1Var.b.optString("orderInfo"), new c(this, si1Var));
+                                    f2.b(activity4, si1Var.b.optString("orderInfo"), new c(this, ri1Var));
                                     break;
                                 case 5:
-                                    si1 unused = PaymentManager.c = si1Var;
-                                    zf1.c();
-                                    yf1.f().d(activity2, ti1Var.b);
+                                    ri1 unused = PaymentManager.c = ri1Var;
+                                    yf1.c();
+                                    xf1.f().d(activity2, si1Var.b);
                                     break;
                                 case 6:
-                                    yf1.f().c(activity2, ti1Var.b, new d(this, si1Var));
+                                    xf1.f().c(activity2, si1Var.b, new d(this, ri1Var));
                                     break;
                                 default:
-                                    si1Var.onResult(3, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f17b5));
+                                    ri1Var.onResult(3, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f17b9));
                                     break;
                             }
                             activity2.finish();
                             return;
                         }
-                        PaymentManager.g(si1Var, 6, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f0f21));
+                        PaymentManager.g(ri1Var, 6, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f0f23));
                     }
                 }
             };
@@ -530,18 +530,18 @@ public class PaymentManager {
         return (IChannelPay) invokeL.objValue;
     }
 
-    public void p(rh1 rh1Var) {
+    public void p(qh1 qh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rh1Var) == null) {
-            mg1 f = f(AppRuntime.getAppContext());
-            f.e(2, null, rh1Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qh1Var) == null) {
+            lg1 f = f(AppRuntime.getAppContext());
+            f.e(2, null, qh1Var);
             f.c();
         }
     }
 
-    public static void g(si1 si1Var, int i, String str) {
+    public static void g(ri1 ri1Var, int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65542, null, si1Var, i, str) == null) && si1Var != null) {
+        if ((interceptable == null || interceptable.invokeLIL(65542, null, ri1Var, i, str) == null) && ri1Var != null) {
             int i2 = 2;
             if (i != 0) {
                 if (i != 1) {
@@ -554,78 +554,78 @@ public class PaymentManager {
             } else {
                 i2 = 0;
             }
-            si1Var.onResult(i2, str);
+            ri1Var.onResult(i2, str);
         }
     }
 
-    public boolean d(Activity activity, String str, cg1 cg1Var) {
+    public boolean d(Activity activity, String str, bg1 bg1Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, cg1Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bg1Var)) == null) {
             if (TextUtils.isEmpty(str) || activity == null) {
                 return false;
             }
-            xf1.a().c(activity, str, cg1Var);
+            wf1.a().c(activity, str, bg1Var);
             return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    public boolean e(Activity activity, String str, cg1 cg1Var) {
+    public boolean e(Activity activity, String str, bg1 bg1Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, cg1Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, bg1Var)) == null) {
             if (TextUtils.isEmpty(str) || activity == null) {
                 return false;
             }
-            xf1.a().e(activity, str, cg1Var);
+            wf1.a().e(activity, str, bg1Var);
             return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    public void l(@NonNull Activity activity, @NonNull JSONArray jSONArray, @NonNull bg1 bg1Var) {
+    public void l(@NonNull Activity activity, @NonNull JSONArray jSONArray, @NonNull ag1 ag1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, jSONArray, bg1Var) == null) {
-            f(activity).f(activity, new zi1(jSONArray), new c(this, bg1Var));
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, jSONArray, ag1Var) == null) {
+            f(activity).f(activity, new yi1(jSONArray), new c(this, ag1Var));
         }
     }
 
-    public static mg1 f(Context context) {
+    public static lg1 f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            mg1 mg1Var = b;
-            if (mg1Var != null) {
-                return mg1Var;
+            lg1 lg1Var = b;
+            if (lg1Var != null) {
+                return lg1Var;
             }
             d = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
-            mg1.b bVar = new mg1.b();
+            lg1.b bVar = new lg1.b();
             bVar.g(d);
             bVar.e(context.getApplicationContext());
             bVar.f(false);
-            mg1 d2 = bVar.d();
+            lg1 d2 = bVar.d();
             b = d2;
             return d2;
         }
-        return (mg1) invokeL.objValue;
+        return (lg1) invokeL.objValue;
     }
 
     public static void i(int i, String str) {
-        si1 si1Var;
+        ri1 ri1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(65543, null, i, str) == null) && (si1Var = c) != null) {
-            si1Var.onResult(i, AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f11d7) + str);
+        if ((interceptable == null || interceptable.invokeIL(65543, null, i, str) == null) && (ri1Var = c) != null) {
+            ri1Var.onResult(i, AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f11d9) + str);
             c = null;
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public void j(Activity activity, JSONObject jSONObject, String[] strArr, cg1 cg1Var) {
+    public void j(Activity activity, JSONObject jSONObject, String[] strArr, bg1 bg1Var) {
         char c2;
         char c3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, jSONObject, strArr, cg1Var) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, jSONObject, strArr, bg1Var) == null) {
             String[] strArr2 = strArr;
             if (activity == null) {
                 return;
@@ -782,29 +782,29 @@ public class PaymentManager {
                 }
                 bundle.putString("chosenChannel", str);
             }
-            bundle.putString("zid", xf1.a().j(activity));
-            f(activity).b(activity, bundle, h(null), new PaymentAliChannelAuth(), ag1.d(), new a(this, cg1Var));
+            bundle.putString("zid", wf1.a().j(activity));
+            f(activity).b(activity, bundle, h(null), new PaymentAliChannelAuth(), zf1.d(), new a(this, bg1Var));
         }
     }
 
-    public void m(@NonNull Bundle bundle, @NonNull eg1 eg1Var) {
+    public void m(@NonNull Bundle bundle, @NonNull dg1 dg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, bundle, eg1Var) == null) {
-            f(AppRuntime.getAppContext()).d(bundle, new b(this, eg1Var));
+        if (interceptable == null || interceptable.invokeLL(1048581, this, bundle, dg1Var) == null) {
+            f(AppRuntime.getAppContext()).d(bundle, new b(this, dg1Var));
         }
     }
 
-    public void n(@NonNull Bundle bundle, @NonNull dg1 dg1Var) {
+    public void n(@NonNull Bundle bundle, @NonNull cg1 cg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, bundle, dg1Var) == null) {
-            f(AppRuntime.getAppContext()).a(bundle, new d(this, dg1Var));
+        if (interceptable == null || interceptable.invokeLL(1048582, this, bundle, cg1Var) == null) {
+            f(AppRuntime.getAppContext()).a(bundle, new d(this, cg1Var));
         }
     }
 
-    public void o(JSONObject jSONObject, rh1 rh1Var) {
+    public void o(JSONObject jSONObject, qh1 qh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, jSONObject, rh1Var) == null) {
-            f(AppRuntime.getAppContext()).e(1, jSONObject, rh1Var);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, jSONObject, qh1Var) == null) {
+            f(AppRuntime.getAppContext()).e(1, jSONObject, qh1Var);
         }
     }
 }

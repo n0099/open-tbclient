@@ -41,15 +41,15 @@ import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cd9;
-import com.baidu.tieba.cs5;
+import com.baidu.tieba.ds5;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryData;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusRequestMessage;
+import com.baidu.tieba.ne9;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.vr5;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.wr5;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView c;
     public TextView d;
     public BdListView e;
-    public cs5<PbHistoryData, vr5, cd9> f;
+    public ds5<PbHistoryData, wr5, ne9> f;
     public boolean g;
     public List<PbHistoryData> h;
     public List<Long> i;
@@ -89,7 +89,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         public final /* synthetic */ PbHistoryActivity a;
 
         /* loaded from: classes7.dex */
-        public class a implements y45.e {
+        public class a implements z45.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -112,18 +112,18 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                 this.a = dVar;
             }
 
-            @Override // com.baidu.tieba.y45.e
-            public void onClick(y45 y45Var) {
+            @Override // com.baidu.tieba.z45.e
+            public void onClick(z45 z45Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
                     this.a.a.j.clearCache();
-                    y45Var.dismiss();
+                    z45Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes7.dex */
-        public class b implements y45.e {
+        public class b implements z45.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,11 +143,11 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                 }
             }
 
-            @Override // com.baidu.tieba.y45.e
-            public void onClick(y45 y45Var) {
+            @Override // com.baidu.tieba.z45.e
+            public void onClick(z45 z45Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
-                    y45Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                    z45Var.dismiss();
                 }
             }
         }
@@ -174,11 +174,11 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                y45 y45Var = new y45(this.a.getPageContext().getPageActivity());
-                y45Var.setMessageId(R.string.obfuscated_res_0x7f0f0ff9);
-                y45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04c4, new a(this));
-                y45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d0, new b(this));
-                y45Var.create(this.a.getPageContext()).show();
+                z45 z45Var = new z45(this.a.getPageContext().getPageActivity());
+                z45Var.setMessageId(R.string.obfuscated_res_0x7f0f0ffb);
+                z45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04c4, new a(this));
+                z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d0, new b(this));
+                z45Var.create(this.a.getPageContext()).show();
             }
         }
     }
@@ -219,12 +219,12 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                     }
                 }
                 if (this.a.g) {
-                    this.a.C1();
+                    this.a.d1();
                     PbHistoryActivity pbHistoryActivity = this.a;
-                    pbHistoryActivity.G1(pbHistoryActivity.h);
+                    pbHistoryActivity.g1(pbHistoryActivity.h);
                     return;
                 }
-                this.a.E1(arrayList, 0L);
+                this.a.f1(arrayList, 0L);
                 this.a.g = true;
             }
         }
@@ -234,9 +234,9 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) && writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
                 if (!writeCacheMessage.isClear()) {
-                    this.a.D1();
+                    this.a.e1();
                 } else {
-                    this.a.G1(new ArrayList());
+                    this.a.g1(new ArrayList());
                 }
             }
         }
@@ -279,9 +279,9 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             if (httpResponsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
                 this.a.i = ((AlaMGetLiveStatusHttpResponseMessage) httpResponsedMessage).getCloseLives();
             }
-            this.a.C1();
+            this.a.d1();
             PbHistoryActivity pbHistoryActivity = this.a;
-            pbHistoryActivity.G1(pbHistoryActivity.h);
+            pbHistoryActivity.g1(pbHistoryActivity.h);
         }
     }
 
@@ -412,12 +412,12 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         this.m = new c(this);
     }
 
-    public final void G1(List<PbHistoryData> list) {
+    public final void g1(List<PbHistoryData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            cs5<PbHistoryData, vr5, cd9> cs5Var = this.f;
-            if (cs5Var != null) {
-                cs5Var.g(list);
+            ds5<PbHistoryData, wr5, ne9> ds5Var = this.f;
+            if (ds5Var != null) {
+                ds5Var.g(list);
             }
             if (list != null && list.size() != 0) {
                 this.d.setVisibility(0);
@@ -427,7 +427,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    public final void E1(List<Long> list, Long l) {
+    public final void f1(List<Long> list, Long l) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, l) == null) {
             AlaMGetLiveStatusRequestMessage alaMGetLiveStatusRequestMessage = new AlaMGetLiveStatusRequestMessage();
@@ -437,7 +437,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    public final void C1() {
+    public final void d1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !ListUtils.isEmpty(this.i) && !ListUtils.isEmpty(this.h)) {
             for (PbHistoryData pbHistoryData : this.h) {
@@ -450,7 +450,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    public final void D1() {
+    public final void e1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.j.loadCache();
@@ -471,7 +471,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            D1();
+            e1();
         }
     }
 
@@ -496,24 +496,24 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             this.j = pbHistoryCacheModel;
             pbHistoryCacheModel.setCallback(this.k);
             registerListener(this.l);
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ad, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ac, (ViewGroup) null);
             this.a = relativeLayout;
             setContentView(relativeLayout);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.b.setCenterTextTitle(getPageContext().getString(R.string.my_history));
-            this.c = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f0918fe);
+            this.c = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f0918ea);
             TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.clear_all_text));
             this.d = addTextButton;
             addTextButton.setOnClickListener(new d(this));
             this.d.setVisibility(8);
-            this.e = (BdListView) findViewById(R.id.obfuscated_res_0x7f091551);
+            this.e = (BdListView) findViewById(R.id.obfuscated_res_0x7f09153b);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070424)));
             this.e.w(textView, 0);
-            this.f = new cs5<>(getPageContext(), cd9.class, R.layout.obfuscated_res_0x7f0d07ae, null);
-            this.f.f(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07038f)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ffb)), null, null);
+            this.f = new ds5<>(getPageContext(), ne9.class, R.layout.obfuscated_res_0x7f0d07ad, null);
+            this.f.f(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07038f)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ffd)), null, null);
             this.e.setAdapter((ListAdapter) this.f);
             this.e.setOnItemClickListener(new e(this));
             this.e.setOnScrollListener(this.m);

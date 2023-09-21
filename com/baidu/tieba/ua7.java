@@ -1,68 +1,73 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.Agree;
-import tbclient.FeedSocialComponent;
+import org.json.JSONObject;
+import tbclient.FeedKV;
 /* loaded from: classes8.dex */
 public final class ua7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedSocialComponent feedSocialComponent, List<pc7<?>> dataList, u87 feedExtraData, aa7 videoSchemaData) {
-        boolean z;
+    public static final String a(List<FeedKV> list, String key) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, feedSocialComponent, dataList, feedExtraData, videoSchemaData) == null) {
-            Intrinsics.checkNotNullParameter(feedSocialComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            u97 u97Var = new u97();
-            Agree agree = feedSocialComponent.agree;
-            if (agree != null) {
-                Integer num = agree.agree_type;
-                Intrinsics.checkNotNullExpressionValue(num, "agree.agree_type");
-                u97Var.e = num.intValue();
-                Integer num2 = feedSocialComponent.agree.has_agree;
-                Intrinsics.checkNotNullExpressionValue(num2, "agree.has_agree");
-                if (num2.intValue() > 0) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            for (FeedKV feedKV : list) {
+                if (Intrinsics.areEqual(feedKV.key, key)) {
+                    return feedKV.value;
                 }
-                u97Var.f = z;
-                u97Var.g = feedSocialComponent.agree.agree_num.longValue();
-                Long l = feedSocialComponent.agree.diff_agree_num;
-                Intrinsics.checkNotNullExpressionValue(l, "agree.diff_agree_num");
-                u97Var.h = l.longValue();
-                Long l2 = feedSocialComponent.agree.disagree_num;
-                Intrinsics.checkNotNullExpressionValue(l2, "agree.disagree_num");
-                u97Var.i = l2.longValue();
             }
-            u97Var.a = feedSocialComponent.share_num.intValue();
-            u97Var.b = feedSocialComponent.comment_num.intValue();
-            u97Var.c = String.valueOf(feedSocialComponent.tid);
-            Long fid = feedSocialComponent.fid;
-            Intrinsics.checkNotNullExpressionValue(fid, "fid");
-            u97Var.d = fid.longValue();
-            u97Var.l = feedExtraData.a();
-            videoSchemaData.h(u97Var.f);
-            videoSchemaData.g(u97Var.g);
-            String str = u97Var.l.a().get("user_id");
-            if (str == null) {
-                str = "";
-            }
-            videoSchemaData.k(str);
-            String str2 = u97Var.l.a().get("has_concerned_user");
-            if (str2 == null) {
-                str2 = "0";
-            }
-            videoSchemaData.i(str2);
-            u97Var.j = videoSchemaData;
-            dataList.add(new qc7(new z77(u97Var, CollectionsKt__CollectionsKt.listOf((Object[]) new w97[]{v87.b(feedExtraData, "comment_btn_click"), v87.b(feedExtraData, "comment_btn_click2"), v87.b(feedExtraData, "comment_btn_click3")}), null, null, null, 28, null), "social_bar"));
+            return null;
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static final List<ea7> b(List<FeedKV> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            ArrayList arrayList = new ArrayList();
+            for (FeedKV feedKV : list) {
+                String str = feedKV.key;
+                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
+                ea7 ea7Var = new ea7(str, null, null, null, null, 30, null);
+                Map<String, String> d = ea7Var.d();
+                try {
+                    JSONObject jSONObject = new JSONObject(feedKV.value);
+                    if (d instanceof HashMap) {
+                        Iterator<String> keys = jSONObject.keys();
+                        Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
+                        while (keys.hasNext()) {
+                            String key = keys.next();
+                            if (!Intrinsics.areEqual(key, "position_name")) {
+                                Intrinsics.checkNotNullExpressionValue(key, "key");
+                                String optString = jSONObject.optString(key);
+                                Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(key)");
+                                d.put(key, optString);
+                            }
+                        }
+                    }
+                    String optString2 = jSONObject.optString("position_name");
+                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"position_name\")");
+                    ea7Var.g(optString2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                arrayList.add(ea7Var);
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

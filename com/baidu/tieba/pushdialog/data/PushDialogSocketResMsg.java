@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
-import com.baidu.tieba.w1a;
+import com.baidu.tieba.u3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 public class PushDialogSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w1a mData;
+    public u3a mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogSocketResMsg(int i) {
@@ -49,9 +49,9 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    w1a w1aVar = new w1a();
-                    this.mData = w1aVar;
-                    w1aVar.e(getLockWindowMsgResIdl.data);
+                    u3a u3aVar = new u3a();
+                    this.mData = u3aVar;
+                    u3aVar.e(getLockWindowMsgResIdl.data);
                 }
                 return getLockWindowMsgResIdl;
             } catch (IOException unused) {
@@ -61,12 +61,12 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public w1a getData() {
+    public u3a getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (w1a) invokeV.objValue;
+        return (u3a) invokeV.objValue;
     }
 }

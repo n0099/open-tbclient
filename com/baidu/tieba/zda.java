@@ -1,27 +1,96 @@
 package com.baidu.tieba;
 
+import android.content.res.Configuration;
+import android.os.Looper;
+import android.os.MessageQueue;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes9.dex */
 public class zda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<cn> a;
-    public List<RecommendForumInfo> b;
-    public Page c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
+    public bea a;
+    public aea b;
+    public cea c;
+
+    /* loaded from: classes9.dex */
+    public class a implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(zda zdaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zdaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_IDLE_END_STAMP_KEY);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(zda zdaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zdaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_HANDLER_END_STAMP_KEY);
+            }
+        }
+    }
 
     public zda() {
         Interceptable interceptable = $ic;
@@ -33,47 +102,100 @@ public class zda {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
     }
 
-    public List<cn> a() {
-        InterceptResult invokeV;
+    public void e() {
+        bea beaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (beaVar = this.a) != null) {
+            beaVar.a(false);
         }
-        return (List) invokeV.objValue;
     }
 
-    public void b(a17 a17Var) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a17Var) == null) {
-            String str = a17Var.d;
-            this.c = a17Var.c;
-            List<RecommendForumInfo> list = a17Var.a;
-            this.b = list;
-            if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.b) {
-                    yda ydaVar = new yda();
-                    ydaVar.i(recommendForumInfo);
-                    this.a.add(ydaVar);
-                }
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            aea aeaVar = this.b;
+            if (aeaVar != null) {
+                aeaVar.a();
             }
-            Page page = this.c;
-            if (page != null) {
-                boolean z = true;
-                if (page.has_more.intValue() != 1) {
-                    z = false;
-                }
-                this.d = z;
-                this.e = this.c.current_page.intValue();
+            MessageManager.getInstance().runTask(2921555, (Class) null);
+        }
+    }
+
+    public void a(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048576, this, baseFragmentActivity, viewGroup, i) != null) || baseFragmentActivity == null) {
+            return;
+        }
+        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_START_STAMP_KEY);
+        b(baseFragmentActivity, viewGroup, i);
+        c();
+        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_END_STAMP_KEY);
+    }
+
+    public final void b(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, viewGroup, i) == null) {
+            DefaultLog.getInstance().i("SplashAdDelegate", "开屏广告：initSplash");
+            fea feaVar = new fea(baseFragmentActivity, viewGroup, i);
+            this.a = feaVar;
+            gea geaVar = new gea(feaVar);
+            this.c = geaVar;
+            this.b = new jea(this.a, geaVar);
+            viewGroup.setBackgroundResource(R.drawable.pic_splash_logo);
+            bia.g().i(this.a.getUniqueId());
+            MessageManager.getInstance().runTask(2921668, (Class) null);
+            baseFragmentActivity.registerListener(new eea(this.a, this.c));
+        }
+    }
+
+    public final void c() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            DefaultLog.getInstance().i("SplashAdDelegate", "开屏广告：loadSplash");
+            boolean q = iw5.q();
+            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.REQUEST_AD_TIME).param("obj_type", "a064").param("tid", q ? 1 : 0).param(TiebaStatic.Params.BEAR_CONFIG, q ? 1 : 0).param(TiebaStatic.Params.PLG_CONFIG, iw5.w() ? 1 : 0);
+            int i2 = 2;
+            if (this.a.h()) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            StatisticItem param2 = param.param("obj_param1", i);
+            if (!this.a.h()) {
+                i2 = 1;
+            }
+            param2.param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.i()).eventStat();
+            Looper.myQueue().addIdleHandler(new a(this));
+            SafeHandler.getInst().post(new b(this));
+            this.b.b();
+        }
+    }
+
+    public void d(Configuration configuration) {
+        aea aeaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) && (aeaVar = this.b) != null) {
+            aeaVar.onConfigurationChanged(configuration);
+        }
+    }
+
+    public void f() {
+        bea beaVar;
+        cea ceaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (beaVar = this.a) != null) {
+            beaVar.a(true);
+            PageStayDurationItem pageStayDurationItem = this.a.getActivity().getPageStayDurationItem();
+            if (pageStayDurationItem != null) {
+                pageStayDurationItem.setAdSource(this.a.getAdSource());
+            }
+            if (this.a.f() && (ceaVar = this.c) != null) {
+                ceaVar.a();
             }
         }
     }

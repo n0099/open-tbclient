@@ -1,107 +1,82 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.feedback.FeedbackButtonStateType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.SendCardInfo;
 /* loaded from: classes6.dex */
-public final class jk9 {
+public class jk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tha a;
-    public final Function1<FeedbackButtonStateType, Unit> b;
-    public final Function0<Boolean> c;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof jk9) {
-                jk9 jk9Var = (jk9) obj;
-                return Intrinsics.areEqual(this.a, jk9Var.a) && Intrinsics.areEqual(this.b, jk9Var.b) && Intrinsics.areEqual(this.c, jk9Var.c);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            Function1<FeedbackButtonStateType, Unit> function1 = this.b;
-            int hashCode2 = (hashCode + (function1 == null ? 0 : function1.hashCode())) * 31;
-            Function0<Boolean> function0 = this.c;
-            return hashCode2 + (function0 != null ? function0.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "AigcFeedbackPostState(postData=" + this.a + ", onButtonClick=" + this.b + ", onInterceptClick=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public jk9(tha postData, Function1<? super FeedbackButtonStateType, Unit> function1, Function0<Boolean> function0) {
+    public jk9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {postData, function1, function0};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(postData, "postData");
-        this.a = postData;
-        this.b = function1;
-        this.c = function0;
     }
 
-    public final Function1<FeedbackButtonStateType, Unit> a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            if (this.e == 3) {
+                return true;
+            }
+            return false;
         }
-        return (Function1) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final Function0<Boolean> b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            if (this.e == 1) {
+                return true;
+            }
+            return false;
         }
-        return (Function0) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final tha c() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
+            this.b = jSONObject.optString("card_logo");
+            this.c = jSONObject.optString("card_name");
+            this.d = jSONObject.optString("card_pro");
+            this.e = jSONObject.optInt("card_get_status");
+            this.a = jSONObject.optLong("packet_id");
+            this.f = jSONObject.optString("card_num");
         }
-        return (tha) invokeV.objValue;
+    }
+
+    public void d(SendCardInfo sendCardInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) && sendCardInfo != null) {
+            this.b = sendCardInfo.card_logo;
+            this.c = sendCardInfo.card_name;
+            this.d = sendCardInfo.card_pro;
+            this.e = sendCardInfo.card_get_status.intValue();
+            this.a = sendCardInfo.packet_id.longValue();
+        }
     }
 }

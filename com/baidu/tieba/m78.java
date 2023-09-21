@@ -1,102 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-@Service
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes7.dex */
-public final class m78 implements hz4.d {
+public final class m78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
+    public boolean b;
 
-    @Override // com.baidu.tieba.hz4.d
-    public String getKey() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof m78) {
+                m78 m78Var = (m78) obj;
+                return this.a == m78Var.a && this.b == m78Var.b;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSearchGlobalHistory" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int a = b.a(this.a) * 31;
+            boolean z = this.b;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return a + i;
+        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a extends xx5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "ThreadMergeInfo(tid=" + this.a + ", isNeedRemoveDuplication=" + this.b + ')';
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.xx5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                uia.o(this.a);
-                return Boolean.TRUE;
-            }
-            return (Boolean) invokeV.objValue;
-        }
+        return (String) invokeV.objValue;
     }
 
-    public m78() {
+    public m78(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = j;
+        this.b = z;
     }
 
-    @Override // com.baidu.tieba.hz4.c
-    public void a(String data) {
-        String str;
+    public /* synthetic */ m78(long j, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(j, (i & 2) != 0 ? true : z);
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("BaseActivity", "收到H5通知，记录搜索历史：" + data);
-            try {
-                str = new JSONObject(data).optString("value", data);
-                Intrinsics.checkNotNullExpressionValue(str, "json.optString(\"value\", data)");
-            } catch (Exception e) {
-                TbLog defaultLog2 = DefaultLog.getInstance();
-                defaultLog2.i("BaseActivity", "记录搜索历史失败：" + e);
-                str = "";
-            }
-            if (!TextUtils.isEmpty(str)) {
-                by5.b(new a(str), null);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
         }
     }
 }

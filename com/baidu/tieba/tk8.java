@@ -1,40 +1,80 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class tk8 {
+public final class tk8 extends rk8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final tk8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public tk8(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948184200, "Lcom/baidu/tieba/tk8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948184200, "Lcom/baidu/tieba/tk8;");
+                return;
+            }
+        }
+        a = new tk8();
+    }
+
+    public tk8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = str;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bl8
+    /* renamed from: e */
+    public void a(ChatMsg sdkMsg, TbBaseMsg tbMsg, String extJson) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, sdkMsg, tbMsg, extJson) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            Intrinsics.checkNotNullParameter(extJson, "extJson");
+            sdkMsg.setCategory(0);
+            sdkMsg.setChatType(7);
+            sdkMsg.setContentExtra(extJson);
+            sdkMsg.setMsgContent(sdkMsg.getSendMsgContent());
         }
-        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bl8
+    /* renamed from: f */
+    public String c(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            String contentExtra = sdkMsg.getContentExtra();
+            Intrinsics.checkNotNullExpressionValue(contentExtra, "sdkMsg.contentExtra");
+            return contentExtra;
+        }
+        return (String) invokeL.objValue;
     }
 }

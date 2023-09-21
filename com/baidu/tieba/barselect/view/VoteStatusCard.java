@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii6;
-import com.baidu.tieba.ji6;
-import com.baidu.tieba.km;
-import com.baidu.tieba.si6;
+import com.baidu.tieba.jm;
+import com.baidu.tieba.mi6;
+import com.baidu.tieba.ni6;
 import com.baidu.tieba.view.NewVoteCountDownView;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.wi6;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,8 +37,8 @@ public class VoteStatusCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public ji6 c;
-    public ii6 d;
+    public ni6 c;
+    public mi6 d;
     public TextView e;
     public VoteStatusView f;
     public TextView g;
@@ -69,7 +69,7 @@ public class VoteStatusCard extends LinearLayout {
         public final /* synthetic */ VoteStatusCard a;
 
         /* loaded from: classes5.dex */
-        public class a implements y45.e {
+        public class a implements z45.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,11 +89,11 @@ public class VoteStatusCard extends LinearLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.y45.e
-            public void onClick(y45 y45Var) {
+            @Override // com.baidu.tieba.z45.e
+            public void onClick(z45 z45Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
-                    y45Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                    z45Var.dismiss();
                 }
             }
         }
@@ -120,16 +120,16 @@ public class VoteStatusCard extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                y45 y45Var = new y45((Activity) this.a.a);
+                z45 z45Var = new z45((Activity) this.a.a);
                 View inflate = LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d014e, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903c6);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903c0);
                 textView.setText(this.a.a.getResources().getString(R.string.vote_ueg_tip_detail_1) + "\n" + this.a.a.getResources().getString(R.string.vote_ueg_tip_detail_2));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-                y45Var.setContentView(inflate);
-                y45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b59, new a(this));
-                y45Var.create(((BaseActivity) this.a.a).getPageContext());
-                SkinManager.setBackgroundShapeDrawable(y45Var.getRealView(), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30), R.color.CAM_X0201, R.color.CAM_X0201);
-                y45Var.show();
+                z45Var.setContentView(inflate);
+                z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b5b, new a(this));
+                z45Var.create(((BaseActivity) this.a.a).getPageContext());
+                SkinManager.setBackgroundShapeDrawable(z45Var.getRealView(), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30), R.color.CAM_X0201, R.color.CAM_X0201);
+                z45Var.show();
             }
         }
     }
@@ -207,7 +207,7 @@ public class VoteStatusCard extends LinearLayout {
                 return;
             }
         }
-        this.b = si6.b;
+        this.b = wi6.b;
         this.u = new a(this);
         d();
     }
@@ -222,25 +222,25 @@ public class VoteStatusCard extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09035b);
-            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f092a2d);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902cb);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0902c6);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0902ca);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0902c7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090355);
+            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f0929f8);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902c9);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0902c4);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0902c8);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0902c5);
             this.k = (TextView) findViewById(R.id.vote_title);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092a2b);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd1);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd0);
-            this.p = findViewById(R.id.obfuscated_res_0x7f092a1a);
-            this.o = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f092a1b);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092a38);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0929f6);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9e);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9d);
+            this.p = findViewById(R.id.obfuscated_res_0x7f0929e5);
+            this.o = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f0929e6);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092a03);
             this.q = findViewById;
             if (findViewById != null) {
                 findViewById.setOnClickListener(new b(this));
             }
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f092a3a);
-            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f092a39);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f092a05);
+            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f092a04);
         }
     }
 
@@ -259,7 +259,7 @@ public class VoteStatusCard extends LinearLayout {
             int dimens = BdUtilHelper.getDimens(this.a, R.dimen.tbds56);
             int dimens2 = BdUtilHelper.getDimens(this.a, R.dimen.tbds52);
             setPadding(dimens, dimens2, dimens, dimens2);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a30, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a2d, (ViewGroup) this, true);
             c();
         }
     }
@@ -288,7 +288,7 @@ public class VoteStatusCard extends LinearLayout {
             }
             TextView textView3 = this.k;
             if (textView3 != null) {
-                if (this.b > si6.a) {
+                if (this.b > wi6.a) {
                     i2 = color;
                 } else {
                     i2 = color2;
@@ -297,7 +297,7 @@ public class VoteStatusCard extends LinearLayout {
             }
             TextView textView4 = this.m;
             if (textView4 != null) {
-                if (this.b <= si6.b) {
+                if (this.b <= wi6.b) {
                     color = color2;
                 }
                 textView4.setTextColor(color);
@@ -329,21 +329,21 @@ public class VoteStatusCard extends LinearLayout {
             SpannableString spannableString = new SpannableString(str);
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_common_explain12_gray66);
             drawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds32), UtilHelper.getDimenPixelSize(R.dimen.tbds32));
-            km kmVar = new km(drawable, 0);
-            kmVar.b(UtilHelper.getDimenPixelSize(R.dimen.tbds10));
-            spannableString.setSpan(kmVar, str.length() - 1, str.length(), 17);
+            jm jmVar = new jm(drawable, 0);
+            jmVar.b(UtilHelper.getDimenPixelSize(R.dimen.tbds10));
+            spannableString.setSpan(jmVar, str.length() - 1, str.length(), 17);
             this.r.setText(spannableString);
         }
     }
 
-    public void setData(ji6 ji6Var) {
+    public void setData(ni6 ni6Var) {
         long a2;
-        ii6 a3;
+        mi6 a3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ji6Var) == null) {
-            this.c = ji6Var;
-            if (ji6Var != null && ji6Var.a() != null) {
-                ii6 a4 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048581, this, ni6Var) == null) {
+            this.c = ni6Var;
+            if (ni6Var != null && ni6Var.a() != null) {
+                mi6 a4 = this.c.a();
                 this.d = a4;
                 int h = a4.h();
                 this.b = h;
@@ -359,7 +359,7 @@ public class VoteStatusCard extends LinearLayout {
                 this.j.setText(StringHelper.getDateStringMdHm(a2 * 1000));
                 this.l.setText(StringHelper.getDateStringMdHm(this.d.i() * 1000));
                 this.n.setText(StringHelper.getDateStringMdHm(this.d.e() * 1000));
-                if (this.b == si6.b) {
+                if (this.b == wi6.b) {
                     this.p.setVisibility(0);
                     NewVoteCountDownView.b bVar = this.u;
                     if (bVar != null) {
@@ -370,14 +370,14 @@ public class VoteStatusCard extends LinearLayout {
                     this.p.setVisibility(8);
                 }
                 int i = this.b;
-                if (i == si6.c) {
+                if (i == wi6.c) {
                     this.q.setVisibility(0);
-                } else if (i == si6.b) {
+                } else if (i == wi6.b) {
                     this.q.setVisibility(8);
                 } else {
                     this.q.setVisibility(8);
                 }
-                if (ji6Var.a() != null && (a3 = ji6Var.a()) != null) {
+                if (ni6Var.a() != null && (a3 = ni6Var.a()) != null) {
                     NoticeContent f = a3.f();
                     if (f != null && !TextUtils.isEmpty(f.public_notice)) {
                         g(f.public_notice + "占");

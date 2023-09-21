@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class yz7 extends va {
+import tbclient.GoodsWin;
+/* loaded from: classes8.dex */
+public class yz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Integer a;
+    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yz7() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,35 +22,29 @@ public class yz7 extends va {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.ya
-    public /* bridge */ /* synthetic */ HttpResponsedMessage g(HttpResponsedMessage httpResponsedMessage) {
-        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
-        i(httpResponsedMessage2);
-        return httpResponsedMessage2;
-    }
-
-    public HttpResponsedMessage i(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage == null) {
-                return httpResponsedMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.intValue() == 1) {
+                return true;
             }
-            if (httpResponsedMessage.getError() == 1990055 && !xz7.c(httpResponsedMessage.getCmd())) {
-                xz7.d();
-            }
-            return httpResponsedMessage;
+            return false;
         }
-        return (HttpResponsedMessage) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void b(GoodsWin goodsWin) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, goodsWin) == null) {
+            this.a = goodsWin.show;
+            this.b = goodsWin.goods_url;
+        }
     }
 }

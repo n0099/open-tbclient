@@ -1,29 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.eu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Timgs;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class oha implements q75 {
+public final class oha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
+    public final HotEventData a;
+    public final eu6.e b;
 
-    public oha(Timgs timgs) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof oha) {
+                oha ohaVar = (oha) obj;
+                return Intrinsics.areEqual(this.a, ohaVar.a) && Intrinsics.areEqual(this.b, ohaVar.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "HotEventShowData(hotEventData=" + this.a + ", dismissListener=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public oha(HotEventData hotEventData, eu6.e dismissListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {timgs};
+            Object[] objArr = {hotEventData, dismissListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,63 +62,27 @@ public class oha implements q75 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = 1;
-        this.d = 1;
-        if (timgs == null) {
-            return;
-        }
-        this.a = timgs.img_url;
-        timgs.flag.intValue();
-        this.b = timgs.url;
-        String str = timgs.big_cdn_url;
-        String str2 = timgs.des_main;
-        String str3 = timgs.des_sub;
-        String str4 = timgs.bsize;
-        if (str4 != null) {
-            try {
-                String[] split = str4.split(",");
-                this.c = JavaTypesHelper.toInt(split[0], 1);
-                this.d = JavaTypesHelper.toInt(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        if (this.c <= 0) {
-            this.c = 1;
-        }
-        if (this.d <= 0) {
-            this.d = 1;
-        }
+        Intrinsics.checkNotNullParameter(hotEventData, "hotEventData");
+        Intrinsics.checkNotNullParameter(dismissListener, "dismissListener");
+        this.a = hotEventData;
+        this.b = dismissListener;
     }
 
-    public String a() {
+    public final eu6.e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (eu6.e) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q75
-    public String getPicLinkUrl() {
+    public final HotEventData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.q75
-    public String getPicUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (HotEventData) invokeV.objValue;
     }
 }

@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.protobuf.MessageLiteOrBuilder;
 /* loaded from: classes7.dex */
-public /* synthetic */ class r90 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface r90 extends MessageLiteOrBuilder {
 }

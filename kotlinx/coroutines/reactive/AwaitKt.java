@@ -66,7 +66,7 @@ public final class AwaitKt {
                 if (tryEnterTerminalState(GameAssistConstKt.TYPE_CALLBACK_ERROR)) {
                     CancellableContinuation<T> cancellableContinuation = cancellableContinuationImpl;
                     Result.Companion companion = Result.Companion;
-                    cancellableContinuation.resumeWith(Result.m850constructorimpl(ResultKt.createFailure(th)));
+                    cancellableContinuation.resumeWith(Result.m852constructorimpl(ResultKt.createFailure(th)));
                 }
             }
 
@@ -115,7 +115,7 @@ public final class AwaitKt {
                     if (mode2 != Mode.FIRST_OR_DEFAULT && mode2 != Mode.FIRST && cancellableContinuationImpl.isActive()) {
                         CancellableContinuation<T> cancellableContinuation = cancellableContinuationImpl;
                         Result.Companion companion = Result.Companion;
-                        cancellableContinuation.resumeWith(Result.m850constructorimpl(this.value));
+                        cancellableContinuation.resumeWith(Result.m852constructorimpl(this.value));
                         return;
                     }
                     return;
@@ -125,14 +125,14 @@ public final class AwaitKt {
                     if (cancellableContinuationImpl.isActive()) {
                         CancellableContinuation<T> cancellableContinuation2 = cancellableContinuationImpl;
                         Result.Companion companion2 = Result.Companion;
-                        cancellableContinuation2.resumeWith(Result.m850constructorimpl(ResultKt.createFailure(new NoSuchElementException(Intrinsics.stringPlus("No value received via onNext for ", mode)))));
+                        cancellableContinuation2.resumeWith(Result.m852constructorimpl(ResultKt.createFailure(new NoSuchElementException(Intrinsics.stringPlus("No value received via onNext for ", mode)))));
                         return;
                     }
                     return;
                 }
                 CancellableContinuation<T> cancellableContinuation3 = cancellableContinuationImpl;
                 Result.Companion companion3 = Result.Companion;
-                cancellableContinuation3.resumeWith(Result.m850constructorimpl(t));
+                cancellableContinuation3.resumeWith(Result.m852constructorimpl(t));
             }
 
             @Override // org.reactivestreams.Subscriber
@@ -154,7 +154,7 @@ public final class AwaitKt {
                                     CancellableContinuation<T> cancellableContinuation2 = cancellableContinuationImpl;
                                     IllegalArgumentException illegalArgumentException = new IllegalArgumentException(Intrinsics.stringPlus("More than one onNext value for ", mode));
                                     Result.Companion companion = Result.Companion;
-                                    cancellableContinuation2.resumeWith(Result.m850constructorimpl(ResultKt.createFailure(illegalArgumentException)));
+                                    cancellableContinuation2.resumeWith(Result.m852constructorimpl(ResultKt.createFailure(illegalArgumentException)));
                                     return;
                                 }
                                 return;
@@ -169,7 +169,7 @@ public final class AwaitKt {
                         subscription.cancel();
                         CancellableContinuation<T> cancellableContinuation3 = cancellableContinuationImpl;
                         Result.Companion companion2 = Result.Companion;
-                        cancellableContinuation3.resumeWith(Result.m850constructorimpl(t2));
+                        cancellableContinuation3.resumeWith(Result.m852constructorimpl(t2));
                     }
                 }
             }

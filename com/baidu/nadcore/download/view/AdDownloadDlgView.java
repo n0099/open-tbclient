@@ -15,10 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.as0;
-import com.baidu.tieba.cj0;
-import com.baidu.tieba.kk0;
-import com.baidu.tieba.pl0;
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.jk0;
+import com.baidu.tieba.ol0;
+import com.baidu.tieba.zr0;
 /* loaded from: classes3.dex */
 public class AdDownloadDlgView extends RelativeLayout {
     public ImageView a;
@@ -41,30 +41,30 @@ public class AdDownloadDlgView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             String str;
-            if (!(AdDownloadDlgView.this.getTag() instanceof as0)) {
+            if (!(AdDownloadDlgView.this.getTag() instanceof zr0)) {
                 return;
             }
-            as0 as0Var = (as0) AdDownloadDlgView.this.getTag();
+            zr0 zr0Var = (zr0) AdDownloadDlgView.this.getTag();
             int id = view2.getId();
             if (id == R.id.nad_download_lp_dlg_privacy) {
-                as0.c cVar = as0Var.g;
+                zr0.c cVar = zr0Var.g;
                 if (cVar != null) {
                     str = cVar.b;
                 }
                 str = "";
             } else {
                 if (id == R.id.nad_download_lp_dlg_permission) {
-                    as0.b bVar = as0Var.h;
+                    zr0.b bVar = zr0Var.h;
                     if (bVar != null) {
                         str = bVar.b;
                     }
-                } else if (id == R.id.nad_download_lp_dlg_dev_name && !TextUtils.isEmpty(as0Var.d)) {
-                    AdDownloadDlgView.this.d(as0Var.d);
+                } else if (id == R.id.nad_download_lp_dlg_dev_name && !TextUtils.isEmpty(zr0Var.d)) {
+                    AdDownloadDlgView.this.d(zr0Var.d);
                     return;
                 }
                 str = "";
             }
-            cj0.c(kk0.a().a(str), AdDownloadDlgView.this.getContext());
+            bj0.c(jk0.a().a(str), AdDownloadDlgView.this.getContext());
         }
     }
 
@@ -89,29 +89,29 @@ public class AdDownloadDlgView extends RelativeLayout {
         c(context);
     }
 
-    public void b(pl0 pl0Var) {
+    public void b(ol0 ol0Var) {
         int i = 8;
-        if (pl0Var != null && pl0Var.b != null) {
-            this.i.setText(pl0Var.c);
+        if (ol0Var != null && ol0Var.b != null) {
+            this.i.setText(ol0Var.c);
             TextView textView = this.i;
-            if (pl0Var.a != 2) {
+            if (ol0Var.a != 2) {
                 i = 0;
             }
             textView.setVisibility(i);
-            as0 as0Var = pl0Var.b;
-            setTag(as0Var);
-            this.b.r(as0Var.b);
-            this.c.setText(as0Var.c);
-            this.d.setText(as0Var.j);
-            this.e.setText(as0Var.d);
+            zr0 zr0Var = ol0Var.b;
+            setTag(zr0Var);
+            this.b.r(zr0Var.b);
+            this.c.setText(zr0Var.c);
+            this.d.setText(zr0Var.j);
+            this.e.setText(zr0Var.d);
             this.e.setOnClickListener(this.k);
-            this.f.setText(as0Var.f);
-            as0.c cVar = as0Var.g;
+            this.f.setText(zr0Var.f);
+            zr0.c cVar = zr0Var.g;
             if (cVar != null && !TextUtils.isEmpty(cVar.b) && !TextUtils.isEmpty(cVar.a)) {
                 this.g.setText(cVar.a);
                 this.g.setOnClickListener(this.k);
             }
-            as0.b bVar = as0Var.h;
+            zr0.b bVar = zr0Var.h;
             if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(bVar.a)) {
                 this.h.setText(bVar.a);
                 this.h.setOnClickListener(this.k);

@@ -1,90 +1,344 @@
 package com.baidu.tieba;
 
+import android.graphics.Paint;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.w87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class y87 {
+public final class y87 implements w87, k97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final String b;
+    public final t87 b;
+    public final String c;
+    public final int d;
+    public final boolean e;
+    public final Integer f;
+    public final String g;
+    public final Integer h;
+    public final List<ea7> i;
+    public int j;
+    public boolean k;
+    public boolean l;
+    public String m;
+    public int n;
+    public String o;
+    public String p;
+    public t87 q;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public y87(String text, t87 t87Var, String str, int i, boolean z, Integer num, String str2, Integer num2) {
+        this(text, t87Var, str, i, z, num, str2, num2, null, 256, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {text, t87Var, str, Integer.valueOf(i), Boolean.valueOf(z), num, str2, num2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (t87) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Boolean) objArr2[4]).booleanValue(), (Integer) objArr2[5], (String) objArr2[6], (Integer) objArr2[7], (List) objArr2[8], ((Integer) objArr2[9]).intValue(), (DefaultConstructorMarker) objArr2[10]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(text, "text");
+    }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof y87) {
                 y87 y87Var = (y87) obj;
-                return Intrinsics.areEqual(this.a, y87Var.a) && Intrinsics.areEqual(this.b, y87Var.b);
+                return Intrinsics.areEqual(this.a, y87Var.a) && Intrinsics.areEqual(this.b, y87Var.b) && Intrinsics.areEqual(this.c, y87Var.c) && this.d == y87Var.d && this.e == y87Var.e && Intrinsics.areEqual(this.f, y87Var.f) && Intrinsics.areEqual(this.g, y87Var.g) && Intrinsics.areEqual(this.h, y87Var.h) && Intrinsics.areEqual(this.i, y87Var.i);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            String str2 = this.b;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            t87 t87Var = this.b;
+            int hashCode2 = (hashCode + (t87Var == null ? 0 : t87Var.hashCode())) * 31;
+            String str = this.c;
+            int hashCode3 = (((hashCode2 + (str == null ? 0 : str.hashCode())) * 31) + this.d) * 31;
+            boolean z = this.e;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            int i2 = (hashCode3 + i) * 31;
+            Integer num = this.f;
+            int hashCode4 = (i2 + (num == null ? 0 : num.hashCode())) * 31;
+            String str2 = this.g;
+            int hashCode5 = (hashCode4 + (str2 == null ? 0 : str2.hashCode())) * 31;
+            Integer num2 = this.h;
+            return ((hashCode5 + (num2 != null ? num2.hashCode() : 0)) * 31) + this.i.hashCode();
         }
         return invokeV.intValue;
+    }
+
+    public final void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        }
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FeedFeedbackUserData(userId=" + this.a + ", portrait=" + this.b + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return "EnableDegradeTextData(text=" + this.a + ", textColor=" + this.b + ", schema=" + this.c + ", priority=" + this.d + ", degradeEnable=" + this.e + ", degradeLength=" + this.f + ", degradeSuffix=" + this.g + ", degradePriority=" + this.h + ", clickStatDataList=" + this.i + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public y87(String str, String str2) {
+    @JvmOverloads
+    public y87(String text, t87 t87Var, String str, int i, boolean z, Integer num, String str2, Integer num2, List<ea7> clickStatDataList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {text, t87Var, str, Integer.valueOf(i), Boolean.valueOf(z), num, str2, num2, clickStatDataList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
+        Intrinsics.checkNotNullParameter(text, "text");
+        Intrinsics.checkNotNullParameter(clickStatDataList, "clickStatDataList");
+        this.a = text;
+        this.b = t87Var;
+        this.c = str;
+        this.d = i;
+        this.e = z;
+        this.f = num;
+        this.g = str2;
+        this.h = num2;
+        this.i = clickStatDataList;
+        this.j = i;
+        this.k = z;
+        this.l = true;
+        this.m = text;
+        this.n = text.length();
+        reset();
     }
 
-    public final String a() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ y87(String str, t87 t87Var, String str2, int i, boolean z, Integer num, String str3, Integer num2, List list, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, t87Var, str2, i, z, num, str3, num2, r10);
+        List list2;
+        if ((i2 & 256) != 0) {
+            list2 = CollectionsKt__CollectionsKt.emptyList();
+        } else {
+            list2 = list;
+        }
+    }
+
+    @Override // com.baidu.tieba.w87
+    public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.w87
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.w87
+    public String F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String b() {
+    @Override // com.baidu.tieba.k97
+    public List<ea7> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.o;
         }
         return (String) invokeV.objValue;
+    }
+
+    public final t87 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.q;
+        }
+        return (t87) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.p;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.w87
+    public int getPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public final t87 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.b;
+        }
+        return (t87) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.w87
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.l = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.w87
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.j = this.d;
+            this.k = this.e;
+            this.l = true;
+            String str = this.a;
+            this.m = str;
+            this.n = str.length();
+        }
+    }
+
+    @Override // com.baidu.tieba.w87
+    public boolean K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.n--;
+            StringBuilder sb = new StringBuilder();
+            String substring = this.a.substring(0, this.n);
+            Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
+            sb.append(substring);
+            sb.append(this.g);
+            this.m = sb.toString();
+            int i = this.n;
+            Integer num = this.f;
+            Intrinsics.checkNotNull(num);
+            if (i > num.intValue()) {
+                return false;
+            }
+            Integer num2 = this.h;
+            Intrinsics.checkNotNull(num2);
+            this.j = num2.intValue();
+            this.k = false;
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: b */
+    public int compareTo(w87 w87Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, w87Var)) == null) {
+            return w87.a.a(this, w87Var);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.w87
+    public int l(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048594, this, i, i2)) == null) {
+            Paint paint = new Paint();
+            paint.setTextSize(i);
+            return (int) paint.measureText(this.m);
+        }
+        return invokeII.intValue;
     }
 }

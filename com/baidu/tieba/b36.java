@@ -1,54 +1,40 @@
 package com.baidu.tieba;
 
+import android.graphics.Typeface;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class b36 {
+public class b36<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static DateFormat y;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public WheelView b;
     public WheelView c;
     public WheelView d;
-    public WheelView e;
-    public WheelView f;
-    public WheelView g;
-    public int h;
-    public boolean[] i;
-    public int j;
-    public int k;
-    public int l;
+    public List<T> e;
+    public List<List<T>> f;
+    public List<List<List<T>>> g;
+    public boolean h;
+    public boolean i;
+    public g36 j;
+    public g36 k;
+    public u26 l;
     public int m;
     public int n;
     public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public float u;
-    public WheelView.DividerType v;
-    public boolean w;
-    public r26 x;
+    public WheelView.DividerType p;
+    public float q;
 
     /* loaded from: classes5.dex */
-    public class a implements f36 {
+    public class a implements g36 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b36 a;
@@ -71,43 +57,39 @@ public class b36 {
             this.a = b36Var;
         }
 
-        @Override // com.baidu.tieba.f36
+        @Override // com.baidu.tieba.g36
         public void onItemSelected(int i) {
-            int h;
+            int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                int i2 = i + this.a.j;
-                this.a.c.setAdapter(new m26(v26.d(i2)));
-                if (v26.g(i2) != 0 && this.a.c.getCurrentItem() > v26.g(i2) - 1) {
-                    this.a.c.setCurrentItem(this.a.c.getCurrentItem() + 1);
-                } else {
-                    this.a.c.setCurrentItem(this.a.c.getCurrentItem());
+                if (this.a.f == null) {
+                    if (this.a.l != null) {
+                        this.a.l.a(this.a.b.getCurrentItem(), 0, 0);
+                        return;
+                    }
+                    return;
                 }
-                if (v26.g(i2) != 0 && this.a.c.getCurrentItem() > v26.g(i2) - 1) {
-                    if (this.a.c.getCurrentItem() == v26.g(i2) + 1) {
-                        this.a.d.setAdapter(new m26(v26.b(v26.f(i2))));
-                        h = v26.f(i2);
-                    } else {
-                        this.a.d.setAdapter(new m26(v26.b(v26.h(i2, this.a.c.getCurrentItem()))));
-                        h = v26.h(i2, this.a.c.getCurrentItem());
+                if (!this.a.i) {
+                    i2 = this.a.c.getCurrentItem();
+                    if (i2 >= ((List) this.a.f.get(i)).size() - 1) {
+                        i2 = ((List) this.a.f.get(i)).size() - 1;
                     }
                 } else {
-                    this.a.d.setAdapter(new m26(v26.b(v26.h(i2, this.a.c.getCurrentItem() + 1))));
-                    h = v26.h(i2, this.a.c.getCurrentItem() + 1);
+                    i2 = 0;
                 }
-                int i3 = h - 1;
-                if (this.a.d.getCurrentItem() > i3) {
-                    this.a.d.setCurrentItem(i3);
-                }
-                if (this.a.x != null) {
-                    this.a.x.a();
+                this.a.c.setAdapter(new n26((List) this.a.f.get(i)));
+                this.a.c.setCurrentItem(i2);
+                if (this.a.g != null) {
+                    this.a.k.onItemSelected(i2);
+                } else if (this.a.l != null) {
+                    this.a.l.a(i, i2, 0);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements f36 {
+    public class b implements g36 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b36 a;
@@ -130,211 +112,47 @@ public class b36 {
             this.a = b36Var;
         }
 
-        @Override // com.baidu.tieba.f36
+        @Override // com.baidu.tieba.g36
         public void onItemSelected(int i) {
-            int h;
+            int currentItem;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                int currentItem = this.a.b.getCurrentItem() + this.a.j;
-                if (v26.g(currentItem) != 0 && i > v26.g(currentItem) - 1) {
-                    if (this.a.c.getCurrentItem() == v26.g(currentItem) + 1) {
-                        this.a.d.setAdapter(new m26(v26.b(v26.f(currentItem))));
-                        h = v26.f(currentItem);
-                    } else {
-                        this.a.d.setAdapter(new m26(v26.b(v26.h(currentItem, i))));
-                        h = v26.h(currentItem, i);
+                int i2 = 0;
+                if (this.a.g != null) {
+                    int currentItem2 = this.a.b.getCurrentItem();
+                    if (currentItem2 >= this.a.g.size() - 1) {
+                        currentItem2 = this.a.g.size() - 1;
                     }
-                } else {
-                    int i2 = i + 1;
-                    this.a.d.setAdapter(new m26(v26.b(v26.h(currentItem, i2))));
-                    h = v26.h(currentItem, i2);
-                }
-                int i3 = h - 1;
-                if (this.a.d.getCurrentItem() > i3) {
-                    this.a.d.setCurrentItem(i3);
-                }
-                if (this.a.x != null) {
-                    this.a.x.a();
+                    if (i >= ((List) this.a.f.get(currentItem2)).size() - 1) {
+                        i = ((List) this.a.f.get(currentItem2)).size() - 1;
+                    }
+                    if (!this.a.i) {
+                        if (this.a.d.getCurrentItem() >= ((List) ((List) this.a.g.get(currentItem2)).get(i)).size() - 1) {
+                            currentItem = ((List) ((List) this.a.g.get(currentItem2)).get(i)).size() - 1;
+                        } else {
+                            currentItem = this.a.d.getCurrentItem();
+                        }
+                        i2 = currentItem;
+                    }
+                    this.a.d.setAdapter(new n26((List) ((List) this.a.g.get(this.a.b.getCurrentItem())).get(i)));
+                    this.a.d.setCurrentItem(i2);
+                    if (this.a.l != null) {
+                        this.a.l.a(this.a.b.getCurrentItem(), i, i2);
+                    }
+                } else if (this.a.l != null) {
+                    this.a.l.a(this.a.b.getCurrentItem(), i, 0);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements f36 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ b36 c;
-
-        public c(b36 b36Var, List list, List list2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b36Var, list, list2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = b36Var;
-            this.a = list;
-            this.b = list2;
-        }
-
-        @Override // com.baidu.tieba.f36
-        public void onItemSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                int i2 = i + this.c.j;
-                this.c.p = i2;
-                int currentItem = this.c.c.getCurrentItem();
-                if (this.c.j == this.c.k) {
-                    this.c.c.setAdapter(new n26(this.c.l, this.c.m));
-                    if (currentItem > this.c.c.getAdapter().getItemsCount() - 1) {
-                        currentItem = this.c.c.getAdapter().getItemsCount() - 1;
-                        this.c.c.setCurrentItem(currentItem);
-                    }
-                    int i3 = currentItem + this.c.l;
-                    if (this.c.l == this.c.m) {
-                        b36 b36Var = this.c;
-                        b36Var.F(i2, i3, b36Var.n, this.c.o, this.a, this.b);
-                    } else if (i3 == this.c.l) {
-                        b36 b36Var2 = this.c;
-                        b36Var2.F(i2, i3, b36Var2.n, 31, this.a, this.b);
-                    } else if (i3 == this.c.m) {
-                        b36 b36Var3 = this.c;
-                        b36Var3.F(i2, i3, 1, b36Var3.o, this.a, this.b);
-                    } else {
-                        this.c.F(i2, i3, 1, 31, this.a, this.b);
-                    }
-                } else if (i2 == this.c.j) {
-                    this.c.c.setAdapter(new n26(this.c.l, 12));
-                    if (currentItem > this.c.c.getAdapter().getItemsCount() - 1) {
-                        currentItem = this.c.c.getAdapter().getItemsCount() - 1;
-                        this.c.c.setCurrentItem(currentItem);
-                    }
-                    int i4 = currentItem + this.c.l;
-                    if (i4 == this.c.l) {
-                        b36 b36Var4 = this.c;
-                        b36Var4.F(i2, i4, b36Var4.n, 31, this.a, this.b);
-                    } else {
-                        this.c.F(i2, i4, 1, 31, this.a, this.b);
-                    }
-                } else if (i2 == this.c.k) {
-                    this.c.c.setAdapter(new n26(1, this.c.m));
-                    if (currentItem > this.c.c.getAdapter().getItemsCount() - 1) {
-                        currentItem = this.c.c.getAdapter().getItemsCount() - 1;
-                        this.c.c.setCurrentItem(currentItem);
-                    }
-                    int i5 = 1 + currentItem;
-                    if (i5 == this.c.m) {
-                        b36 b36Var5 = this.c;
-                        b36Var5.F(i2, i5, 1, b36Var5.o, this.a, this.b);
-                    } else {
-                        this.c.F(i2, i5, 1, 31, this.a, this.b);
-                    }
-                } else {
-                    this.c.c.setAdapter(new n26(1, 12));
-                    b36 b36Var6 = this.c;
-                    b36Var6.F(i2, 1 + b36Var6.c.getCurrentItem(), 1, 31, this.a, this.b);
-                }
-                if (this.c.x != null) {
-                    this.c.x.a();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements f36 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ b36 c;
-
-        public d(b36 b36Var, List list, List list2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b36Var, list, list2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = b36Var;
-            this.a = list;
-            this.b = list2;
-        }
-
-        @Override // com.baidu.tieba.f36
-        public void onItemSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                int i2 = i + 1;
-                if (this.c.j == this.c.k) {
-                    int i3 = (i2 + this.c.l) - 1;
-                    if (this.c.l == this.c.m) {
-                        b36 b36Var = this.c;
-                        b36Var.F(b36Var.p, i3, this.c.n, this.c.o, this.a, this.b);
-                    } else if (this.c.l == i3) {
-                        b36 b36Var2 = this.c;
-                        b36Var2.F(b36Var2.p, i3, this.c.n, 31, this.a, this.b);
-                    } else if (this.c.m == i3) {
-                        b36 b36Var3 = this.c;
-                        b36Var3.F(b36Var3.p, i3, 1, this.c.o, this.a, this.b);
-                    } else {
-                        b36 b36Var4 = this.c;
-                        b36Var4.F(b36Var4.p, i3, 1, 31, this.a, this.b);
-                    }
-                } else if (this.c.p == this.c.j) {
-                    int i4 = (i2 + this.c.l) - 1;
-                    if (i4 == this.c.l) {
-                        b36 b36Var5 = this.c;
-                        b36Var5.F(b36Var5.p, i4, this.c.n, 31, this.a, this.b);
-                    } else {
-                        b36 b36Var6 = this.c;
-                        b36Var6.F(b36Var6.p, i4, 1, 31, this.a, this.b);
-                    }
-                } else if (this.c.p == this.c.k) {
-                    if (i2 == this.c.m) {
-                        b36 b36Var7 = this.c;
-                        b36Var7.F(b36Var7.p, this.c.c.getCurrentItem() + 1, 1, this.c.o, this.a, this.b);
-                    } else {
-                        b36 b36Var8 = this.c;
-                        b36Var8.F(b36Var8.p, this.c.c.getCurrentItem() + 1, 1, 31, this.a, this.b);
-                    }
-                } else {
-                    b36 b36Var9 = this.c;
-                    b36Var9.F(b36Var9.p, i2, 1, 31, this.a, this.b);
-                }
-                if (this.c.x != null) {
-                    this.c.x.a();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements f36 {
+    public class c implements g36 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b36 a;
 
-        public e(b36 b36Var) {
+        public c(b36 b36Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -352,796 +170,294 @@ public class b36 {
             this.a = b36Var;
         }
 
-        @Override // com.baidu.tieba.f36
+        @Override // com.baidu.tieba.g36
         public void onItemSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.x.a();
+                this.a.l.a(this.a.b.getCurrentItem(), this.a.c.getCurrentItem(), i);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947594084, "Lcom/baidu/tieba/b36;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947594084, "Lcom/baidu/tieba/b36;");
-                return;
-            }
-        }
-        y = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    }
-
-    public b36(View view2, boolean[] zArr, int i, int i2) {
+    public b36(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, zArr, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {view2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = FeatureCodes.SKY_SEG;
-        this.k = 2100;
-        this.l = 1;
-        this.m = 12;
-        this.n = 1;
-        this.o = 31;
-        this.w = false;
+        this.h = true;
+        this.i = z;
         this.a = view2;
-        this.i = zArr;
-        this.h = i;
-        this.q = i2;
-        O(view2);
+        this.b = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091a0d);
+        this.c = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091a0e);
+        this.d = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091a0f);
     }
 
-    public void A(float f) {
+    public void B(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.u = f;
-            z();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.m = i;
+            A();
         }
     }
 
-    public void C(boolean z) {
+    public void C(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.w = z;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            float f = i;
+            this.b.setTextSize(f);
+            this.c.setTextSize(f);
+            this.d.setTextSize(f);
         }
     }
 
-    public void G(r26 r26Var) {
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, r26Var) == null) {
-            this.x = r26Var;
-        }
-    }
-
-    public void I(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void K(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.s = i;
-            J();
-        }
-    }
-
-    public void M(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.r = i;
-            L();
-        }
-    }
-
-    public void O(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
-            this.a = view2;
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.d.h(z);
-            this.c.h(z);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.b.h(z);
-            this.e.h(z);
-            this.f.h(z);
-            this.g.h(z);
+            this.c.h(z);
+            this.d.h(z);
         }
     }
 
-    public final void q(WheelView wheelView) {
+    public void m(Typeface typeface) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, wheelView) == null) && this.x != null) {
-            wheelView.setOnItemSelectedListener(new e(this));
+        if (interceptable == null || interceptable.invokeL(1048583, this, typeface) == null) {
+            this.b.setCenterTypeface(typeface);
+            this.c.setCenterTypeface(typeface);
+            this.d.setCenterTypeface(typeface);
         }
     }
 
-    public void s(boolean z) {
+    public void o(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.b.setCyclic(z);
             this.c.setCyclic(z);
             this.d.setCyclic(z);
-            this.e.setCyclic(z);
-            this.f.setCyclic(z);
-            this.g.setCyclic(z);
         }
     }
 
-    public void u(int i) {
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.t = i;
-            t();
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.o = i;
+            p();
         }
     }
 
-    public void w(WheelView.DividerType dividerType) {
+    public void s(WheelView.DividerType dividerType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, dividerType) == null) {
-            this.v = dividerType;
-            v();
+        if (interceptable == null || interceptable.invokeL(1048589, this, dividerType) == null) {
+            this.p = dividerType;
+            r();
         }
     }
 
-    public void x(int i) {
+    public void t(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.k = i;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.b.setItemsVisible(i);
+            this.c.setItemsVisible(i);
+            this.d.setItemsVisible(i);
         }
     }
 
-    public final void B(int i, int i2, int i3, boolean z, int i4, int i5, int i6) {
-        int i7;
-        int i8;
-        int i9;
-        int i10;
-        int i11;
+    public void v(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            WheelView wheelView = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f092ad4);
-            this.b = wheelView;
-            wheelView.setAdapter(new m26(v26.e(this.j, this.k)));
-            this.b.setLabel("");
-            this.b.setCurrentItem(i - this.j);
-            this.b.setGravity(this.h);
-            WheelView wheelView2 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f091798);
-            this.c = wheelView2;
-            wheelView2.setAdapter(new m26(v26.d(i)));
-            this.c.setLabel("");
-            int g = v26.g(i);
-            if (g != 0 && (i2 > g - 1 || z)) {
-                this.c.setCurrentItem(i2 + 1);
-            } else {
-                this.c.setCurrentItem(i2);
-            }
-            this.c.setGravity(this.h);
-            this.d = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f090853);
-            if (v26.g(i) == 0) {
-                this.d.setAdapter(new m26(v26.b(v26.h(i, i2))));
-            } else {
-                this.d.setAdapter(new m26(v26.b(v26.f(i))));
-            }
-            this.d.setLabel("");
-            this.d.setCurrentItem(i3 - 1);
-            this.d.setGravity(this.h);
-            WheelView wheelView3 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f090fe4);
-            this.e = wheelView3;
-            int i12 = 0;
-            wheelView3.setAdapter(new n26(0, 23));
-            this.e.setCurrentItem(i4);
-            this.e.setGravity(this.h);
-            WheelView wheelView4 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f091780);
-            this.f = wheelView4;
-            wheelView4.setAdapter(new n26(0, 59));
-            this.f.setCurrentItem(i5);
-            this.f.setGravity(this.h);
-            WheelView wheelView5 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f09218b);
-            this.g = wheelView5;
-            wheelView5.setAdapter(new n26(0, 59));
-            this.g.setCurrentItem(i5);
-            this.g.setGravity(this.h);
-            this.b.setOnItemSelectedListener(new a(this));
-            this.c.setOnItemSelectedListener(new b(this));
-            q(this.d);
-            q(this.e);
-            q(this.f);
-            q(this.g);
-            boolean[] zArr = this.i;
-            if (zArr.length == 6) {
-                WheelView wheelView6 = this.b;
-                if (zArr[0]) {
-                    i7 = 0;
-                } else {
-                    i7 = 8;
-                }
-                wheelView6.setVisibility(i7);
-                WheelView wheelView7 = this.c;
-                if (this.i[1]) {
-                    i8 = 0;
-                } else {
-                    i8 = 8;
-                }
-                wheelView7.setVisibility(i8);
-                WheelView wheelView8 = this.d;
-                if (this.i[2]) {
-                    i9 = 0;
-                } else {
-                    i9 = 8;
-                }
-                wheelView8.setVisibility(i9);
-                WheelView wheelView9 = this.e;
-                if (this.i[3]) {
-                    i10 = 0;
-                } else {
-                    i10 = 8;
-                }
-                wheelView9.setVisibility(i10);
-                WheelView wheelView10 = this.f;
-                if (this.i[4]) {
-                    i11 = 0;
-                } else {
-                    i11 = 8;
-                }
-                wheelView10.setVisibility(i11);
-                WheelView wheelView11 = this.g;
-                if (!this.i[5]) {
-                    i12 = 8;
-                }
-                wheelView11.setVisibility(i12);
-                r();
-                return;
-            }
-            throw new RuntimeException("type[] length is not 6");
+        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
+            this.q = f;
+            u();
         }
     }
 
-    public void D(int i, int i2, int i3, int i4, int i5, int i6) {
-        boolean z;
+    public void w(u26 u26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            if (this.w) {
-                int[] d2 = w26.d(i, i2 + 1, i3);
-                int i7 = d2[0];
-                int i8 = d2[1] - 1;
-                int i9 = d2[2];
-                if (d2[3] == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                B(i7, i8, i9, z, i4, i5, i6);
-                return;
-            }
-            H(i, i2, i3, i4, i5, i6);
+        if (interceptable == null || interceptable.invokeL(1048593, this, u26Var) == null) {
+            this.l = u26Var;
         }
     }
 
-    public void E(Calendar calendar, Calendar calendar2) {
+    public void z(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, calendar, calendar2) == null) {
-            if (calendar == null && calendar2 != null) {
-                int i = calendar2.get(1);
-                int i2 = calendar2.get(2) + 1;
-                int i3 = calendar2.get(5);
-                int i4 = this.j;
-                if (i > i4) {
-                    this.k = i;
-                    this.m = i2;
-                    this.o = i3;
-                } else if (i == i4) {
-                    int i5 = this.l;
-                    if (i2 > i5) {
-                        this.k = i;
-                        this.m = i2;
-                        this.o = i3;
-                    } else if (i2 == i5 && i3 > this.n) {
-                        this.k = i;
-                        this.m = i2;
-                        this.o = i3;
-                    }
-                }
-            } else if (calendar != null && calendar2 == null) {
-                int i6 = calendar.get(1);
-                int i7 = calendar.get(2) + 1;
-                int i8 = calendar.get(5);
-                int i9 = this.k;
-                if (i6 < i9) {
-                    this.l = i7;
-                    this.n = i8;
-                    this.j = i6;
-                } else if (i6 == i9) {
-                    int i10 = this.m;
-                    if (i7 < i10) {
-                        this.l = i7;
-                        this.n = i8;
-                        this.j = i6;
-                    } else if (i7 == i10 && i8 < this.o) {
-                        this.l = i7;
-                        this.n = i8;
-                        this.j = i6;
-                    }
-                }
-            } else if (calendar != null && calendar2 != null) {
-                this.j = calendar.get(1);
-                this.k = calendar2.get(1);
-                this.l = calendar.get(2) + 1;
-                this.m = calendar2.get(2) + 1;
-                this.n = calendar.get(5);
-                this.o = calendar2.get(5);
-            }
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.n = i;
+            y();
         }
     }
 
-    public final void F(int i, int i2, int i3, int i4, List<String> list, List<String> list2) {
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), list, list2}) == null) {
-            int currentItem = this.d.getCurrentItem();
-            if (list.contains(String.valueOf(i2))) {
-                if (i4 > 31) {
-                    i4 = 31;
-                }
-                this.d.setAdapter(new n26(i3, i4));
-            } else if (list2.contains(String.valueOf(i2))) {
-                if (i4 > 30) {
-                    i4 = 30;
-                }
-                this.d.setAdapter(new n26(i3, i4));
-            } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                if (i4 > 29) {
-                    i4 = 29;
-                }
-                this.d.setAdapter(new n26(i3, i4));
-            } else {
-                if (i4 > 28) {
-                    i4 = 28;
-                }
-                this.d.setAdapter(new n26(i3, i4));
-            }
-            if (currentItem > this.d.getAdapter().getItemsCount() - 1) {
-                this.d.setCurrentItem(this.d.getAdapter().getItemsCount() - 1);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.setTextColorOut(this.m);
+            this.c.setTextColorOut(this.m);
+            this.d.setTextColorOut(this.m);
         }
     }
 
-    public final void H(int i, int i2, int i3, int i4, int i5, int i6) {
-        int i7;
-        int i8;
-        int i9;
-        int i10;
-        int i11;
-        int i12;
-        int i13;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            List asList = Arrays.asList("1", "3", "5", "7", "8", "10", "12");
-            List asList2 = Arrays.asList("4", "6", "9", "11");
-            this.p = i;
-            WheelView wheelView = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f092ad4);
-            this.b = wheelView;
-            wheelView.setAdapter(new n26(this.j, this.k));
-            this.b.setCurrentItem(i - this.j);
-            this.b.setGravity(this.h);
-            WheelView wheelView2 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f091798);
-            this.c = wheelView2;
-            int i14 = this.j;
-            int i15 = this.k;
-            if (i14 == i15) {
-                wheelView2.setAdapter(new n26(this.l, this.m));
-                this.c.setCurrentItem((i2 + 1) - this.l);
-            } else if (i == i14) {
-                wheelView2.setAdapter(new n26(this.l, 12));
-                this.c.setCurrentItem((i2 + 1) - this.l);
-            } else if (i == i15) {
-                wheelView2.setAdapter(new n26(1, this.m));
-                this.c.setCurrentItem(i2);
-            } else {
-                wheelView2.setAdapter(new n26(1, 12));
-                this.c.setCurrentItem(i2);
-            }
-            this.c.setGravity(this.h);
-            this.d = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f090853);
-            if (this.j == this.k && this.l == this.m) {
-                int i16 = i2 + 1;
-                if (asList.contains(String.valueOf(i16))) {
-                    if (this.o > 31) {
-                        this.o = 31;
-                    }
-                    this.d.setAdapter(new n26(this.n, this.o));
-                } else if (asList2.contains(String.valueOf(i16))) {
-                    if (this.o > 30) {
-                        this.o = 30;
-                    }
-                    this.d.setAdapter(new n26(this.n, this.o));
-                } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                    if (this.o > 29) {
-                        this.o = 29;
-                    }
-                    this.d.setAdapter(new n26(this.n, this.o));
-                } else {
-                    if (this.o > 28) {
-                        this.o = 28;
-                    }
-                    this.d.setAdapter(new n26(this.n, this.o));
-                }
-                this.d.setCurrentItem(i3 - this.n);
-            } else if (i == this.j && (i8 = i2 + 1) == this.l) {
-                if (asList.contains(String.valueOf(i8))) {
-                    this.d.setAdapter(new n26(this.n, 31));
-                } else if (asList2.contains(String.valueOf(i8))) {
-                    this.d.setAdapter(new n26(this.n, 30));
-                } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                    this.d.setAdapter(new n26(this.n, 29));
-                } else {
-                    this.d.setAdapter(new n26(this.n, 28));
-                }
-                this.d.setCurrentItem(i3 - this.n);
-            } else if (i == this.k && (i7 = i2 + 1) == this.m) {
-                if (asList.contains(String.valueOf(i7))) {
-                    if (this.o > 31) {
-                        this.o = 31;
-                    }
-                    this.d.setAdapter(new n26(1, this.o));
-                } else if (asList2.contains(String.valueOf(i7))) {
-                    if (this.o > 30) {
-                        this.o = 30;
-                    }
-                    this.d.setAdapter(new n26(1, this.o));
-                } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                    if (this.o > 29) {
-                        this.o = 29;
-                    }
-                    this.d.setAdapter(new n26(1, this.o));
-                } else {
-                    if (this.o > 28) {
-                        this.o = 28;
-                    }
-                    this.d.setAdapter(new n26(1, this.o));
-                }
-                this.d.setCurrentItem(i3 - 1);
-            } else {
-                int i17 = i2 + 1;
-                if (asList.contains(String.valueOf(i17))) {
-                    this.d.setAdapter(new n26(1, 31));
-                } else if (asList2.contains(String.valueOf(i17))) {
-                    this.d.setAdapter(new n26(1, 30));
-                } else if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
-                    this.d.setAdapter(new n26(1, 29));
-                } else {
-                    this.d.setAdapter(new n26(1, 28));
-                }
-                this.d.setCurrentItem(i3 - 1);
-            }
-            this.d.setGravity(this.h);
-            WheelView wheelView3 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f090fe4);
-            this.e = wheelView3;
-            int i18 = 0;
-            wheelView3.setAdapter(new n26(0, 23));
-            this.e.setCurrentItem(i4);
-            this.e.setGravity(this.h);
-            WheelView wheelView4 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f091780);
-            this.f = wheelView4;
-            wheelView4.setAdapter(new n26(0, 59));
-            this.f.setCurrentItem(i5);
-            this.f.setGravity(this.h);
-            WheelView wheelView5 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f09218b);
-            this.g = wheelView5;
-            wheelView5.setAdapter(new n26(0, 59));
-            this.g.setCurrentItem(i6);
-            this.g.setGravity(this.h);
-            this.b.setOnItemSelectedListener(new c(this, asList, asList2));
-            this.c.setOnItemSelectedListener(new d(this, asList, asList2));
-            q(this.d);
-            q(this.e);
-            q(this.f);
-            q(this.g);
-            boolean[] zArr = this.i;
-            if (zArr.length == 6) {
-                WheelView wheelView6 = this.b;
-                if (zArr[0]) {
-                    i9 = 0;
-                } else {
-                    i9 = 8;
-                }
-                wheelView6.setVisibility(i9);
-                WheelView wheelView7 = this.c;
-                if (this.i[1]) {
-                    i10 = 0;
-                } else {
-                    i10 = 8;
-                }
-                wheelView7.setVisibility(i10);
-                WheelView wheelView8 = this.d;
-                if (this.i[2]) {
-                    i11 = 0;
-                } else {
-                    i11 = 8;
-                }
-                wheelView8.setVisibility(i11);
-                WheelView wheelView9 = this.e;
-                if (this.i[3]) {
-                    i12 = 0;
-                } else {
-                    i12 = 8;
-                }
-                wheelView9.setVisibility(i12);
-                WheelView wheelView10 = this.f;
-                if (this.i[4]) {
-                    i13 = 0;
-                } else {
-                    i13 = 8;
-                }
-                wheelView10.setVisibility(i13);
-                WheelView wheelView11 = this.g;
-                if (!this.i[5]) {
-                    i18 = 8;
-                }
-                wheelView11.setVisibility(i18);
-                r();
-                return;
-            }
-            throw new IllegalArgumentException("type[] length is not 6");
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.invalidate();
+            this.c.invalidate();
+            this.d.invalidate();
         }
     }
 
-    public final void J() {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.d.setTextColorCenter(this.s);
-            this.c.setTextColorCenter(this.s);
-            this.b.setTextColorCenter(this.s);
-            this.e.setTextColorCenter(this.s);
-            this.f.setTextColorCenter(this.s);
-            this.g.setTextColorCenter(this.s);
-        }
-    }
-
-    public final void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.d.setTextColorOut(this.r);
-            this.c.setTextColorOut(this.r);
-            this.b.setTextColorOut(this.r);
-            this.e.setTextColorOut(this.r);
-            this.f.setTextColorOut(this.r);
-            this.g.setTextColorOut(this.r);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.b.setDividerColor(this.o);
+            this.c.setDividerColor(this.o);
+            this.d.setDividerColor(this.o);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.b.setDividerType(this.p);
+            this.c.setDividerType(this.p);
+            this.d.setDividerType(this.p);
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.b.setLineSpacingMultiplier(this.q);
+            this.c.setLineSpacingMultiplier(this.q);
+            this.d.setLineSpacingMultiplier(this.q);
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.d.setTextSize(this.q);
-            this.c.setTextSize(this.q);
-            this.b.setTextSize(this.q);
-            this.e.setTextSize(this.q);
-            this.f.setTextSize(this.q);
-            this.g.setTextSize(this.q);
+            this.b.setTextColorCenter(this.n);
+            this.c.setTextColorCenter(this.n);
+            this.d.setTextColorCenter(this.n);
         }
     }
 
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.d.setDividerColor(this.t);
-            this.c.setDividerColor(this.t);
-            this.b.setDividerColor(this.t);
-            this.e.setDividerColor(this.t);
-            this.f.setDividerColor(this.t);
-            this.g.setDividerColor(this.t);
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.d.setDividerType(this.v);
-            this.c.setDividerType(this.v);
-            this.b.setDividerType(this.v);
-            this.e.setDividerType(this.v);
-            this.f.setDividerType(this.v);
-            this.g.setDividerType(this.v);
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.d.setLineSpacingMultiplier(this.u);
-            this.c.setLineSpacingMultiplier(this.u);
-            this.b.setLineSpacingMultiplier(this.u);
-            this.e.setLineSpacingMultiplier(this.u);
-            this.f.setLineSpacingMultiplier(this.u);
-            this.g.setLineSpacingMultiplier(this.u);
-        }
-    }
-
-    public void N(int i, int i2, int i3, int i4, int i5, int i6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            this.d.setTextXOffset(i);
-            this.c.setTextXOffset(i2);
-            this.b.setTextXOffset(i3);
-            this.e.setTextXOffset(i4);
-            this.f.setTextXOffset(i5);
-            this.g.setTextXOffset(i6);
-        }
-    }
-
-    public final String n() {
+    public int[] i() {
         InterceptResult invokeV;
         int currentItem;
-        boolean z;
-        int currentItem2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int currentItem3 = this.b.getCurrentItem() + this.j;
-            if (v26.g(currentItem3) == 0) {
-                currentItem2 = this.c.getCurrentItem();
-            } else if ((this.c.getCurrentItem() + 1) - v26.g(currentItem3) <= 0) {
-                currentItem2 = this.c.getCurrentItem();
-            } else if ((this.c.getCurrentItem() + 1) - v26.g(currentItem3) == 1) {
-                currentItem = this.c.getCurrentItem();
-                z = true;
-                int[] b2 = w26.b(currentItem3, currentItem, this.d.getCurrentItem() + 1, z);
-                sb.append(b2[0]);
-                sb.append("-");
-                sb.append(b2[1]);
-                sb.append("-");
-                sb.append(b2[2]);
-                sb.append(" ");
-                sb.append(this.e.getCurrentItem());
-                sb.append(":");
-                sb.append(this.f.getCurrentItem());
-                sb.append(":");
-                sb.append(this.g.getCurrentItem());
-                return sb.toString();
-            } else {
-                currentItem = this.c.getCurrentItem();
-                z = false;
-                int[] b22 = w26.b(currentItem3, currentItem, this.d.getCurrentItem() + 1, z);
-                sb.append(b22[0]);
-                sb.append("-");
-                sb.append(b22[1]);
-                sb.append("-");
-                sb.append(b22[2]);
-                sb.append(" ");
-                sb.append(this.e.getCurrentItem());
-                sb.append(":");
-                sb.append(this.f.getCurrentItem());
-                sb.append(":");
-                sb.append(this.g.getCurrentItem());
-                return sb.toString();
-            }
-            currentItem = currentItem2 + 1;
-            z = false;
-            int[] b222 = w26.b(currentItem3, currentItem, this.d.getCurrentItem() + 1, z);
-            sb.append(b222[0]);
-            sb.append("-");
-            sb.append(b222[1]);
-            sb.append("-");
-            sb.append(b222[2]);
-            sb.append(" ");
-            sb.append(this.e.getCurrentItem());
-            sb.append(":");
-            sb.append(this.f.getCurrentItem());
-            sb.append(":");
-            sb.append(this.g.getCurrentItem());
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.w) {
-                return n();
-            }
-            StringBuilder sb = new StringBuilder();
-            if (this.p == this.j) {
-                int currentItem = this.c.getCurrentItem();
-                int i = this.l;
-                if (currentItem + i == i) {
-                    sb.append(this.b.getCurrentItem() + this.j);
-                    sb.append("-");
-                    sb.append(this.c.getCurrentItem() + this.l);
-                    sb.append("-");
-                    sb.append(this.d.getCurrentItem() + this.n);
-                    sb.append(" ");
-                    sb.append(this.e.getCurrentItem());
-                    sb.append(":");
-                    sb.append(this.f.getCurrentItem());
-                    sb.append(":");
-                    sb.append(this.g.getCurrentItem());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int[] iArr = new int[3];
+            int i = 0;
+            iArr[0] = this.b.getCurrentItem();
+            List<List<T>> list = this.f;
+            if (list != null && list.size() > 0) {
+                if (this.c.getCurrentItem() > this.f.get(iArr[0]).size() - 1) {
+                    currentItem = 0;
                 } else {
-                    sb.append(this.b.getCurrentItem() + this.j);
-                    sb.append("-");
-                    sb.append(this.c.getCurrentItem() + this.l);
-                    sb.append("-");
-                    sb.append(this.d.getCurrentItem() + 1);
-                    sb.append(" ");
-                    sb.append(this.e.getCurrentItem());
-                    sb.append(":");
-                    sb.append(this.f.getCurrentItem());
-                    sb.append(":");
-                    sb.append(this.g.getCurrentItem());
+                    currentItem = this.c.getCurrentItem();
                 }
+                iArr[1] = currentItem;
             } else {
-                sb.append(this.b.getCurrentItem() + this.j);
-                sb.append("-");
-                sb.append(this.c.getCurrentItem() + 1);
-                sb.append("-");
-                sb.append(this.d.getCurrentItem() + 1);
-                sb.append(" ");
-                sb.append(this.e.getCurrentItem());
-                sb.append(":");
-                sb.append(this.f.getCurrentItem());
-                sb.append(":");
-                sb.append(this.g.getCurrentItem());
+                iArr[1] = this.c.getCurrentItem();
             }
-            return sb.toString();
+            List<List<List<T>>> list2 = this.g;
+            if (list2 != null && list2.size() > 0) {
+                if (this.d.getCurrentItem() <= this.g.get(iArr[0]).get(iArr[1]).size() - 1) {
+                    i = this.d.getCurrentItem();
+                }
+                iArr[2] = i;
+            } else {
+                iArr[2] = this.d.getCurrentItem();
+            }
+            return iArr;
         }
-        return (String) invokeV.objValue;
+        return (int[]) invokeV.objValue;
     }
 
-    public void y(String str, String str2, String str3, String str4, String str5, String str6) {
+    public final void l(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048602, this, new Object[]{str, str2, str3, str4, str5, str6}) != null) || this.w) {
-            return;
+        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
+            if (this.e != null) {
+                this.b.setCurrentItem(i);
+            }
+            List<List<T>> list = this.f;
+            if (list != null) {
+                this.c.setAdapter(new n26(list.get(i)));
+                this.c.setCurrentItem(i2);
+            }
+            List<List<List<T>>> list2 = this.g;
+            if (list2 != null) {
+                this.d.setAdapter(new n26(list2.get(i).get(i2)));
+                this.d.setCurrentItem(i3);
+            }
         }
-        if (str != null) {
-            this.b.setLabel(str);
-        } else {
-            this.b.setLabel(this.a.getContext().getString(R.string.pickerview_year));
+    }
+
+    public void n(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
+            if (this.h) {
+                l(i, i2, i3);
+                return;
+            }
+            this.b.setCurrentItem(i);
+            this.c.setCurrentItem(i2);
+            this.d.setCurrentItem(i3);
         }
-        if (str2 != null) {
-            this.c.setLabel(str2);
-        } else {
-            this.c.setLabel(this.a.getContext().getString(R.string.pickerview_month));
-        }
-        if (str3 != null) {
-            this.d.setLabel(str3);
-        } else {
-            this.d.setLabel(this.a.getContext().getString(R.string.pickerview_day));
-        }
-        if (str4 != null) {
-            this.e.setLabel(str4);
-        } else {
-            this.e.setLabel(this.a.getContext().getString(R.string.pickerview_hours));
-        }
-        if (str5 != null) {
-            this.f.setLabel(str5);
-        } else {
-            this.f.setLabel(this.a.getContext().getString(R.string.pickerview_minutes));
-        }
-        if (str6 != null) {
-            this.g.setLabel(str6);
-        } else {
-            this.g.setLabel(this.a.getContext().getString(R.string.pickerview_seconds));
+    }
+
+    public void x(List<T> list, List<List<T>> list2, List<List<List<T>>> list3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048594, this, list, list2, list3) == null) {
+            this.e = list;
+            this.f = list2;
+            this.g = list3;
+            this.b.setAdapter(new n26(list));
+            this.b.setCurrentItem(0);
+            List<List<T>> list4 = this.f;
+            if (list4 != null) {
+                this.c.setAdapter(new n26(list4.get(0)));
+            }
+            WheelView wheelView = this.c;
+            wheelView.setCurrentItem(wheelView.getCurrentItem());
+            List<List<List<T>>> list5 = this.g;
+            if (list5 != null) {
+                this.d.setAdapter(new n26(list5.get(0).get(0)));
+            }
+            WheelView wheelView2 = this.d;
+            wheelView2.setCurrentItem(wheelView2.getCurrentItem());
+            this.b.setIsOptions(true);
+            this.c.setIsOptions(true);
+            this.d.setIsOptions(true);
+            if (this.f == null) {
+                this.c.setVisibility(8);
+            } else {
+                this.c.setVisibility(0);
+            }
+            if (this.g == null) {
+                this.d.setVisibility(8);
+            } else {
+                this.d.setVisibility(0);
+            }
+            this.j = new a(this);
+            this.k = new b(this);
+            if (list != null && this.h) {
+                this.b.setOnItemSelectedListener(this.j);
+            }
+            if (list2 != null && this.h) {
+                this.c.setOnItemSelectedListener(this.k);
+            }
+            if (list3 != null && this.h && this.l != null) {
+                this.d.setOnItemSelectedListener(new c(this));
+            }
         }
     }
 }

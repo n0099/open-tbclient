@@ -1,178 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.tieba.bmc;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.List;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import tv.athena.revenue.payui.view.WindowParams;
+import tv.athena.revenue.payui.view.dialog.CancelType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes8.dex */
-public class sic {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ProductInfo a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public String f;
-    public boolean g;
+public interface sic {
+    void a(Activity activity, kkc kkcVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    public sic(ProductInfo productInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.g = true;
-        this.a = productInfo;
-    }
+    void b(boolean z);
 
-    public sic(ProductInfo productInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.g = true;
-        this.a = productInfo;
-        this.b = i;
-    }
+    boolean c(Activity activity, AbsViewEventHandler absViewEventHandler);
 
-    public sic(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.g = true;
-        this.c = z;
-    }
+    void d(Activity activity, bmc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    public double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.destAmount / 100.0d;
-            }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
+    void e(int i, String str, PayCallBackBean payCallBackBean);
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
+    void g(CancelType cancelType, AbsViewEventHandler absViewEventHandler);
 
-    public double c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.srcAmount;
-            }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
+    vic h();
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
+    void j(Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayAmountView.ViewParams viewParams);
 
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f = str;
-        }
-    }
+    void k(Activity activity, okc okcVar, kkc kkcVar, Dialog dialog, ulc ulcVar, AppCustomExpand appCustomExpand, bmc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.g = z;
-        }
-    }
+    void l(PayFinishInfo payFinishInfo);
 
-    public String toString() {
-        InterceptResult invokeV;
-        double d;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("PayAmount{ isVisible=");
-            sb.append(this.g);
-            sb.append(", currencyType=");
-            sb.append(this.b);
-            sb.append(", splitDetailId=");
-            sb.append(this.f);
-            sb.append(", srcAmount=");
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                d = productInfo.srcAmount;
-            } else {
-                d = 0.0d;
-            }
-            sb.append(d);
-            sb.append(", dstAmount=");
-            ProductInfo productInfo2 = this.a;
-            if (productInfo2 != null) {
-                j = productInfo2.destAmount;
-            } else {
-                j = 0;
-            }
-            sb.append(j);
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
+    void m(AbsViewEventHandler absViewEventHandler, PayDialogType payDialogType);
+
+    void n(Activity activity, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void p(Activity activity, kkc kkcVar, okc okcVar, Dialog dialog, ulc ulcVar, AppCustomExpand appCustomExpand, bmc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void q(Activity activity, String str);
+
+    void r(vlc vlcVar, Dialog dialog);
+
+    void refreshWindow(WindowParams windowParams);
+
+    boolean s(Activity activity, bmc bmcVar, AbsViewEventHandler absViewEventHandler);
+
+    void t(Activity activity, kkc kkcVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void u(Activity activity);
+
+    PayDialogType v();
 }

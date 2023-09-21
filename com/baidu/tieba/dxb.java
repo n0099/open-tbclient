@@ -1,60 +1,52 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IMessageEntity;
-import com.hihonor.push.framework.aidl.entity.PushTokenResult;
-import com.hihonor.push.sdk.common.data.ApiException;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
 /* loaded from: classes5.dex */
-public class dxb extends gxb<PushTokenResult> {
+public final class dxb implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ bxb a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dxb(String str, IMessageEntity iMessageEntity) {
-        super(str, iMessageEntity);
+    public dxb(bxb bxbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, iMessageEntity};
+            Object[] objArr = {bxbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (IMessageEntity) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = bxbVar;
     }
 
-    @Override // com.baidu.tieba.gxb
-    public void a(ApiException apiException, Object obj) {
+    @Override // android.content.ServiceConnection
+    public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, apiException, obj) == null) {
-            if (apiException == null) {
-                apiException = HonorPushErrorEnum.ERROR_UNKNOWN.toApiException();
-            }
-            if (apiException.getErrorCode() == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
-                if (obj instanceof PushTokenResult) {
-                    PushTokenResult pushTokenResult = (PushTokenResult) obj;
-                    try {
-                        iwb.b.b(kwb.e.a(), pushTokenResult.getPushToken());
-                    } catch (Exception unused) {
-                    }
-                    this.e.b(pushTokenResult);
-                    return;
-                }
-                apiException = HonorPushErrorEnum.ERROR_INTERNAL_ERROR.toApiException();
-            }
-            String str = "task execute failed. error:" + apiException.getErrorCode();
-            this.e.a(apiException);
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) != null) {
+            return;
         }
+        this.a.q();
+    }
+
+    @Override // android.content.ServiceConnection
+    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
+            return;
+        }
+        this.a.f(iBinder);
     }
 }

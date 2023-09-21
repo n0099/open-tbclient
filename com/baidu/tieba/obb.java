@@ -1,35 +1,31 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.CronetException;
+import com.baidu.turbonet.net.RequestFinishedInfo;
+import com.baidu.turbonet.net.UrlResponseInfo;
+import java.util.Collection;
 /* loaded from: classes7.dex */
-public class obb {
+public class obb extends RequestFinishedInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(String str) {
+    public obb(String str, Collection<Object> collection, RequestFinishedInfo.Metrics metrics, int i, @Nullable UrlResponseInfo urlResponseInfo, @Nullable CronetException cronetException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-        }
-    }
-
-    public static void a(zbb zbbVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, zbbVar) == null) && zbbVar != null && !zbbVar.y()) {
-            JSONArray n = zbbVar.n();
-            int length = n.length();
-            boolean B = zbbVar.B();
-            for (int i = 0; i < length; i++) {
-                try {
-                    if (B != uab.o().e(n.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + B + "  content " + zbbVar.u().toString());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, collection, metrics, Integer.valueOf(i), urlResponseInfo, cronetException};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

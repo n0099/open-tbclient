@@ -2,8 +2,8 @@ package com.baidu.adp.lib.voice;
 
 import com.baidu.adp.lib.voice.AmrEncoder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bi;
 import com.baidu.tieba.ci;
-import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ public class Amrnb {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a extends di {
+    public class a extends ci {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,7 +37,7 @@ public class Amrnb {
             }
         }
 
-        @Override // com.baidu.tieba.di
+        @Override // com.baidu.tieba.ci
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -59,7 +59,7 @@ public class Amrnb {
                 return;
             }
         }
-        bLoadLibrary = ci.d().i("amr-codec", 2, new a());
+        bLoadLibrary = bi.d().i("amr-codec", 2, new a());
     }
 
     public Amrnb() {

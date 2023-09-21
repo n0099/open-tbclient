@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SpriteTypeWriterSwitch;
-import com.baidu.tieba.impersonal.components.uistate.MsgEvents;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,140 +10,316 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class jz8 {
+public abstract class jz8 implements IUiState {
     public static /* synthetic */ Interceptable $ic;
-    public static final jz8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947900705, "Lcom/baidu/tieba/jz8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public /* synthetic */ jz8(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a extends jz8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final boolean a;
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                return (obj instanceof a) && this.a == ((a) obj).a;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947900705, "Lcom/baidu/tieba/jz8;");
-                return;
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                boolean z = this.a;
+                if (z) {
+                    return 1;
+                }
+                return z ? 1 : 0;
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "AnswerViewVisible(visible=" + this.a + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(boolean z) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+
+        public final boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b extends jz8 {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final List<iw8> b;
+        public static final List<ImMessageCenterShowItemData> c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-673182557, "Lcom/baidu/tieba/jz8$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-673182557, "Lcom/baidu/tieba/jz8$b;");
+                    return;
+                }
+            }
+            a = new b();
+            b = CollectionsKt__CollectionsKt.emptyList();
+            c = CollectionsKt__CollectionsKt.emptyList();
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
             }
         }
-        a = new jz8();
+
+        public final List<iw8> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public final List<ImMessageCenterShowItemData> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return c;
+            }
+            return (List) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c extends jz8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final boolean a;
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                return (obj instanceof c) && this.a == ((c) obj).a;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                boolean z = this.a;
+                if (z) {
+                    return 1;
+                }
+                return z ? 1 : 0;
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "NotificationViewVisible(visible=" + this.a + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(boolean z) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+
+        public final boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class d extends jz8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List<iw8> a;
+        public final List<ImMessageCenterShowItemData> b;
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj instanceof d) {
+                    d dVar = (d) obj;
+                    return Intrinsics.areEqual(this.a, dVar.a) && Intrinsics.areEqual(this.b, dVar.b);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return "SUCCESS(interactNotifyList=" + this.a + ", systemNotifyList=" + this.b + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(List<iw8> interactNotifyList, List<? extends ImMessageCenterShowItemData> systemNotifyList) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {interactNotifyList, systemNotifyList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(interactNotifyList, "interactNotifyList");
+            Intrinsics.checkNotNullParameter(systemNotifyList, "systemNotifyList");
+            this.a = interactNotifyList;
+            this.b = systemNotifyList;
+        }
+
+        public final List<iw8> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public final List<ImMessageCenterShowItemData> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (List) invokeV.objValue;
+        }
     }
 
     public jz8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public final pc7<?> a(n09 n09Var, ez8<?> ez8Var, SpriteMsgProcessor.e eVar, boolean z) {
-        InterceptResult invokeCommon;
-        String str;
-        String str2;
-        String str3;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{n09Var, ez8Var, eVar, Boolean.valueOf(z)})) == null) {
-            Object f = ez8Var.f();
-            Class<?> cls = null;
-            if (f instanceof fz8) {
-                if (ez8Var.e().d()) {
-                    str3 = "text_right";
-                } else {
-                    str3 = "text_left";
-                }
-                wy8 wy8Var = new wy8(ez8Var, str3);
-                if (SpriteTypeWriterSwitch.Companion.isOn() && eVar.getType() == 3 && z && !ez8Var.e().d()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                wy8Var.k(z2);
-                wy8Var.h(MsgEvents.a.b(n09Var));
-                return wy8Var;
-            } else if (f instanceof bz8) {
-                return new vy8(ez8Var, "loading_left");
-            } else {
-                if (f instanceof VoiceMsgContent) {
-                    if (ez8Var.e().d()) {
-                        str2 = "voice_right";
-                    } else {
-                        str2 = "voice_left";
-                    }
-                    xy8 xy8Var = new xy8(ez8Var, str2);
-                    xy8Var.g(MsgEvents.a.a());
-                    return xy8Var;
-                } else if (f instanceof az8) {
-                    if (ez8Var.e().d()) {
-                        str = "image_right";
-                    } else {
-                        str = "image_left";
-                    }
-                    return new uy8(ez8Var, str);
-                } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    return null;
-                } else {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("unknown msg content ");
-                    Object f2 = ez8Var.f();
-                    if (f2 != null) {
-                        cls = f2.getClass();
-                    }
-                    sb.append(cls);
-                    throw new IllegalStateException(sb.toString());
-                }
-            }
-        }
-        return (pc7) invokeCommon.objValue;
-    }
-
-    public final List<pc7<?>> b(n09 repo, List<? extends zy8> list, SpriteMsgProcessor.e loadType) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, repo, list, loadType)) == null) {
-            Intrinsics.checkNotNullParameter(repo, "repo");
-            Intrinsics.checkNotNullParameter(list, "list");
-            Intrinsics.checkNotNullParameter(loadType, "loadType");
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (Object obj : list) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
-                }
-                zy8 zy8Var = (zy8) obj;
-                if (zy8Var instanceof ez8) {
-                    jz8 jz8Var = a;
-                    ez8<?> ez8Var = (ez8) zy8Var;
-                    boolean z = true;
-                    if (i != list.size() - 1) {
-                        z = false;
-                    }
-                    pc7<?> a2 = jz8Var.a(repo, ez8Var, loadType, z);
-                    if (a2 != null) {
-                        arrayList.add(a2);
-                    }
-                } else if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    throw new IllegalStateException("unknown msg template " + zy8Var.getClass());
-                }
-                i = i2;
-            }
-            return arrayList;
-        }
-        return (List) invokeLLL.objValue;
     }
 }

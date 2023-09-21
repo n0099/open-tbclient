@@ -1,19 +1,22 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.ha2;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes6.dex */
 public interface jv1 {
-    void a(String str, oy2 oy2Var);
+    int a();
 
-    int getDuration();
+    VideoPlayerFactory b();
 
-    boolean isPlaying();
+    int c();
 
-    void onRelease();
+    void d(boolean z);
 
-    void pause();
+    boolean e();
 
-    void play();
+    boolean f();
 
-    void seek(int i);
+    void g(int i);
 
-    void stop();
+    void h(ha2.c cVar);
 }

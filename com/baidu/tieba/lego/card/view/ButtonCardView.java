@@ -17,7 +17,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.tieba.lego.card.model.ButtonCard;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,7 +78,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements y45.e {
+    public class b implements z45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ButtonCard a;
@@ -103,18 +103,18 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             this.a = buttonCard;
         }
 
-        @Override // com.baidu.tieba.y45.e
-        public void onClick(y45 y45Var) {
+        @Override // com.baidu.tieba.z45.e
+        public void onClick(z45 z45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
                 UrlManager.getInstance().dealOneLink(this.b.i, new String[]{this.a.getBtnScheme()});
-                y45Var.dismiss();
+                z45Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements y45.e {
+    public class c implements z45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ButtonCardView a;
@@ -137,11 +137,11 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             this.a = buttonCardView;
         }
 
-        @Override // com.baidu.tieba.y45.e
-        public void onClick(y45 y45Var) {
+        @Override // com.baidu.tieba.z45.e
+        public void onClick(z45 z45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
-                y45Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                z45Var.dismiss();
             }
         }
     }
@@ -172,11 +172,11 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public void setDialog(ButtonCard buttonCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, buttonCard) == null) {
-            y45 y45Var = new y45(this.i.getPageActivity());
-            y45Var.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
-            y45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03c1, new b(this, buttonCard));
-            y45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d0, new c(this));
-            y45Var.create(this.i).show();
+            z45 z45Var = new z45(this.i.getPageActivity());
+            z45Var.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
+            z45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03c1, new b(this, buttonCard));
+            z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d0, new c(this));
+            z45Var.create(this.i).show();
         }
     }
 
@@ -255,8 +255,8 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.i.getPageActivity().getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d01a9, (ViewGroup) null);
             this.m = relativeLayout;
-            this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0904a4);
-            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f0924aa);
+            this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09049d);
+            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f092476);
             return this.m;
         }
         return (View) invokeV.objValue;

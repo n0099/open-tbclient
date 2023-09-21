@@ -1,255 +1,69 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import com.baidu.adp.base.BdPageContextSupport;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.cache.CacheManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class gv6 {
+public class gv6 extends MutableContextWrapper implements TbPageContextSupport, BdPageContextSupport {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
-    public static final gv6 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hv6 a;
-    public boolean b;
-    public int c;
-    public CacheManager d;
-    public int e;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final gv6 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return gv6.g;
-            }
-            return (gv6) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947807426, "Lcom/baidu/tieba/gv6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947807426, "Lcom/baidu/tieba/gv6;");
-                return;
-            }
-        }
-        f = new a(null);
-        g = new gv6();
-    }
-
-    public gv6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gv6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new hv6();
     }
 
-    public final void d() {
-        CacheManager cacheManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                int i = this.c - 1;
-                this.c = i;
-                if (i <= 0 && this.b && (cacheManager = this.d) != null) {
-                    cacheManager.l(this);
-                }
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.c <= 0) {
-                    m();
-                } else {
-                    this.b = true;
-                }
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.a.b();
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final int i() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.base.BdPageContextSupport
+    public TbPageContext<?> getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.e();
-        }
-        return invokeV.intValue;
-    }
-
-    public final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.f();
-        }
-        return invokeV.intValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            synchronized (this) {
-                this.c++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Context baseContext = getBaseContext();
+            if (baseContext instanceof TbPageContextSupport) {
+                return ((TbPageContextSupport) baseContext).getPageContext();
             }
-        }
-    }
-
-    public static /* synthetic */ gv6 c(gv6 gv6Var, int i, int i2, int i3, boolean z, int i4, int i5, Object obj) {
-        int i6;
-        if ((i5 & 16) != 0) {
-            i6 = 32;
-        } else {
-            i6 = i4;
-        }
-        gv6Var.b(i, i2, i3, z, i6);
-        return gv6Var;
-    }
-
-    public final gv6 b(int i, int i2, int i3, boolean z, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)})) == null) {
-            synchronized (this) {
-                this.a.a(i, i2, i3, z, i4);
-                this.e = h(this.a.c());
-            }
-            return this;
-        }
-        return (gv6) invokeCommon.objValue;
-    }
-
-    public final hv6 g() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            hv6 hv6Var = this.a;
-            if (!Intrinsics.areEqual(hv6Var.c(), sw6.b()) && !hv6Var.c().isRecycled()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
+            if (!TbadkCoreApplication.getInst().isDebugMode()) {
                 return null;
             }
-            return hv6Var;
+            throw new IllegalArgumentException("base context is not TbPageContextSupport!!!");
         }
-        return (hv6) invokeV.objValue;
+        return (TbPageContext) invokeV.objValue;
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public final int h(Bitmap bitmap) {
-        InterceptResult invokeL;
+    @Override // android.content.MutableContextWrapper
+    public void setBaseContext(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bitmap)) == null) {
-            if (bitmap == null) {
-                return 0;
-            }
-            if (Build.VERSION.SDK_INT >= 19) {
-                return bitmap.getAllocationByteCount();
-            }
-            return bitmap.getRowBytes() * bitmap.getHeight();
-        }
-        return invokeL.intValue;
-    }
-
-    public final void n(CacheManager cacheManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cacheManager) == null) {
-            this.d = cacheManager;
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(Thread.currentThread().getName(), "AkDanmaku-Cache")) {
-                    BdLog.e("DanmakuEngineDrawingCache recycle called must on cache thread but now on " + Thread.currentThread().getName());
-                }
-                if (this.c > 0) {
-                    return;
-                }
-                this.b = false;
-                this.a.g();
-                this.e = 0;
-                Unit unit = Unit.INSTANCE;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            if (context instanceof TbPageContextSupport) {
+                super.setBaseContext(context);
+            } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
+            } else {
+                throw new IllegalArgumentException("base context is not TbPageContextSupport!!!");
             }
         }
     }

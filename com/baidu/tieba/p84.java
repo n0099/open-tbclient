@@ -1,9 +1,17 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 /* loaded from: classes7.dex */
 public interface p84 {
-    boolean a(Object obj);
+    boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull hz3 hz3Var);
 
-    void b(Object obj);
+    boolean b(Context context, String str, String str2, String str3);
 
-    void c(Object obj);
+    boolean c();
+
+    String getPackageName();
+
+    void init();
 }

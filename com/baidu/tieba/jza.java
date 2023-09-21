@@ -1,78 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.bean.LocalAlbumInfo;
 /* loaded from: classes6.dex */
-public final class jza {
+public class jza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LocalAlbumInfo a;
+    public boolean b;
+    public int c;
 
-    public static final String a(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        String filePath;
+    public jza() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imageFileInfo)) == null) {
-            Intrinsics.checkNotNullParameter(imageFileInfo, "<this>");
-            int imageType = imageFileInfo.getImageType();
-            if (imageType != 0) {
-                if (imageType != 1) {
-                    if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                        return "";
-                    }
-                    throw new IllegalStateException(" 暂时不支持的图片类型" + imageFileInfo.getImageType() + StringUtil.ARRAY_ELEMENT_SEPARATOR + imageFileInfo.toJson());
-                }
-                String d = dp5.b.d(imageFileInfo.getFilePath(), imageFileInfo.isGif());
-                Intrinsics.checkNotNullExpressionValue(d, "{\n        EmotionService…lePath, this.isGif)\n    }");
-                return d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (imageFileInfo.hasActionsWithoutResize()) {
-                filePath = imageFileInfo.toCachedKey(true);
-            } else {
-                filePath = imageFileInfo.getFilePath();
-            }
-            Intrinsics.checkNotNullExpressionValue(filePath, "{\n        // 图片如果有缓存的动作，….filePath\n        }\n    }");
-            return filePath;
         }
-        return (String) invokeL.objValue;
+        this.c = -1;
     }
 
-    public static final String b(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        Integer num;
+    public LocalAlbumInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            Intrinsics.checkNotNullParameter(imageFileInfo, "<this>");
-            int imageType = imageFileInfo.getImageType();
-            if (imageType != 0) {
-                if (imageType != 1) {
-                    return "";
-                }
-                return "/write/emotion/" + URLEncoder.encode(imageFileInfo.getFilePath(), "UTF-8");
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("/write/image/");
-            sb.append(URLEncoder.encode(imageFileInfo.getFilePath(), "UTF-8"));
-            sb.append('_');
-            sb.append(ListUtils.getCount(imageFileInfo.getPageActionsList()));
-            sb.append('_');
-            sb.append(ListUtils.getCount(imageFileInfo.getPersistActionsList()));
-            sb.append('_');
-            String cachedKey = imageFileInfo.toCachedKey(true);
-            if (cachedKey != null) {
-                num = Integer.valueOf(cachedKey.hashCode());
-            } else {
-                num = null;
-            }
-            sb.append(num);
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return (LocalAlbumInfo) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
     }
 }

@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
+import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,32 +10,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebView;
+import com.baidu.webkit.sdk.WebKitFactory;
 /* loaded from: classes8.dex */
-public final class xw {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String d;
-    public static xw e;
+public class xw implements WebKitFactory.WebkitInstallListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String c = "xw";
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public WebView b;
-    public boolean c;
+    public byte a;
+    public long b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322190, "Lcom/baidu/tieba/xw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448322190, "Lcom/baidu/tieba/xw;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448322190, "Lcom/baidu/tieba/xw;")) == null) {
+            return;
         }
-        d = BdSailor.class.getName();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448322190, "Lcom/baidu/tieba/xw;");
+        }
     }
 
     public xw() {
@@ -53,89 +50,61 @@ public final class xw {
         }
     }
 
-    public static xw a() {
-        InterceptResult invokeV;
+    public static void c(LoadErrorCode loadErrorCode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            xw xwVar = e;
-            if (xwVar == null) {
-                e = new xw();
-            } else if (xwVar.b != null && (xwVar.c ^ BdZeusUtil.isWebkitLoaded())) {
-                Log.d(d, "BdWebViewSingleton, re-new instance need because of the kernel changed");
-                e.f();
-                e.e();
-            }
-            return e;
-        }
-        return (xw) invokeV.objValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            xw a = a();
-            a.f();
-            a.a = null;
-            e = null;
+        if (interceptable == null || interceptable.invokeL(65538, null, loadErrorCode) == null) {
+            BdSailorPlatform.getStatic().b("init-webkit", "Err = " + loadErrorCode.getInt() + loadErrorCode.getString());
         }
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public final void a(LoadErrorCode loadErrorCode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Log.d(d, "BdWebViewSingleton pauseTimer");
-            try {
-                e();
-                this.b.pauseTimers();
-                return true;
-            } catch (Exception e2) {
-                Log.printStackTrace(e2);
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, loadErrorCode) == null) {
+            WebKitFactory.setEngine(0);
+            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, loadErrorCode);
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Log.d(d, "BdWebViewSingleton resumeTimer");
-            try {
-                e();
-                this.b.resumeTimers();
-                return true;
-            } catch (Exception e2) {
-                Log.printStackTrace(e2);
-                return false;
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.a = (byte) 0;
+        if (!str.startsWith("file://")) {
+            str = "file://".concat(String.valueOf(str));
+        }
+        BdZeusUtil.printKernellog("install plugin from download");
+        WebKitFactory.installAsync(str, this);
+        this.b = System.currentTimeMillis();
+        Log.i(c, "full update started!");
     }
 
-    public final void e() {
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallFinish(int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null && this.a != null) {
-            if (BdZeusUtil.isWebkitLoaded()) {
-                this.c = true;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            System.currentTimeMillis();
+            Log.i("soar", "the return value of installing kernal is: ".concat(String.valueOf(i)));
+            BdZeusUtil.printKernellog("oninstalled: " + i + " targetpath: " + str);
+            if (i == 0) {
+                Log.d(c, "install success!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.a);
             } else {
-                this.c = false;
-                Log.d(d, "BdWebViewSingleton init system webview,zeus was not load complete");
+                Log.d(c, "install failed!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, WebKitFactory.getLoadErrorCode());
             }
-            this.b = new WebView(this.a);
+            BdSailorPlatform.getWebkitManager().enableBdWebkit();
+            long currentTimeMillis = System.currentTimeMillis() - this.b;
+            String str2 = c;
+            Log.i(str2, "total timecost: " + String.valueOf(currentTimeMillis));
         }
     }
 
-    public final void f() {
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Log.w(d, "BdWebViewSingleton, old instance has been destroyed");
-            WebView webView = this.b;
-            if (webView != null) {
-                webView.destroy();
-                this.b = null;
-            }
         }
     }
 }

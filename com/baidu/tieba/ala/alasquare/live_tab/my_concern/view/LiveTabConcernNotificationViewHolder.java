@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.qc6;
+import com.baidu.tieba.uc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LiveTabConcernNotificationViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qc6 a;
+    public uc6 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveTabConcernNotificationViewHolder(qc6 qc6Var) {
-        super(qc6Var.h());
+    public LiveTabConcernNotificationViewHolder(uc6 uc6Var) {
+        super(uc6Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qc6Var};
+            Object[] objArr = {uc6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class LiveTabConcernNotificationViewHolder extends TypeAdapter.ViewHolder
                 return;
             }
         }
-        this.a = qc6Var;
+        this.a = uc6Var;
     }
 }

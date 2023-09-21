@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,93 +8,80 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class k59 extends i59<Boolean> {
+public class k59 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, k59> f;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947864218, "Lcom/baidu/tieba/k59;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864218, "Lcom/baidu/tieba/k59;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947864218, "Lcom/baidu/tieba/k59;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947864218, "Lcom/baidu/tieba/k59;");
-        }
+        f = new HashMap<>();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k59(String key) {
-        super(key);
+    public k59() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {key};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(key, "key");
-        e(c() + "_tips_disappear");
+        this.b = "";
     }
 
-    public final boolean f() {
-        InterceptResult invokeV;
+    public static k59 a(long j, String str) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a(Boolean.FALSE).booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Boolean bool = Boolean.FALSE;
-            d(bool);
-            return bool.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean booleanValue = a(Boolean.FALSE).booleanValue();
-            if (!booleanValue) {
-                Boolean bool = Boolean.TRUE;
-                d(bool);
-                return bool.booleanValue();
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(j);
+            sb.append("_");
+            if (TextUtils.isEmpty(str)) {
+                str = "";
             }
-            return booleanValue;
+            sb.append(str);
+            return f.get(sb.toString());
         }
-        return invokeV.booleanValue;
+        return (k59) invokeJL.objValue;
     }
 
-    public final boolean g(boolean z) {
-        InterceptResult invokeZ;
+    public void b() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            if (z) {
-                return h();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            sb.append("_");
+            if (TextUtils.isEmpty(this.b)) {
+                str = "";
+            } else {
+                str = this.b;
             }
-            return f();
+            sb.append(str);
+            f.put(sb.toString(), this);
         }
-        return invokeZ.booleanValue;
     }
 }

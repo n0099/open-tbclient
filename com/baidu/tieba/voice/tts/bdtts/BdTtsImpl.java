@@ -6,11 +6,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.VideoAudioHelper;
-import com.baidu.tieba.mg;
-import com.baidu.tieba.tya;
-import com.baidu.tieba.uya;
+import com.baidu.tieba.l0b;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.m0b;
+import com.baidu.tieba.n0b;
 import com.baidu.tieba.voice.tts.bdtts.BdTtsImpl;
-import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 &2\u00020\u00012\u00020\u0002:\u0002&'B\u0005¢\u0006\u0002\u0010\u0003J\u0018\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\u000fH\u0016J\u0010\u0010\u0010\u001a\u00020\u00072\u0006\u0010\r\u001a\u00020\u0006H\u0002J\u0010\u0010\u0011\u001a\u00020\f2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u0012\u001a\u00020\u00072\u0006\u0010\r\u001a\u00020\u0006H\u0002J \u0010\u0013\u001a\u00020\f2\u0006\u0010\u0014\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\u00062\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\u0012\u0010\u0017\u001a\u00020\f2\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J\u0010\u0010\u0018\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0006H\u0016J\b\u0010\u0019\u001a\u00020\fH\u0016J\u0010\u0010\u001a\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0006H\u0016J\b\u0010\u001b\u001a\u00020\fH\u0016J\u0010\u0010\u001c\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0006H\u0016J\b\u0010\u001d\u001a\u00020\fH\u0016J\u0018\u0010\u001e\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u00062\u0006\u0010\u001f\u001a\u00020\u0006H\u0016J\u0010\u0010 \u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0006H\u0016J\b\u0010!\u001a\u00020\fH\u0016J\u0010\u0010\"\u001a\u00020\f2\u0006\u0010#\u001a\u00020\u0007H\u0002J\f\u0010$\u001a\u00020\f*\u00020%H\u0002R\u001a\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u001a\u0010\n\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006("}, d2 = {"Lcom/baidu/tieba/voice/tts/bdtts/BdTtsImpl;", "Lcom/baidu/tieba/voice/tts/TtsApi;", "Lcom/baidu/tts/client/SpeechSynthesizerListener;", "()V", "cacheMap", "Ljava/util/concurrent/ConcurrentHashMap;", "", "Lcom/baidu/tieba/voice/tts/bdtts/BdTtsImpl$Entry;", "context", "Landroid/content/Context;", "instanceIdToSpeakerId", "addWeakListener", "", "speakerId", "ttsListener", "Lcom/baidu/tieba/voice/tts/TtsListener;", "createSpeaker", "init", "obtainEntry", "onPlayCallback", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "response", "Lcom/baidu/tts/client/SynthesizerResponse;", "onSynthesizeResponse", DownloadStatisticConstants.UBC_TYPE_PAUSE, "pauseAll", "release", "releaseAll", DownloadStatisticConstants.UBC_TYPE_RESUME, "resumeAll", "speak", "text", "stop", "stopAll", "tryContinueSpeakText", "entry", "setOnlineParams", "Lcom/baidu/tts/client/SpeechSynthesizer;", "Companion", "Entry", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
+public final class BdTtsImpl implements l0b, SpeechSynthesizerListener {
     public static /* synthetic */ Interceptable $ic;
     public static final a d;
     public static final Charset e;
@@ -87,11 +87,11 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
     public static final class Entry implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Set<WeakReference<uya>> listenerSet;
+        public final Set<WeakReference<m0b>> listenerSet;
         public final SpeechSynthesizer speaker;
         public final ArrayDeque<String> textQueue;
 
-        private final Set<WeakReference<uya>> component2() {
+        private final Set<WeakReference<m0b>> component2() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.listenerSet : (Set) invokeV.objValue;
@@ -124,7 +124,7 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.speaker : (SpeechSynthesizer) invokeV.objValue;
         }
 
-        public final Entry copy(SpeechSynthesizer speaker, Set<WeakReference<uya>> listenerSet, ArrayDeque<String> textQueue) {
+        public final Entry copy(SpeechSynthesizer speaker, Set<WeakReference<m0b>> listenerSet, ArrayDeque<String> textQueue) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, speaker, listenerSet, textQueue)) == null) {
@@ -167,7 +167,7 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
             return (String) invokeV.objValue;
         }
 
-        public Entry(SpeechSynthesizer speaker, Set<WeakReference<uya>> listenerSet, ArrayDeque<String> textQueue) {
+        public Entry(SpeechSynthesizer speaker, Set<WeakReference<m0b>> listenerSet, ArrayDeque<String> textQueue) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,24 +195,24 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         }
 
         /* renamed from: onEachListener$lambda-0  reason: not valid java name */
-        public static final void m143onEachListener$lambda0(Entry this$0, Function1 callback) {
+        public static final void m146onEachListener$lambda0(Entry this$0, Function1 callback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65541, null, this$0, callback) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
                 Intrinsics.checkNotNullParameter(callback, "$callback");
-                Iterator<WeakReference<uya>> it = this$0.listenerSet.iterator();
+                Iterator<WeakReference<m0b>> it = this$0.listenerSet.iterator();
                 while (it.hasNext()) {
-                    uya uyaVar = it.next().get();
-                    if (uyaVar == null) {
+                    m0b m0bVar = it.next().get();
+                    if (m0bVar == null) {
                         it.remove();
                     } else {
-                        callback.invoke(uyaVar);
+                        callback.invoke(m0bVar);
                     }
                 }
             }
         }
 
-        public final void addWeakListener(uya ttsListener) {
+        public final void addWeakListener(m0b ttsListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, ttsListener) == null) {
                 Intrinsics.checkNotNullParameter(ttsListener, "ttsListener");
@@ -234,11 +234,11 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
             }
         }
 
-        public final void onEachListener(final Function1<? super uya, Unit> callback) {
+        public final void onEachListener(final Function1<? super m0b, Unit> callback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
                 Intrinsics.checkNotNullParameter(callback, "callback");
-                mg.g(new Runnable() { // from class: com.baidu.tieba.zya
+                lg.g(new Runnable() { // from class: com.baidu.tieba.r0b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -246,7 +246,7 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            BdTtsImpl.Entry.m143onEachListener$lambda0(BdTtsImpl.Entry.this, callback);
+                            BdTtsImpl.Entry.m146onEachListener$lambda0(BdTtsImpl.Entry.this, callback);
                         }
                     }
                 });
@@ -278,7 +278,7 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
             return (String) invokeV.objValue;
         }
 
-        public final boolean containsListener(uya ttsListener) {
+        public final boolean containsListener(m0b ttsListener) {
             InterceptResult invokeL;
             Object obj;
             Interceptable interceptable = $ic;
@@ -418,7 +418,7 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         if (interceptable == null || interceptable.invokeL(1048589, this, speechSynthesizer) == null) {
             speechSynthesizer.setParam(SpeechSynthesizer.PARAM_KEY, "com.baidu.tieba");
             speechSynthesizer.setParam(SpeechSynthesizer.PARAM_ONLINE_TIMEOUT, "2000");
-            mg.e(new Runnable() { // from class: com.baidu.tieba.yya
+            lg.e(new Runnable() { // from class: com.baidu.tieba.q0b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -438,21 +438,21 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         if (interceptable == null || interceptable.invokeL(65542, null, this_setOnlineParams) == null) {
             Intrinsics.checkNotNullParameter(this_setOnlineParams, "$this_setOnlineParams");
             ITtsError loadOnlineTts = this_setOnlineParams.loadOnlineTts();
-            vya.a.a("BdTtsImpl", "setOnlineParams", Integer.valueOf(loadOnlineTts.getDetailCode()), loadOnlineTts.getDetailMessage());
+            n0b.a.a("BdTtsImpl", "setOnlineParams", Integer.valueOf(loadOnlineTts.getDetailCode()), loadOnlineTts.getDetailMessage());
         }
     }
 
-    @Override // com.baidu.tieba.tya
+    @Override // com.baidu.tieba.l0b
     public synchronized void e(final String speakerId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, speakerId) == null) {
             synchronized (this) {
                 Intrinsics.checkNotNullParameter(speakerId, "speakerId");
-                vya.a.a("BdTtsImpl", "stop", speakerId);
+                n0b.a.a("BdTtsImpl", "stop", speakerId);
                 Entry o = o(speakerId);
                 o.getSpeaker().stop();
                 o.clearText();
-                o.onEachListener(new Function1<uya, Unit>(speakerId, this) { // from class: com.baidu.tieba.voice.tts.bdtts.BdTtsImpl$stop$1$1
+                o.onEachListener(new Function1<m0b, Unit>(speakerId, this) { // from class: com.baidu.tieba.voice.tts.bdtts.BdTtsImpl$stop$1$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String $speakerId;
@@ -483,13 +483,13 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                     @Override // kotlin.jvm.functions.Function1
-                    public /* bridge */ /* synthetic */ Unit invoke(uya uyaVar) {
-                        invoke2(uyaVar);
+                    public /* bridge */ /* synthetic */ Unit invoke(m0b m0bVar) {
+                        invoke2(m0bVar);
                         return Unit.INSTANCE;
                     }
 
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-                    public final void invoke2(uya listener) {
+                    public final void invoke2(m0b listener) {
                         Context context;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listener) == null) {
@@ -508,25 +508,25 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         }
     }
 
-    @Override // com.baidu.tieba.tya
+    @Override // com.baidu.tieba.l0b
     public synchronized void f(String speakerId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, speakerId) == null) {
             synchronized (this) {
                 Intrinsics.checkNotNullParameter(speakerId, "speakerId");
-                vya.a.a("BdTtsImpl", DownloadStatisticConstants.UBC_TYPE_PAUSE, speakerId);
+                n0b.a.a("BdTtsImpl", DownloadStatisticConstants.UBC_TYPE_PAUSE, speakerId);
                 o(speakerId).getSpeaker().pause();
             }
         }
     }
 
-    @Override // com.baidu.tieba.tya
+    @Override // com.baidu.tieba.l0b
     public synchronized void g(String speakerId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, speakerId) == null) {
             synchronized (this) {
                 Intrinsics.checkNotNullParameter(speakerId, "speakerId");
-                vya.a.a("BdTtsImpl", DownloadStatisticConstants.UBC_TYPE_RESUME, speakerId);
+                n0b.a.a("BdTtsImpl", DownloadStatisticConstants.UBC_TYPE_RESUME, speakerId);
                 o(speakerId).getSpeaker().resume();
             }
         }
@@ -570,7 +570,7 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         if (synthesizerResponse.getSynthesizeType() == SynthesizerResponse.SynthesizeType.SYNTHESIZE_FINISH) {
             t(o);
         }
-        o.onEachListener(new Function1<uya, Unit>(this, str, synthesizerResponse) { // from class: com.baidu.tieba.voice.tts.bdtts.BdTtsImpl$onSynthesizeResponse$1
+        o.onEachListener(new Function1<m0b, Unit>(this, str, synthesizerResponse) { // from class: com.baidu.tieba.voice.tts.bdtts.BdTtsImpl$onSynthesizeResponse$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SynthesizerResponse $response;
@@ -603,13 +603,13 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // kotlin.jvm.functions.Function1
-            public /* bridge */ /* synthetic */ Unit invoke(uya uyaVar) {
-                invoke2(uyaVar);
+            public /* bridge */ /* synthetic */ Unit invoke(m0b m0bVar) {
+                invoke2(m0bVar);
                 return Unit.INSTANCE;
             }
 
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
-            public final void invoke2(uya it) {
+            public final void invoke2(m0b it) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
                     Intrinsics.checkNotNullParameter(it, "it");
@@ -625,7 +625,7 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         if ((interceptable == null || interceptable.invokeL(1048590, this, entry) == null) && (pollText = entry.pollText()) != null) {
             final ITtsError speak = entry.getSpeaker().speak(new TtsEntity(pollText, TtsMode.MIX));
             if (speak.getDetailCode() != 0) {
-                entry.onEachListener(new Function1<uya, Unit>(speak, this, entry) { // from class: com.baidu.tieba.voice.tts.bdtts.BdTtsImpl$tryContinueSpeakText$1$1
+                entry.onEachListener(new Function1<m0b, Unit>(speak, this, entry) { // from class: com.baidu.tieba.voice.tts.bdtts.BdTtsImpl$tryContinueSpeakText$1$1
                     public static /* synthetic */ Interceptable $ic;
                     public final /* synthetic */ BdTtsImpl.Entry $entry;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -658,18 +658,18 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                     @Override // kotlin.jvm.functions.Function1
-                    public /* bridge */ /* synthetic */ Unit invoke(uya uyaVar) {
-                        invoke2(uyaVar);
+                    public /* bridge */ /* synthetic */ Unit invoke(m0b m0bVar) {
+                        invoke2(m0bVar);
                         return Unit.INSTANCE;
                     }
 
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-                    public final void invoke2(uya listener) {
+                    public final void invoke2(m0b listener) {
                         ConcurrentHashMap concurrentHashMap;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listener) == null) {
                             Intrinsics.checkNotNullParameter(listener, "listener");
-                            vya.a.a("BdTtsImpl", "tryContinueSpeakText", Integer.valueOf(this.$iTtsError.getDetailCode()), this.$iTtsError.getDetailMessage());
+                            n0b.a.a("BdTtsImpl", "tryContinueSpeakText", Integer.valueOf(this.$iTtsError.getDetailCode()), this.$iTtsError.getDetailMessage());
                             concurrentHashMap = this.this$0.c;
                             Object obj = concurrentHashMap.get(this.$entry.getSpeaker().getInstanceId());
                             Intrinsics.checkNotNull(obj);
@@ -698,12 +698,12 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         }
     }
 
-    @Override // com.baidu.tieba.tya
+    @Override // com.baidu.tieba.l0b
     public synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                vya.a.a("BdTtsImpl", "releaseAll");
+                n0b.a.a("BdTtsImpl", "releaseAll");
                 for (Map.Entry<String, Entry> entry : this.b.entrySet()) {
                     entry.getValue().getSpeaker().release();
                 }
@@ -711,12 +711,12 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         }
     }
 
-    @Override // com.baidu.tieba.tya
+    @Override // com.baidu.tieba.l0b
     public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                vya.a.a("BdTtsImpl", "pauseAll");
+                n0b.a.a("BdTtsImpl", "pauseAll");
                 for (Map.Entry<String, Entry> entry : this.b.entrySet()) {
                     entry.getValue().getSpeaker().pause();
                 }
@@ -724,12 +724,12 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         }
     }
 
-    @Override // com.baidu.tieba.tya
+    @Override // com.baidu.tieba.l0b
     public synchronized void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                vya.a.a("BdTtsImpl", "resumeAll");
+                n0b.a.a("BdTtsImpl", "resumeAll");
                 for (Map.Entry<String, Entry> entry : this.b.entrySet()) {
                     entry.getValue().getSpeaker().resume();
                 }
@@ -737,15 +737,15 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         }
     }
 
-    @Override // com.baidu.tieba.tya
+    @Override // com.baidu.tieba.l0b
     public synchronized void d(final String speakerId, final String text) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, speakerId, text) == null) {
             synchronized (this) {
                 Intrinsics.checkNotNullParameter(speakerId, "speakerId");
                 Intrinsics.checkNotNullParameter(text, "text");
-                vya.a.a("BdTtsImpl", "speak", speakerId, text);
-                mg.e(new Runnable() { // from class: com.baidu.tieba.xya
+                n0b.a.a("BdTtsImpl", "speak", speakerId, text);
+                lg.e(new Runnable() { // from class: com.baidu.tieba.p0b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -761,14 +761,14 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         }
     }
 
-    @Override // com.baidu.tieba.tya
-    public synchronized void h(String speakerId, uya ttsListener) {
+    @Override // com.baidu.tieba.l0b
+    public synchronized void h(String speakerId, m0b ttsListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, speakerId, ttsListener) == null) {
             synchronized (this) {
                 Intrinsics.checkNotNullParameter(speakerId, "speakerId");
                 Intrinsics.checkNotNullParameter(ttsListener, "ttsListener");
-                vya.a.a("BdTtsImpl", "addWeakListener", speakerId);
+                n0b.a.a("BdTtsImpl", "addWeakListener", speakerId);
                 o(speakerId).addWeakListener(ttsListener);
             }
         }
@@ -778,7 +778,7 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            vya.a.a("BdTtsImpl", "createSpeaker", str);
+            n0b.a.a("BdTtsImpl", "createSpeaker", str);
             Context context = this.a;
             if (context == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("context");
@@ -795,10 +795,10 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
         return (Entry) invokeL.objValue;
     }
 
-    public final void p(uya uyaVar, String str, SynthesizerResponse synthesizerResponse) {
+    public final void p(m0b m0bVar, String str, SynthesizerResponse synthesizerResponse) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, uyaVar, str, synthesizerResponse) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, m0bVar, str, synthesizerResponse) == null) {
             SynthesizerResponse.SynthesizeType synthesizeType = synthesizerResponse.getSynthesizeType();
             if (synthesizeType == null) {
                 i = -1;
@@ -809,7 +809,7 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
             if (i != 1) {
                 if (i != 2) {
                     if (i == 3) {
-                        uyaVar.b(str);
+                        m0bVar.b(str);
                         Context context2 = this.a;
                         if (context2 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("context");
@@ -821,10 +821,10 @@ public final class BdTtsImpl implements tya, SpeechSynthesizerListener {
                     }
                     return;
                 }
-                uyaVar.c(str, 0);
+                m0bVar.c(str, 0);
                 return;
             }
-            uyaVar.d(str);
+            m0bVar.d(str);
             Context context3 = this.a;
             if (context3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("context");

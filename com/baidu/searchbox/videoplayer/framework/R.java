@@ -72,18 +72,18 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int bdvideoplayer_seekbar = 0x7f0903ca;
-        public static final int bt_retry = 0x7f0904a6;
-        public static final int center = 0x7f090683;
-        public static final int left = 0x7f0914e3;
-        public static final int main_duration_text = 0x7f0916c2;
-        public static final int main_progress_text = 0x7f0916c8;
-        public static final int main_view_seekbar = 0x7f0916d4;
-        public static final int play_error_layout_retry = 0x7f091ce1;
-        public static final int progress = 0x7f091dad;
-        public static final int right = 0x7f091f56;
-        public static final int time = 0x7f09259a;
-        public static final int tv_error = 0x7f09275d;
+        public static final int bdvideoplayer_seekbar = 0x7f0903c4;
+        public static final int bt_retry = 0x7f09049f;
+        public static final int center = 0x7f09067b;
+        public static final int left = 0x7f0914ce;
+        public static final int main_duration_text = 0x7f0916ab;
+        public static final int main_progress_text = 0x7f0916b1;
+        public static final int main_view_seekbar = 0x7f0916bd;
+        public static final int play_error_layout_retry = 0x7f091caf;
+        public static final int progress = 0x7f091d7b;
+        public static final int right = 0x7f091f1f;
+        public static final int time = 0x7f092566;
+        public static final int tv_error = 0x7f092728;
     }
 
     /* loaded from: classes4.dex */

@@ -1,201 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ETAG;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONObject a;
+    public String b;
+    public boolean c;
 
-    public static void a() {
-        ecb c;
+    public pbb() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = kcb.c()) != null) {
-            c.b();
-        }
-    }
-
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ccb a = kcb.a();
-            if (a != null) {
-                return a.getAppContext();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (Context) invokeV.objValue;
+        this.a = new JSONObject();
     }
 
-    public static int d() {
+    public JSONObject g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ccb a = kcb.a();
-            if (a != null) {
-                return a.d();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static ebb i() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return kcb.e();
-        }
-        return (ebb) invokeV.objValue;
-    }
-
-    public static ibb j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return kcb.f();
-        }
-        return (ibb) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            dcb b = kcb.b();
-            if (b != null) {
-                return b.isAgreePrivacy();
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean m() {
+    public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            ccb a = kcb.a();
-            if (a != null) {
-                return a.isDebug();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            i(UbcRemoteStat.CONNECTED, "preconnect_app_hosts", str);
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            i("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            i(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            i(UbcRemoteStat.CONNECTED, "preconnect_enabled", Boolean.valueOf(z));
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            i(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            if (new File(str).isDirectory()) {
+                this.b = str;
+                return;
             }
-            return false;
+            throw new IllegalArgumentException("Storage path must be set to existing directory");
         }
-        return invokeV.booleanValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public void d(int i, long j) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            ccb a = kcb.a();
-            if (a != null) {
-                return a.c(str);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (i != 3 && i != 2) {
+                if (l() != null) {
+                    throw new IllegalArgumentException("Storage path must not be set");
+                }
+            } else if (l() != null) {
+                this.c = true;
+            } else {
+                throw new IllegalArgumentException("Storage path must be set");
             }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            ecb c = kcb.c();
-            if (c != null) {
-                return c.a(str);
+            if (i != 0 && i != 2) {
+                z = false;
+            } else {
+                z = true;
             }
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            ccb a = kcb.a();
-            if (a != null) {
-                return a.e(str);
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!z));
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2 && i != 3) {
+                        throw new IllegalArgumentException("Unknown cache mode");
+                    }
+                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 2);
+                } else {
+                    i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 1);
+                }
+            } else {
+                i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", 0);
             }
-            return str;
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
+    public void i(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            ccb a = kcb.a();
-            if (a != null) {
-                return a.b(z);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, obj) == null) {
+            try {
+                JSONObject optJSONObject = this.a.optJSONObject(str);
+                if (optJSONObject == null) {
+                    optJSONObject = new JSONObject();
+                }
+                optJSONObject.put(str2, obj);
+                this.a.put(str, optJSONObject);
+            } catch (JSONException e) {
+                throw new IllegalStateException("JSON expcetion:", e);
             }
-            return "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static void q(int i) {
-        ccb a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = kcb.a()) != null) {
-            a.a(i);
         }
     }
 
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            ccb a = kcb.a();
-            if (a != null) {
-                return a.getInt(str, i);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i >= 0) {
+                i("misc", "request_timeout", Integer.valueOf(i));
+                return;
             }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            ccb a = kcb.a();
-            if (a != null) {
-                return a.getLong(str, j);
-            }
-            return j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static void n(String str, int i) {
-        ccb a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = kcb.a()) != null) {
-            a.putInt(str, i);
-        }
-    }
-
-    public static void o(String str, long j) {
-        ccb a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = kcb.a()) != null) {
-            a.putLong(str, j);
-        }
-    }
-
-    public static void p(String str, String str2) {
-        ccb a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = kcb.a()) != null) {
-            a.putString(str, str2);
+            throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
         }
     }
 }

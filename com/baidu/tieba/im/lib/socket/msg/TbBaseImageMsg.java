@@ -5,8 +5,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch8;
-import com.baidu.tieba.dh8;
+import com.baidu.tieba.xk8;
+import com.baidu.tieba.yk8;
+import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,19 +18,26 @@ import com.google.gson.annotations.SerializedName;
 public abstract class TbBaseImageMsg extends TbNormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @xk8
     @SerializedName("big_size")
-    @ch8
     public String bigSize;
     @SerializedName("big_src")
-    @dh8
+    @yk8
     public String bigSrc;
+    @zw5(deserialize = false, serialize = false)
     public final String imgThumbnailText;
+    @xk8
     @SerializedName("bsize")
-    @ch8
     public String thumbSize;
     @SerializedName("src")
-    @dh8
+    @yk8
     public String thumbUrl;
+
+    public void onUploadImageSuccess() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
 
     public TbBaseImageMsg() {
         Interceptable interceptable = $ic;
@@ -97,28 +105,28 @@ public abstract class TbBaseImageMsg extends TbNormalMsg {
 
     public void setBigSize(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.bigSize = str;
         }
     }
 
     public void setBigSrc(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.bigSrc = str;
         }
     }
 
     public void setThumbSize(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.thumbSize = str;
         }
     }
 
     public void setThumbUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.thumbUrl = str;
         }
     }

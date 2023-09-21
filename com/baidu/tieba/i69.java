@@ -1,80 +1,148 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
 /* loaded from: classes6.dex */
 public class i69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<cn> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
+    public static void a(@NonNull StringBuilder sb, long j, boolean z, int i, @NonNull String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            List<RecommendForumInfo> list = dataRes.forum_cards;
-            if (list != null && list.size() > 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i) != null) {
-                        e69 e69Var = new e69();
-                        e69Var.i(list.get(i));
-                        e69Var.l(true);
-                        arrayList.add(e69Var);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sb, Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
+            if (z) {
+                str2 = "groupId";
             } else {
-                RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-                if (recommendForumInfo != null) {
-                    e69 e69Var2 = new e69();
-                    e69Var2.i(recommendForumInfo);
-                    e69Var2.l(false);
-                    arrayList.add(e69Var2);
-                }
+                str2 = "roomId";
             }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                f69 f69Var = new f69();
-                f69Var.g(item);
-                arrayList.add(f69Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                g69 g69Var = new g69();
-                g69Var.m(str);
-                g69Var.l(sugLiveInfo);
-                arrayList.add(g69Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                h69 h69Var = new h69();
-                h69Var.f(str);
-                h69Var.e(sugRankingInfo);
-                arrayList.add(h69Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                d69 d69Var = new d69();
-                d69Var.c(str);
-                d69Var.d(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, d69Var);
-                } else {
-                    arrayList.add(d69Var);
-                }
-            }
-            return arrayList;
+            sb.append(str2);
+            sb.append("=");
+            sb.append(j);
+            sb.append(",");
+            sb.append(StatConstants.KEY_EXT_ERR_CODE);
+            sb.append("=");
+            sb.append(i);
+            sb.append(",");
+            sb.append(StatConstants.KEY_EXT_ERR_MSG);
+            sb.append("=");
+            sb.append(str);
+            sb.append(",");
         }
-        return (List) invokeLL.objValue;
+    }
+
+    public static void b(@NonNull StringBuilder sb, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65537, null, sb, z) == null) {
+            if (z) {
+                str = "success";
+            } else {
+                str = "fail";
+            }
+            sb.append(str);
+            sb.append(",");
+        }
+    }
+
+    public static void d(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65539, null, str, j) == null) {
+            n05.d(str + j);
+        }
+    }
+
+    public static void n(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65549, null, str, j) == null) {
+            n05.e(str + j);
+        }
+    }
+
+    public static void c(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            n05.d(str);
+        }
+    }
+
+    public static void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+            StringBuilder sb = new StringBuilder();
+            b(sb, z);
+            n05.b("login_lcp", sb.toString());
+        }
+    }
+
+    public static void m(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
+            n05.e(str);
+        }
+    }
+
+    public static void e(long j, long j2, int i, boolean z, boolean z2, int i2, @NonNull String str, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+            n05.b("fetch_chat_room_msg_request", "roomId=" + j + ",beginMsgId=" + j2 + ",count=" + i + ",isFirstFetch=" + z + ",isFetchHistory=" + z2 + ",errCode=" + i2 + ",errMsg=" + str + ",resultCount=" + i3 + ",");
+        }
+    }
+
+    public static void f(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, false, i, str);
+            n05.b("im_enter_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void g(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, false, i, str);
+            n05.b("im_exit_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void h(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, true, i, str);
+            n05.b("im_group_enter_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void i(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, false, i, str);
+            n05.b("im_group_exit_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65545, null, j) == null) {
+            n05.d("key_im_on_enter_lose");
+            n05.b("key_im_on_enter_lose", "roomId=" + j + ",");
+            n05.e("key_im_on_enter_lose");
+        }
+    }
+
+    public static void k(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, false, i, str);
+            n05.b("login_im", sb.toString());
+        }
     }
 }

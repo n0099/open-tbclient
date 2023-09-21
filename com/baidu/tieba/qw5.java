@@ -1,151 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class qw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public String a;
+        public int b;
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static qw5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-475638436, "Lcom/baidu/tieba/qw5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-475638436, "Lcom/baidu/tieba/qw5$b;");
+            }
+        }
+
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            a = new qw5(null);
+            this.a = str;
+            this.b = i;
         }
-    }
 
-    public qw5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        public static a a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (StringUtils.isNull(str)) {
+                    return null;
+                }
+                a aVar = new a();
+                if (str.contains("#")) {
+                    String[] split = str.split("#");
+                    if (split.length == 1) {
+                        aVar.a = split[0];
+                    } else if (split.length == 2) {
+                        aVar.a = split[0];
+                        aVar.b = JavaTypesHelper.toInt(split[1], -1);
+                    }
+                } else {
+                    aVar.a = str;
+                }
+                return aVar;
             }
+            return (a) invokeL.objValue;
         }
-    }
 
-    public static qw5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (qw5) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return Build.BRAND;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return Build.DEVICE;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return DeviceInfoHelper.getModel();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ qw5(a aVar) {
-        this();
-    }
-
-    @RequiresApi(api = 17)
-    public final DisplayMetrics b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (context == null) {
-                return displayMetrics;
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (StringUtils.isNull(this.a)) {
+                    return "";
+                }
+                return this.a + "#" + this.b;
             }
-            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRealMetrics(displayMetrics);
-            return displayMetrics;
+            return (String) invokeV.objValue;
         }
-        return (DisplayMetrics) invokeL.objValue;
     }
 
-    @NonNull
-    public String d(Context context) {
-        InterceptResult invokeL;
+    public static String[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            return DeviceInfoHelper.getMacAddress();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String string = SharedPrefHelper.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (StringUtils.isNull(string)) {
+                return new String[0];
+            }
+            String[] split = string.split("\\^");
+            if (split != null && split.length > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (String str : split) {
+                    a a2 = a.a(str);
+                    if (a2 != null && !StringUtils.isNull(a2.a)) {
+                        arrayList.add(a2.a);
+                    }
+                }
+                return (String[]) arrayList.toArray(new String[arrayList.size()]);
+            }
+            return null;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @RequiresApi(api = 17)
-    public String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return String.valueOf(b(context).heightPixels);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @RequiresApi(api = 17)
-    public String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            return String.valueOf(b(context).widthPixels);
-        }
-        return (String) invokeL.objValue;
+        return (String[]) invokeV.objValue;
     }
 }

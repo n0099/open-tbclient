@@ -1,84 +1,39 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.HashMap;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class o1a {
+public class o1a {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980778, "Lcom/baidu/tieba/o1a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947980778, "Lcom/baidu/tieba/o1a;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof o1a) {
-                o1a o1aVar = (o1a) obj;
-                return this.a == o1aVar.a && this.b == o1aVar.b;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.a * 31) + this.b : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "PushSceneGroupSingleRecord(groupNo=" + this.a + ", shownCount=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
+    public boolean a;
+    public boolean b;
+    public HashMap<String, Integer> c;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(o1a o1aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o1aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,73 +44,101 @@ public final class o1a {
             }
         }
 
-        @JvmStatic
-        public final o1a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                return new o1a(jSONObject.optInt("group_no"), jSONObject.optInt("shown_count"));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TbadkCoreApplication.getInst().getContext().stopService(new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class));
             }
-            return (o1a) invokeL.objValue;
         }
     }
 
-    public o1a(int i, int i2) {
+    public o1a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = i;
-        this.b = i2;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public final JSONObject d() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("group_no", this.a);
-            jSONObject.put("shown_count", this.b);
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a) {
+                r1a.f();
+            }
+            return this.a;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c(int i) {
+    public boolean a(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            HashMap<String, Integer> hashMap = this.c;
+            if (hashMap != null && uri != null) {
+                return hashMap.containsKey(uri.getHost());
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        boolean z3 = this.a;
+        if (jSONObject.optInt("switch", 0) == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.a = z;
+        if (jSONObject.optInt("p2p_config", 0) == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.b = z2;
+        JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
+        if (optJSONArray != null) {
+            this.c = new HashMap<>();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                String optString = optJSONArray.optString(i);
+                if (!StringUtils.isNull(optString)) {
+                    this.c.put(optString, 0);
+                }
+            }
+        }
+        if (this.a) {
+            r1a.f();
+            if (!z3) {
+                Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
+                intent.putExtra("pcdn", true);
+                TbadkCoreApplication.getInst().getContext().startService(intent);
+                SafeHandler.getInst().postDelayed(new a(this), 3000L);
+            }
         }
     }
 }

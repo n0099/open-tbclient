@@ -28,9 +28,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d26;
+import com.baidu.tieba.e26;
 import com.baidu.tieba.f35;
-import com.baidu.tieba.kp5;
+import com.baidu.tieba.op5;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
@@ -1095,14 +1095,14 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        kp5 h = kp5.h(pbContent.text, pbContent.link);
+                        op5 h = op5.h(pbContent.text, pbContent.link);
                         h.e(this.threadData);
                         h.d(R.color.CAM_X0101);
                         h.g(R.color.CAM_X0113);
                         h.b(HotTopicStat.Locate.VIDEO_MIDDLE);
-                        p = d26.q(h);
+                        p = e26.q(h);
                     } else {
-                        p = d26.p(this.threadData, pbContent);
+                        p = e26.p(this.threadData, pbContent);
                     }
                     this.titleSsb.append(p);
                 }

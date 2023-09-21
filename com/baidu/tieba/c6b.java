@@ -1,253 +1,145 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.eha;
+import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.write.view.LocalChannelTopicSelectView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c6b {
+public class c6b extends m6b<d7b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public LocalChannelTopicSelectView g;
+    @Nullable
+    public String h;
 
-    /* loaded from: classes5.dex */
-    public class a implements eha.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditorTools a;
-
-        public a(EditorTools editorTools) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editorTools};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = editorTools;
-        }
-
-        @Override // com.baidu.tieba.eha.f
-        public void onRefresh() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.D(new si5(2, 12, null));
-            }
+    @Override // com.baidu.tieba.r6b
+    public void c(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements eha.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditorTools a;
-
-        public b(EditorTools editorTools) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editorTools};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = editorTools;
+    @Override // com.baidu.tieba.r6b
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
         }
+    }
 
-        @Override // com.baidu.tieba.eha.f
-        public void onRefresh() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.D(new si5(2, 12, null));
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c6b(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, d7b.class);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static b4b a(@NonNull TbPageContext<?> tbPageContext) {
+    @Override // com.baidu.tieba.r6b
+    public View s(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            return new b4b(tbPageContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d053a, viewGroup, false);
+            this.c = inflate;
+            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) inflate.findViewById(R.id.obfuscated_res_0x7f092a85);
+            this.g = localChannelTopicSelectView;
+            if (localChannelTopicSelectView != null) {
+                localChannelTopicSelectView.setLocalChannelTopic(this.h);
+            }
+            return this.c;
         }
-        return (b4b) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public static d4b b(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.r6b
+    public void a(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
-            return new d4b(tbPageContext);
+        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
+            writeData.setLocalChannelDynamic(true);
+            writeData.setLocalChannelTopic(this.h);
         }
-        return (d4b) invokeL.objValue;
     }
 
-    public static f4b d(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.r6b
+    public void onChangeSkinType(int i) {
+        LocalChannelTopicSelectView localChannelTopicSelectView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tbPageContext)) == null) {
-            return new f4b(tbPageContext);
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (localChannelTopicSelectView = this.g) != null) {
+            localChannelTopicSelectView.b();
         }
-        return (f4b) invokeL.objValue;
     }
 
-    public static g4b e(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m6b, com.baidu.tieba.r6b
+    public void h(@Nullable String str, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            return new g4b(tbPageContext);
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, writeData) != null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (g4b) invokeL.objValue;
+        try {
+            writeData.setLocalChannelTopic(new JSONObject(str).optString("t"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static h4b f(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m6b, com.baidu.tieba.r6b
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tbPageContext)) == null) {
-            return new h4b(tbPageContext);
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            if (bundle != null) {
+                this.h = bundle.getString(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
+            } else if (intent != null) {
+                this.h = intent.getStringExtra(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
+            }
+            if (StringUtils.isNull(this.h)) {
+                this.h = writeData.getLocalChannelTopic();
+            }
         }
-        return (h4b) invokeL.objValue;
     }
 
-    public static i4b g(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m6b, com.baidu.tieba.r6b
+    public void onActivityResult(int i, int i2, Intent intent) {
+        LocalChannelTopicSelectView localChannelTopicSelectView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, tbPageContext)) == null) {
-            return new i4b(tbPageContext);
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1 && i == 25068 && intent != null && (localChannelTopicSelectView = this.g) != null && localChannelTopicSelectView.getVisibility() == 0) {
+                String stringExtra = intent.getStringExtra(LocalChannelTopicListActivityConfig.KEY_RESPONSE_TOPIC);
+                this.h = stringExtra;
+                this.g.setLocalChannelTopic(stringExtra);
+            }
         }
-        return (i4b) invokeL.objValue;
-    }
-
-    public static k4b i(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tbPageContext)) == null) {
-            return new k4b(tbPageContext);
-        }
-        return (k4b) invokeL.objValue;
-    }
-
-    public static l4b j(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbPageContext)) == null) {
-            return new l4b(tbPageContext);
-        }
-        return (l4b) invokeL.objValue;
-    }
-
-    public static m4b k(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tbPageContext)) == null) {
-            return new m4b(tbPageContext);
-        }
-        return (m4b) invokeL.objValue;
-    }
-
-    public static n4b l(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, tbPageContext)) == null) {
-            return new n4b(tbPageContext);
-        }
-        return (n4b) invokeL.objValue;
-    }
-
-    public static q4b o(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, tbPageContext)) == null) {
-            return new q4b(tbPageContext);
-        }
-        return (q4b) invokeL.objValue;
-    }
-
-    public static r4b p(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, tbPageContext)) == null) {
-            return new r4b(tbPageContext);
-        }
-        return (r4b) invokeL.objValue;
-    }
-
-    public static s4b q(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, tbPageContext)) == null) {
-            return new s4b(tbPageContext);
-        }
-        return (s4b) invokeL.objValue;
-    }
-
-    public static t4b r(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tbPageContext)) == null) {
-            return new t4b(tbPageContext);
-        }
-        return (t4b) invokeL.objValue;
-    }
-
-    public static e4b c(@NonNull TbPageContext<?> tbPageContext, @NonNull v4b v4bVar, @NonNull EditorTools editorTools, @NonNull o3b o3bVar, @NonNull g6b g6bVar) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, v4bVar, editorTools, o3bVar, g6bVar)) == null) {
-            e4b e4bVar = new e4b(tbPageContext, o3bVar, g6bVar);
-            e4bVar.U(v4bVar);
-            e4bVar.b0(new a(editorTools));
-            return e4bVar;
-        }
-        return (e4b) invokeLLLLL.objValue;
-    }
-
-    public static j4b h(@NonNull TbPageContext<?> tbPageContext, @NonNull k6b k6bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, tbPageContext, k6bVar)) == null) {
-            return new j4b(tbPageContext, k6bVar);
-        }
-        return (j4b) invokeLL.objValue;
-    }
-
-    public static o4b m(@NonNull TbPageContext<?> tbPageContext, @NonNull v4b v4bVar, @NonNull EditorTools editorTools, @NonNull k6b k6bVar, @NonNull o3b o3bVar, @NonNull g6b g6bVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{tbPageContext, v4bVar, editorTools, k6bVar, o3bVar, g6bVar})) == null) {
-            o4b o4bVar = new o4b(tbPageContext, k6bVar, o3bVar, g6bVar);
-            o4bVar.W(v4bVar);
-            o4bVar.Y(new b(editorTools));
-            return o4bVar;
-        }
-        return (o4b) invokeCommon.objValue;
-    }
-
-    public static p4b n(@NonNull TbPageContext<?> tbPageContext, @NonNull v4b v4bVar, @NonNull o3b o3bVar, @NonNull g6b g6bVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, tbPageContext, v4bVar, o3bVar, g6bVar)) == null) {
-            p4b p4bVar = new p4b(tbPageContext, o3bVar, g6bVar);
-            p4bVar.M(v4bVar);
-            return p4bVar;
-        }
-        return (p4b) invokeLLLL.objValue;
     }
 }

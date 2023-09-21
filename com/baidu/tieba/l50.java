@@ -1,30 +1,182 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.e50;
+import com.baidu.tieba.h50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.UUID;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class l50 {
+public class l50 extends h50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public e50.a d;
+    public a e;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, ExifInterface.MARKER_SOF14, 15, 50} : (byte[]) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public boolean b;
+        public b50 c;
+        public String d;
+        public String e;
+        public final /* synthetic */ l50 f;
+
+        public a(l50 l50Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l50Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = l50Var;
+            this.b = true;
+            this.c = new b50();
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
+        }
+
+        public void b(String str) {
+            String str2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.d) == str) {
+                return;
+            }
+            if (str == null || !str.equals(str2)) {
+                this.d = str;
+                this.b = true;
+            }
+        }
+
+        public void c(long j) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.a == j) {
+                return;
+            }
+            this.a = j;
+            this.b = true;
+        }
+
+        public void d(String str) {
+            String str2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (str2 = this.e) == str) {
+                return;
+            }
+            if (str == null || !str.equals(str2)) {
+                this.e = str;
+                this.b = true;
+            }
+        }
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                String g = this.f.d.g("cache.dat", true);
+                if (TextUtils.isEmpty(g)) {
+                    return false;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(g);
+                    this.d = jSONObject.optString("form_id");
+                    this.a = jSONObject.getLong("lst_fe_ts");
+                    jSONObject.getInt("c_form_ver");
+                    this.e = jSONObject.getString("uuid");
+                    this.c.b(jSONObject.getLong("flags"));
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.b) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("form_id", this.d);
+                        jSONObject.put("lst_fe_ts", this.a);
+                        jSONObject.put("c_form_ver", 1);
+                        jSONObject.put("flags", this.c.d());
+                        jSONObject.put("uuid", this.e);
+                        this.f.d.i("cache.dat", jSONObject.toString(), true);
+                        this.b = false;
+                        return true;
+                    } catch (Exception unused) {
+                    }
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l50() {
+        super("iid");
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, ExifInterface.MARKER_SOF14, 15, 50, -93, 80, Byte.MIN_VALUE, 71, 110, 96, 98, 3, 58, -44, 100, 86, 115, 122, -21, -15, 100, 94, -104, -80, 110, -17, 90, -115, -74, ExifInterface.MARKER_SOF14, ExifInterface.MARKER_SOF9, -126, 108} : (byte[]) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new a(this);
     }
 
-    public static byte[] c() {
+    @Override // com.baidu.tieba.h50
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, ExifInterface.MARKER_SOF14, 15, 50, -93, 80, Byte.MIN_VALUE, 71, 110, 96, 98, 3, 58, -44, 100, 86, 115, 122, -21, -15, 126, 85, -98, -93, 117, -30, 94, ExifInterface.MARKER_SOF15, ExifInterface.MARKER_SOF11, -45, ExifInterface.MARKER_SOF9, -76, 78, 117, 71, -32, -29, -30, 104, 120, -121, -9, 54, 4, 26, -98, -73, -9, -67, 94} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h50
+    public void f(h50.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.d = this.a.f(e());
+            this.e.e();
+            if (TextUtils.isEmpty(this.e.a())) {
+                String uuid = UUID.randomUUID().toString();
+                this.e.d(uuid);
+                try {
+                    this.e.b(h50.b("A50", new y40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(uuid.getBytes("UTF-8"))));
+                } catch (Exception unused) {
+                }
+                this.e.c(System.currentTimeMillis());
+            }
+            this.e.f();
+        }
     }
 }

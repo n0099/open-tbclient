@@ -11,23 +11,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bmb;
-import com.baidu.tieba.fmb;
-import com.baidu.tieba.kmb;
-import com.baidu.tieba.xlb;
+import com.baidu.tieba.cob;
+import com.baidu.tieba.pnb;
+import com.baidu.tieba.tnb;
+import com.baidu.tieba.xnb;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c extends Fragment {
     public View a;
     public ListView b;
-    public kmb c;
+    public cob c;
 
-    public final List<xlb> W1() {
+    public final List<pnb> c2() {
         ArrayList arrayList = new ArrayList();
         Cursor cursor = null;
         try {
-            Cursor b = bmb.b(getContext(), "setting_rit", new String[]{"rit"}, null, null, null, null, "rit ASC");
+            Cursor b = tnb.b(getContext(), "setting_rit", new String[]{"rit"}, null, null, null, null, "rit ASC");
             if (b == null) {
                 if (b != null) {
                     b.close();
@@ -35,14 +35,14 @@ public class c extends Fragment {
                 return arrayList;
             }
             while (b.moveToNext()) {
-                xlb xlbVar = new xlb();
-                xlbVar.a = b.getString(b.getColumnIndex("rit"));
-                arrayList.add(xlbVar);
+                pnb pnbVar = new pnb();
+                pnbVar.a = b.getString(b.getColumnIndex("rit"));
+                arrayList.add(pnbVar);
             }
             if (b != null) {
                 b.close();
             }
-            fmb.f(arrayList);
+            xnb.f(arrayList);
             return arrayList;
         } catch (Throwable th) {
             if (0 != 0) {
@@ -57,10 +57,10 @@ public class c extends Fragment {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0325, viewGroup, false);
         this.a = inflate;
-        this.b = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f090368);
-        kmb kmbVar = new kmb(getContext(), W1());
-        this.c = kmbVar;
-        this.b.setAdapter((ListAdapter) kmbVar);
+        this.b = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f090362);
+        cob cobVar = new cob(getContext(), c2());
+        this.c = cobVar;
+        this.b.setAdapter((ListAdapter) cobVar);
         this.b.setEmptyView(this.a.findViewById(16908292));
         this.b.setDivider(null);
         return this.a;

@@ -25,7 +25,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MP3TrackImpl extends AbstractTrack {
     public static final int ES_OBJECT_TYPE_INDICATION = 107;
     public static final int ES_STREAM_TYPE = 5;
@@ -52,7 +52,7 @@ public class MP3TrackImpl extends AbstractTrack {
         return "MP3TrackImpl";
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class MP3Header {
         public int bitRate;
         public int bitRateIndex;

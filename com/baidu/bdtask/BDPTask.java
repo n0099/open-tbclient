@@ -25,49 +25,49 @@ import com.baidu.bdtask.service.ubc.model.UBCActionTaskInfo;
 import com.baidu.bdtask.utils.UniqueId;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tieba.au;
 import com.baidu.tieba.bu;
+import com.baidu.tieba.cr;
 import com.baidu.tieba.cu;
+import com.baidu.tieba.dq;
 import com.baidu.tieba.dr;
-import com.baidu.tieba.du;
+import com.baidu.tieba.dt;
 import com.baidu.tieba.eq;
-import com.baidu.tieba.er;
-import com.baidu.tieba.et;
+import com.baidu.tieba.es;
+import com.baidu.tieba.eu;
+import com.baidu.tieba.fp;
 import com.baidu.tieba.fq;
-import com.baidu.tieba.fs;
-import com.baidu.tieba.fu;
 import com.baidu.tieba.gp;
 import com.baidu.tieba.gq;
+import com.baidu.tieba.gr;
+import com.baidu.tieba.gs;
 import com.baidu.tieba.hp;
 import com.baidu.tieba.hq;
-import com.baidu.tieba.hr;
-import com.baidu.tieba.hs;
+import com.baidu.tieba.ht;
 import com.baidu.tieba.ip;
 import com.baidu.tieba.iq;
-import com.baidu.tieba.it;
+import com.baidu.tieba.is;
+import com.baidu.tieba.iu;
 import com.baidu.tieba.jp;
 import com.baidu.tieba.jq;
 import com.baidu.tieba.js;
-import com.baidu.tieba.ju;
-import com.baidu.tieba.kp;
 import com.baidu.tieba.kq;
 import com.baidu.tieba.ks;
-import com.baidu.tieba.lq;
-import com.baidu.tieba.ls;
-import com.baidu.tieba.lt;
+import com.baidu.tieba.kt;
+import com.baidu.tieba.mq;
 import com.baidu.tieba.nq;
+import com.baidu.tieba.nt;
 import com.baidu.tieba.oq;
-import com.baidu.tieba.ot;
 import com.baidu.tieba.pq;
-import com.baidu.tieba.qq;
-import com.baidu.tieba.sq;
+import com.baidu.tieba.rq;
+import com.baidu.tieba.ru;
 import com.baidu.tieba.su;
-import com.baidu.tieba.tu;
-import com.baidu.tieba.uv;
+import com.baidu.tieba.tv;
+import com.baidu.tieba.uq;
 import com.baidu.tieba.vq;
+import com.baidu.tieba.vu;
 import com.baidu.tieba.wq;
 import com.baidu.tieba.wu;
-import com.baidu.tieba.xq;
-import com.baidu.tieba.xu;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +101,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class BDPTask {
     public static /* synthetic */ Interceptable $ic;
-    public static final bu d;
+    public static final au d;
     public static BDPTask e;
     public static volatile boolean f;
     public static volatile boolean g;
@@ -109,12 +109,12 @@ public final class BDPTask {
     public static final Condition i;
     public static BDPTask j;
     public static final ConcurrentLinkedQueue<Function0<Object>> k;
-    public static fu l;
+    public static eu l;
     public static final INSTANCE m;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d<b, pq> a;
-    public final wu b;
-    public final tu c;
+    public final d<b, oq> a;
+    public final vu b;
+    public final su c;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000ä\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010$\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0010\b\u0086\u0003\u0018\u0000B\n\b\u0002¢\u0006\u0005\b¡\u0001\u0010\u0011J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0007J'\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\tJ\u001f\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\f\u0010\rJ'\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000eJ/\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000fJ\u000f\u0010\u0010\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0013\u001a\u00020\u00032\u0006\u0010\u0012\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u0017\u0010\u0017\u001a\u00020\u00032\u0006\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u001f\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u0017\u0010\u001d\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001d\u0010\u0005J\u0017\u0010\u001e\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001e\u0010\u0005J\u001f\u0010\u001f\u001a\u00020\u00192\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001f\u0010\u001bJ7\u0010%\u001a\u0016\u0012\u0004\u0012\u00020\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00020$0#\u0018\u00010\"2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b%\u0010&J+\u0010)\u001a\u00020\u00032\u0006\u0010(\u001a\u00020'2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b)\u0010*J\u0019\u0010+\u001a\u0004\u0018\u00010$2\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b+\u0010,J\u001f\u0010.\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010(\u001a\u00020-H\u0016¢\u0006\u0004\b.\u0010/J%\u00100\u001a\u0004\u0018\u00010$2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b0\u00101J+\u00102\u001a\u00020\u00032\u0006\u0010(\u001a\u00020-2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b2\u00103J\u0011\u00104\u001a\u0004\u0018\u00010$H\u0016¢\u0006\u0004\b4\u00105J\u000f\u00107\u001a\u0004\u0018\u000106¢\u0006\u0004\b7\u00108J\r\u00109\u001a\u00020\u0019¢\u0006\u0004\b9\u0010:J\u0017\u0010=\u001a\u00020\u00032\u0006\u0010<\u001a\u00020;H\u0007¢\u0006\u0004\b=\u0010>J\u000f\u0010?\u001a\u00020\u0003H\u0003¢\u0006\u0004\b?\u0010\u0011J\u001f\u0010B\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010A\u001a\u00020@H\u0016¢\u0006\u0004\bB\u0010CJ=\u0010J\u001a\u00020\u0003\"\b\b\u0000\u0010E*\u00020D2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010G\u001a\b\u0012\u0004\u0012\u00028\u00000F2\f\u0010I\u001a\b\u0012\u0004\u0012\u00028\u00000HH\u0016¢\u0006\u0004\bJ\u0010KJ\u001f\u0010M\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010(\u001a\u00020LH\u0016¢\u0006\u0004\bM\u0010NJ\u001d\u0010R\u001a\u00020\u00032\u0006\u0010P\u001a\u00020O2\u0006\u0010A\u001a\u00020Q¢\u0006\u0004\bR\u0010SJ\u001f\u0010U\u001a\u00020\u00032\u0006\u0010T\u001a\u00020\u00012\u0006\u0010A\u001a\u00020QH\u0016¢\u0006\u0004\bU\u0010VJ\u0017\u0010X\u001a\u00020\u00032\u0006\u0010W\u001a\u00020\u0001H\u0016¢\u0006\u0004\bX\u0010\u0005J!\u0010X\u001a\u00020\u00032\u0006\u0010W\u001a\u00020\u00012\b\u0010A\u001a\u0004\u0018\u00010QH\u0016¢\u0006\u0004\bX\u0010VJ+\u0010X\u001a\u00020\u00032\u0006\u0010W\u001a\u00020\u00012\b\u0010A\u001a\u0004\u0018\u00010Q2\b\u0010Z\u001a\u0004\u0018\u00010YH\u0016¢\u0006\u0004\bX\u0010[J\u000f\u0010\\\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\\\u0010\u0011J\u0017\u0010]\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b]\u0010\u0005J\u001f\u0010^\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010Z\u001a\u00020YH\u0016¢\u0006\u0004\b^\u0010_J/\u0010e\u001a\u00020\u00032\u0006\u0010`\u001a\u00020\u00012\u0006\u0010a\u001a\u00020\u00012\u0006\u0010c\u001a\u00020b2\u0006\u0010(\u001a\u00020dH\u0016¢\u0006\u0004\be\u0010fJ9\u0010e\u001a\u00020\u00032\u0006\u0010`\u001a\u00020\u00012\u0006\u0010a\u001a\u00020\u00012\u0006\u0010c\u001a\u00020b2\b\u0010h\u001a\u0004\u0018\u00010g2\u0006\u0010(\u001a\u00020dH\u0016¢\u0006\u0004\be\u0010iJ\u001f\u0010j\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010A\u001a\u00020@H\u0016¢\u0006\u0004\bj\u0010CJ/\u0010k\u001a\u00020\u0003\"\b\b\u0000\u0010E*\u00020D2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010I\u001a\b\u0012\u0004\u0012\u00028\u00000HH\u0016¢\u0006\u0004\bk\u0010lJ\u001f\u0010m\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010(\u001a\u00020LH\u0016¢\u0006\u0004\bm\u0010NJ\u001f\u0010n\u001a\u00020\u00032\u0006\u0010T\u001a\u00020\u00012\u0006\u0010A\u001a\u00020QH\u0016¢\u0006\u0004\bn\u0010VJ\u0017\u0010o\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\bo\u0010\u0005J1\u0010r\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010E2\b\b\u0002\u0010p\u001a\u00020\u00192\u000e\u0010I\u001a\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000qH\u0002¢\u0006\u0004\br\u0010sR*\u0010v\u001a\u0010\u0012\f\u0012\n\u0012\u0006\u0012\u0004\u0018\u00010u0q0t8\u0002@\u0002X\u0082\u0004¢\u0006\f\n\u0004\bv\u0010w\u001a\u0004\bx\u0010yR\u001c\u0010{\u001a\u00020z8\u0002@\u0002X\u0082\u0004¢\u0006\f\n\u0004\b{\u0010|\u001a\u0004\b}\u0010~R&\u0010\u007f\u001a\u00020\u00198\u0002@\u0002X\u0083\u000e¢\u0006\u0016\n\u0005\b\u007f\u0010\u0080\u0001\u001a\u0005\b\u0081\u0001\u0010:\"\u0006\b\u0082\u0001\u0010\u0083\u0001R\"\u0010\u0085\u0001\u001a\u00030\u0084\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0010\n\u0006\b\u0085\u0001\u0010\u0086\u0001\u001a\u0006\b\u0087\u0001\u0010\u0088\u0001R,\u0010\u008b\u0001\u001a\r \u008a\u0001*\u0005\u0018\u00010\u0089\u00010\u0089\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0010\n\u0006\b\u008b\u0001\u0010\u008c\u0001\u001a\u0006\b\u008d\u0001\u0010\u008e\u0001R(\u0010\u008f\u0001\u001a\u00020\u00198\u0002@\u0002X\u0083\u000e¢\u0006\u0017\n\u0006\b\u008f\u0001\u0010\u0080\u0001\u001a\u0005\b\u0090\u0001\u0010:\"\u0006\b\u0091\u0001\u0010\u0083\u0001R,\u0010\u0093\u0001\u001a\u0005\u0018\u00010\u0092\u00018\u0000@\u0000X\u0080\u000e¢\u0006\u0018\n\u0006\b\u0093\u0001\u0010\u0094\u0001\u001a\u0006\b\u0095\u0001\u0010\u0096\u0001\"\u0006\b\u0097\u0001\u0010\u0098\u0001R,\u0010\u0099\u0001\u001a\u0005\u0018\u00010\u0092\u00018\u0002@\u0002X\u0082\u000e¢\u0006\u0018\n\u0006\b\u0099\u0001\u0010\u0094\u0001\u001a\u0006\b\u009a\u0001\u0010\u0096\u0001\"\u0006\b\u009b\u0001\u0010\u0098\u0001R*\u0010\u009c\u0001\u001a\u0004\u0018\u0001068\u0002@\u0002X\u0082\u000e¢\u0006\u0017\n\u0006\b\u009c\u0001\u0010\u009d\u0001\u001a\u0005\b\u009e\u0001\u00108\"\u0006\b\u009f\u0001\u0010 \u0001¨\u0006¢\u0001"}, d2 = {"Lcom/baidu/bdtask/BDPTask$INSTANCE;", "", "actionId", "", "addActionWithActionId", "(Ljava/lang/String;)V", "duplicateId", "(Ljava/lang/String;Ljava/lang/String;)V", "tag", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "", "sliceTimeMs", "addDurationWithActionId", "(Ljava/lang/String;J)V", "(Ljava/lang/String;JLjava/lang/String;)V", "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "asyncLockNotify", "()V", HiAnalyticsConstant.HaKey.BI_KEY_WAITTIME, "asyncLockWait", "(J)V", "Landroid/app/Activity;", "curActivity", "attachCurActivity", "(Landroid/app/Activity;)V", "", "cacheDuplicateId", "(Ljava/lang/String;Ljava/lang/String;)Z", TaskInfo.keyActTaskId, "clearPassiveTaskByActTaskId", "clearTaskByActTaskId", "duplicateIdIsRepeatedByActionId", "", "actionIds", "", "", "Lcom/baidu/bdtask/TaskState;", "findAllTaskStateByActionIds", "([Ljava/lang/String;)Ljava/util/Map;", "Lcom/baidu/bdtask/TaskAllStateCallback;", WebChromeClient.KEY_ARG_CALLBACK, "findAllTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskAllStateCallback;[Ljava/lang/String;)V", "findTaskStateByActionId", "(Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "Lcom/baidu/bdtask/TaskStateCallback;", "findTaskStateByActionIdAsync", "(Ljava/lang/String;Lcom/baidu/bdtask/TaskStateCallback;)V", "findTaskStateByActionIds", "([Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "findTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskStateCallback;[Ljava/lang/String;)V", "getCurActiveTaskState", "()Lcom/baidu/bdtask/TaskState;", "Lcom/baidu/bdtask/service/base/TaskService;", "getServiceManager", "()Lcom/baidu/bdtask/service/base/TaskService;", "hasInitialized", "()Z", "Lcom/baidu/bdtask/BDPTaskConfig;", "bdpTaskConfig", "init", "(Lcom/baidu/bdtask/BDPTaskConfig;)V", "offerActionQueue", "Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;", "taskCallback", "registerPassiveTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;)V", "Lcom/baidu/bdtask/event/TaskBusinessEvent;", ExifInterface.GPS_DIRECTION_TRUE, "Ljava/lang/Class;", "eventType", "Lcom/baidu/bdtask/event/TaskBusinessEventAction;", "action", "registerTaskBusinessEventAction", "(Ljava/lang/String;Ljava/lang/Class;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "Lcom/baidu/bdtask/event/TaskBusinessEventCallback;", "registerTaskBusinessEventListener", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventCallback;)V", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Lcom/baidu/bdtask/callbacks/TaskCallback;", "registerTaskListenerSticky", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "actonId", "registerTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "rawTaskStr", "registerTaskWithInfo", "Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "taskInterceptor", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "release", "removeTaskInterceptor", "setTaskInterceptor", "(Ljava/lang/String;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "token", "taskId", "", TaskInfo.keyBehavior, "Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;", "taskCompletedRequest", "(Ljava/lang/String;Ljava/lang/String;ILcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "Lorg/json/JSONObject;", LaunchStatsUtils.EXTERNAL_LAUNCH, "(Ljava/lang/String;Ljava/lang/String;ILorg/json/JSONObject;Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "unRegisterPassiveTaskListenerWithActionId", "unRegisterTaskBusinessEventAction", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "unRegisterTaskBusinessEventListener", "unRegisterTaskListenerWithActionId", "unregisterTaskWithActionId", "aSync", "Lkotlin/Function0;", "withCheck", "(ZLkotlin/jvm/functions/Function0;)Ljava/lang/Object;", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "", "actionQueue", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "getActionQueue", "()Ljava/util/concurrent/ConcurrentLinkedQueue;", "Lcom/baidu/bdtask/service/env/TaskActivityLifecycleCallbacks;", "activityLifecycleCallbacks", "Lcom/baidu/bdtask/service/env/TaskActivityLifecycleCallbacks;", "getActivityLifecycleCallbacks", "()Lcom/baidu/bdtask/service/env/TaskActivityLifecycleCallbacks;", "asyncLoaded", "Z", "getAsyncLoaded", "setAsyncLoaded", "(Z)V", "Ljava/util/concurrent/locks/ReentrantLock;", "asyncLock", "Ljava/util/concurrent/locks/ReentrantLock;", "getAsyncLock", "()Ljava/util/concurrent/locks/ReentrantLock;", "Ljava/util/concurrent/locks/Condition;", "kotlin.jvm.PlatformType", "asyncLockCondition", "Ljava/util/concurrent/locks/Condition;", "getAsyncLockCondition", "()Ljava/util/concurrent/locks/Condition;", "initialized", "getInitialized", "setInitialized", "Lcom/baidu/bdtask/BDPTask;", "innerInstance", "Lcom/baidu/bdtask/BDPTask;", "getInnerInstance$lib_bdtask_business_build_release", "()Lcom/baidu/bdtask/BDPTask;", "setInnerInstance$lib_bdtask_business_build_release", "(Lcom/baidu/bdtask/BDPTask;)V", Transition.MATCH_INSTANCE_STR, "getInstance", "setInstance", "taskServiceManager", "Lcom/baidu/bdtask/service/base/TaskService;", "getTaskServiceManager", "setTaskServiceManager", "(Lcom/baidu/bdtask/service/base/TaskService;)V", "<init>", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes3.dex */
@@ -268,11 +268,11 @@ public final class BDPTask {
             return BDPTask.k;
         }
 
-        public final bu o() {
+        public final au o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(1048593, this)) != null) {
-                return (bu) invokeV.objValue;
+                return (au) invokeV.objValue;
             }
             return BDPTask.d;
         }
@@ -331,7 +331,7 @@ public final class BDPTask {
             return BDPTask.j;
         }
 
-        public final fu v() {
+        public final eu v() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -340,14 +340,14 @@ public final class BDPTask {
                 }
                 return null;
             }
-            return (fu) invokeV.objValue;
+            return (eu) invokeV.objValue;
         }
 
-        public final fu w() {
+        public final eu w() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(1048601, this)) != null) {
-                return (fu) invokeV.objValue;
+                return (eu) invokeV.objValue;
             }
             return BDPTask.l;
         }
@@ -357,7 +357,7 @@ public final class BDPTask {
             if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
                 synchronized (this) {
                     if (p() && !n().isEmpty()) {
-                        it.c(b.a);
+                        ht.c(b.a);
                     }
                 }
             }
@@ -399,12 +399,12 @@ public final class BDPTask {
             BDPTask.j = bDPTask;
         }
 
-        public final void F(fu fuVar) {
+        public final void F(eu euVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048581, this, fuVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048581, this, euVar) != null) {
                 return;
             }
-            BDPTask.l = fuVar;
+            BDPTask.l = euVar;
         }
 
         public void I(final String str) {
@@ -573,14 +573,14 @@ public final class BDPTask {
             return instance.J(z, function0);
         }
 
-        public void A(final String str, final kp kpVar) {
+        public void A(final String str, final jp jpVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, kpVar) == null) {
-                K(this, false, new Function0<Unit>(str, kpVar) { // from class: com.baidu.bdtask.BDPTask$INSTANCE$registerTaskWithInfo$2
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, jpVar) == null) {
+                K(this, false, new Function0<Unit>(str, jpVar) { // from class: com.baidu.bdtask.BDPTask$INSTANCE$registerTaskWithInfo$2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String $rawTaskStr;
-                    public final /* synthetic */ kp $taskCallback;
+                    public final /* synthetic */ jp $taskCallback;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -589,7 +589,7 @@ public final class BDPTask {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {str, kpVar};
+                            Object[] objArr = {str, jpVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -601,7 +601,7 @@ public final class BDPTask {
                             }
                         }
                         this.$rawTaskStr = str;
-                        this.$taskCallback = kpVar;
+                        this.$taskCallback = jpVar;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -623,14 +623,14 @@ public final class BDPTask {
             }
         }
 
-        public void H(final String str, final kp kpVar) {
+        public void H(final String str, final jp jpVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, str, kpVar) == null) {
-                K(this, false, new Function0<Unit>(str, kpVar) { // from class: com.baidu.bdtask.BDPTask$INSTANCE$unRegisterTaskListenerWithActionId$1
+            if (interceptable == null || interceptable.invokeLL(1048583, this, str, jpVar) == null) {
+                K(this, false, new Function0<Unit>(str, jpVar) { // from class: com.baidu.bdtask.BDPTask$INSTANCE$unRegisterTaskListenerWithActionId$1
                     public static /* synthetic */ Interceptable $ic;
                     public final /* synthetic */ String $actonId;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ kp $taskCallback;
+                    public final /* synthetic */ jp $taskCallback;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -639,7 +639,7 @@ public final class BDPTask {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {str, kpVar};
+                            Object[] objArr = {str, jpVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -651,7 +651,7 @@ public final class BDPTask {
                             }
                         }
                         this.$actonId = str;
-                        this.$taskCallback = kpVar;
+                        this.$taskCallback = jpVar;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -729,13 +729,13 @@ public final class BDPTask {
             return invokeLL.booleanValue;
         }
 
-        public final void z(final TaskInfo taskInfo, final kp kpVar) {
+        public final void z(final TaskInfo taskInfo, final jp jpVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048604, this, taskInfo, kpVar) == null) {
-                K(this, false, new Function0<Unit>(taskInfo, kpVar) { // from class: com.baidu.bdtask.BDPTask$INSTANCE$registerTaskListenerSticky$1
+            if (interceptable == null || interceptable.invokeLL(1048604, this, taskInfo, jpVar) == null) {
+                K(this, false, new Function0<Unit>(taskInfo, jpVar) { // from class: com.baidu.bdtask.BDPTask$INSTANCE$registerTaskListenerSticky$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ kp $taskCallback;
+                    public final /* synthetic */ jp $taskCallback;
                     public final /* synthetic */ TaskInfo $taskInfo;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -745,7 +745,7 @@ public final class BDPTask {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {taskInfo, kpVar};
+                            Object[] objArr = {taskInfo, jpVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -757,7 +757,7 @@ public final class BDPTask {
                             }
                         }
                         this.$taskInfo = taskInfo;
-                        this.$taskCallback = kpVar;
+                        this.$taskCallback = jpVar;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -779,13 +779,13 @@ public final class BDPTask {
             }
         }
 
-        public void G(final String str, final String str2, final int i, final JSONObject jSONObject, final sq sqVar) {
+        public void G(final String str, final String str2, final int i, final JSONObject jSONObject, final rq rqVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), jSONObject, sqVar}) == null) {
-                K(this, false, new Function0<Unit>(str, str2, i, jSONObject, sqVar) { // from class: com.baidu.bdtask.BDPTask$INSTANCE$taskCompletedRequest$2
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), jSONObject, rqVar}) == null) {
+                K(this, false, new Function0<Unit>(str, str2, i, jSONObject, rqVar) { // from class: com.baidu.bdtask.BDPTask$INSTANCE$taskCompletedRequest$2
                     public static /* synthetic */ Interceptable $ic;
                     public final /* synthetic */ int $behavior;
-                    public final /* synthetic */ sq $callback;
+                    public final /* synthetic */ rq $callback;
                     public final /* synthetic */ JSONObject $external;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String $taskId;
@@ -798,7 +798,7 @@ public final class BDPTask {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {str, str2, Integer.valueOf(i), jSONObject, sqVar};
+                            Object[] objArr = {str, str2, Integer.valueOf(i), jSONObject, rqVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -813,7 +813,7 @@ public final class BDPTask {
                         this.$taskId = str2;
                         this.$behavior = i;
                         this.$external = jSONObject;
-                        this.$callback = sqVar;
+                        this.$callback = rqVar;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -850,7 +850,7 @@ public final class BDPTask {
                     return null;
                 } else {
                     try {
-                        if (it.b()) {
+                        if (ht.b()) {
                             k(2000L);
                         } else {
                             k(5000L);
@@ -922,47 +922,47 @@ public final class BDPTask {
             }
         }
 
-        public final synchronized void x(gp gpVar) {
+        public final synchronized void x(fp fpVar) {
             Context context;
-            fu w;
-            fs h;
+            eu w;
+            es h;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048602, this, gpVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048602, this, fpVar) == null) {
                 synchronized (this) {
                     if (s()) {
                         return;
                     }
-                    Context context2 = gpVar.getContext();
+                    Context context2 = fpVar.getContext();
                     Intrinsics.checkExpressionValueIsNotNull(context2, "bdpTaskConfig.context");
                     Context applicationContext = context2.getApplicationContext();
                     if (applicationContext != null) {
                         Application application = (Application) applicationContext;
-                        cu cuVar = new cu(gpVar);
-                        hs m = gpVar.m();
+                        bu buVar = new bu(fpVar);
+                        gs m = fpVar.m();
                         Intrinsics.checkExpressionValueIsNotNull(m, "bdpTaskConfig.httpService");
-                        ls p = gpVar.p();
+                        ks p = fpVar.p();
                         Intrinsics.checkExpressionValueIsNotNull(p, "bdpTaskConfig.schemeService");
-                        su suVar = new su(gpVar);
-                        js n = gpVar.n();
+                        ru ruVar = new ru(fpVar);
+                        is n = fpVar.n();
                         Intrinsics.checkExpressionValueIsNotNull(n, "bdpTaskConfig.imageService");
-                        ju juVar = new ju();
-                        ks j = gpVar.j();
+                        iu iuVar = new iu();
+                        js j = fpVar.j();
                         Intrinsics.checkExpressionValueIsNotNull(j, "bdpTaskConfig.appLifecycle");
-                        F(new du(cuVar, m, p, suVar, n, juVar, j, null, null, 384, null));
-                        hr.a aVar = hr.c;
-                        fu w2 = w();
+                        F(new cu(buVar, m, p, ruVar, n, iuVar, j, null, null, 384, null));
+                        gr.a aVar = gr.c;
+                        eu w2 = w();
                         if (w2 == null) {
                             Intrinsics.throwNpe();
                         }
                         aVar.j(w2);
-                        if (gpVar.o() != null) {
-                            WeakReference<Context> o = gpVar.o();
+                        if (fpVar.o() != null) {
+                            WeakReference<Context> o = fpVar.o();
                             if (o != null) {
                                 context = o.get();
                             } else {
                                 context = null;
                             }
-                            if ((context instanceof Activity) && !et.a((Activity) context) && (w = w()) != null && (h = w.h()) != null) {
+                            if ((context instanceof Activity) && !dt.a((Activity) context) && (w = w()) != null && (h = w.h()) != null) {
                                 h.b((Activity) context);
                             }
                         }
@@ -977,9 +977,9 @@ public final class BDPTask {
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0017\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005*\u0001\u0000\b\n\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"com/baidu/bdtask/BDPTask$subscribeStore$2", "Lcom/baidu/tieba/er;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", "state", "", GameAssistConstKt.KEY_DISK_NEW_STATE, "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "<init>", "(Lcom/baidu/bdtask/BDPTask;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0017\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005*\u0001\u0000\b\n\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"com/baidu/bdtask/BDPTask$subscribeStore$2", "Lcom/baidu/tieba/dr;", "Lcom/baidu/bdtask/ctrl/SubTaskState;", "state", "", GameAssistConstKt.KEY_DISK_NEW_STATE, "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "<init>", "(Lcom/baidu/bdtask/BDPTask;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes3.dex */
-    public static final class a implements er<SubTaskState> {
+    public static final class a implements dr<SubTaskState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BDPTask a;
@@ -1004,7 +1004,7 @@ public final class BDPTask {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.er
+        @Override // com.baidu.tieba.dr
         public void a(final SubTaskState subTaskState) {
             TaskStatus taskStatus;
             Interceptable interceptable = $ic;
@@ -1071,7 +1071,7 @@ public final class BDPTask {
                             this.this$0.a.F(this.$state$inlined);
                         }
                     };
-                    qq interceptor = subTaskState.getInterceptor();
+                    pq interceptor = subTaskState.getInterceptor();
                     if (interceptor != null) {
                         interceptor.b(new TaskState(subTaskState.getTaskInfo(), subTaskState.getTaskStatus()), function0);
                     } else {
@@ -1096,8 +1096,8 @@ public final class BDPTask {
             }
         }
         m = new INSTANCE(null);
-        lt.a(INSTANCE.AnonymousClass1.INSTANCE);
-        d = new bu();
+        kt.a(INSTANCE.AnonymousClass1.INSTANCE);
+        d = new au();
         h = new ReentrantLock();
         i = m.q().newCondition();
         k = new ConcurrentLinkedQueue<>();
@@ -1116,10 +1116,10 @@ public final class BDPTask {
                 return;
             }
         }
-        d<b, pq> dVar = new d<>(new BDPTask$store$1(new eq()), new b(), CollectionsKt__CollectionsKt.listOf((Object[]) new Function2[]{new com.baidu.bdtask.ctrl.actions.exitstrategy.b().a(), new com.baidu.bdtask.ctrl.actions.duplicate.duplicate.b().a(), new com.baidu.bdtask.ctrl.actions.interrupt.b().a(), new com.baidu.bdtask.ctrl.actions.register.b().a(), new com.baidu.bdtask.ctrl.actions.dotask.visit.b().a(), new com.baidu.bdtask.ctrl.actions.dotask.click.b().a(), new com.baidu.bdtask.ctrl.actions.finishreq.b().b()}));
+        d<b, oq> dVar = new d<>(new BDPTask$store$1(new dq()), new b(), CollectionsKt__CollectionsKt.listOf((Object[]) new Function2[]{new com.baidu.bdtask.ctrl.actions.exitstrategy.b().a(), new com.baidu.bdtask.ctrl.actions.duplicate.duplicate.b().a(), new com.baidu.bdtask.ctrl.actions.interrupt.b().a(), new com.baidu.bdtask.ctrl.actions.register.b().a(), new com.baidu.bdtask.ctrl.actions.dotask.visit.b().a(), new com.baidu.bdtask.ctrl.actions.dotask.click.b().a(), new com.baidu.bdtask.ctrl.actions.finishreq.b().b()}));
         this.a = dVar;
-        this.b = wu.d.a(dVar);
-        this.c = tu.c.a();
+        this.b = vu.d.a(dVar);
+        this.c = su.c.a();
     }
 
     public /* synthetic */ BDPTask(DefaultConstructorMarker defaultConstructorMarker) {
@@ -1127,8 +1127,8 @@ public final class BDPTask {
     }
 
     public void A(Activity activity) {
-        fu v;
-        fs h2;
+        eu v;
+        es h2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (v = m.v()) != null && (h2 = v.h()) != null) {
             h2.b(activity);
@@ -1162,7 +1162,7 @@ public final class BDPTask {
     public void b0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            Y(new ot(str).a(), null);
+            Y(new nt(str).a(), null);
         }
     }
 
@@ -1186,7 +1186,7 @@ public final class BDPTask {
     public final void g0(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, taskInfo) == null) {
-            j0(taskInfo, new fq(taskInfo, null, 0, null, null, 30, null));
+            j0(taskInfo, new eq(taskInfo, null, 0, null, null, 30, null));
         }
     }
 
@@ -1232,7 +1232,7 @@ public final class BDPTask {
                     }
                 });
             } else {
-                this.a.c(new a(this), new Function1<e<b, pq>, e<SubTaskState, pq>>(this) { // from class: com.baidu.bdtask.BDPTask$subscribeStore$3
+                this.a.c(new a(this), new Function1<e<b, oq>, e<SubTaskState, oq>>(this) { // from class: com.baidu.bdtask.BDPTask$subscribeStore$3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BDPTask this$0;
@@ -1259,13 +1259,13 @@ public final class BDPTask {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: com.baidu.bdtask.framework.redux.e<Substate, com.baidu.tieba.pq>, com.baidu.bdtask.framework.redux.e<com.baidu.bdtask.ctrl.SubTaskState, com.baidu.tieba.pq> */
+                    /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: com.baidu.bdtask.framework.redux.e<Substate, com.baidu.tieba.oq>, com.baidu.bdtask.framework.redux.e<com.baidu.bdtask.ctrl.SubTaskState, com.baidu.tieba.oq> */
                     @Override // kotlin.jvm.functions.Function1
-                    public final e<SubTaskState, pq> invoke(e<b, pq> eVar) {
+                    public final e<SubTaskState, oq> invoke(e<b, oq> eVar) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, eVar)) == null) {
-                            return eVar.a(new Function2<b, pq, Pair<? extends SubTaskState, ? extends pq>>(this) { // from class: com.baidu.bdtask.BDPTask$subscribeStore$3.1
+                            return eVar.a(new Function2<b, oq, Pair<? extends SubTaskState, ? extends oq>>(this) { // from class: com.baidu.bdtask.BDPTask$subscribeStore$3.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ BDPTask$subscribeStore$3 this$0;
@@ -1293,16 +1293,16 @@ public final class BDPTask {
 
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // kotlin.jvm.functions.Function2
-                                public final Pair<SubTaskState, pq> invoke(b bVar, pq pqVar) {
+                                public final Pair<SubTaskState, oq> invoke(b bVar, oq oqVar) {
                                     InterceptResult invokeLL;
                                     b O;
                                     Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || (invokeLL = interceptable3.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, pqVar)) == null) {
-                                        if (pqVar == null) {
-                                            return new Pair<>(null, pqVar);
+                                    if (interceptable3 == null || (invokeLL = interceptable3.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, oqVar)) == null) {
+                                        if (oqVar == null) {
+                                            return new Pair<>(null, oqVar);
                                         }
                                         O = this.this$0.this$0.O();
-                                        SubTaskState k2 = O.k(pqVar.f());
+                                        SubTaskState k2 = O.k(oqVar.f());
                                         DebugTrace.a.c(new Function0<String>(k2) { // from class: com.baidu.bdtask.BDPTask.subscribeStore.3.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
@@ -1357,7 +1357,7 @@ public final class BDPTask {
                                                 return (String) invokeV.objValue;
                                             }
                                         });
-                                        return new Pair<>(k2, pqVar);
+                                        return new Pair<>(k2, oqVar);
                                     }
                                     return (Pair) invokeLL.objValue;
                                 }
@@ -1411,21 +1411,21 @@ public final class BDPTask {
         return invokeLL.booleanValue;
     }
 
-    public void J(hp hpVar, String... strArr) {
+    public void J(gp gpVar, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, hpVar, strArr) == null) {
-            hpVar.a(I((String[]) Arrays.copyOf(strArr, strArr.length)));
+        if (interceptable == null || interceptable.invokeLL(1048585, this, gpVar, strArr) == null) {
+            gpVar.a(I((String[]) Arrays.copyOf(strArr, strArr.length)));
         }
     }
 
-    public void N(ip ipVar, String... strArr) {
+    public void N(hp hpVar, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, ipVar, strArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048589, this, hpVar, strArr) == null) {
             TaskState M = M((String[]) Arrays.copyOf(strArr, strArr.length));
             if (M == null) {
-                ipVar.a(null);
+                hpVar.a(null);
             } else {
-                ipVar.a(M.deepCopy());
+                hpVar.a(M.deepCopy());
             }
         }
     }
@@ -1435,72 +1435,72 @@ public final class BDPTask {
         if ((interceptable != null && interceptable.invokeLI(1048592, this, taskInfo, i2) != null) || !taskInfo.isPassiveTask()) {
             return;
         }
-        j0(taskInfo, nq.g.a(taskInfo, i2));
+        j0(taskInfo, mq.g.a(taskInfo, i2));
     }
 
-    public void T(String str, xq xqVar) {
+    public void T(String str, wq wqVar) {
         TaskState K;
         TaskInfo taskInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048595, this, str, xqVar) == null) && (K = K(str)) != null && (taskInfo = K.getTaskInfo()) != null) {
-            TaskBusinessEventManager.c.b(taskInfo, xqVar);
+        if ((interceptable == null || interceptable.invokeLL(1048595, this, str, wqVar) == null) && (K = K(str)) != null && (taskInfo = K.getTaskInfo()) != null) {
+            TaskBusinessEventManager.c.b(taskInfo, wqVar);
         }
     }
 
-    public final void U(TaskInfo taskInfo, kp kpVar) {
+    public final void U(TaskInfo taskInfo, jp jpVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, taskInfo, kpVar) == null) {
-            V(taskInfo, kpVar, false);
+        if (interceptable == null || interceptable.invokeLL(1048596, this, taskInfo, jpVar) == null) {
+            V(taskInfo, jpVar, false);
         }
     }
 
-    public final void W(TaskInfo taskInfo, kp kpVar) {
+    public final void W(TaskInfo taskInfo, jp jpVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, taskInfo, kpVar) == null) {
-            V(taskInfo, kpVar, true);
+        if (interceptable == null || interceptable.invokeLL(1048598, this, taskInfo, jpVar) == null) {
+            V(taskInfo, jpVar, true);
         }
     }
 
-    public final void Y(TaskInfo taskInfo, kp kpVar) {
+    public final void Y(TaskInfo taskInfo, jp jpVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, taskInfo, kpVar) == null) {
-            Z(taskInfo, true, kpVar);
+        if (interceptable == null || interceptable.invokeLL(1048600, this, taskInfo, jpVar) == null) {
+            Z(taskInfo, true, jpVar);
         }
     }
 
-    public void c0(String str, kp kpVar) {
+    public void c0(String str, jp jpVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, str, kpVar) == null) {
-            Y(new ot(str).a(), kpVar);
+        if (interceptable == null || interceptable.invokeLL(1048604, this, str, jpVar) == null) {
+            Y(new nt(str).a(), jpVar);
         }
     }
 
-    public final void h0(TaskInfo taskInfo, qq qqVar) {
+    public final void h0(TaskInfo taskInfo, pq pqVar) {
         SubTaskState k2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048609, this, taskInfo, qqVar) == null) && (k2 = O().k(taskInfo.getSingleKey())) != null) {
-            k2.setInterceptor(qqVar);
+        if ((interceptable == null || interceptable.invokeLL(1048609, this, taskInfo, pqVar) == null) && (k2 = O().k(taskInfo.getSingleKey())) != null) {
+            k2.setInterceptor(pqVar);
         }
     }
 
-    public void i0(String str, qq qqVar) {
+    public void i0(String str, pq pqVar) {
         TaskState K;
         TaskInfo taskInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048610, this, str, qqVar) == null) && (K = K(str)) != null && (taskInfo = K.getTaskInfo()) != null) {
-            h0(taskInfo, qqVar);
+        if ((interceptable == null || interceptable.invokeLL(1048610, this, str, pqVar) == null) && (K = K(str)) != null && (taskInfo = K.getTaskInfo()) != null) {
+            h0(taskInfo, pqVar);
         }
     }
 
-    public final void j0(TaskInfo taskInfo, final dr drVar) {
+    public final void j0(TaskInfo taskInfo, final cr crVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048611, this, taskInfo, drVar) != null) || !taskInfo.isValid()) {
+        if ((interceptable != null && interceptable.invokeLL(1048611, this, taskInfo, crVar) != null) || !taskInfo.isValid()) {
             return;
         }
         k0(taskInfo);
-        DebugTrace.a.c(new Function0<String>(drVar) { // from class: com.baidu.bdtask.BDPTask$storeDispatch$1
+        DebugTrace.a.c(new Function0<String>(crVar) { // from class: com.baidu.bdtask.BDPTask$storeDispatch$1
             public static /* synthetic */ Interceptable $ic;
-            public final /* synthetic */ dr $action;
+            public final /* synthetic */ cr $action;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1510,7 +1510,7 @@ public final class BDPTask {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {drVar};
+                    Object[] objArr = {crVar};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -1521,7 +1521,7 @@ public final class BDPTask {
                         return;
                     }
                 }
-                this.$action = drVar;
+                this.$action = crVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1535,46 +1535,46 @@ public final class BDPTask {
                 return (String) invokeV.objValue;
             }
         });
-        this.a.b(drVar);
+        this.a.b(crVar);
     }
 
-    public void o0(String str, jp jpVar) {
+    public void o0(String str, ip ipVar) {
         SubTaskState t;
         TaskInfo taskInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048616, this, str, jpVar) == null) && (t = O().t(str)) != null && (taskInfo = t.getTaskInfo()) != null) {
-            r0(taskInfo, jpVar);
+        if ((interceptable == null || interceptable.invokeLL(1048616, this, str, ipVar) == null) && (t = O().t(str)) != null && (taskInfo = t.getTaskInfo()) != null) {
+            r0(taskInfo, ipVar);
         }
     }
 
-    public <T extends vq> void p0(String str, wq<T> wqVar) {
+    public <T extends uq> void p0(String str, vq<T> vqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048617, this, str, wqVar) == null) {
-            TaskBusinessEventManager.c.g(str, wqVar);
+        if (interceptable == null || interceptable.invokeLL(1048617, this, str, vqVar) == null) {
+            TaskBusinessEventManager.c.g(str, vqVar);
         }
     }
 
-    public void q0(String str, xq xqVar) {
+    public void q0(String str, wq wqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048618, this, str, xqVar) == null) {
-            TaskBusinessEventManager.c.h(str, xqVar);
+        if (interceptable == null || interceptable.invokeLL(1048618, this, str, wqVar) == null) {
+            TaskBusinessEventManager.c.h(str, wqVar);
         }
     }
 
-    public final void r0(TaskInfo taskInfo, kp kpVar) {
+    public final void r0(TaskInfo taskInfo, jp jpVar) {
         SubTaskState k2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048619, this, taskInfo, kpVar) == null) && (k2 = O().k(taskInfo.getSingleKey())) != null) {
-            k2.removeCallback(kpVar);
+        if ((interceptable == null || interceptable.invokeLL(1048619, this, taskInfo, jpVar) == null) && (k2 = O().k(taskInfo.getSingleKey())) != null) {
+            k2.removeCallback(jpVar);
         }
     }
 
-    public void s0(String str, kp kpVar) {
+    public void s0(String str, jp jpVar) {
         TaskState K;
         TaskInfo taskInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048621, this, str, kpVar) == null) && (K = K(str)) != null && (taskInfo = K.getTaskInfo()) != null) {
-            r0(taskInfo, kpVar);
+        if ((interceptable == null || interceptable.invokeLL(1048621, this, str, jpVar) == null) && (K = K(str)) != null && (taskInfo = K.getTaskInfo()) != null) {
+            r0(taskInfo, jpVar);
         }
     }
 
@@ -1590,7 +1590,7 @@ public final class BDPTask {
         TaskInfo deepCopy;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048625, this, str, str2) == null) && (s = O().s(str)) != null && (deepCopy = s.deepCopy()) != null) {
-            j0(deepCopy, gq.f.a(deepCopy, str2));
+            j0(deepCopy, fq.f.a(deepCopy, str2));
         }
     }
 
@@ -1617,26 +1617,26 @@ public final class BDPTask {
         return (b) invokeV.objValue;
     }
 
-    public <T extends vq> void S(String str, Class<T> cls, wq<T> wqVar) {
+    public <T extends uq> void S(String str, Class<T> cls, vq<T> vqVar) {
         TaskState K;
         TaskInfo taskInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048594, this, str, cls, wqVar) == null) && (K = K(str)) != null && (taskInfo = K.getTaskInfo()) != null) {
-            TaskBusinessEventManager.c.a(taskInfo, cls, wqVar);
+        if ((interceptable == null || interceptable.invokeLLL(1048594, this, str, cls, vqVar) == null) && (K = K(str)) != null && (taskInfo = K.getTaskInfo()) != null) {
+            TaskBusinessEventManager.c.a(taskInfo, cls, vqVar);
         }
     }
 
-    public final void Z(TaskInfo taskInfo, boolean z, kp kpVar) {
+    public final void Z(TaskInfo taskInfo, boolean z, jp jpVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{taskInfo, Boolean.valueOf(z), kpVar}) == null) {
-            a0(taskInfo, z, kpVar, null);
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{taskInfo, Boolean.valueOf(z), jpVar}) == null) {
+            a0(taskInfo, z, jpVar, null);
         }
     }
 
-    public void d0(String str, kp kpVar, qq qqVar) {
+    public void d0(String str, jp jpVar, pq pqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048605, this, str, kpVar, qqVar) == null) {
-            a0(new ot(str).a(), true, kpVar, qqVar);
+        if (interceptable == null || interceptable.invokeLLL(1048605, this, str, jpVar, pqVar) == null) {
+            a0(new nt(str).a(), true, jpVar, pqVar);
         }
     }
 
@@ -1665,7 +1665,7 @@ public final class BDPTask {
             if (K != null) {
                 final TaskInfo taskInfo = K.getTaskInfo();
                 if (taskInfo.getTaskRule().isNeedUnique() && !TextUtils.isEmpty(str2)) {
-                    j0(taskInfo, jq.f.a(taskInfo, str2));
+                    j0(taskInfo, iq.f.a(taskInfo, str2));
                     return true;
                 }
                 DebugTrace.a.c(new Function0<String>(taskInfo, str2) { // from class: com.baidu.bdtask.BDPTask$cacheDuplicateId$1
@@ -1713,26 +1713,26 @@ public final class BDPTask {
         return invokeLL.booleanValue;
     }
 
-    public void R(String str, jp jpVar) {
+    public void R(String str, ip ipVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, str, jpVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048593, this, str, ipVar) == null) {
             SubTaskState t = O().t(str);
             if (t == null) {
-                jpVar.b(new TaskInfo(null, null, 0, null, 0, null, null, null, null, null, null, 2047, null), 101, "task was not existed");
+                ipVar.b(new TaskInfo(null, null, 0, null, 0, null, null, null, null, null, null, 2047, null), 101, "task was not existed");
             } else {
-                U(t.getTaskInfo(), jpVar);
+                U(t.getTaskInfo(), ipVar);
             }
         }
     }
 
-    public void X(String str, kp kpVar) {
+    public void X(String str, jp jpVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, str, kpVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048599, this, str, jpVar) == null) {
             TaskState K = K(str);
             if (K == null) {
-                kpVar.b(new TaskInfo(null, null, 0, null, 0, null, null, null, null, null, null, 2047, null), 101, "task was not existed");
+                jpVar.b(new TaskInfo(null, null, 0, null, 0, null, null, null, null, null, null, 2047, null), 101, "task was not existed");
             } else {
-                U(K.getTaskInfo(), kpVar);
+                U(K.getTaskInfo(), jpVar);
             }
         }
     }
@@ -1743,7 +1743,7 @@ public final class BDPTask {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || (k2 = O().k(str)) == null || !k2.getTaskInfo().isPassiveTask()) {
             return;
         }
-        j0(k2.getTaskInfo(), lq.e.a(k2.getTaskInfo(), k2.getTaskStatus().getCurStatus()));
+        j0(k2.getTaskInfo(), kq.e.a(k2.getTaskInfo(), k2.getTaskStatus().getCurStatus()));
     }
 
     public void D(String str) {
@@ -1752,7 +1752,7 @@ public final class BDPTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (u = O().u(str)) != null && (deepCopy = u.deepCopy()) != null && deepCopy.isPassiveTask()) {
             O().b(deepCopy, 306, "clean passive task by force");
-            j0(deepCopy, gq.f.a(deepCopy, "clean passive task by force"));
+            j0(deepCopy, fq.f.a(deepCopy, "clean passive task by force"));
         }
     }
 
@@ -1762,7 +1762,7 @@ public final class BDPTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (u = O().u(str)) != null && (deepCopy = u.deepCopy()) != null) {
             O().b(deepCopy, 307, "clean task by force");
-            j0(deepCopy, gq.f.a(deepCopy, "clean task by force"));
+            j0(deepCopy, fq.f.a(deepCopy, "clean task by force"));
         }
     }
 
@@ -1888,19 +1888,19 @@ public final class BDPTask {
         }
     }
 
-    public void L(String str, ip ipVar) {
+    public void L(String str, hp hpVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, ipVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, hpVar) == null) {
             TaskInfo p = O().p(str);
             if (p == null) {
-                ipVar.a(null);
+                hpVar.a(null);
                 return;
             }
             SubTaskState k2 = O().k(p.getSingleKey());
             if (k2 == null) {
-                ipVar.a(null);
+                hpVar.a(null);
             } else {
-                ipVar.a(new TaskState(k2.getTaskInfo().deepCopy(), k2.getTaskStatus().deepCopy()));
+                hpVar.a(new TaskState(k2.getTaskInfo().deepCopy(), k2.getTaskStatus().deepCopy()));
             }
         }
     }
@@ -1918,37 +1918,37 @@ public final class BDPTask {
         return (TaskState) invokeV.objValue;
     }
 
-    public final void V(TaskInfo taskInfo, kp kpVar, boolean z) {
+    public final void V(TaskInfo taskInfo, jp jpVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048597, this, taskInfo, kpVar, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048597, this, taskInfo, jpVar, z) == null) {
             SubTaskState k2 = O().k(taskInfo.getSingleKey());
             if (k2 == null) {
-                kpVar.b(taskInfo, 101, "task was not existed");
+                jpVar.b(taskInfo, 101, "task was not existed");
                 return;
             }
             if (z) {
-                kpVar.a(k2.getTaskInfo(), k2.getTaskStatus());
+                jpVar.a(k2.getTaskInfo(), k2.getTaskStatus());
             }
-            k2.addCallback(kpVar);
+            k2.addCallback(jpVar);
         }
     }
 
-    public final void a0(TaskInfo taskInfo, boolean z, kp kpVar, qq qqVar) {
+    public final void a0(TaskInfo taskInfo, boolean z, jp jpVar, pq pqVar) {
         TaskInfo copy;
         TaskState K;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{taskInfo, Boolean.valueOf(z), kpVar, qqVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{taskInfo, Boolean.valueOf(z), jpVar, pqVar}) == null) {
             if (taskInfo == null) {
-                if (kpVar != null) {
-                    kpVar.b(new TaskInfo(null, null, 0, null, 0, null, null, null, null, null, null, 2047, null), 201, "task info parse failed");
+                if (jpVar != null) {
+                    jpVar.b(new TaskInfo(null, null, 0, null, 0, null, null, null, null, null, null, 2047, null), 201, "task info parse failed");
                 }
             } else if (!taskInfo.isValid()) {
-                if (kpVar != null) {
-                    kpVar.b(taskInfo, 201, "task info parse failed");
+                if (jpVar != null) {
+                    jpVar.b(taskInfo, 201, "task info parse failed");
                 }
-            } else if (!uv.a.c(taskInfo.getTaskRule().getExpireTime())) {
-                if (kpVar != null) {
-                    kpVar.b(taskInfo, 103, "task is expired");
+            } else if (!tv.a.c(taskInfo.getTaskRule().getExpireTime())) {
+                if (jpVar != null) {
+                    jpVar.b(taskInfo, 103, "task is expired");
                 }
             } else {
                 final SubTaskState c = b.c(O(), null, 1, null);
@@ -2034,30 +2034,30 @@ public final class BDPTask {
                         Q(c.getTaskInfo(), 102);
                     }
                 }
-                if (!z && (K = K(taskInfo.getActionId())) != null && K.getTaskInfo().isValid() && K.getTaskStatus().isEnable() && kpVar != null) {
-                    if (qqVar != null) {
-                        h0(taskInfo, qqVar);
+                if (!z && (K = K(taskInfo.getActionId())) != null && K.getTaskInfo().isValid() && K.getTaskStatus().isEnable() && jpVar != null) {
+                    if (pqVar != null) {
+                        h0(taskInfo, pqVar);
                     }
-                    W(taskInfo, kpVar);
+                    W(taskInfo, jpVar);
                     return;
                 }
                 copy = taskInfo.copy((r24 & 1) != 0 ? taskInfo.id : null, (r24 & 2) != 0 ? taskInfo.actionId : null, (r24 & 4) != 0 ? taskInfo.type : 0, (r24 & 8) != 0 ? taskInfo.token : null, (r24 & 16) != 0 ? taskInfo.behavior : 0, (r24 & 32) != 0 ? taskInfo.actTaskId : null, (r24 & 64) != 0 ? taskInfo.fingerprint : null, (r24 & 128) != 0 ? taskInfo.taskRule : null, (r24 & 256) != 0 ? taskInfo.taskGuide : null, (r24 & 512) != 0 ? taskInfo.taskMeter : null, (r24 & 1024) != 0 ? taskInfo.response : null);
-                j0(taskInfo, new oq(copy, kpVar, qqVar, null, null, null, 56, null));
+                j0(taskInfo, new nq(copy, jpVar, pqVar, null, null, null, 56, null));
             }
         }
     }
 
-    public void l0(String str, String str2, int i2, sq sqVar) {
+    public void l0(String str, String str2, int i2, rq rqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048613, this, str, str2, i2, sqVar) == null) {
-            m0(str, str2, i2, null, sqVar);
+        if (interceptable == null || interceptable.invokeLLIL(1048613, this, str, str2, i2, rqVar) == null) {
+            m0(str, str2, i2, null, rqVar);
         }
     }
 
-    public void m0(String str, String str2, int i2, JSONObject jSONObject, sq sqVar) {
+    public void m0(String str, String str2, int i2, JSONObject jSONObject, rq rqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{str, str2, Integer.valueOf(i2), jSONObject, sqVar}) == null) {
-            com.baidu.bdtask.ctrl.repo.api.a.b.a(str, str2, i2, jSONObject, sqVar);
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{str, str2, Integer.valueOf(i2), jSONObject, rqVar}) == null) {
+            com.baidu.bdtask.ctrl.repo.api.a.b.a(str, str2, i2, jSONObject, rqVar);
         }
     }
 
@@ -2217,19 +2217,19 @@ public final class BDPTask {
                 }
             });
             if (taskInfo != null && taskStatus != null) {
-                xu.c.d(UBCActionTaskInfo.Companion.b(str2, taskInfo, taskStatus));
+                wu.c.d(UBCActionTaskInfo.Companion.b(str2, taskInfo, taskStatus));
                 if (!taskInfo.isClickAction()) {
                     return;
                 }
                 if (H(str, str2)) {
                     TaskState K = K(str);
                     if (K != null && (taskInfo2 = K.getTaskInfo()) != null) {
-                        j0(taskInfo2, kq.f.a(taskInfo2));
+                        j0(taskInfo2, jq.f.a(taskInfo2));
                         return;
                     }
                     return;
                 }
-                j0(taskInfo, new hq(taskInfo.getSingleKey(), str2, str3, null, null, 24, null));
+                j0(taskInfo, new gq(taskInfo.getSingleKey(), str2, str3, null, null, 24, null));
             }
         }
     }
@@ -2289,14 +2289,14 @@ public final class BDPTask {
                 }
             });
             if (taskInfo != null && taskStatus2 != null) {
-                xu.c.d(UBCActionTaskInfo.Companion.a(j2, str2, taskInfo, taskStatus2));
+                wu.c.d(UBCActionTaskInfo.Companion.a(j2, str2, taskInfo, taskStatus2));
                 if (!taskInfo.isVisitAction()) {
                     return;
                 }
                 if (H(str, str2)) {
-                    j0(taskInfo, kq.f.b(taskInfo));
+                    j0(taskInfo, jq.f.b(taskInfo));
                 } else {
-                    j0(taskInfo, new iq(j2, taskInfo.getSingleKey(), str2, str3, null, null, 48, null));
+                    j0(taskInfo, new hq(j2, taskInfo.getSingleKey(), str2, str3, null, null, 48, null));
                 }
             }
         }

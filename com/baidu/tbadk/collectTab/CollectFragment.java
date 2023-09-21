@@ -20,7 +20,7 @@ public abstract class CollectFragment extends BaseFragment {
     public boolean a;
     public final CustomMessageListener b;
 
-    public abstract boolean W1();
+    public abstract boolean c2();
 
     public abstract int getType();
 
@@ -59,10 +59,10 @@ public abstract class CollectFragment extends BaseFragment {
                 return;
             }
             CollectFragment collectFragment = this.a;
-            collectFragment.Y1(collectFragment.getType());
+            collectFragment.e2(collectFragment.getType());
             CollectFragment collectFragment2 = this.a;
             if (!collectFragment2.a) {
-                collectFragment2.Z1(false, collectFragment2.getType());
+                collectFragment2.f2(false, collectFragment2.getType());
             }
         }
     }
@@ -84,7 +84,7 @@ public abstract class CollectFragment extends BaseFragment {
         this.b = new a(this, 2000994);
     }
 
-    public boolean X1() {
+    public boolean d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -111,12 +111,12 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public void Y1(int i) {
+    public void e2(int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             Bundle bundle = new Bundle();
-            if (!W1() && BdNetTypeUtil.isNetWorkAvailable()) {
+            if (!c2() && BdNetTypeUtil.isNetWorkAvailable()) {
                 z = true;
             } else {
                 z = false;
@@ -128,7 +128,7 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public void Z1(boolean z, int i) {
+    public void f2(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             Bundle bundle = new Bundle();

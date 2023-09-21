@@ -127,12 +127,12 @@ public final class DescriptorEquivalenceForOverrides {
                 if (Intrinsics.areEqual(typeConstructor, typeConstructor2)) {
                     return true;
                 }
-                ClassifierDescriptor mo2105getDeclarationDescriptor = typeConstructor.mo2105getDeclarationDescriptor();
-                ClassifierDescriptor mo2105getDeclarationDescriptor2 = typeConstructor2.mo2105getDeclarationDescriptor();
-                if (!(mo2105getDeclarationDescriptor instanceof TypeParameterDescriptor) || !(mo2105getDeclarationDescriptor2 instanceof TypeParameterDescriptor)) {
+                ClassifierDescriptor mo2107getDeclarationDescriptor = typeConstructor.mo2107getDeclarationDescriptor();
+                ClassifierDescriptor mo2107getDeclarationDescriptor2 = typeConstructor2.mo2107getDeclarationDescriptor();
+                if (!(mo2107getDeclarationDescriptor instanceof TypeParameterDescriptor) || !(mo2107getDeclarationDescriptor2 instanceof TypeParameterDescriptor)) {
                     return false;
                 }
-                areTypeParametersEquivalent = DescriptorEquivalenceForOverrides.INSTANCE.areTypeParametersEquivalent((TypeParameterDescriptor) mo2105getDeclarationDescriptor, (TypeParameterDescriptor) mo2105getDeclarationDescriptor2, z, new Function2<DeclarationDescriptor, DeclarationDescriptor, Boolean>() { // from class: kotlin.reflect.jvm.internal.impl.resolve.DescriptorEquivalenceForOverrides$areCallableDescriptorsEquivalent$overridingUtil$1.1
+                areTypeParametersEquivalent = DescriptorEquivalenceForOverrides.INSTANCE.areTypeParametersEquivalent((TypeParameterDescriptor) mo2107getDeclarationDescriptor, (TypeParameterDescriptor) mo2107getDeclarationDescriptor2, z, new Function2<DeclarationDescriptor, DeclarationDescriptor, Boolean>() { // from class: kotlin.reflect.jvm.internal.impl.resolve.DescriptorEquivalenceForOverrides$areCallableDescriptorsEquivalent$overridingUtil$1.1
                     {
                         super(2);
                     }

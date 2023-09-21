@@ -1,85 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BDLayoutMode;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.AutoPayInfo;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipInfo;
+import tbclient.GetVipInfo.VipUpgrade;
+import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes5.dex */
-public class fb9 {
+public class fb9 implements bn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public Context c;
-    public TextView d;
 
-    public fb9() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947758508, "Lcom/baidu/tieba/fb9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947758508, "Lcom/baidu/tieba/fb9;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public fb9(DataRes dataRes) {
+        VipUser vipUser;
+        VipUpgrade vipUpgrade;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dataRes};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a(TbPageContext<?> tbPageContext) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            BDLayoutMode layoutMode = tbPageContext.getLayoutMode();
-            if (skinType == 4) {
-                z = true;
-            } else {
-                z = false;
+        if (dataRes != null && (vipUser = dataRes.user) != null && (vipUpgrade = dataRes.upgrade) != null) {
+            String str = vipUser.card_id;
+            String str2 = vipUser.total_scores_link;
+            String str3 = vipUser.speed_link;
+            String str4 = vipUser.task_scores_link;
+            vipUser.task_scores.intValue();
+            String str5 = vipUser.name;
+            vipUser.id.longValue();
+            String str6 = vipUser.portrait;
+            String str7 = vipUser.name_show;
+            String str8 = vipUser.vip_link;
+            VipInfo vipInfo = vipUser.vipInfo;
+            if (vipInfo != null) {
+                String str9 = vipInfo.icon_url;
+                vipInfo.s_time.intValue();
+                vipUser.vipInfo.e_time.intValue();
+                vipUser.now_time.intValue();
+                vipUser.vipInfo.v_status.intValue();
+                vipUser.vipInfo.v_level.intValue();
+                vipUser.vipInfo.ext_score.intValue();
+                vipUser.vipInfo.a_score.intValue();
+                vipUser.vipInfo.n_score.intValue();
             }
-            layoutMode.setNightMode(z);
-            tbPageContext.getLayoutMode().onModeChanged(this.a);
+            dataRes.today_get_score.intValue();
+            dataRes.today_unget_score.intValue();
+            vipUpgrade.normal.intValue();
+            vipUpgrade.pay.intValue();
+            AutoPayInfo autoPayInfo = dataRes.autopay_info;
         }
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f15f6), Integer.valueOf(i)));
-        }
-    }
-
-    public View b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.c = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d097a, (ViewGroup) null);
-            this.a = inflate;
-            inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092478);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092477);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
     }
 }

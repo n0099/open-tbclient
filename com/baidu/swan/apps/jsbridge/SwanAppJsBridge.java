@@ -11,27 +11,27 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.fa2;
-import com.baidu.tieba.kl2;
-import com.baidu.tieba.l43;
-import com.baidu.tieba.od2;
-import com.baidu.tieba.pv2;
-import com.baidu.tieba.uw2;
+import com.baidu.tieba.ea2;
+import com.baidu.tieba.jl2;
+import com.baidu.tieba.k43;
+import com.baidu.tieba.nd2;
+import com.baidu.tieba.ov2;
+import com.baidu.tieba.tw2;
 import org.json.JSONObject;
 @Keep
 /* loaded from: classes4.dex */
-public class SwanAppJsBridge extends pv2 {
+public class SwanAppJsBridge extends ov2 {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
     public static final String TAG = "SwanAppJsBridge";
 
-    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, fa2 fa2Var) {
-        super(context, unitedSchemeMainDispatcher, callbackHandler, fa2Var);
+    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, ea2 ea2Var) {
+        super(context, unitedSchemeMainDispatcher, callbackHandler, ea2Var);
     }
 
     private String doSchemeDispatch(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(UnitedSchemeEntity.UNITED_SCHEME)) {
             UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(str));
-            if (pv2.DEBUG) {
+            if (ov2.DEBUG) {
                 Log.d(TAG, "doSchemeDispatch scheme: " + str + " mCallbackHandler: " + this.mCallbackHandler);
             }
             SchemeTimeCostMoniter.getInstance().schemeStart(str);
@@ -48,7 +48,7 @@ public class SwanAppJsBridge extends pv2 {
 
     @JavascriptInterface
     public String dispatch(String str) {
-        if (od2.a(this.mJsContainer, str)) {
+        if (nd2.a(this.mJsContainer, str)) {
             return UnitedSchemeUtility.wrapCallbackParams(1001).toString();
         }
         return doSchemeDispatch(str);
@@ -56,20 +56,20 @@ public class SwanAppJsBridge extends pv2 {
 
     @JavascriptInterface
     public String setData(String str, String str2) {
-        if (pv2.DEBUG) {
+        if (ov2.DEBUG) {
             Log.d(TAG, "slave id: " + str + " data: " + str2);
         }
-        fa2 fa2Var = this.mJsContainer;
-        if (od2.a(fa2Var, "setData - " + str2)) {
+        ea2 ea2Var = this.mJsContainer;
+        if (nd2.a(ea2Var, "setData - " + str2)) {
             return UnitedSchemeUtility.wrapCallbackParams(1001).toString();
         }
-        l43.a("postMessage", "PostMsg setData handle");
+        k43.a("postMessage", "PostMsg setData handle");
         int i = 0;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            kl2 kl2Var = new kl2(str, str2);
-            l43.a("postMessage", "PostMsg setData start");
-            uw2.T().y(kl2Var, false);
-            l43.a("postMessage", "PostMsg setData end");
+            jl2 jl2Var = new jl2(str, str2);
+            k43.a("postMessage", "PostMsg setData start");
+            tw2.T().y(jl2Var, false);
+            k43.a("postMessage", "PostMsg setData end");
         } else {
             i = 202;
         }

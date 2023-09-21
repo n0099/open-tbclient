@@ -2,7 +2,7 @@ package com.baidu.tieba.filedownloader;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.bf7;
+import com.baidu.tieba.lf7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,7 +110,7 @@ public final class TbDownloadManagerEcom extends TbDownloadManagerWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) {
             Intrinsics.checkNotNullParameter(downloadData, "downloadData");
-            bf7.a(downloadData);
+            lf7.a(downloadData);
         }
     }
 }

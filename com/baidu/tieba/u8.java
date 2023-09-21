@@ -24,7 +24,7 @@ public class u8 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile u8 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public d20 a;
+    public c20 a;
     public Context b;
     public volatile int c;
     public AtomicReference<HashMap<String, c9>>[] d;
@@ -73,7 +73,7 @@ public class u8 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashMap[] hashMapArr = new HashMap[this.c.c];
                 for (c9 c9Var : this.a) {
-                    int a = m20.a(c9Var.a(), this.c.c);
+                    int a = l20.a(c9Var.a(), this.c.c);
                     if (hashMapArr[a] == null) {
                         hashMapArr[a] = new HashMap();
                     }
@@ -154,7 +154,7 @@ public class u8 {
         }
         this.b = context.getApplicationContext();
         this.c = e9.b().a();
-        this.a = new d20(this.b);
+        this.a = new c20(this.b);
         y();
     }
 
@@ -247,7 +247,7 @@ public class u8 {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, str, z)) == null) {
-            return l20.a(u(str), z);
+            return k20.a(u(str), z);
         }
         return invokeLZ.booleanValue;
     }
@@ -256,7 +256,7 @@ public class u8 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Double.valueOf(d)})) == null) {
-            return l20.b(u(str), d);
+            return k20.b(u(str), d);
         }
         return invokeCommon.doubleValue;
     }
@@ -265,7 +265,7 @@ public class u8 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, str, i)) == null) {
-            return l20.c(u(str), i);
+            return k20.c(u(str), i);
         }
         return invokeLI.intValue;
     }
@@ -274,7 +274,7 @@ public class u8 {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048591, this, str, j)) == null) {
-            return l20.e(u(str), j);
+            return k20.e(u(str), j);
         }
         return invokeLJ.longValue;
     }
@@ -283,7 +283,7 @@ public class u8 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, str, str2)) == null) {
-            return l20.f(u(str), str2);
+            return k20.f(u(str), str2);
         }
         return (String) invokeLL.objValue;
     }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y06;
+import com.baidu.tieba.z06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ObservedChangeLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y06 a;
+    public z06 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeLinearLayout(Context context) {
@@ -57,13 +57,13 @@ public class ObservedChangeLinearLayout extends LinearLayout {
         }
     }
 
-    public y06 getOnSizeChangeListener() {
+    public z06 getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (y06) invokeV.objValue;
+        return (z06) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -71,17 +71,17 @@ public class ObservedChangeLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            y06 y06Var = this.a;
-            if (y06Var != null) {
-                y06Var.a(this, i, i2, i3, i4);
+            z06 z06Var = this.a;
+            if (z06Var != null) {
+                z06Var.a(this, i, i2, i3, i4);
             }
         }
     }
 
-    public void setOnSizeChangeListener(y06 y06Var) {
+    public void setOnSizeChangeListener(z06 z06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y06Var) == null) {
-            this.a = y06Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z06Var) == null) {
+            this.a = z06Var;
         }
     }
 }

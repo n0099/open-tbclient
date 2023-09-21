@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class ws6 implements tc7 {
+public class ws6 extends la7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.tc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
-    }
 
     public ws6() {
         Interceptable interceptable = $ic;
@@ -35,16 +27,38 @@ public final class ws6 implements tc7 {
         }
     }
 
-    @Override // com.baidu.tieba.tc7
-    public Map<String, String> a(f87 businessInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.la7
+    @Nullable
+    public Object e(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            hashMap.put("obj_locate", "2");
-            return hashMap;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (str.hashCode() == 155229553 && str.equals("click_back_card")) {
+                c = 0;
+            } else {
+                c = 65535;
+            }
+            if (c != 0) {
+                return super.e(str, str2);
+            }
+            return w45.b(str2);
         }
-        return (Map) invokeL.objValue;
+        return invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.la7
+    @NonNull
+    public yc7<?> h(@NonNull n87<?> n87Var, @NonNull b97 b97Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n87Var, b97Var)) == null) {
+            u87 u87Var = new u87();
+            u87Var.c = n87Var;
+            u87Var.b = b97Var.a();
+            u87Var.a = b97Var.c();
+            return u87Var;
+        }
+        return (yc7) invokeLL.objValue;
     }
 }

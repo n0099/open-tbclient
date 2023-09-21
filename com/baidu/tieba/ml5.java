@@ -1,53 +1,54 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.view.CommonTabContentView;
+import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ml5 {
+public abstract class ml5 implements xi5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976531, "Lcom/baidu/tieba/ml5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947976531, "Lcom/baidu/tieba/ml5;");
-                return;
-            }
-        }
-        b = new a(null);
-    }
+    public b a;
+    public a b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public CommonTabHost.b i;
+    public EditorTools j;
+    public int k;
+    public CommonTabContentView.c l;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public interface a {
+        View getView(int i, View view2, ViewGroup viewGroup);
+    }
+
+    public abstract void a();
+
+    public abstract int c();
+
+    public abstract void n(Context context);
+
+    /* loaded from: classes7.dex */
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,144 +61,211 @@ public final class ml5 {
                 }
             }
         }
-
-        public final ml5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (ml5) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final ml5 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-600313771, "Lcom/baidu/tieba/ml5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-600313771, "Lcom/baidu/tieba/ml5$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new ml5();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final ml5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (ml5) invokeV.objValue;
-        }
     }
 
     public ml5() {
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        String cache = SharedPrefHelper.getInstance().getString("festival_global_switches_key", "");
-        Intrinsics.checkNotNullExpressionValue(cache, "cache");
-        if (cache.length() > 0) {
-            z = true;
-        } else {
-            z = false;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.k = 0;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        if (z) {
-            try {
-                c(new JSONObject(cache));
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    e.printStackTrace();
-                    return;
-                }
-                throw e;
-            }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public b f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public CommonTabContentView.c g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.l;
+        }
+        return (CommonTabContentView.c) invokeV.objValue;
+    }
+
+    public CommonTabHost.b h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.i;
+        }
+        return (CommonTabHost.b) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public a m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.b;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public void d0(wi5 wi5Var) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, wi5Var) == null) && (editorTools = this.j) != null) {
+            editorTools.D(wi5Var);
         }
     }
 
-    public final boolean a(String key) {
-        InterceptResult invokeL;
-        Integer num;
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Integer num2 = this.a.get("global_switch");
-            if ((num2 != null && num2.intValue() == 0) || (num = this.a.get(key)) == null || num.intValue() != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.a.clear();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                Intrinsics.checkNotNullExpressionValue(keys, "keys");
-                while (keys.hasNext()) {
-                    String key = keys.next();
-                    HashMap<String, Integer> hashMap = this.a;
-                    Intrinsics.checkNotNullExpressionValue(key, "key");
-                    hashMap.put(key, Integer.valueOf(jSONObject.optInt(key)));
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public final void b(JSONObject jSONObject) {
+    public void p(CommonTabHost.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            SharedPrefHelper.getInstance().putString("festival_global_switches_key", (jSONObject == null || (r5 = jSONObject.toString()) == null) ? "" : "");
+        if (interceptable == null || interceptable.invokeL(1048592, this, bVar) == null) {
+            this.i = bVar;
         }
     }
 
-    public final void update(JSONObject jSONObject) {
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            c(jSONObject);
-            b(jSONObject);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void r(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    public void s(CommonTabContentView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, cVar) == null) {
+            this.l = cVar;
+        }
+    }
+
+    public void setEditorTools(EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, editorTools) == null) {
+            this.j = editorTools;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void x(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 }

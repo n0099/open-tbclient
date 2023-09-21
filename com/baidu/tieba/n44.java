@@ -15,7 +15,7 @@ public final class n44 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public p54 a;
+    public o54 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +30,7 @@ public final class n44 {
                 return;
             }
         }
-        b = rr1.a;
+        b = qr1.a;
     }
 
     public n44() {
@@ -48,22 +48,22 @@ public final class n44 {
     }
 
     public void c() {
-        p54 p54Var;
+        o54 o54Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (p54Var = this.a) != null) {
-            p54Var.c();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (o54Var = this.a) != null) {
+            o54Var.c();
         }
     }
 
-    public static n44 d(o32 o32Var) {
+    public static n44 d(n32 n32Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, o32Var)) == null) {
-            if (o32Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, n32Var)) == null) {
+            if (n32Var == null) {
                 return null;
             }
             n44 n44Var = new n44();
-            n44Var.a = p54.e(o32Var);
+            n44Var.a = o54.e(n32Var);
             return n44Var;
         }
         return (n44) invokeL.objValue;
@@ -73,9 +73,9 @@ public final class n44 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             JSONObject a = a(str);
-            p54 p54Var = this.a;
-            if (p54Var != null) {
-                p54Var.b(a);
+            o54 o54Var = this.a;
+            if (o54Var != null) {
+                o54Var.b(a);
             }
         }
     }
@@ -88,7 +88,7 @@ public final class n44 {
             try {
                 jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
                 jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
-                jSONObject.put("errDes", u04.a(str));
+                jSONObject.put("errDes", t04.a(str));
             } catch (Exception e) {
                 if (b) {
                     e.printStackTrace();

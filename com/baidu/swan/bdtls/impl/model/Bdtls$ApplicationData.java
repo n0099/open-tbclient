@@ -1,6 +1,6 @@
 package com.baidu.swan.bdtls.impl.model;
 
-import com.baidu.tieba.lu3;
+import com.baidu.tieba.ku3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -75,7 +75,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bdtls$ApplicationData buildPartial() {
-            Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (lu3) null);
+            Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (ku3) null);
             int i = 1;
             if ((this.a & 1) != 1) {
                 i = 0;
@@ -323,7 +323,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, lu3 lu3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ku3 ku3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -355,7 +355,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, lu3 lu3Var) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, ku3 ku3Var) {
         this(builder);
     }
 

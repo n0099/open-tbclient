@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -217,7 +217,7 @@ public class PersonHeaderBackgroundController {
         }
         this.d = userData;
         String bg_pic = userData.getBg_pic();
-        if (!ei.isEmpty(bg_pic)) {
+        if (!di.isEmpty(bg_pic)) {
             BdResourceLoader.getInstance().loadResource(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
         }
     }

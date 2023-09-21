@@ -1,254 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
-import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.tieba.im.data.JsonMsgItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.ref.WeakReference;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class fg8 {
+public class fg8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static fg8 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ArrayList<JsonMsgItem> b;
-    public c c;
+    public final WeakReference<a> a;
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void a(String str);
+    public interface a {
+        void a(CustomResponsedMessage<?> customResponsedMessage);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947763282, "Lcom/baidu/tieba/fg8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947763282, "Lcom/baidu/tieba/fg8;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends TypeToken<List<JsonMsgItem>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(fg8 fg8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fg8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JsonMsgItem a;
-        public final /* synthetic */ fg8 b;
-
-        public b(fg8 fg8Var, JsonMsgItem jsonMsgItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fg8Var, jsonMsgItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fg8Var;
-            this.a = jsonMsgItem;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(@NonNull View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.c.a(this.a.getUrl());
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(@NonNull TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setColor(this.b.a.getResources().getColor(this.b.d(this.a.getColor())));
-                textPaint.setUnderlineText(false);
-            }
-        }
-    }
-
-    public fg8(Context context) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public fg8(int i, a callback) {
+        this(i, false, callback, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Integer.valueOf(i), callback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (a) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(callback, "callback");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public fg8(int i, boolean z, a callback) {
+        super(i, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), callback};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList<>();
-        this.a = context;
+        Intrinsics.checkNotNullParameter(callback, "callback");
+        this.a = new WeakReference<>(callback);
     }
 
-    public int c(int i) {
-        InterceptResult invokeI;
+    public /* synthetic */ fg8(int i, boolean z, a aVar, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i2 & 2) != 0 ? false : z, aVar);
+    }
+
+    public static final void g(fg8 this$0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 0) {
-                return 0;
+        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            MessageManager.getInstance().unRegisterListener(this$0);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Unit unit;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            a aVar = this.a.get();
+            if (aVar != null) {
+                aVar.a(customResponsedMessage);
+                unit = Unit.INSTANCE;
+            } else {
+                unit = null;
             }
-            int i2 = 0;
-            for (int i3 = 0; i3 < i; i3++) {
-                if (this.b.get(i3) != null) {
-                    i2 += this.b.get(i3).getText().length();
-                }
-            }
-            return i2;
-        }
-        return invokeI.intValue;
-    }
+            if (unit == null) {
+                lg.c(new Runnable() { // from class: com.baidu.tieba.cg8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-    public final int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int identifier = this.a.getResources().getIdentifier(str, "color", this.a.getPackageName());
-            if (identifier == 0) {
-                return this.a.getResources().getIdentifier("CAM_X0101", "color", this.a.getPackageName());
-            }
-            return identifier;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int identifier = this.a.getResources().getIdentifier(str, EMABTest.TYPE_DIMEN, this.a.getPackageName());
-            if (identifier == 0) {
-                return this.a.getResources().getIdentifier("T_X09", EMABTest.TYPE_DIMEN, this.a.getPackageName());
-            }
-            return identifier;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (!cjb.a(str)) {
-                if (str.startsWith("{") && str.endsWith("}")) {
-                    return true;
-                }
-                if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static fg8 f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                d = new fg8(context);
-            }
-            return d;
-        }
-        return (fg8) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = (ArrayList) new Gson().fromJson(str, new a(this).getType());
-        }
-    }
-
-    public void j(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    public void h(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, textView) == null) {
-            textView.setMovementMethod(LinkMovementMethod.getInstance());
-            textView.setHighlightColor(0);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            for (int i = 0; i < this.b.size(); i++) {
-                JsonMsgItem jsonMsgItem = this.b.get(i);
-                if (jsonMsgItem != null && !TextUtils.isEmpty(jsonMsgItem.getText())) {
-                    SpannableString spannableString = new SpannableString(jsonMsgItem.getText());
-                    spannableString.setSpan(new ForegroundColorSpan(this.a.getResources().getColor(d(jsonMsgItem.getColor()))), 0, jsonMsgItem.getText().length(), 33);
-                    spannableString.setSpan(new AbsoluteSizeSpan((int) this.a.getResources().getDimension(e(jsonMsgItem.getFont()))), 0, jsonMsgItem.getText().length(), 0);
-                    spannableStringBuilder.append((CharSequence) spannableString);
-                    if (jsonMsgItem.getType().intValue() == 1) {
-                        spannableStringBuilder.setSpan(new b(this, jsonMsgItem), c(i), c(i) + jsonMsgItem.getText().length(), 17);
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            fg8.g(fg8.this);
+                        }
                     }
-                }
+                });
             }
-            textView.setText(spannableStringBuilder);
         }
     }
 }

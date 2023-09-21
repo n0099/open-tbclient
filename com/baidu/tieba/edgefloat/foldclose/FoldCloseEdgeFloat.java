@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a07;
+import com.baidu.tieba.d07;
+import com.baidu.tieba.e07;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat;
+import com.baidu.tieba.h07;
+import com.baidu.tieba.pya;
 import com.baidu.tieba.view.foldclose.FoldCloseView;
-import com.baidu.tieba.wz6;
-import com.baidu.tieba.xwa;
-import com.baidu.tieba.xz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public final class FoldCloseEdgeFloat {
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener a;
     public View.OnClickListener b;
-    public xwa c;
+    public pya c;
     public final Lazy d;
     public final Lazy e;
 
@@ -143,7 +143,7 @@ public final class FoldCloseEdgeFloat {
             }
 
             /* loaded from: classes5.dex */
-            public static final class a implements wz6 {
+            public static final class a implements d07 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FoldCloseEdgeFloat a;
@@ -166,7 +166,7 @@ public final class FoldCloseEdgeFloat {
                     this.a = foldCloseEdgeFloat;
                 }
 
-                @Override // com.baidu.tieba.wz6
+                @Override // com.baidu.tieba.d07
                 public void onChangeSkinType(int i) {
                     FoldCloseView d;
                     Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public final class FoldCloseEdgeFloat {
             }
 
             /* loaded from: classes5.dex */
-            public static final class b implements xz6 {
+            public static final class b implements e07 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FoldCloseEdgeFloat a;
@@ -202,7 +202,7 @@ public final class FoldCloseEdgeFloat {
                     this.a = foldCloseEdgeFloat;
                 }
 
-                @Override // com.baidu.tieba.xz6
+                @Override // com.baidu.tieba.e07
                 public void dispatchTouchEvent(MotionEvent ev) {
                     FoldCloseView d;
                     FoldCloseView d2;
@@ -218,7 +218,7 @@ public final class FoldCloseEdgeFloat {
                     }
                 }
 
-                @Override // com.baidu.tieba.xz6
+                @Override // com.baidu.tieba.e07
                 public void onBackPressed() {
                     FoldCloseView d;
                     Interceptable interceptable = $ic;
@@ -240,14 +240,14 @@ public final class FoldCloseEdgeFloat {
                     int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
                     int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
                     int statusBarHeight = UtilHelper.getStatusBarHeight();
-                    int b2 = (equipmentWidth - a07.a.b()) - (a07.a.c() * 2);
+                    int b2 = (equipmentWidth - h07.a.b()) - (h07.a.c() * 2);
                     int normalMainTabBarHeight = TbadkCoreApplication.getInst().getNormalMainTabBarHeight() + BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds177);
                     d = this.this$0.d();
                     EdgeFloat.a aVar = new EdgeFloat.a(d);
                     aVar.H(b2);
-                    aVar.I(equipmentHeight - a07.a.a());
-                    aVar.y(a07.a.b() + (a07.a.c() * 2));
-                    aVar.L(a07.a.b() + (a07.a.c() * 2));
+                    aVar.I(equipmentHeight - h07.a.a());
+                    aVar.y(h07.a.b() + (h07.a.c() * 2));
+                    aVar.L(h07.a.b() + (h07.a.c() * 2));
                     aVar.D(equipmentHeight);
                     aVar.E(equipmentWidth);
                     aVar.J(statusBarHeight);
@@ -269,7 +269,7 @@ public final class FoldCloseEdgeFloat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, childView) == null) {
             Intrinsics.checkNotNullParameter(childView, "childView");
-            d().setChild(childView, a07.a.b(), a07.a.b());
+            d().setChild(childView, h07.a.b(), h07.a.b());
         }
     }
 
@@ -280,10 +280,10 @@ public final class FoldCloseEdgeFloat {
         }
     }
 
-    public final void m(xwa xwaVar) {
+    public final void m(pya pyaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xwaVar) == null) {
-            this.c = xwaVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, pyaVar) == null) {
+            this.c = pyaVar;
         }
     }
 
@@ -321,13 +321,13 @@ public final class FoldCloseEdgeFloat {
         return (View.OnClickListener) invokeV.objValue;
     }
 
-    public final xwa f() {
+    public final pya f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
         }
-        return (xwa) invokeV.objValue;
+        return (pya) invokeV.objValue;
     }
 
     public final View.OnClickListener g() {

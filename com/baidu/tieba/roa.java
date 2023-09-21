@@ -1,156 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class roa extends BaseAdapter {
+public class roa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<toa> a;
-    public TbPageContext<?> b;
+    public final MainTabActivity a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public View c;
-        public View d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public roa(TbPageContext<?> tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public roa(MainTabActivity mainTabActivity, qma qmaVar) {
+        super(2001247);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {mainTabActivity, qmaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
+        this.a = mainTabActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public toa getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<toa> list = this.a;
-            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            return;
         }
-        return (toa) invokeI.objValue;
-    }
-
-    public void b(List<toa> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        UserData e = wl5.d().e();
+        if (TbadkCoreApplication.isLogin() && e != null && e.getUserId() != null && !e.getUserId().equals(this.a.t) && e.getIsGodInvited()) {
+            this.a.t = e.getUserId();
+            BrowserHelper.startWebActivity((Context) this.a.getPageContext().getPageActivity(), "", TbWebViewActivityConfig.GOD_INVITE_JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true);
         }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<toa> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+        if (!SharedPrefHelper.getInstance().getBoolean("key_new_god_invited_my_tab_red_tip_showed", false) && TbadkCoreApplication.isLogin() && e != null && e.getUserId() != null && !e.getUserId().equals(this.a.t) && e.getNewGodData() != null && e.getNewGodData().isNewGodInvited()) {
+            PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
+            TiebaStatic.log(new StatisticItem("c13688").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 0));
+            SharedPrefHelper.getInstance().putBoolean("key_new_god_invited_my_tab_red_tip_showed", true);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            toa item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0281, viewGroup, false);
-                aVar = new a();
-                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090962);
-                aVar.a = headImageView;
-                headImageView.setDefaultResource(R.drawable.img_default_100);
-                aVar.a.setDefaultBgResource(R.color.CAM_X0204);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090961);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0925cd);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090905);
-                view2.setTag(aVar);
-            }
-            if (item != null) {
-                aVar.a.startLoad(item.a(), 10, false);
-                aVar.b.setText(item.b());
-                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                if (item.c() - sharedPrefHelper.getLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
-                    aVar.c.setVisibility(0);
-                } else {
-                    aVar.c.setVisibility(4);
-                }
-                if (i == getCount() - 1) {
-                    aVar.d.setVisibility(8);
-                } else {
-                    aVar.d.setVisibility(0);
-                }
-            }
-            this.b.getLayoutMode().onModeChanged(view2);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
     }
 }

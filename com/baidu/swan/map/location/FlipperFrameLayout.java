@@ -9,23 +9,23 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ScrollingView;
-import com.baidu.tieba.vg4;
+import com.baidu.tieba.ug4;
 /* loaded from: classes4.dex */
-public class FlipperFrameLayout extends FrameLayout implements vg4.b {
+public class FlipperFrameLayout extends FrameLayout implements ug4.b {
     public float a;
-    public vg4 b;
+    public ug4 b;
     public boolean c;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
     }
 
-    @Override // com.baidu.tieba.vg4.b
+    @Override // com.baidu.tieba.ug4.b
     public void a(boolean z) {
         this.c = false;
     }
 
-    @Override // com.baidu.tieba.vg4.b
+    @Override // com.baidu.tieba.ug4.b
     public void b(boolean z) {
         this.c = true;
     }
@@ -37,8 +37,8 @@ public class FlipperFrameLayout extends FrameLayout implements vg4.b {
         return false;
     }
 
-    public void setViewFlipper(vg4 vg4Var) {
-        this.b = vg4Var;
+    public void setViewFlipper(ug4 ug4Var) {
+        this.b = ug4Var;
     }
 
     public FlipperFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {

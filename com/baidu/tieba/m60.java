@@ -6,9 +6,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import okhttp3.Interceptor;
+import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.internal.Version;
 /* loaded from: classes7.dex */
 public class m60 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
@@ -33,14 +34,12 @@ public class m60 implements Interceptor {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            try {
-                return chain.proceed(chain.request());
-            } catch (RuntimeException e) {
-                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
-                    throw new IOException(e);
-                }
-                throw e;
+            Request request = chain.request();
+            String str = request.headers().get("User-Agent");
+            if (!str.contains(Version.userAgent())) {
+                return chain.proceed(request);
             }
+            return chain.proceed(request.newBuilder().header("User-Agent", "outback/1.0.0-" + str).build());
         }
         return (Response) invokeL.objValue;
     }

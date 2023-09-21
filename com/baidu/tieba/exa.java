@@ -1,236 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class exa extends b15 {
+public class exa extends TimePickerDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<cn> a;
+    public int a;
     public int b;
-    public int c;
-    public String d;
-    public String e;
+    public boolean c;
 
-    @Override // com.baidu.tieba.b15
-    public NegativeFeedBackData getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (NegativeFeedBackData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b15
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
-    }
-
-    public exa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public exa(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
+        super(context, onTimeSetListener, i, i2, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, onTimeSetListener, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (TimePickerDialog.OnTimeSetListener) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0;
-        this.d = "";
-        this.e = "";
-        this.a = new ArrayList();
+        this.a = -1;
+        this.b = -1;
+        this.c = false;
+        this.a = i;
+        this.b = i2;
     }
 
-    public static boolean c(axa axaVar, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, axaVar, z)) == null) {
-            if (axaVar != null && axaVar.b() != null) {
-                String str = "key_recommand_collect_cover_freq";
-                String str2 = "key_recommand_collect_cover_show_time";
-                if (z) {
-                    str2 = "key_recommand_collect_cover_show_time_frs";
-                    str = "key_recommand_collect_cover_freq_frs";
-                }
-                String[] split = SharedPrefHelper.getInstance().getString(str, "0-0-0").split("-");
-                if (split.length == 3) {
-                    int parseInt = Integer.parseInt(split[0]);
-                    int parseInt2 = Integer.parseInt(split[1]);
-                    int parseInt3 = Integer.parseInt(split[2]);
-                    long j = parseInt;
-                    if (j == axaVar.b().c().longValue()) {
-                        long j2 = parseInt2;
-                        if (j2 == axaVar.b().a().longValue() && parseInt3 == axaVar.b().b().longValue()) {
-                            int i = SharedPrefHelper.getInstance().getInt(str2, 0);
-                            long currentTimeMillis = System.currentTimeMillis() / 1000;
-                            if (i < parseInt3 && currentTimeMillis >= j && currentTimeMillis <= j2) {
-                                SharedPrefHelper.getInstance().putInt(str2, i + 1);
-                                return true;
-                            }
-                        }
-                    }
-                    SharedPrefHelper.getInstance().putString(str, axaVar.b().c() + "-" + axaVar.b().a() + "-" + axaVar.b().b());
-                    SharedPrefHelper.getInstance().putInt(str2, 0);
-                    return true;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+            if (i == -1) {
+                this.c = true;
+            } else {
+                int i3 = this.a;
+                if (i3 >= 0 && (i2 = this.b) >= 0) {
+                    updateTime(i3, i2);
                 }
             }
-            return false;
+            super.onClick(dialogInterface, i);
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static boolean i(bxa bxaVar, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // android.app.TimePickerDialog
+    public void updateTime(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bxaVar, z)) == null) {
-            if (TbadkCoreApplication.isLogin() && bxaVar != null && (ListUtils.isNotEmpty(bxaVar.d()) || c(bxaVar.c(), z))) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            super.updateTime(i, i2);
+            this.a = i;
+            this.b = i2;
+            this.c = false;
         }
-        return invokeLZ.booleanValue;
     }
 
-    public void d(bxa bxaVar) {
-        String b;
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public void onRestoreInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, bxaVar) != null) || bxaVar == null) {
-            return;
-        }
-        this.a.clear();
-        if (bxaVar.c() != null && bxaVar.c().c() != null && !TextUtils.isEmpty(bxaVar.c().c().a())) {
-            b = bxaVar.c().c().a();
-        } else {
-            b = bxaVar.b();
-        }
-        if (StringUtils.isNotNull(b)) {
-            hxa hxaVar = new hxa();
-            hxaVar.b(b);
-            this.a.add(hxaVar);
-        }
-        if (bxaVar.c() != null) {
-            if (bxaVar.c().a() != null) {
-                bxaVar.c().a();
-            }
-            if (bxaVar.c().c() != null) {
-                fxa fxaVar = new fxa();
-                fxaVar.e(bxaVar.c().c());
-                fxaVar.h(this.c);
-                fxaVar.f(this.d);
-                fxaVar.g(this.e);
-                this.a.add(fxaVar);
-                if (ListUtils.isNotEmpty(bxaVar.c().c().l())) {
-                    gxa gxaVar = new gxa();
-                    gxaVar.b(bxaVar.c().c(), this.c, this.d, this.e);
-                    this.a.add(gxaVar);
-                }
-                if (ListUtils.isNotEmpty(bxaVar.c().c().o())) {
-                    for (ThreadInfo threadInfo : bxaVar.c().c().o()) {
-                        ThreadData threadData = new ThreadData();
-                        threadData.setNeedCheckNTitle(false);
-                        threadData.parserProtobuf(threadInfo);
-                        if (threadData.getTitleText() != null && StringUtils.isNotNull(bxaVar.c().c().b())) {
-                            ThreadCardUtils.setUniversalPrefix(threadData.getTitleText(), bxaVar.c().c().b(), R.color.CAM_X0302, R.color.CAM_X0101);
-                        }
-                        this.a.add(threadData);
-                    }
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        if (ListUtils.isNotEmpty(bxaVar.d())) {
-            for (int i = 0; i < bxaVar.d().size(); i++) {
-                ThreadData threadData2 = new ThreadData();
-                threadData2.setNeedCheckNTitle(false);
-                threadData2.parserProtobuf(bxaVar.d().get(i));
-                this.a.add(threadData2);
-            }
-        }
-        bxaVar.a();
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onRestoreInstanceState(bundle);
+            updateTime(0, 0);
+            this.a = bundle.getInt("hour_key");
+            int i = bundle.getInt("min_key");
+            this.b = i;
+            updateTime(this.a, i);
         }
     }
 
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public List<cn> getDataList() {
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public Bundle onSaveInstanceState() {
+        Bundle bundle;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                bundle = super.onSaveInstanceState();
+            } catch (Exception unused) {
+                bundle = null;
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            bundle.putInt("hour_key", this.a);
+            bundle.putInt("min_key", this.b);
+            return bundle;
         }
-        return (List) invokeV.objValue;
+        return (Bundle) invokeV.objValue;
     }
 
-    public int getPosition() {
-        InterceptResult invokeV;
+    @Override // android.app.Dialog
+    public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (!this.c) {
+                updateTime(this.a, this.b);
+            }
+            super.onStop();
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return cq6.A0;
-        }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -5,20 +5,11 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public final class beb {
+public class beb {
     public static /* synthetic */ Interceptable $ic;
-    public static List<WeakReference<ScheduledFuture<?>>> a;
-    public static ExecutorService b;
-    public static ScheduledExecutorService c;
+    public static volatile xdb a;
+    public static deb b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,43 +25,18 @@ public final class beb {
                 return;
             }
         }
-        a = new ArrayList();
-        b = Executors.newFixedThreadPool(2);
-        c = Executors.newScheduledThreadPool(2);
+        b = new deb();
     }
 
-    public static synchronized void a(Runnable runnable) {
+    public static xdb a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            synchronized (beb.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
-                }
-                c.execute(runnable);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
             }
+            return a;
         }
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            ExecutorService executorService = b;
-            if (executorService == null || executorService.isShutdown()) {
-                b = Executors.newFixedThreadPool(2);
-            }
-            b.execute(runnable);
-        }
-    }
-
-    public static synchronized void b(Runnable runnable, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            synchronized (beb.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
-                }
-                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
-            }
-        }
+        return (xdb) invokeV.objValue;
     }
 }

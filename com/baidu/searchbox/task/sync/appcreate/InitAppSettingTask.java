@@ -8,11 +8,11 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.gx5;
-import com.baidu.tieba.ht5;
-import com.baidu.tieba.te5;
-import com.baidu.tieba.ug5;
-import com.baidu.tieba.ze5;
+import com.baidu.tieba.df5;
+import com.baidu.tieba.hx5;
+import com.baidu.tieba.it5;
+import com.baidu.tieba.xe5;
+import com.baidu.tieba.yg5;
 /* loaded from: classes4.dex */
 public class InitAppSettingTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -28,8 +28,8 @@ public class InitAppSettingTask extends LaunchTask {
     private void initSettings() {
         long currentTimeMillis = System.currentTimeMillis();
         TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-        gx5.c();
-        ht5.a().q(System.currentTimeMillis() - currentTimeMillis);
+        hx5.c();
+        it5.a().q(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -39,8 +39,8 @@ public class InitAppSettingTask extends LaunchTask {
         initSettings();
         TbadkCoreApplication.getInst().initSetting();
         long currentTimeMillis = System.currentTimeMillis();
-        te5.d().q();
-        ht5.a().x(System.currentTimeMillis() - currentTimeMillis);
+        xe5.d().q();
+        it5.a().x(System.currentTimeMillis() - currentTimeMillis);
         BdActivityStack.getInst().setActivityStackMaxSize(20);
         if (ProcessUtils.isMainProcess()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
@@ -50,18 +50,18 @@ public class InitAppSettingTask extends LaunchTask {
     public void loadLcsSwitchStratgy() {
         String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
         if (!TextUtils.isEmpty(loadString)) {
-            ze5 ze5Var = new ze5();
-            ze5Var.e(loadString);
-            ug5 g = ug5.g();
+            df5 df5Var = new df5();
+            df5Var.e(loadString);
+            yg5 g = yg5.g();
             boolean z = true;
-            if (ze5Var.b() != 1) {
+            if (df5Var.b() != 1) {
                 z = false;
             }
             g.o(z);
-            g.p(ze5Var.c());
-            g.q(ze5Var.d() * 1000);
-            if (ze5Var.a() != null) {
-                g.r(ze5Var.a());
+            g.p(df5Var.c());
+            g.q(df5Var.d() * 1000);
+            if (df5Var.a() != null) {
+                g.r(df5Var.a());
             }
         }
     }

@@ -8,21 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 /* loaded from: classes7.dex */
-public class rj4 implements pj4<ck4> {
+public class rj4 implements oj4<dk4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ETAG.KEY_EXTENSION : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "framework" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pj4
+    @Override // com.baidu.tieba.oj4
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
@@ -43,7 +42,7 @@ public class rj4 implements pj4<ck4> {
         }
     }
 
-    @Override // com.baidu.tieba.pj4
+    @Override // com.baidu.tieba.oj4
     public void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {

@@ -1,8 +1,8 @@
 package com.baidu.nadcore.net.request;
 
 import androidx.annotation.Nullable;
-import com.baidu.tieba.ch0;
-import com.baidu.tieba.h31;
+import com.baidu.tieba.bh0;
+import com.baidu.tieba.g31;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +33,7 @@ public final class Headers {
                 b(str, str2);
                 return this;
             } catch (Exception e) {
-                if (!ch0.a) {
+                if (!bh0.a) {
                     return this;
                 }
                 throw new IllegalStateException(e);
@@ -41,8 +41,8 @@ public final class Headers {
         }
 
         public a b(String str, String str2) {
-            h31.b(this.a, str);
-            h31.b(this.a, str2.trim());
+            g31.b(this.a, str);
+            g31.b(this.a, str2.trim());
             return this;
         }
 
@@ -59,10 +59,10 @@ public final class Headers {
 
         public a d(String str) {
             int i = 0;
-            while (i < h31.l(this.a)) {
-                if (str.equalsIgnoreCase((String) h31.d(this.a, i))) {
-                    h31.i(this.a, i);
-                    h31.i(this.a, i);
+            while (i < g31.l(this.a)) {
+                if (str.equalsIgnoreCase((String) g31.d(this.a, i))) {
+                    g31.i(this.a, i);
+                    g31.i(this.a, i);
                     i -= 2;
                 }
                 i += 2;
@@ -73,7 +73,7 @@ public final class Headers {
 
     public Headers(a aVar) {
         List<String> list = aVar.a;
-        this.a = (String[]) list.toArray(new String[h31.l(list)]);
+        this.a = (String[]) list.toArray(new String[g31.l(list)]);
     }
 
     @Nullable

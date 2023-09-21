@@ -1,50 +1,64 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileDescriptor;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
 public class mh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 >= i2 && i7 / i5 >= i) {
-                    i5 *= 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (hexString.length() == 1) {
+                    sb.append(TransactionIdCreater.FILL_BYTE);
                 }
+                sb.append(hexString);
             }
-            return i5;
+            return sb.toString();
         }
-        return invokeLII.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
-        InterceptResult invokeLII;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
-            int a = a(options, i, i2);
-            options.inSampleSize = a;
-            options.inJustDecodeBounds = false;
-            if (a <= 1) {
-                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return String.valueOf(str.hashCode());
             }
-            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
         }
-        return (Bitmap) invokeLII.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

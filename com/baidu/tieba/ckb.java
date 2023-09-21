@@ -1,79 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Color;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.validation.utils.ValidationLog;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.text.DecimalFormat;
 /* loaded from: classes5.dex */
 public class ckb {
     public static /* synthetic */ Interceptable $ic;
+    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<String> b;
 
-    public ckb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947679055, "Lcom/baidu/tieba/ckb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947679055, "Lcom/baidu/tieba/ckb;");
                 return;
             }
         }
-        this.b = new ArrayList();
+        a = new DecimalFormat("0.00");
     }
 
-    public static ckb a(String str) {
-        InterceptResult invokeL;
+    public static String a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static int b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                ckb ckbVar = new ckb();
-                JSONObject optJSONObject = jSONObject.optJSONObject("action");
-                if (optJSONObject != null) {
-                    ckbVar.a = optJSONObject.optString("name");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            ckbVar.b.add(optJSONArray.optString(i));
-                        }
-                    }
-                }
-                return ckbVar;
-            } catch (JSONException e) {
-                ValidationLog.e(e);
-                return null;
+                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
+                return Color.parseColor("#" + hexString + str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
         }
-        return (ckb) invokeL.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public List<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+        return invokeLL.intValue;
     }
 }

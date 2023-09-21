@@ -1,109 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
-import com.baidu.tieba.tbadkCore.data.WorksInfoData;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tieba.recapp.view.AdVideoFlowView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class c7a {
+public class c7a implements u5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public e66 a;
+    public TbPageContext<BaseFragmentActivity> b;
+    public Map<AdvertAppInfo, AdVideoFlowView> c;
 
-    public static final ThreadData a(Map<String, String> map) {
+    public c7a(IAdBaseAsyncController.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        e66 e66Var = new e66(PlaceId.VIDEO_FLOW, "VIDEO_FLOW", aVar);
+        this.a = e66Var;
+        e66Var.e(false);
+        this.c = new HashMap();
+    }
+
+    @Override // com.baidu.tieba.u5a
+    @Nullable
+    public u4a i(AdvertAppInfo advertAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            ThreadData threadData = new ThreadData();
-            threadData.tid = map.get("thread_id");
-            threadData.setFid(JavaTypesHelper.toLong(map.get("forum_id"), 0L));
-            threadData.threadType = JavaTypesHelper.toInt(map.get("thread_type"), 0);
-            if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
-                WorksInfoData worksInfoData = new WorksInfoData();
-                worksInfoData.isWorks = true;
-                threadData.worksInfoData = worksInfoData;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo)) == null) {
+            if (this.b == null) {
+                return null;
             }
-            threadData.tiebaPlusOrderId = map.get("tie_plus_order_id");
-            return threadData;
+            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
+            if (adVideoFlowView == null) {
+                adVideoFlowView = new AdVideoFlowView(this.b.getPageActivity());
+                this.c.put(advertAppInfo, adVideoFlowView);
+            }
+            adVideoFlowView.setPageContext(this.b);
+            adVideoFlowView.setData(advertAppInfo);
+            return adVideoFlowView;
         }
-        return (ThreadData) invokeL.objValue;
+        return (u4a) invokeL.objValue;
     }
 
-    public static final void b(Map<String, String> map) {
+    @Override // com.baidu.tieba.u5a
+    public void a(TbPageContext<BaseFragmentActivity> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            x78.f("c15195", a(map));
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            this.b = tbPageContext;
         }
     }
 
-    public static final void c(Map<String, String> map) {
-        int i;
-        int i2;
-        JSONObject jSONObject;
+    @Override // com.baidu.tieba.u5a
+    public void m(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            String str = map.get("tie_plus_info");
-            if (str != null) {
-                if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
-                    i = 3;
-                } else if (!Intrinsics.areEqual(map.get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK) && !Intrinsics.areEqual(map.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
-                    i = 1;
-                } else {
-                    i = 2;
+        if (interceptable == null || interceptable.invokeL(1048580, this, advertAppInfo) == null) {
+            this.c.remove(advertAppInfo);
+        }
+    }
+
+    @Override // com.baidu.tieba.u5a
+    public void c(AdvertAppInfo advertAppInfo, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z) == null) {
+            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
+            if (adVideoFlowView != null) {
+                adVideoFlowView.onPageSelected(z);
+            }
+            for (AdVideoFlowView adVideoFlowView2 : this.c.values()) {
+                if (adVideoFlowView2 != adVideoFlowView) {
+                    adVideoFlowView2.onPageSelected(false);
                 }
-                int i3 = 0;
-                try {
-                    jSONObject = new JSONObject(str);
-                    i2 = jSONObject.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE);
-                } catch (Exception e) {
-                    e = e;
-                    i2 = 0;
-                }
-                try {
-                    i3 = jSONObject.optInt("jump_type");
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE).param("obj_locate", 1).param("obj_type", i).param(TiePlusStat.RichTextType.STAT_KEY, 1).param("t_obj", i2).param(TiePlusStat.LandingType.STAT_KEY, i3).param("tid", map.get("thread_id")).param(TiebaStatic.Params.FID_1, map.get("forum_id")).param("order_id", map.get("tie_plus_order_id")));
-                }
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE).param("obj_locate", 1).param("obj_type", i).param(TiePlusStat.RichTextType.STAT_KEY, 1).param("t_obj", i2).param(TiePlusStat.LandingType.STAT_KEY, i3).param("tid", map.get("thread_id")).param(TiebaStatic.Params.FID_1, map.get("forum_id")).param("order_id", map.get("tie_plus_order_id")));
             }
         }
     }
 
-    public static final void d(Map<String, String> map) {
+    @Override // com.baidu.tieba.u5a
+    public void loadAd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            ThreadData threadData = new ThreadData();
-            threadData.tiePlusShowUrl = map.get("tie_plus_show_url");
-            threadData.tid = map.get("thread_id");
-            threadData.setFid(JavaTypesHelper.toLong(map.get("forum_id"), 0L));
-            threadData.threadType = JavaTypesHelper.toInt(map.get("thread_type"), 0);
-            if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
-                WorksInfoData worksInfoData = new WorksInfoData();
-                worksInfoData.isWorks = true;
-                threadData.worksInfoData = worksInfoData;
-            }
-            threadData.tiePlusMonitorClickUrl = map.get("tie_plus_monitor_show_url");
-            threadData.isTiebaPlusAdThread = true;
-            threadData.tiebaPlusOrderId = map.get("tie_plus_order_id");
-            threadData.tiebaPlusToken = map.get("tie_plus_token");
-            threadData.tiebaPlusExtraParam = map.get("tie_plus_extra_param");
-            x78.o(threadData, map.get("source"), JavaTypesHelper.toInt(map.get("position_from_1"), 0));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.d(1, null);
         }
     }
 }

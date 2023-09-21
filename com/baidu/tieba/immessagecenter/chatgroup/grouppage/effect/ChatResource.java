@@ -2,6 +2,7 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect;
 
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.data.ChatEggRainData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

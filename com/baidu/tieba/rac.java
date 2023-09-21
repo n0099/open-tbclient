@@ -1,9 +1,28 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.chromium.base.UnownedUserData;
+import org.chromium.base.UnownedUserDataHost;
+/* compiled from: UnownedUserData.java */
 /* loaded from: classes7.dex */
-public interface rac {
-    void onCompleted();
+public final /* synthetic */ class rac {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onError(Throwable th);
+    public static boolean $default$informOnDetachmentFromHost(UnownedUserData unownedUserData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, unownedUserData)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void onSubscribe(zac zacVar);
+    public static void $default$onDetachedFromHost(UnownedUserData unownedUserData, UnownedUserDataHost unownedUserDataHost) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, unownedUserData, unownedUserDataHost) == null) {
+        }
+    }
 }

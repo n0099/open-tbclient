@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.nps.interfa.IThreadManager_ThreadManager_Provider;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,14 +18,14 @@ public class re1 {
     public static re1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public ok1<IThreadManager> a;
+    public nk1<IWebViewDataDirectoryManager> a;
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            mk1 b2 = mk1.b();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            lk1 b2 = lk1.b();
             this.a = b2;
-            b2.a(new IThreadManager_ThreadManager_Provider());
+            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
         }
     }
 
@@ -57,7 +58,7 @@ public class re1 {
                 return;
             }
         }
-        c();
+        b();
     }
 
     public static re1 a() {
@@ -69,12 +70,13 @@ public class re1 {
         return (re1) invokeV.objValue;
     }
 
-    public IThreadManager b() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (kf1.a()) {
+                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
+            }
+            this.a.get().setDataDirectorySuffix();
         }
-        return (IThreadManager) invokeV.objValue;
     }
 }

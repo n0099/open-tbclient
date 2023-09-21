@@ -1,37 +1,40 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.al3;
+import com.baidu.tieba.zk3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bl3 extends cl3 {
+public abstract class bl3 extends dd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bl3(ec3 ec3Var) {
-        super(ec3Var, "/swanAPI/getBatteryInfo");
+    public bl3(dc3 dc3Var, String str) {
+        super(dc3Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ec3Var};
+            Object[] objArr = {dc3Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((ec3) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,52 +42,49 @@ public class bl3 extends cl3 {
         }
     }
 
-    @Override // com.baidu.tieba.ed3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
-        InterceptResult invokeLLLL;
+    public boolean j(Context context, gb3 gb3Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
-            if (!j(context, hb3Var, unitedSchemeEntity)) {
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                if (ed3.b) {
-                    Log.d("SwanAppAction", "getBatteryInfo --- params is empty");
-                }
-                h82.c("battery", "none params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                if (ed3.b) {
-                    Log.d("SwanAppAction", "getBatteryInfo --- cb is empty");
-                }
-                h82.c("battery", "cb is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            al3.a a = al3.a(context);
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
-                return false;
-            }
-            if (ed3.b) {
-                Log.d("battery", "/swanAPI/getBatteryInfo = level: " + a.a + " ; plugged: " + a.b);
-            }
-            JSONObject k = k(a);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                if (ed3.b) {
-                    Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, gb3Var, unitedSchemeEntity)) == null) {
+            if (gb3Var == null) {
+                g82.c("battery", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (dd3.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
                 }
                 return false;
+            } else if (context == null) {
+                g82.c("battery", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (dd3.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
+                }
+                return false;
+            } else {
+                return true;
             }
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(k, 0).toString(), optString);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLL.booleanValue;
+    }
+
+    @Nullable
+    public JSONObject k(@NonNull zk3.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                int i = 100;
+                if (aVar.a <= 100) {
+                    i = aVar.a;
+                }
+                jSONObject.put("level", String.valueOf(i));
+                jSONObject.put("isCharging", aVar.b);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

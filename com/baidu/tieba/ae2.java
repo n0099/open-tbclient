@@ -1,69 +1,77 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.am4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ae2 extends kz1 {
+public abstract class ae2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.kz1
-    public String h() {
-        InterceptResult invokeV;
+    @WorkerThread
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Preload" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
-    @Override // com.baidu.tieba.kz1
-    public String j() {
-        InterceptResult invokeV;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadStatusApi" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae2(@NonNull iz1 iz1Var) {
-        super(iz1Var);
+    @WorkerThread
+    public void c(@NonNull am4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+        }
+    }
+
+    public abstract void d();
+
+    @WorkerThread
+    public void e(@NonNull hk4 hk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, hk4Var) == null) {
+        }
+    }
+
+    public void f(ak4 ak4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ak4Var) == null) {
+        }
+    }
+
+    @WorkerThread
+    public void g(@NonNull gk4 gk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, gk4Var) == null) {
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    public ae2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((iz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-    }
-
-    public h32 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#preloadStatus", false);
-            if (hb3.b0() == null) {
-                return new h32(1001, "SwanApp is null");
-            }
-            Pair<h32, JSONObject> s = s(str);
-            h32 h32Var = (h32) s.first;
-            if (!h32Var.isSuccess()) {
-                return h32Var;
-            }
-            xd2.c().j((JSONObject) s.second);
-            return h32.f();
-        }
-        return (h32) invokeL.objValue;
     }
 }

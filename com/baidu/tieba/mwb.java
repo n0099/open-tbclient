@@ -1,188 +1,164 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.app.ActivityManager;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.pose.PoseAR;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.entity.PushTokenResult;
-import com.hihonor.push.sdk.common.data.ApiException;
-import com.hihonor.push.sdk.common.data.DownMsgType;
-import com.hihonor.push.sdk.common.data.UpMsgType;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.Callable;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class mwb {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public ywb b;
 
-    public mwb(Context context) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947988497, "Lcom/baidu/tieba/mwb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = context;
-        this.b = new ywb();
-    }
-
-    public static /* synthetic */ void f(zvb zvbVar, int i, String str) {
-        if (zvbVar != null) {
-            zvbVar.onFailure(i, str);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947988497, "Lcom/baidu/tieba/mwb;");
         }
     }
 
-    public final void b(final zvb<?> zvbVar, final int i, final String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zvbVar, i, str) == null) {
-            xwb.b(new Runnable() { // from class: com.baidu.tieba.yvb
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+    /* loaded from: classes7.dex */
+    public class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        mwb.f(zvb.this, i, str);
-                    }
-                }
-            });
-        }
-    }
-
-    public static /* synthetic */ void g(zvb zvbVar, Object obj) {
-        if (zvbVar != null) {
-            zvbVar.onSuccess(obj);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void h(Callable callable, zvb zvbVar) {
-        try {
-            c(zvbVar, callable.call());
-        } catch (ApiException e) {
-            b(zvbVar, e.getErrorCode(), e.getMessage());
-        } catch (Exception unused) {
-            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_INTERNAL_ERROR;
-            b(zvbVar, honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
-        }
-    }
-
-    public final <T> void c(final zvb<T> zvbVar, final T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, zvbVar, t) == null) {
-            xwb.b(new Runnable() { // from class: com.baidu.tieba.xvb
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        mwb.g(zvb.this, t);
-                    }
-                }
-            });
-        }
-    }
-
-    public void d(zvb<String> zvbVar, final boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, zvbVar, z) == null) {
-            e(new Callable() { // from class: com.baidu.tieba.rvb
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.util.concurrent.Callable
-                public final Object call() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? mwb.this.a(z) : invokeV.objValue;
-                }
-            }, zvbVar);
-        }
-    }
-
-    public final <T> void e(final Callable<T> callable, final zvb<T> zvbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, callable, zvbVar) == null) {
-            Runnable runnable = new Runnable() { // from class: com.baidu.tieba.wvb
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        mwb.this.h(callable, zvbVar);
-                    }
-                }
-            };
-            xwb xwbVar = xwb.f;
-            if (xwbVar.d == null) {
-                synchronized (xwbVar.e) {
-                    if (xwbVar.d == null) {
-                        xwbVar.d = xwbVar.c();
-                    }
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            xwbVar.d.execute(runnable);
+        }
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                return Pattern.matches("cpu[0-9]", file.getName());
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    public final String a(boolean z) throws Exception {
-        InterceptResult invokeZ;
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.b.getClass();
-            try {
-                dxb dxbVar = new dxb(UpMsgType.REQUEST_PUSH_TOKEN, null);
-                dxbVar.d = dwb.a();
-                String pushToken = ((PushTokenResult) dwb.d(vwb.c.a(dxbVar))).getPushToken();
-                if (z && !TextUtils.isEmpty(pushToken)) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, DownMsgType.RECEIVE_TOKEN);
-                    bundle.putString("push_token", pushToken);
-                    hxb hxbVar = new hxb();
-                    Context context = this.a;
-                    Log.i("MessengerSrvConnection", "start bind service.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) ewb.getContext().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return memoryInfo.availMem / 1024;
+        }
+        return invokeV.longValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == 0) {
+                try {
+                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+                } catch (Exception e) {
+                    Log.e("PerformanceUtils", "getNumCores exception", e);
+                    a = 1;
+                }
+            }
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static long c() {
+        InterceptResult invokeV;
+        FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == 0) {
+                long j = -1;
+                FileReader fileReader2 = null;
+                try {
                     try {
-                        Intent intent = new Intent();
-                        intent.setPackage(context.getPackageName());
-                        intent.setAction("com.hihonor.push.action.MESSAGING_EVENT");
-                        Context applicationContext = context.getApplicationContext();
-                        hxbVar.c = applicationContext;
-                        hxbVar.b = bundle;
-                        if (applicationContext.bindService(intent, hxbVar, 1)) {
-                            Log.i("MessengerSrvConnection", "bind service succeeded.");
+                        try {
+                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
+                        } catch (IOException e) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
                         }
-                    } catch (Exception e) {
-                        String str = "bind service failed." + e.getMessage();
+                    } catch (IOException e2) {
+                        e = e2;
                     }
+                } catch (Throwable th) {
+                    th = th;
                 }
-                return pushToken;
-            } catch (Exception e2) {
-                throw dwb.b(e2);
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
+                    String readLine = bufferedReader.readLine();
+                    String str = readLine;
+                    if (readLine != null) {
+                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
+                        j = valueOf.intValue();
+                        str = valueOf;
+                    }
+                    bufferedReader.close();
+                    fileReader.close();
+                    fileReader2 = str;
+                } catch (IOException e3) {
+                    e = e3;
+                    fileReader2 = fileReader;
+                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
+                    if (fileReader2 != null) {
+                        fileReader2.close();
+                        fileReader2 = fileReader2;
+                    }
+                    b = j;
+                    return b;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileReader2 = fileReader;
+                    if (fileReader2 != null) {
+                        try {
+                            fileReader2.close();
+                        } catch (IOException e4) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
+                        }
+                    }
+                    throw th;
+                }
+                b = j;
             }
+            return b;
         }
-        return (String) invokeZ.objValue;
+        return invokeV.longValue;
     }
 }

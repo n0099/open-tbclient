@@ -1,108 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qpa;
-import com.baidu.tieba.tracker.core.monitors.PageTraceMonitor;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.Pair;
-import kotlin.jvm.functions.Function1;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class mpa<R extends qpa> extends PageTraceMonitor<R> {
+public final class mpa implements w65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Fragment e;
-    public final Function1<R, hpa> f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mpa(Fragment fragment, R thisRef, Function1<? super R, hpa> traceHolderFactory) {
-        super(thisRef);
+    public mpa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragment, thisRef, traceHolderFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((qpa) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(fragment, "fragment");
-        Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-        Intrinsics.checkNotNullParameter(traceHolderFactory, "traceHolderFactory");
-        this.e = fragment;
-        this.f = traceHolderFactory;
     }
 
-    @Override // com.baidu.tieba.npa
-    public hpa c(R thisRef) {
+    @Override // com.baidu.tieba.w65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "writeGuide");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.w65
+    public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thisRef)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            return this.f.invoke(thisRef);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            return UbsABTestHelper.isNewWrite();
         }
-        return (hpa) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
-    public Lifecycle h(R thisRef) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            try {
-                Lifecycle lifecycle = this.e.getLifecycle();
-                Intrinsics.checkNotNullExpressionValue(lifecycle, "fragment.lifecycle");
-                return lifecycle;
-            } catch (IllegalStateException e) {
-                throw new IllegalStateException("Fragment doesn 't have view associated with it or the view has been destroyed!", e);
-            }
-        }
-        return (Lifecycle) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
-    public void j(Pair<String, String>... params) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            ppa.a(this.e, (Pair[]) Arrays.copyOf(params, params.length));
-        }
-    }
-
-    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
-    public String i(R thisRef) {
-        InterceptResult invokeL;
-        qpa qpaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, thisRef)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Fragment parentFragment = this.e.getParentFragment();
-            if (parentFragment != null) {
-                if (parentFragment instanceof qpa) {
-                    qpaVar = (qpa) parentFragment;
-                } else {
-                    qpaVar = null;
-                }
-                if (qpaVar != null) {
-                    return qpaVar.getScene();
-                }
-            }
-            return thisRef.getScene();
-        }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

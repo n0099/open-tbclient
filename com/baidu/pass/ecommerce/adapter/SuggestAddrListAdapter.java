@@ -17,7 +17,7 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
 
     @Override // com.baidu.pass.ecommerce.common.adapter.CommonAdapter
     public int getItemLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0597;
+        return R.layout.obfuscated_res_0x7f0d0599;
     }
 
     /* loaded from: classes3.dex */
@@ -28,9 +28,9 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
 
         public AddrListItemViewHolder(View view2) {
             super(view2);
-            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ee);
-            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ed);
-            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f0920ea);
+            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b8);
+            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b7);
+            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f0920b4);
             Resources resources = view2.getContext().getResources();
             if (SuggestAddrListAdapter.this.isDarkMode) {
                 view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609c8));

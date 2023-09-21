@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.card.FeedCardView;
+import com.baidu.tieba.feed.component.CardVoteView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class be7 extends yb7<FeedCardView, g87<?>> {
+public class be7 extends hc7<CardVoteView, a87> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,13 +35,26 @@ public class be7 extends yb7<FeedCardView, g87<?>> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc7
-    /* renamed from: e */
-    public void b(@NonNull FeedCardView feedCardView, @NonNull g87<?> g87Var) {
+    @Override // com.baidu.tieba.hc7, com.baidu.tieba.xc7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, g87Var) == null) {
-            feedCardView.g(g87Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            me7.j(a);
+            return a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xc7
+    /* renamed from: e */
+    public void b(@NonNull CardVoteView cardVoteView, @NonNull a87 a87Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVoteView, a87Var) == null) {
+            cardVoteView.a(a87Var);
         }
     }
 }

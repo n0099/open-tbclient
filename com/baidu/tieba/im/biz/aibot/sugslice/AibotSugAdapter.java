@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jc8;
-import com.baidu.tieba.zfa;
+import com.baidu.tieba.fia;
+import com.baidu.tieba.tf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public final class AibotSugAdapter extends ImSugAdapter {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AibotSugAdapter(Context context, jc8 processor) {
+    public AibotSugAdapter(Context context, tf8 processor) {
         super(context, processor);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,7 +45,7 @@ public final class AibotSugAdapter extends ImSugAdapter {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (jc8) objArr2[1]);
+                super((Context) objArr2[0], (tf8) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,7 +61,7 @@ public final class AibotSugAdapter extends ImSugAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, container)) == null) {
             Intrinsics.checkNotNullParameter(container, "container");
-            EMManager.from(container).setCorner(R.string.J_X01).setBackGroundRealColor(zfa.a(SkinManager.getColor(R.color.CAM_X0614), 1.0f));
+            EMManager.from(container).setCorner(R.string.J_X01).setBackGroundRealColor(fia.a(SkinManager.getColor(R.color.CAM_X0614), 1.0f));
             return true;
         }
         return invokeL.booleanValue;

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.th;
+import com.baidu.tieba.sh;
 import com.baidu.tieba.ye;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(ChunkUploadSwitch.class);
             SwitchManager.getInstance().registerSwitch(ConveneThreadOpenSwitch.class);
             SwitchManager.getInstance().registerSwitch(CreateBarTipSwitch.class);
-            SwitchManager.getInstance().registerSwitch(FrsHeadVideoAutoPlaySwitch.class);
             SwitchManager.getInstance().registerSwitch(HybridBridgeSwitch.class);
             SwitchManager.getInstance().registerSwitch(ImmersiveStickySwitch.class);
             SwitchManager.getInstance().registerSwitch(LoginPassV6Switch.class);
@@ -73,7 +72,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(BarDetailForDirSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbNormalLikeButtonSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(th.class);
+            SwitchManager.getInstance().registerSwitch(sh.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterPersonAttentionEnableSwitch.class);
@@ -103,11 +102,8 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(OpenStartSafeModeSwitch.class);
             SwitchManager.getInstance().registerSwitch(ResetSplashAdConfigSwitch.class);
             SwitchManager.getInstance().registerSwitch(SocketAddCommonParamSwitch.class);
-            SwitchManager.getInstance().registerSwitch(DelayInitNightPluginSwitch.class);
             SwitchManager.getInstance().registerSwitch(ImgUaSwitch.class);
             SwitchManager.getInstance().registerSwitch(BdNetTypeSwitch.class);
-            SwitchManager.getInstance().registerSwitch(HttpsTestSwitch.class);
-            SwitchManager.getInstance().registerSwitch(Ipv6TestSwitch.class);
             SwitchManager.getInstance().registerSwitch(MemeDiyEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(BearTimeoutTryShowSwitch.class);
             SwitchManager.getInstance().registerSwitch(CheckIsQuestionThreadSwitch.class);
@@ -131,6 +127,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(PicReqSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageCountSwitch.class);
             SwitchManager.getInstance().registerSwitch(UbcAddCookieSwitch.class);
+            SwitchManager.getInstance().registerSwitch(InitWriteWebDelaySwitch.class);
             ye.a().b();
         }
     }

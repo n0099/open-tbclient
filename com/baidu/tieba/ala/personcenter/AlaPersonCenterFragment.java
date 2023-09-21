@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.lg6;
+import com.baidu.tieba.pg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +25,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public String b;
     public String c;
     public String d;
-    public lg6 e;
+    public pg6 e;
 
-    public void W1(String str) {
+    public void c2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
@@ -83,36 +83,36 @@ public class AlaPersonCenterFragment extends BaseFragment {
         }
     }
 
-    public void X1(String str) {
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void changeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.changeSkinType(i);
+            pg6 pg6Var = this.e;
+            if (pg6Var != null) {
+                pg6Var.m(i);
+            }
+        }
+    }
+
+    public void d2(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void Y1(String str) {
+    public void e2(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.c = str;
         }
     }
 
-    public void Z1(String str) {
+    public void f2(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.d = str;
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void changeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            super.changeSkinType(i);
-            lg6 lg6Var = this.e;
-            if (lg6Var != null) {
-                lg6Var.m(i);
-            }
         }
     }
 
@@ -121,9 +121,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            lg6 lg6Var = this.e;
-            if (lg6Var != null) {
-                lg6Var.m(i);
+            pg6 pg6Var = this.e;
+            if (pg6Var != null) {
+                pg6Var.m(i);
             }
         }
     }
@@ -144,9 +144,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            lg6 lg6Var = new lg6(pageContext, true);
-            this.e = lg6Var;
-            lg6Var.s(this.c);
+            pg6 pg6Var = new pg6(pageContext, true);
+            this.e = pg6Var;
+            pg6Var.s(this.c);
             this.e.r(this.b);
             this.e.t(this.d);
             if (getArguments() != null) {

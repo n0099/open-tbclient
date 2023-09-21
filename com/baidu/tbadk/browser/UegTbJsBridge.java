@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
-import com.baidu.tieba.iia;
-import com.baidu.tieba.is5;
-import com.baidu.tieba.mia;
-import com.baidu.tieba.oo;
-import com.baidu.tieba.sc5;
-import com.baidu.tieba.ypa;
+import com.baidu.tieba.fsa;
+import com.baidu.tieba.js5;
+import com.baidu.tieba.no;
+import com.baidu.tieba.oka;
+import com.baidu.tieba.ska;
+import com.baidu.tieba.wc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@oo
+@no
 /* loaded from: classes4.dex */
-public class UegTbJsBridge implements iia {
+public class UegTbJsBridge implements oka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -70,17 +70,17 @@ public class UegTbJsBridge implements iia {
         }
     }
 
-    public mia novelPayResultToClient(boolean z) {
+    public ska novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (z) {
-                is5.c();
+                js5.c();
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeZ.objValue;
+        return (ska) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements iia {
         this.mTbPageContext = tbPageContext;
     }
 
-    public mia bindingMobileNumber() {
+    public ska bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, sc5.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, wc5.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia callNativeSMS(String str, String str2) {
+    public ska callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.iia
+    @Override // com.baidu.tieba.oka
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements iia {
         return invokeLLLL.booleanValue;
     }
 
-    public mia recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public ska recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.O(true);
-            is5.d(str2, readRecordsData);
-            return miaVar;
+            js5.d(str2, readRecordsData);
+            return skaVar;
         }
-        return (mia) invokeLLLLL.objValue;
+        return (ska) invokeLLLLL.objValue;
     }
 
-    public mia setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public ska setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements iia {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                ypa.h(build);
-                ypa.g(build);
+                fsa.h(build);
+                fsa.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 }

@@ -50,11 +50,11 @@ public final class AigcFeedbackViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0901c3;
-            FeedbackButton feedbackButton = (FeedbackButton) view2.findViewById(R.id.obfuscated_res_0x7f0901c3);
+            int i = R.id.obfuscated_res_0x7f0901c1;
+            FeedbackButton feedbackButton = (FeedbackButton) view2.findViewById(R.id.obfuscated_res_0x7f0901c1);
             if (feedbackButton != null) {
-                i = R.id.obfuscated_res_0x7f0901c4;
-                FeedbackButton feedbackButton2 = (FeedbackButton) view2.findViewById(R.id.obfuscated_res_0x7f0901c4);
+                i = R.id.obfuscated_res_0x7f0901c2;
+                FeedbackButton feedbackButton2 = (FeedbackButton) view2.findViewById(R.id.obfuscated_res_0x7f0901c2);
                 if (feedbackButton2 != null) {
                     return new AigcFeedbackViewBinding((LinearLayout) view2, feedbackButton, feedbackButton2);
                 }

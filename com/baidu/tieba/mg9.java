@@ -1,119 +1,156 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewStub;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.util.Pair;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.MyEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class mg9 extends jg9 {
+public class mg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewStub o;
-    public ViewStub p;
-    public TextView q;
-    public TextView r;
-    public TextView s;
-    public TextView t;
-    public TextView u;
-    public TextView v;
-    public TextView w;
+    public BdListView a;
+    public MyEmotionHorizontalAdater b;
+    public List<EmotionPackageData> c;
+    public final List<a> d;
+    public rg9 e;
+    public kg9 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mg9(TbPageContext tbPageContext, View view2) {
-        super(tbPageContext, view2);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public mg9(TbPageContext<?> tbPageContext, BdListView bdListView, kg9 kg9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {tbPageContext, bdListView, kg9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0929d8);
-        this.o = viewStub;
-        viewStub.inflate();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
-        layoutParams.topMargin = ((BdUtilHelper.getEquipmentHeight(tbPageContext.getPageActivity()) / 2) + BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds239)) - BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds140);
-        this.o.setLayoutParams(layoutParams);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09289d);
-        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0929d5);
-        this.p = viewStub2;
-        viewStub2.inflate();
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a8);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a1f);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a9);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090177);
-        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925aa);
-        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d85);
+        this.a = bdListView;
+        rg9 rg9Var = new rg9(tbPageContext);
+        this.e = rg9Var;
+        rg9Var.b(TbadkCoreApplication.getInst().getSkinType());
+        this.a.addHeaderView(this.e.a());
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.c, this.d, tbPageContext);
+        this.b = myEmotionHorizontalAdater;
+        this.f = kg9Var;
+        this.a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
     }
 
-    @Override // com.baidu.tieba.jg9
-    public void a(int i) {
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.a(i);
-            EMManager.from(this.q).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X03).setTextStyle(R.string.F_X02);
-            EMManager.from(this.r).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
-            EMManager.from(this.t).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
-            EMManager.from(this.v).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
-            EMManager.from(this.s).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
-            EMManager.from(this.u).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
-            EMManager.from(this.w).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
+        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i < this.c.size() && i2 >= 0 && i2 < this.c.size()) {
+            List<EmotionPackageData> list = this.c;
+            list.add(i2, list.remove(i));
+            List<a> list2 = this.d;
+            list2.add(i2, list2.remove(i));
+            this.b.notifyDataSetChanged();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i), Integer.valueOf(i2))));
         }
     }
 
-    @Override // com.baidu.tieba.jg9
-    public void c(kg9 kg9Var) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg9Var) != null) || kg9Var == null) {
-            return;
-        }
-        this.q.setText(kg9Var.a);
-        f(kg9Var.a());
-    }
-
-    @Override // com.baidu.tieba.jg9
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            super.d(onClickListener);
-            this.s.setOnClickListener(onClickListener);
-            this.u.setOnClickListener(onClickListener);
-            this.w.setOnClickListener(onClickListener);
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        this.s.setText(R.string.obfuscated_res_0x7f0f0efb);
-                        return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ArrayList arrayList = new ArrayList(this.d);
+            this.d.clear();
+            for (EmotionPackageData emotionPackageData : this.c) {
+                a aVar = null;
+                Iterator it = arrayList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
                     }
-                    return;
+                    a aVar2 = (a) it.next();
+                    if (aVar2 != null && aVar2.a == emotionPackageData.id) {
+                        aVar = aVar2;
+                        break;
+                    }
                 }
-                this.s.setText(R.string.obfuscated_res_0x7f0f0efa);
-                return;
+                if (aVar == null) {
+                    aVar = new a();
+                    aVar.a = emotionPackageData.id;
+                }
+                this.d.add(aVar);
             }
-            this.s.setText(R.string.obfuscated_res_0x7f0f0ef9);
+        }
+    }
+
+    public void update() {
+        rg9 rg9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b != null && this.a != null && this.c != null && (rg9Var = this.e) != null && this.f != null) {
+            rg9Var.c();
+            this.f.b(0, this.b.b());
+            this.f.a(jg9.b().a());
+            this.b.notifyDataSetChanged();
+        }
+    }
+
+    public void update(List<EmotionPackageData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && this.a != null && this.b != null) {
+            this.c.clear();
+            this.c.addAll(list);
+            b();
+            this.b.d();
+            this.e.update(Integer.valueOf(this.b.b()));
+            this.f.b(0, this.b.b());
+            this.f.a(jg9.b().a());
+            this.b.notifyDataSetChanged();
         }
     }
 }

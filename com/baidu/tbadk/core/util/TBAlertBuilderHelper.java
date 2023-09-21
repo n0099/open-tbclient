@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdAlertData;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -85,7 +85,7 @@ public class TBAlertBuilderHelper {
                             BdAlertData.AlertBtn alertBtn2;
                             TBAlertBuilder tBAlertBuilder2;
                             Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && (alertBtn2 = this.val$AlertBtn) != null && alertBtn2.getConfig() != null && this.val$AlertBtn.getConfig().getAction() != null && ei.isEquals(this.val$AlertBtn.getConfig().getAction(), TBAlertBuilderHelper.ACTION_RETURN) && (tBAlertBuilder2 = this.val$builder) != null) {
+                            if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && (alertBtn2 = this.val$AlertBtn) != null && alertBtn2.getConfig() != null && this.val$AlertBtn.getConfig().getAction() != null && di.isEquals(this.val$AlertBtn.getConfig().getAction(), TBAlertBuilderHelper.ACTION_RETURN) && (tBAlertBuilder2 = this.val$builder) != null) {
                                 tBAlertBuilder2.dismiss();
                                 TBAlertBuilderHelper.sendReturnMessage(TBAlertBuilderHelper.ACTION_RETURN);
                             }

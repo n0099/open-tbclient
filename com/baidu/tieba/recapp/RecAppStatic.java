@@ -9,18 +9,18 @@ import android.text.TextUtils;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.a66;
-import com.baidu.tieba.g46;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.k3a;
-import com.baidu.tieba.p2a;
-import com.baidu.tieba.r2a;
+import com.baidu.tieba.b66;
+import com.baidu.tieba.g5a;
+import com.baidu.tieba.h46;
+import com.baidu.tieba.i5a;
+import com.baidu.tieba.n4a;
+import com.baidu.tieba.p4a;
+import com.baidu.tieba.r4a;
 import com.baidu.tieba.recapp.activity.AdVideoBrowserConfig;
 import com.baidu.tieba.recapp.activity.AdVideoWebBrowserActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.t2a;
-import com.baidu.tieba.v2a;
+import com.baidu.tieba.t4a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class RecAppStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements v2a.a {
+    public class a implements t4a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +55,7 @@ public class RecAppStatic {
             }
         }
 
-        @Override // com.baidu.tieba.v2a.a
+        @Override // com.baidu.tieba.t4a.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -145,11 +145,11 @@ public class RecAppStatic {
                 return;
             }
         }
-        i3a.a.set(new k3a());
+        g5a.a.set(new i5a());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        a66.l().e(new a());
-        g46.b().c(1, new t2a());
-        g46.b().c(2, new r2a());
+        b66.l().e(new a());
+        h46.b().c(1, new r4a());
+        h46.b().c(2, new p4a());
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
         inst.RegisterIntent(AdVideoBrowserConfig.class, AdVideoWebBrowserActivity.class);
@@ -157,8 +157,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(bVar, intentFilter);
-        p2a.t().b();
-        p2a.t().f();
+        n4a.t().b();
+        n4a.t().f();
     }
 
     public RecAppStatic() {

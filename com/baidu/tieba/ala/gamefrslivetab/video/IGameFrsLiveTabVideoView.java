@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.browser.lifecycle.WebViewLifeCycle;
 /* loaded from: classes5.dex */
 public interface IGameFrsLiveTabVideoView extends WebViewLifeCycle {
-    View C(LayoutInflater layoutInflater, ViewGroup viewGroup);
+    View G(LayoutInflater layoutInflater, ViewGroup viewGroup);
 
     String getUrl();
 
@@ -18,9 +18,9 @@ public interface IGameFrsLiveTabVideoView extends WebViewLifeCycle {
 
     void loadUrl(String str);
 
-    NavigationBar o();
-
     void onChangeSkinType(int i);
+
+    NavigationBar q();
 
     void t(BaseFragment baseFragment);
 }

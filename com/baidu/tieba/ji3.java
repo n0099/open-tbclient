@@ -1,212 +1,186 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.dw2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ji3 {
+public class ji3 extends ii3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public JSONObject h;
-    public JSONObject i;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947884213, "Lcom/baidu/tieba/ji3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947884213, "Lcom/baidu/tieba/ji3;");
-                return;
-            }
-        }
-        j = rr1.a;
-    }
+    public SwanCoreVersion k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
 
     public ji3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "swan";
+        this.l = "";
+        this.m = "";
+        this.n = "";
+        this.o = "";
+        this.p = "";
+        this.q = "";
+        this.r = "";
+        this.s = "";
+        this.t = "";
+        yh3.i(this);
+        yh3.h(this);
+        yh3.f(this);
+        yh3.g(this);
     }
 
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.h == null) {
-                return null;
-            }
-            try {
-                return new JSONObject(this.h.toString());
-            } catch (JSONException e) {
-                if (j) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void a(@NonNull String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                this.h.put(str, obj);
-            } catch (JSONException e) {
-                if (j) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        if (this.h == null) {
-            this.h = new JSONObject();
-        }
-        JSONObject optJSONObject = this.h.optJSONObject("extlog");
-        this.i = optJSONObject;
-        if (optJSONObject == null) {
-            this.i = new JSONObject();
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            try {
-                this.i.put(next, jSONObject.opt(next));
-            } catch (JSONException e) {
-                if (j) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        try {
-            this.h.put("extlog", this.i);
-        } catch (JSONException e2) {
-            if (j) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            e(new JSONObject(str));
-        } catch (JSONException e) {
-            if (j) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        if (this.h == null) {
-            this.h = new JSONObject();
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            try {
-                this.h.put(next, jSONObject.opt(next));
-            } catch (JSONException e) {
-                if (j) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
+    @Override // com.baidu.tieba.ii3
     public JSONObject f() {
+        int i;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (!TextUtils.isEmpty(this.a)) {
-                    jSONObject.put("from", this.a);
+                gb3 D = tw2.T().D();
+                if (TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
+                    i = 1;
+                } else {
+                    i = 0;
                 }
-                if (!TextUtils.isEmpty(this.b)) {
-                    jSONObject.put("type", this.b);
+                String i2 = lk3.i(this.k, i);
+                if (D != null && D.Y() != null) {
+                    dw2.a Y = D.Y();
+                    if (TextUtils.isEmpty(this.l)) {
+                        this.l = D.k0();
+                    }
+                    if (TextUtils.isEmpty(this.m)) {
+                        this.m = Y.w1();
+                    }
+                    Bundle P = Y.P();
+                    if (P != null) {
+                        this.o = P.getString("aiapp_extra_need_download", "");
+                    }
+                    if (TextUtils.isEmpty(this.p)) {
+                        this.p = Y.W();
+                    }
+                    this.p = yh3.b(this.p);
+                    if (TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(Y.e0())) {
+                        this.s = Y.e0();
+                    }
+                    String b = yh3.b(this.s);
+                    this.s = b;
+                    if (b == null) {
+                        this.s = "";
+                    }
+                    if (TextUtils.isEmpty(this.u)) {
+                        this.u = Y.V();
+                    }
                 }
-                if (!TextUtils.isEmpty(this.e)) {
-                    jSONObject.put("value", this.e);
-                }
-                if (TextUtils.isEmpty(this.c)) {
-                    this.c = "NA";
-                }
-                jSONObject.put("source", this.c);
-                if (!TextUtils.isEmpty(this.g)) {
-                    String b = zh3.b(this.g);
-                    this.g = b;
-                    jSONObject.put("page", b);
-                }
+                this.n = SwanAppNetworkUtils.f().type;
                 if (this.h == null) {
                     this.h = new JSONObject();
                 }
-                if (!TextUtils.isEmpty(this.f)) {
-                    this.h.put("appid", this.f);
+                this.h.put("swan", i2);
+                this.h.put("appversion", this.l);
+                this.h.put("thirdversion", this.m);
+                this.h.put("net", this.n);
+                this.h.put("needdown", this.o);
+                this.h.put("scheme", this.p);
+                this.h.put("page", this.s);
+                this.h.put("launchid", this.u);
+                if (!TextUtils.isEmpty(this.t)) {
+                    this.h.put("error_code", this.t);
                 }
-                if (!TextUtils.isEmpty(this.d)) {
-                    this.h.put("launchid", this.d);
+                if (!TextUtils.isEmpty(this.q)) {
+                    this.h.put("canceltime", this.q);
                 }
-                zh3.a(this.h);
-                jSONObject.put("ext", this.h);
-                return jSONObject;
+                if (!TextUtils.isEmpty(this.r)) {
+                    this.h.put("successtime", this.r);
+                }
+                if (ii3.j) {
+                    Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+                }
             } catch (JSONException e) {
-                if (j) {
+                if (ii3.j) {
                     e.printStackTrace();
-                    return null;
                 }
-                return null;
             }
+            return super.f();
         }
         return (JSONObject) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.u;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h(gw2 gw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gw2Var) == null) {
+            if (gw2Var == null) {
+                if (ii3.j) {
+                    Log.w("SwanAppUBCEvent", "launchinfo is null");
+                    return;
+                }
+                return;
+            }
+            this.f = gw2Var.H();
+            this.c = gw2Var.T();
+            this.o = gw2Var.s0().getString("aiapp_extra_need_download", "");
+            this.p = gw2Var.W();
+            this.s = gw2Var.e0();
+            this.u = gw2Var.V();
+        }
+    }
+
+    public void i(gw2 gw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, gw2Var) == null) {
+            h(gw2Var);
+        }
+    }
+
+    public void j(gw2 gw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, gw2Var) == null) {
+            h(gw2Var);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.u = str;
+        }
     }
 }

@@ -45,7 +45,7 @@ public class SendElement<E> extends Send {
     public void resumeSendClosed(Closed<?> closed) {
         CancellableContinuation<Unit> cancellableContinuation = this.cont;
         Result.Companion companion = Result.Companion;
-        cancellableContinuation.resumeWith(Result.m850constructorimpl(ResultKt.createFailure(closed.getSendException())));
+        cancellableContinuation.resumeWith(Result.m852constructorimpl(ResultKt.createFailure(closed.getSendException())));
     }
 
     @Override // kotlinx.coroutines.channels.Send

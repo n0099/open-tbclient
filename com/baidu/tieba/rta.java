@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface rta {
-    void a();
+    void a(int i);
 
     void b();
 
-    void c();
+    void onConvertAborted();
 
-    void d();
+    void onConvertFailed();
 
-    void e();
+    void onConvertProgress(int i);
 
-    void onClose();
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    void onConvertSuccess();
 }

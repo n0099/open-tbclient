@@ -6,13 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class mk1<T> implements ok1<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T a;
-    public lk1<T> b;
-    public lk1<T> c;
+    public List<T> a;
+    public kk1<List<T>> b;
+    public kk1<List<T>> c;
 
     public mk1() {
         Interceptable interceptable = $ic;
@@ -38,34 +39,34 @@ public class mk1<T> implements ok1<T> {
     }
 
     @Override // com.baidu.tieba.ok1
-    public T get() {
+    public List<T> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            T t = this.a;
-            if (t != null) {
-                return t;
+            List<T> list = this.a;
+            if (list != null) {
+                return list;
             }
-            lk1<T> lk1Var = this.b;
-            if (lk1Var != null) {
-                T t2 = lk1Var.get();
-                this.a = t2;
-                return t2;
+            kk1<List<T>> kk1Var = this.b;
+            if (kk1Var != null) {
+                List<T> list2 = kk1Var.get();
+                this.a = list2;
+                return list2;
             }
-            lk1<T> lk1Var2 = this.c;
-            if (lk1Var2 != null) {
-                return lk1Var2.get();
+            kk1<List<T>> kk1Var2 = this.c;
+            if (kk1Var2 != null) {
+                return kk1Var2.get();
             }
             return null;
         }
-        return (T) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ok1
-    public void a(lk1<T> lk1Var) {
+    public void a(kk1<List<T>> kk1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lk1Var) == null) {
-            this.b = lk1Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kk1Var) == null) {
+            this.b = kk1Var;
             this.a = null;
         }
     }

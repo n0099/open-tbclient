@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h15;
-import com.baidu.tieba.ms5;
+import com.baidu.tieba.ns5;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -65,7 +65,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
 
     /* loaded from: classes4.dex */
     public interface b {
-        void k();
+        void h();
     }
 
     /* loaded from: classes4.dex */
@@ -138,7 +138,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
             WebPManager.setMaskDrawable(this.c, R.drawable.icon_mask_unfold30, null);
             TextView textView = (TextView) findViewById(R.id.image_viewer_reply);
             this.e = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f1247);
+            textView.setText(R.string.obfuscated_res_0x7f0f1249);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
             this.e.setBackground(SkinManager.createShapeDrawableFromColor(BdUtilHelper.getDimens(context, R.dimen.tbds38), SkinManager.getColor(R.color.CAM_X0615)));
             this.f = (LinearLayout) findViewById(R.id.image_viewer_comment_and_agree);
@@ -297,7 +297,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 } else if (view2 == this.k) {
                     b bVar = this.o;
                     if (bVar != null) {
-                        bVar.k();
+                        bVar.h();
                     }
                     if (this.a != null) {
                         TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "2").param("post_id", this.a.threadId).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.a.forumId));
@@ -344,7 +344,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 }
                 TiebaStatic.log(statisticItem);
             }
-            ms5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
+            ns5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
             StatisticItem statisticItem2 = new StatisticItem("c12942");
             statisticItem2.param("obj_type", "2");
             statisticItem2.param("obj_locate", "12");

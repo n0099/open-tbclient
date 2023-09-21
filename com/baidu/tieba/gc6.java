@@ -6,27 +6,29 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernTitleView;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gc6 extends pm<td6, LiveTabConcernTitleView.ViewHolder> {
+public class gc6 extends om<dc6, LiveTabConcernItemViewLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
+    public tc6 b;
+    public yc6 c;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gc6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), td6.b);
+    public gc6(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), dc6.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,33 +40,51 @@ public class gc6 extends pm<td6, LiveTabConcernTitleView.ViewHolder> {
                 return;
             }
         }
+        this.d = "";
         this.a = tbPageContext;
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: s */
-    public LiveTabConcernTitleView.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new LiveTabConcernTitleView.ViewHolder(new LiveTabConcernTitleView(this.a, viewGroup));
+            tc6 tc6Var = new tc6(this.a, viewGroup, this.d);
+            this.b = tc6Var;
+            yc6 yc6Var = this.c;
+            if (yc6Var != null) {
+                tc6Var.s(yc6Var);
+            }
+            return new LiveTabConcernItemViewLineHolder(this.b);
         }
-        return (LiveTabConcernTitleView.ViewHolder) invokeL.objValue;
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
+    }
+
+    public void u(yc6 yc6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yc6Var) == null) {
+            this.c = yc6Var;
+            tc6 tc6Var = this.b;
+            if (tc6Var != null) {
+                tc6Var.s(yc6Var);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, td6 td6Var, LiveTabConcernTitleView.ViewHolder viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dc6 dc6Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
         InterceptResult invokeCommon;
-        LiveTabConcernTitleView liveTabConcernTitleView;
+        tc6 tc6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, td6Var, viewHolder})) == null) {
-            if (viewHolder != null && (liveTabConcernTitleView = viewHolder.a) != null) {
-                liveTabConcernTitleView.i(td6Var);
-                viewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return viewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dc6Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder != null && (tc6Var = liveTabConcernItemViewLineHolder.a) != null) {
+                tc6Var.i(dc6Var);
+                return liveTabConcernItemViewLineHolder.getView();
             }
             return null;
         }

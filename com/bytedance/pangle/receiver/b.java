@@ -79,17 +79,17 @@ public final class b {
 
     /* renamed from: com.bytedance.pangle.receiver.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0565b extends e {
+    public static class C0558b extends e {
         @Override // com.bytedance.pangle.receiver.b.e, com.bytedance.pangle.receiver.b.a, com.bytedance.pangle.receiver.b.c
         public final boolean a(Context context) {
             return false;
         }
 
-        public C0565b() {
+        public C0558b() {
             super((byte) 0);
         }
 
-        public /* synthetic */ C0565b(byte b) {
+        public /* synthetic */ C0558b(byte b) {
             this();
         }
     }
@@ -151,7 +151,7 @@ public final class b {
         } else if (i < 28) {
             a = new e((byte) 0);
         } else {
-            a = new C0565b((byte) 0);
+            a = new C0558b((byte) 0);
         }
     }
 

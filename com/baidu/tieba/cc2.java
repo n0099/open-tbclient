@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
 import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.pb2;
+import com.baidu.tieba.ob2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,22 +17,24 @@ public class cc2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public final pb2 c;
+    public final ob2 a;
+    public final xb2 b;
+    public final lb2 c;
 
     /* loaded from: classes5.dex */
-    public class a implements pb2.b {
+    public class a implements ob2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cc2 a;
+        public final /* synthetic */ zb2 a;
+        public final /* synthetic */ nb2 b;
+        public final /* synthetic */ cc2 c;
 
-        public a(cc2 cc2Var) {
+        public a(cc2 cc2Var, zb2 zb2Var, nb2 nb2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cc2Var};
+                Object[] objArr = {cc2Var, zb2Var, nb2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,19 +44,27 @@ public class cc2 {
                     return;
                 }
             }
-            this.a = cc2Var;
+            this.c = cc2Var;
+            this.a = zb2Var;
+            this.b = nb2Var;
         }
 
-        @Override // com.baidu.tieba.pb2.b
+        @Override // com.baidu.tieba.ob2.b
         public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                jb2.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
-                ib2.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
-                this.a.e(networkStatus);
+                hb2.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
+                StringBuilder sb = new StringBuilder();
+                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
+                sb.append(this.b.a());
+                sb.append(this.a.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.a.c());
                 if (cc2.d) {
-                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+                    Log.d("SceneInitDataTips", ">> " + sb.toString());
                 }
+                ib2.g(sb.toString());
+                this.c.d(networkStatus);
             }
         }
     }
@@ -104,7 +114,7 @@ public class cc2 {
                 return;
             }
         }
-        d = rr1.a;
+        d = qr1.a;
     }
 
     public cc2() {
@@ -120,69 +130,32 @@ public class cc2 {
                 return;
             }
         }
-        this.c = new pb2();
+        this.c = lb2.d();
+        this.a = new ob2();
+        this.b = xb2.d();
     }
 
-    public final void c() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.a(new a(this));
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            boolean z = true;
-            if (gb3.K().k() == 1) {
-                z = false;
-            }
-            this.b = z;
-            this.a = 0L;
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
             if (d) {
-                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
+                Log.d("SceneInitDataTips", ">> trigger init data error event.");
             }
+            xb2.d().j();
+            lb2.d().j();
+            nb2 f = this.c.f();
+            this.a.a(new a(this, this.b.f(), f));
         }
     }
 
-    public void d() {
+    public final void d(NetworkStatus networkStatus) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.b) {
-            return;
-        }
-        if (this.a == 0) {
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
-            }
-            this.a = System.currentTimeMillis();
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.a > 2000) {
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
-            }
-            c();
-            g();
-        }
-        this.a = currentTimeMillis;
-    }
-
-    public final void e(NetworkStatus networkStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
             int i = b.a[networkStatus.ordinal()];
             if (i != 1 && i != 2) {
-                hb2.f(R.string.obfuscated_res_0x7f0f15a2);
+                gb2.f(R.string.obfuscated_res_0x7f0f15a5);
             } else {
-                hb2.f(R.string.obfuscated_res_0x7f0f1598);
+                gb2.f(R.string.obfuscated_res_0x7f0f159b);
             }
         }
     }

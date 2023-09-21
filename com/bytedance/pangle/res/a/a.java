@@ -12,18 +12,18 @@ public class a {
     public final h b;
     public final g c;
     public final e d;
-    public C0566a e;
+    public C0559a e;
 
     /* renamed from: com.bytedance.pangle.res.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0566a {
+    public static class C0559a {
         public final short a;
         public final int b;
         public final int c;
         public final int d;
         public final int e;
 
-        public C0566a(short s, int i, int i2, int i3) {
+        public C0559a(short s, int i, int i2, int i3) {
             this.a = s;
             this.b = i;
             this.c = i2;
@@ -31,12 +31,12 @@ public class a {
             this.e = i3 + i2;
         }
 
-        public static C0566a a(g gVar, e eVar) {
+        public static C0559a a(g gVar, e eVar) {
             int a = eVar.a();
             try {
-                return new C0566a(gVar.readShort(), gVar.readShort(), gVar.readInt(), a);
+                return new C0559a(gVar.readShort(), gVar.readShort(), gVar.readInt(), a);
             } catch (EOFException unused) {
-                return new C0566a((short) -1, 0, 0, eVar.a());
+                return new C0559a((short) -1, 0, 0, eVar.a());
             }
         }
     }
@@ -89,8 +89,8 @@ public class a {
         }
     }
 
-    private C0566a j() {
-        C0566a a = C0566a.a(this.c, this.d);
+    private C0559a j() {
+        C0559a a = C0559a.a(this.c, this.d);
         this.e = a;
         return a;
     }

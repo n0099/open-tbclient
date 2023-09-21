@@ -55,25 +55,25 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c0d);
+        BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c00);
         this.b = barImageView;
         barImageView.setShowOval(true);
         this.b.setShowOuterBorder(false);
         this.b.setShowInnerBorder(true);
         this.b.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         this.b.setStrokeColorResId(R.color.CAM_X0401);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c0e);
-        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c11);
-        this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c10);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c13);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c01);
+        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c04);
+        this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c03);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c06);
         this.f = headImageView;
         headImageView.setBorderWidth(R.dimen.L_X01);
         this.f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.f.setRadius(R.dimen.tbds42);
         this.f.setConrers(15);
-        this.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c14);
-        this.h = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c1f);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f09081d);
+        this.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c07);
+        this.h = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c12);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090811);
         b(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -98,7 +98,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
             EMManager.from(this.e).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0109);
             EMManager.from(this.g).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0105);
             EMManager.from(this.h).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0109);
-            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080a02, WebPManager.ResourceStateType.NORMAL));
+            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080a01, WebPManager.ResourceStateType.NORMAL));
             this.f.setSkinType(i);
             SkinManager.setBackgroundColor(this.i, R.color.CAM_X0111);
         }

@@ -1,53 +1,127 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-import com.baidu.tieba.lb3;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import android.text.TextUtils;
+import com.baidu.tieba.kb3;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface kb3 {
-    public static final Set<String> p0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+public abstract class kb3<SelfT extends kb3<SelfT>> extends jw2<SelfT> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final String b;
 
-    void A(lb3.a aVar);
+    /* loaded from: classes6.dex */
+    public static final class a extends kb3<a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    rd3 B();
+        public a E() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
+        }
 
-    boolean E();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(String str) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
 
-    void G();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(String str, Bundle bundle) {
+            super(str, bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, bundle};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (Bundle) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
 
-    String getAppId();
+        @Override // com.baidu.tieba.cq3
+        public /* bridge */ /* synthetic */ cq3 i() {
+            E();
+            return this;
+        }
+    }
 
-    int k();
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public kb3(String str) {
+        this(str, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Bundle) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    void l(Bundle bundle, String str);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kb3(String str, Bundle bundle) {
+        super(bundle);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bundle};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Bundle) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = TextUtils.isEmpty(str) ? "" : str;
+    }
 
-    SwanAppCores m();
-
-    String n(String... strArr);
-
-    void o(aq3<lb3.a> aq3Var);
-
-    void p(String str);
-
-    hb3 q();
-
-    void r(SwanAppActivity swanAppActivity);
-
-    void s();
-
-    void t(SwanAppActivity swanAppActivity);
-
-    void u(aq3<lb3.a> aq3Var);
-
-    void v(String str, Bundle bundle);
-
-    SwanAppActivity w();
-
-    ks1 x();
-
-    c83 y();
+    @Override // com.baidu.tieba.jw2
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return String.format("Event(%s) Ext => %s", this.b, super.toString());
+        }
+        return (String) invokeV.objValue;
+    }
 }

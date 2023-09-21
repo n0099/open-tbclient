@@ -1,63 +1,87 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.card.Align;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.ny;
+import com.baidu.tieba.yy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class fn9 {
+public class fn9 extends om<iq6, ThreadCardViewHolder<iq6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbModel a;
-    public b b;
-    public final BdUniqueId c;
-    public final NetMessageListener d;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public hn c;
+    public sp6<iq6> d;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i, String str, String str2);
-
-        void onSuccess(List<tha> list);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends NetMessageListener {
+    public class a extends sp6<iq6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fn9 a;
+        public final /* synthetic */ fn9 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(fn9 fn9Var, int i, int i2) {
-            super(i, i2);
+        public a(fn9 fn9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fn9Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {fn9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fn9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sp6
+        /* renamed from: d */
+        public void a(View view2, iq6 iq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, iq6Var) == null) {
+                kp6.b().d(true);
+                if (view2 != null && iq6Var != null && iq6Var.getThreadData() != null && !StringUtils.isNull(iq6Var.getThreadData().getTid())) {
+                    this.b.y(view2, iq6Var);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ln {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fn9 a;
+
+        public b(fn9 fn9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fn9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,108 +90,103 @@ public class fn9 {
             this.a = fn9Var;
         }
 
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.ln
+        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != null && responsedMessage.getOrginalMessage().getTag() != this.a.c) {
-                return;
-            }
-            if (responsedMessage instanceof LookMoreHttpResMessage) {
-                LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
-                List<tha> data = lookMoreHttpResMessage.getData();
-                String errorString = lookMoreHttpResMessage.getErrorString();
-                int error = lookMoreHttpResMessage.getError();
-                if (error == 0) {
-                    if (!ListUtils.isEmpty(data)) {
-                        this.a.b.onSuccess(data);
-                        return;
-                    }
-                    return;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (bnVar instanceof iq6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                iq6 iq6Var = (iq6) bnVar;
+                iq6Var.f = 1;
+                if (this.a.d != null) {
+                    this.a.d.a(threadCardViewHolder.getView(), iq6Var);
                 }
-                this.a.b.a(error, errorString, "");
-            } else if (responsedMessage instanceof LookMoreSocketResMessage) {
-                LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
-                List<tha> data2 = lookMoreSocketResMessage.getData();
-                String errorString2 = lookMoreSocketResMessage.getErrorString();
-                int error2 = lookMoreSocketResMessage.getError();
-                if (error2 == 0) {
-                    if (data2 != null) {
-                        this.a.b.onSuccess(data2);
-                        return;
-                    }
-                    return;
-                }
-                this.a.b.a(error2, errorString2, "");
+                ThreadCardUtils.jumpToPB((b15) iq6Var, view2.getContext(), iq6Var.C, false, dx.a((hn) viewGroup, view2, i));
+                threadCardViewHolder.a().p(new yy.a(1));
             }
         }
     }
 
-    public fn9(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fn9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbModel, baseFragmentActivity};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
-        this.a = pbModel;
-        this.c = BdUniqueId.gen();
-        e();
-        this.d.setTag(baseFragmentActivity.getUniqueId());
-        MessageManager.getInstance().registerListener(this.d);
-        this.b = null;
+        this.d = new a(this);
+        this.b = tbPageContext;
     }
 
-    public void f(b bVar) {
+    public void z(hn hnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, hnVar) == null) {
+            this.c = hnVar;
         }
     }
 
-    public void c(List<Long> list) {
-        PbModel pbModel;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: u */
+    public ThreadCardViewHolder<iq6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && (pbModel = this.a) != null && pbModel.r1() != null) {
-            int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
-            int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
-            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-            lookMoreReqMessage.setKz(Long.valueOf(JavaTypesHelper.toLong(this.a.b, 0L)));
-            lookMoreReqMessage.setPost_id(list);
-            lookMoreReqMessage.setSt_type(JavaTypesHelper.toInt(this.a.mStType, 0));
-            lookMoreReqMessage.setWith_floor(1);
-            lookMoreReqMessage.setScr_w(equipmentWidth);
-            lookMoreReqMessage.setScr_h(equipmentHeight);
-            lookMoreReqMessage.setTag(this.c);
-            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ny.b bVar = new ny.b(this.b.getPageActivity());
+            bVar.l().k(true);
+            bVar.o(new mx(this.b.getPageActivity()));
+            ThreadCardViewHolder<iq6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.c));
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, iq6 iq6Var, ThreadCardViewHolder<iq6> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iq6Var, threadCardViewHolder})) == null) {
+            if (iq6Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || iq6Var.a == null) {
+                return null;
+            }
+            iq6Var.B(iq6Var.position + 1);
+            threadCardViewHolder.a().r(i);
+            threadCardViewHolder.q(false, Align.ALIGN_RIGHT_TOP, null);
+            threadCardViewHolder.e(iq6Var);
+            threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.a().q(this.d);
+            return threadCardViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public final void e() {
+    public final void y(View view2, iq6 iq6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, bha.a(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
-            tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            bha.f(309446, LookMoreSocketResMessage.class, false);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, iq6Var) == null) {
+            int id = view2.getId();
+            if (iq6Var == null) {
+                return;
+            }
+            if (id != R.id.forum_head_image && id != R.id.forum_head_barname && id != R.id.forum_head_info_attention && id != R.id.forum_head_info_thread) {
+                kt9.o(iq6Var, 1, this.b);
+            } else {
+                kt9.o(iq6Var, 2, this.b);
+            }
         }
     }
 }

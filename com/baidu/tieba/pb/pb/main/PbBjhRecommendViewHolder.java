@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.tieba.s15;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +96,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f09247a) {
+                if (id == R.id.obfuscated_res_0x7f092446) {
                     VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
@@ -141,7 +141,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig2));
                         }
                     }
-                } else if (id == R.id.main_view || id == R.id.obfuscated_res_0x7f090403 || id == R.id.obfuscated_res_0x7f090402) {
+                } else if (id == R.id.main_view || id == R.id.obfuscated_res_0x7f0903fd || id == R.id.obfuscated_res_0x7f0903fc) {
                     String tid = this.a.c.getTid();
                     if (this.a.f == 2) {
                         i = 1;
@@ -213,21 +213,21 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.w = new a(this);
         this.b = absPbActivity;
         this.g = view2.findViewById(R.id.main_view);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f090b23);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090405);
-        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090403);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f090402);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f090b17);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0903ff);
+        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903fd);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0903fc);
         this.l = (TextView) view2.findViewById(R.id.bjh_content);
-        this.m = view2.findViewById(R.id.obfuscated_res_0x7f090407);
-        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09040a);
-        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090408);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f091481);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09247a);
-        this.q = view2.findViewById(R.id.obfuscated_res_0x7f09147f);
-        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091480);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090406);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090409);
-        this.v = view2.findViewById(R.id.obfuscated_res_0x7f090404);
+        this.m = view2.findViewById(R.id.obfuscated_res_0x7f090401);
+        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090404);
+        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090402);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f091471);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092446);
+        this.q = view2.findViewById(R.id.obfuscated_res_0x7f09146f);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091470);
+        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090400);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090403);
+        this.v = view2.findViewById(R.id.obfuscated_res_0x7f0903fe);
     }
 
     public void g(int i) {
@@ -302,7 +302,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                 this.m.setVisibility(0);
                 this.o.setText(StringUtils.translateSecondsToString(s15Var.getThreadVideoInfo().video_duration.intValue()));
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.u.getLayoutParams();
-                if (s15Var.getAuthor() != null && !ei.isEmpty(s15Var.getAuthor().getName_show())) {
+                if (s15Var.getAuthor() != null && !di.isEmpty(s15Var.getAuthor().getName_show())) {
                     this.t.setText(s15Var.getAuthor().getName_show());
                     this.t.setVisibility(0);
                     layoutParams.leftMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);

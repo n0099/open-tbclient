@@ -5,16 +5,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ch8;
-import com.baidu.tieba.dh8;
+import com.baidu.tieba.hl8;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
-import com.baidu.tieba.yw5;
+import com.baidu.tieba.xk8;
+import com.baidu.tieba.yk8;
+import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class TbSingleTextImageMsg extends TbBaseImageMsg {
@@ -22,17 +24,18 @@ public class TbSingleTextImageMsg extends TbBaseImageMsg {
     public static final int MSG_TYPE = 102;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @yw5(serialize = false)
+    @zw5(serialize = false)
     public CharSequence cacheText;
     @Nullable
+    @zw5(deserialize = false, serialize = false)
     public BotsDTO.BotListDTO.SkillDTO.ItemsDTO fileItem;
     @Nullable
+    @xk8
     @SerializedName("robot_params")
-    @ch8
     public Map<String, Object> robotParams;
-    @dh8
+    @yk8
     public String text;
-    @yw5(serialize = false)
+    @zw5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     public TbSingleTextImageMsg() {
@@ -104,30 +107,42 @@ public class TbSingleTextImageMsg extends TbBaseImageMsg {
         return (TbSingleTextImageMsg) invokeLLL.objValue;
     }
 
+    @Override // com.baidu.tieba.im.lib.socket.msg.TbBaseImageMsg
+    public void onUploadImageSuccess() {
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO;
+        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.robotParams != null && (itemsDTO = this.fileItem) != null && itemsDTO.isFileType() && (opts = this.fileItem.getOpts()) != null && !opts.isEmpty() && (ext = opts.get(0).getExt()) != null) {
+            ext.setPicPath(this.bigSrc);
+            hl8.a(this.robotParams, this.fileItem);
+        }
+    }
+
     public void setCacheText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
             this.cacheText = charSequence;
         }
     }
 
     public void setFileItem(@Nullable BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, itemsDTO) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, itemsDTO) == null) {
             this.fileItem = itemsDTO;
         }
     }
 
     public void setRobotParams(@Nullable Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
             this.robotParams = map;
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.text = str;
         }
     }

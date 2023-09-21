@@ -1,64 +1,66 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.BaseTextColor;
-import tbclient.FeedContentColor;
-import tbclient.FeedContentText;
 /* loaded from: classes6.dex */
 public final class ja7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final int c;
 
-    public static final m87 a(BaseTextColor baseTextColor) {
-        InterceptResult invokeL;
+    public ja7(String from, String voiceId, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseTextColor)) == null) {
-            Intrinsics.checkNotNullParameter(baseTextColor, "<this>");
-            Integer type = baseTextColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new m87(type.intValue(), baseTextColor.day, baseTextColor.night);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {from, voiceId, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (m87) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(from, "from");
+        Intrinsics.checkNotNullParameter(voiceId, "voiceId");
+        this.a = from;
+        this.b = voiceId;
+        this.c = i;
     }
 
-    public static final m87 b(FeedContentColor feedContentColor) {
-        InterceptResult invokeL;
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, feedContentColor)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentColor, "<this>");
-            Integer type = feedContentColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new m87(type.intValue(), feedContentColor.day, feedContentColor.night);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (m87) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static final y97 c(FeedContentText feedContentText) {
-        InterceptResult invokeL;
-        m87 m87Var;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, feedContentText)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentText, "<this>");
-            String str = feedContentText.text;
-            if (str == null) {
-                str = "";
-            }
-            FeedContentColor feedContentColor = feedContentText.color;
-            m87 m87Var2 = null;
-            if (feedContentColor != null) {
-                m87Var = b(feedContentColor);
-            } else {
-                m87Var = null;
-            }
-            FeedContentColor feedContentColor2 = feedContentText.bg_color;
-            if (feedContentColor2 != null) {
-                m87Var2 = b(feedContentColor2);
-            }
-            return new y97(str, m87Var, m87Var2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (y97) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,45 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import com.baidu.tieba.feed.component.uistate.CardPicUiStateKt;
+import com.baidu.tieba.feed.helper.CommonOnClickKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 import kotlin.Unit;
-import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function4;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class j77 extends o77 implements PreLoadImageProvider {
+public final class j77 implements yc7<j77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j87 d;
-    public String e;
-    public final List<w97> f;
-    public final Function4<Context, Integer, Rect, String, Unit> g;
+    public final String a;
+    public final String b;
+    public final Function2<View, String, Unit> c;
+    public final ea7 d;
+
+    @Override // com.baidu.tieba.yc7
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "feed_entrybar" : (String) invokeV.objValue;
+    }
+
+    public j77 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (j77) invokeV.objValue;
+    }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof j77) {
                 j77 j77Var = (j77) obj;
-                return Intrinsics.areEqual(this.d, j77Var.d) && Intrinsics.areEqual(this.e, j77Var.e) && Intrinsics.areEqual(this.f, j77Var.f) && Intrinsics.areEqual(this.g, j77Var.g);
+                return Intrinsics.areEqual(this.a, j77Var.a) && Intrinsics.areEqual(this.b, j77Var.b) && Intrinsics.areEqual(this.c, j77Var.c) && Intrinsics.areEqual(this.d, j77Var.d);
             }
             return false;
         }
@@ -49,109 +55,83 @@ public final class j77 extends o77 implements PreLoadImageProvider {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((((this.d.hashCode() * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
+            ea7 ea7Var = this.d;
+            return hashCode + (ea7Var == null ? 0 : ea7Var.hashCode());
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "CardPicUiState(cardPicData=" + this.d + ", schema=" + this.e + ", statDataList=" + this.f + ", onImageClick=" + this.g + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "CardForumEnterUiState(forumName=" + this.a + ", jumpSchema=" + this.b + ", onClick=" + this.c + ", statData=" + this.d + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
-    public j77(j87 cardPicData, String schema, List<w97> statDataList, Function4<? super Context, ? super Integer, ? super Rect, ? super String, Unit> onImageClick) {
-        super(null, null, 3, null);
+    public j77(String forumName, String jumpSchema, Function2<? super View, ? super String, Unit> onClick, ea7 ea7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cardPicData, schema, statDataList, onImageClick};
+            Object[] objArr = {forumName, jumpSchema, onClick, ea7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(cardPicData, "cardPicData");
-        Intrinsics.checkNotNullParameter(schema, "schema");
-        Intrinsics.checkNotNullParameter(statDataList, "statDataList");
-        Intrinsics.checkNotNullParameter(onImageClick, "onImageClick");
-        this.d = cardPicData;
-        this.e = schema;
-        this.f = statDataList;
-        this.g = onImageClick;
+        Intrinsics.checkNotNullParameter(forumName, "forumName");
+        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
+        Intrinsics.checkNotNullParameter(onClick, "onClick");
+        this.a = forumName;
+        this.b = jumpSchema;
+        this.c = onClick;
+        this.d = ea7Var;
     }
 
-    public /* synthetic */ j77(j87 j87Var, String str, List list, Function4 function4, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(j87Var, (i & 2) != 0 ? "" : str, (i & 4) != 0 ? new ArrayList() : list, (i & 8) != 0 ? CardPicUiStateKt.a : function4);
+    public /* synthetic */ j77(String str, String str2, Function2 function2, ea7 ea7Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, str2, (i & 4) != 0 ? CommonOnClickKt.b() : function2, (i & 8) != 0 ? null : ea7Var);
     }
 
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.yc7
+    public /* bridge */ /* synthetic */ j77 b() {
+        c();
+        return this;
+    }
+
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
-            List<r97> list = this.d.a;
-            Intrinsics.checkNotNullExpressionValue(list, "cardPicData.picDataList");
-            for (r97 r97Var : CollectionsKt___CollectionsKt.take(list, 3)) {
-                PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-                preLoadImageInfo.imgUrl = r97Var.a;
-                preLoadImageInfo.procType = 13;
-                if (this.d.a.size() == 1) {
-                    preLoadImageInfo.preloadType = 1;
-                } else {
-                    preLoadImageInfo.preloadType = 2;
-                }
-                arrayList.add(preLoadImageInfo);
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final j87 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (j87) invokeV.objValue;
-    }
-
-    public final Function4<Context, Integer, Rect, String, Unit> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (Function4) invokeV.objValue;
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public final List<w97> k() {
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Function2<View, String, Unit> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return (Function2) invokeV.objValue;
     }
 }

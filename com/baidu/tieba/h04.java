@@ -1,54 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h04 implements yz3 {
+public class h04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Context b;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
 
     /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<String> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            }
-        }
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public int d;
+        public int e;
+        public String f;
+        public String g;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            }
-        }
-
-        public a(h04 h04Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h04Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,28 +50,92 @@ public class h04 implements yz3 {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
+        public h04 h() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    response.body().close();
-                    return "";
-                }
-                return "";
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new h04(this, null);
             }
-            return (String) invokeLI.objValue;
+            return (h04) invokeV.objValue;
+        }
+
+        public b i(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.e = z04.a(i);
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b j(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b k(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.f = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b l(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.d = z04.a(i);
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b m(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b n(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.g = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b o(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
     }
 
-    public h04(Context context) {
+    public h04(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,84 +145,79 @@ public class h04 implements yz3 {
                 return;
             }
         }
-        this.b = context;
+        this.b = bVar.b;
+        this.a = bVar.a;
+        this.d = bVar.d;
+        this.e = bVar.e;
+        this.c = bVar.c;
+        this.f = bVar.f;
+        this.g = bVar.g;
     }
 
-    @Override // com.baidu.tieba.yz3
-    public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, responseCallback) == null) {
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                ((PostBodyRequest.PostBodyRequestBuilder) li4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
-            } else {
-                ((PostBodyRequest.PostBodyRequestBuilder) li4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
-            }
-        }
+    public /* synthetic */ h04(b bVar, a aVar) {
+        this(bVar);
     }
 
-    @Override // com.baidu.tieba.yz3
-    public void b(String str, JSONObject jSONObject, ResponseCallback<qz3> responseCallback) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, responseCallback) == null) {
-            ((PostBodyRequest.PostBodyRequestBuilder) li4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yz3
-    public void c(String str, ResponseCallback<zy3> responseCallback) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, responseCallback) == null) {
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                li4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            } else {
-                li4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yz3
-    public void f(String str, ResponseCallback<AdResponseInfo> responseCallback) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, responseCallback) == null) {
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                li4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            } else {
-                li4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yz3
-    public void d(String str) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        ki4 ki4Var = new ki4();
-        ki4Var.b = "POST";
-        ki4Var.a = "https://pimlog.baidu.com/mapp/advlog";
-        ki4Var.d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
-        li4.g().e(ki4Var);
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yz3
-    public void e(String str) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            a aVar = new a(this);
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                li4.g().getRequest().url(str).build().executeAsync(aVar);
-            } else {
-                li4.g().getRequest().url(str).build().executeAsync(aVar);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 }

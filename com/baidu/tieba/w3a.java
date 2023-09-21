@@ -1,26 +1,15 @@
 package com.baidu.tieba;
-
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes8.dex */
-public interface w3a extends IAdBaseAsyncController {
+public interface w3a {
+    void C(String str, String str2);
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(int i);
-    }
+    void I(String str);
 
-    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
+    void i0();
 
-    void c(AdvertAppInfo advertAppInfo, boolean z);
+    void m0();
 
-    @Nullable
-    w2a i(AdvertAppInfo advertAppInfo);
+    void s0();
 
-    void loadAd();
-
-    void m(AdvertAppInfo advertAppInfo);
+    void x();
 }

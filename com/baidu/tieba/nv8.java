@@ -1,86 +1,94 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import android.view.MotionEvent;
+import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.immessagecenter.im.chat.notify.MessageAggregationListAdapter;
-import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class nv8 implements AdapterView.OnItemLongClickListener {
+public class nv8 extends om<lv8, CardViewHolder<ov8>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final MsgChatCenterSliceView b;
-    public final MessageAggregationListAdapter c;
+    public TbPageContext<?> a;
+    public sp6 b;
+    public String c;
 
-    public nv8(TbPageContext<BaseFragmentActivity> pageContext, MsgChatCenterSliceView sliceView, MessageAggregationListAdapter messageAggregationListAdapter) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nv8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getContext(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext, sliceView, messageAggregationListAdapter};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        Intrinsics.checkNotNullParameter(sliceView, "sliceView");
-        this.a = pageContext;
-        this.b = sliceView;
-        this.c = messageAggregationListAdapter;
+        this.a = tbPageContext;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        InterceptResult invokeCommon;
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
+    @Override // com.baidu.tieba.om
+    public ln getOnAdapterItemClickListener() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            MessageAggregationListAdapter messageAggregationListAdapter = this.c;
-            if (messageAggregationListAdapter != null) {
-                imMessageCenterShowItemData = messageAggregationListAdapter.getItem(i);
-            } else {
-                imMessageCenterShowItemData = null;
-            }
-            if (i < 0 || imMessageCenterShowItemData == null) {
-                return false;
-            }
-            if (imMessageCenterShowItemData.getDataType() == 2) {
-                return true;
-            }
-            if (!this.b.t0(imMessageCenterShowItemData)) {
-                if (adapterView != null) {
-                    adapterView.setHapticFeedbackEnabled(false);
-                }
-                return true;
-            }
-            TiebaStatic.log("c12932");
-            g55 c0 = this.b.c0();
-            if (c0 != null) {
-                c0.l();
-            }
-            if (this.a.getPageActivity() != null) {
-                long uptimeMillis = SystemClock.uptimeMillis();
-                this.a.getPageActivity().getWindow().getDecorView().dispatchTouchEvent(MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0));
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.getOnAdapterItemClickListener();
         }
-        return invokeCommon.booleanValue;
+        return (ln) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: s */
+    public CardViewHolder<ov8> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            ov8 ov8Var = new ov8(this.a, viewGroup);
+            sp6 sp6Var = this.b;
+            if (sp6Var != null) {
+                ov8Var.k(sp6Var);
+            }
+            return new CardViewHolder<>(ov8Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lv8 lv8Var, CardViewHolder<ov8> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lv8Var, cardViewHolder})) == null) {
+            if (lv8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().y(this.c);
+                cardViewHolder.a().i(lv8Var);
+                return cardViewHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

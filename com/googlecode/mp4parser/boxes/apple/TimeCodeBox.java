@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class TimeCodeBox extends AbstractBox implements SampleEntry {
     public static final String TYPE = "tmcd";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;

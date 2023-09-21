@@ -1,254 +1,115 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.BaseMenuView;
-import com.baidu.swan.menu.MainMenuView;
-import com.baidu.swan.menu.PopupWindow;
+import android.util.SparseArray;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class qh4 extends PopupWindow implements View.OnClickListener {
+public class qh4 {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseArray<oh4> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public View Q;
-    public BaseMenuView R;
-    public Context S;
 
-    /* renamed from: T  reason: collision with root package name */
-    public View f1151T;
-    public MainMenuView U;
-    public FrameLayout V;
-    public ih4 W;
-    public boolean X;
-    public int Y;
-
-    /* loaded from: classes7.dex */
-    public class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qh4 a;
-
-        public a(qh4 qh4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948091820, "Lcom/baidu/tieba/qh4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qh4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = qh4Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                Context context = this.a.S;
-                if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-                    return;
-                }
-                qh4.super.q();
-                qh4 qh4Var = this.a;
-                BaseMenuView baseMenuView = qh4Var.R;
-                if (baseMenuView != qh4Var.U) {
-                    baseMenuView.setVisibility(8);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qh4(Context context, View view2, @Nullable ih4 ih4Var) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, ih4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948091820, "Lcom/baidu/tieba/qh4;");
                 return;
             }
         }
-        this.X = true;
-        this.Y = 0;
-        this.S = context;
-        this.f1151T = view2;
-        this.W = ih4Var;
-        E(false);
-        G(true);
-        K(true);
-        D(new ColorDrawable(0));
-        M(-1);
-        H(-1);
-        if (Build.VERSION.SDK_INT > 29) {
-            I(true);
-        }
-        U();
+        SparseArray<oh4> sparseArray = new SparseArray<>();
+        a = sparseArray;
+        sparseArray.put(5, new oh4(5, R.string.obfuscated_res_0x7f0f0129, R.drawable.obfuscated_res_0x7f080110, true));
+        a.put(35, new oh4(35, R.string.obfuscated_res_0x7f0f011c, R.drawable.obfuscated_res_0x7f0800f0, true));
+        a.put(39, new oh4(39, R.string.obfuscated_res_0x7f0f0123, R.drawable.obfuscated_res_0x7f080113, true));
+        a.put(4, new oh4(4, R.string.obfuscated_res_0x7f0f012a, R.drawable.obfuscated_res_0x7f080116, true));
+        a.put(37, new oh4(37, R.string.obfuscated_res_0x7f0f011e, R.drawable.obfuscated_res_0x7f0800f3, true));
+        a.put(38, new oh4(38, R.string.obfuscated_res_0x7f0f0127, R.drawable.obfuscated_res_0x7f0800ef, true));
+        a.put(42, new oh4(42, R.string.obfuscated_res_0x7f0f011f, R.drawable.obfuscated_res_0x7f080113, true));
+        a.put(49, new oh4(49, R.string.obfuscated_res_0x7f0f14db, R.drawable.obfuscated_res_0x7f081442, true));
+        a.put(50, new oh4(50, R.string.obfuscated_res_0x7f0f155f, R.drawable.obfuscated_res_0x7f081441, true));
+        a.put(43, new oh4(43, R.string.obfuscated_res_0x7f0f011d, R.drawable.obfuscated_res_0x7f0800f4, true));
+        a.put(9, new oh4(9, R.string.obfuscated_res_0x7f0f0128, R.drawable.obfuscated_res_0x7f080100, true));
+        a.put(46, new oh4(46, R.string.obfuscated_res_0x7f0f0120, R.drawable.obfuscated_res_0x7f080105, true));
+        a.put(47, new oh4(47, R.string.obfuscated_res_0x7f0f0121, R.drawable.obfuscated_res_0x7f080108, true));
     }
 
-    public void X(int i) {
+    public static oh4 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.Y = i;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return oh4.k(a.get(i));
         }
+        return (oh4) invokeI.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public static List<oh4> b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f090541 || id == R.id.obfuscated_res_0x7f091706) {
-                T(true);
-            }
-        }
-    }
-
-    public void S() {
-        ih4 ih4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ih4Var = this.W) != null) {
-            ih4Var.a(this.U);
-        }
-    }
-
-    public void W() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.U.e();
-        }
-    }
-
-    @Override // com.baidu.swan.menu.PopupWindow
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            T(true);
-        }
-    }
-
-    public void T(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!z) {
-                super.q();
-            } else if (!y()) {
-            } else {
-                ObjectAnimator c = kh4.c(this.Q);
-                ObjectAnimator e = kh4.e(this.R);
-                AnimatorSet animatorSet = new AnimatorSet();
-                animatorSet.addListener(new a(this));
-                animatorSet.playTogether(c, e);
-                animatorSet.start();
-            }
-        }
-    }
-
-    public final void U() {
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.S).inflate(R.layout.obfuscated_res_0x7f0d0097, (ViewGroup) null);
-            this.V = frameLayout;
-            this.Q = frameLayout.findViewById(R.id.obfuscated_res_0x7f091706);
-            this.U = (MainMenuView) this.V.findViewById(R.id.obfuscated_res_0x7f09019c);
-            if (mr4.d() && (this.S instanceof Activity)) {
-                FrameLayout frameLayout2 = (FrameLayout) this.V.findViewById(R.id.obfuscated_res_0x7f091754);
-                if (mr4.e((Activity) this.S)) {
-                    b = mr4.a((Activity) this.S);
-                } else {
-                    b = (int) mr4.b((Activity) this.S);
-                }
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b, -1);
-                layoutParams.gravity = 17;
-                if (frameLayout2 != null) {
-                    frameLayout2.setLayoutParams(layoutParams);
-                }
-            }
-            this.Q.setOnClickListener(this);
-            this.U.setClickListener(this);
-            this.U.setFitsSystemWindows(true);
-            this.V.measure(0, 0);
-            F(this.V);
-        }
-    }
-
-    public void Y(List<List<ph4>> list, View view2, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            this.U.update(list, view2, z, i);
-            a0();
-        }
-    }
-
-    public void Z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.Q.setAlpha(0.0f);
-            MainMenuView mainMenuView = this.U;
-            mainMenuView.setTranslationY(mainMenuView.getHeight());
-            ObjectAnimator d = kh4.d(this.Q, this.U);
-            ObjectAnimator b = kh4.b(this.U);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(d);
-            arrayList.add(b);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(arrayList);
-            animatorSet.start();
-        }
-    }
-
-    public final void a0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || y()) {
-            return;
-        }
-        S();
-        this.U.f();
-        this.R = this.U;
-        if (this.X) {
-            G(false);
-        }
-        Activity activity = (Activity) this.S;
-        if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-            O(this.f1151T, 81, 0, 0);
-            if (this.X) {
-                u().setSystemUiVisibility(this.Y | 1024 | 4096);
-                G(true);
-                update();
+            if (i != 0) {
+                if (i != 12) {
+                    if (i != 13) {
+                        switch (i) {
+                            case 16:
+                                arrayList.add(oh4.k(a.get(5)));
+                                break;
+                            case 17:
+                            case 18:
+                                arrayList.add(oh4.k(a.get(38)));
+                                arrayList.add(oh4.k(a.get(4)));
+                                arrayList.add(oh4.k(a.get(39)));
+                                arrayList.add(oh4.k(a.get(35)));
+                                arrayList.add(oh4.k(a.get(5)));
+                                arrayList.add(oh4.k(a.get(49)));
+                                break;
+                            case 19:
+                                arrayList.add(oh4.l(a.get(38), false));
+                                arrayList.add(oh4.l(a.get(4), false));
+                                arrayList.add(oh4.k(a.get(39)));
+                                arrayList.add(oh4.l(a.get(35), false));
+                                arrayList.add(oh4.k(a.get(5)));
+                                arrayList.add(oh4.l(a.get(49), false));
+                                break;
+                            case 20:
+                                arrayList.add(oh4.k(a.get(38)));
+                                arrayList.add(oh4.k(a.get(4)));
+                                arrayList.add(oh4.k(a.get(39)));
+                                arrayList.add(oh4.k(a.get(35)));
+                                arrayList.add(oh4.k(a.get(5)));
+                                arrayList.add(oh4.k(a.get(49)));
+                                break;
+                        }
+                    } else {
+                        arrayList.add(oh4.k(a.get(43)));
+                    }
+                }
+                arrayList.add(oh4.k(a.get(38)));
+                arrayList.add(oh4.k(a.get(4)));
+                arrayList.add(oh4.k(a.get(39)));
+                arrayList.add(oh4.k(a.get(35)));
+                arrayList.add(oh4.k(a.get(5)));
+                arrayList.add(oh4.k(a.get(49)));
+            } else {
+                arrayList.add(oh4.k(a.get(38)));
+                arrayList.add(oh4.k(a.get(5)));
+                arrayList.add(oh4.k(a.get(4)));
+                arrayList.add(oh4.k(a.get(35)));
+                arrayList.add(oh4.k(a.get(42)));
             }
-            Z();
+            return arrayList;
         }
+        return (List) invokeI.objValue;
     }
 }

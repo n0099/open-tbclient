@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qx9 implements sva {
+public class qx9 extends om<bz9, CardViewHolder<e0a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public int b;
-    public int c;
-    public boolean d;
+    public TbPageContext<?> a;
 
-    public qx9(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qx9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), bz9.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,96 +31,39 @@ public class qx9 implements sva {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 1;
-        this.c = 2;
-        this.d = false;
         this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.sva
-    public void a(View view2, i37 i37Var) {
-        int i;
-        int i2;
-        boolean z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: s */
+    public CardViewHolder<e0a> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, i37Var) != null) || i37Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new e0a(this.a));
         }
-        UserData userData = null;
-        Bundle bundle = i37Var.b;
-        if (bundle != null && (userData = (UserData) bundle.getSerializable(UserData.TYPE_USER)) != null) {
-            if (TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId())) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            this.b = i;
-            if (userData.isGod()) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            this.c = i2;
-            if (this.b == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.d = z;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bz9 bz9Var, CardViewHolder<e0a> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bz9Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(bz9Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
-        switch (i37Var.a) {
-            case 2:
-                if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.URL_MEMBER_BUY});
-                return;
-            case 3:
-                if (userData == null) {
-                    return;
-                }
-                BrowserHelper.startWebActivity(this.a.getPageActivity(), this.a.getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
-                return;
-            case 4:
-                if (userData == null) {
-                    return;
-                }
-                if (i37Var instanceof pu9) {
-                    TiebaStatic.log(new StatisticItem("c11586"));
-                } else {
-                    TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.b).param("obj_source", this.c));
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
-                return;
-            case 5:
-                PersonRedTipManager.getInstance().updateRedTipState(2, false, this.d);
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), false, userData.getUserId(), userData.getSex())));
-                return;
-            case 6:
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 1).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.a.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
-                return;
-            case 7:
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.a.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
-                return;
-            default:
-                return;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

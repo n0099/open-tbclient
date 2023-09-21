@@ -1,45 +1,30 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes9.dex */
-public abstract class zkc implements View.OnClickListener {
+public class zkc {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(View view2);
-
-    public zkc() {
+    public static void a(Context context, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65536, null, context, view2) == null) && context != null && view2 != null) {
+            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 0);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public static void b(Activity activity, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - a >= 1000) {
-                a = currentTimeMillis;
-                a(view2);
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, view2) == null) {
+            if (view2 == null && (view2 = activity.getCurrentFocus()) == null) {
                 return;
             }
-            RLog.debug("OnMultiClickListener", "click too often");
+            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view2, 1);
         }
     }
 }

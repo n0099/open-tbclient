@@ -636,21 +636,30 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x015f  */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x01a9  */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x01d8  */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x01db  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x01e4  */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x01f5  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x01fe  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x009c  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x009f  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00c1  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x00ef  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x00fa  */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0106  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0155  */
+    /* JADX WARN: Can't wrap try/catch for region: R(19:36|(3:(1:39)(1:98)|40|(1:42)(2:(1:94)(1:97)|(1:96)))(1:99)|43|(1:(15:46|47|(1:(1:50)(11:72|52|53|54|(1:56)|57|(1:59)(1:69)|(1:68)|(1:64)|65|66))(1:73)|51|52|53|54|(0)|57|(0)(0)|(1:61)|68|(0)|65|66))(5:75|(1:77)|78|(4:80|(1:82)|(1:89)(1:86)|87)(2:90|(1:92))|88)|74|47|(0)(0)|51|52|53|54|(0)|57|(0)(0)|(0)|68|(0)|65|66) */
+    /* JADX WARN: Code restructure failed: missing block: B:117:0x01f9, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:118:0x01fa, code lost:
+        r2 = kotlin.Result.Companion;
+        r0 = kotlin.Result.m852constructorimpl(kotlin.ResultKt.createFailure(r0));
+     */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x01b1  */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x01df  */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x01e0  */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x01e3 A[Catch: all -> 0x01f9, TryCatch #4 {all -> 0x01f9, blocks: (B:102:0x01a7, B:105:0x01b3, B:110:0x01e3, B:115:0x01ed), top: B:136:0x01a7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x01ec  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0211  */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x021b  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x009d  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00a0  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00c2  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00d2  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x00f0  */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x00fa  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0106  */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x0155  */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x015f  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -671,19 +680,18 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         IMixActivityInterface iMixActivityInterface2;
         IntentData.SchemeModel schemeData;
         String source;
-        String str14;
-        JSONObject ext;
         JSONObject jSONObject;
-        JSONObject ext2;
+        JSONObject ext;
         JSONObject jSONObject2;
         JSONObject extLog;
         JSONObject jSONObject3;
         IntentData.SchemeModel copy;
         String schemeParam;
-        String str15;
+        String str14;
         String jSONObject4;
-        String str16 = "";
+        String str15 = "";
         IntentData intentData2 = this.mIntentData;
+        JSONObject jSONObject5 = null;
         if (intentData2 != null) {
             schemeModel = intentData2.getSchemeData();
         } else {
@@ -722,11 +730,11 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                             if (intentData3 != null) {
                                 intentData3.setModel(parseSchemeData);
                             }
-                            Result.m850constructorimpl(Unit.INSTANCE);
+                            Result.m852constructorimpl(Unit.INSTANCE);
                         } catch (Throwable th2) {
                             th = th2;
                             Result.Companion companion2 = Result.Companion;
-                            Result.m850constructorimpl(ResultKt.createFailure(th));
+                            Result.m852constructorimpl(ResultKt.createFailure(th));
                             str10 = str7;
                             str11 = str8;
                             str12 = str9;
@@ -750,7 +758,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                         th = th3;
                         str9 = "";
                         Result.Companion companion22 = Result.Companion;
-                        Result.m850constructorimpl(ResultKt.createFailure(th));
+                        Result.m852constructorimpl(ResultKt.createFailure(th));
                         str10 = str7;
                         str11 = str8;
                         str12 = str9;
@@ -775,7 +783,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     str8 = "";
                     str9 = str8;
                     Result.Companion companion222 = Result.Companion;
-                    Result.m850constructorimpl(ResultKt.createFailure(th));
+                    Result.m852constructorimpl(ResultKt.createFailure(th));
                     str10 = str7;
                     str11 = str8;
                     str12 = str9;
@@ -814,97 +822,12 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                 if (intentData != null && (schemeData = intentData.getSchemeData()) != null) {
                     if (!TextUtils.isEmpty(schemeData.getSource())) {
                         if (schemeModel != null) {
-                            str15 = schemeModel.getSource();
+                            str14 = schemeModel.getSource();
                         } else {
-                            str15 = null;
+                            str14 = null;
                         }
-                        if (TextUtils.isEmpty(str15)) {
-                            str14 = "";
-                            if (schemeData.getExt() == null) {
-                                if (schemeModel != null) {
-                                    ext = schemeModel.getExt();
-                                } else {
-                                    jSONObject2 = null;
-                                    String liveBackScheme = schemeData.getLiveBackScheme();
-                                    JSONObject extRequest = schemeData.getExtRequest();
-                                    if (schemeData.getExtLog() != null) {
-                                        if (schemeModel != null) {
-                                            extLog = schemeModel.getExtLog();
-                                        } else {
-                                            jSONObject3 = null;
-                                            copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme, (r50 & 1024) != 0 ? schemeData.ext : jSONObject2, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject3, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & 67108864) != 0 ? schemeData.title : str12, (r50 & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
-                                            intent.putExtra("params", copy.toSchemeParams());
-                                            MiniShellRuntime miniShellRuntime = MiniShellRuntime.INSTANCE;
-                                            if (str != null) {
-                                                str16 = str;
-                                            }
-                                            String buildLiveScheme = miniShellRuntime.buildLiveScheme(str16, schemeData.getSource());
-                                            schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
-                                            if (schemeParam == null) {
-                                                schemeParam = buildLiveScheme;
-                                            }
-                                            if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
-                                                buildLiveScheme = schemeParam;
-                                            }
-                                            intent.putExtra("scheme", buildLiveScheme);
-                                        }
-                                    } else {
-                                        extLog = schemeData.getExtLog();
-                                    }
-                                    jSONObject3 = extLog;
-                                    copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme, (r50 & 1024) != 0 ? schemeData.ext : jSONObject2, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject3, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & 67108864) != 0 ? schemeData.title : str12, (r50 & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
-                                    intent.putExtra("params", copy.toSchemeParams());
-                                    MiniShellRuntime miniShellRuntime2 = MiniShellRuntime.INSTANCE;
-                                    if (str != null) {
-                                    }
-                                    String buildLiveScheme2 = miniShellRuntime2.buildLiveScheme(str16, schemeData.getSource());
-                                    schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme2, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
-                                    if (schemeParam == null) {
-                                    }
-                                    if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
-                                    }
-                                    intent.putExtra("scheme", buildLiveScheme2);
-                                }
-                            } else {
-                                JSONObject ext3 = schemeData.getExt();
-                                if (ext3 == null) {
-                                    Intrinsics.throwNpe();
-                                }
-                                JSONObject optJSONObject = ext3.optJSONObject("ext");
-                                if (optJSONObject == null) {
-                                    JSONObject ext4 = schemeData.getExt();
-                                    if (ext4 == null) {
-                                        Intrinsics.throwNpe();
-                                    }
-                                    if (schemeModel != null && (ext2 = schemeModel.getExt()) != null) {
-                                        jSONObject = ext2.optJSONObject("ext");
-                                    } else {
-                                        jSONObject = null;
-                                    }
-                                    ext4.put("ext", jSONObject);
-                                } else if (TextUtils.isEmpty(optJSONObject.optString("source"))) {
-                                    optJSONObject.put("source", str14);
-                                }
-                                ext = schemeData.getExt();
-                            }
-                            jSONObject2 = ext;
-                            String liveBackScheme2 = schemeData.getLiveBackScheme();
-                            JSONObject extRequest2 = schemeData.getExtRequest();
-                            if (schemeData.getExtLog() != null) {
-                            }
-                            jSONObject3 = extLog;
-                            copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme2, (r50 & 1024) != 0 ? schemeData.ext : jSONObject2, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest2, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject3, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & 67108864) != 0 ? schemeData.title : str12, (r50 & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
-                            intent.putExtra("params", copy.toSchemeParams());
-                            MiniShellRuntime miniShellRuntime22 = MiniShellRuntime.INSTANCE;
-                            if (str != null) {
-                            }
-                            String buildLiveScheme22 = miniShellRuntime22.buildLiveScheme(str16, schemeData.getSource());
-                            schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme22, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
-                            if (schemeParam == null) {
-                            }
-                            if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
-                            }
-                            intent.putExtra("scheme", buildLiveScheme22);
+                        if (TextUtils.isEmpty(str14)) {
+                            source = "";
                         } else {
                             if (schemeModel != null) {
                                 source = schemeModel.getSource();
@@ -918,27 +841,98 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     } else {
                         source = schemeData.getSource();
                     }
-                    str14 = source;
-                    if (schemeData.getExt() == null) {
+                    if (schemeData.getExt() != null) {
+                        if (schemeModel != null) {
+                            jSONObject2 = schemeModel.getExt();
+                            String liveBackScheme = schemeData.getLiveBackScheme();
+                            JSONObject extRequest = schemeData.getExtRequest();
+                            if (schemeData.getExtLog() == null) {
+                                if (schemeModel != null) {
+                                    extLog = schemeModel.getExtLog();
+                                } else {
+                                    jSONObject3 = null;
+                                    copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : source, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme, (r50 & 1024) != 0 ? schemeData.ext : jSONObject2, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject3, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & 67108864) != 0 ? schemeData.title : str12, (r50 & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
+                                    intent.putExtra("params", copy.toSchemeParams());
+                                    Result.Companion companion3 = Result.Companion;
+                                    Uri parse = Uri.parse(str3);
+                                    MiniShellRuntime miniShellRuntime = MiniShellRuntime.INSTANCE;
+                                    if (str != null) {
+                                        str15 = str;
+                                    }
+                                    String buildLiveScheme = miniShellRuntime.buildLiveScheme(str15, schemeData.getSource(), parse);
+                                    schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
+                                    if (schemeParam != null) {
+                                        schemeParam = buildLiveScheme;
+                                    }
+                                    if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
+                                        buildLiveScheme = schemeParam;
+                                    }
+                                    Object m852constructorimpl = Result.m852constructorimpl(intent.putExtra("scheme", buildLiveScheme));
+                                    Result.m851boximpl(m852constructorimpl);
+                                }
+                            } else {
+                                extLog = schemeData.getExtLog();
+                            }
+                            jSONObject3 = extLog;
+                            copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : source, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme, (r50 & 1024) != 0 ? schemeData.ext : jSONObject2, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject3, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & 67108864) != 0 ? schemeData.title : str12, (r50 & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
+                            intent.putExtra("params", copy.toSchemeParams());
+                            Result.Companion companion32 = Result.Companion;
+                            Uri parse2 = Uri.parse(str3);
+                            MiniShellRuntime miniShellRuntime2 = MiniShellRuntime.INSTANCE;
+                            if (str != null) {
+                            }
+                            String buildLiveScheme2 = miniShellRuntime2.buildLiveScheme(str15, schemeData.getSource(), parse2);
+                            schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme2, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
+                            if (schemeParam != null) {
+                            }
+                            if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
+                            }
+                            Object m852constructorimpl2 = Result.m852constructorimpl(intent.putExtra("scheme", buildLiveScheme2));
+                            Result.m851boximpl(m852constructorimpl2);
+                        }
+                    } else {
+                        JSONObject ext2 = schemeData.getExt();
+                        if (ext2 == null) {
+                            Intrinsics.throwNpe();
+                        }
+                        JSONObject optJSONObject = ext2.optJSONObject("ext");
+                        if (optJSONObject == null) {
+                            JSONObject ext3 = schemeData.getExt();
+                            if (ext3 == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            if (schemeModel != null && (ext = schemeModel.getExt()) != null) {
+                                jSONObject = ext.optJSONObject("ext");
+                            } else {
+                                jSONObject = null;
+                            }
+                            ext3.put("ext", jSONObject);
+                        } else if (TextUtils.isEmpty(optJSONObject.optString("source"))) {
+                            optJSONObject.put("source", source);
+                        }
+                        jSONObject5 = schemeData.getExt();
                     }
-                    jSONObject2 = ext;
-                    String liveBackScheme22 = schemeData.getLiveBackScheme();
-                    JSONObject extRequest22 = schemeData.getExtRequest();
-                    if (schemeData.getExtLog() != null) {
+                    jSONObject2 = jSONObject5;
+                    String liveBackScheme2 = schemeData.getLiveBackScheme();
+                    JSONObject extRequest2 = schemeData.getExtRequest();
+                    if (schemeData.getExtLog() == null) {
                     }
                     jSONObject3 = extLog;
-                    copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme22, (r50 & 1024) != 0 ? schemeData.ext : jSONObject2, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest22, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject3, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & 67108864) != 0 ? schemeData.title : str12, (r50 & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
+                    copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : source, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme2, (r50 & 1024) != 0 ? schemeData.ext : jSONObject2, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest2, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject3, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & 67108864) != 0 ? schemeData.title : str12, (r50 & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
                     intent.putExtra("params", copy.toSchemeParams());
-                    MiniShellRuntime miniShellRuntime222 = MiniShellRuntime.INSTANCE;
+                    Result.Companion companion322 = Result.Companion;
+                    Uri parse22 = Uri.parse(str3);
+                    MiniShellRuntime miniShellRuntime22 = MiniShellRuntime.INSTANCE;
                     if (str != null) {
                     }
-                    String buildLiveScheme222 = miniShellRuntime222.buildLiveScheme(str16, schemeData.getSource());
-                    schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme222, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
-                    if (schemeParam == null) {
+                    String buildLiveScheme22 = miniShellRuntime22.buildLiveScheme(str15, schemeData.getSource(), parse22);
+                    schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme22, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
+                    if (schemeParam != null) {
                     }
                     if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
                     }
-                    intent.putExtra("scheme", buildLiveScheme222);
+                    Object m852constructorimpl22 = Result.m852constructorimpl(intent.putExtra("scheme", buildLiveScheme22));
+                    Result.m851boximpl(m852constructorimpl22);
                 }
                 this.mIntentData = ListExtKt.parseLiveData(intent);
                 iMixActivityInterface = this.mixActivity;
@@ -955,7 +949,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         str7 = "";
         str8 = str7;
         str9 = str8;
-        Result.m850constructorimpl(Unit.INSTANCE);
+        Result.m852constructorimpl(Unit.INSTANCE);
         str10 = str7;
         str11 = str8;
         str12 = str9;
@@ -967,27 +961,29 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         if (intentData != null) {
             if (!TextUtils.isEmpty(schemeData.getSource())) {
             }
-            str14 = source;
-            if (schemeData.getExt() == null) {
+            if (schemeData.getExt() != null) {
             }
-            jSONObject2 = ext;
-            String liveBackScheme222 = schemeData.getLiveBackScheme();
-            JSONObject extRequest222 = schemeData.getExtRequest();
-            if (schemeData.getExtLog() != null) {
+            jSONObject2 = jSONObject5;
+            String liveBackScheme22 = schemeData.getLiveBackScheme();
+            JSONObject extRequest22 = schemeData.getExtRequest();
+            if (schemeData.getExtLog() == null) {
             }
             jSONObject3 = extLog;
-            copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme222, (r50 & 1024) != 0 ? schemeData.ext : jSONObject2, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest222, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject3, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & 67108864) != 0 ? schemeData.title : str12, (r50 & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
+            copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : source, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme22, (r50 & 1024) != 0 ? schemeData.ext : jSONObject2, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest22, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject3, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & 67108864) != 0 ? schemeData.title : str12, (r50 & SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
             intent.putExtra("params", copy.toSchemeParams());
-            MiniShellRuntime miniShellRuntime2222 = MiniShellRuntime.INSTANCE;
+            Result.Companion companion3222 = Result.Companion;
+            Uri parse222 = Uri.parse(str3);
+            MiniShellRuntime miniShellRuntime222 = MiniShellRuntime.INSTANCE;
             if (str != null) {
             }
-            String buildLiveScheme2222 = miniShellRuntime2222.buildLiveScheme(str16, schemeData.getSource());
-            schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme2222, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
-            if (schemeParam == null) {
+            String buildLiveScheme222 = miniShellRuntime222.buildLiveScheme(str15, schemeData.getSource(), parse222);
+            schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme222, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
+            if (schemeParam != null) {
             }
             if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
             }
-            intent.putExtra("scheme", buildLiveScheme2222);
+            Object m852constructorimpl222 = Result.m852constructorimpl(intent.putExtra("scheme", buildLiveScheme222));
+            Result.m851boximpl(m852constructorimpl222);
         }
         this.mIntentData = ListExtKt.parseLiveData(intent);
         iMixActivityInterface = this.mixActivity;

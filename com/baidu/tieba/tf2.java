@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 
-import com.facebook.imagepipeline.listener.RequestListener;
+import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes8.dex */
 public interface tf2 {
-    RequestListener a(uf2 uf2Var);
+    void a(ImageRequest imageRequest);
+
+    void b(ImageRequest imageRequest);
+
+    void c(ImageRequest imageRequest, Throwable th);
+
+    void onCancel(String str);
 }

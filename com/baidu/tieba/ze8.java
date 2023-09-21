@@ -1,55 +1,52 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.ue8;
+import com.baidu.tieba.im.base.core.repo.MsgProcessor;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
+import com.baidu.tieba.im.lib.socket.msg.data.EnableDegradeUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.List;
+import kotlin.Pair;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.random.Random;
 /* loaded from: classes9.dex */
-public class ze8 {
+public abstract class ze8 {
     public static /* synthetic */ Interceptable $ic;
-    public static ze8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MsgProcessor a;
 
-    /* loaded from: classes9.dex */
-    public class a implements ue8.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ue8.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public abstract BubbleInfo g();
+
+    public abstract List<EnableDegradeUserData> j();
+
+    public abstract TbBaseMsg.c k();
+
+    public abstract List<EnableDegradeUserData> n();
+
+    public abstract long o();
+
+    public abstract int p();
+
+    @JvmOverloads
+    public final <T extends TbBaseMsg> void v(T tbMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, tbMsg) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            A(this, tbMsg, null, 2, null);
         }
     }
 
@@ -63,91 +60,96 @@ public class ze8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new MsgProcessor();
     }
 
-    public static synchronized ze8 b() {
+    public final MsgProcessor b() {
         InterceptResult invokeV;
-        ze8 ze8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ze8.class) {
-                if (a == null) {
-                    a = new ze8();
-                }
-                ze8Var = a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (MsgProcessor) invokeV.objValue;
+    }
+
+    public static /* synthetic */ void A(ze8 ze8Var, TbBaseMsg tbBaseMsg, MsgProcessor.d dVar, int i, Object obj) {
+        if (obj == null) {
+            if ((i & 2) != 0) {
+                dVar = MsgProcessor.d.a.d(MsgProcessor.d.g, false, 0, 3, null);
             }
-            return ze8Var;
+            ze8Var.w(tbBaseMsg, dVar);
+            return;
         }
-        return (ze8) invokeV.objValue;
+        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: sendMsg");
     }
 
-    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, ue8.b bVar) {
+    public final void B(MsgProcessor.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            ue8.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.a.K(bVar);
         }
     }
 
-    public long[] a(GroupMsgData groupMsgData) {
-        InterceptResult invokeL;
+    public final void C(MsgProcessor.e<? extends TbSysMsg> eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, groupMsgData)) == null) {
-            if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                long j = 0;
-                long groupId = groupMsgData.getGroupInfo().getGroupId();
-                Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
-                while (it.hasNext()) {
-                    ChatMessage next = it.next();
-                    if (next.getMsgId() > j) {
-                        j = next.getMsgId();
-                    }
-                }
-                return new long[]{groupId, j};
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
+            this.a.L(eVar);
+        }
+    }
+
+    public final void r(Pair<? extends Object, ? extends Class<? extends BaseItem<? extends TbBaseMsg>>> pair) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, pair) == null) {
+            Intrinsics.checkNotNullParameter(pair, "pair");
+            this.a.G(pair);
+        }
+    }
+
+    public final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return fl8.b(el8.a()) + TbBaseMsg.Companion.a() + Random.Default.nextLong();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public final <T extends TbBaseMsg> void w(T tbMsg, MsgProcessor.d source) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, tbMsg, source) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            Intrinsics.checkNotNullParameter(source, "source");
+            tbMsg.setSessionId(o());
+            tbMsg.setMsgId(TbBaseMsg.Companion.a());
+            tbMsg.setMsgKey(l());
+            if (tbMsg.isMockSender()) {
+                this.a.C(tbMsg, source);
+                return;
             }
-            return null;
-        }
-        return (long[]) invokeL.objValue;
-    }
-
-    public long c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            TbadkSettings inst = TbadkSettings.getInst();
-            return inst.loadLong("tb_group_msg_" + j, -1L);
-        }
-        return invokeJ.longValue;
-    }
-
-    public void e(GroupMsgData groupMsgData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
-            while (it.hasNext()) {
-                ChatMessage next = it.next();
-                if (!TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "taskId:" + next.getTaskId() + ";link:" + next.getLink() + ";uid:" + TbadkCoreApplication.getCurrentAccount());
-                }
-                if (!TextUtils.isEmpty(next.getLink()) && !TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
-                }
-                CustomMessage customMessage = new CustomMessage(2012100);
-                customMessage.setData(new c35(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat(), next.getServiceId()));
-                MessageManager.getInstance().sendMessage(customMessage);
+            o05 t = o05.t();
+            tbMsg.setUserId(t.j());
+            String m = t.m();
+            Intrinsics.checkNotNullExpressionValue(m, "am.currentAccountNameShow");
+            tbMsg.setUserName(m);
+            String r = t.r();
+            Intrinsics.checkNotNullExpressionValue(r, "am.currentPortrait");
+            tbMsg.setPortrait(r);
+            tbMsg.setRole(p());
+            tbMsg.setSendClient("android");
+            tbMsg.setForumExt(k());
+            BubbleInfo g = g();
+            if (g != null && !g.isExpired()) {
+                tbMsg.setBubbleInfo(g);
             }
-            if (groupMsgData.getListMessage().size() > 0) {
-                TiebaStatic.saveAndUploadMsg();
-            }
-        }
-    }
-
-    public void f(String str, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) && !TextUtils.isEmpty(str) && j > 0) {
-            TbadkSettings inst = TbadkSettings.getInst();
-            inst.saveLong("tb_group_msg_" + str, j);
+            tbMsg.setEnableDegradeUserDataList(j());
+            tbMsg.setSecondDegradeUserDataList(n());
+            tbMsg.setLocalMsgId(true);
+            c();
+            this.a.C(tbMsg, source);
         }
     }
 }

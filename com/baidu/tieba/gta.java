@@ -1,26 +1,36 @@
 package com.baidu.tieba;
 
-import android.hardware.Camera;
-import com.faceunity.encoder.TextureMovieEncoder;
+import android.app.ActivityManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public interface gta {
+public final class gta {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z, String str);
+    public static final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                String e = kta.e();
+                Object systemService = TbadkCoreApplication.getInst().getContext().getSystemService("activity");
+                if (systemService != null) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) systemService).getRunningAppProcesses()) {
+                        if (Intrinsics.areEqual(runningAppProcessInfo.processName, e)) {
+                            return runningAppProcessInfo.pid;
+                        }
+                    }
+                    return -1;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.app.ActivityManager");
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return invokeV.intValue;
     }
-
-    void a(Camera camera);
-
-    void b(Camera camera);
-
-    void c(a aVar);
-
-    void d(Camera camera);
-
-    void e(Camera camera);
-
-    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
-
-    void setPreviewSize(int i, int i2);
 }

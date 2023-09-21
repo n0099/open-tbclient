@@ -1,4 +1,4 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
-public interface xw3 extends zw3 {
+public interface xw3 extends yw3 {
 }

@@ -1,56 +1,51 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.log.Logger;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.loading.LoadingView;
+import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.lz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class sg9 extends AccountLoginCoreHelper {
+public class sg9 implements Object<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
-    public static sg9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AccountLoginCoreHelper.IReLoginCallback a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948150596, "Lcom/baidu/tieba/sg9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948150596, "Lcom/baidu/tieba/sg9;");
-        }
-    }
+    public TbPageContext a;
+    public SimpleDragSortListView b;
+    public View c;
+    public mg9 d;
+    public qg9 e;
+    public LoadingView f;
+    public FrameLayout g;
+    public boolean h;
+    public kg9 i;
+    public NoDataView j;
+    public NoNetworkView k;
 
     /* loaded from: classes8.dex */
-    public class a implements AccountLoginCoreHelper.IReLoginCallback {
+    public class a implements lz5.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
-        public void onBeforeLogin(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
+        public final /* synthetic */ sg9 a;
 
         public a(sg9 sg9Var) {
             Interceptable interceptable = $ic;
@@ -64,115 +59,251 @@ public class sg9 extends AccountLoginCoreHelper {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = sg9Var;
         }
 
-        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
-        public void onSuccess(AccountData accountData) {
+        @Override // com.baidu.tieba.lz5.i
+        public void a(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921613));
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
-        public void onFailure(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, str2) == null) && i == 1) {
-                ReloginManager.g().f(null);
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                this.a.d.a(i, i2);
             }
         }
     }
 
-    public sg9() {
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ sg9 b;
+
+        public b(sg9 sg9Var, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sg9Var, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sg9Var;
+            this.a = list;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.i();
+                if (this.b.d != null && this.a != null) {
+                    this.b.d.update(this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sg9 a;
+
+        public c(sg9 sg9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sg9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sg9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.update();
+            }
+        }
+    }
+
+    public sg9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a(this);
+        this.h = false;
+        this.a = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0334, (ViewGroup) null, false);
+        this.c = inflate;
+        this.g = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09184e);
+        this.k = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
+        this.e = new qg9(this.c.findViewById(R.id.obfuscated_res_0x7f0909d5), tbPageContext.getString(R.string.obfuscated_res_0x7f0f064a));
+        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.c.findViewById(R.id.obfuscated_res_0x7f09184d);
+        this.b = simpleDragSortListView;
+        simpleDragSortListView.setDivider(null);
+        this.b.setOverScrollMode(2);
+        this.b.setVerticalScrollBarEnabled(false);
+        j();
+        this.d = new mg9(tbPageContext, this.b, this.i);
+        l();
+        this.k.addNetworkChangeListener(this);
     }
 
-    public static sg9 a() {
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && z) {
+            l();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
+        }
+    }
+
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = new sg9();
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (sg9) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
-    public BdAsyncTask<?, ?, ?> asyncReLogin(String str, String str2, String str3, String str4, AccountLoginCoreHelper.IReLoginCallback iReLoginCallback) {
-        InterceptResult invokeLLLLL;
+    public void d() {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, iReLoginCallback)) == null) {
-            return xb9.a(str, str2, str3, str4, iReLoginCallback);
-        }
-        return (BdAsyncTask) invokeLLLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
-    public AccountLoginCoreHelper.a parseBDUSS(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            AccountLoginCoreHelper.a aVar = null;
-            if (str == null) {
-                return null;
-            }
-            try {
-                String[] split = str.split("[|]");
-                if (split == null || split.length < 1) {
-                    return null;
-                }
-                AccountLoginCoreHelper.a aVar2 = new AccountLoginCoreHelper.a();
-                try {
-                    aVar2.a = split[0];
-                    if (split.length >= 2) {
-                        aVar2.b = split[1];
-                    }
-                    return aVar2;
-                } catch (Exception e) {
-                    e = e;
-                    aVar = aVar2;
-                    BdLog.e(e.getMessage());
-                    return aVar;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-        } else {
-            return (AccountLoginCoreHelper.a) invokeL.objValue;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f != null && (frameLayout = this.g) != null) {
+            frameLayout.setVisibility(8);
+            this.f.dettachView(this.g);
+            this.f = null;
         }
     }
 
-    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
-    public void reLoginByCacheAccount() {
+    public final void e() {
+        NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.j) != null && noDataView.getParent() == this.g) {
+            this.j.setVisibility(8);
+            this.g.removeView(this.j);
+            this.g.setVisibility(8);
         }
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null) {
-            AccountLoginCoreHelper.a parseBDUSS = parseBDUSS(currentAccountObj.getBDUSS());
-            if (parseBDUSS != null) {
-                xb9.a(currentAccountObj.getAccount(), parseBDUSS.a, parseBDUSS.b, currentAccountObj.getStoken(), this.a);
-                return;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SafeHandler.getInst().post(new c(this));
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d();
+            e();
+        }
+    }
+
+    public final void i() {
+        SimpleDragSortListView simpleDragSortListView;
+        qg9 qg9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (simpleDragSortListView = this.b) != null && !this.h && (qg9Var = this.e) != null) {
+            this.h = true;
+            simpleDragSortListView.setEmptyView(qg9Var.a());
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            kg9 kg9Var = new kg9(this.b);
+            this.i = kg9Var;
+            kg9Var.c(new a(this));
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            qg9 qg9Var = this.e;
+            if (qg9Var != null) {
+                qg9Var.b(i);
             }
-            return;
+            FrameLayout frameLayout = this.g;
+            if (frameLayout != null) {
+                SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0201, i);
+            }
+            qg9 qg9Var2 = this.e;
+            if (qg9Var2 != null) {
+                SkinManager.setBackgroundColor(qg9Var2.a(), R.color.CAM_X0201, i);
+            }
+            SimpleDragSortListView simpleDragSortListView = this.b;
+            if (simpleDragSortListView != null) {
+                SkinManager.setBackgroundColor(simpleDragSortListView, R.color.CAM_X0201, i);
+            }
+            NoNetworkView noNetworkView = this.k;
+            if (noNetworkView != null) {
+                noNetworkView.onChangeSkinType(this.a, i);
+            }
         }
-        Logger.addLog("account", -1L, 0, "main_tab_has_no_cache_account", 0, "", new Object[0]);
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a != null && this.g != null) {
+            h();
+            this.g.setVisibility(0);
+            LoadingView loadingView = new LoadingView(this.a.getPageActivity());
+            this.f = loadingView;
+            loadingView.attachView(this.g, true);
+            this.f.onChangeSkinType();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a != null && this.g != null) {
+            h();
+            this.g.setVisibility(0);
+            NoDataView b2 = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070362)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f064d)), null, true);
+            this.j = b2;
+            b2.setVisibility(0);
+            this.j.d(this.a);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public void update(List<EmotionPackageData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            SafeHandler.getInst().post(new b(this, list));
+        }
     }
 }

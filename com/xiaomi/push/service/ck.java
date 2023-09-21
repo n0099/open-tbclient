@@ -13,13 +13,13 @@ public class ck extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo756a() {
+    public String mo758a() {
         return "disconnect for service destroy.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo473a() {
+    public void mo475a() {
         if (this.a.f846a != null) {
             this.a.f846a.b(15, (Exception) null);
             this.a.f846a = null;

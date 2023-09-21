@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.CardPeiWanView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cra;
-import com.baidu.tieba.ey5;
-import com.baidu.tieba.hq6;
+import com.baidu.tieba.fia;
+import com.baidu.tieba.fy5;
+import com.baidu.tieba.jta;
+import com.baidu.tieba.nq6;
 import com.baidu.tieba.tbadkCore.voice.VoicePlayBtn;
-import com.baidu.tieba.vx;
-import com.baidu.tieba.zfa;
+import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ import tbclient.ThemeColorInfo;
 import tbclient.ThreadRecommendTag;
 @Metadata(d1 = {"\u0000v\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 32\u00020\u00012\u00020\u0002:\u00013B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\u0014H\u0002J\u001e\u0010'\u001a\u00020%2\f\u0010\u0003\u001a\b\u0012\u0002\b\u0003\u0018\u00010(2\u0006\u0010)\u001a\u00020\bH\u0016J\u0018\u0010*\u001a\u00020%2\u0006\u0010+\u001a\u00020\b2\u0006\u0010,\u001a\u00020\bH\u0002J0\u0010-\u001a\u00020%2\b\u0010.\u001a\u0004\u0018\u00010/2\u000e\u00100\u001a\n\u0012\u0004\u0012\u00020%\u0018\u0001012\u000e\u00102\u001a\n\u0012\u0004\u0012\u00020%\u0018\u000101R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\u0010\u001a\u0012\u0012\u0004\u0012\u00020\u000f0\u0011j\b\u0012\u0004\u0012\u00020\u000f`\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0013\u001a\u0012\u0012\u0004\u0012\u00020\u00140\u0011j\b\u0012\u0004\u0012\u00020\u0014`\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0016\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u001a\u0010\u001b\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u0018\"\u0004\b\u001d\u0010\u001aR\u000e\u0010\u001e\u001a\u00020\u001fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020!X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020#X\u0082\u0004¢\u0006\u0002\n\u0000¨\u00064"}, d2 = {"Lcom/baidu/tbadk/core/view/CardPeiWanView;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/card/IChangeSkinAble;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "coverView", "Landroid/view/View;", "labelTopLeft", "Landroid/widget/LinearLayout;", "labelTopLeftText", "Landroid/widget/TextView;", "labels", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "labelsData", "Ltbclient/ThreadRecommendTag;", "labelsLayout", "resultBackgroundColor", "getResultBackgroundColor", "()I", "setResultBackgroundColor", "(I)V", "resultTextColor", "getResultTextColor", "setResultTextColor", "statusView", "Landroid/widget/FrameLayout;", "thumbnailImg", "Lcom/baidu/tbadk/widget/TbImageView;", "voicePlayBtn", "Lcom/baidu/tieba/tbadkCore/voice/VoicePlayBtn;", "addTagTextView", "", "tag", "onChangeSkinType", "Lcom/baidu/tbadk/TbPageContext;", WriteMulitImageActivityConfig.SKIN_TYPE, "setCoverViewLp", "width", "height", "setData", "cardPeiWanData", "Lcom/baidu/tieba/card/data/CardPeiWanData;", "cardClickCallback", "Lkotlin/Function0;", "voiceClickCallBack", "Companion", "tbadk_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class CardPeiWanView extends RelativeLayout implements vx {
+public final class CardPeiWanView extends RelativeLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinearLayout a;
@@ -195,58 +195,53 @@ public final class CardPeiWanView extends RelativeLayout implements vx {
         this.h.setId(R.id.card_peiwan_cover);
         EMManager.from(this.h).setCorner(R.string.J_X05);
         addView(this.h, new RelativeLayout.LayoutParams(-1, -1));
-        ViewGroup.LayoutParams layoutParams = this.g.getLayoutParams();
-        if (layoutParams != null) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-            layoutParams2.width = BdUtilHelper.getDimens(context, R.dimen.tbds650);
-            layoutParams2.height = BdUtilHelper.getDimens(context, R.dimen.tbds650);
-            this.g.setLayoutParams(layoutParams2);
-            this.g.setPlaceHolder(3);
-            this.g.setDefaultResource(0);
-            this.g.setRadiusById(R.string.J_X05);
-            this.g.setConrers(15);
-            this.g.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-            this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.g.setBorderSurroundContent(true);
-            this.g.setDrawCorner(true);
-            this.g.setDrawBorder(true);
-            b(layoutParams2.width, layoutParams2.height);
-            this.a.setOrientation(0);
-            this.a.setGravity(16);
-            int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds26);
-            int dimens2 = BdUtilHelper.getDimens(context, R.dimen.tbds13);
-            int dimens3 = BdUtilHelper.getDimens(context, R.dimen.tbds6);
-            this.a.addView(this.b, new LinearLayout.LayoutParams(dimens, dimens));
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams3.leftMargin = dimens2;
-            layoutParams3.topMargin = dimens3;
-            layoutParams3.bottomMargin = dimens3;
-            this.a.addView(this.c, layoutParams3);
-            RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams4.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
-            layoutParams4.topMargin = BdUtilHelper.getDimens(context, R.dimen.M_H_X004);
-            this.a.setPadding(dimens2, 0, BdUtilHelper.getDimens(context, R.dimen.M_W_X004), 0);
-            addView(this.a, layoutParams4);
-            RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams5.addRule(8, R.id.card_peiwan_cover);
-            layoutParams5.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
-            layoutParams5.bottomMargin = BdUtilHelper.getDimens(context, R.dimen.tbds97);
-            addView(this.i, layoutParams5);
-            RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams6.addRule(8, R.id.card_peiwan_cover);
-            layoutParams6.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X004);
-            layoutParams6.bottomMargin = BdUtilHelper.getDimens(context, R.dimen.tbds29);
-            addView(this.d, layoutParams6);
-            return;
-        }
-        throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.g.getLayoutParams();
+        layoutParams.width = BdUtilHelper.getDimens(context, R.dimen.tbds650);
+        layoutParams.height = BdUtilHelper.getDimens(context, R.dimen.tbds650);
+        this.g.setLayoutParams(layoutParams);
+        this.g.setPlaceHolder(3);
+        this.g.setDefaultResource(0);
+        this.g.setRadiusById(R.string.J_X05);
+        this.g.setConrers(15);
+        this.g.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.g.setBorderSurroundContent(true);
+        this.g.setDrawCorner(true);
+        this.g.setDrawBorder(true);
+        b(layoutParams.width, layoutParams.height);
+        this.a.setOrientation(0);
+        this.a.setGravity(16);
+        int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds26);
+        int dimens2 = BdUtilHelper.getDimens(context, R.dimen.tbds13);
+        int dimens3 = BdUtilHelper.getDimens(context, R.dimen.tbds6);
+        this.a.addView(this.b, new LinearLayout.LayoutParams(dimens, dimens));
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+        layoutParams2.leftMargin = dimens2;
+        layoutParams2.topMargin = dimens3;
+        layoutParams2.bottomMargin = dimens3;
+        this.a.addView(this.c, layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams3.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
+        layoutParams3.topMargin = BdUtilHelper.getDimens(context, R.dimen.M_H_X004);
+        this.a.setPadding(dimens2, 0, BdUtilHelper.getDimens(context, R.dimen.M_W_X004), 0);
+        addView(this.a, layoutParams3);
+        RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams4.addRule(8, R.id.card_peiwan_cover);
+        layoutParams4.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
+        layoutParams4.bottomMargin = BdUtilHelper.getDimens(context, R.dimen.tbds97);
+        addView(this.i, layoutParams4);
+        RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams5.addRule(8, R.id.card_peiwan_cover);
+        layoutParams5.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X004);
+        layoutParams5.bottomMargin = BdUtilHelper.getDimens(context, R.dimen.tbds29);
+        addView(this.d, layoutParams5);
     }
 
     public /* synthetic */ CardPeiWanView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static final void c(hq6 it, Function0 function0, View view2) {
+    public static final void c(nq6 it, Function0 function0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, it, function0, view2) == null) {
             Intrinsics.checkNotNullParameter(it, "$it");
@@ -264,7 +259,7 @@ public final class CardPeiWanView extends RelativeLayout implements vx {
         }
         TextView textView = new TextView(getContext());
         textView.setGravity(17);
-        textView.setText(ey5.f(threadRecommendTag.text, 10));
+        textView.setText(fy5.f(threadRecommendTag.text, 10));
         textView.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), BdUtilHelper.getDimens(getContext(), R.dimen.tbds4), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), BdUtilHelper.getDimens(getContext(), R.dimen.tbds4));
         textView.setMaxLines(1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -302,7 +297,7 @@ public final class CardPeiWanView extends RelativeLayout implements vx {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
@@ -322,14 +317,14 @@ public final class CardPeiWanView extends RelativeLayout implements vx {
                     ThreadRecommendTag threadRecommendTag2 = threadRecommendTag;
                     ThemeColorInfo themeColorInfo = threadRecommendTag2.text_color;
                     Intrinsics.checkNotNullExpressionValue(themeColorInfo, "tagData.text_color");
-                    int f = zfa.f(cra.c(themeColorInfo));
-                    if (!zfa.e(f)) {
+                    int f = fia.f(jta.c(themeColorInfo));
+                    if (!fia.e(f)) {
                         this.j = f;
                     }
                     ThemeColorInfo themeColorInfo2 = threadRecommendTag2.background_color;
                     Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "tagData.background_color");
-                    int f2 = zfa.f(cra.c(themeColorInfo2));
-                    if (!zfa.e(f2)) {
+                    int f2 = fia.f(jta.c(themeColorInfo2));
+                    if (!fia.e(f2)) {
                         this.k = f2;
                     }
                     next.setTextColor(this.j);
@@ -340,24 +335,24 @@ public final class CardPeiWanView extends RelativeLayout implements vx {
         }
     }
 
-    public final void setData(final hq6 hq6Var, final Function0<Unit> function0, Function0<Unit> function02) {
+    public final void setData(final nq6 nq6Var, final Function0<Unit> function0, Function0<Unit> function02) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, hq6Var, function0, function02) == null) && hq6Var != null) {
-            if (TextUtils.isEmpty(hq6Var.f())) {
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, nq6Var, function0, function02) == null) && nq6Var != null) {
+            if (TextUtils.isEmpty(nq6Var.f())) {
                 this.a.setVisibility(8);
             } else {
                 this.a.setVisibility(0);
             }
-            this.c.setText(ey5.f(hq6Var.f(), 6));
-            this.g.startLoad(hq6Var.c());
-            if (hq6Var.i() == null) {
+            this.c.setText(fy5.f(nq6Var.f(), 6));
+            this.g.startLoad(nq6Var.c());
+            if (nq6Var.i() == null) {
                 this.i.setVisibility(8);
             } else {
-                this.i.setData(hq6Var.i());
+                this.i.setData(nq6Var.i());
                 this.i.setVisibility(0);
             }
             this.i.setMClickCallBack(new a(function02));
-            List<ThreadRecommendTag> h = hq6Var.h();
+            List<ThreadRecommendTag> h = nq6Var.h();
             this.d.removeAllViews();
             this.e.clear();
             this.f.clear();
@@ -369,7 +364,7 @@ public final class CardPeiWanView extends RelativeLayout implements vx {
                     a(threadRecommendTag);
                 }
             }
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.s95
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w95
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -377,7 +372,7 @@ public final class CardPeiWanView extends RelativeLayout implements vx {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardPeiWanView.c(hq6.this, function0, view2);
+                        CardPeiWanView.c(nq6.this, function0, view2);
                     }
                 }
             });

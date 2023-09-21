@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class QuicktimeTextTrackImpl extends AbstractTrack {
     public TrackMetaData trackMetaData = new TrackMetaData();
     public List<Line> subs = new LinkedList();
@@ -52,7 +52,7 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
         return null;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Line {
         public long from;
         public String text;

@@ -14,15 +14,15 @@ import com.baidu.nadcore.widget.feed.AdFeedVideoBaseView;
 import com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView;
 import com.baidu.nadcore.widget.uitemplate.NadRewardOperateView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.er0;
+import com.baidu.tieba.dr0;
+import com.baidu.tieba.fd1;
 import com.baidu.tieba.gd1;
-import com.baidu.tieba.hd1;
-import com.baidu.tieba.j71;
-import com.baidu.tieba.ku0;
+import com.baidu.tieba.i71;
+import com.baidu.tieba.ju0;
+import com.baidu.tieba.md1;
 import com.baidu.tieba.nd1;
-import com.baidu.tieba.od1;
-import com.baidu.tieba.vl0;
-import com.baidu.tieba.zr0;
+import com.baidu.tieba.ul0;
+import com.baidu.tieba.yr0;
 import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -32,14 +32,14 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
     public int l;
     public NadRewardOperateView m;
     public NadRewardCountDownView n;
-    public od1 o;
+    public nd1 o;
     public boolean p;
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedVideoBaseView, com.baidu.nadcore.widget.feed.AdFeedBaseView
     public void c() {
     }
 
-    public abstract void m(LayoutInflater layoutInflater, zr0 zr0Var);
+    public abstract void m(LayoutInflater layoutInflater, yr0 yr0Var);
 
     public abstract void n(Context context);
 
@@ -48,12 +48,12 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
     public abstract void s(AdBaseModel adBaseModel);
 
     /* loaded from: classes3.dex */
-    public class a implements nd1.d {
+    public class a implements md1.d {
         public a() {
         }
 
-        @Override // com.baidu.tieba.nd1.d
-        public void a(List<er0.a> list) {
+        @Override // com.baidu.tieba.md1.d
+        public void a(List<dr0.a> list) {
             Toast.makeText(NadRewardBaseView.this.getContext(), (int) R.string.nad_dislike_reduce_recommend, 0).show();
             NadRewardBaseView.this.p = true;
         }
@@ -76,8 +76,8 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         nadRewardCountDownView.update(adBaseModel);
     }
 
-    public void setRewardMediaListener(od1 od1Var) {
-        this.o = od1Var;
+    public void setRewardMediaListener(nd1 nd1Var) {
+        this.o = nd1Var;
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedVideoBaseView, com.baidu.nadcore.widget.feed.AdFeedBaseView
@@ -114,11 +114,11 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadRewardBaseView(Context context, AttributeSet attributeSet, int i, zr0 zr0Var) {
-        super(context, attributeSet, i, zr0Var);
+    public NadRewardBaseView(Context context, AttributeSet attributeSet, int i, yr0 yr0Var) {
+        super(context, attributeSet, i, yr0Var);
         setFocusable(true);
         setFocusableInTouchMode(true);
-        m(LayoutInflater.from(context), zr0Var);
+        m(LayoutInflater.from(context), yr0Var);
         k(context);
     }
 
@@ -136,7 +136,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
             if (!(getTag() instanceof AdBaseModel)) {
                 return;
             }
-            this.d = new nd1(getContext(), (AdBaseModel) getTag());
+            this.d = new md1(getContext(), (AdBaseModel) getTag());
         }
         this.d.h(new a());
         this.d.i();
@@ -146,14 +146,14 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         if (getParent() instanceof ViewGroup) {
             ((ViewGroup) getParent()).removeView(this);
         }
-        ku0 ku0Var = this.i;
-        if (ku0Var != null) {
-            ku0Var.release();
+        ju0 ju0Var = this.i;
+        if (ju0Var != null) {
+            ju0Var.release();
             this.i = null;
         }
-        vl0 vl0Var = this.e;
-        if (vl0Var != null) {
-            vl0Var.j();
+        ul0 ul0Var = this.e;
+        if (ul0Var != null) {
+            ul0Var.j();
             this.e = null;
         }
         if (this.m != null) {
@@ -174,7 +174,7 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
     public void l() {
         WeakReference<Activity> weakReference = this.j;
         if (weakReference != null && weakReference.get() != null) {
-            j71.a(this.j.get().getWindow());
+            i71.a(this.j.get().getWindow());
         }
     }
 
@@ -198,13 +198,13 @@ public abstract class NadRewardBaseView extends AdFeedVideoBaseView {
         }
         this.m.update(adBaseModel);
         this.m.d(viewGroup);
-        gd1 gd1Var = this.c;
-        if (gd1Var != null) {
-            this.m.setViewDownloadListener(gd1Var);
+        fd1 fd1Var = this.c;
+        if (fd1Var != null) {
+            this.m.setViewDownloadListener(fd1Var);
         }
-        hd1 hd1Var = this.a;
-        if (hd1Var != null) {
-            this.m.setFeedListener(hd1Var);
+        gd1 gd1Var = this.a;
+        if (gd1Var != null) {
+            this.m.setFeedListener(gd1Var);
         }
     }
 }

@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yo3;
+import com.baidu.tieba.xo3;
 /* loaded from: classes4.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
     public int e;
@@ -62,14 +62,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public CommonHeaderLoadingLayout(Context context) {
         super(context);
         this.e = 0;
-        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091ee3);
-        int f = yo3.f(getContext(), 29.0f);
+        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091eb0);
+        int f = xo3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i = (int) (f * 1.5f);
         this.h = i;
         this.g = i;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091ee0);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091ead);
         this.k = headerRefreshIndicator;
         headerRefreshIndicator.i();
     }
@@ -158,7 +158,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         if (view2 != null) {
             return view2.getHeight();
         }
-        return yo3.f(getContext(), 50.0f);
+        return xo3.f(getContext(), 50.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout

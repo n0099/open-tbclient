@@ -1,62 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.PeiwanInfo;
-import tbclient.ThreadRecommendTag;
-import tbclient.Voice;
-@JvmName(name = "PeiWanCardBuilder")
+import tbclient.ClickBackCard;
+import tbclient.ClickBackCardItem;
+@JvmName(name = "ClickBackCardBuilder")
 /* loaded from: classes8.dex */
 public final class w45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final PeiwanInfo a(JSONObject jsonObject) {
+    public static final ClickBackCard a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jsonObject)) == null) {
-            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
-            PeiwanInfo.Builder builder = new PeiwanInfo.Builder();
-            builder.cover = jsonObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            builder.scheme = jsonObject.optString("scheme");
-            builder.extension_info = jsonObject.optString("extension_info");
-            builder.room_status = Integer.valueOf(jsonObject.optInt("room_status"));
-            builder.room_status_text = jsonObject.optString("room_status_text");
-            JSONObject optJSONObject = jsonObject.optJSONObject("voice");
-            Voice.Builder builder2 = new Voice.Builder();
-            builder2.voice_md5 = optJSONObject.optString("voice_md5");
-            builder2.voice_url = optJSONObject.optString("voice_url");
-            builder2.type = Integer.valueOf(optJSONObject.optInt("type"));
-            builder2.during_time = Integer.valueOf(optJSONObject.optInt("during_time"));
-            builder.voice = builder2.build(true);
-            JSONArray optJSONArray = jsonObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST);
-            ArrayList arrayList = new ArrayList();
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    ThreadRecommendTag.Builder builder3 = new ThreadRecommendTag.Builder();
-                    builder3.text = optJSONObject2.optString("text");
-                    builder3.text_color = cra.j(optJSONObject2.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    builder3.background_color = cra.j(optJSONObject2.optJSONObject("background_color"));
-                    builder3.boundary_color = cra.j(optJSONObject2.optJSONObject("boundary_color"));
-                    ThreadRecommendTag build = builder3.build(true);
-                    Intrinsics.checkNotNullExpressionValue(build, "tagBuilder.build(true)");
-                    arrayList.add(build);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                ClickBackCard.Builder builder = new ClickBackCard.Builder();
+                builder.card_name = jSONObject.optString("card_name");
+                JSONArray optJSONArray = jSONObject.optJSONArray("card_list");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        ClickBackCardItem.Builder builder2 = new ClickBackCardItem.Builder();
+                        builder2.text = optJSONObject.optString("text");
+                        builder2.jump_url = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                        builder2.business_id = Long.valueOf(optJSONObject.optLong("business_id"));
+                        builder2.business_type = optJSONObject.optString("business_type");
+                        ClickBackCardItem build = builder2.build(true);
+                        Intrinsics.checkNotNullExpressionValue(build, "builder1.build(true)");
+                        arrayList.add(build);
+                    }
+                    builder.card_list = arrayList;
                 }
-                builder.tag_list = arrayList;
+                return builder.build(true);
             }
-            return builder.build(true);
+            return null;
         }
-        return (PeiwanInfo) invokeL.objValue;
+        return (ClickBackCard) invokeL.objValue;
+    }
+
+    public static final ClickBackCard b(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return null;
+            }
+            return a(new JSONObject(str));
+        }
+        return (ClickBackCard) invokeL.objValue;
     }
 }

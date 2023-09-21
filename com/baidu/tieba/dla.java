@@ -1,86 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class dla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final kka b;
-    public final Runnable c;
+    public volatile int a;
+    public volatile int b;
+    public volatile HashMap<Long, Integer> c;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dla a;
-
-        public a(dla dlaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dlaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dlaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
-                if (this.a.b != null && this.a.b.A() != null && this.a.b.A().getCurrentTabType() == 22) {
-                    videoRedIconRequest.setCallFrom("video_tab");
-                }
-                this.a.a.sendMessage(videoRedIconRequest);
-                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
-                if (videoRedIconInterval > 5) {
-                    SafeHandler.getInst().postDelayed(this.a.c, videoRedIconInterval * 1000);
-                }
-            }
-        }
-    }
-
-    public dla(MainTabActivity mainTabActivity, kka kkaVar) {
+    public dla(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, kkaVar};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        this.a = mainTabActivity;
-        this.b = kkaVar;
+        this.c = new HashMap<>();
+        this.a = 0;
+        this.b = i;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                Long valueOf = Long.valueOf(Long.parseLong(str));
+                synchronized (this) {
+                    if (this.c.size() >= this.b) {
+                        c();
+                    }
+                    this.a++;
+                    this.c.put(valueOf, Integer.valueOf(this.a));
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                Long valueOf = Long.valueOf(Long.parseLong(str));
+                synchronized (this) {
+                    if (this.c.get(valueOf) == null) {
+                        return false;
+                    }
+                    return true;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                return this.c.containsKey(Long.valueOf(Long.parseLong(str)));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SafeHandler.getInst().removeCallbacks(this.c);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Long l = null;
+                int i = 134217727;
+                for (Map.Entry<Long, Integer> entry : this.c.entrySet()) {
+                    if (entry.getValue().intValue() < i) {
+                        int intValue = entry.getValue().intValue();
+                        i = intValue;
+                        l = entry.getKey();
+                    }
+                }
+                if (l != null) {
+                    this.c.remove(l);
+                } else {
+                    this.c.clear();
+                }
+            }
         }
     }
 }

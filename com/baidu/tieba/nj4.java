@@ -2,8 +2,9 @@ package com.baidu.tieba;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class nj4 extends hj4<ik4> {
+public class nj4 extends gj4<ik4> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,22 +31,31 @@ public class nj4 extends hj4<ik4> {
         }
     }
 
+    public static int f(@NonNull Cursor cursor, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) {
+            return cursor.getColumnIndex(str);
+        }
+        return invokeLL.intValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hj4
-    /* renamed from: g */
+    @Override // com.baidu.tieba.gj4
+    /* renamed from: h */
     public ik4 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return h(cursor);
+                return i(cursor);
             }
             return null;
         }
         return (ik4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hj4
+    @Override // com.baidu.tieba.gj4
     public List<ik4> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -53,7 +63,7 @@ public class nj4 extends hj4<ik4> {
             ArrayList arrayList = new ArrayList();
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
                 do {
-                    arrayList.add(h(cursor));
+                    arrayList.add(i(cursor));
                 } while (cursor.moveToNext());
                 return arrayList;
             }
@@ -63,43 +73,33 @@ public class nj4 extends hj4<ik4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hj4
-    /* renamed from: f */
+    @Override // com.baidu.tieba.gj4
+    /* renamed from: g */
     public ContentValues c(ik4 ik4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ik4Var)) == null) {
             ContentValues a = super.a(ik4Var);
             a.put("max_age", Long.valueOf(ik4Var.o));
-            a.put("token", ik4Var.p);
-            a.put("domains", ik4Var.q);
-            a.put(GameGuideConfigInfo.KEY_APP_KEY, ik4Var.r);
-            a.put("app_name", ik4Var.s);
+            a.put("abi", ik4Var.q.id);
+            a.put("lib_name", ik4Var.p);
             return a;
         }
         return (ContentValues) invokeL.objValue;
     }
 
-    public final ik4 h(Cursor cursor) {
+    public final ik4 i(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
             if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("max_age");
-                int columnIndex2 = cursor.getColumnIndex("token");
-                int columnIndex3 = cursor.getColumnIndex("domains");
-                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex5 = cursor.getColumnIndex("app_name");
                 ik4 ik4Var = new ik4();
                 if (b(cursor, ik4Var)) {
-                    ik4Var.o = cursor.getLong(columnIndex);
-                    ik4Var.p = cursor.getString(columnIndex2);
-                    ik4Var.q = cursor.getString(columnIndex3);
-                    ik4Var.r = cursor.getString(columnIndex4);
-                    ik4Var.s = cursor.getString(columnIndex5);
+                    ik4Var.o = cursor.getLong(f(cursor, "max_age"));
+                    ik4Var.q = AbiType.findById(cursor.getString(f(cursor, "abi")), null);
+                    ik4Var.p = cursor.getString(f(cursor, "lib_name"));
                     return ik4Var;
                 }
-                return null;
             }
             return null;
         }

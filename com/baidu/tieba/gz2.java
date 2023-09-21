@@ -1,171 +1,151 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.tieba.sa3;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class gz2 {
+public class gz2 implements Comparable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public tq3 b;
+    public String a;
+    public String b;
+    public long c;
+    public ArrayList<MediaModel> d;
 
-    /* loaded from: classes6.dex */
-    public class a implements sa3.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ gz2 b;
-
-        public a(gz2 gz2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gz2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gz2Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.sa3.a
-        public void a(sa3 sa3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sa3Var) == null) {
-                gz2.d(sa3Var.c(), this.b.a, this.a);
-                this.b.b.j();
-            }
-        }
-    }
-
-    public gz2(@NonNull Activity activity) {
+    public gz2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = activity;
     }
 
-    public static boolean e(String str) {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public ArrayList<MediaModel> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return super.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public void a(MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mediaModel) == null) {
+            if (this.d == null) {
+                this.d = new ArrayList<>();
+            }
+            this.d.add(mediaModel);
+        }
+    }
+
+    @Override // java.lang.Comparable
+    public int compareTo(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            return Long.valueOf(((gz2) obj).e()).compareTo(Long.valueOf(this.c));
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (!(obj instanceof gz2)) {
                 return false;
             }
-            if (!str.startsWith(DownloadConstants.LOCAL_DATA_URI_PREFIX) && !str.startsWith("file://")) {
-                return false;
-            }
-            return true;
+            return this.a.equals(((gz2) obj).a);
         }
         return invokeL.booleanValue;
     }
 
-    public final void c(String str) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !e(str)) {
-            this.b.e(6, R.string.obfuscated_res_0x7f0f14ce);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public static void d(int i, Activity activity, String str) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, null, i, activity, str) == null) {
-            if (i != 6) {
-                if (i != 7) {
-                    if (i == 8) {
-                        h(activity, str);
-                        return;
-                    }
-                    return;
-                }
-                f(activity, str);
-                return;
-            }
-            g(activity, str);
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public static void f(Activity activity, String str) {
+    public void i(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, activity, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "swan");
-                jSONObject.put("urls", new JSONArray(new String[]{str}));
-                jSONObject.put("type", "0");
-                jSONObject.put("index", "0");
-            } catch (JSONException e) {
-                if (rr1.a) {
-                    e.printStackTrace();
-                }
-            }
-            ou2.C().b(activity, jSONObject);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.c = j;
         }
     }
 
-    public static void g(Activity activity, String str) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, activity, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("imageUrl", str);
-            ou2.C().f(activity, new JSONObject(hashMap));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "MediaDir [firstImgPath=, dirName=" + this.a + ", imageCount=" + d() + PreferencesUtil.RIGHT_MOUNT;
         }
-    }
-
-    public static void h(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, activity, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("imageUrl", str);
-            ou2.C().a(activity, new JSONObject(hashMap));
-        }
-    }
-
-    public void i(View view2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str) == null) {
-            tq3 tq3Var = this.b;
-            if (tq3Var != null && tq3Var.n()) {
-                this.b.j();
-            }
-            tq3 tq3Var2 = new tq3(view2);
-            this.b = tq3Var2;
-            tq3Var2.r(new a(this, str));
-            c(str);
-            this.b.t();
-        }
+        return (String) invokeV.objValue;
     }
 }

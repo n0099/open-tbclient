@@ -22,15 +22,15 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ag;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.bg;
+import com.baidu.tieba.lm;
 import com.baidu.tieba.m05;
-import com.baidu.tieba.mm;
-import com.baidu.tieba.mp6;
+import com.baidu.tieba.sp6;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.u06;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.x06;
+import com.baidu.tieba.tx;
+import com.baidu.tieba.v06;
+import com.baidu.tieba.y06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class MultiImgLayout extends LinearLayout implements ux<b15> {
+public class MultiImgLayout extends LinearLayout implements tx<b15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int j;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class MultiImgLayout extends LinearLayout implements ux<b15> {
     public ConstrainImageGroup d;
     public String e;
     public boolean f;
-    public mp6<b15> g;
+    public sp6<b15> g;
     public b15 h;
     public boolean i;
 
@@ -81,7 +81,7 @@ public class MultiImgLayout extends LinearLayout implements ux<b15> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            mp6<b15> subClickListener;
+            sp6<b15> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -91,7 +91,7 @@ public class MultiImgLayout extends LinearLayout implements ux<b15> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements x06 {
+    public class b implements y06 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
@@ -116,14 +116,14 @@ public class MultiImgLayout extends LinearLayout implements ux<b15> {
             this.a = linkedList;
         }
 
-        @Override // com.baidu.tieba.x06
+        @Override // com.baidu.tieba.y06
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 if (this.b.g != null && this.b.g.c(view2, this.b.h, "")) {
                     return;
                 }
-                mp6<b15> subClickListener = this.b.getSubClickListener();
+                sp6<b15> subClickListener = this.b.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.b.h.objType = 2;
@@ -213,19 +213,19 @@ public class MultiImgLayout extends LinearLayout implements ux<b15> {
         e();
     }
 
-    public void setConstrainImagePool(bg<TbImageView> bgVar) {
+    public void setConstrainImagePool(ag<TbImageView> agVar) {
         ConstrainImageGroup constrainImageGroup;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bgVar) == null) && (constrainImageGroup = this.d) != null) {
-            constrainImageGroup.setImageViewPool(bgVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, agVar) == null) && (constrainImageGroup = this.d) != null) {
+            constrainImageGroup.setImageViewPool(agVar);
         }
     }
 
-    public void setConstrainLayoutPool(bg<ConstrainImageLayout> bgVar) {
+    public void setConstrainLayoutPool(ag<ConstrainImageLayout> agVar) {
         ConstrainImageGroup constrainImageGroup;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, bgVar) == null) && (constrainImageGroup = this.d) != null) {
-            constrainImageGroup.setConstrainLayoutPool(bgVar);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, agVar) == null) && (constrainImageGroup = this.d) != null) {
+            constrainImageGroup.setConstrainLayoutPool(agVar);
         }
     }
 
@@ -250,10 +250,10 @@ public class MultiImgLayout extends LinearLayout implements ux<b15> {
         }
     }
 
-    public void setPreloadSizeReadyCallback(mm mmVar) {
+    public void setPreloadSizeReadyCallback(lm lmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mmVar) == null) {
-            this.d.setPreloadSizeReadyCallback(mmVar);
+        if (interceptable == null || interceptable.invokeL(1048586, this, lmVar) == null) {
+            this.d.setPreloadSizeReadyCallback(lmVar);
         }
     }
 
@@ -265,10 +265,10 @@ public class MultiImgLayout extends LinearLayout implements ux<b15> {
         }
     }
 
-    public void setSubClickListener(mp6<b15> mp6Var) {
+    public void setSubClickListener(sp6<b15> sp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, mp6Var) == null) {
-            this.g = mp6Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, sp6Var) == null) {
+            this.g = sp6Var;
         }
     }
 
@@ -321,7 +321,7 @@ public class MultiImgLayout extends LinearLayout implements ux<b15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: f */
     public void onBindDataToView(b15 b15Var) {
         boolean z;
@@ -368,19 +368,19 @@ public class MultiImgLayout extends LinearLayout implements ux<b15> {
             playVoiceBntNew.setAfterClickListener(new a(this));
             this.d = (ConstrainImageGroup) findViewById(R.id.thread_card_img_group);
             this.d.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
-            u06 u06Var = new u06(3);
-            u06Var.d(1.0d);
-            this.d.setImageProcessor(u06Var);
+            v06 v06Var = new v06(3);
+            v06Var.d(1.0d);
+            this.d.setImageProcessor(v06Var);
         }
     }
 
-    public mp6<b15> getSubClickListener() {
+    public sp6<b15> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.g;
         }
-        return (mp6) invokeV.objValue;
+        return (sp6) invokeV.objValue;
     }
 
     public void setMarginsTop(View view2, int i) {

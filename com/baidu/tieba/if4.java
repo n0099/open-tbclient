@@ -1,57 +1,156 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.ff4;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class if4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static Object a;
+    public static Method b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947851570, "Lcom/baidu/tieba/if4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947851570, "Lcom/baidu/tieba/if4;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947851570, "Lcom/baidu/tieba/if4;")) == null) {
+            return;
         }
-        a = rr1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947851570, "Lcom/baidu/tieba/if4;");
+        }
     }
 
-    public static void a(@NonNull hb3 hb3Var, @NonNull ff4.e eVar) {
+    public static boolean a(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, hb3Var, eVar) == null) {
-            long l = hb3Var.W().l("launch_time", 0L);
-            if (l <= 0) {
-                if (a) {
-                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
+            if (!c) {
+                e();
+            }
+            Method method = b;
+            if (method == null) {
+                return false;
+            }
+            try {
+                method.invoke(a, strArr);
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            if (!f()) {
+                return true;
+            }
+            if (cls == null) {
+                return false;
+            }
+            return a(b(cls.getName()));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
+            if (!f()) {
+                return true;
+            }
+            if (strArr != null && strArr.length > 0) {
+                return a(strArr);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String replaceAll = str.replaceAll("\\.", "/");
+            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
+                return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
+            }
+            return replaceAll;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (if4.class) {
+                if (c) {
                     return;
                 }
-                return;
+                try {
+                    c = true;
+                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
+                    Method b2 = jf4.b(cls, "getRuntime", new Class[0]);
+                    if (b2 != null) {
+                        b2.setAccessible(true);
+                        Object invoke = b2.invoke(null, new Object[0]);
+                        a = invoke;
+                        if (invoke != null) {
+                            Method b3 = jf4.b(cls, "setHiddenApiExemptions", String[].class);
+                            b = b3;
+                            if (b3 != null) {
+                                b3.setAccessible(true);
+                            }
+                        }
+                    }
+                } catch (Throwable unused) {
+                }
             }
-            ji3 ji3Var = new ji3();
-            ji3Var.a = ai3.n(hb3Var.W().G());
-            ji3Var.f = hb3Var.getAppId();
-            ji3Var.c = hb3Var.W().T();
-            ji3Var.b = "startup";
-            ji3Var.g = eVar.a;
-            ji3Var.e = eVar.b;
-            ji3Var.a("na_start", Long.valueOf(l));
-            ji3Var.a("h5_start", Long.valueOf(eVar.c));
-            ji3Var.a("h5_finish", Long.valueOf(eVar.d));
-            ai3.x("1235", ji3Var);
         }
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (Build.VERSION.SDK_INT > 29) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

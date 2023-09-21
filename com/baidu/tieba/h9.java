@@ -41,7 +41,7 @@ public class h9<T> extends BdBaseView<T> {
         inflate.setTag(this);
     }
 
-    public View t(int i) {
+    public View f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -50,7 +50,7 @@ public class h9<T> extends BdBaseView<T> {
         return (View) invokeI.objValue;
     }
 
-    public View u() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

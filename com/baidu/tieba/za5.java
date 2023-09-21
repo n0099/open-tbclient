@@ -1,260 +1,295 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class za5 {
+public final class za5 {
     public static /* synthetic */ Interceptable $ic;
-    public static za5 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, DownloadData> a;
-    public final HashMap<String, DownloadData> b;
-    public final HashMap<String, String> c;
+    public final int a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public String h;
+    public String i;
+    public int j;
+    public String k;
 
-    /* loaded from: classes9.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ za5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(za5 za5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {za5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            this.a = za5Var;
+            return (obj instanceof za5) && this.a == ((za5) obj).a;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage)) {
-                List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
-                if (ListUtils.isEmpty(data)) {
-                    return;
-                }
-                for (DownloadData downloadData : data) {
-                    if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
-                        String str = ((ItemDownloadExtraData) downloadData.getExtra()).pkgName;
-                        int status = downloadData.getStatus();
-                        if (status != 0) {
-                            if (status != 2) {
-                                if (status == 4 && this.a.a.containsKey(str)) {
-                                    this.a.a.remove(str);
-                                    ya5.a(downloadData, 400);
-                                    return;
-                                }
-                                return;
-                            }
-                            ya5.a(downloadData, 600);
-                            return;
-                        } else if (this.a.a.containsKey(str)) {
-                            this.a.b.put(str, (DownloadData) this.a.a.get(str));
-                            this.a.a.remove(str);
-                            ya5.a(downloadData, 700);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                }
-            }
-        }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes9.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ za5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(za5 za5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {za5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = za5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof Intent) {
-                    Intent intent = (Intent) data;
-                    String g = on5.g(intent);
-                    if (!PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) && !"android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
-                        if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-                            return;
-                        }
-                        this.a.l(g);
-                    } else if (this.a.b.containsKey(g)) {
-                        ya5.a((DownloadData) this.a.b.get(g), 900);
-                        this.a.b.remove(g);
-                    }
-                }
-            }
-        }
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public za5() {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return "ItemTabLogData(type=" + this.a + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public za5(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        h();
-        i();
+        this.a = i;
+        this.g = -1;
+        this.k = "";
     }
 
-    public void d(DownloadData downloadData) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public za5(int i, int i2) {
+        this(i);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = i2;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public za5(int i, int i2, int i3) {
+        this(i, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f = i3;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.b;
+            if (str != null) {
+                return str;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("fid");
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            String str = this.c;
+            if (str != null) {
+                return str;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("uid");
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void k(String fid, String uid, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048589, this, fid, uid, i) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Intrinsics.checkNotNullParameter(uid, "uid");
+            m(fid);
+            s(uid);
+            this.d = i;
         }
     }
 
     public final void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.c.remove(str);
-            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
-            edit.remove(str);
-            edit.commit();
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.k = str;
         }
     }
 
-    public static za5 f() {
-        InterceptResult invokeV;
+    public final void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                d = new za5();
-            }
-            return d;
-        }
-        return (za5) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a aVar = new a(this, 2001118);
-            aVar.setPriority(-1);
-            MessageManager.getInstance().registerListener(aVar);
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.b = str;
         }
     }
 
-    public final void i() {
+    public final void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b bVar = new b(this, 2002504);
-            bVar.setPriority(-1);
-            MessageManager.getInstance().registerListener(bVar);
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.h = str;
         }
     }
 
-    public void e(DownloadData downloadData) {
+    public final void o(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.j = i;
         }
     }
 
-    public String g(String str) {
-        InterceptResult invokeL;
+    public final void p(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.c.containsKey(str)) {
-                return this.c.get(str);
-            }
-            String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str, "");
-            this.c.put(str, string);
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void j(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.g = i;
         }
     }
 
-    public void k(DownloadData downloadData) {
+    public final void q(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.f = i;
         }
     }
 
-    public void m(String str, String str2) {
+    public final void r(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || StringHelper.equals(this.c.get(str), str2)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.i = str;
         }
-        this.c.put(str, str2);
-        SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
-        edit.putString(str, str2);
-        edit.commit();
+    }
+
+    public final void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.c = str;
+        }
     }
 }

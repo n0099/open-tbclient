@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.mg3;
+import com.baidu.tieba.lg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dm2 extends ed3 {
+public class dm2 extends dd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements aq3<kg3<mg3.e>> {
+    public class a implements zp3<jg3<lg3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -48,28 +48,28 @@ public class dm2 extends ed3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
+        @Override // com.baidu.tieba.zp3
         /* renamed from: b */
-        public void a(kg3<mg3.e> kg3Var) {
+        public void a(jg3<lg3.e> jg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
-                if (!fg3.h(kg3Var)) {
-                    fg3.q(kg3Var, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jg3Var) == null) {
+                if (!eg3.h(jg3Var)) {
+                    eg3.q(jg3Var, this.a, this.b);
                 } else {
-                    wl2.e(this.c, this.a, this.b);
+                    wl2.h(this.c, this.a, this.b);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dm2(ec3 ec3Var) {
-        super(ec3Var, "/swanAPI/debug/replaceDependency");
+    public dm2(dc3 dc3Var) {
+        super(dc3Var, "/swanAPI/debug/replaceDynamicLib");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ec3Var};
+            Object[] objArr = {dc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,30 +83,30 @@ public class dm2 extends ed3 {
         }
     }
 
-    @Override // com.baidu.tieba.ed3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
+    @Override // com.baidu.tieba.dd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
-            JSONObject a2 = ed3.a(unitedSchemeEntity, "params");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
+            JSONObject a2 = dd3.a(unitedSchemeEntity, "params");
             if (a2 == null) {
-                za3.f(context, R.string.obfuscated_res_0x7f0f0176).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
+                ya3.f(context, R.string.obfuscated_res_0x7f0f0176).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "'params' is null");
                 return false;
             }
             String optString = a2.optString("url");
             if (TextUtils.isEmpty(optString)) {
-                za3.f(context, R.string.obfuscated_res_0x7f0f0177).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib url is empty");
+                ya3.f(context, R.string.obfuscated_res_0x7f0f0177).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib 'url' is empty");
                 return false;
             }
             String optString2 = a2.optString("cb");
             if (TextUtils.isEmpty(optString2)) {
-                za3.f(context, R.string.obfuscated_res_0x7f0f0175).G();
+                ya3.f(context, R.string.obfuscated_res_0x7f0f0175).G();
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib 'cb' is empty");
                 return false;
             }
-            hb3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
+            gb3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }

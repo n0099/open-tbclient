@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeListDialog;
-import com.baidu.tieba.gr7;
-import com.baidu.tieba.va5;
-import com.baidu.tieba.vx;
+import com.baidu.tieba.qr7;
+import com.baidu.tieba.ux;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes5.dex */
-public class CardItemGameCodeLayout extends RelativeLayout implements vx {
+public class CardItemGameCodeLayout extends RelativeLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -69,7 +69,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements vx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !ListUtils.isEmpty(this.a.g)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new va5(14)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new za5(14)));
                 if (this.a.e == null) {
                     this.a.e = new GameCodeListDialog(view2.getContext());
                 }
@@ -183,14 +183,14 @@ public class CardItemGameCodeLayout extends RelativeLayout implements vx {
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             EMManager.from(this.b).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X07);
             EMManager.from(this.c).setTextColor(R.color.CAM_X0107).setTextSize(R.dimen.T_X08);
             EMManager.from(this).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0809da, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0809d9, WebPManager.ResourceStateType.NORMAL);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             GameCodeListDialog gameCodeListDialog = this.e;
             if (gameCodeListDialog != null) {
@@ -199,17 +199,17 @@ public class CardItemGameCodeLayout extends RelativeLayout implements vx {
         }
     }
 
-    public void setData(gr7 gr7Var) {
+    public void setData(qr7 qr7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gr7Var) != null) || gr7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qr7Var) != null) || qr7Var == null) {
             return;
         }
-        this.f = gr7Var.d();
-        this.g = gr7Var.c();
+        this.f = qr7Var.d();
+        this.g = qr7Var.c();
         if (this.f != 0) {
             this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0304), Integer.valueOf(this.f)));
         } else {
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1796));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f179a));
         }
     }
 }

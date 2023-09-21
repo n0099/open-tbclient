@@ -1,63 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.utils.AlaStringHelper;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.ala.downloader.ResourceDownloader;
+import com.baidu.ala.gift.AlaDynamicGift;
+import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class th6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public LinearLayout g;
-    public LinearLayout h;
-    public TextView i;
-    public b j;
-    public AlaEnterEffectData k;
-    public Context l;
+    public TbPageContext a;
+    public b b;
+    public BdAsyncTask c;
+    public HttpMessageListener d;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a();
+        void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
     }
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ th6 a;
 
-        public a(th6 th6Var) {
+        /* renamed from: com.baidu.tieba.th6$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0467a extends BdAsyncTask {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ List a;
+            public final /* synthetic */ HttpResponsedMessage b;
+            public final /* synthetic */ a c;
+
+            public C0467a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, list, httpResponsedMessage};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.a = list;
+                this.b = httpResponsedMessage;
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Object doInBackground(Object[] objArr) {
+                InterceptResult invokeL;
+                AlaDynamicGift alaDynamicGift;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                    for (bn bnVar : this.a) {
+                        if (bnVar instanceof AlaEnterEffectData) {
+                            AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) bnVar;
+                            if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
+                                if (ResourceDownloader.checkDirNeedToDownload(AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName, AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + alaEnterEffectData.gift.giftName)) {
+                                    alaEnterEffectData.downLoadStatus = 100;
+                                } else {
+                                    alaEnterEffectData.downLoadStatus = 101;
+                                }
+                            }
+                        }
+                    }
+                    return null;
+                }
+                return invokeL.objValue;
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onCancelled() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    super.onCancelled();
+                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
+                }
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onPostExecute(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                    super.onPostExecute(obj);
+                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(th6 th6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {th6Var};
+                Object[] objArr = {th6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,21 +132,28 @@ public class th6 {
             this.a = th6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null) {
-                this.a.j.a();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage)) {
+                AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
+                List<bn> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
+                if (ListUtils.isEmpty(effectList)) {
+                    this.a.b.a(alaGetEnterEffectResponsedMessage);
+                    return;
+                }
+                this.a.c = new C0467a(this, effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }
 
-    public th6(Context context, AlaEnterEffectData alaEnterEffectData) {
+    public th6(TbPageContext tbPageContext, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, alaEnterEffectData};
+            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,111 +163,27 @@ public class th6 {
                 return;
             }
         }
-        if (alaEnterEffectData != null && context != null) {
-            this.l = context;
-            this.k = alaEnterEffectData;
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00f7, (ViewGroup) null);
-            this.a = relativeLayout;
-            this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090996);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091504);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0915c1);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09079d);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
-            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0923ae);
-            this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090827);
-            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090826);
-            c(alaEnterEffectData);
+        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bVar;
+        tbPageContext.registerListener(aVar);
+    }
+
+    public void c() {
+        BdAsyncTask bdAsyncTask;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.c) != null) {
+            bdAsyncTask.cancel();
         }
     }
 
-    public void d(b bVar) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.j = bVar;
-        }
-    }
-
-    public RelativeLayout b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (RelativeLayout) invokeV.objValue;
-    }
-
-    public void c(AlaEnterEffectData alaEnterEffectData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
-            return;
-        }
-        this.k = alaEnterEffectData;
-        this.e.setEnabled(true);
-        int i = this.k.categoryType;
-        if (3 != i) {
-            if (2 == i) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801f1);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.CAM_X0201));
-                this.g.setVisibility(0);
-                this.f.setText(AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price));
-                Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215);
-                normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                this.f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070367));
-                this.f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
-                this.h.setVisibility(0);
-                this.i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));
-                Drawable normalSkinMoneyIcon2 = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize2 = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-                normalSkinMoneyIcon2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
-                this.i.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-                this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
-            } else {
-                this.d.setVisibility(0);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f9e);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607d0));
-            }
-        }
-        AlaEnterEffectData alaEnterEffectData2 = this.k;
-        if (alaEnterEffectData2.isOwn) {
-            if (alaEnterEffectData2.isUsing()) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f9b);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607cf));
-                this.e.setText(R.string.obfuscated_res_0x7f0f027c);
-                if (2 == this.k.categoryType) {
-                    this.h.setVisibility(8);
-                }
-            } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f024d);
-            }
-        } else {
-            int i2 = alaEnterEffectData2.categoryType;
-            if (3 == i2) {
-                this.e.setText(R.string.obfuscated_res_0x7f0f0267);
-                this.c.setText(this.l.getString(R.string.obfuscated_res_0x7f0f023f, alaEnterEffectData.nobilityName));
-            } else if (2 == i2) {
-                if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.k.price) {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f0244);
-                } else {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f023d);
-                }
-            } else {
-                this.e.setBackgroundDrawable(null);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.white_alpha60));
-                this.e.setText(R.string.obfuscated_res_0x7f0f0241);
-                this.e.setEnabled(false);
-            }
-        }
-        this.e.setOnClickListener(new a(this));
-        if (!StringUtils.isNull(alaEnterEffectData.name)) {
-            this.b.setText(alaEnterEffectData.name);
-        }
-        long currentTimeMillis = (alaEnterEffectData.end_time * 1000) - System.currentTimeMillis();
-        if (currentTimeMillis >= 0) {
-            this.c.setText(this.l.getResources().getString(R.string.obfuscated_res_0x7f0f0250, StringHelper.formatDayOrHourTime(currentTimeMillis)));
-        }
-        if (!StringUtils.isNull(alaEnterEffectData.effect_range_name)) {
-            this.d.setText(alaEnterEffectData.effect_range_name);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
+            this.a.sendMessage(httpMessage);
         }
     }
 }

@@ -7,10 +7,10 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.h39;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
+import com.baidu.tieba.s49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class HorRankCard extends BaseCardInfo {
     public final int position;
     public List<a> rankInfoList;
     public final double ratio;
-    public final h39 rightText;
+    public final s49 rightText;
     public final boolean scrollEnabled;
     public final boolean showLeft;
     public final boolean showSep;
@@ -153,7 +153,7 @@ public class HorRankCard extends BaseCardInfo {
             aVar.l = this;
             this.rankInfoList.add(aVar);
         }
-        this.rightText = h39.a(jSONObject.optJSONObject("moreButton"));
+        this.rightText = s49.a(jSONObject.optJSONObject("moreButton"));
     }
 
     public double getDisplayNum() {
@@ -211,13 +211,13 @@ public class HorRankCard extends BaseCardInfo {
         return invokeV.doubleValue;
     }
 
-    public h39 getRightText() {
+    public s49 getRightText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.rightText;
         }
-        return (h39) invokeV.objValue;
+        return (s49) invokeV.objValue;
     }
 
     public int getTitleColor() {

@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes6.dex */
 public interface gv1 {
-    boolean a(Context context, String str);
+    su1 a();
 
-    boolean b(Context context, String str);
-
-    boolean c(Context context, String str);
+    zu1 b();
 }

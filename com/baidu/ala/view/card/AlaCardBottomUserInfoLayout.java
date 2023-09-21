@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ey5;
+import com.baidu.tieba.fy5;
 import com.baidu.tieba.view.AlaPlayAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,10 +102,10 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00f4, (ViewGroup) this, true);
-            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901de);
-            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901df);
-            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090235);
-            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090247);
+            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901dc);
+            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901dd);
+            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090233);
+            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090245);
             initHeaderImg();
         }
     }
@@ -149,8 +149,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             } else {
                 str = "";
             }
-            if (ey5.e(str) > 10) {
-                str = ey5.m(str, 10) + "...";
+            if (fy5.e(str) > 10) {
+                str = fy5.m(str, 10) + "...";
             }
             if (alaUserInfoData != null) {
                 this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);

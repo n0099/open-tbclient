@@ -263,11 +263,11 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.j = new a(this);
         this.k = new b(this, 2001336);
         this.l = new c(this, 2001335);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0546, this);
-        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091030);
-        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09102e);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09102f);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09102d);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0548, this);
+        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091023);
+        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091021);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091022);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091020);
         this.b.setRadius(BdUtilHelper.getDimens(context, R.dimen.tbds24));
         this.b.setConrers(5);
         this.b.setDefaultResource(17170445);

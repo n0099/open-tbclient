@@ -1,46 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.sac;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.TreeMap;
 /* loaded from: classes9.dex */
-public final class zbc<T> implements sac.b<T, T> {
+public class zbc implements vbc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public yac<? super T> call(yac<? super T> yacVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yacVar)) == null) ? yacVar : (yac) invokeL.objValue;
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final zbc<Object> a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-235999663, "Lcom/baidu/tieba/zbc$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-235999663, "Lcom/baidu/tieba/zbc$a;");
-                    return;
-                }
-            }
-            a = new zbc<>();
-        }
-    }
+    public byte[] a;
+    public TreeMap<String, String> b;
 
     public zbc() {
         Interceptable interceptable = $ic;
@@ -52,21 +26,61 @@ public final class zbc<T> implements sac.b<T, T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
-    public static <T> zbc<T> a() {
+    @Override // com.baidu.tieba.ybc
+    public Iterator<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (zbc<T>) a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Collections.unmodifiableSet(this.b.keySet()).iterator();
         }
-        return (zbc) invokeV.objValue;
+        return (Iterator) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sac.b, com.baidu.tieba.lbc
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((yac) ((yac) obj));
+    @Override // com.baidu.tieba.ybc
+    public byte[] getContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ybc
+    public String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = this.b.get(str);
+            if (str2 == null) {
+                return "";
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ybc
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vbc
+    public void put(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            this.b.put(str, str2);
+        }
     }
 }

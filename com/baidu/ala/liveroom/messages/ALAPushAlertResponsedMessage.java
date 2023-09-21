@@ -106,9 +106,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                         return alaPushAlertResIdl;
                     }
                     TbImageMemoryCache A = TbImageMemoryCache.A();
-                    BdImage D = A.D(optString4 + 10);
-                    if (D != null && D.getRawBitmap() != null) {
-                        NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, D.getRawBitmap(), false);
+                    BdImage C = A.C(optString4 + 10);
+                    if (C != null && C.getRawBitmap() != null) {
+                        NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, C.getRawBitmap(), false);
                     } else if (!StringUtils.isNull(optString4)) {
                         this.mHandler.post(new Runnable(this, optString4, optLong, str, str2, service) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
                             public static /* synthetic */ Interceptable $ic;

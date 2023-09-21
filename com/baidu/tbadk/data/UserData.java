@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ShakeAdSwitchData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.ci5;
 import com.baidu.tieba.n45;
-import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,7 +90,7 @@ public class UserData extends MetaData {
     public List<MyGroup> mGroup;
     public boolean mIsSelectTail;
     public List<MyLikeForum> mLikeForum;
-    public List<cn> mPhotoAlbum;
+    public List<bn> mPhotoAlbum;
     public ShakeAdSwitchData mShakeAdSwitch;
     public long mTDouNum;
     public String mTiebaUid;
@@ -646,7 +646,7 @@ public class UserData extends MetaData {
         return (PersonPrivateData) invokeV.objValue;
     }
 
-    public List<cn> getPhotoAlbum() {
+    public List<bn> getPhotoAlbum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
@@ -1062,7 +1062,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.ob5
+    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.sb5
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048667, this, i) == null) {
@@ -1259,22 +1259,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                yh5 yh5Var = new yh5();
-                yh5Var.d(getPortraitH());
-                yh5Var.f(getPortrait());
-                yh5Var.e(true);
-                this.mPhotoAlbum.add(yh5Var);
+                ci5 ci5Var = new ci5();
+                ci5Var.d(getPortraitH());
+                ci5Var.f(getPortrait());
+                ci5Var.e(true);
+                this.mPhotoAlbum.add(ci5Var);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            yh5 yh5Var2 = new yh5();
-                            yh5Var2.d(jSONObject2.optString("big"));
-                            yh5Var2.f(jSONObject2.optString("small"));
-                            yh5Var2.e(false);
-                            this.mPhotoAlbum.add(yh5Var2);
+                            ci5 ci5Var2 = new ci5();
+                            ci5Var2.d(jSONObject2.optString("big"));
+                            ci5Var2.f(jSONObject2.optString("small"));
+                            ci5Var2.e(false);
+                            this.mPhotoAlbum.add(ci5Var2);
                         }
                     }
                 }
@@ -1388,20 +1388,20 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        yh5 yh5Var = new yh5();
-        yh5Var.d(getPortraitH());
-        yh5Var.f(getPortrait());
-        yh5Var.e(true);
-        this.mPhotoAlbum.add(yh5Var);
+        ci5 ci5Var = new ci5();
+        ci5Var.d(getPortraitH());
+        ci5Var.f(getPortrait());
+        ci5Var.e(true);
+        this.mPhotoAlbum.add(ci5Var);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    yh5 yh5Var2 = new yh5();
-                    yh5Var2.d(userPics.big);
-                    yh5Var2.f(userPics.small);
-                    yh5Var2.e(false);
-                    this.mPhotoAlbum.add(yh5Var2);
+                    ci5 ci5Var2 = new ci5();
+                    ci5Var2.d(userPics.big);
+                    ci5Var2.f(userPics.small);
+                    ci5Var2.e(false);
+                    this.mPhotoAlbum.add(ci5Var2);
                 }
             }
         }

@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
+import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class tx3 {
+public class tx3 implements uq4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,55 +30,47 @@ public class tx3 {
                 return;
             }
         }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        a = qr1.a;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public tx3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Signature b = b(str);
-            if (b == null) {
-                return null;
-            }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(b.toByteArray()));
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(byte[] bArr) {
+    @Override // com.baidu.tieba.uq4
+    public boolean a(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            char[] cArr = new char[bArr.length * 2];
-            for (int i = 0; i < bArr.length; i++) {
-                byte b = bArr[i];
-                int i2 = i * 2;
-                char[] cArr2 = a;
-                cArr[i2] = cArr2[(b >>> 4) & 15];
-                cArr[i2 + 1] = cArr2[b & 15];
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
+            if (a) {
+                Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
             }
-            return new String(cArr);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Signature b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 64).signatures[0];
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
+            yx3 yx3Var = new yx3();
+            HashMap hashMap = new HashMap(2);
+            hashMap.put("cuid", mq4.g().getDeviceId(AppRuntime.getApplication()));
+            hashMap.put("uuid", mq4.g().o(AppRuntime.getApplication()));
+            xx3.d().g(hashMap, jSONArray.toString().getBytes(), null, yx3Var);
+            if (a) {
+                Log.d("OpenBehaviorUploader", "errorCode : " + yx3Var.a);
+                Log.d("OpenBehaviorUploader", "errorMsg : " + yx3Var.b);
             }
+            int i = yx3Var.a;
+            if (i != 1 && i != 2 && i != 4) {
+                return true;
+            }
+            fr4.a();
+            return false;
         }
-        return (Signature) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

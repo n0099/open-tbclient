@@ -4,161 +4,74 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g04 {
+public class g04 implements xz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sz3 a;
+    public boolean a;
     public Context b;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yz3 a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ g04 c;
 
-        /* renamed from: com.baidu.tieba.g04$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0300a extends ResponseCallback<qz3> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            public void onFail(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                }
-            }
-
-            /* renamed from: com.baidu.tieba.g04$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class RunnableC0301a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ qz3 a;
-                public final /* synthetic */ C0300a b;
-
-                public RunnableC0301a(C0300a c0300a, qz3 qz3Var) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0300a, qz3Var};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = c0300a;
-                    this.a = qz3Var;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.c.a != null) {
-                        this.b.a.c.a.h(this.a);
-                    }
-                }
-            }
-
-            public C0300a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: a */
-            public void onSuccess(qz3 qz3Var, int i) {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeLI(1048576, this, qz3Var, i) != null) || qz3Var == null) {
-                    return;
-                }
-                w04.c(new RunnableC0301a(this, qz3Var));
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: b */
-            public qz3 parseResponse(Response response, int i) {
-                InterceptResult invokeLI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                    if (response == null || response.body() == null || !response.isSuccessful()) {
-                        return null;
-                    }
-                    try {
-                        String string = response.body().string();
-                        if (!TextUtils.isEmpty(string)) {
-                            return new qz3(string);
-                        }
-                    } catch (Exception | OutOfMemoryError e) {
-                        e.printStackTrace();
-                    }
-                    return null;
-                }
-                return (qz3) invokeLI.objValue;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
             }
         }
 
-        public a(g04 g04Var, yz3 yz3Var, JSONObject jSONObject) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            }
+        }
+
+        public a(g04 g04Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g04Var, yz3Var, jSONObject};
+                Object[] objArr = {g04Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.c = g04Var;
-            this.a = yz3Var;
-            this.b = jSONObject;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                C0300a c0300a = new C0300a(this);
-                if (NetworkUtils.f(this.c.b)) {
-                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0300a);
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    response.body().close();
+                    return "";
                 }
+                return "";
             }
+            return (String) invokeLI.objValue;
         }
     }
 
@@ -180,17 +93,81 @@ public class g04 {
         this.b = context;
     }
 
-    public void d(sz3 sz3Var) {
+    @Override // com.baidu.tieba.xz3
+    public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sz3Var) == null) {
-            this.a = sz3Var;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, responseCallback) == null) {
+            boolean startsWith = str.startsWith("https://");
+            this.a = startsWith;
+            if (startsWith) {
+                ((PostBodyRequest.PostBodyRequestBuilder) ki4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+            } else {
+                ((PostBodyRequest.PostBodyRequestBuilder) ki4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+            }
         }
     }
 
-    public void c(yz3 yz3Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.xz3
+    public void b(String str, JSONObject jSONObject, ResponseCallback<pz3> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, yz3Var, jSONObject) == null) {
-            v04.d(new a(this, yz3Var, jSONObject), "AdLandingDownloadRequest");
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, responseCallback) == null) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ki4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+        }
+    }
+
+    @Override // com.baidu.tieba.xz3
+    public void c(String str, ResponseCallback<yy3> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, responseCallback) == null) {
+            boolean startsWith = str.startsWith("https://");
+            this.a = startsWith;
+            if (startsWith) {
+                ki4.g().getRequest().url(str).build().executeAsync(responseCallback);
+            } else {
+                ki4.g().getRequest().url(str).build().executeAsync(responseCallback);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xz3
+    public void f(String str, ResponseCallback<AdResponseInfo> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, responseCallback) == null) {
+            boolean startsWith = str.startsWith("https://");
+            this.a = startsWith;
+            if (startsWith) {
+                ki4.g().getRequest().url(str).build().executeAsync(responseCallback);
+            } else {
+                ki4.g().getRequest().url(str).build().executeAsync(responseCallback);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xz3
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        ji4 ji4Var = new ji4();
+        ji4Var.b = "POST";
+        ji4Var.a = "https://pimlog.baidu.com/mapp/advlog";
+        ji4Var.d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
+        ki4.g().e(ji4Var);
+    }
+
+    @Override // com.baidu.tieba.xz3
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            a aVar = new a(this);
+            boolean startsWith = str.startsWith("https://");
+            this.a = startsWith;
+            if (startsWith) {
+                ki4.g().getRequest().url(str).build().executeAsync(aVar);
+            } else {
+                ki4.g().getRequest().url(str).build().executeAsync(aVar);
+            }
         }
     }
 }

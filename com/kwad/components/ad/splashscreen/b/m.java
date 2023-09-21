@@ -64,7 +64,7 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
         int i2 = 0;
         boolean z2 = bVar != null;
         boolean z3 = i == 1;
-        com.kwad.components.core.c.a.a.a(new a.C0643a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.b.m.6
+        com.kwad.components.core.c.a.a.a(new a.C0636a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.b.m.6
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 String jC;
@@ -209,8 +209,8 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
     public final void aq() {
         super.aq();
-        this.bF = (KsAdWebView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091429);
-        this.zq = (ViewStub) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091416);
+        this.bF = (KsAdWebView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091419);
+        this.zq = (ViewStub) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091406);
         this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
         com.kwad.components.ad.splashscreen.d.b bVar = new com.kwad.components.ad.splashscreen.d.b((ViewGroup) getRootView(), this.zq, this.bF, com.kwad.sdk.core.response.a.c.bF(this.yF.mAdTemplate), this.yF.mApkDownloadHelper);
         this.zp = bVar;

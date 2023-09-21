@@ -1,36 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class lu9 implements au9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import java.util.List;
+import tbclient.Anti;
+import tbclient.DynamicInfo;
+import tbclient.ForumDynamic;
+import tbclient.HotUserRankEntry;
+import tbclient.PostInfoList;
+import tbclient.Profile.NicknameInfo;
+import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserAgreeInfo;
+import tbclient.Profile.UserGodInfo;
+import tbclient.TbBookrack;
+import tbclient.ThreadInfo;
+import tbclient.User;
+/* loaded from: classes7.dex */
+public interface lu9 {
+    Anti GetAntiStat();
 
-    @Override // com.baidu.tieba.au9
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
+    List<PostInfoList> GetPostList();
 
-    public lu9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    User GetUser();
+
+    TbBookrack getBookrackData();
+
+    List<ForumDynamic> getConcernedForumList();
+
+    List<DynamicInfo> getDynamicInfoList();
+
+    int getErrorCode();
+
+    yz7 getGoodsWindowInfo();
+
+    HotUserRankEntry getHotRankEntry();
+
+    AlaLiveInfoCoreData getLiveInfo();
+
+    List<AlaLiveInfoCoreData> getLiveReplayInfo();
+
+    int getMaskType();
+
+    List<ThreadInfo> getNewestThreadList();
+
+    NicknameInfo getNicknameInfo();
+
+    TAInfo getTaInfo();
+
+    UserAgreeInfo getUserAgreeInfo();
+
+    UserGodInfo getUserGodInfo();
 }

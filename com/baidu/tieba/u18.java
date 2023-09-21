@@ -7,22 +7,23 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.oy;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
+import com.baidu.tieba.ny;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class u18 extends pm<a28, ThreadCardViewHolder<a28>> implements o56 {
+public class u18 extends om<RecommendBarCardModel, ThreadCardViewHolder<RecommendBarCardModel>> implements p56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BdUniqueId b;
-    public in c;
+    public hn c;
     public String d;
+    public byte e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u18(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
@@ -44,9 +45,10 @@ public class u18 extends pm<a28, ThreadCardViewHolder<a28>> implements o56 {
             }
         }
         this.a = tbPageContext;
+        this.e = b;
     }
 
-    @Override // com.baidu.tieba.o56
+    @Override // com.baidu.tieba.p56
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -54,31 +56,27 @@ public class u18 extends pm<a28, ThreadCardViewHolder<a28>> implements o56 {
         }
     }
 
-    public void u(in inVar) {
+    public void u(hn hnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, inVar) == null) {
-            this.c = inVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, hnVar) == null) {
+            this.c = hnVar;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: s */
-    public ThreadCardViewHolder<a28> onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<RecommendBarCardModel> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            oy.b bVar = new oy.b(this.a.getPageActivity(), false);
-            l28 l28Var = new l28(this.a);
-            l28Var.p(this.b);
-            bVar.n(l28Var);
-            bVar.l().j(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            ny.b bVar = new ny.b(this.a.getPageActivity(), false);
+            bVar.n(new l28(this.a, this.b, this.e));
             bVar.l().c(0);
             bVar.l().g(0);
             bVar.l().f(0);
-            bVar.l().e(0);
             bVar.l().i(0);
-            ThreadCardViewHolder<a28> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
+            ThreadCardViewHolder<RecommendBarCardModel> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
             threadCardViewHolder.i(this.b);
             return threadCardViewHolder;
         }
@@ -86,13 +84,13 @@ public class u18 extends pm<a28, ThreadCardViewHolder<a28>> implements o56 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a28 a28Var, ThreadCardViewHolder<a28> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, RecommendBarCardModel recommendBarCardModel, ThreadCardViewHolder<RecommendBarCardModel> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a28Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.e(a28Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, recommendBarCardModel, threadCardViewHolder})) == null) {
+            threadCardViewHolder.e(recommendBarCardModel);
             if (threadCardViewHolder.a() != null) {
                 threadCardViewHolder.a().r(i);
                 threadCardViewHolder.a().b(this.d);

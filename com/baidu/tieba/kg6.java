@@ -6,8 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaPersonCenterRealAuthenConfig;
-import com.baidu.ala.data.AlaUserInfoData;
+import com.baidu.ala.atomdata.AlaLoveFamilyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,11 +17,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kg6 extends pm<ah6, CardViewHolder<vh6>> {
+public class kg6 extends om<ah6, CardViewHolder<zh6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public eh6 b;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -60,13 +58,13 @@ public class kg6 extends pm<ah6, CardViewHolder<vh6>> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kg6(TbPageContext tbPageContext, eh6 eh6Var) {
+    public kg6(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity(), ah6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, eh6Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,64 +77,41 @@ public class kg6 extends pm<ah6, CardViewHolder<vh6>> {
             }
         }
         this.a = tbPageContext;
-        this.b = eh6Var;
+    }
+
+    public final void u(ah6 ah6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ah6Var) == null) && ah6Var != null && ah6Var.c() != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.mContext, ah6Var.c().b().user_id)));
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: x */
-    public CardViewHolder<vh6> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<zh6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new vh6(this.a));
+            return new CardViewHolder<>(new zh6(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void t(ah6 ah6Var, vh6 vh6Var) {
-        og6 c;
+    public final void t(ah6 ah6Var, zh6 zh6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ah6Var, vh6Var) == null) && (c = ah6Var.c()) != null && c.b() != null) {
-            vh6Var.y(0);
-            vh6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0271));
-            int i = c.b().certify_status;
-            if (i == 0) {
-                vh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0275));
-                vh6Var.x(0);
-            } else if (1 == i) {
-                vh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0274));
-                vh6Var.x(4);
-            } else if (2 == i) {
-                vh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0272));
-                vh6Var.x(4);
-            } else if (3 == i) {
-                vh6Var.u(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0273));
-                vh6Var.x(0);
-            }
-            vh6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ah6Var, zh6Var) != null) || ah6Var.c() == null) {
+            return;
         }
-    }
-
-    public final void u(ah6 ah6Var) {
-        AlaUserInfoData b;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, ah6Var) == null) && ah6Var != null && ah6Var.c() != null && ah6Var.c().b() != null && 1 != (i = (b = ah6Var.c().b()).certify_status) && 2 != i) {
-            Context context = this.mContext;
-            String str = b.user_id;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b.certify_status + "")));
-            eh6 eh6Var = this.b;
-            if (eh6Var != null) {
-                eh6Var.a(1);
-            }
-        }
+        zh6Var.y(8);
+        zh6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f026f));
+        zh6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ah6 ah6Var, CardViewHolder<vh6> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ah6 ah6Var, CardViewHolder<zh6> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ah6Var, cardViewHolder})) == null) {

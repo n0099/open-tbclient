@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 /* loaded from: classes6.dex */
-public class TbNoticeModifySysMsg extends TbNoUISysMsg {
+public class TbNoticeModifySysMsg extends TbSysMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_TYPE = 7001;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,6 @@ public class TbNoticeModifySysMsg extends TbNoUISysMsg {
         setType(7001);
     }
 
-    @Override // com.baidu.tieba.im.lib.socket.msg.TbNoUISysMsg
     public TbSysMsg.ChatRoomInfo getChatroomInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

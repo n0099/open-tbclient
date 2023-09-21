@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.IntentFilter;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,62 +12,63 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class o24 extends n34 {
+public class o24 extends m34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AppDownloadNetworkStateReceiver c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980344, "Lcom/baidu/tieba/o24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947980344, "Lcom/baidu/tieba/o24;");
+                return;
+            }
+        }
+        boolean z = qr1.a;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o24() {
-        super("openSpaceCleanActivity");
+        super("resumeAllDownloadWhileWifi");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.n34
-    public h32 a(@NonNull JSONObject jSONObject, @NonNull lo2 lo2Var) {
+    @Override // com.baidu.tieba.m34
+    public g32 a(JSONObject jSONObject, ko2 ko2Var) {
         InterceptResult invokeLL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lo2Var)) == null) {
-            if (qo3.m()) {
-                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
-            } else if (qo3.n()) {
-                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
-            } else if (qo3.o()) {
-                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
-            } else if (qo3.r()) {
-                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ko2Var)) == null) {
+            if (jSONObject == null) {
+                ko2Var.onFail(202, "params may be error");
+                return null;
             }
-            if (!z) {
-                Toast.makeText(ou2.c(), (int) R.string.obfuscated_res_0x7f0f01bd, 0).show();
+            if (this.c == null) {
+                this.c = new AppDownloadNetworkStateReceiver();
             }
-            lo2Var.onSuccess(null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+            nu2.c().registerReceiver(this.c, intentFilter);
+            ko2Var.onSuccess(null);
             return null;
         }
-        return (h32) invokeLL.objValue;
-    }
-
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, str2);
-            return qn3.i(ou2.c(), intent, true, false);
-        }
-        return invokeLL.booleanValue;
+        return (g32) invokeLL.objValue;
     }
 }

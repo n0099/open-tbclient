@@ -1,26 +1,14 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.text.style.ReplacementSpan;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b26 extends ReplacementSpan {
+public class b26 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
-    public static final int l;
-    public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
@@ -31,89 +19,41 @@ public class b26 extends ReplacementSpan {
     public int g;
     public int h;
     public int i;
+    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947593123, "Lcom/baidu/tieba/b26;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947593123, "Lcom/baidu/tieba/b26;");
-                return;
-            }
-        }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
-        l = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
-        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    }
-
-    public b26(a26 a26Var) {
+    public b26(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a26Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
         this.b = R.color.CAM_X0305;
-        this.c = j;
-        this.d = k;
-        this.e = m;
+        this.c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
+        this.d = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+        this.e = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
         this.f = 0;
-        this.g = l;
+        this.g = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
         this.h = 0;
-        if (a26Var != null) {
-            this.a = a26Var.a;
-            this.b = a26Var.b;
-            this.c = a26Var.c;
-            this.e = a26Var.d;
-            this.d = a26Var.e;
-            this.f = a26Var.f;
-            this.g = a26Var.g;
-            this.h = a26Var.h;
-        }
+        this.i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds26);
+        this.j = str;
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            canvas.save();
-            canvas.translate(0.0f, this.h);
-            paint.setColor(SkinManager.getColor(this.b));
-            paint.setAntiAlias(true);
-            float descent = this.e - (paint.descent() - paint.ascent());
-            float f2 = i4;
-            RectF rectF = new RectF(this.f + f, (paint.ascent() + f2) - descent, this.f + f + this.i + (this.d * 2), paint.descent() + f2);
-            int i6 = this.c;
-            canvas.drawRoundRect(rectF, i6, i6, paint);
-            paint.setColor(this.a);
-            canvas.drawText(charSequence, i, i2, this.d + f + this.f, f2 - (descent / 2.0f), paint);
-            canvas.restore();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.j;
         }
-    }
-
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            int measureText = (int) paint.measureText(charSequence, i, i2);
-            this.i = measureText;
-            return measureText + (this.d * 2) + this.f + this.g;
-        }
-        return invokeCommon.intValue;
+        return (String) invokeV.objValue;
     }
 }

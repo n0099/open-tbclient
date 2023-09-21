@@ -1,102 +1,103 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class fa5 extends ImageSpan {
+public class fa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
 
-    public void b(int i) {
+    public static void a(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fa5(Drawable drawable) {
-        super(drawable);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) && imageView != null) {
+            WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds52);
+                layoutParams.height = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds52);
+                imageView.setLayoutParams(layoutParams);
             }
         }
     }
 
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
+    public static void b(ViewGroup viewGroup) {
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            if (weakReference != null) {
-                drawable = weakReference.get();
+        if ((interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+            layoutParams.height = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds120);
+            viewGroup.setLayoutParams(layoutParams);
+        }
+    }
+
+    public static void c(TextView textView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && textView != null) {
+            EMManager.from(textView).setTextColor(R.color.CAM_X0107);
+        }
+    }
+
+    public static void d(TextView textView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null) {
+            EMManager.from(textView).setTextSize(R.dimen.tbds36);
+        }
+    }
+
+    public static void e(TextView textView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null) {
+            EMManager.from(textView).setTextSize(R.dimen.tbds36).setTextColor(R.color.CAM_X0107);
+        }
+    }
+
+    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) && tBLottieAnimationView != null) {
+            if (i == 4) {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_night);
             } else {
-                drawable = null;
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_day);
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f, (((i5 - i3) - a.getBounds().bottom) / 2) + i3);
-            a.draw(canvas);
-            canvas.restore();
+            tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
         }
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public static void h(TextView textView, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Rect bounds = getDrawable().getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right;
+        if ((interceptable != null && interceptable.invokeLZ(65543, null, textView, z) != null) || textView == null) {
+            return;
         }
-        return invokeCommon.intValue;
+        if (z) {
+            i = R.color.CAM_X0110;
+        } else {
+            i = R.color.CAM_X0107;
+        }
+        textView.setTextColor(fia.a(SkinManager.getColor(i), SkinManager.RESOURCE_ALPHA_NORMAL));
+    }
+
+    public static void g(ImageView imageView, int i, boolean z) {
+        float f;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{imageView, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || imageView == null) {
+            return;
+        }
+        int color = SkinManager.getColor(R.color.CAM_X0107);
+        if (z) {
+            f = SkinManager.RESOURCE_ALPHA_DISABLE;
+        } else {
+            f = SkinManager.RESOURCE_ALPHA_NORMAL;
+        }
+        imageView.setImageDrawable(WebPManager.getPureDrawable(i, fia.a(color, f), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
     }
 }

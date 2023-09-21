@@ -1,59 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService;
-import com.baidu.tieba.wallet.WalletPluginManager;
+import com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
+import com.sina.weibo.sdk.utils.ResourceManager;
 /* loaded from: classes5.dex */
-public class cz7 implements BZDxmRechargeService {
+public class cz7 implements HostBasicInfoService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements IDxmProxyCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BZDxmRechargeService.PluginDxmCallback a;
-
-        public a(cz7 cz7Var, BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cz7Var, pluginDxmCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pluginDxmCallback;
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
-        public void onFail(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                this.a.onFail(i, str);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
-        public void onSuccess(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.onSuccess(i, str);
-            }
-        }
-    }
 
     public cz7() {
         Interceptable interceptable = $ic;
@@ -69,11 +28,23 @@ public class cz7 implements BZDxmRechargeService {
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService
-    public void doBZPay(@NonNull String str, @NonNull BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService
+    public String getCuid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, pluginDxmCallback) == null) {
-            WalletPluginManager.getInstance().doYYPay(str, new a(this, pluginDxmCallback));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbadkCoreApplication.getInst().getCuidGalaxy2();
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService
+    public int getHostIconResId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbadkCoreApplication.getInst().getResources().getIdentifier("tb_launcher_icon", ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
+        }
+        return invokeV.intValue;
     }
 }

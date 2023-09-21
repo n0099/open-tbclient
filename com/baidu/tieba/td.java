@@ -67,7 +67,7 @@ public class td implements gd {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return xh.e(this.a, 0);
+                                                    return wh.e(this.a, 0);
                                                 } catch (IOException e2) {
                                                     e2.printStackTrace();
                                                     return null;

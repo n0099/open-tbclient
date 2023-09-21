@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.kia;
-import com.baidu.tieba.lia;
-import com.baidu.tieba.mia;
-import com.baidu.tieba.mx4;
-import com.baidu.tieba.oia;
-import com.baidu.tieba.tm6;
+import com.baidu.tieba.lx4;
+import com.baidu.tieba.qka;
+import com.baidu.tieba.rka;
+import com.baidu.tieba.ska;
+import com.baidu.tieba.uka;
+import com.baidu.tieba.xm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,17 +23,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ActivityJsBridgePlugin_Proxy extends kia {
+public class ActivityJsBridgePlugin_Proxy extends qka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mx4 mJsBridge;
+    public lx4 mJsBridge;
 
-    public ActivityJsBridgePlugin_Proxy(mx4 mx4Var) {
+    public ActivityJsBridgePlugin_Proxy(lx4 lx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mx4Var};
+            Object[] objArr = {lx4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class ActivityJsBridgePlugin_Proxy extends kia {
                 return;
             }
         }
-        this.mJsBridge = mx4Var;
+        this.mJsBridge = lx4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -51,135 +51,135 @@ public class ActivityJsBridgePlugin_Proxy extends kia {
         this.mNotificationNameList.add(CommonTbJsBridge.CHANGE_POST_WALL);
     }
 
-    @Override // com.baidu.tieba.kia
-    public mia dispatch(WebView webView, oia oiaVar, mia miaVar) {
+    @Override // com.baidu.tieba.qka
+    public ska dispatch(WebView webView, uka ukaVar, ska skaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, oiaVar, miaVar)) == null) {
-            if (miaVar == null) {
-                miaVar = new mia();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ukaVar, skaVar)) == null) {
+            if (skaVar == null) {
+                skaVar = new ska();
             }
-            String b = oiaVar.b();
-            JSONObject e = oiaVar.e();
+            String b = ukaVar.b();
+            JSONObject e = ukaVar.e();
             if (b.equals("activity/updateSearchForumInfo")) {
-                miaVar.s(true);
-                mia h = this.mJsBridge.h(webView, e.optString("forumParams"));
+                skaVar.s(true);
+                ska h = this.mJsBridge.h(webView, e.optString("forumParams"));
                 if (h != null) {
-                    miaVar.y(h.f());
-                    miaVar.u(h.b());
-                    miaVar.o(h.a());
-                    miaVar.x(h.e());
+                    skaVar.y(h.f());
+                    skaVar.u(h.b());
+                    skaVar.o(h.a());
+                    skaVar.x(h.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             } else if (b.equals("activity/personlizedSwitchChange")) {
-                miaVar.s(true);
-                mia d = this.mJsBridge.d(webView, e.optString("personlizedSwitchStatus"));
+                skaVar.s(true);
+                ska d = this.mJsBridge.d(webView, e.optString("personlizedSwitchStatus"));
                 if (d != null) {
-                    miaVar.y(d.f());
-                    miaVar.u(d.b());
-                    miaVar.o(d.a());
-                    miaVar.x(d.e());
+                    skaVar.y(d.f());
+                    skaVar.u(d.b());
+                    skaVar.o(d.a());
+                    skaVar.x(d.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             } else if (b.equals("activity/updateTailStyle")) {
-                miaVar.s(true);
-                mia i = this.mJsBridge.i(webView, e.optInt("type"), e.optString("tailId"));
+                skaVar.s(true);
+                ska i = this.mJsBridge.i(webView, e.optInt("type"), e.optString("tailId"));
                 if (i != null) {
-                    miaVar.y(i.f());
-                    miaVar.u(i.b());
-                    miaVar.o(i.a());
-                    miaVar.x(i.e());
+                    skaVar.y(i.f());
+                    skaVar.u(i.b());
+                    skaVar.o(i.a());
+                    skaVar.x(i.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             } else if (b.equals("activity/oneKeyDeletion")) {
-                miaVar.s(true);
-                mia g = this.mJsBridge.g(webView);
+                skaVar.s(true);
+                ska g = this.mJsBridge.g(webView);
                 if (g != null) {
-                    miaVar.y(g.f());
-                    miaVar.u(g.b());
-                    miaVar.o(g.a());
-                    miaVar.x(g.e());
+                    skaVar.y(g.f());
+                    skaVar.u(g.b());
+                    skaVar.o(g.a());
+                    skaVar.x(g.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             } else if (b.equals("activity/completeTask")) {
-                miaVar.s(true);
-                mia f = this.mJsBridge.f(webView, e.optString("activityId"), e.optString("missionId"));
+                skaVar.s(true);
+                ska f = this.mJsBridge.f(webView, e.optString("activityId"), e.optString("missionId"));
                 if (f != null) {
-                    miaVar.y(f.f());
-                    miaVar.u(f.b());
-                    miaVar.o(f.a());
-                    miaVar.x(f.e());
+                    skaVar.y(f.f());
+                    skaVar.u(f.b());
+                    skaVar.o(f.a());
+                    skaVar.x(f.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             } else if (b.equals("activity/finishTestAnswer")) {
-                miaVar.s(true);
-                mia c = this.mJsBridge.c(webView, e.optLong("testId"));
+                skaVar.s(true);
+                ska c = this.mJsBridge.c(webView, e.optLong("testId"));
                 if (c != null) {
-                    miaVar.y(c.f());
-                    miaVar.u(c.b());
-                    miaVar.o(c.a());
-                    miaVar.x(c.e());
+                    skaVar.y(c.f());
+                    skaVar.u(c.b());
+                    skaVar.o(c.a());
+                    skaVar.x(c.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             } else if (b.equals("activity/worldCupRaiseSuccess")) {
-                miaVar.s(true);
-                mia j = this.mJsBridge.j(webView, e.optString("portrait"), e.optString("flagUrl"));
+                skaVar.s(true);
+                ska j = this.mJsBridge.j(webView, e.optString("portrait"), e.optString("flagUrl"));
                 if (j != null) {
-                    miaVar.y(j.f());
-                    miaVar.u(j.b());
-                    miaVar.o(j.a());
-                    miaVar.x(j.e());
+                    skaVar.y(j.f());
+                    skaVar.u(j.b());
+                    skaVar.o(j.a());
+                    skaVar.x(j.e());
                 }
-                miaVar.z(0);
+                skaVar.z(0);
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLLL.objValue;
+        return (ska) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kia
-    public tm6 getJsBridge() {
+    @Override // com.baidu.tieba.qka
+    public xm6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (tm6) invokeV.objValue;
+        return (xm6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kia
-    public List<mia> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.qka
+    public List<ska> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            mia miaVar = null;
+            ska skaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("writePostSuccess")) {
-                miaVar = this.mJsBridge.k(webView, hashMap);
+                skaVar = this.mJsBridge.k(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_POST_WALL)) {
-                miaVar = this.mJsBridge.e(webView, hashMap);
+                skaVar = this.mJsBridge.e(webView, hashMap);
             }
-            if (miaVar != null) {
-                miaVar.z(0);
+            if (skaVar != null) {
+                skaVar.z(0);
             }
-            List<lia> list = this.mAsyncCallBackMethodList.get(str);
-            if (miaVar != null && list != null) {
-                Iterator<lia> it = list.iterator();
-                if (!TextUtils.isEmpty(miaVar.e())) {
+            List<rka> list = this.mAsyncCallBackMethodList.get(str);
+            if (skaVar != null && list != null) {
+                Iterator<rka> it = list.iterator();
+                if (!TextUtils.isEmpty(skaVar.e())) {
                     while (it.hasNext()) {
-                        lia next = it.next();
-                        if (next.b().equals(miaVar.e())) {
-                            mia miaVar2 = new mia();
-                            miaVar2.w(next.a());
-                            miaVar2.y(miaVar.f());
-                            miaVar2.u(miaVar.b());
-                            miaVar2.o(miaVar.a());
-                            miaVar2.j = miaVar.j;
-                            miaVar2.A(miaVar.l());
-                            arrayList.add(miaVar2);
+                        rka next = it.next();
+                        if (next.b().equals(skaVar.e())) {
+                            ska skaVar2 = new ska();
+                            skaVar2.w(next.a());
+                            skaVar2.y(skaVar.f());
+                            skaVar2.u(skaVar.b());
+                            skaVar2.o(skaVar.a());
+                            skaVar2.j = skaVar.j;
+                            skaVar2.A(skaVar.l());
+                            arrayList.add(skaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -187,15 +187,15 @@ public class ActivityJsBridgePlugin_Proxy extends kia {
                     }
                 } else {
                     while (it.hasNext()) {
-                        lia next2 = it.next();
-                        mia miaVar3 = new mia();
-                        miaVar3.w(next2.a());
-                        miaVar3.y(miaVar.f());
-                        miaVar3.u(miaVar.b());
-                        miaVar3.o(miaVar.a());
-                        miaVar3.j = miaVar.j;
-                        miaVar3.A(miaVar.l());
-                        arrayList.add(miaVar3);
+                        rka next2 = it.next();
+                        ska skaVar3 = new ska();
+                        skaVar3.w(next2.a());
+                        skaVar3.y(skaVar.f());
+                        skaVar3.u(skaVar.b());
+                        skaVar3.o(skaVar.a());
+                        skaVar3.j = skaVar.j;
+                        skaVar3.A(skaVar.l());
+                        arrayList.add(skaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

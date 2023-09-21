@@ -1,81 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tracker.core.data.IEventNode;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class hpa {
+public class hpa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IEventNode a;
+    public final MainTabActivity a;
 
-    public hpa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hpa(MainTabActivity mainTabActivity, qma qmaVar) {
+        super(2921561);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, qmaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = mainTabActivity;
     }
 
-    public final void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public final IEventNode b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (IEventNode) invokeV.objValue;
-    }
-
-    public final hpa c(IEventNode node) {
-        InterceptResult invokeL;
-        IEventNode iEventNode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, node)) == null) {
-            Intrinsics.checkNotNullParameter(node, "node");
-            IEventNode iEventNode2 = this.a;
-            if (iEventNode2 == null) {
-                this.a = node;
-            } else {
-                while (true) {
-                    if (iEventNode2 != null) {
-                        iEventNode = iEventNode2.getNext();
-                    } else {
-                        iEventNode = null;
-                    }
-                    if (iEventNode == null) {
-                        break;
-                    }
-                    IEventNode iEventNode3 = this.a;
-                    if (iEventNode3 != null) {
-                        iEventNode2 = iEventNode3.getNext();
-                    } else {
-                        iEventNode2 = null;
-                    }
-                }
-                if (iEventNode2 != null) {
-                    iEventNode2.setNext(node);
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            Object data = customResponsedMessage.getData();
+            if (data instanceof Integer) {
+                ((Integer) data).intValue();
             }
-            return this;
         }
-        return (hpa) invokeL.objValue;
     }
 }

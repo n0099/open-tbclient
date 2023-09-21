@@ -13,7 +13,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bha;
+import com.baidu.tieba.hja;
 import com.baidu.tieba.qz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -94,9 +94,6 @@ public class RelateRecThreadListModel extends BdBaseModel {
                     String errorString = responsedMessage.getErrorString();
                     if (error == 0 && !responsedMessage.hasError()) {
                         DataRes dataRes = null;
-                        if (responsedMessage instanceof RelateRecThreadSocketResponseMessage) {
-                            dataRes = ((RelateRecThreadSocketResponseMessage) responsedMessage).getData();
-                        }
                         if (responsedMessage instanceof RelateRecThreadHttpResponseMessage) {
                             dataRes = ((RelateRecThreadHttpResponseMessage) responsedMessage).getData();
                         }
@@ -161,11 +158,18 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bha.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            bha.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            hja.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
-            this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);
+        }
+    }
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = false;
+            this.b = null;
+            MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 
@@ -188,14 +192,5 @@ public class RelateRecThreadListModel extends BdBaseModel {
             return true;
         }
         return invokeCommon.booleanValue;
-    }
-
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = false;
-            this.b = null;
-            MessageManager.getInstance().unRegisterListener(this.d);
-        }
     }
 }

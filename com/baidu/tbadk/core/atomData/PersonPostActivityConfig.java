@@ -11,6 +11,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class PersonPostActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String CALL_FROM_CREATIVE_WORK = "creativeWork";
+    public static final String KEY_CALL_FROM = "key_call_from";
+    public static final String KEY_NAV_TITLE = "key_nav_title";
     public static final String KEY_PORTRAIT_URL = "key_portrait_url";
     public static final String KEY_SEX = "key_sex";
     public static final String KEY_UID = "key_uid";
@@ -37,7 +40,7 @@ public class PersonPostActivityConfig extends IntentConfig {
         if (uri != null) {
             getIntent().putExtra("key_uid", uri.getQueryParameter("user_id"));
             getIntent().putExtra("key_sex", JavaTypesHelper.toInt(uri.getQueryParameter("sex"), 0));
-            getIntent().putExtra(KEY_PORTRAIT_URL, uri.getQueryParameter("portrait"));
+            getIntent().putExtra("key_portrait_url", uri.getQueryParameter("portrait"));
         }
     }
 
@@ -61,6 +64,6 @@ public class PersonPostActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("key_uid", str);
         getIntent().putExtra("key_sex", i);
-        getIntent().putExtra(KEY_PORTRAIT_URL, str2);
+        getIntent().putExtra("key_portrait_url", str2);
     }
 }

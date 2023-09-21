@@ -1,30 +1,30 @@
 package rx.subjects;
 
-import com.baidu.tieba.ebc;
-import com.baidu.tieba.fbc;
-import com.baidu.tieba.pbc;
-import com.baidu.tieba.pdc;
-import com.baidu.tieba.pec;
-import com.baidu.tieba.qdc;
-import com.baidu.tieba.qec;
-import com.baidu.tieba.rfc;
-import com.baidu.tieba.sac;
-import com.baidu.tieba.tac;
-import com.baidu.tieba.uac;
-import com.baidu.tieba.wec;
-import com.baidu.tieba.yac;
-import com.baidu.tieba.zac;
+import com.baidu.tieba.hdc;
+import com.baidu.tieba.hfc;
+import com.baidu.tieba.hgc;
+import com.baidu.tieba.ifc;
+import com.baidu.tieba.igc;
+import com.baidu.tieba.jhc;
+import com.baidu.tieba.kcc;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.mcc;
+import com.baidu.tieba.ogc;
+import com.baidu.tieba.qcc;
+import com.baidu.tieba.rcc;
+import com.baidu.tieba.wcc;
+import com.baidu.tieba.xcc;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class UnicastSubject<T> extends rfc<T, T> {
+public final class UnicastSubject<T> extends jhc<T, T> {
     public final State<T> b;
 
     /* loaded from: classes2.dex */
-    public static final class State<T> extends AtomicLong implements uac, tac<T>, sac.a<T>, zac {
+    public static final class State<T> extends AtomicLong implements mcc, lcc<T>, kcc.a<T>, rcc {
         public static final long serialVersionUID = -9044104859202255786L;
         public volatile boolean caughtUp;
         public volatile boolean done;
@@ -32,46 +32,46 @@ public final class UnicastSubject<T> extends rfc<T, T> {
         public Throwable error;
         public boolean missed;
         public final Queue<Object> queue;
-        public final AtomicReference<yac<? super T>> subscriber = new AtomicReference<>();
-        public final AtomicReference<fbc> terminateOnce;
+        public final AtomicReference<qcc<? super T>> subscriber = new AtomicReference<>();
+        public final AtomicReference<xcc> terminateOnce;
 
-        public State(int i, fbc fbcVar) {
-            AtomicReference<fbc> atomicReference;
-            Queue<Object> pdcVar;
+        public State(int i, xcc xccVar) {
+            AtomicReference<xcc> atomicReference;
+            Queue<Object> hfcVar;
             Queue<Object> queue;
-            if (fbcVar != null) {
-                atomicReference = new AtomicReference<>(fbcVar);
+            if (xccVar != null) {
+                atomicReference = new AtomicReference<>(xccVar);
             } else {
                 atomicReference = null;
             }
             this.terminateOnce = atomicReference;
             if (i > 1) {
-                if (wec.b()) {
-                    queue = new qec<>(i);
+                if (ogc.b()) {
+                    queue = new igc<>(i);
                 } else {
-                    queue = new qdc<>(i);
+                    queue = new ifc<>(i);
                 }
             } else {
-                if (wec.b()) {
-                    pdcVar = new pec<>();
+                if (ogc.b()) {
+                    hfcVar = new hgc<>();
                 } else {
-                    pdcVar = new pdc<>();
+                    hfcVar = new hfc<>();
                 }
-                queue = pdcVar;
+                queue = hfcVar;
             }
             this.queue = queue;
         }
 
-        public void call(yac<? super T> yacVar) {
-            if (this.subscriber.compareAndSet(null, yacVar)) {
-                yacVar.b(this);
-                yacVar.f(this);
+        public void call(qcc<? super T> qccVar) {
+            if (this.subscriber.compareAndSet(null, qccVar)) {
+                qccVar.b(this);
+                qccVar.f(this);
                 return;
             }
-            yacVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
+            qccVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
         }
 
-        @Override // com.baidu.tieba.tac
+        @Override // com.baidu.tieba.lcc
         public void onError(Throwable th) {
             if (!this.done) {
                 doTerminate();
@@ -93,12 +93,12 @@ public final class UnicastSubject<T> extends rfc<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.uac
+        @Override // com.baidu.tieba.mcc
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i > 0) {
-                    pbc.b(this, j);
+                    hdc.b(this, j);
                     replay();
                     return;
                 } else if (this.done) {
@@ -111,23 +111,23 @@ public final class UnicastSubject<T> extends rfc<T, T> {
             throw new IllegalArgumentException("n >= 0 required");
         }
 
-        @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
+        @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((yac) ((yac) obj));
+            call((qcc) ((qcc) obj));
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, yac<? super T> yacVar) {
-            if (yacVar.isUnsubscribed()) {
+        public boolean checkTerminated(boolean z, boolean z2, qcc<? super T> qccVar) {
+            if (qccVar.isUnsubscribed()) {
                 this.queue.clear();
                 return true;
             } else if (z) {
                 Throwable th = this.error;
                 if (th != null) {
                     this.queue.clear();
-                    yacVar.onError(th);
+                    qccVar.onError(th);
                     return true;
                 } else if (z2) {
-                    yacVar.onCompleted();
+                    qccVar.onCompleted();
                     return true;
                 } else {
                     return false;
@@ -138,19 +138,19 @@ public final class UnicastSubject<T> extends rfc<T, T> {
         }
 
         public void doTerminate() {
-            fbc fbcVar;
-            AtomicReference<fbc> atomicReference = this.terminateOnce;
-            if (atomicReference != null && (fbcVar = atomicReference.get()) != null && atomicReference.compareAndSet(fbcVar, null)) {
-                fbcVar.call();
+            xcc xccVar;
+            AtomicReference<xcc> atomicReference = this.terminateOnce;
+            if (atomicReference != null && (xccVar = atomicReference.get()) != null && atomicReference.compareAndSet(xccVar, null)) {
+                xccVar.call();
             }
         }
 
-        @Override // com.baidu.tieba.zac
+        @Override // com.baidu.tieba.rcc
         public boolean isUnsubscribed() {
             return this.done;
         }
 
-        @Override // com.baidu.tieba.tac
+        @Override // com.baidu.tieba.lcc
         public void onCompleted() {
             if (!this.done) {
                 doTerminate();
@@ -171,7 +171,7 @@ public final class UnicastSubject<T> extends rfc<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.zac
+        @Override // com.baidu.tieba.rcc
         public void unsubscribe() {
             doTerminate();
             this.done = true;
@@ -184,7 +184,7 @@ public final class UnicastSubject<T> extends rfc<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.tac
+        @Override // com.baidu.tieba.lcc
         public void onNext(T t) {
             if (!this.done) {
                 if (!this.caughtUp) {
@@ -200,11 +200,11 @@ public final class UnicastSubject<T> extends rfc<T, T> {
                         return;
                     }
                 }
-                yac<? super T> yacVar = this.subscriber.get();
+                qcc<? super T> qccVar = this.subscriber.get();
                 try {
-                    yacVar.onNext(t);
+                    qccVar.onNext(t);
                 } catch (Throwable th) {
-                    ebc.g(th, yacVar, t);
+                    wcc.g(th, qccVar, t);
                 }
             }
         }
@@ -238,9 +238,9 @@ public final class UnicastSubject<T> extends rfc<T, T> {
                 this.emitting = true;
                 Queue<Object> queue = this.queue;
                 while (true) {
-                    yac<? super T> yacVar = this.subscriber.get();
-                    if (yacVar != null) {
-                        if (checkTerminated(this.done, queue.isEmpty(), yacVar)) {
+                    qcc<? super T> qccVar = this.subscriber.get();
+                    if (qccVar != null) {
+                        if (checkTerminated(this.done, queue.isEmpty(), qccVar)) {
                             return;
                         }
                         long j = get();
@@ -258,7 +258,7 @@ public final class UnicastSubject<T> extends rfc<T, T> {
                             } else {
                                 z2 = false;
                             }
-                            if (checkTerminated(z3, z2, yacVar)) {
+                            if (checkTerminated(z3, z2, qccVar)) {
                                 return;
                             }
                             if (z2) {
@@ -266,13 +266,13 @@ public final class UnicastSubject<T> extends rfc<T, T> {
                             }
                             Object obj = (Object) NotificationLite.e(poll);
                             try {
-                                yacVar.onNext(obj);
+                                qccVar.onNext(obj);
                                 j--;
                                 j2++;
                             } catch (Throwable th) {
                                 queue.clear();
-                                ebc.e(th);
-                                yacVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+                                wcc.e(th);
+                                qccVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                 return;
                             }
                         }
@@ -298,21 +298,21 @@ public final class UnicastSubject<T> extends rfc<T, T> {
         this.b = state;
     }
 
-    @Override // com.baidu.tieba.tac
+    @Override // com.baidu.tieba.lcc
     public void onError(Throwable th) {
         this.b.onError(th);
     }
 
-    @Override // com.baidu.tieba.tac
+    @Override // com.baidu.tieba.lcc
     public void onNext(T t) {
         this.b.onNext(t);
     }
 
-    public static <T> UnicastSubject<T> Q(int i, fbc fbcVar) {
-        return new UnicastSubject<>(new State(i, fbcVar));
+    public static <T> UnicastSubject<T> Q(int i, xcc xccVar) {
+        return new UnicastSubject<>(new State(i, xccVar));
     }
 
-    @Override // com.baidu.tieba.tac
+    @Override // com.baidu.tieba.lcc
     public void onCompleted() {
         this.b.onCompleted();
     }

@@ -1,164 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public final class pu2 {
+public class pu2 implements rn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static sw2 a() {
-        InterceptResult invokeV;
+    public pu2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new g94();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (sw2) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static xi2 b() {
+    @Override // com.baidu.tieba.rn4
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new q64();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return po2.e();
         }
-        return (xi2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static ls1 c() {
+    @Override // com.baidu.tieba.rn4
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return sd4.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return po2.c();
         }
-        return (ls1) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static ms1 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rn4
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return i84.a();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            po2.f(jSONObject);
         }
-        return (ms1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ns1 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new j84();
-        }
-        return (ns1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static os1 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return new k84();
-        }
-        return (os1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ps1 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return new l84();
-        }
-        return (ps1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static qs1 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new b64();
-        }
-        return (qs1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static rs1 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return g74.a();
-        }
-        return (rs1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ss1 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return ac4.a();
-        }
-        return (ss1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ts1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new ae4();
-        }
-        return (ts1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static us1 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return n84.a();
-        }
-        return (us1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ws1 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return mc4.a();
-        }
-        return (ws1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static xs1 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return dc4.a();
-        }
-        return (xs1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static zs1 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return kd4.a();
-        }
-        return (zs1) invokeV.objValue;
     }
 }

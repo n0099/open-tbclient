@@ -107,10 +107,10 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0356, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c75);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c76);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c74);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0357, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c68);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c69);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c67);
             this.b.setDefaultResource(17170445);
             this.b.setDefaultBgResource(R.color.CAM_X0205);
             this.b.setBorderColor(0);

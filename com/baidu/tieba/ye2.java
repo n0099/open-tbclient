@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.tieba.de2;
-import com.baidu.tieba.du2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.cu2;
+import com.baidu.tieba.fu2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,125 +19,68 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Set;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
 /* loaded from: classes8.dex */
-public class ye2 extends le2 {
+public final class ye2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ce2 c;
-    public String d;
-    public String e;
-    public yi4<hk4> f;
 
     /* loaded from: classes8.dex */
-    public class a extends vi4<hk4> {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ye2 a;
 
-        public a(ye2 ye2Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ye2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yi4
-        /* renamed from: l */
-        public String d(hk4 hk4Var) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
+            File[] listFiles;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hk4Var)) == null) {
-                return af2.a(this.a.e);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vi4, com.baidu.tieba.yi4
-        /* renamed from: q */
-        public void f(hk4 hk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hk4Var) == null) {
-                super.f(hk4Var);
-                if (ye2.g) {
-                    Log.i("SwanAppSubPkgDownload", "onDownloading");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                File filesDir = AppRuntime.getAppContext().getFilesDir();
+                kr4.j(new File(filesDir, "aiapps_zip"));
+                kr4.i(filesDir, "aiapps_zip");
+                File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_zip");
+                if (file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    for (File file2 : listFiles) {
+                        long lastModified = file2.lastModified();
+                        if (file2.isFile() && lastModified > 0 && currentTimeMillis - lastModified > 86400000) {
+                            kr4.L(file2);
+                        }
+                    }
                 }
-                this.a.V(hk4Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.aj4
-        @NonNull
-        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
-                return this.a.m(bundle, set);
-            }
-            return (Bundle) invokeLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vi4, com.baidu.tieba.yi4
-        /* renamed from: o */
-        public void e(hk4 hk4Var, bk4 bk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, hk4Var, bk4Var) == null) {
-                super.e(hk4Var, bk4Var);
-                if (ye2.g) {
-                    Log.e("SwanAppSubPkgDownload", "onDownloadError:" + bk4Var.toString());
-                }
-                an3 an3Var = new an3();
-                an3Var.k(12L);
-                an3Var.i(bk4Var.a);
-                an3Var.d("分包下载失败");
-                an3Var.f(bk4Var.toString());
-                this.a.S(3, an3Var);
-                de2.c().a(hk4Var, PMSDownloadType.ALONE_SUB, an3Var);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vi4, com.baidu.tieba.yi4
-        /* renamed from: p */
-        public void i(hk4 hk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, hk4Var) == null) {
-                super.i(hk4Var);
-                if (ye2.g) {
-                    Log.i("SwanAppSubPkgDownload", "onDownloadFinish:" + hk4Var.toString());
-                }
-                this.a.U(hk4Var);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements de2.c {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ye2 a;
+        public int a;
+        public boolean b;
+        public String c;
 
-        public b(ye2 ye2Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -144,25 +90,9 @@ public class ye2 extends le2 {
                     return;
                 }
             }
-            this.a = ye2Var;
-        }
-
-        @Override // com.baidu.tieba.de2.c
-        public void a(PMSDownloadType pMSDownloadType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, pMSDownloadType) != null) {
-                return;
-            }
-            this.a.T();
-        }
-
-        @Override // com.baidu.tieba.de2.c
-        public void b(PMSDownloadType pMSDownloadType, an3 an3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, an3Var) != null) {
-                return;
-            }
-            this.a.S(0, an3Var);
+            this.a = 0;
+            this.b = false;
+            this.c = "";
         }
     }
 
@@ -179,120 +109,355 @@ public class ye2 extends le2 {
                 return;
             }
         }
-        g = rr1.a;
+        a = qr1.a;
+        b = false;
     }
 
-    @Override // com.baidu.tieba.cj4
-    public yi4<hk4> A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (yi4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cj4
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.F();
-            an3 an3Var = new an3();
-            an3Var.k(12L);
-            an3Var.i(2901L);
-            an3Var.d("Server无包");
-            S(2, an3Var);
-        }
-    }
-
-    public final void T() {
-        ce2 ce2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (ce2Var = this.c) != null) {
-            ce2Var.a();
-        }
-    }
-
-    public ye2(String str, String str2, ce2 ce2Var) {
+    public ye2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, ce2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @AnyThread
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || b) {
+            return;
+        }
+        synchronized (ye2.class) {
+            if (b) {
                 return;
             }
-        }
-        this.f = new a(this);
-        this.d = str;
-        this.c = ce2Var;
-        this.e = du2.e.i(str, str2).getPath();
-    }
-
-    @Override // com.baidu.tieba.cj4
-    public void C(bk4 bk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bk4Var) == null) {
-            super.C(bk4Var);
-            an3 an3Var = new an3();
-            an3Var.k(12L);
-            an3Var.c(bk4Var);
-            S(1, an3Var);
+            b = true;
+            ao3.k(new a(), "deleteHistoryZipFile");
         }
     }
 
-    public final void V(hk4 hk4Var) {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, hk4Var) == null) {
-            de2.c().d(hk4Var, new b(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return cu2.e.h().getPath();
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void S(int i, an3 an3Var) {
-        ce2 ce2Var;
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, an3Var) == null) && (ce2Var = this.c) != null) {
-            ce2Var.b(i, an3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return ou2.g().c();
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void U(hk4 hk4Var) {
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hk4Var) == null) {
-            if (!uo3.a(new File(hk4Var.a), hk4Var.m)) {
-                if (g) {
-                    Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 签名校验失败");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return ou2.g().c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return cu2.e.h().getPath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return cu2.e.h().getPath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return ou2.g().c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static zm3 a(ReadableByteChannel readableByteChannel, String str, yi4 yi4Var) throws IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, readableByteChannel, str, yi4Var)) == null) {
+            if (readableByteChannel == null) {
+                zm3 zm3Var = new zm3();
+                zm3Var.k(11L);
+                zm3Var.i(2300L);
+                zm3Var.f("empty source");
+                dn3.a().f(zm3Var);
+                if (a) {
+                    Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + zm3Var);
                 }
-                an3 an3Var = new an3();
-                an3Var.k(12L);
-                an3Var.i(2300L);
-                an3Var.d("分包签名校验");
-                S(4, an3Var);
-                de2.c().a(hk4Var, PMSDownloadType.ALONE_SUB, an3Var);
-            } else if (af2.h(new File(hk4Var.a), new File(this.e, hk4Var.p))) {
-                if (g) {
-                    Log.i("SwanAppSubPkgDownload", "onDownloadFinish: 解压成功");
-                }
-                hk4Var.o = this.d;
-                ej4.i().m(hk4Var);
-                T();
-                de2.c().b(hk4Var, PMSDownloadType.ALONE_SUB);
-            } else {
-                if (g) {
-                    Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 解压失败");
-                }
-                an3 an3Var2 = new an3();
-                an3Var2.k(12L);
-                an3Var2.i(2320L);
-                an3Var2.d("分包解压失败");
-                S(5, an3Var2);
-                de2.c().a(hk4Var, PMSDownloadType.ALONE_SUB, an3Var2);
+                return zm3Var;
             }
+            yi4Var.n("670", "aiapp_aps_check_sign_start_timestamp");
+            yi4Var.n("770", "na_pms_start_check_sign");
+            if (to3.d(readableByteChannel, str, new np3())) {
+                yi4Var.n("670", "aiapp_aps_check_sign_end_timestamp");
+                yi4Var.n("770", "na_pms_end_check_sign");
+                return null;
+            }
+            zm3 zm3Var2 = new zm3();
+            zm3Var2.k(11L);
+            zm3Var2.i(2300L);
+            zm3Var2.f("check zip file sign fail.");
+            dn3.a().f(zm3Var2);
+            if (a) {
+                Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + zm3Var2);
+            }
+            return zm3Var2;
+        }
+        return (zm3) invokeLLL.objValue;
+    }
+
+    public static boolean b(@Nullable ek4 ek4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ek4Var)) == null) {
+            if (ek4Var == null || TextUtils.isEmpty(ek4Var.a)) {
+                return false;
+            }
+            File file = new File(ek4Var.a);
+            if (!file.exists() || !file.isFile() || !file.delete()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean j(ak4 ak4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, ak4Var)) == null) {
+            if (ak4Var == null) {
+                return false;
+            }
+            int i = ak4Var.a;
+            if (i != 1013 && i != 1015) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void k(PMSAppInfo pMSAppInfo, fk4 fk4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65548, null, pMSAppInfo, fk4Var) == null) && pMSAppInfo != null && fk4Var != null) {
+            pMSAppInfo.copyMainPkgInfo(fk4Var);
+            if (fk4Var.h == 1) {
+                pMSAppInfo.setOrientation(ou2.i().u(fk4Var.g, fk4Var.i));
+            } else {
+                pMSAppInfo.setOrientation(0);
+            }
+        }
+    }
+
+    public static void l(PMSAppInfo pMSAppInfo, gk4 gk4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65549, null, pMSAppInfo, gk4Var) == null) && pMSAppInfo != null && gk4Var != null) {
+            pMSAppInfo.copySubPkgInfo(gk4Var);
+            if (gk4Var.h == 0) {
+                pMSAppInfo.setOrientation(0);
+            }
+        }
+    }
+
+    public static zm3 m(ek4 ek4Var, yi4 yi4Var) {
+        InterceptResult invokeLL;
+        File i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, ek4Var, yi4Var)) == null) {
+            if (ek4Var == null) {
+                zm3 zm3Var = new zm3();
+                zm3Var.k(11L);
+                zm3Var.i(2320L);
+                zm3Var.f("pkg info is empty");
+                dn3.a().f(zm3Var);
+                return zm3Var;
+            }
+            File file = new File(ek4Var.a);
+            int i2 = ek4Var.h;
+            if (i2 == 1) {
+                i = ou2.g().a(ek4Var.g, String.valueOf(ek4Var.i));
+                if (i == null) {
+                    zm3 zm3Var2 = new zm3();
+                    zm3Var2.k(11L);
+                    zm3Var2.i(2320L);
+                    zm3Var2.f("获取解压目录失败");
+                    dn3.a().f(zm3Var2);
+                    return zm3Var2;
+                } else if (a) {
+                    Log.e("PkgDownloadUtil", "bundleZipFile:" + file);
+                }
+            } else if (i2 == 0) {
+                i = cu2.e.i(ek4Var.g, String.valueOf(ek4Var.i));
+            } else {
+                zm3 zm3Var3 = new zm3();
+                zm3Var3.k(11L);
+                zm3Var3.i(2320L);
+                zm3Var3.f("pkh category illegal");
+                dn3.a().f(zm3Var3);
+                return zm3Var3;
+            }
+            if (!file.exists()) {
+                zm3 zm3Var4 = new zm3();
+                zm3Var4.k(11L);
+                zm3Var4.i(2320L);
+                zm3Var4.f("解压失败：包不存在");
+                dn3.a().f(zm3Var4);
+                return zm3Var4;
+            } else if (i.isFile() && !i.delete()) {
+                g82.k("PkgDownloadUtil", "解压失败：解压目录被文件占用，且无法删除 path=" + i.getAbsolutePath());
+                zm3 zm3Var5 = new zm3();
+                zm3Var5.k(11L);
+                zm3Var5.i(2320L);
+                zm3Var5.f("解压失败：解压目录被文件占用，且无法删除");
+                dn3.a().f(zm3Var5);
+                return zm3Var5;
+            } else if (!i.exists() && !i.mkdirs()) {
+                if (a) {
+                    Log.e("PkgDownloadUtil", "解压失败：解压文件夹创建失败 " + i.getAbsolutePath());
+                }
+                zm3 zm3Var6 = new zm3();
+                zm3Var6.k(11L);
+                zm3Var6.i(2320L);
+                zm3Var6.f("解压失败：解压文件夹创建失败");
+                dn3.a().f(zm3Var6);
+                return zm3Var6;
+            } else {
+                if (a) {
+                    Log.i("PkgDownloadUtil", "开始执行解压操作, bundle:" + file.getPath() + " , folder:" + i.getPath());
+                }
+                if (n(file, i, yi4Var).b) {
+                    return null;
+                }
+                b n = n(file, i, yi4Var);
+                if (n.b) {
+                    vh3.a(yi4Var, ek4Var.h, true);
+                    return null;
+                }
+                vh3.a(yi4Var, ek4Var.h, false);
+                g82.k("PkgDownloadUtil", "解压失败后删除解压目录: " + i.getAbsolutePath());
+                kr4.L(i);
+                zm3 zm3Var7 = new zm3();
+                int i3 = n.a;
+                if (i3 != 0) {
+                    if (i3 != 1 && i3 != 2) {
+                        zm3Var7.k(4L);
+                        zm3Var7.i(7L);
+                        zm3Var7.f("Unkown bundle type");
+                    } else {
+                        zm3Var7.k(11L);
+                        zm3Var7.i(2330L);
+                        zm3Var7.f("decryt failed:" + n.c + ", PkgType=" + n.a);
+                    }
+                } else {
+                    zm3Var7.k(11L);
+                    zm3Var7.i(2320L);
+                    zm3Var7.f("unzip failed");
+                }
+                dn3.a().f(zm3Var7);
+                return zm3Var7;
+            }
+        }
+        return (zm3) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static b n(@NonNull File file, @NonNull File file2, @NonNull yi4 yi4Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, file, file2, yi4Var)) == null) {
+            b bVar = new b();
+            long currentTimeMillis = System.currentTimeMillis();
+            fu2.c j = fu2.j(file);
+            int i = 0;
+            if (j.b != -1) {
+                yi4Var.n("670", "package_start_decrypt");
+                yi4Var.n("770", "na_package_start_decrypt");
+                fu2.b d = fu2.d(j.a, file2, j.b);
+                yi4Var.n("670", "package_end_decrypt");
+                yi4Var.n("770", "na_package_end_decrypt");
+                bVar.b = d.a;
+                bVar.c = d.b;
+                i = j.b;
+                bVar.a = i;
+            } else {
+                bVar.a = 0;
+                yi4Var.n("670", "package_start_unzip");
+                yi4Var.n("770", "na_package_start_unzip");
+                boolean U = kr4.U(file.getPath(), file2.getPath());
+                bVar.b = U;
+                if (U) {
+                    boolean B = kr4.B(file.getAbsolutePath(), file2.getAbsolutePath());
+                    bVar.b = B;
+                    if (!B) {
+                        hi3 hi3Var = new hi3();
+                        zm3 zm3Var = new zm3();
+                        zm3Var.k(4L);
+                        zm3Var.i(52L);
+                        hi3Var.p(zm3Var);
+                        hi3Var.l("path", file2.getAbsolutePath());
+                        hi3Var.l("eMsg", "unzip files not match zip content");
+                        hi3Var.l("decryptType", String.valueOf(j.b));
+                        hi3Var.l("stack", ap3.z(30));
+                        zh3.R(hi3Var);
+                    }
+                }
+                yi4Var.n("670", "package_end_unzip");
+                yi4Var.n("770", "na_package_end_unzip");
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            if (a) {
+                fu2.h((int) (currentTimeMillis2 - currentTimeMillis));
+            }
+            Bundle bundle = new Bundle();
+            bundle.putInt("download_package_type_id", i);
+            cj4.a(yi4Var, bundle, "event_download_package_type");
+            return bVar;
+        }
+        return (b) invokeLLL.objValue;
+    }
+
+    public static void o(@Nullable PMSAppInfo pMSAppInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65552, null, pMSAppInfo) != null) || pMSAppInfo == null) {
+            return;
+        }
+        if (!TextUtils.isEmpty(pMSAppInfo.webViewDomains)) {
+            yb3.u(pMSAppInfo.appId, "", go3.e(pMSAppInfo.webViewDomains));
+        }
+        if (!TextUtils.isEmpty(pMSAppInfo.webAction)) {
+            yb3.t("", go3.e(pMSAppInfo.webAction));
+        }
+        if (!TextUtils.isEmpty(pMSAppInfo.domains)) {
+            yb3.s(pMSAppInfo.appId, go3.d(pMSAppInfo.domains));
+        }
+        if (!TextUtils.isEmpty(pMSAppInfo.domainConfig)) {
+            yb3.r(pMSAppInfo.appId, pMSAppInfo.domainConfig);
         }
     }
 }

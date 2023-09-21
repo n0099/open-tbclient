@@ -1,97 +1,127 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import android.view.ViewGroup;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.model.MonitorUrl;
+import com.baidu.tieba.zr0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ni0 extends wd1 {
+public class ni0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdBaseModel a;
-    public View b;
-    public View.OnClickListener c;
 
-    public ni0(AdBaseModel adBaseModel, View view2) {
+    public static boolean a(zr0 zr0Var) {
+        InterceptResult invokeL;
+        zr0.c cVar;
+        zr0.b bVar;
+        zr0.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {adBaseModel, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, zr0Var)) == null) {
+            if (zr0Var == null) {
+                return false;
             }
+            if (TextUtils.isEmpty(zr0Var.f) && TextUtils.isEmpty(zr0Var.d) && (((cVar = zr0Var.g) == null || TextUtils.isEmpty(cVar.a)) && (((bVar = zr0Var.h) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = zr0Var.i) == null || TextUtils.isEmpty(aVar.a))))) {
+                return false;
+            }
+            return true;
         }
-        this.a = adBaseModel;
-        this.b = view2;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wd1
-    public void a(String str) {
-        AdBaseModel adBaseModel;
-        nr0 nr0Var;
-        ir0 ir0Var;
+    public static void b(@Nullable List<MonitorUrl> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (adBaseModel = this.a) != null && (nr0Var = adBaseModel.f) != null && !TextUtils.isEmpty(nr0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
-            clogBuilder.j(str);
-            jr0 jr0Var = adBaseModel.m;
-            if (jr0Var != null && (ir0Var = jr0Var.q) != null) {
-                clogBuilder.v(ir0Var.a);
-            }
-            clogBuilder.p(adBaseModel.f.d);
-            x31.e(clogBuilder);
+        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.wd1
-    public void b(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vr0Var) == null) {
-            if (vr0Var.c) {
-                cj0.b(vr0Var.a);
-                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
-            }
-            View.OnClickListener onClickListener = this.c;
-            if (onClickListener != null) {
-                onClickListener.onClick(this.b);
+        for (MonitorUrl monitorUrl : list) {
+            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
+                x31.b(monitorUrl.clickUrl);
             }
         }
     }
 
-    public void h(View.OnClickListener onClickListener) {
+    public static void c(@Nullable List<MonitorUrl> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
+        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || list == null) {
+            return;
+        }
+        for (MonitorUrl monitorUrl : list) {
+            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
+                x31.b(monitorUrl.showUrl);
+            }
         }
     }
 
-    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
-        nr0 nr0Var;
-        ir0 ir0Var;
+    @ColorInt
+    public static int d(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) && adBaseModel != null && (nr0Var = adBaseModel.f) != null && !TextUtils.isEmpty(nr0Var.d)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(logType);
-            clogBuilder.j(str);
-            jr0 jr0Var = adBaseModel.m;
-            if (jr0Var != null && (ir0Var = jr0Var.q) != null) {
-                clogBuilder.v(ir0Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i == i2) {
+                return i;
             }
-            clogBuilder.p(adBaseModel.f.d);
-            x31.e(clogBuilder);
+            if (f <= 0.0f) {
+                return i;
+            }
+            if (f >= 1.0f) {
+                return i2;
+            }
+            int red = Color.red(i);
+            int blue = Color.blue(i);
+            int green = Color.green(i);
+            int alpha = Color.alpha(i);
+            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static String e(@FloatRange(from = 0.0d, to = 1.0d) float f, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), str})) == null) {
+            String hexString = Integer.toHexString(Math.round(f * 255.0f));
+            if (hexString.length() < 2) {
+                hexString = "0" + hexString;
+            }
+            if (hexString.length() != 2) {
+                return "";
+            }
+            return "#" + hexString + str;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return ContextCompat.getColor(sj0.b(), i);
+            }
+            try {
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                return ContextCompat.getColor(sj0.b(), i);
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    public static void g(View view2) {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, view2) == null) && view2 != null && (viewGroup = (ViewGroup) view2.getParent()) != null) {
+            viewGroup.removeView(view2);
         }
     }
 }

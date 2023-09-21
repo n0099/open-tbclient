@@ -19,23 +19,23 @@ import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.swan.game.guide.download.GamenowDownloadButtomView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d24;
-import com.baidu.tieba.g14;
-import com.baidu.tieba.hb3;
-import com.baidu.tieba.iz3;
-import com.baidu.tieba.l14;
-import com.baidu.tieba.o14;
-import com.baidu.tieba.qn3;
-import com.baidu.tieba.qo3;
-import com.baidu.tieba.r14;
-import com.baidu.tieba.rr1;
+import com.baidu.tieba.c24;
+import com.baidu.tieba.f14;
+import com.baidu.tieba.gb3;
+import com.baidu.tieba.hz3;
+import com.baidu.tieba.k14;
+import com.baidu.tieba.n14;
+import com.baidu.tieba.pn3;
+import com.baidu.tieba.po3;
+import com.baidu.tieba.q14;
+import com.baidu.tieba.qr1;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 @SuppressLint({"BaseActivity"})
 /* loaded from: classes4.dex */
 public class CoinClickDialog extends Activity {
     public GamenowDownloadButtomView d;
-    public iz3 e;
+    public hz3 e;
     public boolean g;
     public boolean a = false;
     public int b = 0;
@@ -60,7 +60,7 @@ public class CoinClickDialog extends Activity {
                 CoinClickDialog.this.i();
                 return;
             }
-            d24.n().j("1", CoinClickDialog.this.b, CoinClickDialog.this.c);
+            c24.n().j("1", CoinClickDialog.this.b, CoinClickDialog.this.c);
             CoinClickDialog.this.finish();
         }
     }
@@ -72,60 +72,60 @@ public class CoinClickDialog extends Activity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            d24.n().j("3", CoinClickDialog.this.b, CoinClickDialog.this.c);
-            r14.n().s(true);
+            c24.n().j("3", CoinClickDialog.this.b, CoinClickDialog.this.c);
+            q14.n().s(true);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements iz3 {
-        @Override // com.baidu.tieba.iz3
+    public class c implements hz3 {
+        @Override // com.baidu.tieba.hz3
         public void b() {
         }
 
-        @Override // com.baidu.tieba.iz3
+        @Override // com.baidu.tieba.hz3
         public void d(String str) {
         }
 
-        @Override // com.baidu.tieba.iz3
+        @Override // com.baidu.tieba.hz3
         public void f(boolean z) {
         }
 
         public c() {
         }
 
-        @Override // com.baidu.tieba.iz3
+        @Override // com.baidu.tieba.hz3
         public void a(int i) {
-            r14.n().D(i);
+            q14.n().D(i);
         }
 
-        @Override // com.baidu.tieba.iz3
+        @Override // com.baidu.tieba.hz3
         public void c(DownloadState downloadState, int i) {
             if (CoinClickDialog.this.f == downloadState) {
                 return;
             }
-            String H = g14.o.H();
-            if (TextUtils.equals(g14.o.I(), l14.a)) {
-                H = r14.n().o();
+            String H = f14.o.H();
+            if (TextUtils.equals(f14.o.I(), k14.a)) {
+                H = q14.n().o();
             }
             String str = H;
             if (CoinClickDialog.this.f != DownloadState.DOWNLOAD_PAUSED && CoinClickDialog.this.f != DownloadState.DOWNLOAD_FAILED && downloadState == DownloadState.DOWNLOADING) {
-                d24.n().e("statusBeginDownload", "wdview", "0", "", "", str);
+                c24.n().e("statusBeginDownload", "wdview", "0", "", "", str);
             } else if (downloadState == DownloadState.DOWNLOAD_PAUSED) {
                 if (CoinClickDialog.this.g) {
-                    d24.n().e("statusDownloadPause", "wdview", "0", "", "", str);
+                    c24.n().e("statusDownloadPause", "wdview", "0", "", "", str);
                 }
             } else if (downloadState == DownloadState.DOWNLOADED && CoinClickDialog.this.g) {
-                d24.n().e("statusDownloaded", "wdview", "0", "", "", str);
+                c24.n().e("statusDownloaded", "wdview", "0", "", "", str);
             }
-            r14.n().E(downloadState);
+            q14.n().E(downloadState);
             CoinClickDialog.this.f = downloadState;
             CoinClickDialog.this.g = true;
         }
 
-        @Override // com.baidu.tieba.iz3
+        @Override // com.baidu.tieba.hz3
         public String e() {
-            return g14.o.I();
+            return f14.o.I();
         }
     }
 
@@ -137,38 +137,38 @@ public class CoinClickDialog extends Activity {
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
             if (i == -1) {
-                if (TextUtils.equals(g14.o.I(), l14.a)) {
-                    g14.o.V(true);
+                if (TextUtils.equals(f14.o.I(), k14.a)) {
+                    f14.o.V(true);
                 }
-                d24.n().j("2", CoinClickDialog.this.b, CoinClickDialog.this.c);
+                c24.n().j("2", CoinClickDialog.this.b, CoinClickDialog.this.c);
                 CoinClickDialog.this.finish();
             }
-            if (i == -2 && TextUtils.equals(g14.o.I(), l14.a)) {
-                ((CheckBox) CoinClickDialog.this.findViewById(R.id.obfuscated_res_0x7f090653)).setChecked(false);
+            if (i == -2 && TextUtils.equals(f14.o.I(), k14.a)) {
+                ((CheckBox) CoinClickDialog.this.findViewById(R.id.obfuscated_res_0x7f09064b)).setChecked(false);
             }
         }
     }
 
     public final void i() {
-        o14 o14Var = new o14(this);
-        o14Var.a = new d();
-        o14Var.show();
+        n14 n14Var = new n14(this);
+        n14Var.a = new d();
+        n14Var.show();
     }
 
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        r14.n().t();
+        q14.n().t();
     }
 
     public final void h(GameGuideConfigInfo gameGuideConfigInfo) {
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092748);
-        TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092749);
-        TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f092772);
-        TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f092773);
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09052a);
-        ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090713);
-        ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f092668)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092714);
+        TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092715);
+        TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f09273d);
+        TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f09273e);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090523);
+        ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f09070a);
+        ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f092633)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
         if (this.a) {
             textView.setText(gameGuideConfigInfo.dialogInfo.maxNumsTips);
         } else {
@@ -189,39 +189,39 @@ public class CoinClickDialog extends Activity {
             textView2.setText(str2);
         }
         String str3 = gameGuideConfigInfo.dialogInfo.guideTips1;
-        hb3 b0 = hb3.b0();
+        gb3 b0 = gb3.b0();
         if (!TextUtils.isEmpty(str3) && str3.contains("{youxi}") && b0 != null) {
             b0.q();
             str3 = str3.replace("{youxi}", b0.Z());
         }
         textView3.setText(str3);
         textView4.setText(gameGuideConfigInfo.dialogInfo.guideTips2);
-        findViewById(R.id.obfuscated_res_0x7f091214).setOnClickListener(new a((CheckBox) findViewById(R.id.obfuscated_res_0x7f090653)));
+        findViewById(R.id.obfuscated_res_0x7f091205).setOnClickListener(new a((CheckBox) findViewById(R.id.obfuscated_res_0x7f09064b)));
         constraintLayout.setOnClickListener(new b());
         this.e = new c();
-        GamenowDownloadButtomView j = r14.n().j(this.e, "wdview", "0", this.b, this.c);
+        GamenowDownloadButtomView j = q14.n().j(this.e, "wdview", "0", this.b, this.c);
         this.d = j;
         linearLayout.addView(j);
     }
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        qn3.e(this);
+        pn3.e(this);
         super.onCreate(bundle);
         setContentView(R.layout.obfuscated_res_0x7f0d00a4);
-        if (hb3.b0() != null && qo3.p(hb3.b0().w())) {
-            qo3.s(this);
+        if (gb3.b0() != null && po3.p(gb3.b0().w())) {
+            po3.s(this);
         }
-        GameGuideConfigInfo z = g14.o.z();
+        GameGuideConfigInfo z = f14.o.z();
         if (z != null && z.dialogInfo != null) {
             this.a = getIntent().getBooleanExtra("isShowMax", false);
             this.b = getIntent().getIntExtra("rewardCoinsThisTime", 0);
             this.c = getIntent().getIntExtra("totalRewardCoins", 0);
-            d24.n().k(this.b, this.c);
+            c24.n().k(this.b, this.c);
             h(z);
             return;
         }
-        if (rr1.a) {
+        if (qr1.a) {
             Log.d("CoinClickDialog", "获取到的配置信息为null");
         }
         finish();

@@ -51,12 +51,12 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0358, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0359, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090c7a);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c78);
-            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090edb);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090c6d);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c6b);
+            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ecf);
             this.f = (TextView) this.a.findViewById(R.id.to_next_tv);
             this.c.setText(R.string.obfuscated_res_0x7f0f0782);
             this.d.setText(R.string.obfuscated_res_0x7f0f0781);

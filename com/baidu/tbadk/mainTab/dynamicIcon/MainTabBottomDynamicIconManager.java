@@ -11,9 +11,9 @@ import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.do5;
-import com.baidu.tieba.eo5;
-import com.baidu.tieba.j31;
+import com.baidu.tieba.ho5;
+import com.baidu.tieba.i31;
+import com.baidu.tieba.io5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class MainTabBottomDynamicIconManager implements eo5 {
+public class MainTabBottomDynamicIconManager implements io5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_CHANNEL = "channel";
     public static final String TAG_ENTER_FORUM = "enterForum";
@@ -107,7 +107,7 @@ public class MainTabBottomDynamicIconManager implements eo5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (j31.c(this.mIconDataMap) || this.hasShowHashCode != this.mIconDataMap.hashCode()) {
+            if (i31.c(this.mIconDataMap) || this.hasShowHashCode != this.mIconDataMap.hashCode()) {
                 return false;
             }
             return true;
@@ -169,9 +169,9 @@ public class MainTabBottomDynamicIconManager implements eo5 {
         }
     }
 
-    public do5 getValidDynamicStyle() {
+    public ho5 getValidDynamicStyle() {
         InterceptResult invokeV;
-        do5 dynamicStyleData;
+        ho5 dynamicStyleData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             DynamicIconData iconData = getInstance().getIconData("style");
@@ -180,10 +180,10 @@ public class MainTabBottomDynamicIconManager implements eo5 {
             }
             return null;
         }
-        return (do5) invokeV.objValue;
+        return (ho5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.eo5
+    @Override // com.baidu.tieba.io5
     public void onIconLoadedFinish() {
         boolean z;
         Interceptable interceptable = $ic;

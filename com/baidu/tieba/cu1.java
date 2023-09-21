@@ -1,31 +1,42 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class cu1 implements bx1 {
+public class cu1 implements mw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bx1
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mw1
+    public void a(@NonNull JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bx1
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mw1
+    public jf2 b(Context context, File file, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "-1" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
+            return null;
+        }
+        return (jf2) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.mw1
+    public void c(@NonNull JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+        }
     }
 
     public cu1() {

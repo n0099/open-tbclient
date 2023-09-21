@@ -13,7 +13,7 @@ import kotlin.jvm.internal.markers.KMappedMarker;
 /* loaded from: classes10.dex */
 public abstract class UIntIterator implements Iterator<UInt>, KMappedMarker {
     /* renamed from: nextUInt-pVg5ArA */
-    public abstract int mo1013nextUIntpVg5ArA();
+    public abstract int mo1015nextUIntpVg5ArA();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -23,11 +23,11 @@ public abstract class UIntIterator implements Iterator<UInt>, KMappedMarker {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // java.util.Iterator
     public /* bridge */ /* synthetic */ UInt next() {
-        return UInt.m938boximpl(m1310nextpVg5ArA());
+        return UInt.m940boximpl(m1312nextpVg5ArA());
     }
 
     /* renamed from: next-pVg5ArA  reason: not valid java name */
-    public final int m1310nextpVg5ArA() {
-        return mo1013nextUIntpVg5ArA();
+    public final int m1312nextpVg5ArA() {
+        return mo1015nextUIntpVg5ArA();
     }
 }

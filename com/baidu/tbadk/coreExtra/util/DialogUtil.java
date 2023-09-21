@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.CustomPushPremissionDialogView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a55;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.td5;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.xd5;
 import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -54,14 +54,14 @@ public class DialogUtil {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
         public final /* synthetic */ int[] b;
-        public final /* synthetic */ y45 c;
+        public final /* synthetic */ z45 c;
 
-        public a(TbPageContext tbPageContext, int[] iArr, y45 y45Var) {
+        public a(TbPageContext tbPageContext, int[] iArr, z45 z45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, iArr, y45Var};
+                Object[] objArr = {tbPageContext, iArr, z45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,7 +73,7 @@ public class DialogUtil {
             }
             this.a = tbPageContext;
             this.b = iArr;
-            this.c = y45Var;
+            this.c = z45Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -92,14 +92,14 @@ public class DialogUtil {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int[] a;
-        public final /* synthetic */ y45 b;
+        public final /* synthetic */ z45 b;
 
-        public b(int[] iArr, y45 y45Var) {
+        public b(int[] iArr, z45 z45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iArr, y45Var};
+                Object[] objArr = {iArr, z45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -110,7 +110,7 @@ public class DialogUtil {
                 }
             }
             this.a = iArr;
-            this.b = y45Var;
+            this.b = z45Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -175,7 +175,7 @@ public class DialogUtil {
         }
     }
 
-    public static y45 createAlertDialog(TbPageContext<?> tbPageContext, int i, int i2, int i3, int i4, y45.e eVar, y45.e eVar2) {
+    public static z45 createAlertDialog(TbPageContext<?> tbPageContext, int i, int i2, int i3, int i4, z45.e eVar, z45.e eVar2) {
         InterceptResult invokeCommon;
         String str;
         Interceptable interceptable = $ic;
@@ -187,103 +187,103 @@ public class DialogUtil {
             }
             return createAlertDialog(tbPageContext, str, TbadkCoreApplication.getInst().getContext().getString(i2), TbadkCoreApplication.getInst().getContext().getString(i3), TbadkCoreApplication.getInst().getContext().getString(i4), eVar, eVar2);
         }
-        return (y45) invokeCommon.objValue;
+        return (z45) invokeCommon.objValue;
     }
 
-    public static y45 createAlertDialog(TbPageContext<?> tbPageContext, String str, String str2, y45.e eVar, y45.e eVar2) {
+    public static z45 createAlertDialog(TbPageContext<?> tbPageContext, String str, String str2, z45.e eVar, z45.e eVar2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, str, str2, eVar, eVar2)) == null) {
             if (tbPageContext == null) {
                 return null;
             }
-            y45 y45Var = new y45(tbPageContext.getPageActivity());
-            y45Var.setTitle(str);
-            y45Var.setMessage(str2);
-            y45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f059b, eVar);
-            y45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0590, eVar2);
-            y45Var.create(tbPageContext);
-            return y45Var;
+            z45 z45Var = new z45(tbPageContext.getPageActivity());
+            z45Var.setTitle(str);
+            z45Var.setMessage(str2);
+            z45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f059b, eVar);
+            z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0590, eVar2);
+            z45Var.create(tbPageContext);
+            return z45Var;
         }
-        return (y45) invokeLLLLL.objValue;
+        return (z45) invokeLLLLL.objValue;
     }
 
-    public static y45 createAlertDialog(TbPageContext<?> tbPageContext, String str, String str2, String str3, String str4, y45.e eVar, y45.e eVar2) {
+    public static z45 createAlertDialog(TbPageContext<?> tbPageContext, String str, String str2, String str3, String str4, z45.e eVar, z45.e eVar2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, str, str2, str3, str4, eVar, eVar2})) == null) {
             if (tbPageContext == null) {
                 return null;
             }
-            y45 y45Var = new y45(tbPageContext.getPageActivity());
-            y45Var.setTitle(str);
-            y45Var.setMessage(str2);
-            y45Var.setPositiveButton(str3, eVar);
-            y45Var.setNegativeButton(str4, eVar2);
-            y45Var.create(tbPageContext);
-            return y45Var;
+            z45 z45Var = new z45(tbPageContext.getPageActivity());
+            z45Var.setTitle(str);
+            z45Var.setMessage(str2);
+            z45Var.setPositiveButton(str3, eVar);
+            z45Var.setNegativeButton(str4, eVar2);
+            z45Var.create(tbPageContext);
+            return z45Var;
         }
-        return (y45) invokeCommon.objValue;
+        return (z45) invokeCommon.objValue;
     }
 
-    public static z45 createListDialog(TbPageContext<?> tbPageContext, int i, CharSequence[] charSequenceArr, z45.c cVar) {
+    public static a55 createListDialog(TbPageContext<?> tbPageContext, int i, CharSequence[] charSequenceArr, a55.c cVar) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, i, charSequenceArr, cVar)) == null) {
             if (tbPageContext == null) {
                 return null;
             }
-            z45 z45Var = new z45(tbPageContext.getPageActivity());
-            z45Var.k(i);
-            z45Var.j(charSequenceArr, cVar);
-            z45Var.c(tbPageContext);
-            return z45Var;
+            a55 a55Var = new a55(tbPageContext.getPageActivity());
+            a55Var.k(i);
+            a55Var.j(charSequenceArr, cVar);
+            a55Var.c(tbPageContext);
+            return a55Var;
         }
-        return (z45) invokeLILL.objValue;
+        return (a55) invokeLILL.objValue;
     }
 
-    public static y45 openPluginForbidden(TbPageContext<?> tbPageContext, int i, y45.e eVar, y45.e eVar2) {
+    public static z45 openPluginForbidden(TbPageContext<?> tbPageContext, int i, z45.e eVar, z45.e eVar2) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65546, null, tbPageContext, i, eVar, eVar2)) == null) {
             return openPluginForbidden(tbPageContext, i, eVar, eVar2, false);
         }
-        return (y45) invokeLILL.objValue;
+        return (z45) invokeLILL.objValue;
     }
 
-    public static z45 createListDialog(TbPageContext<?> tbPageContext, String str, CharSequence[] charSequenceArr, z45.c cVar) {
+    public static a55 createListDialog(TbPageContext<?> tbPageContext, String str, CharSequence[] charSequenceArr, a55.c cVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, tbPageContext, str, charSequenceArr, cVar)) == null) {
             if (tbPageContext == null) {
                 return null;
             }
-            z45 z45Var = new z45(tbPageContext.getPageActivity());
-            z45Var.l(str);
-            z45Var.j(charSequenceArr, cVar);
-            z45Var.c(tbPageContext);
-            return z45Var;
+            a55 a55Var = new a55(tbPageContext.getPageActivity());
+            a55Var.l(str);
+            a55Var.j(charSequenceArr, cVar);
+            a55Var.c(tbPageContext);
+            return a55Var;
         }
-        return (z45) invokeLLLL.objValue;
+        return (a55) invokeLLLL.objValue;
     }
 
-    public static z45 deleteItem(Context context, z45.c cVar) {
+    public static a55 deleteItem(Context context, a55.c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, cVar)) == null) {
             if (m9.a(context) == null) {
                 return null;
             }
-            z45 z45Var = new z45(m9.a(context).getPageActivity());
-            z45Var.l(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f1c));
-            z45Var.j(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_user_chat)}, cVar);
-            z45Var.c(m9.a(context));
+            a55 a55Var = new a55(m9.a(context).getPageActivity());
+            a55Var.l(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f1e));
+            a55Var.j(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_user_chat)}, cVar);
+            a55Var.c(m9.a(context));
             if (context instanceof Activity) {
-                z45Var.m();
+                a55Var.m();
             }
-            return z45Var;
+            return a55Var;
         }
-        return (z45) invokeLL.objValue;
+        return (a55) invokeLL.objValue;
     }
 
     public static boolean isMIUIUnderV10() {
@@ -334,47 +334,47 @@ public class DialogUtil {
         jumpSystemNotificationSetting(bdPageContext.getPageActivity());
     }
 
-    public static y45 openPluginForbidden(TbPageContext<?> tbPageContext, int i, y45.e eVar, y45.e eVar2, boolean z) {
+    public static z45 openPluginForbidden(TbPageContext<?> tbPageContext, int i, z45.e eVar, z45.e eVar2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{tbPageContext, Integer.valueOf(i), eVar, eVar2, Boolean.valueOf(z)})) == null) {
             if (tbPageContext == null) {
                 return null;
             }
-            String string = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f139c);
+            String string = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f139d);
             String string2 = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f03d0);
-            y45 y45Var = new y45(tbPageContext.getPageActivity());
-            y45Var.setMessage(TbadkCoreApplication.getInst().getContext().getString(i));
-            y45Var.setPositiveButton(string, eVar);
-            y45Var.setNegativeButton(string2, eVar2);
-            y45Var.create(tbPageContext);
+            z45 z45Var = new z45(tbPageContext.getPageActivity());
+            z45Var.setMessage(TbadkCoreApplication.getInst().getContext().getString(i));
+            z45Var.setPositiveButton(string, eVar);
+            z45Var.setNegativeButton(string2, eVar2);
+            z45Var.create(tbPageContext);
             if (z) {
-                y45Var.showNoCheck();
+                z45Var.showNoCheck();
             } else {
-                y45Var.show();
+                z45Var.show();
             }
-            return y45Var;
+            return z45Var;
         }
-        return (y45) invokeCommon.objValue;
+        return (z45) invokeCommon.objValue;
     }
 
-    public static y45 openScanResult(Context context, y45.e eVar, String str) {
+    public static z45 openScanResult(Context context, z45.e eVar, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, context, eVar, str)) == null) {
             if (m9.a(context) == null) {
                 return null;
             }
-            y45 create = new y45(m9.a(context).getPageActivity()).setTitle(TbadkCoreApplication.getInst().getContext().getString(R.string.bar_code_result)).setMessage(str).setPositiveButton(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), eVar).create(m9.a(context));
+            z45 create = new z45(m9.a(context).getPageActivity()).setTitle(TbadkCoreApplication.getInst().getContext().getString(R.string.bar_code_result)).setMessage(str).setPositiveButton(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), eVar).create(m9.a(context));
             if (context instanceof Activity) {
                 create.show();
             }
             return create;
         }
-        return (y45) invokeLLL.objValue;
+        return (z45) invokeLLL.objValue;
     }
 
-    public static y45 openScanResultDiscern(Context context, y45.e eVar) {
+    public static z45 openScanResultDiscern(Context context, z45.e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, eVar)) == null) {
@@ -382,13 +382,13 @@ public class DialogUtil {
                 return null;
             }
             String string = TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title);
-            y45 create = new y45(m9.a(context).getPageActivity()).setTitle(string).setMessage(TbadkCoreApplication.getInst().getContext().getString(R.string.msg_album_bug)).setPositiveButton(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), eVar).create(m9.a(context));
+            z45 create = new z45(m9.a(context).getPageActivity()).setTitle(string).setMessage(TbadkCoreApplication.getInst().getContext().getString(R.string.msg_album_bug)).setPositiveButton(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), eVar).create(m9.a(context));
             if (context instanceof Activity) {
                 create.show();
             }
             return create;
         }
-        return (y45) invokeLL.objValue;
+        return (z45) invokeLL.objValue;
     }
 
     public static boolean shouldShowPushPremissionDialog(Context context, int i) {
@@ -423,18 +423,18 @@ public class DialogUtil {
         return invokeLI.booleanValue;
     }
 
-    public static y45 openUrl(TbPageContext<?> tbPageContext, y45.e eVar, y45.e eVar2, String str) {
+    public static z45 openUrl(TbPageContext<?> tbPageContext, z45.e eVar, z45.e eVar2, String str) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, null, tbPageContext, eVar, eVar2, str)) == null) {
             if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
                 return null;
             }
-            y45 create = new y45(tbPageContext.getPageActivity()).setTitle(TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title)).setMessage(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str)).setPositiveButton(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), eVar).setNegativeButton(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f03d0), eVar2).create(tbPageContext);
+            z45 create = new z45(tbPageContext.getPageActivity()).setTitle(TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title)).setMessage(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str)).setPositiveButton(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), eVar).setNegativeButton(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f03d0), eVar2).create(tbPageContext);
             create.show();
             return create;
         }
-        return (y45) invokeLLLL.objValue;
+        return (z45) invokeLLLL.objValue;
     }
 
     public static void showNotificationPermissionDialog(TbPageContext<?> tbPageContext, boolean[] zArr, int i) {
@@ -447,21 +447,21 @@ public class DialogUtil {
     public static void showPushPermissionDialog(TbPageContext<?> tbPageContext, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{tbPageContext, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            y45 y45Var = new y45(tbPageContext.getPageActivity());
-            y45Var.setCancelable(false);
-            y45Var.setPositiveButton((String) null, (y45.e) null);
-            y45Var.setNegativeButton((String) null, (y45.e) null);
-            y45Var.setContentViewSize(4);
+            z45 z45Var = new z45(tbPageContext.getPageActivity());
+            z45Var.setCancelable(false);
+            z45Var.setPositiveButton((String) null, (z45.e) null);
+            z45Var.setNegativeButton((String) null, (z45.e) null);
+            z45Var.setContentViewSize(4);
             CustomPushPremissionDialogView customPushPremissionDialogView = new CustomPushPremissionDialogView(tbPageContext.getPageActivity());
-            y45Var.setContentView(customPushPremissionDialogView);
+            z45Var.setContentView(customPushPremissionDialogView);
             int[] iArr = {-1};
-            customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new a(tbPageContext, iArr, y45Var));
-            customPushPremissionDialogView.getPushPermissionDialogCancelButton().setOnClickListener(new b(iArr, y45Var));
-            y45Var.setOnDismissListener(new c(i, iArr));
+            customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new a(tbPageContext, iArr, z45Var));
+            customPushPremissionDialogView.getPushPermissionDialogCancelButton().setOnClickListener(new b(iArr, z45Var));
+            z45Var.setOnDismissListener(new c(i, iArr));
             if (j > 0) {
-                y45Var.create(tbPageContext).show(j);
+                z45Var.create(tbPageContext).show(j);
             } else {
-                y45Var.create(tbPageContext).show();
+                z45Var.create(tbPageContext).show();
             }
             StatisticItem statisticItem = new StatisticItem("c13674");
             statisticItem.param("obj_source", i);
@@ -475,7 +475,7 @@ public class DialogUtil {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, context, i)) == null) {
-            td5 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
+            xd5 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
             if (pushStrategyConfig != null && pushStrategyConfig.d()) {
                 i2 = pushStrategyConfig.b();
             } else {

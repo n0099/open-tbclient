@@ -1,96 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
-import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
-import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
 public class kh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public final BdUniqueId b;
-    public b c;
-    public NetMessageListener d;
+    public List<bn> a;
+    public List<RecommendForumInfo> b;
+    public Page c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z, oh7 oh7Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kh7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(kh7 kh7Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kh7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kh7Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                oh7 oh7Var = null;
-                boolean z = false;
-                if (responsedMessage != null && !responsedMessage.hasError() && responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() == this.a.b) {
-                    if (responsedMessage instanceof SearchPostForumHttpResponseMessage) {
-                        oh7Var = ((SearchPostForumHttpResponseMessage) responsedMessage).getSearchData();
-                    }
-                    if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
-                        oh7Var = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
-                    }
-                    if (this.a.c != null) {
-                        b bVar = this.a.c;
-                        if (oh7Var != null) {
-                            z = true;
-                        }
-                        bVar.a(z, oh7Var);
-                    }
-                } else if (this.a.c != null) {
-                    this.a.c.a(false, null);
-                }
-            }
-        }
-    }
-
-    public kh7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public kh7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -100,42 +36,45 @@ public class kh7 {
                 return;
             }
         }
-        a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
-        this.d = aVar;
-        this.a = tbPageContext;
-        this.b = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.d);
+        this.a = new ArrayList();
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
     }
 
-    public void e(b bVar) {
+    public List<bn> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void c() {
+    public void b(h17 h17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h17Var) == null) {
+            String str = h17Var.d;
+            this.c = h17Var.c;
+            List<RecommendForumInfo> list = h17Var.a;
+            this.b = list;
+            if (!ListUtils.isEmpty(list)) {
+                for (RecommendForumInfo recommendForumInfo : this.b) {
+                    jh7 jh7Var = new jh7();
+                    jh7Var.i(recommendForumInfo);
+                    this.a.add(jh7Var);
+                }
+            }
+            Page page = this.c;
+            if (page != null) {
+                boolean z = true;
+                if (page.has_more.intValue() != 1) {
+                    z = false;
+                }
+                this.d = z;
+                this.e = this.c.current_page.intValue();
+            }
         }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (!BdUtilHelper.isNetOk()) {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0e40);
-            return;
-        }
-        c();
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
-        SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
-        searchPostForumRequestMessage.setTag(this.b);
-        searchPostForumRequestMessage.set_word(str);
-        MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
 }

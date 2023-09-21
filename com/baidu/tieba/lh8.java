@@ -1,44 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class lh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static Object a(@NonNull fh8 fh8Var, @NonNull gh8 gh8Var, @NonNull Object obj) {
-        InterceptResult invokeLLL;
+    public static void a(int i, int i2, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, fh8Var, gh8Var, obj)) == null) {
-            try {
-                return fh8Var.b(gh8Var, obj);
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.BIG_PAGE_ADD_EMOTION);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_type", i);
+            statisticItem.param("obj_source", i2);
+            statisticItem.param("room_id", j);
+            statisticItem.param("fid", j2);
+            TiebaStatic.log(statisticItem);
         }
-        return invokeLLL.objValue;
     }
 
-    @Nullable
-    public static Object b(@NonNull fh8 fh8Var, @NonNull gh8 gh8Var, @NonNull Object obj) {
-        InterceptResult invokeLLL;
+    public static void b(int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, fh8Var, gh8Var, obj)) == null) {
-            try {
-                return fh8Var.a(gh8Var, obj);
-            } catch (Exception e) {
-                e.printStackTrace();
-                BdLog.e(e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.BIG_PAGE_AI_EMOTION_BORAD);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_type", i);
+            statisticItem.param("room_id", j);
+            statisticItem.param("fid", j2);
+            TiebaStatic.log(statisticItem);
         }
-        return invokeLLL.objValue;
     }
 }

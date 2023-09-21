@@ -1,27 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.oe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
 public class ah7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<cn> a;
-    public List<RecommendForumInfo> b;
-    public Page c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
+    public oe<byte[]> a;
 
     public ah7() {
         Interceptable interceptable = $ic;
@@ -36,45 +28,42 @@ public class ah7 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
+        b();
     }
 
-    public List<cn> a() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            y45.k();
+            this.a = y45.i("tb.tbtiel_level_info");
         }
-        return (List) invokeV.objValue;
     }
 
-    public void b(a17 a17Var) {
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        oe.b<byte[]> bVar;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a17Var) == null) {
-            String str = a17Var.d;
-            this.c = a17Var.c;
-            List<RecommendForumInfo> list = a17Var.a;
-            this.b = list;
-            if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.b) {
-                    zg7 zg7Var = new zg7();
-                    zg7Var.i(recommendForumInfo);
-                    this.a.add(zg7Var);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            oe<byte[]> oeVar = this.a;
+            if (oeVar != null && str != null) {
+                bVar = oeVar.h(str);
+            } else {
+                bVar = null;
             }
-            Page page = this.c;
-            if (page != null) {
-                boolean z = true;
-                if (page.has_more.intValue() != 1) {
-                    z = false;
-                }
-                this.d = z;
-                this.e = this.c.current_page.intValue();
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
             }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
+            b();
+            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

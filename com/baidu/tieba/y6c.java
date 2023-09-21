@@ -1,168 +1,199 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.os.Message;
-import android.view.Surface;
-import android.view.TextureView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.SharedPreferences;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.common.AVStream;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.common.AlphaChannelData;
+import com.yy.transvod.player.common.AudioSendStamp;
+import com.yy.transvod.player.common.MixAudioExtraInfo;
+import com.yy.transvod.player.common.MixVideoExtraInfo;
+import com.yy.transvod.player.common.NetRequestStatusInfo;
+import com.yy.transvod.player.common.VideoExtraInfo;
+import com.yy.transvod.player.common.effectmp4.EffectFrame;
+import com.yy.transvod.player.common.effectmp4.EffectInfo;
+import com.yy.transvod.player.common.effectmp4.EffectObject;
+import com.yy.transvod.player.common.effectmp4.EffectSource;
+import com.yy.transvod.player.core.TransVodProxy;
 import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import com.yy.transvod.player.mediacodec.NativeIttiam;
+import java.util.UUID;
 /* loaded from: classes8.dex */
-public class y6c extends u6c implements TextureView.SurfaceTextureListener {
+public class y6c {
     public static /* synthetic */ Interceptable $ic;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface K;
-    public int L;
+    public TransVodProxy a;
+    public v6c b;
+    public Context c;
 
-    public y6c(Context context, m6c m6cVar, int i, int i2, e5c e5cVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283555, "Lcom/baidu/tieba/y6c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948283555, "Lcom/baidu/tieba/y6c;");
+                return;
+            }
+        }
+        z4c.b();
+        d = null;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return z4c.a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.l();
+                    this.a = null;
+                }
+            }
+            v6c v6cVar = this.b;
+            if (v6cVar != null) {
+                v6cVar.f();
+                this.b = null;
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.v(true);
+                }
+            }
+        }
+    }
+
+    public y6c(Context context, a6c a6cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, m6cVar, Integer.valueOf(i), Integer.valueOf(i2), e5cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {context, a6cVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.K = null;
-        this.L = 0;
-        A(context, m6cVar, i, i2, e5cVar);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        z4c.c(context);
+        c();
+        this.c = context;
+        String a = a(context);
+        TLog.h("TransVodManager", "generated uid " + a);
     }
 
-    @Override // com.baidu.tieba.u6c
-    public void A(Context context, Object obj, int i, int i2, e5c e5cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), e5cVar}) == null) {
-            super.A(context, obj, i, i2, e5cVar);
-            if (obj != null && (obj instanceof m6c)) {
-                ((m6c) obj).a(this);
-            }
-        }
-    }
-
-    public final void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            X(false);
-            if (this.d != null && this.a.available()) {
-                this.d.g(2402);
-                this.d.f(2402);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.r6c
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.c != null) {
-            TLog.g(this, "OutputExternalSurfaceRender destroyWindow");
-        }
-    }
-
-    @Override // com.baidu.tieba.r6c
-    public Object getWindow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.K;
-        }
-        return invokeV.objValue;
-    }
-
-    public final void Z(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
-            X(true);
-            if (this.d != null) {
-                if (this.a.available()) {
-                    this.d.g(2402);
-                    this.d.f(2402);
-                }
-                TLog.g(this, "do send surfaceCreated, playerUID:" + this.r);
-                this.d.g(2401);
-                this.d.sendMessage(Message.obtain(null, 2401, surfaceTexture));
-            }
-        }
-    }
-
-    public final void a0(SurfaceTexture surfaceTexture, int i, int i2) {
-        m4c m4cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) && (m4cVar = this.d) != null) {
-            m4cVar.g(2404);
-            this.d.sendMessage(Message.obtain(null, 2404, i, i2, surfaceTexture));
-            TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i, i2) == null) {
-            if (this.L % 100 == 0) {
-                TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-            }
-            this.L++;
-            D();
-            this.I.set(true);
-            U();
-            a0(surfaceTexture, i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.r6c
-    public void d(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, surfaceTexture) == null) {
-            this.K = new Surface(surfaceTexture);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, surfaceTexture) == null) && this.d != null && this.a.available()) {
-            this.d.g(2405);
-            this.d.f(2405);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, surfaceTexture, i, i2) == null) {
-            TLog.g(this, "onSurfaceTextureAvailable() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-            this.I.set(true);
-            Z(surfaceTexture);
-            if (i > 0 && i2 > 0) {
-                a0(surfaceTexture, i, i2);
-            }
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+    public static synchronized String a(Context context) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceTexture)) == null) {
-            TLog.g(this, "onSurfaceTextureDestroyed playerUID:" + this.r);
-            D();
-            this.I.set(false);
-            U();
-            Y();
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (y6c.class) {
+                if (d == null) {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("transvod-uid-pref", 0);
+                    String string = sharedPreferences.getString("transvod-uid-pref", null);
+                    d = string;
+                    if (string == null) {
+                        d = UUID.randomUUID().toString();
+                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                        edit.putString("transvod-uid-pref", d);
+                        edit.commit();
+                    }
+                }
+                str = d;
+            }
+            return str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!z4c.a()) {
+                TLog.h("TransVodManager", "init failed, library not load success");
+                return;
+            }
+            Log.i("TransVodManager", "TLog.setLevel()");
+            TLog.i(4);
+            TransVodProxy.nativeClassInit();
+            AVframe.nativeClassInit();
+            AVStream.nativeClassInit();
+            NativeFfmpeg.nativeClassInit();
+            NativeIttiam.nativeClassInit();
+            VideoExtraInfo.nativeClassInit();
+            AlphaChannelData.nativeClassInit();
+            MixVideoExtraInfo.nativeClassInit();
+            MixAudioExtraInfo.nativeClassInit();
+            NetRequestStatusInfo.nativeClassInit();
+            AudioSendStamp.nativeClassInit();
+            EffectInfo.nativeClassInit();
+            EffectSource.nativeClassInit();
+            EffectObject.nativeClassInit();
+            EffectFrame.nativeClassInit();
+        }
+    }
+
+    public TransVodProxy d(int i, a6c a6cVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, a6cVar)) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new TransVodProxy(null, i, a6cVar);
+                }
+            }
+            if (this.b == null) {
+                v6c v6cVar = new v6c(this.c, this);
+                this.b = v6cVar;
+                v6cVar.i();
+            }
+            return this.a;
+        }
+        return (TransVodProxy) invokeIL.objValue;
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.f(i);
+                }
+            }
+        }
     }
 }

@@ -63,7 +63,7 @@ public class aq implements at {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m268a(IBinder iBinder) {
+        public static boolean m270a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -102,7 +102,7 @@ public class aq implements at {
         }
         synchronized (this.f112a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m181a("huawei's " + str + " wait...");
+                com.xiaomi.channel.commonutils.logger.b.m183a("huawei's " + str + " wait...");
                 this.f112a.wait(3000L);
             } catch (Exception unused) {
             }
@@ -133,14 +133,14 @@ public class aq implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a  reason: collision with other method in class */
-    public String mo266a() {
+    public String mo268a() {
         a("getOAID");
         return this.f113a;
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo267a() {
+    public boolean mo269a() {
         return a;
     }
 }

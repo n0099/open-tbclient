@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+
+import java.io.File;
 /* loaded from: classes5.dex */
 public interface az2 {
-    void c();
+    void a(File file);
 
-    void d();
-
-    void f();
+    void b(String str);
 }

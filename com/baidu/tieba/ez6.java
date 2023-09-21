@@ -1,39 +1,212 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.content.pm.PackageInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ApkDetail;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ez6 {
+public class ez6 extends az6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final DownloadManagerNetModel b;
+    public gz6 c;
+    public hz6 d;
+    public List<String> e;
+    public dz6 f;
+    public final List<yy6> g;
+    public int h;
 
-    public static void a(sy6 sy6Var) {
-        ItemData itemData;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ez6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, int i) {
+        super(tbPageContext, bdUniqueId, i);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, sy6Var) == null) && sy6Var != null && (itemData = sy6Var.a) != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
-            httpMessage.addParam("item_id", itemData.itemId);
-            httpMessage.addParam("app_name", itemData.mTitle);
-            httpMessage.addParam("source_type", sy6Var.b);
-            httpMessage.addParam("icon_url", itemData.mIconUrl);
-            httpMessage.addParam("score", Double.valueOf(itemData.mScore));
-            httpMessage.addParam(TaskProcess.keyTags, itemData.mTags);
-            httpMessage.addParam("apk_name", itemData.pkgName);
-            ApkDetail apkDetail = itemData.apkDetail;
-            if (apkDetail != null) {
-                httpMessage.addParam("developer", apkDetail.developer);
-                httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
-                httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
-                httpMessage.addParam("version", itemData.apkDetail.version);
-                httpMessage.addParam("version_code", itemData.apkDetail.version_code);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
         }
+        this.d = new hz6();
+        this.e = new ArrayList();
+        this.g = new ArrayList();
+        this.h = 0;
+        gz6 gz6Var = new gz6(1, i);
+        this.c = gz6Var;
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(tbPageContext, gz6Var);
+        this.b = downloadManagerNetModel;
+        downloadManagerNetModel.o0(this);
+        this.b.setUniqueId(bdUniqueId);
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void C(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
+            return;
+        }
+        hz6 hz6Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+            hz6Var = (hz6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (hz6Var != null && i(hz6Var)) {
+            return;
+        }
+        f(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void v(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048585, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        hz6 hz6Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+            hz6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (hz6Var != null && i(hz6Var)) {
+            return;
+        }
+        f(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
+    }
+
+    @Override // com.baidu.tieba.az6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            e();
+            this.c.c();
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.az6
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e();
+            this.d.a.clear();
+            this.e.clear();
+            this.c.b();
+            this.b.loadData();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g.clear();
+            this.h = 0;
+        }
+    }
+
+    @Override // com.baidu.tieba.az6
+    public void d(dz6 dz6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dz6Var) == null) {
+            this.f = dz6Var;
+        }
+    }
+
+    public final boolean i(hz6 hz6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hz6Var)) == null) {
+            if (hz6Var == null) {
+                return false;
+            }
+            hz6 hz6Var2 = this.d;
+            hz6Var2.c = hz6Var.c;
+            hz6Var2.b = hz6Var.b;
+            g(hz6Var.a);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void f(int i, String str) {
+        dz6 dz6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && i != 0 && (dz6Var = this.f) != null) {
+            dz6Var.b(i, str);
+        }
+    }
+
+    public void g(List<yy6> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            for (yy6 yy6Var : list) {
+                PackageInfo a = zv7.a(yy6Var.a.pkgName);
+                if (a != null) {
+                    yy6Var.f = true;
+                    if (a.versionCode < yy6Var.a.apkDetail.version_code.intValue()) {
+                        List<yy6> list2 = this.g;
+                        int i = this.h;
+                        this.h = i + 1;
+                        list2.add(i, yy6Var);
+                    } else {
+                        this.g.add(yy6Var);
+                    }
+                    this.e.add(yy6Var.a.pkgName);
+                }
+            }
+            if (ListUtils.getCount(this.g) < 15 && this.d.c.intValue() != 0) {
+                this.c.c();
+                this.b.loadData();
+                return;
+            }
+            this.d.a.addAll(this.g);
+            if (this.f != null) {
+                if (ListUtils.getCount(this.d.a) <= 4) {
+                    this.f.a(this.d.a, h(), this.d.c.intValue());
+                    return;
+                }
+                dz6 dz6Var = this.f;
+                hz6 hz6Var = this.d;
+                dz6Var.a(hz6Var.a, null, hz6Var.c.intValue());
+            }
+        }
+    }
+
+    public List<yy6> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (yy6 yy6Var : this.d.b) {
+                if (!this.e.contains(yy6Var.a.pkgName)) {
+                    arrayList.add(yy6Var);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 }

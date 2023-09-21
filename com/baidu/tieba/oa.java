@@ -89,14 +89,14 @@ public class oa {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
             try {
-                PublicKey e = li.e(bArr);
-                String g = li.g(32);
+                PublicKey e = ki.e(bArr);
+                String g = ki.g(32);
                 byte[] bArr2 = new byte[g.length()];
                 for (int i = 0; i < g.length(); i++) {
                     bArr2[i] = (byte) g.charAt(i);
                 }
-                this.a = li.f(g);
-                this.b = li.d(e, bArr2);
+                this.a = ki.f(g);
+                this.b = ki.d(e, bArr2);
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
                 this.a = null;

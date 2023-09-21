@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.TbConfig;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class caa implements l10 {
+public class caa extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,13 +26,19 @@ public class caa implements l10 {
         }
     }
 
-    @Override // com.baidu.tieba.l10
-    public String getAppVersion() {
-        InterceptResult invokeV;
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbConfig.getVersion();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            if (action.equals("android.intent.action.SCREEN_ON")) {
+                baa.j().e = 1;
+            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
+                baa.j().e = 1;
+                baa.j().d.d();
+            } else if (action.equals("android.intent.action.USER_PRESENT")) {
+                baa.j().e = 0;
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

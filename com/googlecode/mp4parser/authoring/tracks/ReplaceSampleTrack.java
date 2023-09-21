@@ -13,14 +13,14 @@ import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.nio.ByteBuffer;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ReplaceSampleTrack extends AbstractTrack {
     public Track origTrack;
     public Sample sampleContent;
     public long sampleNumber;
     public List<Sample> samples = new ReplaceASingleEntryList(this, null);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class ReplaceASingleEntryList extends AbstractList<Sample> {
         public ReplaceASingleEntryList() {
         }

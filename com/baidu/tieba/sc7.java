@@ -1,7 +1,28 @@
 package com.baidu.tieba;
 
-import java.util.Map;
+import android.view.View;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public interface sc7 {
-    void d(Map<String, ? extends tc7> map);
+public final class sc7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static final boolean a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "<this>");
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f09296c);
+            if ((tag instanceof Integer) && Intrinsics.areEqual(tag, Integer.valueOf(SkinManager.getCurrentSkinType()))) {
+                return true;
+            }
+            view2.setTag(R.id.obfuscated_res_0x7f09296c, Integer.valueOf(SkinManager.getCurrentSkinType()));
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

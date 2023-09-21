@@ -1,43 +1,86 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.fl3;
+import com.baidu.tieba.jz1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q12 extends n12 {
+public class q12 extends m12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.kz1
+    @Override // com.baidu.tieba.jz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CompassApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements jz1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ q12 a;
 
-        public a(q12 q12Var, Context context) {
+        /* renamed from: com.baidu.tieba.q12$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0442a implements fl3.c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ y12 a;
+            public final /* synthetic */ a b;
+
+            public C0442a(a aVar, y12 y12Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, y12Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = y12Var;
+            }
+
+            @Override // com.baidu.tieba.fl3.c
+            public void a(float f, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, f);
+                        jSONObject.put("accuracy", fl3.h(i));
+                        this.a.d(this.b.a, jSONObject);
+                    } catch (JSONException e) {
+                        g82.c("CompassApi", "handle compass,json error，" + e.toString());
+                        this.a.f(this.b.a, "Json error");
+                    }
+                }
+            }
+        }
+
+        public a(q12 q12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q12Var, context};
+                Object[] objArr = {q12Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,31 +90,40 @@ public class q12 extends n12 {
                     return;
                 }
             }
-            this.a = context;
+            this.a = q12Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.jz1.a
+        public g32 a(gb3 gb3Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !za3.d()) {
-                za3.f(this.a, R.string.obfuscated_res_0x7f0f0473).G();
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, gb3Var, jSONObject, str)) == null) {
+                y12 y12Var = new y12("compassChange", jSONObject, str);
+                fl3 i = fl3.i();
+                i.l(this.a.getContext());
+                i.o(new C0442a(this, y12Var));
+                g82.i("CompassApi", "start listen compass");
+                i.p();
+                y12Var.b(this.a);
+                return g32.f();
             }
+            return (g32) invokeLLL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q12(@NonNull iz1 iz1Var) {
-        super(iz1Var);
+    public q12(@NonNull hz1 hz1Var) {
+        super(hz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iz1Var};
+            Object[] objArr = {hz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((iz1) newInitContext.callArgs[0]);
+                super((hz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,50 +131,24 @@ public class q12 extends n12 {
         }
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public h32 x() {
-        InterceptResult invokeV;
-        String charSequence;
+    public g32 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#getClipboardData", false);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                CharSequence a2 = cp3.b(getContext()).a();
-                if (TextUtils.isEmpty(a2)) {
-                    charSequence = "";
-                } else {
-                    charSequence = a2.toString();
-                }
-                jSONObject.put("data", charSequence);
-                return new h32(0, jSONObject);
-            } catch (JSONException e) {
-                p("#getClipboardData json put data fail", e, false);
-                return new h32(1001, "JSONException");
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#startCompass", true);
+            return l(str, true, new a(this));
         }
-        return (h32) invokeV.objValue;
+        return (g32) invokeL.objValue;
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public h32 y(String str) {
-        InterceptResult invokeL;
-        SwanAppActivity w;
+    public g32 z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#setClipboardData", false);
-            Pair<h32, JSONObject> s = s(str);
-            h32 h32Var = (h32) s.first;
-            if (!h32Var.isSuccess()) {
-                return h32Var;
-            }
-            cp3.b(getContext()).c(((JSONObject) s.second).optString("data"));
-            hb3 q = gb3.K().q();
-            if (q != null && (w = q.w()) != null) {
-                bp3.f0(new a(this, w), 200L);
-            }
-            return h32.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#stopCompass", true);
+            fl3.i().q();
+            return g32.f();
         }
-        return (h32) invokeL.objValue;
+        return (g32) invokeV.objValue;
     }
 }

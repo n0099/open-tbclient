@@ -24,12 +24,12 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
+import com.baidu.tieba.lm;
 import com.baidu.tieba.m05;
-import com.baidu.tieba.mm;
-import com.baidu.tieba.mp6;
+import com.baidu.tieba.sp6;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.x06;
+import com.baidu.tieba.tx;
+import com.baidu.tieba.y06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class MutiImgDoubleLayout extends LinearLayout implements ux<b15> {
+public class MutiImgDoubleLayout extends LinearLayout implements tx<b15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,15 +52,15 @@ public class MutiImgDoubleLayout extends LinearLayout implements ux<b15> {
     public TbImageView f;
     public String g;
     public boolean h;
-    public mp6<b15> i;
+    public sp6<b15> i;
     public b15 j;
     public int k;
-    public x06 l;
+    public y06 l;
     public LinkedList<MediaData> m;
 
-    public void setPreloadSizeReadyCallback(mm mmVar) {
+    public void setPreloadSizeReadyCallback(lm lmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, mmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, lmVar) == null) {
         }
     }
 
@@ -90,7 +90,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements ux<b15> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            mp6<b15> subClickListener;
+            sp6<b15> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -100,7 +100,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements ux<b15> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements x06 {
+    public class b implements y06 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgDoubleLayout a;
@@ -123,11 +123,11 @@ public class MutiImgDoubleLayout extends LinearLayout implements ux<b15> {
             this.a = mutiImgDoubleLayout;
         }
 
-        @Override // com.baidu.tieba.x06
+        @Override // com.baidu.tieba.y06
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                mp6<b15> subClickListener = this.a.getSubClickListener();
+                sp6<b15> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.j.objType = 2;
@@ -183,14 +183,14 @@ public class MutiImgDoubleLayout extends LinearLayout implements ux<b15> {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.l == null) {
                 return;
             }
-            x06 x06Var = this.d.l;
+            y06 y06Var = this.d.l;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            x06Var.a(view2, i, z);
+            y06Var.a(view2, i, z);
         }
     }
 
@@ -275,7 +275,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements ux<b15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: h */
     public void onBindDataToView(b15 b15Var) {
         Interceptable interceptable = $ic;
@@ -303,10 +303,10 @@ public class MutiImgDoubleLayout extends LinearLayout implements ux<b15> {
         }
     }
 
-    public void setSubClickListener(mp6<b15> mp6Var) {
+    public void setSubClickListener(sp6<b15> sp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, mp6Var) == null) {
-            this.i = mp6Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, sp6Var) == null) {
+            this.i = sp6Var;
         }
     }
 
@@ -382,13 +382,13 @@ public class MutiImgDoubleLayout extends LinearLayout implements ux<b15> {
         }
     }
 
-    public mp6<b15> getSubClickListener() {
+    public sp6<b15> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.i;
         }
-        return (mp6) invokeV.objValue;
+        return (sp6) invokeV.objValue;
     }
 
     public final void i(TbImageView tbImageView, int i, boolean z, boolean z2) {

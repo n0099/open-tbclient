@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o26;
-import com.baidu.tieba.q26;
-import com.baidu.tieba.z26;
+import com.baidu.tieba.a36;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.r26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,10 +21,10 @@ public class DatePickerHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity mActivity;
-    public z26 mTimePickerView;
+    public a36 mTimePickerView;
 
     /* loaded from: classes5.dex */
-    public class a implements q26 {
+    public class a implements r26 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DatePickerHelper a;
@@ -115,7 +115,7 @@ public class DatePickerHelper {
             this.a = datePickerHelper;
         }
 
-        @Override // com.baidu.tieba.q26
+        @Override // com.baidu.tieba.r26
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -148,13 +148,13 @@ public class DatePickerHelper {
         this.mActivity = activity;
     }
 
-    private q26 getCustomListener() {
+    private r26 getCustomListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             return new a(this);
         }
-        return (q26) invokeV.objValue;
+        return (r26) invokeV.objValue;
     }
 
     public void showTimePicker(OnTimeSelectListener onTimeSelectListener) {
@@ -162,20 +162,20 @@ public class DatePickerHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, onTimeSelectListener) == null) && (activity = this.mActivity) != null && !activity.isFinishing()) {
             if (this.mTimePickerView == null) {
-                o26 o26Var = new o26(this.mActivity, onTimeSelectListener);
-                o26Var.k(R.layout.person_birthday_select_layout, getCustomListener());
-                o26Var.p(new boolean[]{true, true, true, false, false, false});
-                o26Var.j(this.mActivity.getString(R.string.pickerview_year), this.mActivity.getString(R.string.pickerview_month), this.mActivity.getString(R.string.pickerview_day), this.mActivity.getString(R.string.pickerview_hours), this.mActivity.getString(R.string.pickerview_minutes), this.mActivity.getString(R.string.pickerview_seconds));
-                o26Var.l(2.0f);
-                o26Var.b(false);
-                o26Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                o26Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                o26Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                o26Var.d(SkinManager.getColor(R.color.black_alpha30));
-                o26Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                o26Var.c(false);
-                o26Var.h((ViewGroup) this.mActivity.findViewById(16908290));
-                this.mTimePickerView = o26Var.a();
+                p26 p26Var = new p26(this.mActivity, onTimeSelectListener);
+                p26Var.k(R.layout.person_birthday_select_layout, getCustomListener());
+                p26Var.p(new boolean[]{true, true, true, false, false, false});
+                p26Var.j(this.mActivity.getString(R.string.pickerview_year), this.mActivity.getString(R.string.pickerview_month), this.mActivity.getString(R.string.pickerview_day), this.mActivity.getString(R.string.pickerview_hours), this.mActivity.getString(R.string.pickerview_minutes), this.mActivity.getString(R.string.pickerview_seconds));
+                p26Var.l(2.0f);
+                p26Var.b(false);
+                p26Var.i(SkinManager.getColor(R.color.CAM_X0206));
+                p26Var.m(SkinManager.getColor(R.color.CAM_X0105));
+                p26Var.n(SkinManager.getColor(R.color.CAM_X0109));
+                p26Var.d(SkinManager.getColor(R.color.black_alpha30));
+                p26Var.e(SkinManager.getColor(R.color.CAM_X0201));
+                p26Var.c(false);
+                p26Var.h((ViewGroup) this.mActivity.findViewById(16908290));
+                this.mTimePickerView = p26Var.a();
             }
             this.mTimePickerView.u();
         }

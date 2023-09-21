@@ -1,255 +1,154 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.adapter.PbReplyLoadMoreAdapter;
-import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorCommentAndPraiseAdapter;
-import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tr9 extends sr9 {
+public class tr9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public kn9 n;
-    public bn9 o;
-    public cn9 p;
-    public eo9 q;
-    public PbReplyLoadMoreAdapter r;
-    public vr9 s;
-    public ur9 t;
-    public dn9 u;
 
-    @Override // com.baidu.tieba.sr9
-    public void D(aj9 aj9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aj9Var) == null) {
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ View b;
+
+        public a(Context context, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = view2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || BreatheTipWidget.f() || this.a == null) {
+                return;
+            }
+            la5 la5Var = new la5();
+            la5Var.b = R.raw.lottie_bubble_breath_tip;
+            la5Var.a = BreatheTipWidget.PointType.LOTTIE;
+            la5Var.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
+            ma5 ma5Var = new ma5();
+            ma5Var.a = pp9.t(R.string.obfuscated_res_0x7f0f05ae, new Object[0]);
+            ma5Var.b = pp9.t(R.string.agree_tip_content, new Object[0]);
+            ma5Var.e = R.drawable.pic_guidecard;
+            ma5Var.f = BdUtilHelper.getDimens(this.a, R.dimen.tbds156);
+            ma5Var.g = BdUtilHelper.getDimens(this.a, R.dimen.tbds489);
+            ma5Var.h = BdUtilHelper.getDimens(this.a, R.dimen.tbds286);
+            if (this.b == null) {
+                return;
+            }
+            BreatheTipWidget breatheTipWidget = new BreatheTipWidget(this.a);
+            breatheTipWidget.j(this.b);
+            breatheTipWidget.h(ma5Var, la5Var);
+            if (breatheTipWidget.k((Activity) this.a, 4000L)) {
+                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                sharedPrefHelper.putBoolean("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), true);
+                kg5.c("c14828");
+            }
         }
     }
 
-    @Override // com.baidu.tieba.sr9
-    public pn9 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (pn9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public jm9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (jm9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public PbFirstFloorCommentAndPraiseAdapter h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return null;
-        }
-        return (PbFirstFloorCommentAndPraiseAdapter) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tr9(DetailInfoAndReplyFragment detailInfoAndReplyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        super(detailInfoAndReplyFragment, bdTypeRecyclerView);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {detailInfoAndReplyFragment, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((DetailInfoAndReplyFragment) objArr2[0], (BdTypeRecyclerView) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948190958, "Lcom/baidu/tieba/tr9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948190958, "Lcom/baidu/tieba/tr9;");
                 return;
             }
         }
-        I();
+        a = SharedPrefHelper.getSharedPrefKeyWithAccount("key_show_god_agree_tips_count");
+        b = SharedPrefHelper.getSharedPrefKeyWithAccount("key_show_god_agree_tips_timestamp");
     }
 
-    @Override // com.baidu.tieba.sr9
-    public void A(View.OnClickListener onClickListener) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            super.A(onClickListener);
-            this.q.e(onClickListener);
-            this.r.y(onClickListener);
-            this.u.e(onClickListener);
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && !b()) {
+            SharedPrefHelper.getInstance().putLong(b, System.currentTimeMillis());
+            SharedPrefHelper.getInstance().putInt(a, 0);
         }
     }
 
-    @Override // com.baidu.tieba.sr9
-    public void B(View.OnClickListener onClickListener) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.o.y(onClickListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void C(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.p.y(onClickListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void E(vk9 vk9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vk9Var) == null) {
-            super.E(vk9Var);
-            this.q.o0(vk9Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void F(aj9 aj9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aj9Var) == null) {
-            this.s.P(aj9Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void G(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.s.o(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void v(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
-            super.v(onClickListener);
-            this.q.k(onClickListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            eo9 eo9Var = this.q;
-            if (eo9Var != null) {
-                eo9Var.n0(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = SharedPrefHelper.getInstance().getLong(b, 0L);
+            if (j >= 0) {
+                return TimeHelper.isSameDay(currentTimeMillis, j);
             }
-            ur9 ur9Var = this.t;
-            if (ur9Var != null) {
-                ur9Var.x(z);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(lk9 lk9Var) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, lk9Var)) == null) {
+            if (lk9Var == null || lk9Var.O() == null || !TbadkCoreApplication.isLogin() || !lk9Var.O().isExcellentThread() || lk9Var.O().getHasAgree() == 1) {
+                return false;
             }
-            vr9 vr9Var = this.s;
-            if (vr9Var != null) {
-                vr9Var.O(z);
+            if (b()) {
+                i = SharedPrefHelper.getInstance().getInt(a, 0);
+            } else {
+                i = 0;
             }
+            if (i >= 2) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sr9
-    public void x(TbRichTextView.z zVar) {
+    public static void d(Context context, View view2, lk9 lk9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, zVar) == null) {
-            super.x(zVar);
-            this.q.n(zVar);
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, view2, lk9Var) != null) || oi9.c() || c(lk9Var)) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void y(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, onLongClickListener) == null) {
-            super.y(onLongClickListener);
-            this.q.d(onLongClickListener);
-        }
-    }
-
-    public final void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.s = new vr9(this.a.S(), tha.W0);
-            this.o = new bn9(this.a.S(), ij9.c, this.a.getUniqueId());
-            this.p = new cn9(this.a.S(), jj9.a);
-            this.n = new kn9(this.a.S(), mj9.k1);
-            eo9 eo9Var = new eo9(this.a.S(), tha.X0);
-            this.q = eo9Var;
-            eo9Var.p0(this.a.S());
-            this.q.k0(this.a.S().G3());
-            this.r = new PbReplyLoadMoreAdapter(this.a.S(), tha.e1);
-            this.t = new ur9(this.a.getContext(), vj9.b, this.a.S());
-            this.u = new dn9(this.a.S(), kj9.c);
-            this.d.add(this.s);
-            this.d.add(this.t);
-            this.d.add(this.n);
-            this.d.add(this.o);
-            this.d.add(this.p);
-            this.d.add(this.q);
-            this.d.add(this.r);
-            this.d.add(this.u);
-            this.b.addAdapters(this.d);
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void m() {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (bdTypeRecyclerView = this.b) != null && bdTypeRecyclerView.getAdapter() != null) {
-            this.b.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void n() {
-        vr9 vr9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (vr9Var = this.s) != null) {
-            vr9Var.notifyDataSetChanged();
-        }
-    }
-
-    @Override // com.baidu.tieba.sr9
-    public void r(aj9 aj9Var, boolean z, String str, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{aj9Var, Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
-            this.q.r(aj9Var);
-            this.q.setFromCDN(z);
-            this.q.o(str);
-            this.q.c(z2);
-            this.q.m0(0.5f);
+        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+        if (!sharedPrefHelper.getBoolean("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            SafeHandler.getInst().postDelayed(new a(context, view2), 500L);
         }
     }
 }

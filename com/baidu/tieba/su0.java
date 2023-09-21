@@ -1,36 +1,57 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-@JvmName(name = "InteractiveABConfig")
 /* loaded from: classes8.dex */
-public final class su0 {
+public class su0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a = 0;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (tu0.a() != 1) {
-                return true;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static final boolean b() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163771, "Lcom/baidu/tieba/su0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948163771, "Lcom/baidu/tieba/su0;");
+                return;
+            }
+        }
+        o21.g();
+    }
+
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (tu0.a() != 0 && tu0.a() != 2) {
-                return false;
-            }
-            return true;
+            return b;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return invokeV.intValue;
     }
 }

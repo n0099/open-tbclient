@@ -1,5 +1,12 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
+import android.os.Bundle;
 /* loaded from: classes5.dex */
 public interface c4c {
-    void onPlayerStateUpdate(j4c j4cVar, int i, int i2);
+    void b(Bundle bundle);
+
+    void c(Bitmap bitmap);
+
+    void d(String str);
 }

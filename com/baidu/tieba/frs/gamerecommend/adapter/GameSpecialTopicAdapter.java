@@ -14,23 +14,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay6;
+import com.baidu.tieba.ag;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.card.CardFrsGameSpecialTopicItemView;
 import com.baidu.tieba.card.CardFrsGameSpecialTopicLayout;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.fi7;
+import com.baidu.tieba.gy6;
+import com.baidu.tieba.pi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class GameSpecialTopicAdapter extends fi7<ay6, CardFrsGameSpecialTopicHolder> {
+public class GameSpecialTopicAdapter extends pi7<gy6, CardFrsGameSpecialTopicHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
-    public bg<CardFrsGameSpecialTopicItemView> m;
+    public ag<CardFrsGameSpecialTopicItemView> m;
 
     /* loaded from: classes5.dex */
     public class CardFrsGameSpecialTopicHolder extends TypeAdapter.ViewHolder {
@@ -61,20 +61,20 @@ public class GameSpecialTopicAdapter extends fi7<ay6, CardFrsGameSpecialTopicHol
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905e3);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e02);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090e01);
-            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e00);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905db);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dfc);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090dfb);
+            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dfa);
             this.d = cardFrsGameSpecialTopicLayout;
             cardFrsGameSpecialTopicLayout.setItemSpace(BdUtilHelper.getDimens(view2.getContext(), R.dimen.tbds20));
             this.d.setItemWidth(((BdUtilHelper.getDimens(view2.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090906);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090907);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0908fe);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0908ff);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements cg<CardFrsGameSpecialTopicItemView> {
+    public class a implements bg<CardFrsGameSpecialTopicItemView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameSpecialTopicAdapter a;
@@ -86,7 +86,7 @@ public class GameSpecialTopicAdapter extends fi7<ay6, CardFrsGameSpecialTopicHol
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cg
+        @Override // com.baidu.tieba.bg
         /* renamed from: f */
         public void b(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
             Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class GameSpecialTopicAdapter extends fi7<ay6, CardFrsGameSpecialTopicHol
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.cg
+        @Override // com.baidu.tieba.bg
         public /* bridge */ /* synthetic */ CardFrsGameSpecialTopicItemView a(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
             CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView2 = cardFrsGameSpecialTopicItemView;
             e(cardFrsGameSpecialTopicItemView2);
@@ -129,7 +129,7 @@ public class GameSpecialTopicAdapter extends fi7<ay6, CardFrsGameSpecialTopicHol
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.cg
+        @Override // com.baidu.tieba.bg
         public /* bridge */ /* synthetic */ CardFrsGameSpecialTopicItemView c(CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView) {
             CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView2 = cardFrsGameSpecialTopicItemView;
             h(cardFrsGameSpecialTopicItemView2);
@@ -137,7 +137,7 @@ public class GameSpecialTopicAdapter extends fi7<ay6, CardFrsGameSpecialTopicHol
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cg
+        @Override // com.baidu.tieba.bg
         /* renamed from: g */
         public CardFrsGameSpecialTopicItemView d() {
             InterceptResult invokeV;
@@ -170,12 +170,12 @@ public class GameSpecialTopicAdapter extends fi7<ay6, CardFrsGameSpecialTopicHol
                 return;
             }
         }
-        this.m = new bg<>(new a(this), 10, 0);
+        this.m = new ag<>(new a(this), 10, 0);
         this.l = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: I */
     public CardFrsGameSpecialTopicHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -189,18 +189,18 @@ public class GameSpecialTopicAdapter extends fi7<ay6, CardFrsGameSpecialTopicHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fi7, com.baidu.tieba.pm
+    @Override // com.baidu.tieba.pi7, com.baidu.tieba.om
     /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ay6 ay6Var, CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gy6 gy6Var, CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ay6Var, cardFrsGameSpecialTopicHolder})) == null) {
-            if (ay6Var != null && ay6Var.a() != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gy6Var, cardFrsGameSpecialTopicHolder})) == null) {
+            if (gy6Var != null && gy6Var.a() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameSpecialTopicHolder.b.setText(ay6Var.a().title);
+                cardFrsGameSpecialTopicHolder.b.setText(gy6Var.a().title);
                 cardFrsGameSpecialTopicHolder.b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
                 cardFrsGameSpecialTopicHolder.d.setPageContext(this.c);
-                cardFrsGameSpecialTopicHolder.d.setData(ay6Var.a().sub_nodes);
+                cardFrsGameSpecialTopicHolder.d.setData(gy6Var.a().sub_nodes);
                 cardFrsGameSpecialTopicHolder.c.setMaxOverScrollDistance(cardFrsGameSpecialTopicHolder.d.getChildItemWidth());
                 cardFrsGameSpecialTopicHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0201));
                 SkinManager.setBackgroundResource(cardFrsGameSpecialTopicHolder.e, R.color.CAM_X0205);

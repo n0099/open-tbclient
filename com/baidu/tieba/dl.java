@@ -1,66 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IStatisticManager;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes5.dex */
-public class dl {
+public class dl implements IStatisticManager {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, gl> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448302629, "Lcom/baidu/tieba/dl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void onPatchResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void onUninstallResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordDownloadResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordException(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordPeriod(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordResult(long j, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+        }
+    }
+
+    public dl() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448302629, "Lcom/baidu/tieba/dl;");
-                return;
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordInstallResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+            cl.c(str, i, i2);
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordInvokeResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+            if (i == 14) {
+                cl.a(str, i2);
             }
-        }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("com.baidu.searchbox.livenps", new cl());
-    }
-
-    public static void a(String str, int i) {
-        gl glVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (glVar = a.get(str)) != null) {
-            glVar.b(i);
-        }
-    }
-
-    public static void b(String str, int i, long j) {
-        gl glVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (glVar = a.get(str)) != null) {
-            glVar.c(i, j);
-        }
-    }
-
-    public static void c(String str, int i, int i2) {
-        gl glVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (glVar = a.get(str)) != null) {
-            glVar.d(i, i2);
-        }
-    }
-
-    public static void d(String str, int i, int i2) {
-        gl glVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (glVar = a.get(str)) != null) {
-            glVar.e(i, i2);
+            cl.d(str, i, i2);
         }
     }
 }

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl3;
+import com.baidu.tieba.el3;
 /* loaded from: classes4.dex */
 public final class MediaBrightness extends FrameLayout {
     public View a;
@@ -36,7 +36,7 @@ public final class MediaBrightness extends FrameLayout {
         } else if (f <= 0.0f) {
             f = 0.0f;
         }
-        fl3.c().e((Activity) getContext(), f);
+        el3.c().e((Activity) getContext(), f);
     }
 
     public void g(int i) {
@@ -66,7 +66,7 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     public void d() {
-        this.f = fl3.c().a((Activity) getContext());
+        this.f = el3.c().a((Activity) getContext());
     }
 
     public void e() {
@@ -76,14 +76,14 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     public final void c(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0954, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0951, (ViewGroup) this, true);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09101a);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091479);
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09100d);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091469);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070872);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
         layoutParams.gravity = 17;
-        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814d2);
+        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814cd);
         this.a.setLayoutParams(layoutParams);
     }
 }

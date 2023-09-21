@@ -1,49 +1,62 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class tv6 implements Comparator<i0> {
+public final class tv6 extends uv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final tx6 a;
+    public long b;
+    public long c;
 
-    public tv6() {
+    public tv6(tx6 timer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {timer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(timer, "timer");
+        this.a = timer;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(i0 entity1, i0 entity2) {
-        InterceptResult invokeLL;
-        kv6 a;
-        wv6 b;
-        kv6 a2;
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
-            Intrinsics.checkNotNullParameter(entity1, "entity1");
-            Intrinsics.checkNotNullParameter(entity2, "entity2");
-            wv6 b2 = uw6.b(entity2);
-            if (b2 == null || (a = b2.a()) == null || (b = uw6.b(entity1)) == null || (a2 = b.a()) == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = this.c;
+            long j2 = 0;
+            if (this.b > 0) {
+                j2 = this.a.a() - this.b;
             }
-            return a2.compareTo(a);
+            return j + j2;
         }
-        return invokeLL.intValue;
+        return invokeV.longValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

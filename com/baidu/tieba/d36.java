@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface d36 {
-    String getPickerViewText();
+public interface d36<T> {
+    T getItem(int i);
+
+    int getItemsCount();
 }

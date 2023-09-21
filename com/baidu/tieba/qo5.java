@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
 /* loaded from: classes7.dex */
 public interface qo5 {
-    void a(long j, int i, String str);
+    void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse);
 }

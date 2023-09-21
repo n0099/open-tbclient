@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.util.Log;
+import android.content.res.Resources;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.nps.interfa.IHostAppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IResourcesFetcher;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes8.dex */
-public class xk implements IHostAppRuntime {
+public class xk implements IResourcesFetcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,14 +32,30 @@ public class xk implements IHostAppRuntime {
         }
     }
 
-    @Override // com.baidu.nps.interfa.IHostAppRuntime
-    public Application getApplication() {
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getBaseContextResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Log.e("TAG", "" + BdBaseApplication.getInst());
-            return BdBaseApplication.getInst();
+            return BdBaseApplication.getInst().getResources();
         }
-        return (Application) invokeV.objValue;
+        return (Resources) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getGlobalResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BdBaseApplication.getInst().getResources();
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources[] getWrapperResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Resources[]{BdBaseApplication.getInst().getResources()} : (Resources[]) invokeV.objValue;
     }
 }

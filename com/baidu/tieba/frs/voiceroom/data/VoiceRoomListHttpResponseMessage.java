@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.voiceroom.data;
 
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.dy7;
+import com.baidu.tieba.fy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
-/* loaded from: classes5.dex */
-public class VoiceRoomListHttpResponseMessage extends MvcProtobufHttpResponsedMessage<dy7, VoiceRoomListPageResIdl> {
+/* loaded from: classes6.dex */
+public class VoiceRoomListHttpResponseMessage extends MvcProtobufHttpResponsedMessage<fy7, VoiceRoomListPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

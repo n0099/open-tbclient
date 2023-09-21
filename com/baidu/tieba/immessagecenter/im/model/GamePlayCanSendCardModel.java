@@ -21,7 +21,7 @@ public class GamePlayCanSendCardModel {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a(int i, String str);
+        void a(int i, String str, String str2);
     }
 
     /* loaded from: classes6.dex */
@@ -137,12 +137,13 @@ public class GamePlayCanSendCardModel {
                 JSONObject jSONObject = new JSONObject(optString);
                 int i = jSONObject.getInt("can_send_card");
                 String string = jSONObject.getString("toast_txt");
+                String string2 = jSONObject.getString("content");
                 if (aVar != null) {
-                    aVar.a(i, string);
+                    aVar.a(i, string, string2);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                aVar.a(3, "");
+                aVar.a(3, "", null);
             }
         }
     }

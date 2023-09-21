@@ -1,132 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.tieba.faceshop.QueryDownloadMessage;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Deprecated
+import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class x47 extends lj5 {
+public class x47 {
     public static /* synthetic */ Interceptable $ic;
+    public static x47 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String e;
+    public c a;
+    public List<String> b;
+    public int c;
+    public CustomMessageListener d;
+    public CustomMessageListener e;
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void a(x47 x47Var);
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public BdImage n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return null;
-        }
-        return (BdImage) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public BdImage o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            return null;
-        }
-        return (BdImage) invokeL.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends BdResourceCallback<BdImage> {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ x47 b;
+        public final /* synthetic */ x47 a;
 
-        public a(x47 x47Var, b bVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(x47 x47Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x47Var, bVar};
+                Object[] objArr = {x47Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x47Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001140 && (customResponsedMessage instanceof CancelDownloadMessage)) {
+                this.a.d();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x47 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(x47 x47Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x47Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x47Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
+                this.a.b = ((QueryDownloadMessage) customResponsedMessage).getData();
+                x47 x47Var = this.a;
+                x47Var.g(x47Var.b);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c extends BdAsyncTask<List<String>, List<DownloadData>, List<DownloadData>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x47 a;
+
+        public c(x47 x47Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x47Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -136,103 +133,183 @@ public class x47 extends lj5 {
                     return;
                 }
             }
-            this.b = x47Var;
-            this.a = bVar;
+            this.a = x47Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
-        public void onLoaded(BdImage bdImage, String str, int i) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public List<DownloadData> doInBackground(List<String>... listArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
-                super.onLoaded((a) bdImage, str, i);
-                if (bdImage != null) {
-                    this.b.r(bdImage);
-                    this.b.s(bdImage);
-                    if (this.b.u()) {
-                        this.a.a(this.b);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
+                LinkedList linkedList = new LinkedList();
+                if (listArr[0] == null) {
+                    return linkedList;
+                }
+                for (int i = 0; i < listArr[0].size(); i++) {
+                    MyEmotionGroupData d = q47.c().d(TbadkCoreApplication.getCurrentAccount(), listArr[0].get(i));
+                    if (d != null && r47.d(d.getGroupId())) {
+                        DownloadData downloadData = new DownloadData(d.getGroupId());
+                        downloadData.setStatus(3);
+                        linkedList.add(downloadData);
                     }
                 }
+                return linkedList;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(List<DownloadData> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                super.onPostExecute(list);
+                if (list == null) {
+                    list = new LinkedList<>();
+                }
+                for (DownloadData downloadData : li5.k().j()) {
+                    for (String str : this.a.b) {
+                        if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
+                            list.add(downloadData);
+                        }
+                    }
+                }
+                this.a.h(list);
             }
         }
     }
 
-    public x47(h47 h47Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948250478, "Lcom/baidu/tieba/x47;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948250478, "Lcom/baidu/tieba/x47;");
+                return;
+            }
+        }
+        f = new x47();
+    }
+
+    public static x47 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return f;
+        }
+        return (x47) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            li5.k().i(11);
+        }
+    }
+
+    public x47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {h47Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = h47Var.getGroupId();
-        t(1);
-        q(4);
+        this.c = 5;
+        this.d = new a(this, 2001140);
+        this.e = new b(this, 2001119);
+        MessageManager.getInstance().registerListener(this.e);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    @Override // com.baidu.tieba.lj5
-    public BdImage e() {
-        InterceptResult invokeV;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.d();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            li5.k().f(str, 11);
         }
-        return (BdImage) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lj5
-    public String f() {
-        InterceptResult invokeV;
+    public final void g(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            c cVar = new c(this);
+            this.a = cVar;
+            cVar.execute(list);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lj5
-    public EmotionGroupType h() {
-        InterceptResult invokeV;
+    public void h(List<DownloadData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return EmotionGroupType.SINGLE_FORUM;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
         }
-        return (EmotionGroupType) invokeV.objValue;
     }
 
-    public boolean u() {
-        InterceptResult invokeV;
+    public void i(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (d() != null) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(downloadData);
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
+        }
+    }
+
+    public void j(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) && !di.isEmpty(str) && !di.isEmpty(str3)) {
+            DownloadData downloadData = new DownloadData(str, str2, str3, new w47());
+            downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
+            downloadData.setType(11);
+            String[] split = str3.split("/");
+            if (split.length > 1) {
+                String[] split2 = split[split.length - 1].split("_");
+                if (split2 != null) {
+                    if (split2.length == 5) {
+                        downloadData.setDescription(split2[1]);
+                        downloadData.setCheck(split2[2]);
+                        downloadData.setWidth(JavaTypesHelper.toInt(split2[3], 200));
+                        downloadData.setHeight(JavaTypesHelper.toInt(split2[4].split(".png")[0], 200));
+                    } else if (split2.length == 3) {
+                        downloadData.setDescription(split2[1]);
+                        downloadData.setCheck(split2[2].split(".png")[0]);
+                        downloadData.setWidth(200);
+                        downloadData.setHeight(200);
+                    } else {
+                        downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.download_fail));
+                        downloadData.setStatus(2);
+                    }
+                } else {
+                    downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.download_fail));
+                    downloadData.setStatus(2);
+                }
+            } else {
+                downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.download_fail));
+                downloadData.setStatus(2);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean v(h47 h47Var, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, h47Var, bVar)) == null) {
-            if (!(h47Var instanceof SingleBarEmotionRecommendData)) {
-                return false;
+            StringBuilder sb = new StringBuilder();
+            sb.append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath());
+            sb.append(FileHelper.getPrefixByType(2));
+            File file = new File(sb.toString());
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            BdResourceLoader.getInstance().loadResource(((SingleBarEmotionRecommendData) h47Var).cover, 10, new a(this, bVar), null);
-            if (!u()) {
-                return false;
-            }
-            bVar.a(this);
-            return true;
+            sb.append("/");
+            sb.append(str);
+            downloadData.setPath(sb.toString());
+            BdLog.d("download:path:" + downloadData.getPath());
+            li5.k().m(downloadData, this.c);
         }
-        return invokeLL.booleanValue;
     }
 }

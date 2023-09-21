@@ -1,83 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
-import java.util.Map;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes8.dex */
-public class xpb extends hpb<TTSplashAd> {
+public class xpb {
     public static /* synthetic */ Interceptable $ic;
+    public static final SharedPreferences a;
+    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xpb(TTSplashAd tTSplashAd) {
-        super(tTSplashAd);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tTSplashAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309471, "Lcom/baidu/tieba/xpb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948309471, "Lcom/baidu/tieba/xpb;");
                 return;
             }
         }
+        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
+        a = sharedPreferences;
+        b = sharedPreferences.edit();
     }
 
-    @Override // com.baidu.tieba.hpb
-    public double a() {
-        InterceptResult invokeV;
-        Map<String, Object> mediaExtraInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                A a = this.a;
-                if (a == 0 || (mediaExtraInfo = ((TTSplashAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
-                    return 0.0d;
-                }
-                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
-            } catch (Exception unused) {
-                return 0.0d;
-            }
-        }
-        return invokeV.doubleValue;
-    }
-
-    @Override // com.baidu.tieba.hpb
-    public void b(String str, double d, double d2, boolean z, int i) {
-        A a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
-            return;
-        }
-        TTSplashAd tTSplashAd = (TTSplashAd) a;
-        if (z) {
-            tTSplashAd.win(Double.valueOf(d2));
-        } else {
-            tTSplashAd.loss(Double.valueOf(d), str, String.valueOf(i));
-        }
-    }
-
-    @Override // com.baidu.tieba.hpb
-    public String c() {
+    public static double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.isEmpty() && ((TTSplashAd) this.a).getMediaExtraInfo() != null) {
-                this.b = (String) ((TTSplashAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-            }
-            return this.b;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
+    }
+
+    public static double b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            SharedPreferences sharedPreferences = a;
+            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
         }
-        return (String) invokeV.objValue;
+        return invokeL.doubleValue;
     }
 }

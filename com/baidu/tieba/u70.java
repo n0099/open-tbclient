@@ -1,86 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class u70 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public String b;
-    public boolean c;
-    public JSONObject d;
 
-    public u70(boolean z, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948163771, "Lcom/baidu/tieba/u70;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), jSONArray};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.c = z;
-        this.a = jSONArray;
-        this.b = String.valueOf(System.currentTimeMillis());
-    }
-
-    public JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("uploadtime", this.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            this.d = jSONObject;
-            return jSONObject;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948163771, "Lcom/baidu/tieba/u70;");
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public JSONObject b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONArray jSONArray = this.a;
-            if (jSONArray != null && jSONArray.length() >= 0) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(TtmlNode.TAG_METADATA, a());
-                    if (this.c) {
-                        str = "1";
-                    } else {
-                        str = "0";
-                    }
-                    jSONObject.put(Constant.IS_REAL, str);
-                    jSONObject.put("data", this.a);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                x70.a("UploadData", "uploadJson:" + jSONObject.toString());
-                return jSONObject;
-            }
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

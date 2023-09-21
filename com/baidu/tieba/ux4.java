@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ux4 implements tm6 {
+public class ux4 implements xm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        sm6.a(this, webView, str, jSONObject);
+        wm6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class ux4 implements tm6 {
         return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public /* synthetic */ void onDestroy() {
-        sm6.b(this);
+        wm6.b(this);
     }
 
     public ux4() {
@@ -50,22 +50,22 @@ public class ux4 implements tm6 {
         }
     }
 
-    public mia c(WebView webView, String str) {
+    public ska c(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
-            return new mia();
+            return new ska();
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia d(WebView webView, HashMap hashMap) {
+    public ska d(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
             a(webView, CommonTbJsBridge.OPEN_VIP_SUCCESS, new JSONObject());
-            return new mia();
+            return new ska();
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 }

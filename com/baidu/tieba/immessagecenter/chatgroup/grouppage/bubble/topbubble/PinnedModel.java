@@ -6,8 +6,9 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.xn8;
-import com.baidu.tieba.yn8;
+import com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData;
+import com.baidu.tieba.us8;
+import com.baidu.tieba.vs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,12 +21,12 @@ import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0010 \n\u0002\b\u0007*\u0002\u0012\u001d\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010\u001f\u001a\u00020\u0015J\u0010\u0010 \u001a\u00020!2\u0006\u0010\"\u001a\u00020\u0015H\u0002J\u0018\u0010#\u001a\u00020!2\u0006\u0010$\u001a\u00020\t2\u0006\u0010%\u001a\u00020\u0015H\u0002J\u0010\u0010&\u001a\u00020!2\u0006\u0010'\u001a\u00020\u0015H\u0002J\u0006\u0010(\u001a\u00020!J\u0014\u0010)\u001a\u00020!2\f\u0010*\u001a\b\u0012\u0004\u0012\u00020\t0+J\u0006\u0010,\u001a\u00020\u0015J\u0006\u0010-\u001a\u00020!J\u0010\u0010-\u001a\u00020!2\u0006\u0010'\u001a\u00020\u0015H\u0002J\u000e\u0010.\u001a\u00020!2\u0006\u0010\u0014\u001a\u00020\u0015J\u0006\u0010/\u001a\u00020!J\u0010\u00100\u001a\u00020!2\u0006\u00101\u001a\u00020\tH\u0002R!\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\f\u0010\r\u001a\u0004\b\n\u0010\u000bR!\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0010\u0010\r\u001a\u0004\b\u000f\u0010\u000bR\u0010\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0013R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R!\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\r\u001a\u0004\b\u0017\u0010\u000bR!\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\r\u001a\u0004\b\u001a\u0010\u000bR\u0010\u0010\u001c\u001a\u00020\u001dX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u001eR\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u00062"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel;", "", "wrapper", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedSliceWrapper;", "roomId", "", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedSliceWrapper;Ljava/lang/String;)V", "activityList", "Ljava/util/LinkedList;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/TopBubbleData;", "getActivityList", "()Ljava/util/LinkedList;", "activityList$delegate", "Lkotlin/Lazy;", "excellentList", "getExcellentList", "excellentList$delegate", "hideNoticeListener", "com/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel$hideNoticeListener$1", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel$hideNoticeListener$1;", "isOverlay", "", "noticeList", "getNoticeList", "noticeList$delegate", "pinnedList", "getPinnedList", "pinnedList$delegate", "pinnedUpdateListener", "com/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel$pinnedUpdateListener$1", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel$pinnedUpdateListener$1;", "excellentShowListFillIn", "handleExcellentListStrategy", "", "firstIsExcellent", "handlePinnedList", "data", "isInsert", "handlePinnedStatus", "isInit", "hideExcellentMsg", "initPinnedList", "dataList", "", "isExistExcellent", "notifyDataChange", "notifyPinnedListByFirst", MissionEvent.MESSAGE_DESTROY, "removeExcellentMsg", com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData.EXCELLENT, "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0010 \n\u0002\b\u0007*\u0002\u0012\u001d\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010\u001f\u001a\u00020\u0015J\u0010\u0010 \u001a\u00020!2\u0006\u0010\"\u001a\u00020\u0015H\u0002J\u0018\u0010#\u001a\u00020!2\u0006\u0010$\u001a\u00020\t2\u0006\u0010%\u001a\u00020\u0015H\u0002J\u0010\u0010&\u001a\u00020!2\u0006\u0010'\u001a\u00020\u0015H\u0002J\u0006\u0010(\u001a\u00020!J\u0014\u0010)\u001a\u00020!2\f\u0010*\u001a\b\u0012\u0004\u0012\u00020\t0+J\u0006\u0010,\u001a\u00020\u0015J\u0006\u0010-\u001a\u00020!J\u0010\u0010-\u001a\u00020!2\u0006\u0010'\u001a\u00020\u0015H\u0002J\u000e\u0010.\u001a\u00020!2\u0006\u0010\u0014\u001a\u00020\u0015J\u0006\u0010/\u001a\u00020!J\u0010\u00100\u001a\u00020!2\u0006\u00101\u001a\u00020\tH\u0002R!\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\f\u0010\r\u001a\u0004\b\n\u0010\u000bR!\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0010\u0010\r\u001a\u0004\b\u000f\u0010\u000bR\u0010\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0013R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R!\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\r\u001a\u0004\b\u0017\u0010\u000bR!\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\r\u001a\u0004\b\u001a\u0010\u000bR\u0010\u0010\u001c\u001a\u00020\u001dX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u001eR\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u00062"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel;", "", "wrapper", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedSliceWrapper;", "roomId", "", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedSliceWrapper;Ljava/lang/String;)V", "activityList", "Ljava/util/LinkedList;", "Lcom/baidu/tieba/im/lib/socket/msg/data/TopBubbleData;", "getActivityList", "()Ljava/util/LinkedList;", "activityList$delegate", "Lkotlin/Lazy;", "excellentList", "getExcellentList", "excellentList$delegate", "hideNoticeListener", "com/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel$hideNoticeListener$1", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel$hideNoticeListener$1;", "isOverlay", "", "noticeList", "getNoticeList", "noticeList$delegate", "pinnedList", "getPinnedList", "pinnedList$delegate", "pinnedUpdateListener", "com/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel$pinnedUpdateListener$1", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/bubble/topbubble/PinnedModel$pinnedUpdateListener$1;", "excellentShowListFillIn", "handleExcellentListStrategy", "", "firstIsExcellent", "handlePinnedList", "data", "isInsert", "handlePinnedStatus", "isInit", "hideExcellentMsg", "initPinnedList", "dataList", "", "isExistExcellent", "notifyDataChange", "notifyPinnedListByFirst", MissionEvent.MESSAGE_DESTROY, "removeExcellentMsg", "excellent", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class PinnedModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xn8 a;
+    public final us8 a;
     public final String b;
     public final Lazy c;
     public final Lazy d;
@@ -67,7 +68,7 @@ public final class PinnedModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !this.a.i().isEmpty()) {
-                yn8.f(((TopBubbleData) this.a.i().get(0)).getVersionKey(), true);
+                vs8.f(((TopBubbleData) this.a.i().get(0)).getVersionKey(), true);
                 this.a.i().clear();
                 this.a.q();
             }
@@ -110,7 +111,7 @@ public final class PinnedModel {
                 if (data != null) {
                     TopBubbleData topBubbleData = (TopBubbleData) data;
                     if (topBubbleData.isExcellent()) {
-                        if (!yn8.a(topBubbleData.getVersionKey(), this.a.b)) {
+                        if (!vs8.a(topBubbleData.getVersionKey(), this.a.b)) {
                             return;
                         }
                         if (!topBubbleData.isSetExcellent()) {
@@ -131,12 +132,12 @@ public final class PinnedModel {
                     this.a.q();
                     return;
                 }
-                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData");
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData");
             }
         }
     }
 
-    public PinnedModel(xn8 wrapper, String roomId) {
+    public PinnedModel(us8 wrapper, String roomId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,7 +173,7 @@ public final class PinnedModel {
             int hashCode = pinnedType.hashCode();
             if (hashCode != -1655966961) {
                 if (hashCode != -1420194824) {
-                    if (hashCode == -1039690024 && pinnedType.equals("notice") && !yn8.b(topBubbleData.getVersionKey())) {
+                    if (hashCode == -1039690024 && pinnedType.equals("notice") && !vs8.b(topBubbleData.getVersionKey())) {
                         i().clear();
                         i().add(topBubbleData);
                     }
@@ -183,7 +184,7 @@ public final class PinnedModel {
                         h().add(topBubbleData);
                     }
                 }
-            } else if (pinnedType.equals("activity") && yn8.c(topBubbleData)) {
+            } else if (pinnedType.equals("activity") && vs8.c(topBubbleData)) {
                 g().add(topBubbleData);
             }
         }
@@ -274,7 +275,7 @@ public final class PinnedModel {
         if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || h().isEmpty()) {
             return;
         }
-        yn8.e(h().get(0).getVersionKey(), this.b);
+        vs8.e(h().get(0).getVersionKey(), this.b);
         q();
     }
 
@@ -296,7 +297,7 @@ public final class PinnedModel {
     public final void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (!h().isEmpty() && !yn8.a(h().getFirst().getVersionKey(), this.b)) {
+            if (!h().isEmpty() && !vs8.a(h().getFirst().getVersionKey(), this.b)) {
                 return;
             }
             if (!z) {
@@ -357,7 +358,7 @@ public final class PinnedModel {
                         if (hashCode == -1039690024) {
                         }
                     } else if (pinnedType.equals(TopBubbleData.EXCELLENT)) {
-                        topBubbleData2.setStatusType(!yn8.b(topBubbleData2.getVersionKey()) ? 1 : 0);
+                        topBubbleData2.setStatusType(!vs8.b(topBubbleData2.getVersionKey()) ? 1 : 0);
                     }
                 }
             }
@@ -369,7 +370,7 @@ public final class PinnedModel {
                 if (Intrinsics.areEqual(pinnedType2, "notice")) {
                     topBubbleData4.setStatusType(2);
                 } else if (Intrinsics.areEqual(pinnedType2, TopBubbleData.EXCELLENT)) {
-                    topBubbleData4.setStatusType(!yn8.b(topBubbleData2.getVersionKey()) ? 1 : 0);
+                    topBubbleData4.setStatusType(!vs8.b(topBubbleData2.getVersionKey()) ? 1 : 0);
                 }
             }
             if (j().size() > 3) {
@@ -378,7 +379,7 @@ public final class PinnedModel {
                     TopBubbleData topBubbleData5 = j().get(i);
                     Intrinsics.checkNotNullExpressionValue(topBubbleData5, "pinnedList[index]");
                     TopBubbleData topBubbleData6 = topBubbleData5;
-                    topBubbleData6.setStatusType(!yn8.b(topBubbleData6.getVersionKey()) ? 1 : 0);
+                    topBubbleData6.setStatusType(!vs8.b(topBubbleData6.getVersionKey()) ? 1 : 0);
                 }
             }
         }
@@ -431,7 +432,7 @@ public final class PinnedModel {
             k(z2);
             if (j().size() > 0) {
                 m(z);
-                this.a.p(j());
+                this.a.r(j());
                 return;
             }
             this.a.g();

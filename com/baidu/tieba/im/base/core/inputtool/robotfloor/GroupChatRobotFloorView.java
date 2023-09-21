@@ -1,0 +1,834 @@
+package com.baidu.tieba.im.base.core.inputtool.robotfloor;
+
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.RoundTbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.ge8;
+import com.baidu.tieba.he8;
+import com.baidu.tieba.i31;
+import com.baidu.tieba.ie8;
+import com.baidu.tieba.im.base.core.chatbox.adapter.ChatRoomRecycleAdapter;
+import com.baidu.tieba.im.base.core.inputtool.robotfloor.adapter.RobotItemIm;
+import com.baidu.tieba.im.base.core.inputtool.robotfloor.adapter.RobotSkillRecentlyItem;
+import com.baidu.tieba.oc8;
+import com.baidu.tieba.oe8;
+import com.baidu.tieba.pe8;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.tabs.TabLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class GroupChatRobotFloorView extends RelativeLayout {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public TbPageContext<BaseFragmentActivity> b;
+    public LinearLayout c;
+    public RelativeLayout d;
+    public View e;
+    public LinearLayout f;
+    public RoundTbImageView g;
+    public TextView h;
+    public RecyclerView i;
+    public TabLayout j;
+    public long k;
+    public long l;
+    public ChatRoomRecycleAdapter m;
+    public he8 n;
+    public f o;
+    public LinearLayoutManager p;
+    public TabLayout.OnTabSelectedListener q;
+    public final HashMap<String, TabLayout.Tab> r;
+    public pe8 s;
+    public boolean t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
+    public int x;
+
+    /* loaded from: classes6.dex */
+    public interface f {
+        void a(String str, int i, int i2);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends RecyclerView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupChatRobotFloorView a;
+
+        public a(GroupChatRobotFloorView groupChatRobotFloorView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {groupChatRobotFloorView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = groupChatRobotFloorView;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
+            View currentFocus;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+                super.onScrollStateChanged(recyclerView, i);
+                if (i != 0) {
+                    if (i == 1 && (this.a.getContext() instanceof Activity) && (currentFocus = ((Activity) this.a.getContext()).getCurrentFocus()) != null) {
+                        BdUtilHelper.hideSoftKeyPad(this.a.getContext(), currentFocus);
+                        return;
+                    }
+                    return;
+                }
+                this.a.u = false;
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
+                super.onScrolled(recyclerView, i, i2);
+                if (this.a.t) {
+                    this.a.t = false;
+                    this.a.q();
+                }
+                int findFirstVisibleItemPosition = this.a.p.findFirstVisibleItemPosition();
+                if (findFirstVisibleItemPosition == this.a.x || this.a.n == null) {
+                    return;
+                }
+                this.a.x = findFirstVisibleItemPosition;
+                oc8 k = this.a.n.k(findFirstVisibleItemPosition);
+                if (k == null) {
+                    return;
+                }
+                if (this.a.n.o() > 0) {
+                    this.a.f.setVisibility(0);
+                    this.a.g.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0813e5), 24, false);
+                    this.a.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0981));
+                } else if (k instanceof RobotItemIm) {
+                    RobotItemIm robotItemIm = (RobotItemIm) k;
+                    if (findFirstVisibleItemPosition == 0) {
+                        robotItemIm.setShowHeadView(false);
+                    } else {
+                        robotItemIm.setShowHeadView(true);
+                    }
+                    this.a.m.notifyDataSetChanged();
+                }
+                if (k instanceof RobotItemIm) {
+                    RobotItemIm robotItemIm2 = (RobotItemIm) k;
+                    this.a.f.setVisibility(0);
+                    if (!TextUtils.isEmpty(robotItemIm2.getRobortAvatar())) {
+                        this.a.g.startLoad(robotItemIm2.getRobortAvatar(), 12, false);
+                    } else {
+                        this.a.g.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811c2), 24, false);
+                    }
+                    if (!TextUtils.isEmpty(robotItemIm2.getRoboatName())) {
+                        this.a.h.setText(robotItemIm2.getRoboatName());
+                    }
+                    this.a.H(robotItemIm2.getRobotUk());
+                } else if (!(k instanceof RobotSkillRecentlyItem)) {
+                } else {
+                    this.a.H("999999");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements TabLayout.OnTabSelectedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupChatRobotFloorView a;
+
+        @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
+        public void onTabReselected(TabLayout.Tab tab) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, tab) == null) {
+            }
+        }
+
+        public b(GroupChatRobotFloorView groupChatRobotFloorView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {groupChatRobotFloorView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = groupChatRobotFloorView;
+        }
+
+        @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
+        public void onTabSelected(TabLayout.Tab tab) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tab) != null) {
+                return;
+            }
+            this.a.I(tab, true);
+        }
+
+        @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
+        public void onTabUnselected(TabLayout.Tab tab) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tab) != null) {
+                return;
+            }
+            this.a.I(tab, false);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupChatRobotFloorView a;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
+
+        public c(GroupChatRobotFloorView groupChatRobotFloorView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {groupChatRobotFloorView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = groupChatRobotFloorView;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements ge8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupChatRobotFloorView a;
+
+        public d(GroupChatRobotFloorView groupChatRobotFloorView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {groupChatRobotFloorView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = groupChatRobotFloorView;
+        }
+
+        @Override // com.baidu.tieba.ge8
+        public void a(String str, int i) {
+            GroupChatRobotFloorView groupChatRobotFloorView;
+            f fVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && (fVar = (groupChatRobotFloorView = this.a).o) != null) {
+                fVar.a(str, i, groupChatRobotFloorView.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements ge8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupChatRobotFloorView a;
+
+        public e(GroupChatRobotFloorView groupChatRobotFloorView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {groupChatRobotFloorView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = groupChatRobotFloorView;
+        }
+
+        @Override // com.baidu.tieba.ge8
+        public void a(String str, int i) {
+            GroupChatRobotFloorView groupChatRobotFloorView;
+            f fVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && (fVar = (groupChatRobotFloorView = this.a).o) != null) {
+                fVar.a(str, i, groupChatRobotFloorView.a);
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public GroupChatRobotFloorView(Context context) {
+        this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void H(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.j != null && !i31.c(this.r) && this.r.containsKey(str)) {
+            if (this.v) {
+                this.v = false;
+                return;
+            }
+            this.u = true;
+            this.j.selectTab(this.r.get(str));
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public GroupChatRobotFloorView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GroupChatRobotFloorView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.o = null;
+        this.q = null;
+        this.r = new HashMap<>();
+        this.t = false;
+        this.u = false;
+        this.v = false;
+        this.w = false;
+        this.x = -1;
+    }
+
+    public final void J(int i, @Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048585, this, i, str, str2) == null) {
+            String str3 = "999999";
+            if (!"999999".equals(str)) {
+                if (TextUtils.isEmpty(str)) {
+                    str3 = "";
+                } else {
+                    str3 = BIMManager.getBdUidFromBdUK(str);
+                }
+            }
+            StatisticItem param = new StatisticItem("c15242").param("obj_type", i).param("obj_id", str3);
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            TiebaStatic.log(param.param("obj_name", str2).param("fid", this.l).param("room_id", this.k).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
+    }
+
+    public void setData(List<Object> list, boolean z) {
+        he8 he8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048596, this, list, z) == null) && !ListUtils.isEmpty(list) && (he8Var = this.n) != null) {
+            he8Var.p(list, z);
+            t(this.n.n());
+        }
+    }
+
+    public void setRoomDetailInfo(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.k = j;
+            this.l = j2;
+            he8 he8Var = this.n;
+            if (he8Var != null) {
+                he8Var.v(j, j2);
+            }
+        }
+    }
+
+    public boolean z(List<Object> list, boolean z) {
+        InterceptResult invokeLZ;
+        he8 he8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048607, this, list, z)) == null) {
+            if (!ListUtils.isEmpty(list) && (he8Var = this.n) != null) {
+                he8Var.q(list, z);
+                return !ListUtils.isEmpty(this.n.n());
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public void setCallFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void setOnItemClickListener(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, fVar) == null) {
+            this.o = fVar;
+        }
+    }
+
+    public void setPageContext(TbPageContext<BaseFragmentActivity> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, tbPageContext) == null) {
+            this.b = tbPageContext;
+            this.s = new pe8();
+            v();
+            u();
+        }
+    }
+
+    public void setTabLayoutVisible(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            if (z) {
+                this.j.setVisibility(0);
+                J(1, null, null);
+                return;
+            }
+            this.j.setVisibility(8);
+        }
+    }
+
+    private int getSkillCountTabOffSet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            if (this.n.o() > 0) {
+                return this.n.o() - 1;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void D() {
+        he8 he8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (he8Var = this.n) != null) {
+            he8Var.t();
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.j != null && !i31.c(this.r)) {
+            this.j.removeTabAt(0);
+            this.r.remove("999999");
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.u = false;
+            this.v = false;
+        }
+    }
+
+    public RecyclerView getRecycleView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.i;
+        }
+        return (RecyclerView) invokeV.objValue;
+    }
+
+    public int getRobotFloorHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            he8 he8Var = this.n;
+            if (he8Var != null) {
+                return he8Var.j();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public he8 getRobotItemDataAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.n;
+        }
+        return (he8) invokeV.objValue;
+    }
+
+    public TabLayout getRobotTabLayout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.j;
+        }
+        return (TabLayout) invokeV.objValue;
+    }
+
+    public int getSkillRecentlyCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            he8 he8Var = this.n;
+            if (he8Var == null) {
+                return 0;
+            }
+            return he8Var.o();
+        }
+        return invokeV.intValue;
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.w = false;
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            this.i.addOnScrollListener(new a(this));
+            this.q = new b(this);
+            this.d.setOnClickListener(new c(this));
+        }
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            he8 he8Var = this.n;
+            if (he8Var != null && he8Var.o() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        TabLayout tabLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            if (i31.c(this.r) || (tabLayout = this.j) == null || tabLayout.getTabAt(0) != this.r.get("999999")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void A(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            EMManager.from(this.c).setCorner(R.string.deprecated_J_X18).setBackGroundColor(R.color.CAM_X0207);
+            EMManager.from(this.e).setCorner(R.string.J_X03).setBackGroundColor(R.color.CAM_X0210);
+            EMManager.from(this.h).setTextColor(R.color.CAM_X0107).setTextSize(R.dimen.T_X08);
+            EMManager.from(this.j).setBackGroundColor(R.color.CAM_X0207);
+            C();
+            pe8 pe8Var = this.s;
+            if (pe8Var != null && !"999999".equals(pe8Var.b())) {
+                B();
+            }
+            ChatRoomRecycleAdapter chatRoomRecycleAdapter = this.m;
+            if (chatRoomRecycleAdapter != null) {
+                chatRoomRecycleAdapter.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void t(ArrayList<RobotItemIm> arrayList) {
+        TabLayout.OnTabSelectedListener onTabSelectedListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048601, this, arrayList) != null) || ListUtils.isEmpty(arrayList)) {
+            return;
+        }
+        Iterator<RobotItemIm> it = arrayList.iterator();
+        while (it.hasNext()) {
+            RobotItemIm next = it.next();
+            if (next != null && !TextUtils.isEmpty(next.getRoboatName()) && !TextUtils.isEmpty(next.getRobortAvatar()) && !TextUtils.isEmpty(next.getRobotUk())) {
+                TabLayout.Tab customView = this.j.newTab().setCustomView(s(next.getRobortAvatar(), next.getRobotUk(), next.getRoboatName(), false));
+                this.j.addTab(customView);
+                this.r.put(next.getRobotUk(), customView);
+            }
+        }
+        p();
+        TabLayout tabLayout = this.j;
+        if (tabLayout != null && (onTabSelectedListener = this.q) != null) {
+            tabLayout.removeOnTabSelectedListener(onTabSelectedListener);
+            this.j.addOnTabSelectedListener(this.q);
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !i31.c(this.r) && this.r.get("999999") != null && this.r.get("999999").getCustomView() != null && this.r.get("999999").getCustomView().getTag(R.id.obfuscated_res_0x7f090ec1) != null && (this.r.get("999999").getCustomView().getTag(R.id.obfuscated_res_0x7f090ec1) instanceof oe8)) {
+            RoundTbImageView a2 = ((oe8) this.r.get("999999").getCustomView().getTag(R.id.obfuscated_res_0x7f090ec1)).a();
+            if (TbadkCoreApplication.getInst().getSkinType() == 0) {
+                a2.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0813e6), 24, false);
+            } else {
+                a2.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0813e7), 24, false);
+            }
+        }
+    }
+
+    public final void C() {
+        pe8 pe8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (pe8Var = this.s) != null && pe8Var.a() != null && !TextUtils.isEmpty(this.s.b()) && !"999999".equals(this.s.b())) {
+            this.s.a().setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+        }
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.j != null && !i31.c(this.r) && this.j.getTabAt(0) != null) {
+            TabLayout tabLayout = this.j;
+            tabLayout.selectTab(tabLayout.getTabAt(0));
+            I(this.j.getTabAt(0), true);
+            this.w = true;
+        }
+    }
+
+    public void p() {
+        TabLayout tabLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (tabLayout = this.j) != null && this.r != null) {
+            TabLayout.Tab customView = tabLayout.newTab().setCustomView(s(null, "999999", getResources().getString(R.string.obfuscated_res_0x7f0f0981), true));
+            this.j.addTab(customView, 0);
+            this.r.put("999999", customView);
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            int selectedTabPosition = this.j.getSelectedTabPosition() + getSkillCountTabOffSet();
+            int findFirstVisibleItemPosition = this.p.findFirstVisibleItemPosition();
+            if (selectedTabPosition <= this.p.findLastVisibleItemPosition()) {
+                this.i.scrollBy(0, this.i.getChildAt(selectedTabPosition - findFirstVisibleItemPosition).getTop() + this.n.m());
+            }
+        }
+    }
+
+    public final void I(TabLayout.Tab tab, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, tab, z) == null) && tab != null && tab.getCustomView() != null && tab.getCustomView().getTag(R.id.obfuscated_res_0x7f090ec1) != null && (tab.getCustomView().getTag(R.id.obfuscated_res_0x7f090ec1) instanceof oe8)) {
+            oe8 oe8Var = (oe8) tab.getCustomView().getTag(R.id.obfuscated_res_0x7f090ec1);
+            String d2 = oe8Var.d();
+            RoundTbImageView a2 = oe8Var.a();
+            RoundTbImageView b2 = oe8Var.b();
+            String c2 = oe8Var.c();
+            if (z) {
+                pe8 pe8Var = this.s;
+                if (pe8Var != null) {
+                    pe8Var.d(d2);
+                    this.s.c(b2);
+                }
+                if ("999999".equals(d2)) {
+                    a2.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0813e5), 24, false);
+                } else {
+                    b2.setDrawBorder(true);
+                    b2.setBorderWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+                    b2.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                }
+                y(d2, c2);
+            } else if ("999999".equals(d2)) {
+                B();
+            } else {
+                b2.setDrawBorder(true);
+                b2.setBorderWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0));
+                b2.setBorderColor(SkinManager.getColor(R.color.transparent));
+            }
+        }
+    }
+
+    @NonNull
+    public View s(@Nullable String str, @NonNull String str2, @NonNull String str3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ee, (ViewGroup) null);
+            RoundTbImageView roundTbImageView = (RoundTbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092389);
+            RoundTbImageView roundTbImageView2 = (RoundTbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09238a);
+            if (z && TextUtils.isEmpty(str)) {
+                B();
+            } else {
+                roundTbImageView.startLoad(str, 12, false);
+            }
+            roundTbImageView2.startLoad(String.valueOf((int) R.drawable.transparent_bg), 24, false);
+            inflate.setTag(R.id.obfuscated_res_0x7f090ec1, new oe8(str2, roundTbImageView, roundTbImageView2, str3));
+            return inflate;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void v() {
+        TbPageContext<BaseFragmentActivity> tbPageContext;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048603, this) != null) || (tbPageContext = this.b) == null) {
+            return;
+        }
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03eb, (ViewGroup) this, true);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f95);
+        this.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f89);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f092621);
+        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f9e);
+        this.g = (RoundTbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f88);
+        this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f93);
+        this.i = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f091f91);
+        this.j = (TabLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f9c);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b.getPageActivity());
+        this.p = linearLayoutManager;
+        this.i.setLayoutManager(linearLayoutManager);
+        he8 he8Var = new he8(this.b);
+        this.n = he8Var;
+        he8Var.u(new d(this));
+        ChatRoomRecycleAdapter chatRoomRecycleAdapter = new ChatRoomRecycleAdapter(new ie8(new e(this)), this.n, this.b);
+        this.m = chatRoomRecycleAdapter;
+        this.i.setAdapter(chatRoomRecycleAdapter);
+        A(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void y(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048606, this, str, str2) == null) && this.i != null && this.p != null && this.n != null) {
+            if (this.u) {
+                this.u = false;
+                return;
+            }
+            this.v = true;
+            if (this.w) {
+                J(2, str, str2);
+            }
+            if (this.j.getSelectedTabPosition() == 0) {
+                this.i.scrollToPosition(0);
+                return;
+            }
+            int selectedTabPosition = this.j.getSelectedTabPosition() + getSkillCountTabOffSet();
+            int findFirstVisibleItemPosition = this.p.findFirstVisibleItemPosition();
+            int findLastVisibleItemPosition = this.p.findLastVisibleItemPosition();
+            if (selectedTabPosition >= findFirstVisibleItemPosition && selectedTabPosition <= findLastVisibleItemPosition) {
+                if (selectedTabPosition <= findLastVisibleItemPosition) {
+                    this.i.scrollBy(0, this.i.getChildAt(selectedTabPosition - findFirstVisibleItemPosition).getTop() + this.n.m());
+                    return;
+                }
+                return;
+            }
+            this.i.scrollToPosition(selectedTabPosition);
+            this.t = true;
+        }
+    }
+}

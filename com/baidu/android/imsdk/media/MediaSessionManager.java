@@ -33,7 +33,7 @@ import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.z70;
+import com.baidu.tieba.y70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -311,7 +311,7 @@ public class MediaSessionManager extends BaseManager {
             creatMethodIntent.putExtra(Constants.EXTRA_TRIGGER_REASON, sessionParam.reason);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_SCREEN_KEY, sessionParam.screenKey);
-            z70.e(this.mContext).d(this.mContext, creatMethodIntent);
+            y70.e(this.mContext).d(this.mContext, creatMethodIntent);
         }
     }
 
@@ -987,7 +987,7 @@ public class MediaSessionManager extends BaseManager {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             }
             try {
-                z70.e(this.mContext).d(this.mContext, creatMethodIntent);
+                y70.e(this.mContext).d(this.mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e("MediaSessionManager", "setServerBCMsgRead Exception ", e);
                 if (bIMValueCallBack != null) {
@@ -1022,7 +1022,7 @@ public class MediaSessionManager extends BaseManager {
                 creatMethodIntent.putExtra("session_type", i);
             }
             try {
-                z70.e(this.mContext).d(this.mContext, creatMethodIntent);
+                y70.e(this.mContext).d(this.mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e("MediaSessionManager", "setServerBCMsgRead Exception ", e);
                 if (bIMValueCallBack != null) {
@@ -1167,7 +1167,7 @@ public class MediaSessionManager extends BaseManager {
             creatMethodIntent.putExtra("contacter_user_type", sessionParam.toContacterUserType);
             creatMethodIntent.putExtra("contacter_pa_uid", sessionParam.toContacterPaUid);
             creatMethodIntent.putExtra("contacter_uk", sessionParam.toContacterUk);
-            z70.e(this.mContext).d(this.mContext, creatMethodIntent);
+            y70.e(this.mContext).d(this.mContext, creatMethodIntent);
         }
     }
 

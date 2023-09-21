@@ -1600,8 +1600,8 @@ public class BdAlertDialog extends Dialog {
             }
             this.this$0 = bdAlertDialog;
             if (view2 != null) {
-                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090381);
-                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090380);
+                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037b);
+                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037a);
                 this.button = (LinearLayout) view2;
                 this.mDialog = bdAlertDialog2;
             }
@@ -1719,7 +1719,7 @@ public class BdAlertDialog extends Dialog {
             LinearLayout linearLayout = this.button;
             if (linearLayout != null) {
                 final BdAlertDialog bdAlertDialog = this.this$0;
-                linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bo
+                linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ao
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -2107,7 +2107,7 @@ public class BdAlertDialog extends Dialog {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65542, this, buttonItem, linearLayout, i, i2)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0466, (ViewGroup) linearLayout, false);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0467, (ViewGroup) linearLayout, false);
             if (inflate != null) {
                 LinearLayout linearLayout2 = (LinearLayout) inflate;
                 Resources resources = getContext().getResources();
@@ -2227,10 +2227,10 @@ public class BdAlertDialog extends Dialog {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65545, this, buttonItem, linearLayout, i, i2)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0480, (ViewGroup) linearLayout, false);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0483, (ViewGroup) linearLayout, false);
             if (inflate != null) {
                 LinearLayout linearLayout2 = (LinearLayout) inflate;
-                TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f092328);
+                TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0922f3);
                 FontSizeTextViewExtKt.setScaledSizeRes$default(textView, 0, R.dimen.bd_dialog_stress_button_size, 0, 4, null);
                 Resources resources = getContext().getResources();
                 if (i2 == 1) {
@@ -2310,7 +2310,7 @@ public class BdAlertDialog extends Dialog {
                     textView.setTypeface(Typeface.defaultFromStyle(1));
                 }
                 if (textView != null) {
-                    textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.do
+                    textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.co
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2485,7 +2485,7 @@ public class BdAlertDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            NightModeHelper.subscribeNightModeChangeEvent(this, new NightModeChangeListener() { // from class: com.baidu.tieba.zn
+            NightModeHelper.subscribeNightModeChangeEvent(this, new NightModeChangeListener() { // from class: com.baidu.tieba.yn
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2545,18 +2545,18 @@ public class BdAlertDialog extends Dialog {
     public final void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0925f3);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0908c0);
-            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b5);
-            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908b6);
-            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908ab);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908af);
-            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09037e);
-            this.mDialogCustomPanel = (RoundAngleFrameLayout) findViewById(R.id.obfuscated_res_0x7f0908aa);
-            this.mBtnContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090ff0);
-            this.mBottomClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f090461);
-            this.mRightClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f091f6b);
-            this.mDivider = findViewById(R.id.obfuscated_res_0x7f090ff4);
+            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0925bf);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b7);
+            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0908ac);
+            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908ad);
+            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908a2);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908a6);
+            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090378);
+            this.mDialogCustomPanel = (RoundAngleFrameLayout) findViewById(R.id.obfuscated_res_0x7f0908a1);
+            this.mBtnContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090fe4);
+            this.mBottomClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f090459);
+            this.mRightClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f091f34);
+            this.mDivider = findViewById(R.id.obfuscated_res_0x7f090fe8);
             this.mBtnHeight = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702db);
             BdBaseImageView bdBaseImageView = this.mRightClose;
             if (bdBaseImageView != null) {
@@ -2637,7 +2637,7 @@ public class BdAlertDialog extends Dialog {
                     }
                     BdBaseImageView bdBaseImageView9 = this.mRightClose;
                     if (bdBaseImageView9 != null) {
-                        bdBaseImageView9.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.go
+                        bdBaseImageView9.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fo
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -2665,7 +2665,7 @@ public class BdAlertDialog extends Dialog {
             }
             BdBaseImageView bdBaseImageView12 = this.mBottomClose;
             if (bdBaseImageView12 != null) {
-                bdBaseImageView12.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fo
+                bdBaseImageView12.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.eo
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -2895,7 +2895,7 @@ public class BdAlertDialog extends Dialog {
                         }
                         if (layoutParams2 != null) {
                             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) layoutParams2;
-                            layoutParams3.addRule(3, R.id.obfuscated_res_0x7f0908aa);
+                            layoutParams3.addRule(3, R.id.obfuscated_res_0x7f0908a1);
                             FrameLayout frameLayout5 = this.mBtnContainer;
                             if (frameLayout5 != null) {
                                 frameLayout5.setLayoutParams(layoutParams3);

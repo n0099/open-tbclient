@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.account.certification.ICertificationCallback;
 import com.baidu.tbadk.core.account.certification.ICheckCertificationCallback;
 import com.baidu.tbadk.core.account.certification.TbAccountRealNameResult;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.s7a;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class AccountAuthDispatcher implements s7a {
+public class AccountAuthDispatcher implements y9a {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, Integer> STATUS;
     public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public class AccountAuthDispatcher implements s7a {
         }
     }
 
-    @Override // com.baidu.tieba.s7a
+    @Override // com.baidu.tieba.y9a
     public void dispatch(JSONObject jSONObject, Context context) {
         String str;
         int i;

@@ -1,63 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.animation.Animator;
+import android.animation.ValueAnimator;
+import android.view.View;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
-import com.baidu.searchbox.yy.gameassist.GameAssistNPSPluginManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.YYPayManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.live.interfaces.like.ILiveLikeView;
+import com.baidu.searchbox.live.interfaces.like.LiveLikeAnimatorCallback;
+import com.baidu.tieba.medialive.like.HeartSurfaceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelpay.PayReq;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a99 implements ThirdPartWxRechargeService {
+public class a99 implements ILiveLikeView {
     public static /* synthetic */ Interceptable $ic;
-    public static BroadcastReceiver b;
     public transient /* synthetic */ FieldHolder $fh;
-    public IWXAPI a;
+    public float a;
+    public int b;
+    public float c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947570152, "Lcom/baidu/tieba/a99;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947570152, "Lcom/baidu/tieba/a99;");
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void initImages(@NonNull View view2, @Nullable String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, strArr) == null) {
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a extends BroadcastReceiver {
+    public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a99 this$0;
-        public final /* synthetic */ ThirdPartWxRechargeService.WxPayType val$wxPayType;
+        public final /* synthetic */ LottieAnimationView a;
 
-        public a(a99 a99Var, ThirdPartWxRechargeService.WxPayType wxPayType) {
+        public a(a99 a99Var, LottieAnimationView lottieAnimationView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a99Var, wxPayType};
+                Object[] objArr = {a99Var, lottieAnimationView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,26 +54,48 @@ public class a99 implements ThirdPartWxRechargeService {
                     return;
                 }
             }
-            this.this$0 = a99Var;
-            this.val$wxPayType = wxPayType;
+            this.a = lottieAnimationView;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            String str;
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                intent.getExtras();
-                if (this.val$wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                    str = "wx_pay_result";
-                } else {
-                    str = GameAssistNPSPluginManager.KEY_YY_WX_PAY_RESULT;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.a.setProgress(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements HeartSurfaceView.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveLikeAnimatorCallback a;
+
+        public b(a99 a99Var, LiveLikeAnimatorCallback liveLikeAnimatorCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a99Var, liveLikeAnimatorCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt(CloudStabilityUBCUtils.KEY_ERROR_CODE, -1)));
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, intent.getExtras().getString("errorMsg"));
-                LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str, hashMap);
-                yy7.i().g(TbadkCoreApplication.getInst().getContext(), str, hashMap);
+            }
+            this.a = liveLikeAnimatorCallback;
+        }
+
+        @Override // com.baidu.tieba.medialive.like.HeartSurfaceView.e
+        public void a(int i, int i2) {
+            LiveLikeAnimatorCallback liveLikeAnimatorCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && (liveLikeAnimatorCallback = this.a) != null) {
+                liveLikeAnimatorCallback.onAnimLocation(0, i, i2);
             }
         }
     }
@@ -95,88 +104,121 @@ public class a99 implements ThirdPartWxRechargeService {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 1.0f;
+        this.b = 500;
+        this.c = 0.4f;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void initWx() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public boolean isWxInstalled() {
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public View getLikeAnimatorView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-            }
-            return this.a.isWXAppInstalled();
+            LottieAnimationView lottieAnimationView = new LottieAnimationView(AppRuntime.getAppContext());
+            lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            lottieAnimationView.setAnimation("lottie/liveshow_video_like_explosion.json");
+            return lottieAnimationView;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    public final PayReq a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public View getLikeView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            PayReq payReq = new PayReq();
-            payReq.appId = jSONObject.optString("appid");
-            payReq.partnerId = jSONObject.optString("partnerid");
-            payReq.prepayId = jSONObject.optString("prepayid");
-            payReq.packageValue = jSONObject.optString("package");
-            payReq.nonceStr = jSONObject.optString("noncestr");
-            payReq.timeStamp = jSONObject.optString("timestamp");
-            payReq.sign = jSONObject.optString("sign");
-            payReq.extData = "YY";
-            return payReq;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HeartSurfaceView heartSurfaceView = new HeartSurfaceView(AppRuntime.getAppContext());
+            heartSurfaceView.setUpResNormalMode();
+            heartSurfaceView.setZOrderOnTop(true);
+            heartSurfaceView.getHolder().setFormat(-3);
+            return heartSurfaceView;
         }
-        return (PayReq) invokeL.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void wxRecharge(String str, ThirdPartWxRechargeService.WxPayType wxPayType) {
-        String str2;
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    @NonNull
+    public View getLikeViewNew() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
-            try {
-                if (this.a == null) {
-                    this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-                }
-                PayReq a2 = a(new JSONObject(str));
-                this.a.registerApp(a2.appId);
-                if (!this.a.sendReq(a2)) {
-                    if (wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                        str2 = "wx_pay_result";
-                    } else {
-                        str2 = GameAssistNPSPluginManager.KEY_YY_WX_PAY_RESULT;
-                    }
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
-                    LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
-                    yy7.i().g(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
-                }
-                if (b != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(b);
-                }
-                b = new a(this, wxPayType);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(b, intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getLikeView();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void addLikeAnimation(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeartSurfaceView)) {
+            ((HeartSurfaceView) view2).p(i);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void setAnimatorListener(View view2, Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, animatorListener) == null) && (view2 instanceof LottieAnimationView)) {
+            ((LottieAnimationView) view2).addAnimatorListener(animatorListener);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void setLikeAnimatorListener(View view2, LiveLikeAnimatorCallback liveLikeAnimatorCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, view2, liveLikeAnimatorCallback) == null) && (view2 instanceof LottieAnimationView)) {
+            ((HeartSurfaceView) view2).setAnimateEndListener(new b(this, liveLikeAnimatorCallback));
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void addLikeAnimationNew(@NonNull View view2, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            addLikeAnimation(view2, i);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public View getLikeRippleView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LottieAnimationView lottieAnimationView = new LottieAnimationView(AppRuntime.getAppContext());
+            lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            lottieAnimationView.setAnimation("lottie/liveshow_video_like_bg.json");
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.c, this.a);
+            ofFloat.setDuration(this.b);
+            ofFloat.addUpdateListener(new a(this, lottieAnimationView));
+            lottieAnimationView.setTag(ofFloat);
+            return lottieAnimationView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void playAnimation(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && (view2 instanceof LottieAnimationView)) {
+            ((LottieAnimationView) view2).playAnimation();
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void startRipple(View view2) {
+        Object tag;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && (view2 instanceof LottieAnimationView) && (tag = view2.getTag()) != null && (tag instanceof ValueAnimator)) {
+            ((ValueAnimator) tag).start();
         }
     }
 }

@@ -15,21 +15,21 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq0;
+import com.baidu.tieba.bq0;
+import com.baidu.tieba.fq0;
 import com.baidu.tieba.gq0;
-import com.baidu.tieba.hq0;
+import com.baidu.tieba.ju0;
 import com.baidu.tieba.ku0;
-import com.baidu.tieba.lu0;
-import com.baidu.tieba.mq0;
-import com.baidu.tieba.oi0;
-import com.baidu.tieba.oq0;
-import com.baidu.tieba.ou0;
-import com.baidu.tieba.q61;
-import com.baidu.tieba.rj0;
-import com.baidu.tieba.u11;
-import com.baidu.tieba.uq0;
-import com.baidu.tieba.wq0;
-import com.baidu.tieba.wr0;
+import com.baidu.tieba.lq0;
+import com.baidu.tieba.ni0;
+import com.baidu.tieba.nq0;
+import com.baidu.tieba.nu0;
+import com.baidu.tieba.p61;
+import com.baidu.tieba.qj0;
+import com.baidu.tieba.t11;
+import com.baidu.tieba.tq0;
+import com.baidu.tieba.vq0;
+import com.baidu.tieba.vr0;
 import java.io.Serializable;
 import java.util.HashMap;
 import kotlin.Lazy;
@@ -41,9 +41,9 @@ import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000~\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0006\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\bF\u0010\bJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\t\u0010\bJ\u0017\u0010\f\u001a\u00020\u00042\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u000e\u0010\bJ\u000f\u0010\u000f\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u000f\u0010\bJ\u0017\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\u0010\u0010\rJ\u0017\u0010\u0013\u001a\u00020\u00042\u0006\u0010\u0012\u001a\u00020\u0011H\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0015\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0015\u0010\bJ\u000f\u0010\u0016\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0016\u0010\bJ\u000f\u0010\u0017\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0017\u0010\bJ\u0017\u0010\u0018\u001a\u00020\u00042\u0006\u0010\u0012\u001a\u00020\u0011H\u0002¢\u0006\u0004\b\u0018\u0010\u0014J\u0017\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0019H\u0016¢\u0006\u0004\b\u001a\u0010\u001bR\u0018\u0010\u001d\u001a\u0004\u0018\u00010\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u0010\u001eR\u0016\u0010 \u001a\u00020\u001f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b \u0010!R\u0018\u0010#\u001a\u0004\u0018\u00010\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010&\u001a\u00020%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0018\u0010)\u001a\u0004\u0018\u00010(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\u001f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010!R\u0016\u0010-\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u0010.R\"\u00100\u001a\u00020%8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u0010'\u001a\u0004\b1\u00102\"\u0004\b3\u00104R\u0018\u00106\u001a\u0004\u0018\u0001058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107R\u0018\u00109\u001a\u0004\u0018\u0001088\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b9\u0010:R\u0016\u0010;\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b;\u0010.R\u0018\u0010=\u001a\u0004\u0018\u00010<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>R\u0016\u0010?\u001a\u00020\u001f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b?\u0010!R\u001d\u0010E\u001a\u00020@8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bA\u0010B\u001a\u0004\bC\u0010D¨\u0006G"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/VideoViewComponent;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "Lcom/baidu/nadcore/max/event/NestedScrollEvent;", "event", "", "handleNestedScrollEvent", "(Lcom/baidu/nadcore/max/event/NestedScrollEvent;)V", "initBackgroundView", "()V", "initRealVideoHolder", "Landroid/view/ViewGroup;", "parent", "initVideoHolder", "(Landroid/view/ViewGroup;)V", "initVideoPlayer", "injectService", "onCreateView", "Landroid/content/Intent;", "intent", "onNewIntent", "(Landroid/content/Intent;)V", MissionEvent.MESSAGE_PAUSE, "onRelease", "onResume", "parseData", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "receiveEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "", "backgroundImage", "Ljava/lang/String;", "", "isVideoVisible", "Z", "Lcom/baidu/nadcore/player/Player;", DI.LIVE_PLAYER, "Lcom/baidu/nadcore/player/Player;", "", "playerLoopCount", "I", "Lcom/baidu/nadcore/player/SimplePlayerStatusCallback;", "playerStatusCallback", "Lcom/baidu/nadcore/player/SimplePlayerStatusCallback;", "replayVideo", "", "screenHW", "D", "topMarginRatio", "videoHeight", "getVideoHeight", "()I", "setVideoHeight", "(I)V", "Lcom/baidu/nadcore/max/uiwidget/basic/VideoViewHolder;", "videoHolder", "Lcom/baidu/nadcore/max/uiwidget/basic/VideoViewHolder;", "Lcom/baidu/nadcore/model/AdVideoInfo;", "videoInfo", "Lcom/baidu/nadcore/model/AdVideoInfo;", "videoRatio", "Landroid/widget/FrameLayout;", "videoRealHolder", "Landroid/widget/FrameLayout;", "videoStretchSwitch", "Lcom/baidu/nadcore/max/service/IVideoViewService;", "videoViewService$delegate", "Lkotlin/Lazy;", "getVideoViewService", "()Lcom/baidu/nadcore/max/service/IVideoViewService;", "videoViewService", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class VideoViewComponent extends AbsComponentPlugin {
-    public ku0 d;
-    public ou0 e;
-    public wr0 f;
+    public ju0 d;
+    public nu0 e;
+    public vr0 f;
     public int g;
     public VideoViewHolder h;
     public FrameLayout i;
@@ -61,29 +61,29 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         }
 
         /* loaded from: classes3.dex */
-        public static final class a implements oq0 {
+        public static final class a implements nq0 {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public a() {
             }
 
-            @Override // com.baidu.tieba.oq0
+            @Override // com.baidu.tieba.nq0
             public int getVideoHeight() {
                 return VideoViewComponent.this.B();
             }
 
-            @Override // com.baidu.tieba.oq0
+            @Override // com.baidu.tieba.nq0
             public FrameLayout getVideoHolder() {
                 VideoViewHolder videoViewHolder;
                 videoViewHolder = VideoViewComponent.this.h;
                 return videoViewHolder;
             }
 
-            @Override // com.baidu.tieba.oq0
+            @Override // com.baidu.tieba.nq0
             public boolean j() {
                 return VideoViewComponent.this.p;
             }
 
-            @Override // com.baidu.tieba.oq0
+            @Override // com.baidu.tieba.nq0
             public int k() {
                 return VideoViewComponent.this.q;
             }
@@ -97,8 +97,8 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         }
     });
 
-    public final oq0 D() {
-        return (oq0) this.r.getValue();
+    public final nq0 D() {
+        return (nq0) this.r.getValue();
     }
 
     /* loaded from: classes3.dex */
@@ -111,14 +111,14 @@ public final class VideoViewComponent extends AbsComponentPlugin {
 
         @Override // com.baidu.nadcore.max.uiwidget.basic.VideoViewHolder.a
         public void a() {
-            VideoViewComponent.this.c().j(new hq0(VideoEventTypeEnum.LEFT_SLIDE_ON_VIDEO));
+            VideoViewComponent.this.c().j(new gq0(VideoEventTypeEnum.LEFT_SLIDE_ON_VIDEO));
         }
 
         @Override // com.baidu.nadcore.max.uiwidget.basic.VideoViewHolder.a
         public void onClick() {
-            mq0 mq0Var;
-            if (!VideoViewComponent.this.p && (mq0Var = (mq0) VideoViewComponent.this.c().q(mq0.class)) != null) {
-                mq0Var.i(true, true, false);
+            lq0 lq0Var;
+            if (!VideoViewComponent.this.p && (lq0Var = (lq0) VideoViewComponent.this.c().p(lq0.class)) != null) {
+                lq0Var.i(true, true, false);
             }
         }
 
@@ -126,35 +126,35 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         public void onTouch(View v, MotionEvent event) {
             Intrinsics.checkNotNullParameter(v, "v");
             Intrinsics.checkNotNullParameter(event, "event");
-            mq0 mq0Var = (mq0) VideoViewComponent.this.c().q(mq0.class);
-            if (mq0Var != null) {
-                mq0Var.h(event);
+            lq0 lq0Var = (lq0) VideoViewComponent.this.c().p(lq0.class);
+            if (lq0Var != null) {
+                lq0Var.h(event);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends ou0 {
+    public static final class b extends nu0 {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public b() {
         }
 
-        @Override // com.baidu.tieba.ou0, com.baidu.tieba.hu0
+        @Override // com.baidu.tieba.nu0, com.baidu.tieba.gu0
         public void onInfo(int i, int i2) {
             if (i != 904) {
                 if (i == 955 || i == 956) {
-                    VideoViewComponent.this.c().j(new hq0(VideoEventTypeEnum.PLAY_SEEK_TO_END));
+                    VideoViewComponent.this.c().j(new gq0(VideoEventTypeEnum.PLAY_SEEK_TO_END));
                     VideoViewComponent.this.q++;
                     return;
                 }
                 return;
             }
-            VideoViewComponent.this.c().j(new hq0(VideoEventTypeEnum.FIRST_FRAME_INTERVAL));
+            VideoViewComponent.this.c().j(new gq0(VideoEventTypeEnum.FIRST_FRAME_INTERVAL));
         }
 
-        @Override // com.baidu.tieba.ou0, com.baidu.tieba.hu0
+        @Override // com.baidu.tieba.nu0, com.baidu.tieba.gu0
         public void onUpdateProgress(int i, int i2, int i3) {
-            VideoViewComponent.this.c().j(new gq0(VideoEventTypeEnum.PLAY_INFO_PROCESS, i, i3));
+            VideoViewComponent.this.c().j(new fq0(VideoEventTypeEnum.PLAY_INFO_PROCESS, i, i3));
         }
     }
 
@@ -171,7 +171,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             VideoViewComponent.this.M(this.b.getMeasuredHeight());
             VideoViewComponent.this.o = this.b.getMeasuredHeight() / this.b.getMeasuredWidth();
             VideoViewComponent.this.I(this.b);
-            VideoViewComponent.this.G();
+            VideoViewComponent.this.F();
             VideoViewComponent.this.H();
             VideoViewComponent.this.K();
         }
@@ -184,21 +184,21 @@ public final class VideoViewComponent extends AbsComponentPlugin {
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
         super.onPause();
-        ku0 ku0Var = this.d;
-        if (ku0Var != null) {
-            ku0Var.pause();
+        ju0 ju0Var = this.d;
+        if (ju0Var != null) {
+            ju0Var.pause();
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void onRelease() {
         super.onRelease();
-        ku0 ku0Var = this.d;
-        if (ku0Var != null) {
-            ku0Var.release();
+        ju0 ju0Var = this.d;
+        if (ju0Var != null) {
+            ju0Var.release();
         }
         this.d = null;
-        oi0.g(this.h);
+        ni0.g(this.h);
         VideoViewHolder videoViewHolder = this.h;
         if (videoViewHolder != null) {
             videoViewHolder.removeAllViews();
@@ -211,16 +211,16 @@ public final class VideoViewComponent extends AbsComponentPlugin {
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
         super.onResume();
-        ku0 ku0Var = this.d;
-        if (ku0Var != null) {
-            ku0Var.resume();
+        ju0 ju0Var = this.d;
+        if (ju0Var != null) {
+            ju0Var.resume();
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void x() {
         super.x();
-        c().w(oq0.class, D());
+        c().w(nq0.class, D());
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
@@ -240,22 +240,22 @@ public final class VideoViewComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void s(rj0 event) {
+    public void s(qj0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         super.s(event);
-        if (Intrinsics.areEqual(event.a(), cq0.class.getSimpleName())) {
-            E((cq0) event);
+        if (Intrinsics.areEqual(event.a(), bq0.class.getSimpleName())) {
+            E((bq0) event);
         }
     }
 
-    public final void E(cq0 cq0Var) {
-        int i = uq0.$EnumSwitchMapping$0[cq0Var.getType().ordinal()];
+    public final void E(bq0 bq0Var) {
+        int i = tq0.$EnumSwitchMapping$0[bq0Var.getType().ordinal()];
         if (i != 1) {
             if (i == 2) {
                 this.p = false;
-                ku0 ku0Var = this.d;
-                if (ku0Var != null && !ku0Var.isPause()) {
-                    ku0Var.pause();
+                ju0 ju0Var = this.d;
+                if (ju0Var != null && !ju0Var.isPause()) {
+                    ju0Var.pause();
                     return;
                 }
                 return;
@@ -263,9 +263,9 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             return;
         }
         this.p = true;
-        ku0 ku0Var2 = this.d;
-        if (ku0Var2 != null && !ku0Var2.isPlaying()) {
-            ku0Var2.resume();
+        ju0 ju0Var2 = this.d;
+        if (ju0Var2 != null && !ju0Var2.isPlaying()) {
+            ju0Var2.resume();
         }
     }
 
@@ -285,7 +285,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void G() {
+    public final void F() {
         boolean z;
         String str = this.l;
         if (str != null && str.length() != 0) {
@@ -313,7 +313,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         if (this.i == null && this.h != null) {
             this.i = new FrameLayout(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            wq0.a.a(layoutParams, q61.c.e(getContext()), this.g, this.o, 1 / this.n, this.k, this.m);
+            vq0.a.a(layoutParams, p61.c.e(getContext()), this.g, this.o, 1 / this.n, this.k, this.m);
             VideoViewHolder videoViewHolder = this.h;
             if (videoViewHolder != null) {
                 videoViewHolder.addView(this.i, layoutParams);
@@ -325,32 +325,32 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         if (this.d != null || this.f == null) {
             return;
         }
-        lu0 lu0Var = new lu0();
-        lu0Var.a = 0;
-        this.d = ku0.a.b(getContext(), 0, lu0Var);
-        u11 u11Var = new u11();
-        u11Var.k(false);
-        u11Var.l(true);
-        u11Var.p(false);
-        u11Var.q(false);
-        u11Var.j(2);
-        u11Var.n(this.j);
-        u11Var.m(true);
-        u11Var.o(false);
+        ku0 ku0Var = new ku0();
+        ku0Var.a = 0;
+        this.d = ju0.a.b(getContext(), 0, ku0Var);
+        t11 t11Var = new t11();
+        t11Var.k(false);
+        t11Var.l(true);
+        t11Var.p(false);
+        t11Var.q(false);
+        t11Var.j(2);
+        t11Var.n(this.j);
+        t11Var.m(true);
+        t11Var.o(false);
         this.e = new b();
-        ku0 ku0Var = this.d;
-        if (ku0Var != null) {
-            ku0Var.d(u11Var);
-            ku0Var.setVideoScalingMode(0);
+        ju0 ju0Var = this.d;
+        if (ju0Var != null) {
+            ju0Var.d(t11Var);
+            ju0Var.setVideoScalingMode(0);
             FrameLayout frameLayout = this.i;
             if (frameLayout != null) {
-                ku0Var.attachToContainer(frameLayout);
-                wr0 wr0Var = this.f;
-                if (wr0Var != null) {
-                    ku0Var.c(wr0Var);
+                ju0Var.attachToContainer(frameLayout);
+                vr0 vr0Var = this.f;
+                if (vr0Var != null) {
+                    ju0Var.c(vr0Var);
                 }
-                ku0Var.a(this.e);
-                ku0Var.start();
+                ju0Var.a(this.e);
+                ju0Var.start();
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
@@ -367,7 +367,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         }
         HashMap hashMap = (HashMap) serializableExtra;
         if (hashMap != null) {
-            this.f = wr0.c(hashMap);
+            this.f = vr0.c(hashMap);
             if (hashMap != null) {
                 obj = hashMap.get(WriteActivityConfig.VIDEO_INFO);
             } else {

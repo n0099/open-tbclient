@@ -1,54 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fma extends CustomMessageListener {
+public class fma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fma(@NonNull MainTabActivity mainTabActivity) {
-        super(2921752);
+    public static void a(WriteData writeData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = mainTabActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        TbPageContext<BaseFragmentActivity> pageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof YyLiveRoomConfig) && ProcessUtils.isMainProcess() && (pageContext = this.a.getPageContext()) != null) {
-            Intent intent = ((YyLiveRoomConfig) customResponsedMessage.getData()).getIntent();
-            YYLiveUtil.jumpToYYLiveRoom(pageContext, intent.getStringExtra("sid"), intent.getStringExtra(YyLiveRoomConfig.KEY_SSID), intent.getStringExtra(YyLiveRoomConfig.KEY_TEMPLATE_ID), intent.getStringExtra("room_id"), intent.getStringExtra(YyLiveRoomConfig.KEY_STREAMINFO), intent.getStringExtra("source"));
+        if ((interceptable == null || interceptable.invokeLL(65536, null, writeData, str) == null) && writeData.getStatisticFrom() == 5) {
+            StatisticItem statisticItem = new StatisticItem("c14392");
+            statisticItem.addParam("topic_id", writeData.getTopicId());
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("tid", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

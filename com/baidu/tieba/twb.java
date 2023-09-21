@@ -4,20 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
+import com.google.ar.core.ArCoreApk;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public class twb implements Runnable {
+public class twb implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ oxb a;
-    public final /* synthetic */ Callable b;
+    public final /* synthetic */ AtomicReference a;
 
-    public twb(oxb oxbVar, Callable callable) {
+    public twb(AtomicReference atomicReference) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oxbVar, callable};
+            Object[] objArr = {atomicReference};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,19 +27,14 @@ public class twb implements Runnable {
                 return;
             }
         }
-        this.a = oxbVar;
-        this.b = callable;
+        this.a = atomicReference;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // com.google.ar.core.ArCoreApk.a
+    public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.b(this.b.call());
-            } catch (Exception e) {
-                this.a.a(e);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
+            this.a.set(availability);
         }
     }
 }

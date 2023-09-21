@@ -1,74 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.searchrecforum.message.SearchRecForumRequestMessage;
-import com.baidu.tieba.searchrecforum.message.SearchRecForumResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class b8a {
+public final class b8a implements cd7, l97, ad7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdUniqueId a;
-    public boolean b;
-    public boolean c;
-    public HttpResponsedMessage d;
-    public b e;
-    public final HttpMessageListener f;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(e8a e8aVar);
+    @Override // com.baidu.tieba.ad7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "position_from_1" : (String) invokeV.objValue;
+    }
 
-        void onFail();
+    @Override // com.baidu.tieba.cd7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
+    public static final class a implements da7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b8a a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(b8a b8aVar, int i) {
-            super(i);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b8aVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = b8aVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.tieba.da7
+        public void a(Map<String, String> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (this.a.c) {
-                    this.a.d = httpResponsedMessage;
-                } else {
-                    this.a.f(httpResponsedMessage);
+            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                Intrinsics.checkNotNullParameter(map, "map");
+                if (!Intrinsics.areEqual(map.get("has_du_xin_xuan_reply"), "1")) {
+                    return;
                 }
+                z78.e("c15196", i9a.a(map), JavaTypesHelper.toInt(map.get("position_from_1"), 0));
             }
         }
     }
@@ -83,73 +71,30 @@ public class b8a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = BdUniqueId.gen();
-        this.b = false;
-        this.c = false;
-        this.f = new a(this, CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecomForum");
-        tbHttpMessageTask.setResponsedClass(SearchRecForumResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public void g() {
+    @Override // com.baidu.tieba.l97
+    public da7 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !a8a.d().e()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a();
         }
-        if (this.b) {
-            MessageManager.getInstance().removeHttpMessage(this.a);
-        }
-        this.b = true;
-        SearchRecForumRequestMessage searchRecForumRequestMessage = new SearchRecForumRequestMessage();
-        searchRecForumRequestMessage.setParams(a8a.d().c());
-        searchRecForumRequestMessage.setTag(this.a);
-        MessageManager.getInstance().sendMessage(searchRecForumRequestMessage);
+        return (da7) invokeV.objValue;
     }
 
-    public void h(b bVar) {
+    @Override // com.baidu.tieba.cd7
+    public Map<String, String> a(m87 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.e = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(businessInfo.a());
+            return hashMap;
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c) {
-            f(this.d);
-            this.c = false;
-            this.d = null;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = true;
-        }
-    }
-
-    public final void f(HttpResponsedMessage httpResponsedMessage) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpResponsedMessage) == null) {
-            this.b = false;
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003526 && (httpResponsedMessage instanceof SearchRecForumResponsedMessage)) {
-                if (httpResponsedMessage.getError() != 0 && (bVar = this.e) != null) {
-                    bVar.onFail();
-                    return;
-                }
-                a8a.d().i(false);
-                b bVar2 = this.e;
-                if (bVar2 != null) {
-                    bVar2.a(((SearchRecForumResponsedMessage) httpResponsedMessage).data);
-                }
-            }
-        }
+        return (Map) invokeL.objValue;
     }
 }

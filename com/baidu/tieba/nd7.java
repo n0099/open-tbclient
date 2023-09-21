@@ -5,14 +5,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardTitleView;
+import com.baidu.tieba.feed.component.CardLiveView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nd7 extends yb7<CardTitleView, n77> {
+public class nd7 extends hc7<CardLiveView, l77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,26 +36,27 @@ public class nd7 extends yb7<CardTitleView, n77> {
         }
     }
 
-    @Override // com.baidu.tieba.yb7, com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.hc7, com.baidu.tieba.xc7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int dimens = BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.M_W_X005);
             View a = super.a(viewGroup);
-            de7.l(a, null, Integer.valueOf(BdUtilHelper.getDimens(a67.a, R.dimen.M_H_X001)));
+            me7.m(a, Integer.valueOf(dimens), null, Integer.valueOf(dimens));
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.xc7
     /* renamed from: e */
-    public void b(@NonNull CardTitleView cardTitleView, @NonNull n77 n77Var) {
+    public void b(@NonNull CardLiveView cardLiveView, @NonNull l77 l77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardTitleView, n77Var) == null) {
-            cardTitleView.f(n77Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardLiveView, l77Var) == null) {
+            cardLiveView.f(l77Var);
         }
     }
 }

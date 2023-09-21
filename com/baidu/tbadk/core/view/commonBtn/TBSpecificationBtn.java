@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oa5;
+import com.baidu.tieba.sa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -326,9 +326,9 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             this.l = TbadkCoreApplication.getInst().getSkinType();
-            oa5 oa5Var = new oa5();
-            this.b = oa5Var;
-            oa5Var.u = this.n;
+            sa5 sa5Var = new sa5();
+            this.b = sa5Var;
+            sa5Var.u = this.n;
             Paint paint = new Paint();
             this.d = paint;
             paint.setTextSize(BdUtilHelper.getDimens(getContext(), R.dimen.T_X08));

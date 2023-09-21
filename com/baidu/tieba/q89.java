@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
+import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class q89 extends bl1<LiveCustomSettingService> {
+public class q89 extends al1<EventDispatcherService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class q89 extends bl1<LiveCustomSettingService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bl1
+    @Override // com.baidu.tieba.al1
     /* renamed from: a */
-    public LiveCustomSettingService createService() throws ServiceNotFoundException {
+    public EventDispatcherService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new r89();
         }
-        return (LiveCustomSettingService) invokeV.objValue;
+        return (EventDispatcherService) invokeV.objValue;
     }
 }

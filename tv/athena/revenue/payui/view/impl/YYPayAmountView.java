@@ -24,25 +24,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.tieba.R;
-import com.baidu.tieba.akc;
-import com.baidu.tieba.bjc;
-import com.baidu.tieba.cjc;
-import com.baidu.tieba.djc;
-import com.baidu.tieba.gjc;
-import com.baidu.tieba.ijc;
-import com.baidu.tieba.jjc;
-import com.baidu.tieba.kjc;
+import com.baidu.tieba.alc;
+import com.baidu.tieba.blc;
+import com.baidu.tieba.clc;
+import com.baidu.tieba.cmc;
+import com.baidu.tieba.dkc;
 import com.baidu.tieba.kkc;
-import com.baidu.tieba.lic;
-import com.baidu.tieba.sic;
-import com.baidu.tieba.uic;
-import com.baidu.tieba.vjc;
-import com.baidu.tieba.wic;
-import com.baidu.tieba.xjc;
-import com.baidu.tieba.ygc;
-import com.baidu.tieba.yjc;
-import com.baidu.tieba.zfc;
-import com.baidu.tieba.zic;
+import com.baidu.tieba.mkc;
+import com.baidu.tieba.nlc;
+import com.baidu.tieba.okc;
+import com.baidu.tieba.plc;
+import com.baidu.tieba.qic;
+import com.baidu.tieba.qlc;
+import com.baidu.tieba.rhc;
+import com.baidu.tieba.rkc;
+import com.baidu.tieba.slc;
+import com.baidu.tieba.tkc;
+import com.baidu.tieba.ukc;
+import com.baidu.tieba.vkc;
+import com.baidu.tieba.ykc;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -80,7 +80,7 @@ import tv.athena.revenue.payui.view.adapter.PayAmountGridItemDecoration;
 import tv.athena.revenue.payui.view.banner.PluginCenterTopBanner;
 /* loaded from: classes2.dex */
 public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
-    public ygc A;
+    public qic A;
     public ProductListResult B;
     public MyBalanceInfo.Account C;
     public List<PayWayInfo> D;
@@ -92,9 +92,9 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public GridView J;
     public TextView K;
     public View L;
-    public List<wic> M;
-    public kkc N;
-    public wic O;
+    public List<okc> M;
+    public cmc N;
+    public okc O;
     public String P;
     public Handler Q;
     public Runnable R;
@@ -112,11 +112,11 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public PluginCenterTopBanner k;
     public PayAmountAdapter l;
     public PayUIKitConfig m;
-    public List<sic> n;
+    public List<kkc> n;
     public List<BannerConfigItem.BannerInfo> o;
     public IYYPayAmountView.ViewParams p;
     public long q;
-    public sic r;
+    public kkc r;
     public int s;
     public IYYPayAmountView.Callback t;
     public String u;
@@ -130,7 +130,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         return i2 < 5 ? 2 : 3;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.dkc
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.vlc
     public View getContentView() {
         return this;
     }
@@ -145,13 +145,13 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             if (i >= 0 && i < YYPayAmountView.this.o.size()) {
                 BannerConfigItem.BannerInfo bannerInfo = (BannerConfigItem.BannerInfo) YYPayAmountView.this.o.get(i);
                 RLog.debug("YYPayAmountView", "onItemSelected: item=" + bannerInfo);
-                cjc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, "18", "", "", bannerInfo.id);
+                ukc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, "18", "", "", bannerInfo.id);
                 if (bannerInfo.jumpType == 5) {
-                    cjc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW, "", "", bannerInfo.id);
+                    ukc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW, "", "", bannerInfo.id);
                 }
                 HashMap hashMap = new HashMap();
                 hashMap.put("id", bannerInfo.id);
-                zic.b(YYPayAmountView.this.y, YYPayAmountView.this.z, YYPayAmountView.this.I, 100, hashMap);
+                rkc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, YYPayAmountView.this.I, 100, hashMap);
             }
         }
     }
@@ -186,7 +186,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view2) {
-            djc.a(String.valueOf(YYPayAmountView.this.q), YYPayAmountView.this.a);
+            vkc.a(String.valueOf(YYPayAmountView.this.q), YYPayAmountView.this.a);
             Toast.makeText(YYPayAmountView.this.a, "YY号已复制到剪贴板", 1).show();
             return true;
         }
@@ -288,7 +288,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
 
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
         public int getSpanSize(int i) {
-            sic l = YYPayAmountView.this.l.l(i);
+            kkc l = YYPayAmountView.this.l.l(i);
             if (l != null && l.d) {
                 return this.a.getSpanCount();
             }
@@ -401,8 +401,8 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             } else {
                 str = "1";
             }
-            cjc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, PayUVEventType.PAY_AMOUNT_MORE_PAY_WAY_CLICK, "", "", str);
-            zic.a(YYPayAmountView.this.y, YYPayAmountView.this.z, YYPayAmountView.this.I, 107);
+            ukc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, PayUVEventType.PAY_AMOUNT_MORE_PAY_WAY_CLICK, "", "", str);
+            rkc.a(YYPayAmountView.this.y, YYPayAmountView.this.z, YYPayAmountView.this.I, 107);
         }
     }
 
@@ -420,18 +420,18 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                 if (!S && YYPayAmountView.this.p != null && YYPayAmountView.this.p.viewEventListener != null) {
                     YYPayAmountView.this.p.viewEventListener.onBannerClick(bannerInfo);
                 }
-                cjc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, "19", "", "", bannerInfo.id);
+                ukc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, "19", "", "", bannerInfo.id);
                 if (bannerInfo.jumpType == 5) {
-                    cjc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, "", "", bannerInfo.id);
+                    ukc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, "", "", bannerInfo.id);
                 }
                 HashMap hashMap = new HashMap();
                 hashMap.put("id", bannerInfo.id);
-                zic.b(YYPayAmountView.this.y, YYPayAmountView.this.z, YYPayAmountView.this.I, 105, hashMap);
+                rkc.b(YYPayAmountView.this.y, YYPayAmountView.this.z, YYPayAmountView.this.I, 105, hashMap);
             }
         }
     }
 
-    public YYPayAmountView(Activity activity, int i2, int i3, PayUIKitConfig payUIKitConfig, IYYPayAmountView.ViewParams viewParams, ygc ygcVar) {
+    public YYPayAmountView(Activity activity, int i2, int i3, PayUIKitConfig payUIKitConfig, IYYPayAmountView.ViewParams viewParams, qic qicVar) {
         super(activity);
         PayFlowType payFlowType;
         this.n = new ArrayList();
@@ -447,7 +447,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         this.p = viewParams;
         this.y = i2;
         this.z = i3;
-        this.A = ygcVar;
+        this.A = qicVar;
         if (viewParams != null) {
             payFlowType = viewParams.payFlowType;
         } else {
@@ -471,7 +471,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         return arrayList;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.dkc
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.vlc
     public void attachWindow(Window window) {
         RLog.debug("YYPayAmountView", "attachWindow window:" + window);
         this.F = window;
@@ -489,7 +489,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     }
 
     public final void F() {
-        sic sicVar;
+        kkc kkcVar;
         if (this.O.a == PayType.WECHAT_PAY && !PackageInstallUtil.isInstallWechat(this.a)) {
             Toast.makeText(this.a, "未安装微信", 1).show();
         } else if (this.O.a == PayType.QQ_PAY && !PackageInstallUtil.isInstallQQ(this.a)) {
@@ -498,13 +498,13 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             Activity activity = this.a;
             Toast.makeText(activity, activity.getString(R.string.pay_ui_pay_too_frequency_msg), 1).show();
             RLog.warn("YYPayAmountView", "pay too frequency return mPayWay:" + this.O);
-        } else if (this.t != null && (sicVar = this.r) != null && sicVar.a != null) {
-            if (U(this.O, sicVar)) {
+        } else if (this.t != null && (kkcVar = this.r) != null && kkcVar.a != null) {
+            if (U(this.O, kkcVar)) {
                 this.t.onStartSignPay(this.O, this.r, this.p.appCustomExpand, this.D, this.E);
             } else {
                 this.t.onStartPay(this.O, this.r, this.p.appCustomExpand, this.D, this.E);
             }
-            bjc.c(this.y, this.z, PayUIEventType.paypagepaybt, String.valueOf(this.r.a.srcAmount));
+            tkc.c(this.y, this.z, PayUIEventType.paypagepaybt, String.valueOf(this.r.a.srcAmount));
             RLog.warn("YYPayAmountView", "paypagepaybt amount:" + this.r.a.srcAmount);
         } else {
             RLog.error("YYPayAmountView", "mCallback or mPayAmount or productInfo null", new Object[0]);
@@ -512,8 +512,8 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     }
 
     public final void G() {
-        sic sicVar = this.r;
-        if (sicVar == null) {
+        kkc kkcVar = this.r;
+        if (kkcVar == null) {
             RLog.error("YYPayAmountView", "confirmToPayWayDialog error mSelectedPayAmount null", new Object[0]);
             return;
         }
@@ -524,7 +524,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         }
         IYYPayAmountView.Callback callback = this.t;
         if (callback != null) {
-            callback.toPayWayDialog(sicVar, list, this.E);
+            callback.toPayWayDialog(kkcVar, list, this.E);
         }
     }
 
@@ -537,7 +537,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     }
 
     public final void O() {
-        ijc.a(this.h, this.i);
+        alc.a(this.h, this.i);
     }
 
     public final void V() {
@@ -555,7 +555,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
 
     public final void e0() {
         int i2;
-        zfc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.y, this.z);
+        rhc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.y, this.z);
         if (yYPayMiddleService == null) {
             RLog.error("YYPayAmountView", "queryBannerConfig error yyPayMiddleService null", new Object[0]);
             return;
@@ -570,7 +570,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
 
     public final void f0() {
         this.x = true;
-        zfc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.y, this.z);
+        rhc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.y, this.z);
         if (yYPayMiddleService == null) {
             RLog.error("YYPayAmountView", "queryMyBalance error yyPayMiddleService null", new Object[0]);
         } else {
@@ -587,7 +587,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         } else {
             map = null;
         }
-        zfc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.y, this.z);
+        rhc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.y, this.z);
         if (yYPayMiddleService == null) {
             RLog.error("YYPayAmountView", "queryProductList erro yyPayMiddleService null", new Object[0]);
         } else {
@@ -608,7 +608,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     }
 
     public final void k0() {
-        ijc.b(this.h, this.i);
+        alc.b(this.h, this.i);
     }
 
     public final void n0() {
@@ -621,7 +621,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         this.Q.postDelayed(this.R, LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.dkc
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.vlc
     public void refreshView() {
         k0();
         g0();
@@ -641,26 +641,26 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     }
 
     public String L(String str) {
-        double c2 = xjc.c(str);
+        double c2 = plc.c(str);
         if (c2 >= 10000.0d) {
-            return String.format(this.a.getString(R.string.pay_ui_str_wallet_amount_ten_thousand), xjc.a(new BigDecimal(c2 / 10000.0d).setScale(2, 3).doubleValue()));
+            return String.format(this.a.getString(R.string.pay_ui_str_wallet_amount_ten_thousand), plc.a(new BigDecimal(c2 / 10000.0d).setScale(2, 3).doubleValue()));
         }
         return String.format(this.a.getString(R.string.pay_ui_str_wallet_amount), str);
     }
 
     public String M(String str) {
-        double c2 = xjc.c(str);
+        double c2 = plc.c(str);
         if (c2 >= 10000.0d) {
-            return String.format(this.a.getString(R.string.pay_ui_str_wallet_amount_gap_ten_thousand), xjc.a(new BigDecimal(c2 / 10000.0d).setScale(2, 3).doubleValue()));
+            return String.format(this.a.getString(R.string.pay_ui_str_wallet_amount_gap_ten_thousand), plc.a(new BigDecimal(c2 / 10000.0d).setScale(2, 3).doubleValue()));
         }
         return String.format(this.a.getString(R.string.pay_ui_str_wallet_amount_gap), str);
     }
 
     public final void N(int i2) {
         double d2;
-        sic sicVar = this.r;
-        if (sicVar != null) {
-            d2 = sicVar.a();
+        kkc kkcVar = this.r;
+        if (kkcVar != null) {
+            d2 = kkcVar.a();
         } else {
             d2 = 0.0d;
         }
@@ -669,18 +669,18 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         hashMap.put("payMethod", this.O.a.getMethod());
         hashMap.put("charge_id", String.valueOf(i2));
         hashMap.put(PayUiEventContent.AMOUNT, String.valueOf(d2));
-        zic.b(this.y, this.z, this.I, 110, hashMap);
+        rkc.b(this.y, this.z, this.I, 110, hashMap);
     }
 
     public final void Q(Activity activity) {
-        this.N = new kkc(activity, this.m, this.M);
+        this.N = new cmc(activity, this.m, this.M);
         this.K = (TextView) findViewById(R.id.tv_more_payway);
         GridView gridView = (GridView) findViewById(R.id.grid_recharge_way);
         this.J = gridView;
         gridView.setSelector(R.drawable.pay_ui_selector_transparent);
         this.J.setAdapter((ListAdapter) this.N);
         this.J.setOnItemClickListener(new n());
-        zic.a(this.y, this.z, this.I, 104);
+        rkc.a(this.y, this.z, this.I, 104);
         this.K.setOnClickListener(new o());
         View findViewById = findViewById(R.id.ll_pay_way);
         this.L = findViewById;
@@ -690,7 +690,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public final void a0(int i2) {
         String str;
         ProductInfo productInfo;
-        sic l2 = this.l.l(i2);
+        kkc l2 = this.l.l(i2);
         int i3 = 0;
         if (l2 == null) {
             RLog.error("YYPayAmountView", "onPayAmountItemClick error payAmount null", new Object[0]);
@@ -703,8 +703,8 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             this.l.notifyDataSetChanged();
             u0(l2);
             t0(false, false);
-            sic sicVar = this.r;
-            if (sicVar != null && (productInfo = sicVar.a) != null) {
+            kkc kkcVar = this.r;
+            if (kkcVar != null && (productInfo = kkcVar.a) != null) {
                 i3 = productInfo.cid;
             }
             if (this.I == PayFlowType.WALLET_PAY_FLOW) {
@@ -712,7 +712,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             } else {
                 str = "3";
             }
-            cjc.b(this.y, this.z, str, "", "", String.valueOf(i3));
+            ukc.b(this.y, this.z, str, "", "", String.valueOf(i3));
         }
     }
 
@@ -730,7 +730,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         }
         this.L.setVisibility(0);
         this.M.clear();
-        this.M.addAll(vjc.a(H));
+        this.M.addAll(nlc.a(H));
         if (this.M.size() > 0) {
             this.O = this.M.get(0);
             this.N.c(0);
@@ -739,7 +739,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         X();
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.dkc
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.vlc
     public void refreshWindow(WindowParams windowParams) {
         RLog.debug("YYPayAmountView", "refreshWindow params:" + windowParams + " mWindow:" + this.F);
         if (this.F != null && windowParams != null) {
@@ -796,7 +796,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         return isPayFrequency;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.ckc
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView, com.baidu.tieba.ulc
     public void setViewState(PayViewState payViewState) {
         if (payViewState == PayViewState.WAITING_VIEW_STATE) {
             RLog.debug("YYPayAmountView", "setViewState waiting");
@@ -818,30 +818,30 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         }
     }
 
-    public final void u0(sic sicVar) {
+    public final void u0(kkc kkcVar) {
         if (this.b == null) {
             RLog.error("YYPayAmountView", "updateConfirmButton null mBtnConfirmRecharge", new Object[0]);
-        } else if (sicVar == null) {
+        } else if (kkcVar == null) {
             RLog.info("YYPayAmountView", "updateConfirmButton null payAmount");
         } else {
-            this.b.setText("立即充值" + xjc.a(sicVar.c()) + "元");
+            this.b.setText("立即充值" + plc.a(kkcVar.c()) + "元");
         }
     }
 
     public final void R(Activity activity) {
         String str;
-        LayoutInflater.from(new ContextThemeWrapper(activity, yjc.a.a(this.m))).inflate(R.layout.pay_ui_layout_pay_amount_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, qlc.a.a(this.m))).inflate(R.layout.pay_ui_layout_pay_amount_view, (ViewGroup) this, true);
         this.d = (TextView) findViewById(R.id.tv_amount);
         this.e = (TextView) findViewById(R.id.tv_amount_gap);
         this.G = (ViewFlipper) findViewById(R.id.view_flipper__amount);
         this.H = findViewById(R.id.dv_middle);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092804);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0927cf);
         P(activity);
         TextView textView = (TextView) findViewById(R.id.btn_confirm_recharge);
         this.b = textView;
         textView.setOnClickListener(new j());
         u0(this.l.m());
-        PluginCenterTopBanner pluginCenterTopBanner = (PluginCenterTopBanner) findViewById(R.id.obfuscated_res_0x7f090335);
+        PluginCenterTopBanner pluginCenterTopBanner = (PluginCenterTopBanner) findViewById(R.id.obfuscated_res_0x7f09032e);
         this.k = pluginCenterTopBanner;
         PayUIKitConfig payUIKitConfig = this.m;
         if (payUIKitConfig != null) {
@@ -859,7 +859,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         } else {
             str = "1";
         }
-        cjc.b(this.y, this.z, str, "", "", "");
+        ukc.b(this.y, this.z, str, "", "", "");
     }
 
     public final void m0(ProductListResult productListResult) {
@@ -892,9 +892,9 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                 if (K != 2) {
                     i2 = 3;
                 }
-                sic sicVar = new sic(null, 0);
-                sicVar.d = true;
-                this.n.add(i2, sicVar);
+                kkc kkcVar = new kkc(null, 0);
+                kkcVar.d = true;
+                this.n.add(i2, kkcVar);
                 if (h0 >= i2) {
                     h0++;
                 }
@@ -906,7 +906,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             gridLayoutManager.setSpanSizeLookup(new f(gridLayoutManager));
             this.j.setLayoutManager(gridLayoutManager);
             this.j.setAdapter(this.l);
-            this.j.addItemDecoration(new PayAmountGridItemDecoration(K, gjc.a(10.0f), gjc.a(10.0f), i2, gridLayoutManager));
+            this.j.addItemDecoration(new PayAmountGridItemDecoration(K, ykc.a(10.0f), ykc.a(10.0f), i2, gridLayoutManager));
             this.l.u(K);
             this.l.p(i2);
             this.l.t(h0);
@@ -917,19 +917,19 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             s0();
             t0(false, true);
             u0(this.l.m());
-            uic.i(productListResult.getPaysSettingInfo(), "YYPayAmountView");
+            mkc.i(productListResult.getPaysSettingInfo(), "YYPayAmountView");
             x0("showProductListView");
         }
     }
 
-    public final boolean U(wic wicVar, sic sicVar) {
+    public final boolean U(okc okcVar, kkc kkcVar) {
         boolean z;
-        if (sicVar.c() <= wicVar.f && wicVar.a == PayType.ALI_PAY && sicVar.c() > 0.0d) {
+        if (kkcVar.c() <= okcVar.f && okcVar.a == PayType.ALI_PAY && kkcVar.c() > 0.0d) {
             z = true;
         } else {
             z = false;
         }
-        RLog.info("YYPayAmountView", "isSupportSignPay result=" + z + ", perFreePassAmount=" + wicVar.f + ", payType=" + wicVar.a);
+        RLog.info("YYPayAmountView", "isSupportSignPay result=" + z + ", perFreePassAmount=" + okcVar.f + ", payType=" + okcVar.a);
         return z;
     }
 
@@ -973,7 +973,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     }
 
     public final void t0(boolean z, boolean z2) {
-        sic sicVar;
+        kkc kkcVar;
         ProductInfo productInfo;
         List<GiftBagsInfo> list;
         if (z2) {
@@ -981,7 +981,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         } else {
             J();
         }
-        if (!z && (sicVar = this.r) != null && (productInfo = sicVar.a) != null && (list = productInfo.giftbags) != null && list.size() > 0) {
+        if (!z && (kkcVar = this.r) != null && (productInfo = kkcVar.a) != null && (list = productInfo.giftbags) != null && list.size() > 0) {
             this.A.d(this.r.a.giftbags.get(0));
             PayAmountAdapter payAmountAdapter = this.l;
             payAmountAdapter.z(payAmountAdapter.n());
@@ -1010,12 +1010,12 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     }
 
     public final void X() {
-        for (wic wicVar : this.M) {
-            PayType payType = wicVar.a;
+        for (okc okcVar : this.M) {
+            PayType payType = okcVar.a;
             if (payType == PayType.ALI_PAY) {
-                zic.a(this.y, this.z, this.I, 102);
+                rkc.a(this.y, this.z, this.I, 102);
             } else if (payType == PayType.WECHAT_PAY) {
-                zic.a(this.y, this.z, this.I, 103);
+                rkc.a(this.y, this.z, this.I, 103);
             }
         }
     }
@@ -1029,8 +1029,8 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         } else {
             F();
         }
-        sic sicVar = this.r;
-        if (sicVar != null && (productInfo = sicVar.a) != null) {
+        kkc kkcVar = this.r;
+        if (kkcVar != null && (productInfo = kkcVar.a) != null) {
             i2 = productInfo.cid;
         } else {
             i2 = 0;
@@ -1040,7 +1040,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         } else {
             str = "2";
         }
-        cjc.b(this.y, this.z, str, "", "", String.valueOf(i2));
+        ukc.b(this.y, this.z, str, "", "", String.valueOf(i2));
     }
 
     public final void w0() {
@@ -1051,7 +1051,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         } else if (this.p == null) {
             RLog.error("YYPayAmountView", "updateTopCloseBtn error mViewParams null", new Object[0]);
         } else {
-            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f0904c4);
+            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f0904bd);
             if (findViewById == null) {
                 RLog.error("YYPayAmountView", "updateTopCloseBtn error btnClose null", new Object[0]);
                 return;
@@ -1085,9 +1085,9 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                 callback.toHelpCenterPage();
             }
         } else {
-            lic.d(this.y, this.z);
+            dkc.d(this.y, this.z);
         }
-        cjc.b(this.y, this.z, "25", "", "", "");
+        ukc.b(this.y, this.z, "25", "", "", "");
         RLog.info("YYPayAmountView", "onBtnLeftClick showFaqPage:" + z + " mCallback:" + this.t);
     }
 
@@ -1106,11 +1106,11 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         }
         String str2 = str;
         RLog.info("YYPayAmountView", "reportPayWayItemClick event:" + str2);
-        sic sicVar = this.r;
-        if (sicVar != null && (productInfo = sicVar.a) != null) {
+        kkc kkcVar = this.r;
+        if (kkcVar != null && (productInfo = kkcVar.a) != null) {
             i2 = productInfo.cid;
         }
-        cjc.b(this.y, this.z, str2, this.O.a.getChannel(), this.O.a.getMethod(), String.valueOf(i2));
+        ukc.b(this.y, this.z, str2, this.O.a.getChannel(), this.O.a.getMethod(), String.valueOf(i2));
         N(i2);
     }
 
@@ -1167,17 +1167,17 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             this.n.clear();
             int i3 = 0;
             for (int i4 = 0; i4 < productInfoList.size(); i4++) {
-                sic sicVar = new sic(productInfoList.get(i4), productListResult.getCurrencyType());
+                kkc kkcVar = new kkc(productInfoList.get(i4), productListResult.getCurrencyType());
                 if (productInfoList.get(i4).cid == this.v) {
                     i3 = i4;
                 }
-                this.n.add(sicVar);
+                this.n.add(kkcVar);
             }
             if (!p0()) {
                 i2 = i3;
             }
             if (this.n.size() < 6) {
-                this.n.add(new sic(true));
+                this.n.add(new kkc(true));
             }
             return i2;
         }
@@ -1187,7 +1187,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
 
     public final void c0(int i2, int i3, String str) {
         StringBuilder sb;
-        if (akc.a.a(this.a) && i3 != -800) {
+        if (slc.a.a(this.a) && i3 != -800) {
             if (i3 == -500) {
                 sb = new StringBuilder();
                 sb.append("网络不给力,请稍后重试(");
@@ -1214,7 +1214,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         PayFlowType payFlowType;
         PayUIKitConfig payUIKitConfig = this.m;
         if (payUIKitConfig != null) {
-            String g2 = uic.g(payUIKitConfig);
+            String g2 = mkc.g(payUIKitConfig);
             RLog.debug("YYPayAmountView", "agreeUrl:" + g2);
             if (this.a instanceof Activity) {
                 IYYPayAmountView.ViewParams viewParams = this.p;
@@ -1224,22 +1224,22 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                     payFlowType = null;
                 }
                 if (payFlowType != null) {
-                    jjc.a(payFlowType, this.y, this.z, this.m, this.a, g2, "Y币充值协议");
+                    blc.a(payFlowType, this.y, this.z, this.m, this.a, g2, "Y币充值协议");
                 } else {
                     RLog.error("YYPayAmountView", "onUserItemClick error payFlowType null", new Object[0]);
                 }
             } else {
                 RLog.error("YYPayAmountView", "mContext not Activity", new Object[0]);
             }
-            bjc.b(this.y, this.z, PayUIEventType.paypageprotocol);
+            tkc.b(this.y, this.z, PayUIEventType.paypageprotocol);
             RLog.warn("YYPayAmountView", PayUIEventType.paypageprotocol);
         }
-        zic.a(this.y, this.z, this.I, 101);
+        rkc.a(this.y, this.z, this.I, 101);
     }
 
     public final boolean p0() {
         boolean z;
-        List<sic> list = this.n;
+        List<kkc> list = this.n;
         if (list != null && !list.isEmpty()) {
             IYYPayAmountView.ViewParams viewParams = this.p;
             if (viewParams != null && viewParams.targetAmount > 0 && viewParams.payScene == PayScene.DIALOG_TARGET_PAY) {
@@ -1254,7 +1254,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                     int i2 = this.p.targetAmount;
                     long j2 = this.C.amount;
                     if (i2 > j2) {
-                        sic c2 = kjc.c(this.n, this.m, i2, j2);
+                        kkc c2 = clc.c(this.n, this.m, i2, j2);
                         RLog.error("YYPayAmountView", "tryModifyTargetAmount payAmount:" + c2, new Object[0]);
                         if (c2 == null) {
                             return false;
@@ -1281,13 +1281,13 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             String str = null;
             MyBalanceInfo.Account account = this.C;
             int i2 = account.currencyType;
-            String a2 = xjc.a(account.amount / 100.0d);
+            String a2 = plc.a(account.amount / 100.0d);
             IYYPayAmountView.ViewParams viewParams = this.p;
             if (viewParams != null) {
                 int i3 = viewParams.targetAmount;
                 long j2 = this.C.amount;
                 if (i3 > j2) {
-                    str = xjc.a((i3 - j2) / 100.0d);
+                    str = plc.a((i3 - j2) / 100.0d);
                 }
             }
             this.d.setVisibility(0);
@@ -1312,7 +1312,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
 
     public final void x0(String str) {
         IFeedbackServiceProxy iFeedbackServiceProxy;
-        if (this.F != null && uic.d() != null) {
+        if (this.F != null && mkc.d() != null) {
             View findViewById = this.F.findViewById(R.id.btn_left);
             int i2 = 0;
             if (findViewById == null) {
@@ -1327,17 +1327,17 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                 iFeedbackServiceProxy = null;
             }
             boolean z = true;
-            z = (uic.d().feedbackSwitch != 1 || iFeedbackServiceProxy == null) ? false : false;
+            z = (mkc.d().feedbackSwitch != 1 || iFeedbackServiceProxy == null) ? false : false;
             if (!z) {
                 i2 = 8;
             }
             findViewById.setVisibility(i2);
             if (z) {
-                cjc.b(this.y, this.z, "24", "", "", "");
+                ukc.b(this.y, this.z, "24", "", "", "");
             }
-            RLog.info("YYPayAmountView", "updateTopLeftBtn from:" + str + " proxy:" + iFeedbackServiceProxy + " feedbackSwitch:" + uic.d().feedbackSwitch + " yyPayUIKit:" + uIKit);
+            RLog.info("YYPayAmountView", "updateTopLeftBtn from:" + str + " proxy:" + iFeedbackServiceProxy + " feedbackSwitch:" + mkc.d().feedbackSwitch + " yyPayUIKit:" + uIKit);
             return;
         }
-        RLog.warn("YYPayAmountView", "updateTopLeftBtn from:" + str + " mWindow:" + this.F + " paysSettingInfo:" + uic.d());
+        RLog.warn("YYPayAmountView", "updateTopLeftBtn from:" + str + " mWindow:" + this.F + " paysSettingInfo:" + mkc.d());
     }
 }

@@ -1,119 +1,98 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.compact.DelegateNativeAdView;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class lna implements oc7<DelegateNativeAdView, AdvertAppInfo> {
+/* loaded from: classes7.dex */
+public class lna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ICardInfo a;
-    public final String b;
-    public final int c;
-    public TbPageContext<?> d;
-    public String e;
+    public final MainTabActivity a;
+    public final qma b;
+    public final ena c;
 
-    public lna(int i, int i2) {
+    public lna(MainTabActivity mainTabActivity, qma qmaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {mainTabActivity, qmaVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = kna.a(i);
-        this.b = kna.c(i);
-        this.c = i2;
+        this.a = mainTabActivity;
+        this.b = qmaVar;
+        this.c = mainTabActivity.e;
     }
 
-    public lna(int i, int i2, int i3) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            qma qmaVar = this.b;
+            if (qmaVar != null && qmaVar.y() != null && this.b.y().getAnimationView() != null && this.b.y().getAnimationView().getVisibility() != 0) {
+                this.b.y().setLottieView(false);
+            }
+            if (TbadkCoreApplication.getInst().getActivityPrizeData().isSwitchTurn()) {
+                if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().isUserSatisfy()) {
+                    String h5Url = TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url();
+                    if (!StringUtils.isNull(h5Url)) {
+                        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                        if (sharedPrefHelper.getBoolean("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{h5Url}, true);
+                            SharedPrefHelper sharedPrefHelper2 = SharedPrefHelper.getInstance();
+                            sharedPrefHelper2.putBoolean("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
+                        }
+                    }
+                }
+                if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                    String myTabText = TbadkCoreApplication.getInst().getActivityPrizeData().getMyTabText();
+                    if (!StringUtils.isNull(myTabText)) {
+                        qma qmaVar2 = this.b;
+                        if (qmaVar2 != null) {
+                            qmaVar2.Q(myTabText);
+                        }
+                    } else {
+                        qma qmaVar3 = this.b;
+                        if (qmaVar3 != null) {
+                            qmaVar3.Q(null);
+                        }
+                    }
+                } else {
+                    qma qmaVar4 = this.b;
+                    if (qmaVar4 != null) {
+                        qmaVar4.Q(null);
+                    }
+                }
+            } else {
+                qma qmaVar5 = this.b;
+                if (qmaVar5 != null) {
+                    qmaVar5.Q(null);
+                }
+            }
+            if (TbSingleton.getInstance().canShowPermDialog()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.b));
+            }
+            w05.b().l("1", "");
+            ena enaVar = this.c;
+            if (enaVar != null && enaVar.i() != null) {
+                this.c.i().a();
             }
         }
-        this.a = kna.b(i, i2);
-        this.b = kna.d(i, i2);
-        this.c = i3;
-    }
-
-    @Override // com.baidu.tieba.oc7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            DelegateNativeAdView delegateNativeAdView = new DelegateNativeAdView(viewGroup.getContext(), this.d, this.a, this.c, this.e);
-            de7.i(delegateNativeAdView, Integer.valueOf(de7.e() - py.r));
-            return delegateNativeAdView;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc7
-    /* renamed from: d */
-    public void b(@NonNull DelegateNativeAdView delegateNativeAdView, @NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, delegateNativeAdView, advertAppInfo) == null) {
-            delegateNativeAdView.a(advertAppInfo);
-        }
-    }
-
-    @Override // com.baidu.tieba.oc7
-    @NonNull
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public lna e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (lna) invokeL.objValue;
-    }
-
-    public lna f(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tbPageContext)) == null) {
-            this.d = tbPageContext;
-            return this;
-        }
-        return (lna) invokeL.objValue;
     }
 }

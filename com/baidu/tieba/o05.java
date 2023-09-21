@@ -90,7 +90,7 @@ public class o05 {
                 if (this.c.b) {
                     BdSocketLinkService.setHasAbsoluteClose(false);
                     BdSocketLinkService.setAvailable(true);
-                    pn5.b(0, 0, 0, 1, 2);
+                    tn5.b(0, 0, 0, 1, 2);
                     BdSocketLinkService.startService(true, "account changed");
                 }
                 this.c.M(this.a, this.b);
@@ -121,7 +121,7 @@ public class o05 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                uia.a("", 7);
+                ala.a("", 7);
             }
         }
     }
@@ -164,11 +164,11 @@ public class o05 {
                 } else {
                     this.this$0.a = null;
                 }
-                iq5.o(this.this$0.C());
+                jq5.o(this.this$0.C());
                 if (this.this$0.a != null) {
-                    iq5.n(this.this$0.a.getBDUSS());
-                    iq5.q(this.this$0.a.getTbs());
-                    iq5.p(this.this$0.a.getStoken());
+                    jq5.n(this.this$0.a.getBDUSS());
+                    jq5.q(this.this$0.a.getTbs());
+                    jq5.p(this.this$0.a.getStoken());
                 }
             }
         }
@@ -209,7 +209,7 @@ public class o05 {
     public static void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            lg.a().b(new b());
+            kg.a().b(new b());
             SharedPrefHelper.getInstance().putLong("app_inverval", System.currentTimeMillis());
         }
     }
@@ -511,11 +511,11 @@ public class o05 {
             intent2.putExtra("intent_data_accountData", accountData);
             intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
             TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            iq5.o(!TextUtils.isEmpty(str2));
+            jq5.o(!TextUtils.isEmpty(str2));
             if (accountData != null) {
-                iq5.n(accountData.getBDUSS());
-                iq5.q(accountData.getTbs());
-                iq5.p(accountData.getStoken());
+                jq5.n(accountData.getBDUSS());
+                jq5.q(accountData.getTbs());
+                jq5.p(accountData.getStoken());
             }
         }
     }
@@ -541,7 +541,7 @@ public class o05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.d = i;
-            TbLog a2 = dk.a();
+            TbLog a2 = ck.a();
             a2.i(Config.DEVICE_PART, "skinType status: " + i);
         }
     }
@@ -579,7 +579,7 @@ public class o05 {
     public void G(AccountData accountData, Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, accountData, application) == null) {
-            sj8.a("onAccountChanged()");
+            xo8.a("onAccountChanged()");
             BdLog.e("账号切换");
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
             String string = sharedPrefHelper.getString("current_used_theme_" + h(), null);
@@ -595,14 +595,14 @@ public class o05 {
             }
             f();
             MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
-            sj8.a("send METHOD_ACCOUNT_CHANGE");
+            xo8.a("send METHOD_ACCOUNT_CHANGE");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
             MessageManager.getInstance().registerStickyMode(2005019);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             TbSingleton.getInstance().onAccountChange();
             if (accountData != null) {
-                TbLog a2 = dk.a();
+                TbLog a2 = ck.a();
                 a2.i(Config.DEVICE_PART, "账号切换 Account:" + accountData.toString());
             }
         }
@@ -653,20 +653,20 @@ public class o05 {
             if (!this.b) {
                 if (accountData == null && this.a != null) {
                     this.b = true;
-                    sj8.a("account == null && mAccount != null");
+                    xo8.a("account == null && mAccount != null");
                 } else if (this.a == null && accountData != null) {
                     this.b = true;
-                    sj8.a("mAccount == null && account != null 初始化");
+                    xo8.a("mAccount == null && account != null 初始化");
                 } else {
                     AccountData accountData2 = this.a;
                     if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
                         this.b = true;
-                        sj8.a("mAccount != null && account != null");
+                        xo8.a("mAccount != null && account != null");
                     }
                 }
             }
             this.a = accountData;
-            uia.n();
+            ala.n();
             IdleHandlerManager.getInstance().addOrRunTask("setCurrentAccountInUI", new a(this, accountData, context));
         }
     }
@@ -756,7 +756,7 @@ public class o05 {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            ht5.a().h(System.currentTimeMillis() - currentTimeMillis);
+            it5.a().h(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 }

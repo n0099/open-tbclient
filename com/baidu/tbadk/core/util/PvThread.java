@@ -2,9 +2,11 @@ package com.baidu.tbadk.core.util;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -176,8 +178,12 @@ public class PvThread extends Thread {
             if (str5 != null) {
                 netWork.addPostData("page_type", str5);
             }
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i("ClientDurationHelper", "PvThread post begin st_param=" + this.mParam);
             String postNetData = netWork.postNetData();
             System.out.println("pv_test !!!");
+            TbLog defaultLog2 = DefaultLog.getInstance();
+            defaultLog2.i("ClientDurationHelper", "PvThread post end st_param=" + this.mParam);
             if (postNetData != null) {
                 Log.i("USEINTERVAL", postNetData);
                 try {

@@ -1,24 +1,86 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.model.csj.CSJDrawVideoNativeView;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class brb extends BaseAdRipper {
+public class brb extends tqb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes5.dex */
+    public class a implements TTAdNative.DrawFeedAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ brb a;
+
+        public a(brb brbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {brbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = brbVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener
+        public void onDrawFeedAdLoad(List<TTDrawFeedAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (TTDrawFeedAd tTDrawFeedAd : list) {
+                    arrayList.add(new grb(tTDrawFeedAd));
+                }
+                this.a.onAdLoaded(arrayList);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                LogPrinter.e("CSJDrawNative onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public brb(Ssp.Pid pid) {
-        super(pid);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,7 +90,8 @@ public class brb extends BaseAdRipper {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,52 +99,33 @@ public class brb extends BaseAdRipper {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object obj2;
+    @Override // com.baidu.tieba.tqb
+    public void l(FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            try {
-                Object obj3 = ((rrb) obj).a;
-                Field declaredField = obj3.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                obj2 = declaredField.get(obj3);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-            }
-            if (obj2 == null) {
-                return null;
-            }
-            Field declaredField2 = obj2.getClass().getDeclaredField("c");
-            declaredField2.setAccessible(true);
-            Object obj4 = declaredField2.get(obj2);
-            if (obj4 == null) {
-                return null;
-            }
-            Field declaredField3 = obj4.getClass().getDeclaredField("c");
-            declaredField3.setAccessible(true);
-            Object obj5 = declaredField3.get(obj4);
-            if (obj5 == null) {
-                return null;
-            }
-            Field declaredField4 = obj5.getClass().getDeclaredField("v");
-            declaredField4.setAccessible(true);
-            Object obj6 = declaredField4.get(obj5);
-            if (obj6 == null) {
-                return null;
-            }
-            Field declaredField5 = obj6.getClass().getSuperclass().getDeclaredField("M");
-            declaredField5.setAccessible(true);
-            JSONObject jSONObject = (JSONObject) declaredField5.get(obj6);
-            if (jSONObject != null) {
-                return arb.a(jSONObject);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
+            this.e.loadDrawFeedAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.tqb, com.fun.ad.sdk.internal.api.BasePidLoader
+    public /* bridge */ /* synthetic */ boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        p(activity, viewGroup, str, (grb) obj);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.tqb
+    public boolean p(Activity activity, ViewGroup viewGroup, String str, grb grbVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, viewGroup, str, grbVar)) == null) {
+            onShowStart(grbVar);
+            CSJDrawVideoNativeView cSJDrawVideoNativeView = (CSJDrawVideoNativeView) LayoutInflater.from(activity).inflate(R.layout.fun_csj_ad_draw_video_native, viewGroup, false);
+            viewGroup.removeAllViews();
+            viewGroup.addView(cSJDrawVideoNativeView);
+            cSJDrawVideoNativeView.a((TTNativeAd) grbVar.a);
+            j(activity, grbVar, viewGroup, cSJDrawVideoNativeView, new erb(this, grbVar));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

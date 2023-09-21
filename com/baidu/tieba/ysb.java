@@ -9,10 +9,9 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
 import java.lang.reflect.Field;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class ysb extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
@@ -41,31 +40,39 @@ public class ysb extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
-        Object obj2;
-        List<AdInfo> list;
-        AdInfo adInfo;
+        Object findField;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                rtb rtbVar = (rtb) obj;
-                if (rtbVar != null) {
-                    Object obj3 = rtbVar.a;
-                    String[] strArr = {"mAdTemplate"};
-                    Field field = null;
-                    for (int i = 0; i < 1; i++) {
-                        try {
-                            field = obj3.getClass().getDeclaredField(strArr[i]);
-                            field.setAccessible(true);
-                            break;
-                        } catch (NoSuchFieldException unused) {
-                        }
-                    }
-                    if (field == null || (obj2 = field.get(obj3)) == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
-                        return null;
-                    }
-                    return etb.a(adInfo);
-                }
+            if (obj == null) {
                 return null;
+            }
+            try {
+                Object obj2 = ((jtb) obj).a;
+                Field declaredField = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj3 = declaredField.get(obj2);
+                if (obj3 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj3.getClass().getDeclaredField("c");
+                declaredField2.setAccessible(true);
+                Object obj4 = declaredField2.get(obj3);
+                if (obj4 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.intersitial2.h", obj4)) == null) {
+                    return null;
+                }
+                Field declaredField3 = findField.getClass().getDeclaredField("y");
+                declaredField3.setAccessible(true);
+                Object obj5 = declaredField3.get(findField);
+                if (obj5 == null) {
+                    return null;
+                }
+                Field declaredField4 = obj5.getClass().getSuperclass().getDeclaredField("L");
+                declaredField4.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField4.get(obj5);
+                if (jSONObject == null) {
+                    return null;
+                }
+                return ssb.a(jSONObject);
             } catch (Exception e) {
                 LogPrinter.e(e);
                 return null;

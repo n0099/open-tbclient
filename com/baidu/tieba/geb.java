@@ -1,92 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import android.util.Base64OutputStream;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public final class geb {
+public class geb extends Base64OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public long c;
 
-    public static String a(com.baidu.ubs.analytics.b bVar) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public geb(OutputStream outputStream, int i) {
+        super(outputStream, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            JSONArray jSONArray2 = new JSONArray();
-            JSONArray jSONArray3 = new JSONArray();
-            JSONArray jSONArray4 = new JSONArray();
-            try {
-                jSONObject2.put("cuid", bVar.n().l());
-                jSONObject2.put("imei", bVar.n().getImei());
-                jSONObject2.put("osVersion", bVar.n().getOsVersion());
-                jSONObject2.put("brandName", bVar.n().r());
-                jSONObject2.put("deviceType", bVar.n().s());
-                jSONObject2.put("mac", bVar.n().t());
-                jSONObject2.put(com.heytap.mcssdk.constant.b.C, bVar.n().u());
-                jSONObject2.put("testEnable", bVar.n().v());
-                jSONObject2.put("appVersion", bVar.n().w());
-                jSONObject2.put("appVersionName", bVar.n().w());
-                jSONObject2.put("screenWidth", bVar.n().y());
-                jSONObject2.put("screenHeight", bVar.n().z());
-                jSONObject2.put("screenDensity", bVar.n().A());
-                jSONObject2.put("netType", bVar.n().x());
-                jSONObject2.put("appName", bVar.n().C());
-                jSONObject2.put("expInfo", bVar.n().B());
-                jSONObject2.put("phone", bVar.n().getPhone());
-                for (com.baidu.ubs.analytics.a.n nVar : bVar.o()) {
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("startTime", nVar.N());
-                    jSONObject3.put("endTime", nVar.O());
-                    jSONObject3.put("keepTime", nVar.P());
-                    jSONObject3.put("sessionId", nVar.I());
-                    jSONArray.put(jSONObject3);
-                }
-                for (com.baidu.ubs.analytics.a.l lVar : bVar.p()) {
-                    JSONObject jSONObject4 = new JSONObject();
-                    jSONObject4.put("pagerName", lVar.E());
-                    jSONObject4.put("sessionId", lVar.I());
-                    jSONObject4.put("endTime", lVar.O());
-                    jSONObject4.put("startTime", lVar.N());
-                    jSONObject4.put("path", lVar.getPath());
-                    jSONArray2.put(jSONObject4);
-                }
-                for (com.baidu.ubs.analytics.a.a aVar : bVar.getEvents()) {
-                    JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("type", aVar.G());
-                    jSONObject5.put("sessionId", aVar.I());
-                    jSONObject5.put("ext", aVar.H());
-                    jSONObject5.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, aVar.F());
-                    jSONObject5.put("page", aVar.E());
-                    jSONObject5.put("from", aVar.D());
-                    jSONArray3.put(jSONObject5);
-                }
-                for (com.baidu.ubs.analytics.a.i iVar : bVar.q()) {
-                    JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("url", iVar.getUrl());
-                    jSONObject6.put("sessionId", iVar.I());
-                    jSONObject6.put("method", iVar.getType());
-                    jSONObject6.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, iVar.F());
-                    jSONObject6.put(PushConstants.PARAMS, iVar.M());
-                    jSONArray4.put(jSONObject6);
-                }
-                jSONObject.put("deviceinfo", jSONObject2);
-                jSONObject.put("sessions", jSONArray);
-                jSONObject.put("events", jSONArray3);
-                jSONObject.put("pagers", jSONArray2);
-                jSONObject.put("nets", jSONArray4);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return jSONObject.toString();
         }
-        return (String) invokeL.objValue;
+        this.a = false;
+        this.b = false;
+        this.c = 0L;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (!this.a) {
+                super.write(117);
+                this.a = true;
+            } else if (!this.b) {
+                super.write(123);
+                this.b = true;
+            } else {
+                super.write(i);
+            }
+        }
+    }
+
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
+            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
+                bArr[i] = 123;
+                this.b = true;
+            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
+                bArr[i] = 117;
+                this.a = true;
+            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
+                bArr[i] = 117;
+                this.a = true;
+                bArr[i + 1] = 123;
+                this.b = true;
+            }
+            if (i2 > 0) {
+                this.c += i2;
+            }
+            super.write(bArr, i, i2);
+        }
     }
 }

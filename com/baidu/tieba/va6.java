@@ -1,27 +1,48 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class va6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ua6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ua6 a() {
+    public static boolean a() {
         InterceptResult invokeV;
-        ua6 ua6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (va6.class) {
-                if (a == null) {
-                    a = new ua6();
-                }
-                ua6Var = a;
-            }
-            return ua6Var;
+            return nu2.M().a();
         }
-        return (ua6) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static void b() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
+            if (a()) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            if (defaultNightMode != i) {
+                AppCompatDelegate.setDefaultNightMode(i);
+            }
+        }
+    }
+
+    public static void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
+            intent.putExtra("key_night_mode", z);
+            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
+        }
     }
 }

@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 /* loaded from: classes6.dex */
 public interface jz3 {
-    void a(DownloadInfo downloadInfo);
+    void a();
 
-    void b();
+    void b(DownloadException downloadException);
 
-    DownloadInfo c(String str);
+    void c();
 
-    void close();
+    void d();
 
-    void delete(DownloadInfo downloadInfo);
+    void e(long j, long j2);
+
+    void f(long j, long j2);
+
+    void onStart();
 }

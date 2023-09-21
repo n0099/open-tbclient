@@ -1,29 +1,29 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ebc;
-import com.baidu.tieba.qbc;
-import com.baidu.tieba.uac;
-import com.baidu.tieba.yac;
-import com.baidu.tieba.zac;
+import com.baidu.tieba.idc;
+import com.baidu.tieba.mcc;
+import com.baidu.tieba.qcc;
+import com.baidu.tieba.rcc;
+import com.baidu.tieba.wcc;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes2.dex */
-public final class CachedObservable$ReplayProducer<T> extends AtomicLong implements uac, zac {
+public final class CachedObservable$ReplayProducer<T> extends AtomicLong implements mcc, rcc {
     public static final long serialVersionUID = -2557562030197141021L;
-    public final yac<? super T> child;
+    public final qcc<? super T> child;
     public Object[] currentBuffer;
     public int currentIndexInBuffer;
     public boolean emitting;
     public int index;
     public boolean missed;
-    public final qbc<T> state;
+    public final idc<T> state;
 
-    public CachedObservable$ReplayProducer(yac<? super T> yacVar, qbc<T> qbcVar) {
-        this.child = yacVar;
-        this.state = qbcVar;
+    public CachedObservable$ReplayProducer(qcc<? super T> qccVar, idc<T> idcVar) {
+        this.child = qccVar;
+        this.state = idcVar;
     }
 
-    @Override // com.baidu.tieba.zac
+    @Override // com.baidu.tieba.rcc
     public boolean isUnsubscribed() {
         if (get() < 0) {
             return true;
@@ -31,7 +31,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
         return false;
     }
 
-    @Override // com.baidu.tieba.zac
+    @Override // com.baidu.tieba.rcc
     public void unsubscribe() {
         if (get() >= 0 && getAndSet(-1L) >= 0) {
             this.state.e(this);
@@ -42,7 +42,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
         return addAndGet(-j);
     }
 
-    @Override // com.baidu.tieba.uac
+    @Override // com.baidu.tieba.mcc
     public void request(long j) {
         long j2;
         long j3;
@@ -73,7 +73,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
             }
             this.emitting = true;
             try {
-                yac<? super T> yacVar = this.child;
+                qcc<? super T> qccVar = this.child;
                 while (true) {
                     long j = get();
                     int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
@@ -94,18 +94,18 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                             if (i == 0) {
                                 Object obj = objArr[i3];
                                 if (NotificationLite.f(obj)) {
-                                    yacVar.onCompleted();
+                                    qccVar.onCompleted();
                                     unsubscribe();
                                     return;
                                 } else if (NotificationLite.g(obj)) {
-                                    yacVar.onError(NotificationLite.d(obj));
+                                    qccVar.onError(NotificationLite.d(obj));
                                     unsubscribe();
                                     return;
                                 }
                             } else if (i > 0) {
                                 int i4 = 0;
                                 while (i2 < b && j > 0) {
-                                    if (yacVar.isUnsubscribed()) {
+                                    if (qccVar.isUnsubscribed()) {
                                         return;
                                     }
                                     if (i3 == length) {
@@ -114,7 +114,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                     }
                                     Object obj2 = objArr[i3];
                                     try {
-                                        if (NotificationLite.a(yacVar, obj2)) {
+                                        if (NotificationLite.a(qccVar, obj2)) {
                                             try {
                                                 unsubscribe();
                                                 return;
@@ -122,10 +122,10 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                                 th = th;
                                                 z = true;
                                                 try {
-                                                    ebc.e(th);
+                                                    wcc.e(th);
                                                     unsubscribe();
                                                     if (!NotificationLite.g(obj2) && !NotificationLite.f(obj2)) {
-                                                        yacVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj2)));
+                                                        qccVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj2)));
                                                         return;
                                                     }
                                                     return;
@@ -146,7 +146,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                         z = false;
                                     }
                                 }
-                                if (yacVar.isUnsubscribed()) {
+                                if (qccVar.isUnsubscribed()) {
                                     return;
                                 }
                                 this.index = i2;

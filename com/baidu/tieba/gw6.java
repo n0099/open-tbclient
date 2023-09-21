@@ -6,79 +6,81 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.LinkedHashSet;
+import java.util.Collection;
 import java.util.Set;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public abstract class gw6<T> extends bw6 {
+public final class gw6 extends mw6<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean b;
-    public final Set<T> c;
-    public boolean d;
-
-    public abstract T c(lv6 lv6Var);
+    public final Function1<Long, Boolean> e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gw6(int i, boolean z) {
-        super(i);
+    public gw6(Function1<? super Long, Boolean> selfPredicate) {
+        super(2048, false, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {selfPredicate};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = z;
-        this.c = Collections.synchronizedSet(new LinkedHashSet());
-        this.d = true;
+        Intrinsics.checkNotNullParameter(selfPredicate, "selfPredicate");
+        this.e = selfPredicate;
     }
 
-    public /* synthetic */ gw6(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i, (i2 & 2) != 0 ? false : z);
-    }
-
-    @Override // com.baidu.tieba.bw6
-    public boolean b(kv6 item, nx6 timer, ev6 config) {
+    @Override // com.baidu.tieba.mw6, com.baidu.tieba.hw6
+    public boolean b(qv6 item, tx6 timer, kv6 config) {
         InterceptResult invokeLLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(timer, "timer");
             Intrinsics.checkNotNullParameter(config, "config");
-            if (!this.d) {
-                return false;
-            }
-            boolean contains = this.c.contains(c(item.e()));
-            if (this.b) {
-                if (contains) {
-                    return false;
+            rv6 e = item.e();
+            if (!this.e.invoke(e.p()).booleanValue()) {
+                Set<String> d = d();
+                if (!(d instanceof Collection) || !d.isEmpty()) {
+                    for (String str : d) {
+                        if (StringsKt__StringsKt.contains$default((CharSequence) e.c(), (CharSequence) str, false, 2, (Object) null)) {
+                            z = true;
+                            break;
+                        }
+                    }
                 }
-                return true;
+                z = false;
+                if (z) {
+                    return true;
+                }
             }
-            return contains;
+            return false;
         }
         return invokeLLL.booleanValue;
     }
 
-    public final Set<T> d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mw6
+    /* renamed from: e */
+    public String c(rv6 data) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<T> mFilterSet = this.c;
-            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
-            return mFilterSet;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return data.c();
         }
-        return (Set) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

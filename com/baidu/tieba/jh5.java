@@ -1,37 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.CallSuper;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.nps.main.invoke.IInvokeCallback;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
-import java.util.Objects;
-import tbclient.Loop.FestivalInfo;
-import tbclient.ThemeColorInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jh5 {
+public abstract class jh5 implements IInvokeCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    @SerializedName("main_fname")
-    public String a;
-    @SerializedName("main_fid")
-    public long b;
-    @Nullable
-    @SerializedName("bless")
-    public String c;
-    @Nullable
-    @SerializedName("write_select_tips")
-    public String d;
-    @Nullable
-    @SerializedName("comment_tips")
-    public String e;
-    @Nullable
-    @SerializedName("tips_color")
-    public ThemeColorInfo f;
 
     public jh5() {
         Interceptable interceptable = $ic;
@@ -47,44 +28,35 @@ public class jh5 {
         }
     }
 
-    public void a(FestivalInfo festivalInfo) {
+    /* renamed from: onResult$lambda-0  reason: not valid java name */
+    public static final void m139onResult$lambda0(String toastText) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65537, null, toastText) == null) {
+            Intrinsics.checkNotNullParameter(toastText, "$toastText");
+            BdUtilHelper.showLongToast(TbadkCoreApplication.getInst(), toastText);
         }
-        this.a = festivalInfo.main_fname;
-        this.b = festivalInfo.main_fid.longValue();
-        this.c = festivalInfo.bless;
-        this.d = festivalInfo.write_select_tips;
-        this.e = festivalInfo.comment_tips;
-        this.f = festivalInfo.tips_color;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.nps.main.invoke.IInvokeCallback
+    @CallSuper
+    public void onResult(int i, final String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, obj) == null) && i == -1400) {
+            if (str == null) {
+                str = "插件修复中...";
             }
-            if (obj == null || jh5.class != obj.getClass()) {
-                return false;
-            }
-            jh5 jh5Var = (jh5) obj;
-            if (Objects.equals(this.a, jh5Var.a) && this.b == jh5Var.b && Objects.equals(this.c, jh5Var.c) && Objects.equals(this.d, jh5Var.d) && Objects.equals(this.e, jh5Var.e)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+            lg.g(new Runnable() { // from class: com.baidu.tieba.fh5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        jh5.m139onResult$lambda0(str);
+                    }
+                }
+            });
         }
-        return invokeV.intValue;
     }
 }

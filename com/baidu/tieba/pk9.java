@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +13,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.PbPage.SimilarContent;
+import tbclient.SimpleForum;
 /* loaded from: classes7.dex */
-public final class pk9 {
+public final class pk9 extends iq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final pk9 a;
+    @JvmField
+    public static final BdUniqueId X0;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SimilarContent S0;
+    public int T0;
+    public final List<String> U0;
+    public final String V0;
+    public final ThreadData W0;
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            return (obj instanceof pk9) && Intrinsics.areEqual(this.S0, ((pk9) obj).S0);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.S0.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "PbFirstFloorSimilarData(similarContent=" + this.S0 + ')';
+        }
+        return (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,104 +71,132 @@ public final class pk9 {
                 return;
             }
         }
-        a = new pk9();
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        X0 = gen;
     }
 
-    public pk9() {
+    public final List<String> V() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.U0;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final String W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.V0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final ThreadData X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.W0;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    public final boolean Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.T0 == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean Z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.T0 == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aq6, com.baidu.tieba.b15
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new NegativeFeedBackData();
+        }
+        return (NegativeFeedBackData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iq6, com.baidu.tieba.aq6, com.baidu.tieba.b15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.W0;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iq6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return X0;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public pk9(SimilarContent similarContent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {similarContent};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @JvmStatic
-    public static final void b(String tid, String pid, boolean z, boolean z2) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tid, pid, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(pid, "pid");
-            pk9 pk9Var = a;
-            if (z) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            if (z2) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            pk9Var.a(tid, pid, 2, i, i2);
+        Intrinsics.checkNotNullParameter(similarContent, "similarContent");
+        this.S0 = similarContent;
+        this.U0 = new ArrayList();
+        if (ListUtils.isNotEmpty(this.S0.similar_label_list)) {
+            ((ArrayList) this.U0).addAll(this.S0.similar_label_list);
         }
-    }
-
-    @JvmStatic
-    public static final void c(String tid, String pid, boolean z, boolean z2) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{tid, pid, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(pid, "pid");
-            pk9 pk9Var = a;
-            if (z) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            if (z2) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            pk9Var.a(tid, pid, 1, i, i2);
+        ThreadData threadData = new ThreadData();
+        this.W0 = threadData;
+        threadData.parserProtobuf(this.S0.similar_thread);
+        SimpleForum simpleForum = this.S0.similar_forum;
+        if (simpleForum != null) {
+            ThreadData threadData2 = this.W0;
+            Long l = simpleForum.id;
+            Intrinsics.checkNotNullExpressionValue(l, "similarContent.similar_forum.id");
+            threadData2.setFid(l.longValue());
+            d45 d45Var = new d45();
+            d45Var.m(this.S0.similar_forum);
+            this.W0.setForumData(d45Var);
         }
-    }
-
-    @JvmStatic
-    public static final void e(String tid, String pid, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, tid, pid, i) == null) {
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(pid, "pid");
-            a.d("c15453", tid, pid).param("obj_type", i).eventStat();
-        }
-    }
-
-    @JvmStatic
-    public static final void f(String tid, String pid, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, tid, pid, i) == null) {
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(pid, "pid");
-            a.d("c15452", tid, pid).param("obj_type", i).eventStat();
-        }
-    }
-
-    public final StatisticItem d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
-            StatisticItem param = new StatisticItem(str).param("tid", str2).param("pid", str3);
-            Intrinsics.checkNotNullExpressionValue(param, "StatisticItem(key)\n     …baStatic.Params.PID, pid)");
-            return param;
-        }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public final void a(String str, String str2, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            d("c15448", str, str2).param("obj_locate", i).param("obj_type", i2).param("obj_source", i3).eventStat();
-        }
+        this.W0.setSimilarPageType(true);
+        String str = this.S0.similar_url;
+        Intrinsics.checkNotNullExpressionValue(str, "similarContent.similar_url");
+        this.V0 = str;
+        Integer num = this.S0.user_type;
+        Intrinsics.checkNotNullExpressionValue(num, "similarContent.user_type");
+        this.T0 = num.intValue();
     }
 }

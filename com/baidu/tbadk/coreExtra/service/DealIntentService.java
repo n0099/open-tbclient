@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.mainentrance.MainEntrance;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -175,7 +175,7 @@ public class DealIntentService extends BdBaseService {
                 long j = this.a.getExtras().getLong("task_id");
                 long j2 = this.a.getExtras().getLong("service_id");
                 String stringExtra2 = this.a.getStringExtra("task_id");
-                if (!ei.isEmpty(stringExtra2) && j == 0) {
+                if (!di.isEmpty(stringExtra2) && j == 0) {
                     j = Long.parseLong(stringExtra2);
                 }
                 if (j > 0) {

@@ -7,22 +7,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class kr0 {
+public class kr0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
     @JvmField
-    public String a;
+    public int a;
     @JvmField
-    public String b;
+    public int b;
     @JvmField
-    public String c;
+    public Object c;
+    @JvmField
+    public er0 d;
+    @JvmField
+    public hr0 e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +40,7 @@ public final class kr0 {
                 return;
             }
         }
-        d = new a(null);
+        f = new a(null);
     }
 
     /* loaded from: classes6.dex */
@@ -71,18 +74,20 @@ public final class kr0 {
                 if (jSONObject == null) {
                     return null;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject("panel");
+                JSONObject optJSONObject = jSONObject.optJSONObject("popover");
                 if (optJSONObject == null) {
-                    optJSONObject = i31.c(jSONObject.optString("panel"));
+                    optJSONObject = h31.c(jSONObject.optString("popover"));
                 }
                 if (optJSONObject == null) {
                     return null;
                 }
                 kr0 kr0Var = new kr0();
-                kr0Var.a = optJSONObject.optString("title");
-                kr0Var.b = optJSONObject.optString("brand_name");
-                kr0Var.c = optJSONObject.optString("avatar");
-                optJSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST);
+                kr0Var.a = optJSONObject.optInt("type");
+                kr0Var.b = optJSONObject.optInt("show_time");
+                optJSONObject.optInt("async_get_popover_data_switch");
+                optJSONObject.optInt("async_get_popover_data_delay_time");
+                optJSONObject.optString("popover_data_request_url");
+                optJSONObject.optJSONObject("popover_data_request_params");
                 return kr0Var;
             }
             return (kr0) invokeL.objValue;

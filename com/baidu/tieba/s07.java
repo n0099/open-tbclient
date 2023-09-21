@@ -1,54 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
 
-    public s07() {
+    public static void a(View view2, b15 b15Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, view2, b15Var, str) == null) && b15Var != null && b15Var.getThreadData() != null) {
+            ThreadData threadData = b15Var.getThreadData();
+            if (threadData.isVideoThreadType()) {
+                TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
+                return;
+            }
+            int id = view2.getId();
+            if (view2.getId() != R.id.thread_card_root && id != R.id.thread_info_commont_container) {
+                if (id == R.id.user_avatar) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
+                    return;
+                } else if (id == R.id.user_name) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
+                    return;
+                } else if (id == R.id.forum_name_text) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
+                    return;
+                } else if (id == R.id.thread_info_commont_container) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+                    return;
+                } else if (view2 instanceof TbImageView) {
+                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
+                    return;
+                } else {
+                    return;
+                }
+            }
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+        }
+    }
+
+    public static void b(b15 b15Var, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, b15Var, str) == null) && b15Var != null && b15Var.getThreadData() != null) {
+            if (b15Var.getThreadData().isVideoThreadType()) {
+                kp6.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(b15Var.getThreadData(), str));
+            } else {
+                kp6.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(b15Var.getThreadData(), str));
             }
         }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.isEmpty(this.c);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.optString("pic");
-        this.a = jSONObject.optString("url");
-        jSONObject.optInt("server_time");
-        this.b = jSONObject.optInt("adid");
-        this.c = jSONObject.optString("big_pic");
-        jSONObject.optString("small_pic");
     }
 }

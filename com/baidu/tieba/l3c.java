@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import com.weibo.ssosdk.WeiboSsoSdk;
 /* loaded from: classes6.dex */
 public interface l3c {
-    void a(int i, int i2, int i3, int i4);
-
-    void b(int i, int i2, String str);
+    void handler(WeiboSsoSdk.d dVar);
 }

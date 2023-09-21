@@ -117,7 +117,7 @@ public final class c extends b {
                 this.is = i;
             }
         };
-        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04b9, this);
+        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04bc, this);
         this.mContext = context;
         initView();
     }
@@ -229,10 +229,10 @@ public final class c extends b {
     }
 
     private void initView() {
-        this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09132a);
-        this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09132b);
-        this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091314);
-        this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913f9);
+        this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09131a);
+        this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09131b);
+        this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091304);
+        this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913e9);
         this.aM = new com.kwad.components.core.widget.kwai.b(this.mRootView, 100);
     }
 
@@ -253,8 +253,8 @@ public final class c extends b {
                 c.this.f8if.a(i, eVar);
             }
         });
-        this.ig.a(new a.InterfaceC0611a() { // from class: com.kwad.components.ad.interstitial.widget.c.4
-            @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0611a
+        this.ig.a(new a.InterfaceC0604a() { // from class: com.kwad.components.ad.interstitial.widget.c.4
+            @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0604a
             public final void dL() {
                 if (c.this.io) {
                     return;

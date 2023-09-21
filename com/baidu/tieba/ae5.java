@@ -1,127 +1,130 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.coreExtra.data.VcodeExtra;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ae5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<ShareDialogConfig.From, Integer> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public int a;
+    public int b;
     public String c;
-    public VcodeExtra d;
+    public List<Integer> d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612312, "Lcom/baidu/tieba/ae5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947612312, "Lcom/baidu/tieba/ae5;");
+                return;
+            }
+        }
+        HashMap hashMap = new HashMap();
+        e = hashMap;
+        hashMap.put(ShareDialogConfig.From.Recommend, 1);
+        e.put(ShareDialogConfig.From.Concern, 2);
+        e.put(ShareDialogConfig.From.PB, 3);
+        e.put(ShareDialogConfig.From.FRS, 4);
+        e.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        e.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        e.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        e.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        e.put(ShareDialogConfig.From.HomeGameTab, 9);
+    }
 
     public ae5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
     }
 
-    public VcodeExtra a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (VcodeExtra) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public void e(String str) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                g(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (System.currentTimeMillis() / 1000 >= this.a && System.currentTimeMillis() / 1000 <= this.b) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void f(JSONObject jSONObject) {
+    public boolean c(ShareDialogConfig.From from) {
+        InterceptResult invokeL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            try {
-                g(jSONObject);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, from)) == null) {
+            if (this.d == null || (num = e.get(from)) == null || !this.d.contains(num)) {
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void g(JSONObject jSONObject) {
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
-            if (optJSONObject == null) {
-                optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
+        this.a = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
+        this.b = jSONObject.optInt("end_time");
+        this.c = jSONObject.optString("text");
+        e(jSONObject.optString("page_list"));
+    }
+
+    public final void e(String str) {
+        String[] split;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || di.isEmpty(str) || (split = str.split(",")) == null) {
+            return;
+        }
+        for (String str2 : split) {
+            int i = JavaTypesHelper.toInt(str2, -1);
+            if (i != -1) {
+                if (this.d == null) {
+                    this.d = new ArrayList();
+                }
+                this.d.add(Integer.valueOf(i));
             }
-            if (optJSONObject == null) {
-                return;
-            }
-            this.a = optJSONObject.optString("vcode_md5");
-            this.b = optJSONObject.optString("vcode_pic_url");
-            this.c = optJSONObject.optString("vcode_type");
-            JSONObject jSONObject2 = optJSONObject.getJSONObject("vcode_extra");
-            VcodeExtra vcodeExtra = new VcodeExtra();
-            this.d = vcodeExtra;
-            vcodeExtra.textImg = jSONObject2.optString("textimg");
-            this.d.slideImg = jSONObject2.optString("slideimg");
-            this.d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
-            this.d.successImg = jSONObject2.optString("successimg");
-            this.d.slideEndPoint = jSONObject2.optString("slideendpoint");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 }

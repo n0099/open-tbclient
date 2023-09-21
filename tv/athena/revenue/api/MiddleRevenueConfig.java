@@ -238,87 +238,87 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setAppContext  reason: collision with other method in class */
-        public final void m2366setAppContext(Context context) {
+        public final void m2368setAppContext(Context context) {
             this.appContext = context;
         }
 
         /* renamed from: setAppId  reason: collision with other method in class */
-        public final void m2367setAppId(int i) {
+        public final void m2369setAppId(int i) {
             this.appId = i;
         }
 
         /* renamed from: setAppName  reason: collision with other method in class */
-        public final void m2368setAppName(String str) {
+        public final void m2370setAppName(String str) {
             this.appName = str;
         }
 
         /* renamed from: setAuthType  reason: collision with other method in class */
-        public final void m2369setAuthType(int i) {
+        public final void m2371setAuthType(int i) {
             this.authType = i;
         }
 
         /* renamed from: setCurrencyType  reason: collision with other method in class */
-        public final void m2370setCurrencyType(int i) {
+        public final void m2372setCurrencyType(int i) {
             this.currencyType = i;
         }
 
         /* renamed from: setDeviceId  reason: collision with other method in class */
-        public final void m2371setDeviceId(String str) {
+        public final void m2373setDeviceId(String str) {
             this.deviceId = str;
         }
 
         /* renamed from: setGslbAppId  reason: collision with other method in class */
-        public final void m2372setGslbAppId(String str) {
+        public final void m2374setGslbAppId(String str) {
             this.gslbAppId = str;
         }
 
         /* renamed from: setHostId  reason: collision with other method in class */
-        public final void m2373setHostId(String str) {
+        public final void m2375setHostId(String str) {
             this.hostId = str;
         }
 
         /* renamed from: setHttpUrl  reason: collision with other method in class */
-        public final void m2374setHttpUrl(String str) {
+        public final void m2376setHttpUrl(String str) {
             this.httpUrl = str;
         }
 
         /* renamed from: setPackageName  reason: collision with other method in class */
-        public final void m2375setPackageName(String str) {
+        public final void m2377setPackageName(String str) {
             this.packageName = str;
         }
 
         /* renamed from: setProtoType  reason: collision with other method in class */
-        public final void m2376setProtoType(ProtocolType protocolType) {
+        public final void m2378setProtoType(ProtocolType protocolType) {
             this.protoType = protocolType;
         }
 
         /* renamed from: setTestEnv  reason: collision with other method in class */
-        public final void m2377setTestEnv(boolean z) {
+        public final void m2379setTestEnv(boolean z) {
             this.isTestEnv = z;
         }
 
         /* renamed from: setToken  reason: collision with other method in class */
-        public final void m2378setToken(String str) {
+        public final void m2380setToken(String str) {
             this.token = str;
         }
 
         /* renamed from: setTokenCallback  reason: collision with other method in class */
-        public final void m2379setTokenCallback(IToken iToken) {
+        public final void m2381setTokenCallback(IToken iToken) {
             this.tokenCallback = iToken;
         }
 
         /* renamed from: setUid  reason: collision with other method in class */
-        public final void m2380setUid(long j) {
+        public final void m2382setUid(long j) {
             this.uid = j;
         }
 
         /* renamed from: setUseChannel  reason: collision with other method in class */
-        public final void m2381setUseChannel(int i) {
+        public final void m2383setUseChannel(int i) {
             this.useChannel = i;
         }
 
         /* renamed from: setVersion  reason: collision with other method in class */
-        public final void m2382setVersion(String str) {
+        public final void m2384setVersion(String str) {
             this.version = str;
         }
     }

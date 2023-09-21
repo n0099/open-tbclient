@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qq3 implements ih4 {
+public class qq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
+    public RelativeLayout a;
 
     public qq3() {
         Interceptable interceptable = $ic;
@@ -32,38 +31,37 @@ public class qq3 implements ih4 {
         this.a = null;
     }
 
-    @Override // com.baidu.tieba.ih4
-    public void a(BaseMenuView baseMenuView) {
+    public final void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, baseMenuView) != null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        if (ou2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
-        }
-    }
-
-    public final void b(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof FrameLayout)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof RelativeLayout)) {
             return;
         }
         if (this.a == null) {
-            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            this.a = frameLayout;
-            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f060451);
+            RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
+            this.a = relativeLayout;
+            relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801bc);
         }
         viewGroup.removeView(this.a);
-        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+        viewGroup.addView(this.a, new ViewGroup.LayoutParams(-1, -1));
+    }
+
+    public void b(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        if (nu2.M().a()) {
+            a(viewGroup);
+        } else {
+            c(viewGroup);
+        }
     }
 
     public final void c(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (relativeLayout = this.a) != null) {
+            viewGroup.removeView(relativeLayout);
             this.a = null;
         }
     }

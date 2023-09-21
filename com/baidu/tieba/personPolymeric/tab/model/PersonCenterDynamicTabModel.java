@@ -14,7 +14,6 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabHttpResMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabRequestMessage;
-import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -107,11 +106,6 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                 j = personCenterDynamicTabHttpResMessage.mCursor;
                 z = personCenterDynamicTabHttpResMessage.mHasMore;
                 list = personCenterDynamicTabHttpResMessage.mThreadDataList;
-            } else if (responsedMessage instanceof PersonCenterDynamicTabSocketResMessage) {
-                PersonCenterDynamicTabSocketResMessage personCenterDynamicTabSocketResMessage = (PersonCenterDynamicTabSocketResMessage) responsedMessage;
-                j = personCenterDynamicTabSocketResMessage.mCursor;
-                z = personCenterDynamicTabSocketResMessage.mHasMore;
-                list = personCenterDynamicTabSocketResMessage.mThreadDataList;
             } else {
                 j = 0;
                 z = false;

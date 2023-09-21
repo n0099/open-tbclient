@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class et2 extends bp2<st2> {
+public class et2 extends ap2<rt2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setMuted" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
     }
 
     public et2() {
@@ -36,17 +37,16 @@ public class et2 extends bp2<st2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull st2 st2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rt2 rt2Var) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, st2Var) == null) {
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                st2Var.l(((Boolean) obj).booleanValue());
-                String str = command.what;
-                d(st2Var, str, "setMuted:" + command.obj, false);
-            }
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rt2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
+        rt2Var.setSurface((Surface) obj);
+        String str = command.what;
+        d(rt2Var, str, "Surface:" + command.obj.hashCode(), false);
     }
 }

@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do5;
-import com.baidu.tieba.zfa;
+import com.baidu.tieba.fia;
+import com.baidu.tieba.ho5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class FragmentTabWidget extends LinearLayout {
     public String B;
     public HashMap<Integer, View> C;
     public int D;
-    public do5 E;
+    public ho5 E;
     public final Rect a;
     public final Rect b;
     public final Rect c;
@@ -262,10 +262,10 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
-    public void setDynamicStyleData(do5 do5Var) {
+    public void setDynamicStyleData(ho5 ho5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, do5Var) == null) {
-            this.E = do5Var;
+        if (interceptable == null || interceptable.invokeL(1048600, this, ho5Var) == null) {
+            this.E = ho5Var;
         }
     }
 
@@ -352,7 +352,7 @@ public class FragmentTabWidget extends LinearLayout {
             if (context instanceof Activity) {
                 int color = SkinManager.getColor(i);
                 String dynamicStyleNavBarColor = getDynamicStyleNavBarColor();
-                if (this.E != null && ((color = zfa.f(dynamicStyleNavBarColor)) == 0 || color == Integer.MAX_VALUE)) {
+                if (this.E != null && ((color = fia.f(dynamicStyleNavBarColor)) == 0 || color == Integer.MAX_VALUE)) {
                     color = SkinManager.getColor(R.color.CAM_X0205);
                 }
                 UtilHelper.setNavigationBarBg((Activity) context, color);

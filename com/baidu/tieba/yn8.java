@@ -1,106 +1,56 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yn8 {
+public class yn8 extends kf8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (StringUtils.isNull(str) || (split = str.split(":")) == null || split.length != 3) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948336038, "Lcom/baidu/tieba/yn8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            long j = JavaTypesHelper.toLong(split[2].trim(), 0L);
-            if (j > SharedPrefHelper.getInstance().getLong(SharedPrefHelper.getSharedPrefKeyWithAccount("excellent_msg_" + str2), 0L)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void e(@Nullable String str, @NonNull String str2) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && !StringUtils.isNull(str) && (split = str.split(":")) != null && split.length == 3) {
-            SharedPrefHelper.getInstance().putLong(SharedPrefHelper.getSharedPrefKeyWithAccount("excellent_msg_" + str2), JavaTypesHelper.toLong(split[2].trim(), 0L));
-        }
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(str), false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(@NonNull TopBubbleData topBubbleData) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, topBubbleData)) == null) {
-            String versionKey = topBubbleData.getVersionKey();
-            if (StringUtils.isNull(versionKey) || (split = versionKey.split("_")) == null || split.length != 3) {
-                return false;
-            }
-            long j = JavaTypesHelper.toLong(split[1].trim(), 0L);
-            int i = JavaTypesHelper.toInt(split[2].trim(), 0);
-            topBubbleData.setActivityID(j);
-            topBubbleData.setActivityStatus(i);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String str2 = "?";
-            try {
-                Uri parse = Uri.parse(str);
-                String fragment = parse.getFragment();
-                String query = parse.getQuery();
-                if (fragment != null) {
-                    if (fragment.contains("?")) {
-                        str2 = "&";
-                    }
-                    if (!TextUtils.isEmpty(query)) {
-                        return str.substring(0, str.indexOf("#")) + "&time=" + System.currentTimeMillis() + "#" + fragment + str2;
-                    }
-                    return str.substring(0, str.indexOf("#")) + "?time=" + System.currentTimeMillis() + "#" + fragment + str2;
-                }
-                return str;
-            } catch (Exception e) {
-                BdLog.d("parseRouterUrl Exception " + e);
-                return str;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948336038, "Lcom/baidu/tieba/yn8;");
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        a = BdUniqueId.gen().getId();
     }
 
-    public static void f(String str, boolean z) {
+    public yn8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65541, null, str, z) == null) {
-            SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(str), z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.kf8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
+        }
+        return invokeV.intValue;
     }
 }

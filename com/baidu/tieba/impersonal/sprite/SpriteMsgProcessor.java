@@ -20,27 +20,27 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.b19;
-import com.baidu.tieba.bz8;
-import com.baidu.tieba.c19;
-import com.baidu.tieba.co5;
-import com.baidu.tieba.e19;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.ez8;
-import com.baidu.tieba.f19;
-import com.baidu.tieba.g19;
+import com.baidu.tieba.di;
+import com.baidu.tieba.go5;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.tieba.io5;
-import com.baidu.tieba.ko5;
-import com.baidu.tieba.lo5;
+import com.baidu.tieba.k09;
+import com.baidu.tieba.lg;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.m19;
-import com.baidu.tieba.mg;
-import com.baidu.tieba.n09;
-import com.baidu.tieba.no5;
+import com.baidu.tieba.m09;
+import com.baidu.tieba.m29;
+import com.baidu.tieba.mo5;
+import com.baidu.tieba.n29;
 import com.baidu.tieba.oo5;
-import com.baidu.tieba.zy8;
+import com.baidu.tieba.p09;
+import com.baidu.tieba.p29;
+import com.baidu.tieba.po5;
+import com.baidu.tieba.q29;
+import com.baidu.tieba.r29;
+import com.baidu.tieba.ro5;
+import com.baidu.tieba.so5;
+import com.baidu.tieba.x29;
+import com.baidu.tieba.y19;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,30 +64,30 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(d1 = {"\u0000¸\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0010\b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\b\u0013\u0018\u0000 w2\u00020\u0001:\u0004wxyzB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010-\u001a\u00020.2\b\u0010/\u001a\u0004\u0018\u00010\u001cJ>\u00100\u001a\u00020.2\u0006\u00101\u001a\u00020\u00152\f\u00102\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u00104\u001a\u0002052\u0006\u00106\u001a\u0002052\u0006\u00107\u001a\u0002052\u0006\u00108\u001a\u000209H\u0003J>\u0010:\u001a\u00020.2\u0006\u0010;\u001a\u00020\u00152\f\u00102\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u00104\u001a\u0002052\u0006\u00106\u001a\u0002052\u0006\u00107\u001a\u0002052\u0006\u00108\u001a\u000209H\u0002J\"\u0010<\u001a\u0004\u0018\u00010\r2\u0006\u0010;\u001a\u00020\u00152\u0006\u0010=\u001a\u00020\u00072\u0006\u0010>\u001a\u00020?H\u0002J\u000e\u0010@\u001a\u00020.2\u0006\u00101\u001a\u00020\u0015J\u0015\u0010A\u001a\u0004\u0018\u0001052\u0006\u0010B\u001a\u00020\u0010¢\u0006\u0002\u0010CJ\u0006\u0010D\u001a\u00020\u0015J\u0006\u0010E\u001a\u00020\u0010J\u0016\u0010F\u001a\b\u0012\u0004\u0012\u00020\r0\u00162\u0006\u00101\u001a\u00020\u0015H\u0002J\u0010\u0010G\u001a\u0004\u0018\u00010\u00072\u0006\u0010H\u001a\u00020\u0010J\u0018\u0010I\u001a\u0004\u0018\u00010\u00072\u0006\u0010=\u001a\u00020\u00102\u0006\u0010J\u001a\u00020\u0010J\u0010\u0010K\u001a\u0004\u0018\u00010\r2\u0006\u00101\u001a\u00020\u0015J\u0010\u0010L\u001a\u0004\u0018\u00010\r2\u0006\u00101\u001a\u00020\u0015J\u0016\u0010M\u001a\b\u0012\u0004\u0012\u00020\r0\u00162\u0006\u00101\u001a\u00020\u0015H\u0002J\u0016\u0010N\u001a\u00020O2\u0006\u00101\u001a\u00020\u00152\u0006\u0010B\u001a\u00020\u0010J\u001c\u0010P\u001a\u00020O2\f\u0010Q\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u0010B\u001a\u00020\u0010J\u0016\u0010R\u001a\b\u0012\u0004\u0012\u00020\r0\u00162\u0006\u00101\u001a\u00020\u0015H\u0002J\u001e\u0010S\u001a\u00020.2\u0006\u00108\u001a\u00020O2\f\u0010T\u001a\b\u0012\u0004\u0012\u00020\r0\u0016H\u0002J\u000e\u0010U\u001a\u0002052\u0006\u00101\u001a\u00020\u0015J\u0016\u0010V\u001a\u0002052\u0006\u00101\u001a\u00020\u00152\u0006\u0010W\u001a\u00020\u0015J\u0016\u0010X\u001a\u00020.2\u0006\u00101\u001a\u00020\u00152\u0006\u0010>\u001a\u00020?J(\u0010Y\u001a\u00020.2\u0006\u0010Z\u001a\u00020O2\u0006\u0010[\u001a\u00020O2\u000e\u0010\\\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010]H\u0016J$\u0010^\u001a\u00020.2\u0006\u0010;\u001a\u00020\u00152\f\u00102\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u00108\u001a\u000209J\u001a\u0010_\u001a\u0004\u0018\u00010\r2\u0006\u0010;\u001a\u00020\u00152\u0006\u0010=\u001a\u00020\u0007H\u0002J\"\u0010`\u001a\u00020.2\f\u0010a\u001a\b\u0012\u0004\u0012\u00020\r0\u00162\n\u0010b\u001a\u0006\u0012\u0002\b\u00030cH\u0002J \u0010d\u001a\u00020.2\u0006\u0010e\u001a\u00020O2\u0010\u0010f\u001a\f\u0012\u0006\b\u0001\u0012\u00020\r\u0018\u00010\u0019J(\u0010d\u001a\u00020.2\u000e\u0010g\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010O0h2\u0010\u0010f\u001a\f\u0012\u0006\b\u0001\u0012\u00020\r\u0018\u00010\u0019J\u000e\u0010i\u001a\u00020.2\u0006\u0010j\u001a\u00020\u0007J\u0010\u0010k\u001a\u00020.2\u0006\u0010j\u001a\u00020\u0007H\u0002J\u000e\u0010l\u001a\u00020.2\u0006\u0010W\u001a\u00020\u0015J\u0006\u0010m\u001a\u00020.J\u000e\u0010n\u001a\u00020.2\u0006\u00101\u001a\u00020\u0015J\u0016\u0010n\u001a\u00020.2\u0006\u00101\u001a\u00020\u00152\u0006\u0010o\u001a\u000205J\u0016\u0010p\u001a\u00020.2\u0006\u0010=\u001a\u00020\u00102\u0006\u0010J\u001a\u00020\u0010J\u0012\u0010q\u001a\u00020.2\n\u0010=\u001a\u0006\u0012\u0002\b\u00030cJ\u0010\u0010r\u001a\u00020.2\b\u0010s\u001a\u0004\u0018\u00010)J\u0010\u0010t\u001a\u00020.2\u0006\u0010u\u001a\u00020\u0007H\u0002J\u0014\u0010v\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u0010u\u001a\u00020\u0007R\"\u0010\u0005\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0006X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\u0019\u0010\f\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\r0\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\tR\u0014\u0010\u000f\u001a\u00020\u0010X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012R \u0010\u0013\u001a\u0014\u0012\u0004\u0012\u00020\u0015\u0012\n\u0012\b\u0012\u0004\u0012\u00020\r0\u00160\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\u0017\u001a\u0012\u0012\u000e\u0012\f\u0012\u0006\b\u0001\u0012\u00020\r\u0018\u00010\u00190\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\u001a\u001a\u0012\u0012\u0004\u0012\u00020\u001c0\u001bj\b\u0012\u0004\u0012\u00020\u001c`\u001dX\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u001e\u001a\n  *\u0004\u0018\u00010\u001f0\u001fX\u0082\u0004¢\u0006\u0002\n\u0000R \u0010!\u001a\u0014\u0012\u0004\u0012\u00020\u0015\u0012\n\u0012\b\u0012\u0004\u0012\u00020\r0\u00160\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\"\u001a\u00020#8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010'\u001a\u0004\b$\u0010%R\u0010\u0010(\u001a\u0004\u0018\u00010)X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020+X\u0082\u0004¢\u0006\u0002\n\u0000R \u0010,\u001a\u0014\u0012\u0004\u0012\u00020\u0015\u0012\n\u0012\b\u0012\u0004\u0012\u00020\r0\u00160\u0014X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006{"}, d2 = {"Lcom/baidu/tieba/impersonal/sprite/SpriteMsgProcessor;", "Lcom/baidu/tbadk/module/alalivesdk/imSdkPersonService/interfaces/PersonMessageReceiveListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "CHAT_MSG_COMPARATOR", "Ljava/util/Comparator;", "Lcom/baidu/android/imsdk/chatmessage/messages/ChatMsg;", "getCHAT_MSG_COMPARATOR", "()Ljava/util/Comparator;", "setCHAT_MSG_COMPARATOR", "(Ljava/util/Comparator;)V", "CHAT_PERSON_MSG_COMPARATOR", "Lcom/baidu/tieba/impersonal/data/BasePersonalMsgData;", "getCHAT_PERSON_MSG_COMPARATOR", "TAG", "", "getTAG", "()Ljava/lang/String;", "chatMsgSetMap", "Ljava/util/concurrent/ConcurrentHashMap;", "", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/SizedSyncTreeSet;", "classMap", "Landroid/util/SparseArray;", "Ljava/lang/Class;", "fetchMsgCallbackList", "Ljava/util/HashSet;", "Lcom/baidu/tieba/impersonal/sprite/ChatSpriteRepo$FetchMsgCallback;", "Lkotlin/collections/HashSet;", "imSdkServicePerson", "Lcom/baidu/tbadk/module/alalivesdk/imSdkPersonService/interfaces/IMSdkServicePerson;", "kotlin.jvm.PlatformType", "latestTmpSetMap", "loadingHelper", "Lcom/baidu/tieba/impersonal/util/LoadingMsgHelper;", "getLoadingHelper", "()Lcom/baidu/tieba/impersonal/util/LoadingMsgHelper;", "loadingHelper$delegate", "Lkotlin/Lazy;", "msgCallback", "Lcom/baidu/tieba/impersonal/sprite/SpriteMsgProcessor$MsgCallback;", "msgTransfer", "Lcom/baidu/tieba/impersonal/transfer/MsgTransfer;", "tmpSetMap", "addFetchMsgCallback", "", "fetchMsgCallback", "doParse", "roomId", "msgSet", "Ljava/util/TreeSet;", "isByLocal", "", "isByHttp", "isBySocket", "loadType", "Lcom/baidu/tieba/impersonal/sprite/SpriteMsgProcessor$MsgLoadType;", "doParseOnBgThread", "uid", "doParseOneMsg", "msg", "source", "Lcom/baidu/tieba/impersonal/sprite/SpriteMsgProcessor$Source;", "faultChatMsgSet", "findShowMsgByMsgKey", "msgKey", "(Ljava/lang/String;)Ljava/lang/Boolean;", "generateMsgId", "generateMsgKey", "getChatMsgSet", "getFakeLoadingSdkMsg", "newMsgKey", "getFakeTextSdkMsg", "curMsgKey", "getFarthestMsg", "getLatestMsg", "getLatestTmpSet", "getPositionByMsgKey", "", "getPositionByMsgKeyWithTargetSet", "targetSet", "getTmpSet", "handlefirstLoading", "tmpSet", "isChatMsgSetFaulted", "isMsgPositionAtCurrentRange", "msgId", "manualUpdateData", "onReceiveMessage", "var1", "var2", "chatMsgArrayList", "Ljava/util/ArrayList;", "onReceiveMessageByLocal", "parseNormalMsg", "processLoadingData", "chatMsgSet", "curMsgData", "Lcom/baidu/tieba/impersonal/data/PersonalChatMsgData;", "putParseClass", "msgType", Bundle.EXTRA_KEY_CLAZZ, "msgTypeList", "", "reSendMessage", "msgData", "realSendMsg", "removeMsgByMsgId", "resetData", "resumeFaultChatMsgSet", "clearBefore", "sendFakeSpriteMsg", "sendMsg", "setMsgCallback", WebChromeClient.KEY_ARG_CALLBACK, "setSelfMsgTime", "chatMsg", "singletonSet", "Companion", "MsgCallback", "MsgLoadType", "Source", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000¸\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\b\u0013\u0018\u0000 v2\u00020\u0001:\u0004vwxyB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010-\u001a\u00020.2\b\u0010/\u001a\u0004\u0018\u00010\u001cJ>\u00100\u001a\u00020.2\u0006\u00101\u001a\u00020\u00152\f\u00102\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u00104\u001a\u0002052\u0006\u00106\u001a\u0002052\u0006\u00107\u001a\u0002052\u0006\u00108\u001a\u000209H\u0003J>\u0010:\u001a\u00020.2\u0006\u0010;\u001a\u00020\u00152\f\u00102\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u00104\u001a\u0002052\u0006\u00106\u001a\u0002052\u0006\u00107\u001a\u0002052\u0006\u00108\u001a\u000209H\u0002J\"\u0010<\u001a\u0004\u0018\u00010\r2\u0006\u0010;\u001a\u00020\u00152\u0006\u0010=\u001a\u00020\u00072\u0006\u0010>\u001a\u00020?H\u0002J\u000e\u0010@\u001a\u00020.2\u0006\u00101\u001a\u00020\u0015J\u0015\u0010A\u001a\u0004\u0018\u0001052\u0006\u0010B\u001a\u00020\u0010¢\u0006\u0002\u0010CJ\u0006\u0010D\u001a\u00020\u0015J\u0006\u0010E\u001a\u00020\u0010J\u0016\u0010F\u001a\b\u0012\u0004\u0012\u00020\r0\u00162\u0006\u00101\u001a\u00020\u0015H\u0002J\u0010\u0010G\u001a\u0004\u0018\u00010\u00072\u0006\u0010H\u001a\u00020\u0010J\u0018\u0010I\u001a\u0004\u0018\u00010\u00072\u0006\u0010=\u001a\u00020\u00102\u0006\u0010J\u001a\u00020\u0010J\u0010\u0010K\u001a\u0004\u0018\u00010\r2\u0006\u00101\u001a\u00020\u0015J\u0016\u0010L\u001a\b\u0012\u0004\u0012\u00020\r0\u00162\u0006\u00101\u001a\u00020\u0015H\u0002J\u0016\u0010M\u001a\u00020N2\u0006\u00101\u001a\u00020\u00152\u0006\u0010B\u001a\u00020\u0010J\u001c\u0010O\u001a\u00020N2\f\u0010P\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u0010B\u001a\u00020\u0010J\u0016\u0010Q\u001a\b\u0012\u0004\u0012\u00020\r0\u00162\u0006\u00101\u001a\u00020\u0015H\u0002J\u001e\u0010R\u001a\u00020.2\u0006\u00108\u001a\u00020N2\f\u0010S\u001a\b\u0012\u0004\u0012\u00020\r0\u0016H\u0002J\u000e\u0010T\u001a\u0002052\u0006\u00101\u001a\u00020\u0015J\u0016\u0010U\u001a\u0002052\u0006\u00101\u001a\u00020\u00152\u0006\u0010V\u001a\u00020\u0015J\u0016\u0010W\u001a\u00020.2\u0006\u00101\u001a\u00020\u00152\u0006\u0010>\u001a\u00020?J(\u0010X\u001a\u00020.2\u0006\u0010Y\u001a\u00020N2\u0006\u0010Z\u001a\u00020N2\u000e\u0010[\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\\H\u0016J$\u0010]\u001a\u00020.2\u0006\u0010;\u001a\u00020\u00152\f\u00102\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u00108\u001a\u000209J\u001a\u0010^\u001a\u0004\u0018\u00010\r2\u0006\u0010;\u001a\u00020\u00152\u0006\u0010=\u001a\u00020\u0007H\u0002J\"\u0010_\u001a\u00020.2\f\u0010`\u001a\b\u0012\u0004\u0012\u00020\r0\u00162\n\u0010a\u001a\u0006\u0012\u0002\b\u00030bH\u0002J \u0010c\u001a\u00020.2\u0006\u0010d\u001a\u00020N2\u0010\u0010e\u001a\f\u0012\u0006\b\u0001\u0012\u00020\r\u0018\u00010\u0019J(\u0010c\u001a\u00020.2\u000e\u0010f\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010N0g2\u0010\u0010e\u001a\f\u0012\u0006\b\u0001\u0012\u00020\r\u0018\u00010\u0019J\u000e\u0010h\u001a\u00020.2\u0006\u0010i\u001a\u00020\u0007J\u0010\u0010j\u001a\u00020.2\u0006\u0010i\u001a\u00020\u0007H\u0002J\u000e\u0010k\u001a\u00020.2\u0006\u0010V\u001a\u00020\u0015J\u0006\u0010l\u001a\u00020.J\u000e\u0010m\u001a\u00020.2\u0006\u00101\u001a\u00020\u0015J\u0016\u0010m\u001a\u00020.2\u0006\u00101\u001a\u00020\u00152\u0006\u0010n\u001a\u000205J\u0016\u0010o\u001a\u00020.2\u0006\u0010=\u001a\u00020\u00102\u0006\u0010J\u001a\u00020\u0010J\u0012\u0010p\u001a\u00020.2\n\u0010=\u001a\u0006\u0012\u0002\b\u00030bJ\u0010\u0010q\u001a\u00020.2\b\u0010r\u001a\u0004\u0018\u00010)J\u0010\u0010s\u001a\u00020.2\u0006\u0010t\u001a\u00020\u0007H\u0002J\u0014\u0010u\u001a\b\u0012\u0004\u0012\u00020\u0007032\u0006\u0010t\u001a\u00020\u0007R\"\u0010\u0005\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0006X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\u0019\u0010\f\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\r0\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\tR\u0014\u0010\u000f\u001a\u00020\u0010X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012R \u0010\u0013\u001a\u0014\u0012\u0004\u0012\u00020\u0015\u0012\n\u0012\b\u0012\u0004\u0012\u00020\r0\u00160\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\u0017\u001a\u0012\u0012\u000e\u0012\f\u0012\u0006\b\u0001\u0012\u00020\r\u0018\u00010\u00190\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\u001a\u001a\u0012\u0012\u0004\u0012\u00020\u001c0\u001bj\b\u0012\u0004\u0012\u00020\u001c`\u001dX\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u001e\u001a\n  *\u0004\u0018\u00010\u001f0\u001fX\u0082\u0004¢\u0006\u0002\n\u0000R \u0010!\u001a\u0014\u0012\u0004\u0012\u00020\u0015\u0012\n\u0012\b\u0012\u0004\u0012\u00020\r0\u00160\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\"\u001a\u00020#8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010'\u001a\u0004\b$\u0010%R\u0010\u0010(\u001a\u0004\u0018\u00010)X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020+X\u0082\u0004¢\u0006\u0002\n\u0000R \u0010,\u001a\u0014\u0012\u0004\u0012\u00020\u0015\u0012\n\u0012\b\u0012\u0004\u0012\u00020\r0\u00160\u0014X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006z"}, d2 = {"Lcom/baidu/tieba/impersonal/sprite/SpriteMsgProcessor;", "Lcom/baidu/tbadk/module/alalivesdk/imSdkPersonService/interfaces/PersonMessageReceiveListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "CHAT_MSG_COMPARATOR", "Ljava/util/Comparator;", "Lcom/baidu/android/imsdk/chatmessage/messages/ChatMsg;", "getCHAT_MSG_COMPARATOR", "()Ljava/util/Comparator;", "setCHAT_MSG_COMPARATOR", "(Ljava/util/Comparator;)V", "CHAT_PERSON_MSG_COMPARATOR", "Lcom/baidu/tieba/impersonal/data/BasePersonalMsgData;", "getCHAT_PERSON_MSG_COMPARATOR", "TAG", "", "getTAG", "()Ljava/lang/String;", "chatMsgSetMap", "Ljava/util/concurrent/ConcurrentHashMap;", "", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/SizedSyncTreeSet;", "classMap", "Landroid/util/SparseArray;", "Ljava/lang/Class;", "fetchMsgCallbackList", "Ljava/util/HashSet;", "Lcom/baidu/tieba/impersonal/sprite/ChatSpriteRepo$FetchMsgCallback;", "Lkotlin/collections/HashSet;", "imSdkServicePerson", "Lcom/baidu/tbadk/module/alalivesdk/imSdkPersonService/interfaces/IMSdkServicePerson;", "kotlin.jvm.PlatformType", "latestTmpSetMap", "loadingHelper", "Lcom/baidu/tieba/impersonal/util/LoadingMsgHelper;", "getLoadingHelper", "()Lcom/baidu/tieba/impersonal/util/LoadingMsgHelper;", "loadingHelper$delegate", "Lkotlin/Lazy;", "msgCallback", "Lcom/baidu/tieba/impersonal/sprite/SpriteMsgProcessor$MsgCallback;", "msgTransfer", "Lcom/baidu/tieba/impersonal/transfer/MsgTransfer;", "tmpSetMap", "addFetchMsgCallback", "", "fetchMsgCallback", "doParse", "roomId", "msgSet", "Ljava/util/TreeSet;", "isByLocal", "", "isByHttp", "isBySocket", "loadType", "Lcom/baidu/tieba/impersonal/sprite/SpriteMsgProcessor$MsgLoadType;", "doParseOnBgThread", "uid", "doParseOneMsg", "msg", "source", "Lcom/baidu/tieba/impersonal/sprite/SpriteMsgProcessor$Source;", "faultChatMsgSet", "findShowMsgByMsgKey", "msgKey", "(Ljava/lang/String;)Ljava/lang/Boolean;", "generateMsgId", "generateMsgKey", "getChatMsgSet", "getFakeLoadingSdkMsg", "newMsgKey", "getFakeTextSdkMsg", "curMsgKey", "getFarthestMsg", "getLatestTmpSet", "getPositionByMsgKey", "", "getPositionByMsgKeyWithTargetSet", "targetSet", "getTmpSet", "handlefirstLoading", "tmpSet", "isChatMsgSetFaulted", "isMsgPositionAtCurrentRange", "msgId", "manualUpdateData", "onReceiveMessage", "var1", "var2", "chatMsgArrayList", "Ljava/util/ArrayList;", "onReceiveMessageByLocal", "parseNormalMsg", "processLoadingData", "chatMsgSet", "curMsgData", "Lcom/baidu/tieba/impersonal/data/PersonalChatMsgData;", "putParseClass", "msgType", Bundle.EXTRA_KEY_CLAZZ, "msgTypeList", "", "reSendMessage", "msgData", "realSendMsg", "removeMsgByMsgId", "resetData", "resumeFaultChatMsgSet", "clearBefore", "sendFakeSpriteMsg", "sendMsg", "setMsgCallback", WebChromeClient.KEY_ARG_CALLBACK, "setSelfMsgTime", "chatMsg", "singletonSet", "Companion", "MsgCallback", "MsgLoadType", "Source", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class SpriteMsgProcessor implements no5 {
+public final class SpriteMsgProcessor implements ro5 {
     public static /* synthetic */ Interceptable $ic;
     public static final c m;
     public static final long n;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final Lazy b;
-    public final ConcurrentHashMap<Long, SizedSyncTreeSet<zy8>> c;
-    public final ConcurrentHashMap<Long, SizedSyncTreeSet<zy8>> d;
-    public final ConcurrentHashMap<Long, SizedSyncTreeSet<zy8>> e;
-    public final lo5 f;
-    public final e19 g;
+    public final ConcurrentHashMap<Long, SizedSyncTreeSet<k09>> c;
+    public final ConcurrentHashMap<Long, SizedSyncTreeSet<k09>> d;
+    public final ConcurrentHashMap<Long, SizedSyncTreeSet<k09>> e;
+    public final po5 f;
+    public final p29 g;
     public final String h;
     public d i;
-    public final HashSet<n09.b> j;
+    public final HashSet<y19.b> j;
     public Comparator<ChatMsg> k;
-    public final Comparator<zy8> l;
+    public final Comparator<k09> l;
 
     /* loaded from: classes6.dex */
     public interface d {
         @MainThread
-        void a(long j, List<? extends zy8> list, f fVar, e eVar);
+        void a(long j, List<? extends k09> list, f fVar, e eVar);
     }
 
     /* loaded from: classes6.dex */
@@ -217,7 +217,7 @@ public final class SpriteMsgProcessor implements no5 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements Comparator<zy8> {
+    public static final class b implements Comparator<k09> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -238,14 +238,14 @@ public final class SpriteMsgProcessor implements no5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(zy8 zy8Var, zy8 zy8Var2) {
+        public int compare(k09 k09Var, k09 k09Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, zy8Var, zy8Var2)) == null) {
-                if (zy8Var == null || zy8Var2 == null || TextUtils.equals(zy8Var.b(), zy8Var2.b())) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k09Var, k09Var2)) == null) {
+                if (k09Var == null || k09Var2 == null || TextUtils.equals(k09Var.b(), k09Var2.b())) {
                     return 0;
                 }
-                if (zy8Var.a() == 0 || zy8Var.a() - zy8Var2.a() > 0) {
+                if (k09Var.a() == 0 || k09Var.a() - k09Var2.a() > 0) {
                     return 1;
                 }
                 return -1;
@@ -337,7 +337,7 @@ public final class SpriteMsgProcessor implements no5 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class g implements oo5 {
+    public static final class g implements so5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpriteMsgProcessor a;
@@ -362,7 +362,7 @@ public final class SpriteMsgProcessor implements no5 {
             this.b = chatMsg;
         }
 
-        @Override // com.baidu.tieba.oo5
+        @Override // com.baidu.tieba.so5
         public void a(ChatMsg msg) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
@@ -376,15 +376,15 @@ public final class SpriteMsgProcessor implements no5 {
                 if (o != null) {
                     SpriteMsgProcessor spriteMsgProcessor2 = this.a;
                     G.add(o);
-                    m19 q = spriteMsgProcessor2.q();
+                    x29 q = spriteMsgProcessor2.q();
                     String msgKey2 = msg.getMsgKey();
                     Intrinsics.checkNotNullExpressionValue(msgKey2, "msg.msgKey");
                     q.c(msgKey2);
                 }
                 this.a.v(SpriteMsgProcessor.m.a(), G, new e(4));
-                HashSet<n09.b> hashSet = this.a.j;
+                HashSet<y19.b> hashSet = this.a.j;
                 ChatMsg chatMsg = this.b;
-                for (n09.b bVar : hashSet) {
+                for (y19.b bVar : hashSet) {
                     String msgKey3 = chatMsg.getMsgKey();
                     Intrinsics.checkNotNullExpressionValue(msgKey3, "msgData.msgKey");
                     bVar.d(msgKey3);
@@ -392,7 +392,7 @@ public final class SpriteMsgProcessor implements no5 {
             }
         }
 
-        @Override // com.baidu.tieba.oo5
+        @Override // com.baidu.tieba.so5
         public void b(int i, String errorMsg, SendMsgResponse sendMsgResponse) {
             String str;
             String msgKey;
@@ -441,12 +441,12 @@ public final class SpriteMsgProcessor implements no5 {
                 } else {
                     this.a.v(SpriteMsgProcessor.m.a(), treeSet, new e(8));
                 }
-                e19 e19Var = this.a.g;
+                p29 p29Var = this.a.g;
                 ChatMsg chatMsg3 = sendMsgResponse.msg;
                 Intrinsics.checkNotNullExpressionValue(chatMsg3, "sendMsgResponse.msg");
-                ez8<?> d = e19Var.d(chatMsg3);
+                p09<?> d = p29Var.d(chatMsg3);
                 if (d != null) {
-                    for (n09.b bVar : this.a.j) {
+                    for (y19.b bVar : this.a.j) {
                         bVar.b(i, errorMsg, d);
                     }
                 }
@@ -493,18 +493,18 @@ public final class SpriteMsgProcessor implements no5 {
         this.c = new ConcurrentHashMap<>();
         this.d = new ConcurrentHashMap<>();
         this.e = new ConcurrentHashMap<>();
-        this.f = ko5.a();
-        e19 e19Var = new e19();
-        this.g = e19Var;
+        this.f = oo5.a();
+        p29 p29Var = new p29();
+        this.g = p29Var;
         this.h = "IMSprite";
-        e19Var.b(TextMsg.class, 1);
+        p29Var.b(TextMsg.class, 1);
         this.g.b(CustomMsg.class, Integer.MAX_VALUE);
         this.g.b(AudioMsg.class, 3);
         this.g.b(ImageMsg.class, 2);
-        this.g.a(1, new f19());
-        this.g.a(Integer.MAX_VALUE, new c19());
-        this.g.a(3, new g19());
-        this.g.a(2, new b19());
+        this.g.a(1, new q29());
+        this.g.a(Integer.MAX_VALUE, new n29());
+        this.g.a(3, new r29());
+        this.g.a(2, new m29());
         this.j = new HashSet<>();
         this.k = new a();
         this.l = new b();
@@ -514,7 +514,7 @@ public final class SpriteMsgProcessor implements no5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65538, null, this$0, j) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Iterator<zy8> it = this$0.m(n).iterator();
+            Iterator<k09> it = this$0.m(n).iterator();
             boolean z = false;
             while (it.hasNext()) {
                 if (it.next().a() == j) {
@@ -525,7 +525,7 @@ public final class SpriteMsgProcessor implements no5 {
             if (!z) {
                 return;
             }
-            mg.g(new Runnable() { // from class: com.baidu.tieba.h09
+            lg.g(new Runnable() { // from class: com.baidu.tieba.s19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -544,7 +544,7 @@ public final class SpriteMsgProcessor implements no5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            SizedSyncTreeSet<zy8> m2 = this$0.m(n);
+            SizedSyncTreeSet<k09> m2 = this$0.m(n);
             d dVar = this$0.i;
             if (dVar != null) {
                 dVar.a(n, new ArrayList(m2), f.b.a(true, false, false), new e(7));
@@ -557,10 +557,10 @@ public final class SpriteMsgProcessor implements no5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, msgKey)) == null) {
             Intrinsics.checkNotNullParameter(msgKey, "msgKey");
-            Iterator<zy8> it = m(n).iterator();
+            Iterator<k09> it = m(n).iterator();
             Intrinsics.checkNotNullExpressionValue(it, "set.iterator()");
             while (it.hasNext()) {
-                if (ei.isEquals(it.next().b(), msgKey)) {
+                if (di.isEquals(it.next().b(), msgKey)) {
                     it.remove();
                     return Boolean.TRUE;
                 }
@@ -570,14 +570,14 @@ public final class SpriteMsgProcessor implements no5 {
         return (Boolean) invokeL.objValue;
     }
 
-    public final SizedSyncTreeSet<zy8> m(final long j) {
+    public final SizedSyncTreeSet<k09> m(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            SizedSyncTreeSet<zy8> sizedSyncTreeSet = this.c.get(Long.valueOf(j));
+            SizedSyncTreeSet<k09> sizedSyncTreeSet = this.c.get(Long.valueOf(j));
             if (sizedSyncTreeSet == null) {
-                SizedSyncTreeSet<zy8> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(600, new TreeSet(this.l));
-                sizedSyncTreeSet2.setCallback(new SizedSyncTreeSet.a() { // from class: com.baidu.tieba.d09
+                SizedSyncTreeSet<k09> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(600, new TreeSet(this.l));
+                sizedSyncTreeSet2.setCallback(new SizedSyncTreeSet.a() { // from class: com.baidu.tieba.o19
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -597,13 +597,13 @@ public final class SpriteMsgProcessor implements no5 {
         return (SizedSyncTreeSet) invokeJ.objValue;
     }
 
-    public final SizedSyncTreeSet<zy8> p(long j) {
+    public final SizedSyncTreeSet<k09> p(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) {
-            SizedSyncTreeSet<zy8> sizedSyncTreeSet = this.e.get(Long.valueOf(j));
+            SizedSyncTreeSet<k09> sizedSyncTreeSet = this.e.get(Long.valueOf(j));
             if (sizedSyncTreeSet == null) {
-                SizedSyncTreeSet<zy8> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(200, new TreeSet(this.l));
+                SizedSyncTreeSet<k09> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(200, new TreeSet(this.l));
                 this.e.put(Long.valueOf(j), sizedSyncTreeSet2);
                 return sizedSyncTreeSet2;
             }
@@ -612,13 +612,13 @@ public final class SpriteMsgProcessor implements no5 {
         return (SizedSyncTreeSet) invokeJ.objValue;
     }
 
-    public final SizedSyncTreeSet<zy8> s(long j) {
+    public final SizedSyncTreeSet<k09> s(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
-            SizedSyncTreeSet<zy8> sizedSyncTreeSet = this.d.get(Long.valueOf(j));
+            SizedSyncTreeSet<k09> sizedSyncTreeSet = this.d.get(Long.valueOf(j));
             if (sizedSyncTreeSet == null) {
-                SizedSyncTreeSet<zy8> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(new TreeSet(this.l));
+                SizedSyncTreeSet<k09> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(new TreeSet(this.l));
                 this.d.put(Long.valueOf(j), sizedSyncTreeSet2);
                 return sizedSyncTreeSet2;
             }
@@ -630,7 +630,7 @@ public final class SpriteMsgProcessor implements no5 {
     public final void A(final long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            mg.e(new Runnable() { // from class: com.baidu.tieba.wz8
+            lg.e(new Runnable() { // from class: com.baidu.tieba.h19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -657,14 +657,14 @@ public final class SpriteMsgProcessor implements no5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, chatMsg)) == null) {
             Intrinsics.checkNotNullParameter(chatMsg, "chatMsg");
-            TreeSet<ChatMsg> treeSet = new TreeSet<>(io5.b);
+            TreeSet<ChatMsg> treeSet = new TreeSet<>(mo5.b);
             treeSet.add(chatMsg);
             return treeSet;
         }
         return (TreeSet) invokeL.objValue;
     }
 
-    public final void e(n09.b bVar) {
+    public final void e(y19.b bVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && bVar != null) {
             this.j.add(bVar);
@@ -702,13 +702,13 @@ public final class SpriteMsgProcessor implements no5 {
         return (Comparator) invokeV.objValue;
     }
 
-    public final m19 q() {
+    public final x29 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return (m19) this.b.getValue();
+            return (x29) this.b.getValue();
         }
-        return (m19) invokeV.objValue;
+        return (x29) invokeV.objValue;
     }
 
     public final String r() {
@@ -748,7 +748,7 @@ public final class SpriteMsgProcessor implements no5 {
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{this$0, Long.valueOf(j), Boolean.valueOf(z), collection}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (!z) {
-                SizedSyncTreeSet<zy8> p = this$0.p(j);
+                SizedSyncTreeSet<k09> p = this$0.p(j);
                 if (p.isEmpty() && (collection instanceof Collection)) {
                     p.addAll(collection);
                 }
@@ -763,12 +763,12 @@ public final class SpriteMsgProcessor implements no5 {
             ArrayList arrayList2 = new ArrayList();
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                ez8<?> d2 = this$0.g.d((ChatMsg) it.next());
+                p09<?> d2 = this$0.g.d((ChatMsg) it.next());
                 if (d2 != null) {
                     arrayList2.add(d2);
                 }
             }
-            for (n09.b bVar : this$0.j) {
+            for (y19.b bVar : this$0.j) {
                 bVar.a(arrayList2);
             }
             TreeSet<ChatMsg> treeSet = new TreeSet<>(this$0.k);
@@ -777,7 +777,7 @@ public final class SpriteMsgProcessor implements no5 {
         }
     }
 
-    public final void E(ez8<?> msg) {
+    public final void E(p09<?> msg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, msg) == null) {
             Intrinsics.checkNotNullParameter(msg, "msg");
@@ -802,11 +802,11 @@ public final class SpriteMsgProcessor implements no5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, newMsgKey)) == null) {
             Intrinsics.checkNotNullParameter(newMsgKey, "newMsgKey");
-            ez8<?> ez8Var = new ez8<>();
-            ez8Var.e().j(Integer.MAX_VALUE);
-            ez8Var.i(new bz8());
-            ez8Var.g().b(newMsgKey);
-            ChatMsg c2 = this.g.c(ez8Var);
+            p09<?> p09Var = new p09<>();
+            p09Var.e().j(Integer.MAX_VALUE);
+            p09Var.i(new m09());
+            p09Var.g().b(newMsgKey);
+            ChatMsg c2 = this.g.c(p09Var);
             if (c2 != null) {
                 c2.setSendMsgTime(System.currentTimeMillis());
                 JSONObject jSONObject = new JSONObject();
@@ -823,9 +823,9 @@ public final class SpriteMsgProcessor implements no5 {
     public final void f(final long j, TreeSet<ChatMsg> treeSet, final boolean z, final boolean z2, final boolean z3, final e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), eVar}) == null) {
-            SizedSyncTreeSet<zy8> m2 = m(j);
-            SizedSyncTreeSet<zy8> s = s(j);
-            SizedSyncTreeSet<zy8> p = p(j);
+            SizedSyncTreeSet<k09> m2 = m(j);
+            SizedSyncTreeSet<k09> s = s(j);
+            SizedSyncTreeSet<k09> p = p(j);
             s.clear();
             f a2 = f.b.a(z, z2, z3);
             Iterator<ChatMsg> it = treeSet.iterator();
@@ -837,11 +837,11 @@ public final class SpriteMsgProcessor implements no5 {
                     e = e2;
                 }
                 try {
-                    zy8 j2 = j(j, msg, a2);
+                    k09 j2 = j(j, msg, a2);
                     if (j2 != null) {
-                        ez8<?> ez8Var = (ez8) j2;
-                        if (eVar.getType() == 3 || eVar.getType() == 6 || (eVar.getType() == 4 && ez8Var.e().c() == 2)) {
-                            x(m2, ez8Var);
+                        p09<?> p09Var = (p09) j2;
+                        if (eVar.getType() == 3 || eVar.getType() == 6 || (eVar.getType() == 4 && p09Var.e().c() == 2)) {
+                            x(m2, p09Var);
                         }
                         s.add(j2);
                     }
@@ -859,7 +859,7 @@ public final class SpriteMsgProcessor implements no5 {
                 }
                 if (eVar.getType() != 8) {
                     final ArrayList arrayList = new ArrayList(m2);
-                    mg.c(new Runnable() { // from class: com.baidu.tieba.zz8
+                    lg.c(new Runnable() { // from class: com.baidu.tieba.k19
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -879,7 +879,7 @@ public final class SpriteMsgProcessor implements no5 {
     public final void h(final long j, final TreeSet<ChatMsg> treeSet, final boolean z, final boolean z2, final boolean z3, final e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), eVar}) == null) {
-            mg.e(new Runnable() { // from class: com.baidu.tieba.f09
+            lg.e(new Runnable() { // from class: com.baidu.tieba.q19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -894,20 +894,20 @@ public final class SpriteMsgProcessor implements no5 {
         }
     }
 
-    public final zy8 j(long j, ChatMsg chatMsg, f fVar) throws JSONException {
+    public final k09 j(long j, ChatMsg chatMsg, f fVar) throws JSONException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), chatMsg, fVar})) == null) {
             return w(j, chatMsg);
         }
-        return (zy8) invokeCommon.objValue;
+        return (k09) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.no5
+    @Override // com.baidu.tieba.ro5
     public void onReceiveMessage(int i, int i2, final ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, arrayList) == null) && arrayList != null) {
-            mg.g(new Runnable() { // from class: com.baidu.tieba.yz8
+            lg.g(new Runnable() { // from class: com.baidu.tieba.j19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -922,8 +922,8 @@ public final class SpriteMsgProcessor implements no5 {
         }
     }
 
-    public final void t(int i, SizedSyncTreeSet<zy8> sizedSyncTreeSet) {
-        ez8<?> d2;
+    public final void t(int i, SizedSyncTreeSet<k09> sizedSyncTreeSet) {
+        p09<?> d2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048594, this, i, sizedSyncTreeSet) == null) && i == 0 && !q().m(sizedSyncTreeSet)) {
             long g2 = q().g();
@@ -937,23 +937,23 @@ public final class SpriteMsgProcessor implements no5 {
                 }
                 return;
             }
-            co5.k(q().h(), j);
+            go5.k(q().h(), j);
             q().n(true);
         }
     }
 
-    public final void x(SizedSyncTreeSet<zy8> sizedSyncTreeSet, ez8<?> ez8Var) {
+    public final void x(SizedSyncTreeSet<k09> sizedSyncTreeSet, p09<?> p09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, sizedSyncTreeSet, ez8Var) == null) {
-            zy8 last = sizedSyncTreeSet.last();
+        if (interceptable == null || interceptable.invokeLL(1048597, this, sizedSyncTreeSet, p09Var) == null) {
+            k09 last = sizedSyncTreeSet.last();
             if (last != null) {
-                ez8 ez8Var2 = (ez8) last;
-                if ((ez8Var2.f() instanceof bz8) && !ez8Var2.e().d()) {
-                    if (!ei.isEmpty(ez8Var.g().a())) {
-                        q().l(ez8Var.g().a(), true);
+                p09 p09Var2 = (p09) last;
+                if ((p09Var2.f() instanceof m09) && !p09Var2.e().d()) {
+                    if (!di.isEmpty(p09Var.g().a())) {
+                        q().l(p09Var.g().a(), true);
                     }
                     if (q().i()) {
-                        sizedSyncTreeSet.remove(ez8Var2);
+                        sizedSyncTreeSet.remove(p09Var2);
                         return;
                     }
                     return;
@@ -973,12 +973,12 @@ public final class SpriteMsgProcessor implements no5 {
         }
     }
 
-    public final zy8 w(long j, ChatMsg chatMsg) {
+    public final k09 w(long j, ChatMsg chatMsg) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048596, this, j, chatMsg)) == null) {
             return this.g.d(chatMsg);
         }
-        return (zy8) invokeJL.objValue;
+        return (k09) invokeJL.objValue;
     }
 }

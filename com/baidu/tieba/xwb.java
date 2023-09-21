@@ -1,139 +1,42 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes8.dex */
-public final class xwb {
+public final class xwb implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final xwb f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public volatile Executor c;
-    public volatile ExecutorService d;
-    public final Object e;
+    public final /* synthetic */ InstallActivity a;
 
-    /* loaded from: classes8.dex */
-    public static class a implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.Executor
-        public final void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                new Handler(Looper.getMainLooper()).post(runnable);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948316198, "Lcom/baidu/tieba/xwb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948316198, "Lcom/baidu/tieba/xwb;");
-                return;
-            }
-        }
-        f = new xwb();
-    }
-
-    public static Executor a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            xwb xwbVar = f;
-            if (xwbVar.c == null) {
-                synchronized (xwbVar.e) {
-                    if (xwbVar.c == null) {
-                        xwbVar.c = new a();
-                    }
-                }
-            }
-            return xwbVar.c;
-        }
-        return (Executor) invokeV.objValue;
-    }
-
-    public static ExecutorService d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return f.c();
-        }
-        return (ExecutorService) invokeV.objValue;
-    }
-
-    public final ExecutorService c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(this.a, this.b, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-            threadPoolExecutor.allowCoreThreadTimeOut(true);
-            return threadPoolExecutor;
-        }
-        return (ExecutorService) invokeV.objValue;
-    }
-
-    public xwb() {
+    public xwb(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new Object();
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        this.a = availableProcessors + 1;
-        this.b = (availableProcessors * 2) + 1;
+        this.a = installActivity;
     }
 
-    public static void b(Runnable runnable) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-                runnable.run();
-            } else {
-                a().execute(runnable);
-            }
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
+        this.a.j(new UnavailableUserDeclinedInstallationException());
     }
 }

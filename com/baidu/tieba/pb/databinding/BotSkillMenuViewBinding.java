@@ -50,12 +50,12 @@ public final class BotSkillMenuViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090450);
+            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090448);
             if (recyclerView != null) {
                 RelativeLayout relativeLayout = (RelativeLayout) view2;
                 return new BotSkillMenuViewBinding(relativeLayout, recyclerView, relativeLayout);
             }
-            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f090450)));
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f090448)));
         }
         return (BotSkillMenuViewBinding) invokeL.objValue;
     }

@@ -45,7 +45,7 @@ public class r05 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cx5<Boolean> {
+    public class b implements dx5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r05 a;
@@ -75,7 +75,7 @@ public class r05 {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    rqa.b(true);
+                    ysa.b(true);
                 }
             }
         }
@@ -99,7 +99,7 @@ public class r05 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cx5
+        @Override // com.baidu.tieba.dx5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class r05 {
                     return;
                 }
                 if (bool.booleanValue()) {
-                    new TBAlertBuilder(currentActivity).setTitle(R.string.delete_success).setDesc(R.string.delete_all_user_data_hint).setOperateBtn(new TBAlertConfig.OperateBtnConfig(currentActivity.getString(R.string.obfuscated_res_0x7f0f1117), TBAlertConfig.OperateBtnStyle.MAIN, new a(this))).show();
+                    new TBAlertBuilder(currentActivity).setTitle(R.string.delete_success).setDesc(R.string.delete_all_user_data_hint).setOperateBtn(new TBAlertConfig.OperateBtnConfig(currentActivity.getString(R.string.obfuscated_res_0x7f0f1119), TBAlertConfig.OperateBtnStyle.MAIN, new a(this))).show();
                 } else {
                     BdUtilHelper.showToast(currentActivity, (int) R.string.delete_fail);
                 }
@@ -119,7 +119,7 @@ public class r05 {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends xx5<Boolean> {
+    public class a extends yx5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,7 +141,7 @@ public class r05 {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.xx5
+        @Override // com.baidu.tieba.yx5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -149,9 +149,9 @@ public class r05 {
                 try {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
-                    re5.p0().b0(true);
+                    ve5.p0().b0(true);
                     NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
-                    wga.B("");
+                    cja.B("");
                     o05.t().g(currentAccount, false);
                     BdCacheService.n().a(currentAccount);
                     SharedPrefHelper.getInstance().clearByAccount(currentAccount);
@@ -198,7 +198,7 @@ public class r05 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            by5.b(new a(this), new b(this));
+            cy5.b(new a(this), new b(this));
         }
     }
 

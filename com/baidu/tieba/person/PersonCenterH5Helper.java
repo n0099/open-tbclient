@@ -42,7 +42,7 @@ public final class PersonCenterH5Helper {
             }
         }
         INSTANCE = new PersonCenterH5Helper();
-        PERSON_CENTER_MAIN_URL = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-usercenter/userCenter?customfullscreen=1&nonavigationbar=1&user_skin_overlay=0&page_key=a028";
+        PERSON_CENTER_MAIN_URL = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-usercenter/userCenter?customfullscreen=1&nonavigationbar=1&user_skin_overlay=0&loadingSignal=1&page_key=a028";
     }
 
     public PersonCenterH5Helper() {

@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.guide.TaskGuideData;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,82 +10,79 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class rp {
     public static /* synthetic */ Interceptable $ic;
-    public static final rp a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final boolean b;
+    public final boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316207, "Lcom/baidu/tieba/rp;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.a * 31;
+            boolean z = this.b;
+            int i2 = z;
+            if (z != 0) {
+                i2 = 1;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448316207, "Lcom/baidu/tieba/rp;");
-                return;
-            }
+            int i3 = (i + i2) * 31;
+            boolean z2 = this.c;
+            return i3 + (z2 ? 1 : z2 ? 1 : 0);
         }
-        a = new rp();
+        return invokeV.intValue;
     }
 
-    public rp() {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "TaskBuoyViewModelHolder(status=" + this.a + ", hasComplete=" + this.b + ", isRepeated=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public rp(int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = z;
+        this.c = z2;
     }
 
-    public final void a(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        String str;
-        ou f;
-        gu d;
-        gu d2;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, taskInfo, taskStatus) == null) {
-            fu v = BDPTask.m.v();
-            if (v != null && (d2 = v.d()) != null) {
-                d2.b(taskInfo.getSingleKey(), br.c.a());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof rp)) {
+                return false;
             }
-            fu v2 = BDPTask.m.v();
-            if (v2 != null && (d = v2.d()) != null) {
-                d.a(taskInfo.getSingleKey());
+            int i = this.a;
+            rp rpVar = (rp) obj;
+            if (i != rpVar.a) {
+                return false;
             }
-            if (TaskGuideData.Companion.c(i)) {
-                str = "y_task_diyicon";
-            } else {
-                str = "y_task_icon";
+            if (i == 8) {
+                if (this.b != rpVar.b || this.c != rpVar.c) {
+                    return false;
+                }
+                return true;
             }
-            String c = pu.a.c(taskStatus);
-            fu v3 = BDPTask.m.v();
-            if (v3 != null && (f = v3.f()) != null) {
-                f.a(str, "icon_clk", pu.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
-            }
+            return true;
         }
-    }
-
-    public final void b(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        String str;
-        ou f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, taskInfo, taskStatus) == null) {
-            if (TaskGuideData.Companion.c(i)) {
-                str = "y_task_diyicon";
-            } else {
-                str = "y_task_icon";
-            }
-            String c = pu.a.c(taskStatus);
-            fu v = BDPTask.m.v();
-            if (v != null && (f = v.f()) != null) {
-                f.a(str, "close_clk", pu.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

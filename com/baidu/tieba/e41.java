@@ -1,65 +1,43 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import android.graphics.Typeface;
+import android.widget.TextView;
+import com.baidu.nadcore.styles.Font;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e41 extends c41 {
+public class e41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public e41() {
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        d(TiePlusStat.RichTextType.STAT_KEY, "every");
-    }
-
-    @Override // com.baidu.tieba.c41, com.baidu.tieba.d41
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String sb = this.a.toString();
-            if (!TextUtils.isEmpty(sb) && sb.contains("c_id")) {
-                return super.isValid();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i >= 100 && i <= 900 && i % 100 == 0) {
+                return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeI.booleanValue;
     }
 
-    public e41 g(String str) {
-        InterceptResult invokeL;
+    public static void b(TextView textView, Font font) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("c_id", str);
-            return this;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, textView, font) == null) && textView != null && font != null) {
+            c(textView, font.getFontWeight());
         }
-        return (e41) invokeL.objValue;
     }
 
-    public e41 h(String str) {
-        InterceptResult invokeL;
+    public static void c(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("extra_param", str);
-            return this;
+        if ((interceptable == null || interceptable.invokeLI(65538, null, textView, i) == null) && textView != null && a(i)) {
+            if (i >= 600) {
+                textView.setTypeface(Typeface.defaultFromStyle(1));
+            } else {
+                textView.setTypeface(Typeface.defaultFromStyle(0));
+            }
         }
-        return (e41) invokeL.objValue;
     }
 }

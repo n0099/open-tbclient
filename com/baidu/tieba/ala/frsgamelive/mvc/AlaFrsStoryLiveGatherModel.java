@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRespMessage;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.hf6;
-import com.baidu.tieba.ue6;
-import com.baidu.tieba.ve6;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.lf6;
+import com.baidu.tieba.ye6;
+import com.baidu.tieba.ze6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,9 +43,9 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
     public int g;
     public List<ThreadData> h;
     public List<ThreadData> i;
-    public List<cn> j;
-    public List<cn> k;
-    public List<cn> l;
+    public List<bn> j;
+    public List<bn> k;
+    public List<bn> l;
     public int m;
     public b n;
     public HttpMessageListener o;
@@ -202,7 +202,7 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         }
     }
 
-    public List<cn> Z(List<ThreadData> list) {
+    public List<bn> Z(List<ThreadData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
@@ -210,21 +210,21 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
                 LinkedList linkedList = new LinkedList();
                 int size = list.size();
                 for (int i = 0; i < size; i += 2) {
-                    hf6 hf6Var = new hf6();
+                    lf6 lf6Var = new lf6();
                     ThreadData threadData = list.get(i);
-                    hf6Var.a = threadData;
+                    lf6Var.a = threadData;
                     if (threadData.getAuthor() != null) {
-                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", hf6Var.a.getAuthor().getUserId()));
+                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", lf6Var.a.getAuthor().getUserId()));
                     }
                     int i2 = i + 1;
                     if (i2 < size) {
                         ThreadData threadData2 = list.get(i2);
-                        hf6Var.b = threadData2;
+                        lf6Var.b = threadData2;
                         if (threadData2.getAuthor() != null) {
-                            TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", hf6Var.b.getAuthor().getUserId()));
+                            TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", lf6Var.b.getAuthor().getUserId()));
                         }
                     }
-                    linkedList.add(hf6Var);
+                    linkedList.add(lf6Var);
                 }
                 return linkedList;
             }
@@ -233,7 +233,7 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         return (List) invokeL.objValue;
     }
 
-    public List<cn> a0() {
+    public List<bn> a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -286,22 +286,22 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
             if (ListUtils.getCount(this.j) == 0 && ListUtils.getCount(this.k) == 0) {
                 return;
             }
-            List<cn> list3 = this.l;
+            List<bn> list3 = this.l;
             if (list3 == null) {
                 this.l = new ArrayList();
             } else {
                 list3.clear();
             }
-            List<cn> list4 = this.j;
+            List<bn> list4 = this.j;
             if (list4 != null && list4.size() != 0) {
                 this.l.addAll(this.j);
                 this.d = true;
             } else {
-                this.l.add(new ue6());
+                this.l.add(new ye6());
                 this.d = false;
             }
             if (ListUtils.getCount(this.k) > 0 && !this.f) {
-                this.l.add(new ve6());
+                this.l.add(new ze6());
                 for (int i = 0; i < 3 && i < ListUtils.getCount(this.k); i++) {
                     if (this.k.get(i) != null) {
                         this.l.add(this.k.get(i));

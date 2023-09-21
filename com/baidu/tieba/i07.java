@@ -1,150 +1,64 @@
 package com.baidu.tieba;
 
-import android.graphics.BitmapFactory;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class i07 extends lj5 {
+public final class i07 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, String> a;
+    public static Map<String, String> b;
+    public static Map<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.lj5
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "_local" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "_local" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public i07() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947799769, "Lcom/baidu/tieba/i07;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947799769, "Lcom/baidu/tieba/i07;");
                 return;
             }
         }
-        u();
+        a = new HashMap();
+        b = new HashMap();
+        c = new HashMap();
+        a.put("CAM_X0906", "CAM_X0906");
+        b.put("CAM_X0906", "com.baidu.tbadk.core.elementsMaven.EMABTest");
+        c.put("CAM_X0906", "testMethod");
     }
 
-    @Override // com.baidu.tieba.lj5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return TbFaceManager.i().m();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public EmotionGroupType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return EmotionGroupType.LOCAL;
-        }
-        return (EmotionGroupType) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return TbFaceManager.i().n(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public boolean m(String str) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            return TbFaceManager.i().p(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (b.containsKey(str)) {
+                try {
+                    Method declaredMethod = Class.forName(b.get(str)).getDeclaredMethod(c.get(str), new Class[0]);
+                    declaredMethod.setAccessible(true);
+                    Object invoke = declaredMethod.invoke(null, new Object[0]);
+                    if (invoke instanceof Boolean) {
+                        if (((Boolean) invoke).booleanValue()) {
+                            return a.get(str);
+                        }
+                        return str;
+                    }
+                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
+            return str;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public BdImage n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return o(str);
-        }
-        return (BdImage) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lj5
-    public BdImage o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return TbFaceManager.i().k(str);
-        }
-        return (BdImage) invokeL.objValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.q(7);
-            super.t(3);
-            BdImage bdImage = new BdImage(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f0808c0), false);
-            super.s(bdImage);
-            super.r(bdImage);
-        }
+        return (String) invokeL.objValue;
     }
 }

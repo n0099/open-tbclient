@@ -1,113 +1,61 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.tts.jni.TtsLogLoad;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
 /* loaded from: classes7.dex */
-public class rgc {
+public final class rgc implements jcc, rcc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final jcc a;
+    public rcc b;
+    public boolean c;
 
-    public static int a() {
-        InterceptResult invokeV;
+    public rgc(jcc jccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jccVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = jccVar;
+    }
+
+    @Override // com.baidu.tieba.jcc
+    public void onSubscribe(rcc rccVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, rccVar) == null) {
+            this.b = rccVar;
             try {
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                String str = (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "ro.build.hw_emui_api_level");
-                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
-                    return 0;
-                }
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
+                this.a.onSubscribe(this);
+            } catch (Throwable th) {
+                wcc.e(th);
+                rccVar.unsubscribe();
+                onError(th);
             }
         }
-        return invokeV.intValue;
     }
 
-    public static String b() {
+    @Override // com.baidu.tieba.rcc
+    public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!g()) {
-                return "";
-            }
-            return f("ro.build.version.emui", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!j()) {
-                return "";
-            }
-            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!l()) {
-                return "";
-            }
-            return f("ro.miui.ui.version.name", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (b().contains("EmotionUI_3.0")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String b = b();
-            if (!"EmotionUI 3".equals(b) && !b.contains("EmotionUI_3.1")) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.c && !this.b.isUnsubscribed()) {
                 return false;
             }
             return true;
@@ -115,90 +63,44 @@ public class rgc {
         return invokeV.booleanValue;
     }
 
-    public static boolean j() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jcc
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return c().toLowerCase().contains("flyme");
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.c = true;
+        try {
+            this.a.onCompleted();
+        } catch (Throwable th) {
+            wcc.e(th);
+            throw new OnCompletedFailedException(th);
+        }
     }
 
-    public static boolean l() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rcc
+    public void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return !TextUtils.isEmpty(f("ro.miui.ui.version.name", ""));
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.unsubscribe();
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean m() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jcc
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            String e = e();
-            if (e.isEmpty()) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            ygc.j(th);
+            if (this.c) {
+                return;
             }
+            this.c = true;
             try {
-                if (Integer.valueOf(e.substring(1)).intValue() < 6) {
-                    return false;
-                }
-                return true;
-            } catch (NumberFormatException unused) {
-                return false;
+                this.a.onError(th);
+            } catch (Throwable th2) {
+                wcc.e(th2);
+                throw new OnErrorFailedException(new CompositeException(th, th2));
             }
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return "OPPO".equals(Build.MANUFACTURER);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            try {
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                return (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, str, str2);
-            } catch (Exception unused) {
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String d = d();
-            if (d.isEmpty()) {
-                return false;
-            }
-            try {
-                if (d.toLowerCase().contains(TtsLogLoad.KEY_OS)) {
-                    intValue = Integer.valueOf(d.substring(9, 10)).intValue();
-                } else {
-                    intValue = Integer.valueOf(d.substring(6, 7)).intValue();
-                }
-                if (intValue < 4) {
-                    return false;
-                }
-                return true;
-            } catch (NumberFormatException unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -14,72 +14,46 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d14 extends c14 {
+public class d14 extends b14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean G;
+
+    @Override // com.baidu.tieba.b14
+    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.b14
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "reward_banner_html" : (String) invokeV.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d14(Context context, AdElementInfo adElementInfo, d04 d04Var) {
-        super(context, adElementInfo, d04Var);
+    public d14(Context context, AdElementInfo adElementInfo, c04 c04Var) {
+        super(context, adElementInfo, c04Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, adElementInfo, d04Var};
+            Object[] objArr = {context, adElementInfo, c04Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (d04) objArr2[2]);
+                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (c04) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.G = false;
     }
 
-    @Override // com.baidu.tieba.c14
-    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
-            int videoWidth = adElementInfo.getVideoWidth();
-            int videoHeight = adElementInfo.getVideoHeight();
-            this.n = zz3.b().k();
-            this.o = zz3.b().j();
-            if (videoWidth < videoHeight) {
-                this.G = true;
-                int i = this.n;
-                int i2 = (int) (((i - videoWidth) / 2) * 0.8d);
-                int i3 = (int) (((i - videoWidth) / 2) * 0.1d);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
-                layoutParams.leftMargin = (this.n - i2) - i3;
-                layoutParams.addRule(15);
-                layoutParams.removeRule(13);
-                layoutParams.removeRule(12);
-                layoutParams.bottomMargin = 0;
-                relativeLayout.setLayoutParams(layoutParams);
-                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f060903));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.c14
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.G) {
-                return "reward_banner_land_html";
-            }
-            return "reward_banner_html";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c14
+    @Override // com.baidu.tieba.b14
     @SuppressLint({"InflateParams"})
     public View u() {
         InterceptResult invokeV;

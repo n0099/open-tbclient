@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.home;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.tieba.e17;
+import com.baidu.tieba.l17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e17.n().v();
+            l17.m().u();
             loadData();
         }
     }
@@ -51,7 +51,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            e17.n().r();
+            l17.m().q();
             return true;
         }
         return invokeV.booleanValue;
@@ -60,35 +60,35 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            e17.n().A(null);
+            l17.m().y(null);
         }
     }
 
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            e17.n().D();
+            l17.m().B();
         }
     }
 
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            e17.n().s();
+            l17.m().r();
         }
     }
 
     public void M(VisitedForumData visitedForumData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, visitedForumData) == null) {
-            e17.n().i(visitedForumData);
+            l17.m().h(visitedForumData);
         }
     }
 
-    public void O(e17.f fVar) {
+    public void O(l17.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            e17.n().A(fVar);
+            l17.m().y(fVar);
         }
     }
 }

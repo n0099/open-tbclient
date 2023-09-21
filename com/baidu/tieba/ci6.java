@@ -1,191 +1,379 @@
 package com.baidu.tieba;
 
-import androidx.annotation.FloatRange;
-import androidx.annotation.RestrictTo;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.SystemClock;
+import android.view.Choreographer;
+import androidx.annotation.RequiresApi;
+import androidx.collection.SimpleArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zh6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class ci6 {
+public class ci6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ThreadLocal<ci6> g;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public double b;
-    public boolean c;
-    public double d;
-    public double e;
-    public double f;
-    public double g;
-    public double h;
-    public double i;
-    public final zh6.h j;
+    public final SimpleArrayMap<b, Long> a;
+    public final ArrayList<b> b;
+    public final a c;
+    public c d;
+    public long e;
+    public boolean f;
 
-    public ci6(float f) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        boolean a(long j);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Runnable b;
+        public final Handler c;
+        public long d;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.d = SystemClock.uptimeMillis();
+                    this.a.a.a();
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = -1L;
+            this.b = new a(this);
+            this.c = new Handler(Looper.myLooper());
+        }
+
+        @Override // com.baidu.tieba.ci6.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.postDelayed(this.b, Math.max(10 - (SystemClock.uptimeMillis() - this.d), 0L));
+            }
+        }
+    }
+
+    @RequiresApi(16)
+    /* loaded from: classes5.dex */
+    public static class e extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Choreographer b;
+        public final Choreographer.FrameCallback c;
+
+        /* loaded from: classes5.dex */
+        public class a implements Choreographer.FrameCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ e a;
+
+            public a(e eVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = eVar;
+            }
+
+            @Override // android.view.Choreographer.FrameCallback
+            public void doFrame(long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                    this.a.a.a();
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = Choreographer.getInstance();
+            this.c = new a(this);
+        }
+
+        @Override // com.baidu.tieba.ci6.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.postFrameCallback(this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ci6 a;
+
+        public a(ci6 ci6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ci6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ci6Var;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e = SystemClock.uptimeMillis();
+                ci6 ci6Var = this.a;
+                ci6Var.h(ci6Var.e);
+                if (this.a.b.size() > 0) {
+                    this.a.j().a();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static abstract class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final a a;
+
+        public abstract void a();
+
+        public c(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675769, "Lcom/baidu/tieba/ci6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947675769, "Lcom/baidu/tieba/ci6;");
+                return;
+            }
+        }
+        g = new ThreadLocal<>();
+    }
+
+    public static ci6 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (g.get() == null) {
+                g.set(new ci6());
+            }
+            return g.get();
+        }
+        return (ci6) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f) {
+            for (int size = this.b.size() - 1; size >= 0; size--) {
+                if (this.b.get(size) == null) {
+                    this.b.remove(size);
+                }
+            }
+            this.f = false;
+        }
+    }
+
+    public ci6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = Math.sqrt(1500.0d);
-        this.b = 0.5d;
-        this.c = false;
-        this.i = Double.MAX_VALUE;
-        this.j = new zh6.h();
-        this.i = f;
+        this.a = new SimpleArrayMap<>();
+        this.b = new ArrayList<>();
+        this.c = new a(this);
+        this.e = 0L;
+        this.f = false;
     }
 
-    public float a() {
+    public final c j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (float) this.i;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
-            return;
-        }
-        if (this.i != Double.MAX_VALUE) {
-            double d = this.b;
-            if (d > 1.0d) {
-                double d2 = this.a;
-                this.f = ((-d) * d2) + (d2 * Math.sqrt((d * d) - 1.0d));
-                double d3 = this.b;
-                double d4 = this.a;
-                this.g = ((-d3) * d4) - (d4 * Math.sqrt((d3 * d3) - 1.0d));
-            } else if (d >= 0.0d && d < 1.0d) {
-                this.h = this.a * Math.sqrt(1.0d - (d * d));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.d == null) {
+                if (Build.VERSION.SDK_INT >= 16) {
+                    this.d = new e(this.c);
+                } else {
+                    this.d = new d(this.c);
+                }
             }
-            this.c = true;
-            return;
+            return this.d;
         }
-        throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
+        return (c) invokeV.objValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean c(float f, float f2) {
-        InterceptResult invokeCommon;
+    public void l(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (Math.abs(f2) < this.e && Math.abs(f - a()) < this.d) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.a.remove(bVar);
+            int indexOf = this.b.indexOf(bVar);
+            if (indexOf >= 0) {
+                this.b.set(indexOf, null);
+                this.f = true;
+            }
+        }
+    }
+
+    public final boolean k(b bVar, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, bVar, j)) == null) {
+            Long l = this.a.get(bVar);
+            if (l == null) {
+                return true;
+            }
+            if (l.longValue() < j) {
+                this.a.remove(bVar);
                 return true;
             }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeLJ.booleanValue;
     }
 
-    public ci6 d(@FloatRange(from = 0.0d) float f) {
-        InterceptResult invokeF;
+    public void f(b bVar, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            if (f >= 0.0f) {
-                this.b = f;
-                this.c = false;
-                return this;
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, bVar, j) == null) {
+            if (this.b.size() == 0) {
+                j().a();
             }
-            throw new IllegalArgumentException("Damping ratio must be non-negative");
-        }
-        return (ci6) invokeF.objValue;
-    }
-
-    public ci6 e(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            this.i = f;
-            return this;
-        }
-        return (ci6) invokeF.objValue;
-    }
-
-    public ci6 f(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f > 0.0f) {
-                this.a = Math.sqrt(f);
-                this.c = false;
-                return this;
+            if (!this.b.contains(bVar)) {
+                this.b.add(bVar);
             }
-            throw new IllegalArgumentException("Spring stiffness constant must be positive.");
-        }
-        return (ci6) invokeF.objValue;
-    }
-
-    public void g(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
-            double abs = Math.abs(d);
-            this.d = abs;
-            this.e = abs * 62.5d;
-        }
-    }
-
-    public zh6.h h(double d, double d2, long j) {
-        InterceptResult invokeCommon;
-        double cos;
-        double d3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Long.valueOf(j)})) == null) {
-            b();
-            double d4 = j / 1000.0d;
-            double d5 = d - this.i;
-            double d6 = this.b;
-            if (d6 > 1.0d) {
-                double d7 = this.g;
-                double d8 = this.f;
-                double d9 = d5 - (((d7 * d5) - d2) / (d7 - d8));
-                double d10 = ((d5 * d7) - d2) / (d7 - d8);
-                d3 = (Math.pow(2.718281828459045d, d7 * d4) * d9) + (Math.pow(2.718281828459045d, this.f * d4) * d10);
-                double d11 = this.g;
-                double pow = d9 * d11 * Math.pow(2.718281828459045d, d11 * d4);
-                double d12 = this.f;
-                cos = pow + (d10 * d12 * Math.pow(2.718281828459045d, d12 * d4));
-            } else if (d6 == 1.0d) {
-                double d13 = this.a;
-                double d14 = d2 + (d13 * d5);
-                double d15 = d5 + (d14 * d4);
-                d3 = Math.pow(2.718281828459045d, (-d13) * d4) * d15;
-                double pow2 = d15 * Math.pow(2.718281828459045d, (-this.a) * d4);
-                double d16 = this.a;
-                cos = (d14 * Math.pow(2.718281828459045d, (-d16) * d4)) + (pow2 * (-d16));
-            } else {
-                double d17 = 1.0d / this.h;
-                double d18 = this.a;
-                double d19 = d17 * ((d6 * d18 * d5) + d2);
-                double pow3 = Math.pow(2.718281828459045d, (-d6) * d18 * d4) * ((Math.cos(this.h * d4) * d5) + (Math.sin(this.h * d4) * d19));
-                double d20 = this.a;
-                double d21 = this.b;
-                double d22 = (-d20) * pow3 * d21;
-                double pow4 = Math.pow(2.718281828459045d, (-d21) * d20 * d4);
-                double d23 = this.h;
-                double sin = (-d23) * d5 * Math.sin(d23 * d4);
-                double d24 = this.h;
-                cos = d22 + (pow4 * (sin + (d19 * d24 * Math.cos(d24 * d4))));
-                d3 = pow3;
+            if (j > 0) {
+                this.a.put(bVar, Long.valueOf(SystemClock.uptimeMillis() + j));
             }
-            zh6.h hVar = this.j;
-            hVar.a = (float) (d3 + this.i);
-            hVar.b = (float) cos;
-            return hVar;
         }
-        return (zh6.h) invokeCommon.objValue;
+    }
+
+    public final void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            long uptimeMillis = SystemClock.uptimeMillis();
+            for (int i = 0; i < this.b.size(); i++) {
+                b bVar = this.b.get(i);
+                if (bVar != null && k(bVar, uptimeMillis)) {
+                    bVar.a(j);
+                }
+            }
+            g();
+        }
     }
 }

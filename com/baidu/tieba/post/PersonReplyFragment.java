@@ -19,7 +19,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
@@ -29,15 +28,15 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.f0a;
-import com.baidu.tieba.g0a;
-import com.baidu.tieba.i0a;
-import com.baidu.tieba.j0a;
+import com.baidu.tieba.ao5;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.d2a;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.e2a;
+import com.baidu.tieba.ea5;
+import com.baidu.tieba.g2a;
+import com.baidu.tieba.h2a;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.wn5;
-import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,24 +45,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, f0a {
+public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, d2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public BdListView b;
     public NavigationBarShadowView c;
-    public j0a d;
+    public h2a d;
     public boolean e;
     public NoDataView f;
-    public wn5 g;
-    public aa5 h;
+    public ao5 g;
+    public ea5 h;
     public PbListView i;
     public View j;
     public boolean k;
     public int l;
     public int m;
     public boolean n;
-    public g0a o;
+    public e2a o;
     public View.OnClickListener p;
     public PersonPostModel.c q;
 
@@ -96,20 +95,20 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 PersonReplyFragment personReplyFragment = this.a;
-                wn5 wn5Var = personReplyFragment.g;
-                if (wn5Var != null) {
-                    wn5Var.dettachView(personReplyFragment.a);
+                ao5 ao5Var = personReplyFragment.g;
+                if (ao5Var != null) {
+                    ao5Var.dettachView(personReplyFragment.a);
                     this.a.g = null;
                 }
                 if (this.a.o != null) {
-                    this.a.o.u();
+                    this.a.o.r();
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements z95.g {
+    public class b implements da5.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonReplyFragment a;
@@ -132,7 +131,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             this.a = personReplyFragment;
         }
 
-        @Override // com.baidu.tieba.z95.g
+        @Override // com.baidu.tieba.da5.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -166,7 +165,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-        public void B0(PersonPostModel personPostModel, boolean z) {
+        public void J0(PersonPostModel personPostModel, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLZ(1048576, this, personPostModel, z) != null) || !this.a.isAdded()) {
                 return;
@@ -174,19 +173,19 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             PersonReplyFragment personReplyFragment = this.a;
             personReplyFragment.hideLoadingView(personReplyFragment.a);
             this.a.b.z(0L);
-            if (personPostModel != null && (PersonReplyFragment.k2(personPostModel.postList) != 0 || !this.a.n || !StringUtils.isNull(personPostModel.getErrorString()))) {
+            if (personPostModel != null && (PersonReplyFragment.q2(personPostModel.postList) != 0 || !this.a.n || !StringUtils.isNull(personPostModel.getErrorString()))) {
                 if (this.a.d.getCount() == 0) {
                     this.a.b.setVisibility(8);
-                    this.a.i2(true);
+                    this.a.o2(true);
                 } else {
                     this.a.b.setVisibility(0);
-                    this.a.i2(false);
+                    this.a.o2(false);
                 }
                 if (personPostModel.getErrorCode() != 0) {
                     BdUtilHelper.showToast(this.a.getActivity(), personPostModel.getErrorString());
                 }
-                int k2 = PersonReplyFragment.k2(personPostModel.postList);
-                if (k2 <= 0) {
+                int q2 = PersonReplyFragment.q2(personPostModel.postList);
+                if (q2 <= 0) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
                         this.a.j.setVisibility(8);
                     } else {
@@ -197,7 +196,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 }
                 this.a.i.g();
                 if (z) {
-                    if (k2 <= 0) {
+                    if (q2 <= 0) {
                         this.a.k = false;
                     } else {
                         this.a.k = true;
@@ -209,7 +208,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 return;
             }
             this.a.b.setVisibility(0);
-            this.a.i2(true);
+            this.a.o2(true);
         }
     }
 
@@ -279,44 +278,44 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         this.q = new c(this);
     }
 
-    public final void j2() {
+    public final void p2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 this.d.f(true);
                 return;
             }
             hideLoadingView(this.a);
-            i2(false);
-            i0a.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0e40), true);
+            o2(false);
+            g2a.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0e42), true);
             this.b.setVisibility(8);
-        }
-    }
-
-    public void n2(g0a g0aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, g0aVar) == null) {
-            this.o = g0aVar;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
+        }
+    }
+
+    public void t2(e2a e2aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, e2aVar) == null) {
+            this.o = e2aVar;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048588, this, absListView, i) == null) && i == 1) {
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i) == null) && i == 1) {
             this.c.c();
         }
     }
 
-    public static int k2(List<cn> list) {
+    public static int q2(List<bn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, list)) == null) {
@@ -335,7 +334,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         return invokeL.intValue;
     }
 
-    public final void i2(boolean z) {
+    public final void o2(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
@@ -357,33 +356,23 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    @Override // com.baidu.tieba.f0a
-    public void Z0() {
-        j0a j0aVar;
+    @Override // com.baidu.tieba.d2a
+    public void g1() {
+        h2a h2aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (j0aVar = this.d) != null) {
-            j0aVar.f(true);
-        }
-    }
-
-    public void m2() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.e) {
-            l2();
-            this.e = true;
-            showLoadingView(this.a);
-            j2();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (h2aVar = this.d) != null) {
+            h2aVar.f(true);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            j0a j0aVar = this.d;
-            if (j0aVar != null) {
-                j0aVar.e();
+            h2a h2aVar = this.d;
+            if (h2aVar != null) {
+                h2aVar.e();
                 this.d.i(null);
             }
         }
@@ -392,9 +381,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            m2();
+            s2();
             this.d.notifyDataSetChanged();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -403,7 +392,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onStart();
             NoDataView noDataView = this.f;
             if (noDataView != null) {
@@ -415,7 +404,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onStop();
             NoDataView noDataView = this.f;
             if (noDataView != null) {
@@ -424,21 +413,20 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    public final void l2() {
+    public void s2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            j0a j0aVar = new j0a(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
-            this.d = j0aVar;
-            j0aVar.i(this.q);
-            this.b.setAdapter((ListAdapter) this.d);
-            this.b.setOnItemClickListener(new d(this));
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && !this.e) {
+            r2();
+            this.e = true;
+            showLoadingView(this.a);
+            p2();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
             if (!isAdded()) {
                 return;
@@ -457,9 +445,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             this.h.C(i);
             SkinManager.setBackgroundColor(this.a, this.m, i);
-            j0a j0aVar = this.d;
-            if (j0aVar != null) {
-                j0aVar.notifyDataSetChanged();
+            h2a h2aVar = this.d;
+            if (h2aVar != null) {
+                h2aVar.notifyDataSetChanged();
             }
         }
     }
@@ -468,11 +456,11 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d080f, viewGroup, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d080d, viewGroup, false);
             this.a = inflate;
-            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09156f);
-            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f0918fc);
+            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091558);
+            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f0918e8);
             this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07035e)), NoDataViewFactory.e.d(null, getArguments().getString("key_empty_view_text")), null);
             return this.a;
         }
@@ -483,7 +471,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048587, this, absListView, i, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048583, this, absListView, i, i2, i3) == null) {
             if (this.k && i3 > 2 && this.l != i3 && i2 + i == i3) {
                 this.l = i3;
                 this.d.f(false);
@@ -499,10 +487,10 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, view2, bundle) == null) {
-            aa5 aa5Var = new aa5(getPageContext());
-            this.h = aa5Var;
-            this.b.setPullRefresh(aa5Var);
+        if (interceptable == null || interceptable.invokeLL(1048587, this, view2, bundle) == null) {
+            ea5 ea5Var = new ea5(getPageContext());
+            this.h = ea5Var;
+            this.b.setPullRefresh(ea5Var);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070387)));
             this.b.w(textView, 0);
@@ -516,6 +504,17 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             View findViewById = this.i.c().findViewById(R.id.pb_more_view);
             this.j = findViewById;
             findViewById.setVisibility(8);
+        }
+    }
+
+    public final void r2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            h2a h2aVar = new h2a(getPageContext(), getArguments().getString("key_uid"), getArguments().getString("key_portrait_url"), getUniqueId());
+            this.d = h2aVar;
+            h2aVar.i(this.q);
+            this.b.setAdapter((ListAdapter) this.d);
+            this.b.setOnItemClickListener(new d(this));
         }
     }
 }

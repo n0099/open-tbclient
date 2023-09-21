@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,110 +57,83 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         }
         int dimens = BdUtilHelper.getDimens(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
         int color = SkinManager.getColor(R.color.black_alpha10);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092600);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925cc);
         this.a = textView;
         textView.setOnClickListener(onClickListener);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091727);
-        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910bb);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252a);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091710);
+        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910ae);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f6);
         this.f.setIsRound(true);
         this.f.setBorderColor(color);
         this.f.setBorderWidth(dimens);
         this.f.setOnClickListener(onClickListener);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091728);
-        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910bc);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252b);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091711);
+        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910af);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f7);
         this.g.setIsRound(true);
         this.g.setBorderColor(color);
         this.g.setBorderWidth(dimens);
         this.g.setOnClickListener(onClickListener);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091729);
-        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910bd);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252c);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091712);
+        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910b0);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f8);
         this.h.setIsRound(true);
         this.h.setBorderColor(color);
         this.h.setBorderWidth(dimens);
         this.h.setOnClickListener(onClickListener);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09172a);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910be);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252d);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091713);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910b1);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f9);
         this.i.setIsRound(true);
         this.i.setBorderColor(color);
         this.i.setBorderWidth(dimens);
         this.i.setOnClickListener(onClickListener);
-        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bff);
+        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bf2);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048576, this, bawuRoleInfoPub, i) == null) && bawuRoleInfoPub != null && i >= 0 && i <= 3) {
-            String str5 = bawuRoleInfoPub.portrait;
             if (i != 0) {
                 if (i != 1) {
                     if (i != 2) {
                         if (i == 3) {
-                            this.i.startLoad(str5, 12, false);
-                            this.i.setTag(bawuRoleInfoPub);
-                            this.i.setContentDescription(bawuRoleInfoPub.user_name);
-                            TextView textView = this.m;
-                            if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
-                                str4 = bawuRoleInfoPub.user_name;
-                            } else {
-                                str4 = bawuRoleInfoPub.name_show;
-                            }
-                            textView.setText(str4);
-                            this.e.setVisibility(0);
+                            b(bawuRoleInfoPub, this.i, this.m, this.e);
                             return;
                         }
                         return;
                     }
-                    this.h.startLoad(str5, 12, false);
-                    this.h.setTag(bawuRoleInfoPub);
-                    this.h.setContentDescription(bawuRoleInfoPub.user_name);
-                    TextView textView2 = this.l;
-                    if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
-                        str3 = bawuRoleInfoPub.user_name;
-                    } else {
-                        str3 = bawuRoleInfoPub.name_show;
-                    }
-                    textView2.setText(str3);
-                    this.d.setVisibility(0);
+                    b(bawuRoleInfoPub, this.h, this.l, this.d);
                     return;
                 }
-                this.g.startLoad(str5, 12, false);
-                this.g.setTag(bawuRoleInfoPub);
-                this.g.setContentDescription(bawuRoleInfoPub.user_name);
-                TextView textView3 = this.k;
-                if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
-                    str2 = bawuRoleInfoPub.user_name;
-                } else {
-                    str2 = bawuRoleInfoPub.name_show;
-                }
-                textView3.setText(str2);
-                this.c.setVisibility(0);
+                b(bawuRoleInfoPub, this.g, this.k, this.c);
                 return;
             }
-            this.f.startLoad(str5, 12, false);
-            this.f.setTag(bawuRoleInfoPub);
-            this.f.setContentDescription(bawuRoleInfoPub.user_name);
-            TextView textView4 = this.j;
-            if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
-                str = bawuRoleInfoPub.user_name;
-            } else {
-                str = bawuRoleInfoPub.name_show;
-            }
-            textView4.setText(str);
-            this.b.setVisibility(0);
+            b(bawuRoleInfoPub, this.f, this.j, this.b);
         }
     }
 
-    public void b(int i) {
+    public final void b(BawuRoleInfoPub bawuRoleInfoPub, HeadImageView headImageView, TextView textView, LinearLayout linearLayout) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if ((interceptable != null && interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bawuRoleInfoPub, headImageView, textView, linearLayout) != null) || bawuRoleInfoPub == null) {
+            return;
+        }
+        qm9.a(headImageView, bawuRoleInfoPub.avatar_url, bawuRoleInfoPub.portrait, 12);
+        headImageView.setTag(bawuRoleInfoPub);
+        headImageView.setContentDescription(bawuRoleInfoPub.user_name);
+        if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
+            str = bawuRoleInfoPub.user_name;
+        } else {
+            str = bawuRoleInfoPub.name_show;
+        }
+        textView.setText(str);
+        linearLayout.setVisibility(0);
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.f.getVisibility() == 0) {
                 this.f.setSkinType(i);
                 this.f.refresh();

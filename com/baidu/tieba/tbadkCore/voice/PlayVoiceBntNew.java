@@ -25,9 +25,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bka;
-import com.baidu.tieba.cq5;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
+import com.baidu.tieba.hma;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.view.AudioAnimationView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -151,10 +150,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).r1(this.a);
+                return ((VoiceManager.j) context).w1(this.a);
             }
             if ((m9.a(getContext()) instanceof BdPageContext) && (tbPageContext = (TbPageContext) m9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).r1(this.a);
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).w1(this.a);
             }
             return this;
         }
@@ -168,10 +167,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).H0();
+                return ((VoiceManager.j) context).P0();
             }
             if ((m9.a(getContext()) instanceof BdPageContext) && (tbPageContext = (TbPageContext) m9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).H0();
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).P0();
             }
             return this.k;
         }
@@ -198,7 +197,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
             }
         }
         this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, bka.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, hma.Voice_play_type);
         obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         e(context);
@@ -408,10 +407,6 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (cq5.b().d()) {
-                cq5.b().n(false);
-                cq5.b().l(false);
-            }
             c(false);
             if (i == 1) {
                 VoiceData.VoiceModel voiceModel = this.a;
@@ -529,10 +524,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.voice_image_content);
             this.b = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ced);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091cda);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cbb);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ca8);
             this.f = (AudioAnimationView) findViewById(R.id.audioAnimationView);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091dad);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d7b);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
@@ -553,7 +548,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.IPla
             } else {
                 formatVoiceTime = VoiceManager.formatVoiceTime(this.a.getDuration());
             }
-            String charSequence2String = ei.charSequence2String(this.d.getText(), null);
+            String charSequence2String = di.charSequence2String(this.d.getText(), null);
             if (charSequence2String == null || !charSequence2String.equals(formatVoiceTime)) {
                 this.d.setText(formatVoiceTime);
             }

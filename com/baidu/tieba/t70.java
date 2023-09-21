@@ -1,70 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class t70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONArray a;
+    public String b;
+    public boolean c;
+    public JSONObject d;
 
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
+    public t70(boolean z, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), jSONArray};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            byte[] a = w70.a(str.getBytes());
-            if (a != null && a.length > 2) {
-                a[0] = 117;
-                a[1] = 123;
-            }
-            return a;
         }
-        return (byte[]) invokeL.objValue;
+        this.c = z;
+        this.a = jSONArray;
+        this.b = String.valueOf(System.currentTimeMillis());
     }
 
-    public static boolean b(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (jSONArray != null && jSONArray.length() != 0) {
-                x70.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
-                if (z2) {
-                    x70.a("UBCUploader", "save ubcdata");
-                    return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("uploadtime", this.b);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            this.d = jSONObject;
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONObject b() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONArray jSONArray = this.a;
+            if (jSONArray != null && jSONArray.length() >= 0) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(TtmlNode.TAG_METADATA, a());
+                    if (this.c) {
+                        str = "1";
+                    } else {
+                        str = "0";
+                    }
+                    jSONObject.put(Constant.IS_REAL, str);
+                    jSONObject.put("data", this.a);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                c(context, jSONArray, z, z2, z3);
-                return true;
+                w70.a("UploadData", "uploadJson:" + jSONObject.toString());
+                return jSONObject;
             }
-            x70.a("UBCUploader", "upload json is null");
-            return false;
+            return null;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public static void c(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            JSONObject b = new u70(z, jSONArray).b();
-            if (b == null) {
-                x70.a("UBCUploader", "uploadJsonData is null");
-                return;
-            }
-            byte[] a = a(b.toString());
-            if (a != null && a.length >= 3) {
-                x70.a("UBCUploader", "gzip success, length:" + a.length);
-                x70.a("UBCUploader", "start execute http upload data");
-                r70 r70Var = new r70(context);
-                o70.e(context).b(context, r70Var, r70Var, a, z3);
-                return;
-            }
-            x70.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -44,8 +44,8 @@ import com.baidu.tieba.gb;
 import com.baidu.tieba.hb;
 import com.baidu.tieba.ia;
 import com.baidu.tieba.ja;
+import com.baidu.tieba.jf;
 import com.baidu.tieba.ka;
-import com.baidu.tieba.kf;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.v9;
@@ -918,7 +918,7 @@ public class MessageManager {
             if (netMessage == null) {
                 return false;
             }
-            boolean netABTest = ((kf) ServiceManager.getService(kf.a)).netABTest();
+            boolean netABTest = ((jf) ServiceManager.getService(jf.a)).netABTest();
             if (netMessage.getNetType() == NetMessage.NetType.SOCKET) {
                 return sendMessage(netMessage.getSocketMessage());
             }

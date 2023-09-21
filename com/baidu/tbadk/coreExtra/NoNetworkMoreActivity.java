@@ -39,7 +39,7 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         }
     }
 
-    public void o1() {
+    public void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
@@ -88,7 +88,7 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.no_network_more_view);
-            o1();
+            M0();
         }
     }
 }

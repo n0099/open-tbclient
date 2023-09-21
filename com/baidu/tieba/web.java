@@ -1,23 +1,81 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public interface web {
-    boolean available();
+public final class web {
+    public static /* synthetic */ Interceptable $ic;
+    public static web c;
+    public static SQLiteOpenHelper d;
+    public transient /* synthetic */ FieldHolder $fh;
+    public AtomicInteger a;
+    public SQLiteDatabase b;
 
-    int availableBytes();
+    public web() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger();
+    }
 
-    void clearQueues();
+    public static synchronized web a() {
+        InterceptResult invokeV;
+        web webVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (web.class) {
+                if (c == null) {
+                    b(reb.h().getContext());
+                }
+                webVar = c;
+            }
+            return webVar;
+        }
+        return (web) invokeV.objValue;
+    }
 
-    void close();
+    public final synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.incrementAndGet() == 1) {
+                    sfb.a("***************新建立了 一个数据库的实例****************");
+                    this.b = d.getWritableDatabase();
+                }
+                sQLiteDatabase = this.b;
+            }
+            return sQLiteDatabase;
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
 
-    void flush();
-
-    int getBytes(byte[] bArr, int i);
-
-    void initVoiceChanger(int i, int i2, int i3, int i4);
-
-    boolean putBytes(byte[] bArr, int i);
-
-    void setVoiceChangeType(int[] iArr);
-
-    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
+    public static synchronized void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            synchronized (web.class) {
+                if (c == null) {
+                    c = new web();
+                    d = new ueb(context);
+                }
+            }
+        }
+    }
 }

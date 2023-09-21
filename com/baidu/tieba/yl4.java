@@ -1,99 +1,89 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yl4 extends nk4<em4> {
+public class yl4 extends mk4<em4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
+    @Nullable
+    public bj4 d;
+    @Nullable
+    public bj4 e;
 
-    @Override // com.baidu.tieba.nk4
+    @Override // com.baidu.tieba.mk4
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updatecore" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mk4
+    /* renamed from: u */
+    public boolean e(em4 em4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, em4Var)) == null) ? em4Var != null : invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yl4(String str, cj4 cj4Var, nm4 nm4Var) {
-        super(cj4Var, nm4Var);
+    public yl4(bj4 bj4Var, mm4 mm4Var, @Nullable bj4 bj4Var2, @Nullable bj4 bj4Var3) {
+        super(bj4Var, mm4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, cj4Var, nm4Var};
+            Object[] objArr = {bj4Var, mm4Var, bj4Var2, bj4Var3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((cj4) objArr2[0], (nm4) objArr2[1]);
+                super((bj4) objArr2[0], (mm4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = str;
+        this.d = bj4Var2;
+        this.e = bj4Var3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nk4
+    @Override // com.baidu.tieba.mk4
     /* renamed from: w */
     public em4 t(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            return oo4.i(this.d, jSONObject);
+            return no4.q(jSONObject);
         }
         return (em4) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nk4
-    /* renamed from: u */
-    public boolean e(em4 em4Var) {
-        InterceptResult invokeL;
-        List<hk4> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, em4Var)) == null) {
-            if (em4Var == null || (list = em4Var.a) == null) {
-                return false;
-            }
-            for (hk4 hk4Var : list) {
-                if (!hk4Var.a()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nk4
+    @Override // com.baidu.tieba.mk4
     /* renamed from: v */
-    public bk4 s(em4 em4Var) {
+    public ak4 s(em4 em4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, em4Var)) == null) {
             this.a.E();
-            po4 po4Var = new po4();
-            o(em4Var.a, po4Var);
-            if (po4Var.n() == 0) {
-                this.a.F();
-                return null;
+            ho4.e(this.b.a(), em4Var.a);
+            bj4 bj4Var = this.a;
+            if (bj4Var == this.d || bj4Var == this.e) {
+                bj4Var = null;
             }
-            this.a.G(po4Var);
-            sk4.d(em4Var, this.a);
+            tm4.c(em4Var.b, bj4Var, this.d, this.e);
             return null;
         }
-        return (bk4) invokeL.objValue;
+        return (ak4) invokeL.objValue;
     }
 }

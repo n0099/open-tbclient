@@ -1,88 +1,86 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.AndroidUtils;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.switchs.ShareSwitch;
+import com.baidu.tieba.controller.TransmitShareController;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.video.SendVideoSuccessShareModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sta implements rta {
+public class sta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pta a;
-    public ota b;
-    public TbPageContext<?> c;
-
-    @Override // com.baidu.tieba.rta
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.rta
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
+    public View a;
+    public Context b;
+    public View c;
+    public TextView d;
+    public ImageView e;
+    public boolean f;
+    public PostWriteCallBackData g;
+    public TextView h;
+    public SendVideoSuccessShareModel i;
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ sta b;
-
-        public a(sta staVar, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {staVar, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = staVar;
-            this.a = shareItem;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                AndroidUtils.copyToClipboard(this.a.linkUrl);
-                BdUtilHelper.showToast(this.b.c.getPageActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements DialogInterface.OnDismissListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sta a;
+
+        /* loaded from: classes8.dex */
+        public class a extends i9 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.tieba.i9
+            public void c(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                    ShareItem shareItem = new ShareItem();
+                    shareItem.isShowShareOuerItem = false;
+                    shareItem.originalThreadInfo = OriginalThreadInfo.ShareInfo.generateShareInfo((OriginalThreadInfo) obj);
+                    TransmitShareController.getInstance().showShareDialog(new ShareDialogConfig(this.a.a.b, shareItem, true, true));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param(TiebaStatic.Params.OBJ_PARAM3, 1));
+                }
+            }
+        }
 
         public b(sta staVar) {
             Interceptable interceptable = $ic;
@@ -102,22 +100,94 @@ public class sta implements rta {
             this.a = staVar;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.f();
+                if (this.a.g != null && !StringUtils.isNull(this.a.g.getVideoid())) {
+                    this.a.i.O(this.a.g.getVideoid());
+                    this.a.i.setLoadDataCallBack(new a(this));
+                }
             }
-            this.a.h();
         }
     }
 
-    public sta(TbPageContext<?> tbPageContext, ota otaVar, Intent intent) {
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sta a;
+
+        public a(sta staVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {staVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = staVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f) {
+                this.a.f();
+                if (this.a.g != null && !StringUtils.isNull(this.a.g.buildVideoFakeOnWallUrl())) {
+                    BrowserHelper.startWebActivity(this.a.b, (String) null, this.a.g.buildVideoFakeOnWallUrl());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sta a;
+
+        public c(sta staVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {staVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = staVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    public sta(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, otaVar, intent};
+            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,104 +197,68 @@ public class sta implements rta {
                 return;
             }
         }
-        this.c = tbPageContext;
-        this.b = otaVar;
-        qta qtaVar = new qta();
-        this.a = qtaVar;
-        qtaVar.b(intent);
-        this.a.e(tbPageContext.getUniqueId());
-    }
-
-    @Override // com.baidu.tieba.rta
-    public void a() {
-        ota otaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (otaVar = this.b) != null) {
-            otaVar.showErrorView();
-        }
-    }
-
-    @Override // com.baidu.tieba.rta
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c == null) {
-            return;
-        }
-        if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.c.getPageActivity())) {
-            return;
-        }
-        i();
-    }
-
-    @Override // com.baidu.tieba.rta
-    public void c() {
-        pta ptaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ptaVar = this.a) != null) {
-            SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(ptaVar.c()), false);
-        }
-    }
-
-    @Override // com.baidu.tieba.rta
-    public void d() {
-        pta ptaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ptaVar = this.a) != null && this.b != null) {
-            this.b.x0(ptaVar.getVideoUrl());
-        }
-    }
-
-    @Override // com.baidu.tieba.rta
-    public void e() {
-        ota otaVar;
-        pta ptaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (otaVar = this.b) != null && (ptaVar = this.a) != null) {
-            otaVar.g0(ptaVar.a(), this.a.g());
-        }
-    }
-
-    public final void h() {
-        pta ptaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ptaVar = this.a) != null && this.b != null) {
-            this.b.u0(ptaVar.getVideoUrl());
-        }
-    }
-
-    @Override // com.baidu.tieba.rta
-    public void onClose() {
-        ota otaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (otaVar = this.b) != null) {
-            otaVar.finishActivity();
-        }
-    }
-
-    @Override // com.baidu.tieba.rta
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            h();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.c != null) {
-            ShareItem shareItem = new ShareItem();
-            shareItem.title = this.a.d();
-            shareItem.content = this.a.i();
-            shareItem.linkUrl = this.a.f();
-            shareItem.spareLinkUrl = this.a.f();
-            if (!ei.isEmpty(this.a.h())) {
-                shareItem.imageUri = Uri.parse(this.a.h());
+        this.b = context;
+        this.c = viewGroup;
+        this.i = new SendVideoSuccessShareModel();
+        if (this.b != null && this.c != null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.send_video_success_tip, (ViewGroup) null);
+            this.a = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.success_tip);
+            this.e = (ImageView) this.a.findViewById(R.id.video_activity_btn);
+            this.h = (TextView) this.a.findViewById(R.id.video_share_btn);
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701aa));
+            if (this.a.getParent() == null) {
+                viewGroup.addView(this.a, layoutParams);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.c.getPageActivity(), shareItem, true, true);
-            shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
-            shareDialogConfig.setOnDismissListener(new b(this));
-            this.c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            this.a.setVisibility(8);
+            this.a.setOnClickListener(new a(this));
+            this.h.setOnClickListener(new b(this));
+        }
+    }
+
+    public void e() {
+        SendVideoSuccessShareModel sendVideoSuccessShareModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sendVideoSuccessShareModel = this.i) != null) {
+            sendVideoSuccessShareModel.cancelLoadData();
+        }
+    }
+
+    public void f() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (view2 = this.a) != null) {
+            view2.setVisibility(8);
+        }
+    }
+
+    public void g(PostWriteCallBackData postWriteCallBackData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postWriteCallBackData) == null) && postWriteCallBackData != null) {
+            this.g = postWriteCallBackData;
+            if (postWriteCallBackData.mVideoTitleData != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.f = z;
+            View view2 = this.a;
+            if (view2 != null && this.d != null && this.e != null && this.h != null) {
+                SkinManager.setBackgroundColor(view2, R.color.CAM_X0302);
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+                SkinManager.setImageResource(this.e, R.drawable.icon_arrow_more_white);
+                SkinManager.setBackgroundResource(this.h, R.drawable.immediately_share_background);
+                this.a.setVisibility(0);
+                this.a.postDelayed(new c(this), 5000L);
+                if (this.f) {
+                    this.d.setText(R.string.video_activity_tip);
+                } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
+                    this.d.setText(postWriteCallBackData.getErrorString());
+                } else {
+                    this.a.setVisibility(8);
+                }
+            }
         }
     }
 }

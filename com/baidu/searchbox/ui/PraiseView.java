@@ -135,7 +135,7 @@ public class PraiseView extends LinearLayout {
                             UniversalToast.makeText(PraiseView.this.getContext().getApplicationContext(), (int) com.baidu.tieba.R.string.comment_detail_liked).showToast();
                         }
                     } else {
-                        PraiseView.this.mCommentlistitemPraiseicon.setImageDrawable(PraiseView.this.getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050c));
+                        PraiseView.this.mCommentlistitemPraiseicon.setImageDrawable(PraiseView.this.getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050b));
                         int i = PraiseView.this.mCount + 1;
                         int i2 = PraiseView.this.mCount;
                         TextView textView = PraiseView.this.mCommentlistitemPraisenum;
@@ -248,11 +248,11 @@ public class PraiseView extends LinearLayout {
     public void setPraise(boolean z) {
         this.mIsPraised = z;
         if (z) {
-            this.mCommentlistitemPraiseicon.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050c));
+            this.mCommentlistitemPraiseicon.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050b));
             this.mCommentlistitemPraisenum.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0604fc));
             return;
         }
-        this.mCommentlistitemPraiseicon.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050d));
+        this.mCommentlistitemPraiseicon.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08050c));
         this.mCommentlistitemPraisenum.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0604fd));
     }
 }

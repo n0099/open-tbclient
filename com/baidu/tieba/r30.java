@@ -1,23 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface r30 {
-    String a();
+    r30 a(JSONObject jSONObject);
 
-    String a(Context context);
+    boolean a();
 
-    JSONArray b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
-
-    String e(Context context);
-
-    JSONArray f(Context context);
-
-    JSONObject g(Context context);
+    void b(JSONObject jSONObject);
 }

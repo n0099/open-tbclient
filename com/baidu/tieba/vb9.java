@@ -1,95 +1,72 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public class vb9 {
+public final class vb9 implements mf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public vb9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return c(d(str));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0027 A[Catch: Exception -> 0x0031, TRY_LEAVE, TryCatch #0 {Exception -> 0x0031, blocks: (B:5:0x0009, B:7:0x0011, B:10:0x001b, B:16:0x0027), top: B:26:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x003c A[ORIG_RETURN, RETURN] */
+    @Override // com.baidu.tieba.mf5
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void parseJson(JSONObject json) {
+        String str;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return c(str).trim();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return str.trim();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15f8));
-            boolean z = false;
-            int i = 0;
-            while (!z && i < 1000) {
-                Matcher matcher = compile.matcher(str);
-                if (matcher.find()) {
-                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15f9));
-                    i++;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            try {
+                JSONObject optJSONObject = json.optJSONObject("member_info");
+                if (optJSONObject != null) {
+                    str = optJSONObject.optString("member_recharge");
                 } else {
-                    z = true;
+                    str = null;
                 }
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            Matcher matcher = Pattern.compile(TbFaceManager.d).matcher(str);
-            while (matcher.find()) {
-                if (!TbFaceManager.i().p(matcher.group())) {
-                    return false;
+                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                    z = false;
+                    if (z) {
+                        SharedPrefHelper.getInstance().putString(PayPanelUtils.KEY_PAY_PANEL_URL, str);
+                        return;
+                    }
+                    return;
                 }
+                z = true;
+                if (z) {
+                }
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    return;
+                }
+                throw e;
             }
-            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            String c = c(str);
-            if (StringUtils.isNull(c)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15f3);
-            }
-            if (!e(c)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15f4);
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
     }
 }

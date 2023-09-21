@@ -27,13 +27,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerReqMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerSwitchResMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
-import com.baidu.tieba.te5;
+import com.baidu.tieba.xe5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MsgRemindModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCEPT_MSG = 1;
@@ -65,7 +65,7 @@ public class MsgRemindModel extends BdBaseModel {
     public SocketMessageListener f;
     public SocketMessageListener g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void a(int i, boolean z, boolean z2);
     }
@@ -90,7 +90,7 @@ public class MsgRemindModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,43 +120,43 @@ public class MsgRemindModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (i == 2) {
                     if (z) {
-                        te5.d().M(z2);
+                        xe5.d().M(z2);
                     }
                 } else if (i == 3) {
                     if (z) {
-                        te5.d().Q(z2);
+                        xe5.d().Q(z2);
                     }
                 } else if (i == 1) {
                     if (z) {
-                        te5.d().R(z2);
+                        xe5.d().R(z2);
                     }
                 } else if (i == 20) {
                     if (z) {
-                        te5.d().U(z2);
+                        xe5.d().U(z2);
                     }
                 } else if (i == 30) {
                     if (z) {
-                        te5.d().W(z2);
+                        xe5.d().W(z2);
                     }
                 } else if (i != 10) {
                     if (i == 7) {
                         if (z) {
-                            te5.d().Z(z2);
+                            xe5.d().Z(z2);
                         }
                     } else if (i == 35) {
                         if (z) {
-                            te5.d().K(z2);
+                            xe5.d().K(z2);
                         }
                     } else if (i == 6) {
                         if (z) {
-                            te5.d().Y(z2);
+                            xe5.d().Y(z2);
                         }
                     } else if (i == 33) {
                         if (z) {
-                            te5.d().a0(z2);
+                            xe5.d().a0(z2);
                         }
                     } else if (i == 34 && z) {
-                        te5.d().J(z2);
+                        xe5.d().J(z2);
                     }
                 }
                 if (this.a.c != null) {
@@ -166,7 +166,7 @@ public class MsgRemindModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public class MsgRemindModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class c extends SocketMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -316,7 +316,7 @@ public class MsgRemindModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class d extends SocketMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -367,7 +367,7 @@ public class MsgRemindModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class e extends SocketMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -470,7 +470,7 @@ public class MsgRemindModel extends BdBaseModel {
             if (z) {
                 this.b.a(i, true, z2);
                 if (i != 14) {
-                    if (!te5.d().v() && !te5.d().w() && !te5.d().y() && !te5.d().A() && !te5.d().D() && !te5.d().u() && !te5.d().G() && !te5.d().t()) {
+                    if (!xe5.d().v() && !xe5.d().w() && !xe5.d().y() && !xe5.d().A() && !xe5.d().D() && !xe5.d().u() && !xe5.d().G() && !xe5.d().t()) {
                         this.b.a(14, true, false);
                         return;
                     }

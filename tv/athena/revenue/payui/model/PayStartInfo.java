@@ -1,10 +1,10 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.pic;
+import com.baidu.tieba.hkc;
 @Keep
 /* loaded from: classes2.dex */
-public class PayStartInfo extends pic {
+public class PayStartInfo extends hkc {
     public int code;
     public String message;
 

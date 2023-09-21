@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.commontab;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.ol7;
+import com.baidu.tieba.yl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
 /* loaded from: classes5.dex */
-public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage<ol7, GeneralTabListResIdl> {
+public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage<yl7, GeneralTabListResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,9 +53,9 @@ public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            ol7 ol7Var = new ol7();
+            yl7 yl7Var = new yl7();
             GeneralTabListResIdl generalTabListResIdl = (GeneralTabListResIdl) new Wire(new Class[0]).parseFrom(bArr, GeneralTabListResIdl.class);
-            ol7Var.a(generalTabListResIdl.data);
+            yl7Var.a(generalTabListResIdl.data);
             if (generalTabListResIdl != null && (error = generalTabListResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -63,7 +63,7 @@ public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage
                 }
                 setErrorString(generalTabListResIdl.error.usermsg);
             }
-            setData(ol7Var);
+            setData(yl7Var);
             return generalTabListResIdl;
         }
         return invokeIL.objValue;

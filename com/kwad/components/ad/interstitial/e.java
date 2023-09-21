@@ -23,7 +23,7 @@ public final class e {
         ksScene.setAdStyle(13);
         com.kwad.components.ad.interstitial.monitor.b.cr().cs();
         KsAdLoadManager.ab();
-        KsAdLoadManager.a(new a.C0648a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.interstitial.e.1
+        KsAdLoadManager.a(new a.C0641a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.interstitial.e.1
             @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.b
             public final void a(@NonNull final AdResultData adResultData, boolean z) {
                 b bVar;

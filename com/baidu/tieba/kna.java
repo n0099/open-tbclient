@@ -1,68 +1,202 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.text.TextUtils;
+import androidx.annotation.WorkerThread;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class kna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MainTabActivity a;
+    public PollingModel b;
+    public List<Map<String, Long>> c;
+    public final Runnable d;
 
-    public static ICardInfo a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("card_type", i);
-                return w29.h().b(jSONObject, i);
-            } catch (CardParseException | JSONException e) {
-                e.printStackTrace();
-                return null;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kna a;
+
+        /* renamed from: com.baidu.tieba.kna$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0368a extends yx5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0368a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.yx5
+            public String doInBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.a.a.c();
+                }
+                return (String) invokeV.objValue;
             }
         }
-        return (ICardInfo) invokeI.objValue;
-    }
 
-    public static String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return d(i, 0);
-        }
-        return (String) invokeI.objValue;
-    }
+        /* loaded from: classes6.dex */
+        public class b implements dx5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-    public static ICardInfo b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("goods_style", i2);
-                jSONObject2.put("card_type", i);
-                jSONObject.put("ad_common", jSONObject2);
-                jSONObject.put("card_type", i);
-                return w29.h().b(jSONObject, i);
-            } catch (CardParseException | JSONException e) {
-                e.printStackTrace();
-                return null;
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.dx5
+            /* renamed from: a */
+            public void onReturnDataInUI(String str) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null) {
+                    this.a.a.b.getGroupUnReadCountData(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST, String.valueOf(System.currentTimeMillis()), str);
+                    SafeHandler.getInst().postDelayed(this.a.a.d, d95.a().c());
+                }
             }
         }
-        return (ICardInfo) invokeII.objValue;
+
+        public a(kna knaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {knaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = knaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.b == null) {
+                return;
+            }
+            cy5.c(new C0368a(this), new b(this));
+        }
     }
 
-    public static String d(int i, int i2) {
-        InterceptResult invokeII;
+    public kna(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
-            return "ad_card_" + i + "_" + i2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeII.objValue;
+        this.c = null;
+        this.d = new a(this);
+        this.a = mainTabActivity;
+        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
+    }
+
+    @WorkerThread
+    public final synchronized String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.c == null) {
+                    this.c = new ArrayList();
+                }
+                this.c.clear();
+                List<GroupChatRoomPojo> l = gj8.j().l(TbadkCoreApplication.getCurrentAccount());
+                if (ListUtils.isEmpty(l)) {
+                    return "";
+                }
+                for (GroupChatRoomPojo groupChatRoomPojo : l) {
+                    if (groupChatRoomPojo.N() == 0) {
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                        hashMap.put("msg_id", Long.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                        hashMap.put("time", Long.valueOf(groupChatRoomPojo.getLastExitChatRoomTime()));
+                        this.c.add(hashMap);
+                    }
+                }
+                if (ListUtils.isEmpty(this.c)) {
+                    return "";
+                }
+                String json = DataExt.toJson(this.c);
+                if (TextUtils.isEmpty(json)) {
+                    return "";
+                }
+                return json;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.d);
+            this.a = null;
+        }
     }
 }

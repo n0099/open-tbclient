@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface gk0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "cyber");
+    public static final ServiceReference a = new ServiceReference("nad.core", "thirdService");
     public static final gk0 b = new a();
 
-    boolean a();
+    String a();
 
     /* loaded from: classes6.dex */
     public class a implements gk0 {
@@ -19,13 +19,10 @@ public interface gk0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.gk0
-        public boolean a() {
+        public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
         }
 
         public a() {

@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService;
+import com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bz7 extends bl1<BZDxmRechargeService> {
+public class bz7 extends al1<HostBasicInfoService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class bz7 extends bl1<BZDxmRechargeService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bl1
+    @Override // com.baidu.tieba.al1
     /* renamed from: a */
-    public BZDxmRechargeService createService() throws ServiceNotFoundException {
+    public HostBasicInfoService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new cz7();
         }
-        return (BZDxmRechargeService) invokeV.objValue;
+        return (HostBasicInfoService) invokeV.objValue;
     }
 }

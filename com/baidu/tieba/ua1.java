@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface ua1 {
-    boolean e1();
+    void onDestroy();
 
-    boolean f1();
-
-    boolean t0();
+    void onPause();
 }

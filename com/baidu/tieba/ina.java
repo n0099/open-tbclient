@@ -1,41 +1,60 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ina {
     public static /* synthetic */ Interceptable $ic;
-    public static ina b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public final MainTabActivity a;
+    public PollingModel b;
+    public final Runnable c;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a(Application application);
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ina a;
 
-        void b(Context context);
+        public a(ina inaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {inaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = inaVar;
+        }
 
-        void c(Context context, WebView webView, WebChromeClient webChromeClient);
-
-        void d(Context context, String str, boolean z);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.getData(PollingModel.POLLING_TYPE_LOOP);
+                SafeHandler.getInst().postDelayed(this.a.c, d95.a().b());
+            }
+        }
     }
 
-    public ina() {
+    public ina(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,79 +64,17 @@ public class ina {
                 return;
             }
         }
-        this.a = c();
+        this.c = new a(this);
+        this.a = mainTabActivity;
+        PollingModel pollingModel = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
+        this.b = pollingModel;
+        pollingModel.setDialogTime(s55.d);
     }
 
-    public static ina b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ina.class) {
-                    if (b == null) {
-                        b = new ina();
-                    }
-                }
-            }
-            return b;
-        }
-        return (ina) invokeV.objValue;
-    }
-
-    public final a c() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e() && (runTask = MessageManager.getInstance().runTask(2156671, a.class)) != null) {
-                return (a) runTask.getData();
-            }
-            return null;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (SharedPrefHelper.getInstance().getInt("pref_key_stat_sdk_enable", 1) != 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(Context context) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.b(context);
-        }
-    }
-
-    public void d(Application application) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.a(application);
-        }
-    }
-
-    public void f(Context context, String str, boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.d(context, str, z);
-        }
-    }
-
-    public void g(Context context, WebView webView, WebChromeClient webChromeClient) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.c(context, webView, webChromeClient);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.c);
         }
     }
 }

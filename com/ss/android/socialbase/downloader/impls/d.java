@@ -44,8 +44,8 @@ public class d implements com.ss.android.socialbase.downloader.downloader.j {
         this.f = null;
         if (com.ss.android.socialbase.downloader.g.a.c().a("fix_sigbus_downloader_db")) {
             if (!com.ss.android.socialbase.downloader.i.f.a() && com.ss.android.socialbase.downloader.downloader.c.S()) {
-                this.b = com.ss.android.socialbase.downloader.downloader.c.T().a(new c.a.InterfaceC0762a() { // from class: com.ss.android.socialbase.downloader.impls.d.2
-                    @Override // com.ss.android.socialbase.downloader.downloader.c.a.InterfaceC0762a
+                this.b = com.ss.android.socialbase.downloader.downloader.c.T().a(new c.a.InterfaceC0755a() { // from class: com.ss.android.socialbase.downloader.impls.d.2
+                    @Override // com.ss.android.socialbase.downloader.downloader.c.a.InterfaceC0755a
                     public void a() {
                         d.this.b = new com.ss.android.socialbase.downloader.b.e();
                         Log.e("DefaultDownloadCache", "rebind error,use backup sqlDownloadCache");

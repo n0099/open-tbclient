@@ -25,8 +25,8 @@ public class BubbleJumpArrowView extends BubbleTextView {
         if (!super.initViewIfNeed()) {
             return false;
         }
-        this.mJumpArrow = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09051c);
-        this.mStartIcon = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090524);
+        this.mJumpArrow = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090515);
+        this.mStartIcon = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09051d);
         FontSizeViewExtKt.setScaledSizeRes(this.mJumpArrow, 0, R.dimen.obfuscated_res_0x7f0701f1, R.dimen.obfuscated_res_0x7f0701f1);
         return true;
     }

@@ -1,89 +1,115 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.smallgame.sdk.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class no1 extends ro1 {
-    public static /* synthetic */ Interceptable $ic;
+public class no1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int d = 1;
+    public static int e = 2;
+    public static int f = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public long d;
-    public V8ExceptionInfo e;
-    public int f;
+    public Map<String, String> a;
+    public Map<String, String> b;
+    public SharedPreferences c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948009081, "Lcom/baidu/tieba/no1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948009081, "Lcom/baidu/tieba/no1;");
+        }
+    }
 
     public no1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = false;
+        this.a = new HashMap();
+        this.b = new HashMap();
     }
 
-    public final void d() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = null;
-            this.d = 0L;
-            this.f = -1;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
         }
     }
 
-    @Override // com.baidu.tieba.ro1
-    public synchronized void a(int i, V8ExceptionInfo v8ExceptionInfo) {
+    public String b(int i, String str) {
+        InterceptResult invokeIL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, v8ExceptionInfo) == null) {
-            synchronized (this) {
-                if (this.e == null && v8ExceptionInfo != null) {
-                    this.e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-                    this.f = i;
-                    if (this.b != null) {
-                        this.b.a();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (i == d) {
+                str2 = this.a.get(str);
+            } else if (i == e) {
+                str2 = this.b.get(str);
+            } else {
+                if (i == f) {
+                    SharedPreferences sharedPreferences = this.c;
+                    if (sharedPreferences != null) {
+                        str2 = sharedPreferences.getString(str, "");
+                    } else {
+                        Log.e("TAG", "prefs data store is null");
                     }
                 }
+                str2 = null;
             }
+            if (str2 == null) {
+                return "";
+            }
+            return str2;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public void c(SharedPreferences sharedPreferences) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
+            this.c = sharedPreferences;
         }
     }
 
-    public synchronized void e() {
+    public void d(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                if (this.b != null && this.d > 0 && this.e != null) {
-                    if (System.currentTimeMillis() - this.e.exceptionTime > this.a && this.e.exceptionTime > this.d) {
-                        this.b.b(new qo1(this.f, this.e, this.d));
-                        d();
-                    }
-                    return;
-                }
-                Log.e("StuckScreenHandler", "[StuckScreen] 未设置冻屏监听器， 或者异常信息已经被清空（需等待下次上屏）。");
-            }
-        }
-    }
-
-    public synchronized void f(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                this.c = z;
-                if (z) {
-                    this.d = j;
-                    this.e = null;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            if (i == d) {
+                this.a.put(str, str2);
+            } else if (i == e) {
+                this.b.put(str, str2);
+            } else if (i == f) {
+                SharedPreferences sharedPreferences = this.c;
+                if (sharedPreferences != null) {
+                    sharedPreferences.edit().putString(str, str2).commit();
+                } else {
+                    Log.e("TAG", "prefs data store is null");
                 }
             }
         }

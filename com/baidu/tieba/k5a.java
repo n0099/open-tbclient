@@ -1,36 +1,104 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.adapter.CardAppLegoViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public final class k5a {
+public class k5a extends om<cq6, CardAppLegoViewHolder> implements w4a, b5a {
     public static /* synthetic */ Interceptable $ic;
-    @JvmField
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final m5a b;
+    public TbPageContext<?> a;
+    public int b;
+    public boolean c;
+    public AdvertAppInfo.ILegoAdvert d;
+    public String e;
+    public Runnable f;
+    public CustomMessageListener g;
+
+    @Override // com.baidu.tieba.w4a
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.w4a
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public static final class a extends BdAsyncTask<Integer, Integer, j08> {
+    public class a implements g49 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdvertAppInfo a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+
+        public a(k5a k5aVar, AdvertAppInfo advertAppInfo, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k5aVar, advertAppInfo, Integer.valueOf(i), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = advertAppInfo;
+            this.b = i;
+            this.c = str;
+        }
+
+        @Override // com.baidu.tieba.g49
+        public void a(int i, HashMap hashMap) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, hashMap) != null) || i == 0) {
+                return;
+            }
+            if (h5a.h(i)) {
+                v6a.g(this.a, this.b, hashMap, i);
+            } else {
+                v6a.n(this.a, this.b, this.c, null, hashMap);
+            }
+            o49.c(this.a);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k5a a;
 
-        public a(k5a k5aVar) {
+        public b(k5a k5aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,111 +116,244 @@ public final class k5a {
             this.a = k5aVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public j08 doInBackground(Integer... params) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
-                Intrinsics.checkNotNullParameter(params, "params");
-                return ((h08) ServiceManager.getService(h08.a.a())).a(40);
-            }
-            return (j08) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(j08 j08Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j08Var) == null) {
-                super.onPostExecute(j08Var);
-                this.a.a().b(j08Var);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ((CardAppLegoViewHolder) this.a.viewholder).a((int) TimeUnit.SECONDS.toSeconds(1L));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865458, "Lcom/baidu/tieba/k5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k5a a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(k5a k5aVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k5aVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947865458, "Lcom/baidu/tieba/k5a;");
+            this.a = k5aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.viewholder == null) {
                 return;
             }
-        }
-        BdUniqueId gen = BdUniqueId.gen();
-        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        c = gen;
-    }
-
-    public final m5a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (m5a) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            DefaultLog.getInstance().i("RecentForumLog", "触发销毁");
-            this.b.c();
+            if (!(customResponsedMessage.getData() instanceof Boolean)) {
+                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
+            } else if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
+            } else {
+                int c = ((CardAppLegoViewHolder) this.a.viewholder).c();
+                if (((CardAppLegoViewHolder) this.a.viewholder).b()) {
+                    if (c == -1) {
+                        SafeHandler.getInst().removeCallbacks(this.a.f);
+                        SafeHandler.getInst().postDelayed(this.a.f, 500L);
+                    }
+                } else if (c != -1) {
+                    ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
+                }
+            }
         }
     }
 
-    public k5a(BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k5a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, bdUniqueId, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new m5a(bdUniqueId);
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            DefaultLog.getInstance().i("RecentForumLog", "准备请求接口");
-            if (!l5a.a.a()) {
-                DefaultLog.getInstance().i("RecentForumLog", "开关关闭，不请求接口");
-            } else if (!TbadkCoreApplication.isLogin()) {
-                DefaultLog.getInstance().i("RecentForumLog", "未登录，不请求接口");
-            } else {
-                new a(this).execute(new Integer[0]);
+        this.b = 3;
+        this.c = false;
+        this.d = null;
+        this.e = null;
+        this.f = new b(this);
+        this.g = new c(this, 2921517);
+        this.a = tbPageContext;
+        this.e = str;
+        if ((tbPageContext.getPageActivity() instanceof BaseFragmentActivity) && TextUtils.equals(str, "CONCERN")) {
+            if (bdUniqueId == AdvertAppInfo.D || bdUniqueId == AdvertAppInfo.F) {
+                MessageManager.getInstance().registerListener(this.g);
             }
         }
     }
 
-    public final void e(int i) {
+    @Override // com.baidu.tieba.b5a
+    public void setIsFromCDN(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: B */
+    public View getView(int i, View view2, ViewGroup viewGroup, cq6 cq6Var) {
+        InterceptResult invokeCommon;
+        AdvertAppInfo advertAppInfo;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cq6Var})) == null) {
+            if (cq6Var != null && (advertAppInfo = cq6Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
+                this.d = iLegoAdvert;
+                if (C(view2)) {
+                    CardAppLegoViewHolder onCreateViewHolder = onCreateViewHolder(viewGroup);
+                    this.viewholder = onCreateViewHolder;
+                    if (onCreateViewHolder != null) {
+                        view2 = onCreateViewHolder.getView();
+                    }
+                }
+                View view3 = view2;
+                if (view3 != null) {
+                    view3 = onFillViewHolder(i, view3, viewGroup, cq6Var, (CardAppLegoViewHolder) view3.getTag());
+                    if (z4a.class.isAssignableFrom(view3.getClass())) {
+                        ((CardAppLegoViewHolder) this.viewholder).d(((z4a) view3).getVideoOrVrView());
+                    }
+                }
+                return view3;
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final boolean C(View view2) {
+        InterceptResult invokeL;
+        V v;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.d == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
+                return true;
+            }
+            return !this.d.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.tag_first));
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: D */
+    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            if (this.d == null || (view2 = (View) h49.h().a(this.a, this.d, 2)) == null) {
+                return null;
+            }
+            view2.setTag(R.id.tag_first, this.d);
+            return new CardAppLegoViewHolder((b59) view2);
+        }
+        return (CardAppLegoViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: E */
+    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup, cq6 cq6Var) {
+        InterceptResult invokeLL;
+        AdvertAppInfo advertAppInfo;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, cq6Var)) == null) {
+            if (cq6Var != null && (advertAppInfo = cq6Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
+                this.d = iLegoAdvert;
+                return onCreateViewHolder(viewGroup);
+            }
+            return null;
+        }
+        return (CardAppLegoViewHolder) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: F */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, cq6 cq6Var, CardAppLegoViewHolder cardAppLegoViewHolder) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cq6Var, cardAppLegoViewHolder})) == null) {
+            TbPageContext<?> tbPageContext = this.a;
+            if (tbPageContext != null && cq6Var != null && cq6Var.a != null) {
+                if (tbPageContext.getPageActivity() instanceof wi0) {
+                    AdvertAppInfo advertAppInfo = cq6Var.a;
+                    advertAppInfo.s = yi0.b(advertAppInfo.s, (wi0) this.a.getPageActivity(), cardAppLegoViewHolder.itemView);
+                }
+                AdvertAppInfo.ILegoAdvert iLegoAdvert = cq6Var.a.h;
+                this.d = iLegoAdvert;
+                if (iLegoAdvert != null && view2 != null) {
+                    if (this.viewholder == 0) {
+                        this.viewholder = cardAppLegoViewHolder;
+                    }
+                    g15.e(cq6Var);
+                    BDLayoutMode layoutMode = this.a.getLayoutMode();
+                    if (this.b == 4) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    layoutMode.setNightMode(z);
+                    this.a.getLayoutMode().onModeChanged(view2);
+                    AdvertAppInfo c2 = cq6Var.c();
+                    c2.v = 1;
+                    b59 b59Var = (b59) view2;
+                    this.d.setAdvertAppInfo(c2);
+                    b59Var.setFromCDN(this.c);
+                    b59Var.update(this.d);
+                    int i2 = cq6Var.c;
+                    String str = cq6Var.b;
+                    o6a.e(cq6Var.c(), b59Var, str, this.e, 1, -1);
+                    b59Var.setAfterClickSchemeListener(new a(this, c2, i2, str));
+                    if (z4a.class.isAssignableFrom(view2.getClass())) {
+                        cardAppLegoViewHolder.d(((z4a) view2).getVideoOrVrView());
+                    }
+                    return view2;
+                }
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.w4a
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.g);
         }
     }
 }

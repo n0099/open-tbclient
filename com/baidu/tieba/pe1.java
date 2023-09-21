@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISignatureVerifier;
-import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
+import com.baidu.nps.interfa.IStatisticManager;
+import com.baidu.nps.interfa.IStatisticManager_StatisticManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,14 +17,14 @@ public class pe1 {
     public static pe1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public ok1<ISignatureVerifier> a;
+    public nk1<IStatisticManager> a;
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            mk1 b2 = mk1.b();
+            lk1 b2 = lk1.b();
             this.a = b2;
-            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
+            b2.a(new IStatisticManager_StatisticManager_Provider());
         }
     }
 
@@ -69,12 +69,12 @@ public class pe1 {
         return (pe1) invokeV.objValue;
     }
 
-    public ISignatureVerifier b() {
+    public IStatisticManager b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a.get();
         }
-        return (ISignatureVerifier) invokeV.objValue;
+        return (IStatisticManager) invokeV.objValue;
     }
 }

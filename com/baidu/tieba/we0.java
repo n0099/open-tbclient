@@ -1,89 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mcn.McnVideoAdView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class we0 {
+public final class we0 {
     public static /* synthetic */ Interceptable $ic;
+    public static we0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public McnVideoAdView a;
-    public McnVideoAdView.c b;
+    public ExecutorService a;
 
     /* loaded from: classes8.dex */
-    public class a implements McnVideoAdView.c {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final AtomicInteger a;
+        public final String b;
+        public int c;
 
-        public a(we0 we0Var) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {we0Var};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = new AtomicInteger(1);
+            this.c = 5;
+            this.b = str + "-";
+            this.c = i;
         }
 
-        @Override // com.baidu.mcn.McnVideoAdView.c
-        public void a(ue0 ue0Var) {
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, ue0Var) == null) && ue0Var != null && !StringUtils.isNull(ue0Var.d)) {
-                ve0.b().c(ue0Var.d);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+                if (thread.isDaemon()) {
+                    thread.setDaemon(true);
+                }
+                thread.setPriority(this.c);
+                return thread;
             }
-        }
-
-        @Override // com.baidu.mcn.McnVideoAdView.c
-        public void b(ue0 ue0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ue0Var) != null) || ue0Var == null) {
-                return;
-            }
-            StatisticItem statisticItem = new StatisticItem("c13405");
-            statisticItem.param("tid", ue0Var.e);
-            statisticItem.param("fid", ue0Var.f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", ue0Var.g);
-            TiebaStatic.log(statisticItem);
-        }
-
-        @Override // com.baidu.mcn.McnVideoAdView.c
-        public void c(ue0 ue0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ue0Var) != null) || ue0Var == null) {
-                return;
-            }
-            StatisticItem statisticItem = new StatisticItem("c13404");
-            statisticItem.param("tid", ue0Var.e);
-            statisticItem.param("fid", ue0Var.f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", ue0Var.g);
-            TiebaStatic.log(statisticItem);
+            return (Thread) invokeL.objValue;
         }
     }
 
-    public we0(Context context) {
+    public we0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -93,54 +76,30 @@ public class we0 {
                 return;
             }
         }
-        this.b = new a(this);
-        McnVideoAdView mcnVideoAdView = new McnVideoAdView(context);
-        this.a = mcnVideoAdView;
-        mcnVideoAdView.setIMcnStatListener(this.b);
+        new ThreadPoolExecutor(0, 5, 180L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
+        this.a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
     }
 
-    public void a() {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.f();
-        }
-    }
-
-    public boolean b() {
+    public static synchronized we0 b() {
         InterceptResult invokeV;
+        we0 we0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            McnVideoAdView mcnVideoAdView = this.a;
-            if (mcnVideoAdView != null) {
-                return mcnVideoAdView.h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (we0.class) {
+                if (b == null) {
+                    b = new we0();
+                }
+                we0Var = b;
             }
-            return false;
+            return we0Var;
         }
-        return invokeV.booleanValue;
+        return (we0) invokeV.objValue;
     }
 
-    public void c() {
-        McnVideoAdView mcnVideoAdView;
+    public void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.j();
-        }
-    }
-
-    public void d(ue0 ue0Var, ViewGroup viewGroup) {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, ue0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.k(ue0Var, viewGroup);
-        }
-    }
-
-    public void e(ue0 ue0Var, ViewGroup viewGroup) {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, ue0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.l(ue0Var, viewGroup);
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.a.execute(runnable);
         }
     }
 }

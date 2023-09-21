@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.util.HttpSigner;
+import com.baidu.platform.comapi.UIMsg;
+import com.baidu.poly.statistics.exception.ServerDataException;
+import com.baidu.poly.widget.PayChannelEntity;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +15,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vg1 {
+public class vg1 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
+    public static String b = "payChannel";
+    public static String c = "installmentPeriod";
+    public static String d = "payType";
+    public static volatile vg1 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public sg1 a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,18 +47,18 @@ public final class vg1 {
     }
 
     /* loaded from: classes8.dex */
-    public static final class a extends og1<String> {
+    public class a extends ng1<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rh1 a;
-        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ ng1 a;
+        public final /* synthetic */ vg1 b;
 
-        public a(rh1 rh1Var, JSONObject jSONObject) {
+        public a(vg1 vg1Var, ng1 ng1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rh1Var, jSONObject};
+                Object[] objArr = {vg1Var, ng1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,46 +68,61 @@ public final class vg1 {
                     return;
                 }
             }
-            this.a = rh1Var;
-            this.b = jSONObject;
+            this.b = vg1Var;
+            this.a = ng1Var;
         }
 
-        @Override // com.baidu.tieba.og1
+        @Override // com.baidu.tieba.ng1
         public void a(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                rh1 rh1Var = this.a;
-                if (rh1Var != null) {
-                    rh1Var.a(1, str);
-                }
-                zg1.d(this.b);
+                this.b.w("7", 119501, "cashier/channelAllInfo", i);
+                this.a.b(th, str);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og1
+        @Override // com.baidu.tieba.ng1
         /* renamed from: d */
         public void c(String str) {
-            rh1 rh1Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (rh1Var = this.a) != null) {
-                rh1Var.a(0, "");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt(StatConstants.KEY_EXT_ERR_CODE, -1);
+                    int optInt2 = jSONObject.optInt("errno", -1);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optJSONObject == null || optInt != 0 || optInt2 != 0) {
+                        this.b.w("7", 119503, "cashier/channelAllInfo", optInt2);
+                        String optString = jSONObject.optString("errmsg");
+                        ng1 ng1Var = this.a;
+                        ServerDataException serverDataException = new ServerDataException("errmsg = " + optString);
+                        ng1Var.b(serverDataException, "errno is " + optInt2);
+                        return;
+                    }
+                    this.a.c(optJSONObject);
+                } catch (JSONException unused) {
+                    this.b.w("7", 119502, "cashier/channelAllInfo", -1);
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class b extends og1<String> {
+    public class b extends ng1<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rh1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ng1 b;
+        public final /* synthetic */ vg1 c;
 
-        public b(rh1 rh1Var) {
+        public b(vg1 vg1Var, String str, ng1 ng1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rh1Var};
+                Object[] objArr = {vg1Var, str, ng1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -105,71 +132,654 @@ public final class vg1 {
                     return;
                 }
             }
-            this.a = rh1Var;
+            this.c = vg1Var;
+            this.a = str;
+            this.b = ng1Var;
+        }
+
+        @Override // com.baidu.tieba.ng1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLIL(1048576, this, th, i, str) != null) {
+                return;
+            }
+            this.c.x("8", 119501, "cashier/launchpayment", i, this.a);
+            this.b.b(th, ji1.a().getResources().getString(R.string.obfuscated_res_0x7f0f049c));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.og1
+        @Override // com.baidu.tieba.ng1
         /* renamed from: d */
         public void c(String str) {
-            rh1 rh1Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (rh1Var = this.a) != null) {
-                rh1Var.a(0, "");
-            }
-        }
-
-        @Override // com.baidu.tieba.og1
-        public void a(Throwable th, int i, String str) {
-            rh1 rh1Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) && (rh1Var = this.a) != null) {
-                rh1Var.a(1, str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt != 0) {
+                        this.c.x("8", 119503, "cashier/launchpayment", optInt, this.a);
+                        String optString = jSONObject.optString("msg");
+                        ng1 ng1Var = this.b;
+                        ng1Var.b(new ServerDataException("msg = " + optString), optString);
+                        return;
+                    }
+                    this.b.c(this.c.y(jSONObject.optJSONObject("data")));
+                } catch (JSONException unused) {
+                    this.c.x("8", 119502, "cashier/launchpayment", -1, this.a);
+                    this.b.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
             }
         }
     }
 
-    public static final int a() {
+    /* loaded from: classes8.dex */
+    public class c extends ng1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng1 a;
+        public final /* synthetic */ vg1 b;
+
+        public c(vg1 vg1Var, ng1 ng1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vg1Var, ng1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vg1Var;
+            this.a = ng1Var;
+        }
+
+        @Override // com.baidu.tieba.ng1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.b.w("8", 119501, "cashier/pay", i);
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ng1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt != 0) {
+                        this.b.w("8", 119503, "cashier/pay", optInt);
+                        String optString = jSONObject.optString("msg");
+                        ng1 ng1Var = this.a;
+                        ng1Var.b(new ServerDataException("msg = " + optString), optString);
+                        return;
+                    }
+                    this.a.c(this.b.y(jSONObject.optJSONObject("data")));
+                } catch (Throwable unused) {
+                    this.b.w("8", 119502, "cashier/pay", -1);
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d extends ng1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng1 a;
+        public final /* synthetic */ vg1 b;
+
+        public d(vg1 vg1Var, ng1 ng1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vg1Var, ng1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vg1Var;
+            this.a = ng1Var;
+        }
+
+        @Override // com.baidu.tieba.ng1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.b.w("105", 119501, "cashier/sdkAdaptH5QueryPay", i);
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ng1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt != 0) {
+                        this.b.w("105", 119503, "cashier/sdkAdaptH5QueryPay", optInt);
+                        String optString = jSONObject.optString("msg");
+                        ng1 ng1Var = this.a;
+                        ServerDataException serverDataException = new ServerDataException("msg = " + optString);
+                        ng1Var.b(serverDataException, "errno is " + optInt);
+                        return;
+                    }
+                    this.a.c(jSONObject.optJSONObject("data"));
+                } catch (Throwable unused) {
+                    this.b.w("105", 119502, "cashier/sdkAdaptH5QueryPay", -1);
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e extends ng1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng1 a;
+
+        public e(vg1 vg1Var, ng1 ng1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vg1Var, ng1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ng1Var;
+        }
+
+        @Override // com.baidu.tieba.ng1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ng1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt == 0) {
+                        this.a.c(jSONObject.optJSONObject("data"));
+                        return;
+                    }
+                    String optString = jSONObject.optString("msg");
+                    ng1 ng1Var = this.a;
+                    ServerDataException serverDataException = new ServerDataException("msg=" + optString);
+                    ng1Var.b(serverDataException, "code=" + optInt);
+                } catch (Throwable th) {
+                    fi1.d(th.getMessage());
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class f extends ng1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng1 a;
+
+        public f(vg1 vg1Var, ng1 ng1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vg1Var, ng1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ng1Var;
+        }
+
+        @Override // com.baidu.tieba.ng1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ng1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt == 0) {
+                        this.a.c(jSONObject.optJSONObject("data"));
+                        return;
+                    }
+                    String optString = jSONObject.optString("msg");
+                    ng1 ng1Var = this.a;
+                    ServerDataException serverDataException = new ServerDataException("msg=" + optString);
+                    ng1Var.b(serverDataException, "code=" + optInt);
+                } catch (Throwable th) {
+                    fi1.d(th.getMessage());
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class g extends ng1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng1 a;
+
+        public g(vg1 vg1Var, ng1 ng1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vg1Var, ng1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ng1Var;
+        }
+
+        @Override // com.baidu.tieba.ng1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.b(th, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ng1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errno", -1);
+                    if (optInt == 0) {
+                        this.a.c(jSONObject.optJSONObject("data"));
+                        return;
+                    }
+                    String optString = jSONObject.optString("msg");
+                    ng1 ng1Var = this.a;
+                    ServerDataException serverDataException = new ServerDataException("msg=" + optString);
+                    ng1Var.b(serverDataException, "code=" + optInt);
+                } catch (Throwable th) {
+                    fi1.d(th.getMessage());
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    public vg1(sg1 sg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sg1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = sg1Var;
+    }
+
+    public final pg1 i(pg1 pg1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pg1Var)) == null) {
+            if (pg1Var == null) {
+                pg1Var = new pg1();
+            }
+            wg1.d(pg1Var);
+            return pg1Var;
+        }
+        return (pg1) invokeL.objValue;
+    }
+
+    public og1 d(Bundle bundle, pg1 pg1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundle, pg1Var)) == null) {
+            og1 og1Var = new og1();
+            t(og1Var, bundle);
+            og1Var.d(d, "android");
+            n(bundle, og1Var, pg1Var);
+            return og1Var;
+        }
+        return (og1) invokeLL.objValue;
+    }
+
+    public void e(Bundle bundle, ng1<JSONObject> ng1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, ng1Var) == null) {
+            f(bundle, false, ng1Var);
+        }
+    }
+
+    public void u(Bundle bundle, ng1<Map<String, String>> ng1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, bundle, ng1Var) == null) {
+            pg1 h = h();
+            og1 d2 = d(bundle, h);
+            this.a.a(xg1.l(), h, d2, new c(this, ng1Var));
+        }
+    }
+
+    public static vg1 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (e == null) {
+                synchronized (vg1.class) {
+                    if (e == null) {
+                        e = new vg1(new tg1());
+                    }
+                }
+            }
+            return e;
         }
-        return invokeV.intValue;
+        return (vg1) invokeV.objValue;
     }
 
-    public static final void b(int i) {
+    public void f(Bundle bundle, boolean z, ng1<JSONObject> ng1Var) {
+        String c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            a = i;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bundle, Boolean.valueOf(z), ng1Var}) == null) {
+            pg1 h = h();
+            Set<String> keySet = bundle.keySet();
+            og1 og1Var = new og1();
+            for (String str : keySet) {
+                if ((bundle.get(str) instanceof String) && (!z || !"bduss".equals(str))) {
+                    og1Var.d(str, bundle.get(str).toString());
+                }
+            }
+            n(bundle, og1Var, h);
+            r(bundle, og1Var, h);
+            p(bundle, og1Var, h);
+            if (z) {
+                c2 = xg1.d();
+            } else {
+                c2 = xg1.c();
+            }
+            sh1.a("1.02", System.currentTimeMillis());
+            this.a.a(c2, h, og1Var, new a(this, ng1Var));
         }
     }
 
-    public static final void c(JSONObject jSONObject, rh1 rh1Var) {
+    public void g(String str, og1 og1Var, ng1<JSONObject> ng1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, jSONObject, rh1Var) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, og1Var, ng1Var) == null) {
+            this.a.a(str, h(), og1Var, new g(this, ng1Var));
         }
-        qg1 qg1Var = new qg1();
-        xg1.d(qg1Var);
-        pg1 e = xg1.e(jSONObject);
-        xg1.c(qg1Var, e.a("bduss"));
-        HttpSigner.b(e);
-        new ug1(false).a(yg1.f(), qg1Var, e, new a(rh1Var, jSONObject));
     }
 
-    public static final void d(JSONArray jSONArray, rh1 rh1Var) {
+    public final void n(Bundle bundle, og1 og1Var, pg1 pg1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, rh1Var) != null) || jSONArray == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, bundle, og1Var, pg1Var) == null) {
+            String string = bundle.getString("bduss");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            o(string, pg1Var);
         }
-        qg1 qg1Var = new qg1();
-        xg1.d(qg1Var);
-        pg1 pg1Var = new pg1();
-        String jSONArray2 = jSONArray.toString();
-        Intrinsics.checkExpressionValueIsNotNull(jSONArray2, "params.toString()");
-        pg1Var.d("batchData", jSONArray2);
-        HttpSigner.b(pg1Var);
-        new ug1(false).a(yg1.a(), qg1Var, pg1Var, new b(rh1Var));
+    }
+
+    public final void p(Bundle bundle, og1 og1Var, pg1 pg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, bundle, og1Var, pg1Var) == null) {
+            String string = bundle.getString("clientId");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            q(string, pg1Var);
+        }
+    }
+
+    public final void r(Bundle bundle, og1 og1Var, pg1 pg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, bundle, og1Var, pg1Var) == null) {
+            String string = bundle.getString("openBduss");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            s(string, pg1Var);
+        }
+    }
+
+    public final pg1 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            pg1 pg1Var = new pg1();
+            wg1.d(pg1Var);
+            return pg1Var;
+        }
+        return (pg1) invokeV.objValue;
+    }
+
+    public void k(String str, String str2, String str3, ng1<JSONObject> ng1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, ng1Var) == null) {
+            pg1 h = h();
+            o(str, h);
+            og1 og1Var = new og1();
+            og1Var.d("bduss", str);
+            og1Var.d("payChannel", str2);
+            og1Var.d("appKey", str3);
+            this.a.a(xg1.i(), h, og1Var, new e(this, ng1Var));
+        }
+    }
+
+    public void l(String str, String str2, String str3, ng1<JSONObject> ng1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048583, this, str, str2, str3, ng1Var) == null) {
+            pg1 h = h();
+            o(str, h);
+            og1 og1Var = new og1();
+            og1Var.d("appKey", str3);
+            og1Var.d("bduss", str);
+            og1Var.d("payChannel", str2);
+            og1Var.d("sign", mh1.c("appKey=" + str3 + "&bduss=" + str + "&payChannel=" + str2 + "&lLoIsWxrSeJmHQD2TVQQ"));
+            this.a.a(xg1.k(), h, og1Var, new f(this, ng1Var));
+        }
+    }
+
+    public void m(Bundle bundle, ng1<JSONObject> ng1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, ng1Var) == null) {
+            pg1 h = h();
+            Set<String> keySet = bundle.keySet();
+            og1 og1Var = new og1();
+            for (String str : keySet) {
+                if (bundle.get(str) instanceof String) {
+                    og1Var.d(str, bundle.get(str).toString());
+                }
+            }
+            this.a.a(xg1.m(), h, og1Var, new d(this, ng1Var));
+        }
+    }
+
+    public final void t(og1 og1Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, og1Var, bundle) == null) && bundle != null && og1Var != null) {
+            for (String str : bundle.keySet()) {
+                og1Var.d(str, bundle.getString(str));
+            }
+            Iterator<Map.Entry<String, String>> it = og1Var.b().entrySet().iterator();
+            while (it.hasNext()) {
+                if (TextUtils.isEmpty(it.next().getValue())) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public final void o(String str, pg1 pg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, pg1Var) == null) {
+            String a2 = pg1Var.a("Cookie");
+            String str2 = "BDUSS=" + str;
+            if (a2 == null) {
+                pg1Var.d("Cookie", str2);
+                return;
+            }
+            pg1Var.d("Cookie", a2 + "; " + str2);
+        }
+    }
+
+    public final void q(String str, pg1 pg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, pg1Var) == null) {
+            String a2 = pg1Var.a("Cookie");
+            String str2 = "CLIENTID=" + str;
+            if (a2 == null) {
+                pg1Var.d("Cookie", str2);
+                return;
+            }
+            pg1Var.d("Cookie", a2 + "; " + str2);
+        }
+    }
+
+    public final void s(String str, pg1 pg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, pg1Var) == null) {
+            String a2 = pg1Var.a("Cookie");
+            String str2 = "OPENBDUSS=" + str;
+            if (a2 == null) {
+                pg1Var.d("Cookie", str2);
+                return;
+            }
+            pg1Var.d("Cookie", a2 + "; " + str2);
+        }
+    }
+
+    public void v(pg1 pg1Var, Bundle bundle, ng1<Map<String, String>> ng1Var, PayChannelEntity payChannelEntity, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048593, this, pg1Var, bundle, ng1Var, payChannelEntity, str) == null) {
+            pg1 i = i(pg1Var);
+            Set<String> keySet = bundle.keySet();
+            og1 og1Var = new og1();
+            for (String str2 : keySet) {
+                if (bundle.get(str2) instanceof String) {
+                    og1Var.d(str2, bundle.get(str2).toString());
+                }
+            }
+            if (payChannelEntity == null) {
+                return;
+            }
+            String payChannel = payChannelEntity.getPayChannel();
+            if (!TextUtils.isEmpty(payChannel)) {
+                og1Var.d(b, payChannel);
+            }
+            String installmentPeriod = payChannelEntity.getInstallmentPeriod();
+            if (!TextUtils.isEmpty(installmentPeriod)) {
+                og1Var.d(c, installmentPeriod);
+            }
+            n(bundle, og1Var, i);
+            this.a.a(xg1.j(), i, og1Var, new b(this, str, ng1Var));
+        }
+    }
+
+    public final void x(String str, int i, String str2, int i2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("exceptionType", "" + i);
+            hashMap.put("path", str2);
+            hashMap.put(StatConstants.KEY_EXT_ERR_CODE, "" + i2);
+            if (!TextUtils.isEmpty(str3)) {
+                hashMap.put("isFoldChannel", str3);
+            }
+            sh1.c(str, hashMap);
+        }
+    }
+
+    public final void w(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("exceptionType", "" + i);
+            hashMap.put("path", str2);
+            hashMap.put(StatConstants.KEY_EXT_ERR_CODE, "" + i2);
+            sh1.c(str, hashMap);
+        }
+    }
+
+    public final Map<String, String> y(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, jSONObject)) == null) {
+            Map<String, String> c2 = gi1.c();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        c2.put(next, jSONObject.optString(next));
+                    }
+                }
+            }
+            return c2;
+        }
+        return (Map) invokeL.objValue;
     }
 }

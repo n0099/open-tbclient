@@ -1,154 +1,71 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes8.dex */
-public final class tfc implements zac {
+public abstract class tfc<E> extends vfc<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<zac> a;
-    public volatile boolean b;
+    public volatile long consumerIndex;
 
-    public tfc() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948180728, "Lcom/baidu/tieba/tfc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948180728, "Lcom/baidu/tieba/tfc;");
+                return;
+            }
+        }
+        g = ogc.a(tfc.class, "consumerIndex");
+    }
+
+    public final long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.consumerIndex;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tfc(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public void c() {
+    public final boolean j(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.b) {
-            synchronized (this) {
-                if (!this.b && this.a != null) {
-                    Set<zac> set = this.a;
-                    this.a = null;
-                    e(set);
-                }
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return ogc.a.c(this, g, j, j2);
         }
-    }
-
-    @Override // com.baidu.tieba.zac
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zac
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.b) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                Set<zac> set = this.a;
-                this.a = null;
-                e(set);
-            }
-        }
-    }
-
-    public static void e(Collection<zac> collection) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, collection) != null) || collection == null) {
-            return;
-        }
-        ArrayList arrayList = null;
-        for (zac zacVar : collection) {
-            try {
-                zacVar.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        ebc.d(arrayList);
-    }
-
-    public void a(zac zacVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, zacVar) != null) || zacVar.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    if (this.a == null) {
-                        this.a = new HashSet(4);
-                    }
-                    this.a.add(zacVar);
-                    return;
-                }
-            }
-        }
-        zacVar.unsubscribe();
-    }
-
-    public void b(zac... zacVarArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zacVarArr) == null) {
-            int i = 0;
-            if (!this.b) {
-                synchronized (this) {
-                    if (!this.b) {
-                        if (this.a == null) {
-                            this.a = new HashSet(zacVarArr.length);
-                        }
-                        int length = zacVarArr.length;
-                        while (i < length) {
-                            zac zacVar = zacVarArr[i];
-                            if (!zacVar.isUnsubscribed()) {
-                                this.a.add(zacVar);
-                            }
-                            i++;
-                        }
-                        return;
-                    }
-                }
-            }
-            int length2 = zacVarArr.length;
-            while (i < length2) {
-                zacVarArr[i].unsubscribe();
-                i++;
-            }
-        }
-    }
-
-    public void d(zac zacVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, zacVar) == null) && !this.b) {
-            synchronized (this) {
-                if (!this.b && this.a != null) {
-                    boolean remove = this.a.remove(zacVar);
-                    if (remove) {
-                        zacVar.unsubscribe();
-                    }
-                }
-            }
-        }
+        return invokeCommon.booleanValue;
     }
 }

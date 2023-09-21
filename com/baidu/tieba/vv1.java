@@ -1,22 +1,26 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tieba.oo2;
 /* loaded from: classes8.dex */
 public interface vv1 {
+    boolean a(@Nullable Activity activity);
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void onResult(String str);
-    }
+    void b(@NonNull Context context);
 
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
+    void c(@NonNull String str);
 
-    void b(Context context, String str, String str2, String str3);
+    void d(CallbackHandler callbackHandler);
 
-    void c(HashMap<String, String> hashMap, File file, a aVar);
+    void e(gb3 gb3Var);
 
-    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+    String f(@NonNull Context context);
+
+    void g(gb3 gb3Var);
+
+    void h(@NonNull Activity activity, String str, String str2, no2 no2Var, oo2.b bVar);
 }

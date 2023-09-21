@@ -1,57 +1,196 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.core.edit.TbMediaTrackConfig;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface du6 {
+public class du6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public View b;
+    public RelativeLayout c;
+    public ImageView d;
+    public MessageRedDotView e;
+    @Nullable
+    public MessageRedDotView f;
+    public boolean g;
+    public te5 h;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-
-        void b();
-
-        void c();
+    public du6(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = false;
+        this.a = context;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.message_view_layout);
+        this.d = (ImageView) this.b.findViewById(R.id.img_message);
+        MessageRedDotView messageRedDotView = (MessageRedDotView) this.b.findViewById(R.id.img_red_tip);
+        this.e = messageRedDotView;
+        messageRedDotView.setShadowEnabled(false);
+        this.h = (te5) ServiceManager.getService(te5.a);
     }
 
-    boolean a(QmFilterItem qmFilterItem);
+    public void j(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, navigationBar) != null) || !TbSingleton.MsgUpgradeTips.shouldShow()) {
+            return;
+        }
+        MessageRedDotView messageRedDotView = this.e;
+        if (messageRedDotView != null) {
+            messageRedDotView.setVisibility(8);
+        }
+        Context context = navigationBar.getContext();
+        MessageRedDotView messageRedDotView2 = new MessageRedDotView(context);
+        this.f = messageRedDotView2;
+        messageRedDotView2.refresh(context.getString(R.string.message_notify_upgrade), false);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(11);
+        layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds90);
+        layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds20);
+        navigationBar.addView(this.f, layoutParams);
+        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GUIDE_SHOW);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
+    }
 
-    void b(a aVar);
+    public MessageRedDotView a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (MessageRedDotView) invokeV.objValue;
+    }
 
-    void c(TbMultiMediaData tbMultiMediaData);
+    public ImageView b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (ImageView) invokeV.objValue;
+    }
 
-    long d();
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
 
-    void e();
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.f == null) {
+                this.h.e();
+            }
+            MessageRedDotView messageRedDotView = this.f;
+            if (messageRedDotView != null) {
+                messageRedDotView.setVisibility(8);
+                TbSingleton.MsgUpgradeTips.markHasShown();
+                this.f = null;
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GUIDE_CLICK);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.log(statisticItem);
+            }
+            if (this.g && this.e != null && !this.h.d()) {
+                this.e.setVisibility(0);
+            }
+        }
+    }
 
-    void f(int i, int i2);
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.e.onChangeSkinType();
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
+        }
+    }
 
-    void g(float f);
+    public void h(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (view2 = this.b) != null) {
+            view2.setVisibility(i);
+        }
+    }
 
-    long getCurrentPlayTime();
+    public void i(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        MessageRedDotView messageRedDotView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) && (messageRedDotView = this.f) != null) {
+            messageRedDotView.setAlpha(f);
+        }
+    }
 
-    long getFrom();
+    public void f(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if (z) {
+                this.e.refresh(i);
+                this.g = true;
+                if (this.h.d() && i <= 0) {
+                    this.e.setVisibility(8);
+                    return;
+                } else if (this.f == null) {
+                    this.e.setVisibility(0);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            this.e.setVisibility(8);
+            this.g = false;
+        }
+    }
 
-    TbMediaTrackConfig getMediaTrackConfig();
-
-    float getRatio();
-
-    void h();
-
-    boolean i();
-
-    boolean isPlaying();
-
-    void j(boolean z);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
-
-    void pause();
-
-    void start();
+    public void g(NavigationBar.ControlAlign controlAlign, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048582, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
+            ((RelativeLayout.LayoutParams) this.d.getLayoutParams()).rightMargin = -BdUtilHelper.getDimens(this.a, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = -BdUtilHelper.getDimens(this.a, R.dimen.tbds10);
+            this.c.getLayoutParams().width = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070424);
+        }
+    }
 }

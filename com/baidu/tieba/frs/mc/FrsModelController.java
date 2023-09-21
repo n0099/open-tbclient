@@ -41,45 +41,45 @@ import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
-import com.baidu.tieba.a8a;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.aga;
+import com.baidu.tieba.ak7;
 import com.baidu.tieba.b35;
-import com.baidu.tieba.bga;
-import com.baidu.tieba.bj7;
-import com.baidu.tieba.bk7;
-import com.baidu.tieba.by5;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.ds7;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.es7;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.cy5;
+import com.baidu.tieba.di;
+import com.baidu.tieba.ela;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.RequestIncrForumAccessCountNetMessage;
-import com.baidu.tieba.ft5;
-import com.baidu.tieba.fx7;
+import com.baidu.tieba.g5a;
+import com.baidu.tieba.gaa;
+import com.baidu.tieba.gia;
+import com.baidu.tieba.gk7;
+import com.baidu.tieba.gt5;
 import com.baidu.tieba.h45;
-import com.baidu.tieba.i3a;
-import com.baidu.tieba.jga;
-import com.baidu.tieba.ky7;
-import com.baidu.tieba.l2a;
-import com.baidu.tieba.mj7;
-import com.baidu.tieba.ni7;
-import com.baidu.tieba.q66;
-import com.baidu.tieba.qga;
-import com.baidu.tieba.qj7;
-import com.baidu.tieba.qt7;
-import com.baidu.tieba.sw7;
+import com.baidu.tieba.hia;
+import com.baidu.tieba.hj7;
+import com.baidu.tieba.hx7;
+import com.baidu.tieba.j4a;
+import com.baidu.tieba.jj7;
+import com.baidu.tieba.lj7;
+import com.baidu.tieba.lk7;
+import com.baidu.tieba.my7;
+import com.baidu.tieba.ns7;
+import com.baidu.tieba.os7;
+import com.baidu.tieba.pia;
+import com.baidu.tieba.r66;
+import com.baidu.tieba.rt7;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tw7;
-import com.baidu.tieba.tx5;
+import com.baidu.tieba.uw7;
+import com.baidu.tieba.ux5;
+import com.baidu.tieba.vw7;
+import com.baidu.tieba.wia;
 import com.baidu.tieba.wj7;
-import com.baidu.tieba.x56;
 import com.baidu.tieba.xi7;
-import com.baidu.tieba.xx5;
-import com.baidu.tieba.yia;
-import com.baidu.tieba.zi7;
+import com.baidu.tieba.y56;
+import com.baidu.tieba.yx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,7 +89,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implements mj7, NetModel.k<FrsRequestData, jga> {
+public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implements wj7, NetModel.k<FrsRequestData, pia> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TAB_ID_ALL_THREAD = 1;
     public static final int TAB_ID_LIVE = 5;
@@ -101,23 +101,23 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     public int E;
     public int F;
     public boolean G;
-    public bga H;
+    public hia H;
     public String I;
     public final SparseArray<Boolean> J;
     public boolean K;
-    public es7 L;
-    public ds7 M;
-    public qj7 N;
+    public os7 L;
+    public ns7 M;
+    public ak7 N;
     public long O;
     public long P;
     public long Q;
     public long R;
     public final FrsFragment a;
     public FrsViewData b;
-    public ArrayList<cn> c;
+    public ArrayList<bn> c;
     public FrsRequestData d;
     public FrsNetModel e;
-    public final qga f;
+    public final wia f;
     public String g;
     public int h;
     public int i;
@@ -134,12 +134,12 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     public int r;
     public int s;
     public int t;
-    public wj7 u;
+    public gk7 u;
     public boolean v;
-    public SparseArray<wj7> w;
-    public bj7 x;
-    public qj7 y;
-    public ArrayList<cn> z;
+    public SparseArray<gk7> w;
+    public lj7 x;
+    public ak7 y;
+    public ArrayList<bn> z;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -168,7 +168,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     }
 
     /* loaded from: classes5.dex */
-    public class a implements qj7 {
+    public class a implements ak7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsModelController a;
@@ -191,27 +191,27 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             this.a = frsModelController;
         }
 
-        @Override // com.baidu.tieba.qj7
-        public void a(int i, int i2, bk7 bk7Var, ArrayList<cn> arrayList) {
+        @Override // com.baidu.tieba.ak7
+        public void a(int i, int i2, lk7 lk7Var, ArrayList<bn> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bk7Var, arrayList}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), lk7Var, arrayList}) == null) {
                 this.a.v = false;
                 if (i == this.a.r && this.a.y != null) {
-                    this.a.u = bk7Var;
-                    this.a.k1(i, i2, bk7Var);
-                    ArrayList<cn> arrayList2 = new ArrayList<>();
+                    this.a.u = lk7Var;
+                    this.a.k1(i, i2, lk7Var);
+                    ArrayList<bn> arrayList2 = new ArrayList<>();
                     if (arrayList != null) {
                         arrayList2.addAll(arrayList);
                     }
                     this.a.b.setThreadList(arrayList2);
-                    this.a.y.a(i, i2, bk7Var, arrayList);
+                    this.a.y.a(i, i2, lk7Var, arrayList);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends xx5<Object> {
+    public class b extends yx5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -236,12 +236,12 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.xx5
+        @Override // com.baidu.tieba.yx5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                aga.i().c(this.b.I, this.a);
+                gia.i().c(this.b.I, this.a);
                 return null;
             }
             return invokeV.objValue;
@@ -249,7 +249,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     }
 
     /* loaded from: classes5.dex */
-    public class c extends xx5<Object> {
+    public class c extends yx5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -274,12 +274,12 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.xx5
+        @Override // com.baidu.tieba.yx5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                aga.i().d(this.b.I, this.a);
+                gia.i().d(this.b.I, this.a);
                 return null;
             }
             return invokeV.objValue;
@@ -287,7 +287,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     }
 
     /* loaded from: classes5.dex */
-    public class d extends xx5<Object> {
+    public class d extends yx5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -312,12 +312,12 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.xx5
+        @Override // com.baidu.tieba.yx5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                aga.i().b(this.b.I, this.a);
+                gia.i().b(this.b.I, this.a);
                 return null;
             }
             return invokeV.objValue;
@@ -325,7 +325,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     }
 
     /* loaded from: classes5.dex */
-    public static class e extends BdAsyncTask<Object, jga, Void> {
+    public static class e extends BdAsyncTask<Object, pia, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -364,11 +364,11 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             CustomResponsedMessage runTask;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                if (this.c && aga.i().e(this.a)) {
-                    if (!aga.i().l(TbadkCoreApplication.getCurrentAccount() + this.a)) {
-                        aga.i().j().getForum().getSignData().is_signed = 0;
+                if (this.c && gia.i().e(this.a)) {
+                    if (!gia.i().l(TbadkCoreApplication.getCurrentAccount() + this.a)) {
+                        gia.i().j().getForum().getSignData().is_signed = 0;
                     }
-                    jga j = aga.i().j();
+                    pia j = gia.i().j();
                     j.setIsShowRedTip(false);
                     if (j.getBookInfo() != null && !StringUtils.isNull(j.getBookInfo().a(), true) && !j.getBookInfo().a().equals("0") && j.getBookInfo().b() == 3 && (i = JavaTypesHelper.toInt(j.getBookInfo().a(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(i))) != null) {
                         j.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
@@ -385,19 +385,19 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onProgressUpdate(jga... jgaVarArr) {
-            jga jgaVar;
+        public void onProgressUpdate(pia... piaVarArr) {
+            pia piaVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jgaVarArr) == null) {
-                super.onProgressUpdate(jgaVarArr);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, piaVarArr) == null) {
+                super.onProgressUpdate(piaVarArr);
                 FrsModelController frsModelController = this.b;
-                if (frsModelController != null && jgaVarArr != null) {
-                    if (jgaVarArr.length > 0) {
-                        jgaVar = jgaVarArr[0];
+                if (frsModelController != null && piaVarArr != null) {
+                    if (piaVarArr.length > 0) {
+                        piaVar = piaVarArr[0];
                     } else {
-                        jgaVar = null;
+                        piaVar = null;
                     }
-                    frsModelController.U0(jgaVar);
+                    frsModelController.U0(piaVar);
                     FrsModelController frsModelController2 = this.b;
                     frsModelController2.c1(frsModelController2.D, true);
                     return;
@@ -406,7 +406,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 if (frsModelController3 != null && !frsModelController3.e.s0()) {
                     if (this.b.e.getResponsedMessage() instanceof MvcHttpResponsedMessage) {
                         FrsModelController frsModelController4 = this.b;
-                        frsModelController4.G((MvcHttpResponsedMessage) frsModelController4.e.getResponsedMessage(), (MvcHttpMessage) this.b.e.p0(), this.b.e.q0());
+                        frsModelController4.C((MvcHttpResponsedMessage) frsModelController4.e.getResponsedMessage(), (MvcHttpMessage) this.b.e.p0(), this.b.e.q0());
                     }
                     if (this.b.e.getResponsedMessage() instanceof MvcSocketResponsedMessage) {
                         FrsModelController frsModelController5 = this.b;
@@ -418,13 +418,13 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsModelController(FrsFragment frsFragment, qga qgaVar) {
+    public FrsModelController(FrsFragment frsFragment, wia wiaVar) {
         super(frsFragment.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, qgaVar};
+            Object[] objArr = {frsFragment, wiaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -459,16 +459,16 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.F = -1;
         this.I = null;
         this.J = new SparseArray<>();
-        this.L = new es7();
-        this.M = new ds7();
+        this.L = new os7();
+        this.M = new ns7();
         this.N = new a(this);
         this.O = 0L;
         this.P = 0L;
         this.Q = 0L;
         this.R = 0L;
-        if (qgaVar != null) {
+        if (wiaVar != null) {
             this.a = frsFragment;
-            this.f = qgaVar;
+            this.f = wiaVar;
             if (frsFragment.getActivity() instanceof FrsActivity) {
                 this.e = TbadkCoreApplication.getInst().getFrsModeArray().get(((FrsActivity) this.a.getActivity()).getUniqueId().getId());
             }
@@ -511,21 +511,21 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048618, this, i, frsRequestData)) == null) {
-            if (i == 1 && this.a.R3() != null) {
-                return this.a.R3().d(this.D, frsRequestData);
+            if (i == 1 && this.a.X3() != null) {
+                return this.a.X3().d(this.D, frsRequestData);
             }
             return i;
         }
         return invokeIL.intValue;
     }
 
-    public wj7 o0(int i, int i2) {
+    public gk7 o0(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048640, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048641, this, i, i2)) == null) {
             return this.w.get(p0(i, i2));
         }
-        return (wj7) invokeII.objValue;
+        return (gk7) invokeII.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -536,11 +536,11 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
     }
 
-    @Override // com.baidu.tieba.mj7
-    public void L(qj7 qj7Var) {
+    @Override // com.baidu.tieba.wj7
+    public void L(ak7 ak7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, qj7Var) == null) {
-            this.y = qj7Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, ak7Var) == null) {
+            this.y = ak7Var;
             this.x.e(this.N);
         }
     }
@@ -557,21 +557,21 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     public void Y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            by5.b(new d(this, str), null);
+            cy5.b(new d(this, str), null);
         }
     }
 
     public void Z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            by5.b(new b(this, str), null);
+            cy5.b(new b(this, str), null);
         }
     }
 
     public void a0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
-            by5.b(new c(this, str), null);
+            cy5.b(new c(this, str), null);
         }
     }
 
@@ -676,18 +676,18 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
 
     public final void B0(Bundle bundle) {
         int i;
-        ArrayList<cn> threadList;
+        ArrayList<bn> threadList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             FrsRequestData frsRequestData = new FrsRequestData();
             this.d = frsRequestData;
-            frsRequestData.setSortType(sw7.d(this.D));
+            frsRequestData.setSortType(uw7.d(this.D));
             if (this.D == 5) {
                 this.d.b0(1);
             } else {
                 this.d.b0(0);
             }
-            this.d.M("forum_name", ei.getUrlEncode(this.g));
+            this.d.M("forum_name", di.getUrlEncode(this.g));
             this.d.M("client_type", "2");
             this.d.setPn(1);
             if (bundle != null) {
@@ -712,7 +712,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             this.d.n0(this.n);
             this.d.f0(null);
             this.d.s0(this.C);
-            this.d.e0(JavaTypesHelper.toLong(tx5.a(), 0L));
+            this.d.e0(JavaTypesHelper.toLong(ux5.a(), 0L));
             this.d.setStType(this.j);
             this.d.a0(1);
             this.d.setNeedCache(true);
@@ -724,12 +724,12 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             } else {
                 threadList = frsViewData.getThreadList();
             }
-            frsRequestData3.T(l2a.e(threadList, true));
-            sw7.e(this.D, this.d);
+            frsRequestData3.T(j4a.e(threadList, true));
+            uw7.e(this.D, this.d);
             this.d.h0(1);
-            if (ThreadData.isRecAppLoaded.get() && i3a.m().b() != null) {
-                int d2 = i3a.m().b().d(this.g, false);
-                int e2 = i3a.m().b().e(this.g, false);
+            if (ThreadData.isRecAppLoaded.get() && g5a.m().b() != null) {
+                int d2 = g5a.m().b().d(this.g, false);
+                int e2 = g5a.m().b().e(this.g, false);
                 if (this.d.R() == 1) {
                     d2++;
                 } else if (this.d.R() == 2) {
@@ -743,18 +743,124 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             frsNetModel.setUniqueId(((FrsActivity) this.a.getActivity()).getUniqueId());
             this.e.o0(this);
             this.e.loadData();
-            ky7.a();
+            my7.a();
         }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void C(MvcHttpResponsedMessage<pia> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, pia> mvcHttpMessage, MvcNetMessage<FrsRequestData, pia> mvcNetMessage) {
+        pia piaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
+            return;
+        }
+        this.M.a(this);
+        this.M.e(mvcHttpResponsedMessage);
+        this.M.c(mvcHttpMessage);
+        this.M.d(mvcNetMessage);
+        this.M.b(this.f);
+        this.f.b();
+        Looper.myQueue().addIdleHandler(this.M);
+        this.H = hia.a(mvcHttpResponsedMessage);
+        FrsRequestData frsRequestData = null;
+        if (!mvcHttpResponsedMessage.hasError()) {
+            piaVar = mvcHttpResponsedMessage.getData();
+            if (mvcHttpMessage != null) {
+                frsRequestData = mvcHttpMessage.getRequestData();
+            }
+            if (mvcNetMessage != null) {
+                frsRequestData = mvcNetMessage.getRequestData();
+            }
+        } else {
+            piaVar = null;
+        }
+        if (frsRequestData != null && piaVar != null && W0(frsRequestData, piaVar)) {
+            return;
+        }
+        this.a.f(i0(mvcHttpResponsedMessage));
+    }
+
+    public void S0(MvcSocketResponsedMessage<pia, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, pia> mvcSocketMessage, MvcNetMessage<FrsRequestData, pia> mvcNetMessage) {
+        FrsRequestData frsRequestData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048597, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
+            if (!this.B) {
+                this.B = true;
+                P0(1000, false, mvcSocketResponsedMessage);
+            } else {
+                R0(false, mvcSocketResponsedMessage);
+            }
+            long j = 0;
+            String str = null;
+            if (mvcSocketMessage != null) {
+                j = mvcSocketMessage.getClientLogID();
+                frsRequestData = mvcSocketMessage.getRequestData();
+            } else {
+                frsRequestData = null;
+            }
+            if (mvcNetMessage != null) {
+                j = mvcNetMessage.getLogID();
+                frsRequestData = mvcNetMessage.getRequestData();
+            }
+            long j2 = j;
+            int error = mvcSocketResponsedMessage.getError();
+            String errorString = mvcSocketResponsedMessage.getErrorString();
+            if (error != 0) {
+                int cmd = mvcSocketResponsedMessage.getCmd();
+                Object[] objArr = new Object[4];
+                objArr[0] = TiebaStatic.Params.H5_FORUM_NAME;
+                if (frsRequestData != null) {
+                    str = frsRequestData.Q();
+                }
+                objArr[1] = str;
+                objArr[2] = PushConstants.SEQ_ID;
+                objArr[3] = Long.valueOf(mvcSocketResponsedMessage.sequenceID);
+                Logger.addLog("frs", j2, cmd, "socket_resp", error, errorString, objArr);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void v(MvcSocketResponsedMessage<pia, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, pia> mvcSocketMessage, MvcNetMessage<FrsRequestData, pia> mvcNetMessage) {
+        pia data;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048650, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        this.L.a(this);
+        this.L.e(mvcSocketResponsedMessage);
+        this.L.c(mvcSocketMessage);
+        this.L.d(mvcNetMessage);
+        this.L.b(this.f);
+        this.f.b();
+        Looper.myQueue().addIdleHandler(this.L);
+        this.H = hia.a(mvcSocketResponsedMessage);
+        FrsRequestData frsRequestData = null;
+        if (mvcSocketResponsedMessage.hasError() && 340001 != mvcSocketResponsedMessage.getError()) {
+            data = null;
+        } else {
+            data = mvcSocketResponsedMessage.getData();
+            if (mvcSocketMessage != null) {
+                frsRequestData = mvcSocketMessage.getRequestData();
+            }
+            if (mvcNetMessage != null) {
+                frsRequestData = mvcNetMessage.getRequestData();
+            }
+        }
+        if (frsRequestData != null && data != null && W0(frsRequestData, data)) {
+            return;
+        }
+        this.a.f(i0(mvcSocketResponsedMessage));
     }
 
     public final void C0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.z == null) {
                 this.z = new ArrayList<>();
             }
             if (this.z.size() == 0) {
-                this.z.add(new xi7());
+                this.z.add(new hj7());
             }
         }
     }
@@ -762,7 +868,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     public boolean F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.m;
         }
         return invokeV.booleanValue;
@@ -889,11 +995,11 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
-            wj7 wj7Var = this.u;
-            if (!(wj7Var instanceof bk7) || ((bk7) wj7Var).e != 0) {
+            gk7 gk7Var = this.u;
+            if (!(gk7Var instanceof lk7) || ((lk7) gk7Var).e != 0) {
                 return true;
             }
-            return ((bk7) wj7Var).g;
+            return ((lk7) gk7Var).g;
         }
         return invokeV.booleanValue;
     }
@@ -903,13 +1009,13 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
             this.O = System.currentTimeMillis();
-            ky7.a();
+            my7.a();
             return this.e.loadData();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.mj7
+    @Override // com.baidu.tieba.wj7
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
@@ -917,13 +1023,13 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
     }
 
-    public bga j0() {
+    public hia j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
             return this.H;
         }
-        return (bga) invokeV.objValue;
+        return (hia) invokeV.objValue;
     }
 
     public FrsRequestData k0() {
@@ -956,7 +1062,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         return invokeV.intValue;
     }
 
-    public ArrayList<cn> n0() {
+    public ArrayList<bn> n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
@@ -965,10 +1071,10 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mj7
-    public void p() {
+    @Override // com.baidu.tieba.wj7
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
             Looper.myQueue().removeIdleHandler(this.L);
             Looper.myQueue().removeIdleHandler(this.M);
             this.x.b();
@@ -989,7 +1095,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
-            return sw7.d(this.D);
+            return uw7.d(this.D);
         }
         return invokeV.intValue;
     }
@@ -1052,7 +1158,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         AccountData currentAccountObj;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (FrsActivityConfig.FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(this.o)) {
                 b1(3);
             } else if (FrsActivityConfig.FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(this.o)) {
@@ -1063,7 +1169,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 } else {
                     str = "";
                 }
-                this.F = sw7.h("1~" + str + this.g);
+                this.F = uw7.h("1~" + str + this.g);
                 b1(this.D);
             }
         }
@@ -1071,10 +1177,10 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
 
     public final void E0(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, frsFragment) == null) {
-            bj7 bj7Var = new bj7();
-            this.x = bj7Var;
-            bj7Var.a = frsFragment.getUniqueId();
+        if (interceptable == null || interceptable.invokeL(1048581, this, frsFragment) == null) {
+            lj7 lj7Var = new lj7();
+            this.x = lj7Var;
+            lj7Var.a = frsFragment.getUniqueId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003011, this.x));
             this.x.e(this.N);
         }
@@ -1095,28 +1201,28 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
     }
 
-    public final void U0(jga jgaVar) {
+    public final void U0(pia piaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, jgaVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, piaVar) == null) {
             this.isCacheFirstLoad = false;
-            this.b.receiveData(jgaVar);
+            this.b.receiveData(piaVar);
             Z0(this.b);
             this.c = new ArrayList<>();
             if (this.b.getThreadList() != null) {
                 this.c.addAll(this.b.getThreadList());
             }
-            this.f.c(jgaVar);
+            this.f.c(piaVar);
         }
     }
 
     public final void Z0(FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, frsViewData) == null) {
-            if (fx7.b0(frsViewData)) {
+            if (hx7.Y(frsViewData)) {
                 this.l = "book_page";
             } else if (frsViewData.getIsBrandForum()) {
                 this.l = "brand_page";
-            } else if (fx7.c0(frsViewData)) {
+            } else if (hx7.Z(frsViewData)) {
                 this.l = "frs_page";
             } else {
                 this.l = "normal_page";
@@ -1124,156 +1230,50 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
     }
 
-    public final void a1(jga jgaVar) {
+    public final void a1(pia piaVar) {
         FrsFragment frsFragment;
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048610, this, jgaVar) != null) || jgaVar == null || (frsFragment = this.a) == null || frsFragment.getActivity() == null || (intent = this.a.getActivity().getIntent()) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048610, this, piaVar) != null) || piaVar == null || (frsFragment = this.a) == null || frsFragment.getActivity() == null || (intent = this.a.getActivity().getIntent()) == null) {
             return;
         }
-        a8a.d().g((Uri) intent.getParcelableExtra(IntentConfig.KEY_URI), jgaVar.getForum().getId());
+        gaa.d().g((Uri) intent.getParcelableExtra(IntentConfig.KEY_URI), piaVar.getForum().getId());
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void G(MvcHttpResponsedMessage<jga> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, jga> mvcHttpMessage, MvcNetMessage<FrsRequestData, jga> mvcNetMessage) {
-        jga jgaVar;
+    @Override // com.baidu.tieba.wj7
+    public void H(int i, int i2, gk7 gk7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048582, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
-            return;
-        }
-        this.M.a(this);
-        this.M.e(mvcHttpResponsedMessage);
-        this.M.c(mvcHttpMessage);
-        this.M.d(mvcNetMessage);
-        this.M.b(this.f);
-        this.f.b();
-        Looper.myQueue().addIdleHandler(this.M);
-        this.H = bga.a(mvcHttpResponsedMessage);
-        FrsRequestData frsRequestData = null;
-        if (!mvcHttpResponsedMessage.hasError()) {
-            jgaVar = mvcHttpResponsedMessage.getData();
-            if (mvcHttpMessage != null) {
-                frsRequestData = mvcHttpMessage.getRequestData();
-            }
-            if (mvcNetMessage != null) {
-                frsRequestData = mvcNetMessage.getRequestData();
-            }
-        } else {
-            jgaVar = null;
-        }
-        if (frsRequestData != null && jgaVar != null && W0(frsRequestData, jgaVar)) {
-            return;
-        }
-        this.a.f(i0(mvcHttpResponsedMessage));
-    }
-
-    public void S0(MvcSocketResponsedMessage<jga, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, jga> mvcSocketMessage, MvcNetMessage<FrsRequestData, jga> mvcNetMessage) {
-        FrsRequestData frsRequestData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048597, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
-            if (!this.B) {
-                this.B = true;
-                P0(1000, false, mvcSocketResponsedMessage);
-            } else {
-                R0(false, mvcSocketResponsedMessage);
-            }
-            long j = 0;
-            String str = null;
-            if (mvcSocketMessage != null) {
-                j = mvcSocketMessage.getClientLogID();
-                frsRequestData = mvcSocketMessage.getRequestData();
-            } else {
-                frsRequestData = null;
-            }
-            if (mvcNetMessage != null) {
-                j = mvcNetMessage.getLogID();
-                frsRequestData = mvcNetMessage.getRequestData();
-            }
-            long j2 = j;
-            int error = mvcSocketResponsedMessage.getError();
-            String errorString = mvcSocketResponsedMessage.getErrorString();
-            if (error != 0) {
-                int cmd = mvcSocketResponsedMessage.getCmd();
-                Object[] objArr = new Object[4];
-                objArr[0] = TiebaStatic.Params.H5_FORUM_NAME;
-                if (frsRequestData != null) {
-                    str = frsRequestData.Q();
-                }
-                objArr[1] = str;
-                objArr[2] = PushConstants.SEQ_ID;
-                objArr[3] = Long.valueOf(mvcSocketResponsedMessage.sequenceID);
-                Logger.addLog("frs", j2, cmd, "socket_resp", error, errorString, objArr);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void v(MvcSocketResponsedMessage<jga, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, jga> mvcSocketMessage, MvcNetMessage<FrsRequestData, jga> mvcNetMessage) {
-        jga data;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048650, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
-            return;
-        }
-        this.L.a(this);
-        this.L.e(mvcSocketResponsedMessage);
-        this.L.c(mvcSocketMessage);
-        this.L.d(mvcNetMessage);
-        this.L.b(this.f);
-        this.f.b();
-        Looper.myQueue().addIdleHandler(this.L);
-        this.H = bga.a(mvcSocketResponsedMessage);
-        FrsRequestData frsRequestData = null;
-        if (mvcSocketResponsedMessage.hasError() && 340001 != mvcSocketResponsedMessage.getError()) {
-            data = null;
-        } else {
-            data = mvcSocketResponsedMessage.getData();
-            if (mvcSocketMessage != null) {
-                frsRequestData = mvcSocketMessage.getRequestData();
-            }
-            if (mvcNetMessage != null) {
-                frsRequestData = mvcNetMessage.getRequestData();
-            }
-        }
-        if (frsRequestData != null && data != null && W0(frsRequestData, data)) {
-            return;
-        }
-        this.a.f(i0(mvcSocketResponsedMessage));
-    }
-
-    @Override // com.baidu.tieba.mj7
-    public void H(int i, int i2, wj7 wj7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, wj7Var) == null) {
+        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, gk7Var) == null) {
             this.r = e0(i, null);
-            if (wj7Var == null && (wj7Var = o0(i, i2)) == null) {
+            if (gk7Var == null && (gk7Var = o0(i, i2)) == null) {
                 if (i != 1 && BdUtilHelper.isNetOk() && this.y != null) {
-                    bk7 bk7Var = new bk7();
-                    bk7Var.g = false;
-                    bk7Var.c = 1;
-                    bk7Var.a = this.g;
-                    bk7Var.i = false;
+                    lk7 lk7Var = new lk7();
+                    lk7Var.g = false;
+                    lk7Var.c = 1;
+                    lk7Var.a = this.g;
+                    lk7Var.i = false;
                     FrsViewData frsViewData = this.b;
                     if (frsViewData != null && frsViewData.getForum() != null) {
-                        bk7Var.b = this.b.getForum().getId();
+                        lk7Var.b = this.b.getForum().getId();
                     }
                     C0();
                     this.b.setThreadList(this.z);
-                    this.y.a(i, i2, bk7Var, this.z);
+                    this.y.a(i, i2, lk7Var, this.z);
                 }
-                wj7Var = new wj7();
-                wj7Var.c = -1;
+                gk7Var = new gk7();
+                gk7Var.c = -1;
             }
             FrsViewData frsViewData2 = this.b;
             if (frsViewData2 != null && frsViewData2.getForum() != null) {
-                wj7Var.b = this.b.getForum().getId();
+                gk7Var.b = this.b.getForum().getId();
             }
-            wj7Var.a = this.g;
-            if (zi7.a().b(1) != null && this.r == 1) {
+            gk7Var.a = this.g;
+            if (jj7.a().b(1) != null && this.r == 1) {
                 this.d.U(i2);
             }
             this.s = i2;
-            this.u = wj7Var;
-            k1(i, i2, wj7Var);
+            this.u = gk7Var;
+            k1(i, i2, gk7Var);
             O0(5);
         }
     }
@@ -1291,13 +1291,13 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             long currentTimeMillis2 = System.currentTimeMillis();
             FrsFragment frsFragment2 = this.a;
             frsFragment.D = currentTimeMillis2 - frsFragment2.C;
-            ft5 ft5Var = new ft5(i, z, responsedMessage, frsFragment2.E, frsFragment2.F, frsFragment2.D, false, frsFragment2.G, frsFragment2.H, this.A);
+            gt5 gt5Var = new gt5(i, z, responsedMessage, frsFragment2.E, frsFragment2.F, frsFragment2.D, false, frsFragment2.G, frsFragment2.H, this.A);
             FrsFragment frsFragment3 = this.a;
             frsFragment3.F = 0L;
             frsFragment3.E = 0L;
-            tw7.g(this, frsFragment3.B);
+            vw7.g(this, frsFragment3.B);
             this.a.B = -1L;
-            ft5Var.c();
+            gt5Var.c();
         }
     }
 
@@ -1338,29 +1338,29 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             if (i != 1) {
                 if (i != 2) {
                     if (i == 3) {
-                        wj7 wj7Var = this.u;
-                        if (wj7Var != null) {
-                            wj7Var.c = -1;
+                        gk7 gk7Var = this.u;
+                        if (gk7Var != null) {
+                            gk7Var.c = -1;
                         }
                     }
                 } else {
-                    wj7 wj7Var2 = this.u;
-                    if (wj7Var2 != null) {
-                        wj7Var2.c--;
+                    gk7 gk7Var2 = this.u;
+                    if (gk7Var2 != null) {
+                        gk7Var2.c--;
                     }
                 }
                 i2 = this.r;
                 if (i2 != 1) {
                     if (this.t == this.s) {
-                        ArrayList<cn> arrayList = new ArrayList<>();
-                        ArrayList<cn> arrayList2 = this.c;
+                        ArrayList<bn> arrayList = new ArrayList<>();
+                        ArrayList<bn> arrayList2 = this.c;
                         if (arrayList2 != null) {
                             arrayList.addAll(arrayList2);
                         }
                         this.b.setThreadList(arrayList);
-                        qj7 qj7Var = this.y;
-                        if (qj7Var != null) {
-                            qj7Var.a(this.r, this.s, null, arrayList);
+                        ak7 ak7Var = this.y;
+                        if (ak7Var != null) {
+                            ak7Var.a(this.r, this.s, null, arrayList);
                         }
                     } else {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003003, null));
@@ -1368,7 +1368,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                     this.t = this.s;
                     return;
                 }
-                mj7 c2 = this.x.c(i2);
+                wj7 c2 = this.x.c(i2);
                 if (c2 != null) {
                     this.v = true;
                     c2.H(this.r, this.s, this.u);
@@ -1381,9 +1381,9 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 this.y.a(this.r, this.s, null, null);
                 return;
             }
-            wj7 wj7Var3 = this.u;
-            if (wj7Var3 != null) {
-                wj7Var3.c++;
+            gk7 gk7Var3 = this.u;
+            if (gk7Var3 != null) {
+                gk7Var3.c++;
             }
             i2 = this.r;
             if (i2 != 1) {
@@ -1391,7 +1391,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
     }
 
-    public void Q0(MvcHttpResponsedMessage<jga> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, jga> mvcHttpMessage, MvcNetMessage<FrsRequestData, jga> mvcNetMessage) {
+    public void Q0(MvcHttpResponsedMessage<pia> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, pia> mvcHttpMessage, MvcNetMessage<FrsRequestData, pia> mvcNetMessage) {
         long j;
         FrsRequestData frsRequestData;
         Interceptable interceptable = $ic;
@@ -1441,19 +1441,19 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         long currentTimeMillis2 = System.currentTimeMillis();
         FrsFragment frsFragment2 = this.a;
         frsFragment.D = currentTimeMillis2 - frsFragment2.C;
-        ft5 ft5Var = new ft5(1000, z, responsedMessage, frsFragment2.E, frsFragment2.F, frsFragment2.D, false, frsFragment2.G, frsFragment2.H, this.A);
+        gt5 gt5Var = new gt5(1000, z, responsedMessage, frsFragment2.E, frsFragment2.F, frsFragment2.D, false, frsFragment2.G, frsFragment2.H, this.A);
         int i = this.h;
         if (i == 4) {
-            ft5Var.B = this.A;
-            ft5Var.e(true);
+            gt5Var.B = this.A;
+            gt5Var.e(true);
         } else if (i == 3) {
-            ft5Var.C = this.A;
-            ft5Var.e(false);
+            gt5Var.C = this.A;
+            gt5Var.e(false);
         }
     }
 
     public void f0(int i, boolean z) {
-        ArrayList<cn> threadList;
+        ArrayList<bn> threadList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             this.a.I = System.currentTimeMillis();
@@ -1469,16 +1469,16 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             } else {
                 threadList = frsViewData2.getThreadList();
             }
-            frsRequestData.T(l2a.e(threadList, true));
+            frsRequestData.T(j4a.e(threadList, true));
             if (this.r == 1) {
                 c0(this.d, i, !z);
                 return;
             }
             if (this.u == null) {
-                wj7 wj7Var = new wj7();
-                this.u = wj7Var;
-                wj7Var.c = 1;
-                wj7Var.a = this.g;
+                gk7 gk7Var = new gk7();
+                this.u = gk7Var;
+                gk7Var.c = 1;
+                gk7Var.a = this.g;
                 FrsViewData frsViewData3 = this.b;
                 if (frsViewData3 != null && frsViewData3.getForum() != null) {
                     this.u.b = this.b.getForum().getId();
@@ -1495,9 +1495,9 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 this.b.addMyNewThread(b35Var);
             }
             int t0 = t0();
-            Iterator<cn> it = this.c.iterator();
+            Iterator<bn> it = this.c.iterator();
             while (it.hasNext()) {
-                cn next = it.next();
+                bn next = it.next();
                 if ((next instanceof h45) && b35Var.getId().equals(((h45) next).t.getId())) {
                     return;
                 }
@@ -1518,47 +1518,47 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 } else {
                     str = "";
                 }
-                sw7.i("1~" + str + this.g, this.D);
+                uw7.i("1~" + str + this.g, this.D);
             }
             if (7 == i) {
-                yia.b();
+                ela.b();
             } else {
-                yia.a();
+                ela.a();
             }
         }
     }
 
-    public boolean W0(FrsRequestData frsRequestData, jga jgaVar) {
+    public boolean W0(FrsRequestData frsRequestData, pia piaVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, frsRequestData, jgaVar)) == null) {
-            if (jgaVar == null || jgaVar.getForum() == null || (ei.isEmpty(jgaVar.getForum().getName()) && 340001 != jgaVar.mErrorNo)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, frsRequestData, piaVar)) == null) {
+            if (piaVar == null || piaVar.getForum() == null || (di.isEmpty(piaVar.getForum().getName()) && 340001 != piaVar.mErrorNo)) {
                 return false;
             }
-            if (jgaVar.getDataParseTime() > 0) {
-                this.a.H = jgaVar.getDataParseTime();
+            if (piaVar.getDataParseTime() > 0) {
+                this.a.H = piaVar.getDataParseTime();
             }
-            if (jgaVar.getEntelechyTabInfo() != null && !ListUtils.isEmpty(jgaVar.getEntelechyTabInfo().a)) {
-                int intValue = jgaVar.getEntelechyTabInfo().a.get(0).tab_type.intValue();
+            if (piaVar.getEntelechyTabInfo() != null && !ListUtils.isEmpty(piaVar.getEntelechyTabInfo().a)) {
+                int intValue = piaVar.getEntelechyTabInfo().a.get(0).tab_type.intValue();
                 AbsDataRecorder.Scene scene = AbsDataRecorder.Scene.FRS_HOT;
-                this.a.d5(13);
+                this.a.j5(13);
                 if (intValue == 14) {
                     scene = AbsDataRecorder.Scene.FRS_NEW;
-                    this.a.d5(14);
+                    this.a.j5(14);
                 }
-                if (x56.k().l(scene)) {
-                    x56.k().g(scene).b();
+                if (y56.k().l(scene)) {
+                    y56.k().g(scene).b();
                 }
-                if (q66.i().o(scene)) {
-                    q66.i().g(scene).b();
+                if (r66.i().o(scene)) {
+                    r66.i().g(scene).b();
                 }
             }
-            b1(sw7.f(jgaVar.getSortType()));
-            c1(sw7.f(jgaVar.getSortType()), true);
+            b1(uw7.f(piaVar.getSortType()));
+            c1(uw7.f(piaVar.getSortType()), true);
             if (this.isNetFirstLoad) {
-                this.r = jgaVar.getFrsDefaultTabId();
+                this.r = piaVar.getFrsDefaultTabId();
             }
-            this.b.receiveData(jgaVar);
+            this.b.receiveData(piaVar);
             Z0(this.b);
             this.c = new ArrayList<>();
             if (frsRequestData != null) {
@@ -1566,10 +1566,10 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 this.i = frsRequestData.getPn();
                 String Q = this.d.Q();
                 this.g = Q;
-                this.a.f5(Q);
+                this.a.l5(Q);
                 this.a.setFrom(this.j);
-                this.a.s5(this.i);
-                this.a.e5(this.k);
+                this.a.v5(this.i);
+                this.a.k5(this.k);
             }
             if (this.b.getThreadList() != null) {
                 this.c.addAll(this.b.getThreadList());
@@ -1580,24 +1580,24 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 this.f.d(this.h, false, this.H);
             }
             this.o = null;
-            if (qt7.b(this.d)) {
+            if (rt7.b(this.d)) {
                 Y0();
                 FrsFragment frsFragment = this.a;
                 if (frsFragment != null) {
-                    frsFragment.s4();
+                    frsFragment.y4();
                 }
             }
             if (!this.isNetFirstLoad && frsRequestData != null && frsRequestData.getUpdateType() == 4) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, this.b.getForum()));
             }
             this.isNetFirstLoad = false;
-            if (jgaVar.getForum() != null && !TextUtils.isEmpty(jgaVar.getForum().getName()) && frsRequestData != null && i3a.m().b() != null) {
-                i3a.m().b().g(jgaVar.getForum().getName(), frsRequestData.R(), false);
+            if (piaVar.getForum() != null && !TextUtils.isEmpty(piaVar.getForum().getName()) && frsRequestData != null && g5a.m().b() != null) {
+                g5a.m().b().g(piaVar.getForum().getName(), frsRequestData.R(), false);
             }
-            if (this.a != null && !StringUtils.isNull(jgaVar.getUserData().getAppealThreadPopover())) {
-                this.a.B5(TbadkCoreApplication.getCurrentAccount(), jgaVar.getForum().getId(), jgaVar.getUserData().getAppealThreadPopover());
+            if (this.a != null && !StringUtils.isNull(piaVar.getUserData().getAppealThreadPopover())) {
+                this.a.E5(TbadkCoreApplication.getCurrentAccount(), piaVar.getForum().getId(), piaVar.getUserData().getAppealThreadPopover());
             }
-            a1(jgaVar);
+            a1(piaVar);
             return true;
         }
         return invokeLL.booleanValue;
@@ -1605,11 +1605,11 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
 
     public final void X(String str, FrsRequestData frsRequestData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048603, this, str, frsRequestData) != null) || !ThreadData.isRecAppLoaded.get() || i3a.m().b() == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048603, this, str, frsRequestData) != null) || !ThreadData.isRecAppLoaded.get() || g5a.m().b() == null) {
             return;
         }
-        int d2 = i3a.m().b().d(str, false);
-        int e2 = i3a.m().b().e(str, false);
+        int d2 = g5a.m().b().d(str, false);
+        int e2 = g5a.m().b().e(str, false);
         if (frsRequestData.R() == 1) {
             d2++;
         } else if (frsRequestData.R() == 2) {
@@ -1642,10 +1642,10 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             return;
         }
         if (this.u == null) {
-            wj7 wj7Var = new wj7();
-            this.u = wj7Var;
-            wj7Var.c = 1;
-            wj7Var.a = this.g;
+            gk7 gk7Var = new gk7();
+            this.u = gk7Var;
+            gk7Var.c = 1;
+            gk7Var.a = this.g;
             FrsViewData frsViewData2 = this.b;
             if (frsViewData2 != null && frsViewData2.getForum() != null) {
                 this.u.b = this.b.getForum().getId();
@@ -1669,18 +1669,18 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     public void g1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            ni7 ni7Var = new ni7();
+            xi7 xi7Var = new xi7();
             if (this.t == 0) {
-                ni7Var.b(this.D);
+                xi7Var.b(this.D);
             }
             if (this.b.getThreadList() != null) {
                 this.b.getThreadList().clear();
-                this.b.getThreadList().add(ni7Var);
+                this.b.getThreadList().add(xi7Var);
             }
-            ArrayList<cn> arrayList = this.c;
+            ArrayList<bn> arrayList = this.c;
             if (arrayList != null) {
                 arrayList.clear();
-                this.c.add(ni7Var);
+                this.c.add(xi7Var);
             }
         }
     }
@@ -1702,12 +1702,12 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
-            ArrayList<cn> arrayList = this.c;
+            ArrayList<bn> arrayList = this.c;
             int i = 0;
             if (arrayList != null && arrayList.size() > 0) {
-                Iterator<cn> it = this.c.iterator();
+                Iterator<bn> it = this.c.iterator();
                 while (it.hasNext()) {
-                    cn next = it.next();
+                    bn next = it.next();
                     if (next instanceof h45) {
                         if (((h45) next).t.getIs_top() == 0) {
                             break;
@@ -1728,17 +1728,17 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{frsRequestData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             this.h = i;
-            this.a.Y4(z);
+            this.a.e5(z);
             this.f.a(i);
             this.e.t0(frsRequestData);
-            if (this.a.A4()) {
+            if (this.a.G4()) {
                 str = "1";
             } else {
                 str = "2";
             }
             frsRequestData.j0(str);
             if (this.G) {
-                frsRequestData.k0(String.valueOf(sw7.d(this.E)));
+                frsRequestData.k0(String.valueOf(uw7.d(this.E)));
             } else {
                 frsRequestData.k0("-2");
             }
@@ -1761,9 +1761,9 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             frsRequestData.n0(this.n);
             frsRequestData.f0(this.p);
             frsRequestData.s0(this.C);
-            frsRequestData.e0(JavaTypesHelper.toLong(tx5.a(), 0L));
+            frsRequestData.e0(JavaTypesHelper.toLong(ux5.a(), 0L));
             String str2 = this.o;
-            ArrayList<cn> arrayList = null;
+            ArrayList<bn> arrayList = null;
             if (str2 != null) {
                 frsRequestData.setStType(str2);
                 if ("sidebar".equalsIgnoreCase(this.o)) {
@@ -1785,25 +1785,25 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 if (frsViewData != null) {
                     arrayList = frsViewData.getThreadList();
                 }
-                frsRequestData.T(l2a.e(arrayList, false));
+                frsRequestData.T(j4a.e(arrayList, false));
                 z2 = false;
             } else {
                 FrsViewData frsViewData2 = this.b;
                 if (frsViewData2 != null) {
                     arrayList = frsViewData2.getThreadList();
                 }
-                frsRequestData.T(l2a.e(arrayList, true));
+                frsRequestData.T(j4a.e(arrayList, true));
                 z2 = true;
             }
             frsRequestData.setNeedCache(z2);
             frsRequestData.setUpdateType(this.h);
             frsRequestData.Z(this.q);
-            sw7.e(this.D, frsRequestData);
-            int d2 = sw7.d(this.F);
+            uw7.e(this.D, frsRequestData);
+            int d2 = uw7.d(this.F);
             d0(i, frsRequestData);
             X(this.g, frsRequestData);
             if (!z0(this.F) && !this.a.i && !this.K) {
-                aga i3 = aga.i();
+                gia i3 = gia.i();
                 String g = i3.g("1~" + this.g, d2, frsRequestData.P(), this.d.N());
                 this.I = g;
                 new e(this, true, g).execute(new Object[0]);
@@ -1817,16 +1817,16 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{frsRequestData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             this.h = i;
-            this.a.Y4(z);
+            this.a.e5(z);
             this.f.a(i);
             if (this.e.s0() && (this.e.getResponsedMessage() instanceof MvcHttpResponsedMessage)) {
-                G((MvcHttpResponsedMessage) this.e.getResponsedMessage(), (MvcHttpMessage) this.e.p0(), this.e.q0());
+                C((MvcHttpResponsedMessage) this.e.getResponsedMessage(), (MvcHttpMessage) this.e.p0(), this.e.q0());
             } else if (this.e.s0() && (this.e.getResponsedMessage() instanceof MvcSocketResponsedMessage)) {
                 v((MvcSocketResponsedMessage) this.e.getResponsedMessage(), (MvcSocketMessage) this.e.p0(), this.e.q0());
             } else {
-                int d2 = sw7.d(this.F);
+                int d2 = uw7.d(this.F);
                 if (!z0(this.F) && !this.a.i && !this.K) {
-                    aga i2 = aga.i();
+                    gia i2 = gia.i();
                     String g = i2.g("1~" + this.g, d2, frsRequestData.P(), this.d.N());
                     this.I = g;
                     new e(this, true, g).execute(new Object[0]);
@@ -1837,10 +1837,10 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
     }
 
-    public final void k1(int i, int i2, wj7 wj7Var) {
+    public final void k1(int i, int i2, gk7 gk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048635, this, i, i2, wj7Var) == null) {
-            this.w.put(p0(i, i2), wj7Var);
+        if (interceptable == null || interceptable.invokeIIL(1048635, this, i, i2, gk7Var) == null) {
+            this.w.put(p0(i, i2), gk7Var);
         }
     }
 }

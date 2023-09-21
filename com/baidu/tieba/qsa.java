@@ -1,286 +1,432 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.record.EncoderParams;
-import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
+import com.baidu.tieba.userblock.UserBlockInfoModel;
+import com.baidu.tieba.userblock.UserBlockSetModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.extractor.ogg.OpusReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Iterator;
+import tbclient.GetUserBlackInfo.DataRes;
+import tbclient.PermissionList;
 /* loaded from: classes7.dex */
-public class qsa extends tsa {
+public class qsa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long d;
+    public TbPageContext a;
+    public BdUniqueId b;
+    public BlueCircleProgressDialog c;
+    public d55 d;
+    public ArrayList<l55> e;
+    public long f;
+    public UserBlockSetModel g;
+    public UserBlockInfoModel h;
+    public AdapterView.OnItemClickListener i;
+    public View.OnClickListener j;
+    public View.OnClickListener k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qsa(String str) {
-        super(str);
+    /* loaded from: classes7.dex */
+    public class a implements qz4<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qsa a;
+
+        public a(qsa qsaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qsaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qsaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qz4
+        /* renamed from: b */
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                psa.g((ViewGroup) this.a.a.getPageActivity().findViewById(16908290), str, true);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921690));
+                this.a.k();
+            }
+        }
+
+        @Override // com.baidu.tieba.qz4
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.k();
+                psa.g((ViewGroup) this.a.a.getPageActivity().findViewById(16908290), str, false);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements qz4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qsa a;
+
+        public b(qsa qsaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qsaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qsaVar;
+        }
+
+        @Override // com.baidu.tieba.qz4
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.a != null) {
+                this.a.a.showToast(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.qz4
+        public void onSuccess(Object obj) {
+            int i;
+            PermissionList permissionList;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                if (obj instanceof DataRes) {
+                    DataRes dataRes = (DataRes) obj;
+                    i = dataRes.is_black_white.intValue();
+                    permissionList = dataRes.perm_list;
+                } else {
+                    i = 0;
+                    permissionList = null;
+                }
+                if (permissionList != null) {
+                    this.a.m(i, permissionList);
+                } else if (this.a.a != null) {
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f06ac);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qsa a;
+
+        public c(qsa qsaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qsaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qsaVar;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                l55 l55Var = (l55) ListUtils.getItem(this.a.e, i);
+                if (l55Var != null) {
+                    this.a.d.r(true);
+                }
+                this.a.d.h(i);
+                psa.a(l55Var, i);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qsa a;
+
+        public d(qsa qsaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qsaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qsaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.d();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qsa a;
+
+        public e(qsa qsaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qsaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qsaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.d();
+                if (this.a.e != null && BdNetTypeUtil.isNetWorkAvailable() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    Iterator it = this.a.e.iterator();
+                    int i = 0;
+                    int i2 = 0;
+                    int i3 = 0;
+                    while (it.hasNext()) {
+                        l55 l55Var = (l55) it.next();
+                        if (l55Var.d() && "1".equals(l55Var.b())) {
+                            i = 1;
+                        } else if (l55Var.d() && "2".equals(l55Var.b())) {
+                            i2 = 1;
+                        } else if (l55Var.d() && "3".equals(l55Var.b())) {
+                            i3 = 1;
+                        }
+                    }
+                    this.a.o();
+                    this.a.g.S(this.a.f, i, i2, i3);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qsa a;
+
+        public f(qsa qsaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qsaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qsaVar;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.a.b);
+            }
+        }
+    }
+
+    public qsa(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = 88200L;
+        this.i = new c(this);
+        this.j = new d(this);
+        this.k = new e(this);
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        UserBlockSetModel userBlockSetModel = new UserBlockSetModel(tbPageContext, bdUniqueId);
+        this.g = userBlockSetModel;
+        userBlockSetModel.T(new a(this));
+        UserBlockInfoModel userBlockInfoModel = new UserBlockInfoModel(tbPageContext, bdUniqueId);
+        this.h = userBlockInfoModel;
+        userBlockInfoModel.T(new b(this));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00db A[Catch: all -> 0x01a7, Exception -> 0x01aa, TryCatch #8 {Exception -> 0x01aa, all -> 0x01a7, blocks: (B:13:0x002e, B:17:0x005b, B:19:0x0061, B:21:0x006d, B:24:0x0072, B:29:0x0082, B:33:0x00d5, B:35:0x00db, B:37:0x00e1, B:38:0x00ed, B:40:0x00f1, B:42:0x0123, B:43:0x0158, B:44:0x015d, B:49:0x0174, B:52:0x017c, B:30:0x00a0, B:54:0x019b), top: B:101:0x002e }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x01dc A[Catch: Exception -> 0x01d8, TRY_LEAVE, TryCatch #5 {Exception -> 0x01d8, blocks: (B:84:0x01d4, B:88:0x01dc), top: B:97:0x01d4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.tieba.tsa
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(String str) {
-        Throwable th;
-        FileOutputStream fileOutputStream;
-        ByteBuffer[] byteBufferArr;
-        long j;
-        int dequeueOutputBuffer;
-        int dequeueInputBuffer;
+    public final String j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return TbadkCoreApplication.getInst().getString(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.f = j;
+            this.h.S(j);
+        }
+    }
+
+    public final void k() {
+        BlueCircleProgressDialog blueCircleProgressDialog;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (blueCircleProgressDialog = this.c) != null) {
+            blueCircleProgressDialog.setDialogVisiable(false);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.c == null) {
+                BlueCircleProgressDialog blueCircleProgressDialog = new BlueCircleProgressDialog(this.a);
+                this.c = blueCircleProgressDialog;
+                blueCircleProgressDialog.setCancelListener(new f(this));
+            }
+            this.c.setDialogVisiable(true);
+            this.c.setCanceledOnTouchOutside(false);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = -1L;
+            BlueCircleProgressDialog blueCircleProgressDialog = this.c;
+            if (blueCircleProgressDialog != null) {
+                blueCircleProgressDialog.setDialogVisiable(false);
+            }
+            d55 d55Var = this.d;
+            if (d55Var != null) {
+                d55Var.d();
+            }
+            UserBlockInfoModel userBlockInfoModel = this.h;
+            if (userBlockInfoModel != null) {
+                userBlockInfoModel.onDestroy();
+            }
+            UserBlockSetModel userBlockSetModel = this.g;
+            if (userBlockSetModel != null) {
+                userBlockSetModel.onDestroy();
+            }
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, this.b);
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.b);
+        }
+    }
+
+    public final void m(int i, PermissionList permissionList) {
         boolean z;
-        int i;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            qsa qsaVar = this;
-            FileInputStream fileInputStream = null;
-            try {
-                try {
-                    if (qsaVar.b == 0) {
-                        qsaVar.b = OpusReader.SAMPLE_RATE;
-                    }
-                    if (qsaVar.c == 0) {
-                        qsaVar.c = 1;
-                    }
-                    qsaVar.d = (qsaVar.b * 16) / 8;
-                    FileInputStream fileInputStream2 = new FileInputStream(qsaVar.a);
-                    try {
-                        fileOutputStream = new FileOutputStream(str);
-                        try {
-                            MediaCodec f = f();
-                            f.start();
-                            ByteBuffer[] inputBuffers = f.getInputBuffers();
-                            ByteBuffer[] outputBuffers = f.getOutputBuffers();
-                            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                            byte[] bArr = new byte[4096];
-                            ByteBuffer[] byteBufferArr2 = outputBuffers;
-                            long j2 = 0;
-                            long j3 = 0;
-                            boolean z2 = false;
-                            int i2 = 0;
-                            boolean z3 = false;
-                            boolean z4 = false;
-                            int i3 = 0;
-                            while (!z3) {
-                                if (!z4 && (dequeueInputBuffer = f.dequeueInputBuffer(10000L)) >= 0) {
-                                    ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
-                                    byteBuffer.clear();
-                                    int remaining = byteBuffer.remaining();
-                                    if (remaining != bArr.length) {
-                                        bArr = new byte[remaining];
-                                    }
-                                    byte[] bArr2 = bArr;
-                                    if (!z2 && (i2 = fileInputStream2.read(bArr2)) == -1) {
-                                        i = i2;
-                                        z = true;
-                                    } else {
-                                        z = z2;
-                                        i = i2;
-                                    }
-                                    if (z) {
-                                        f.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                        byteBufferArr = inputBuffers;
-                                        i2 = i;
-                                        bArr = bArr2;
-                                        z2 = z;
-                                        j = 10000;
-                                        z4 = true;
-                                        dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
-                                        if (dequeueOutputBuffer < 0) {
-                                            if ((bufferInfo.flags & 2) != 0) {
-                                                BdLog.i("audio encoder: codec config buffer");
-                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            } else {
-                                                if (bufferInfo.size != 0) {
-                                                    ByteBuffer byteBuffer2 = byteBufferArr2[dequeueOutputBuffer];
-                                                    byteBuffer2.position(bufferInfo.offset);
-                                                    byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
-                                                    BdLog.i(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
-                                                    if (j2 < bufferInfo.presentationTimeUs) {
-                                                        long j4 = bufferInfo.presentationTimeUs;
-                                                        int i4 = bufferInfo.size;
-                                                        int i5 = i4 + 7;
-                                                        byteBuffer2.position(bufferInfo.offset);
-                                                        byteBuffer2.limit(bufferInfo.offset + i4);
-                                                        byte[] bArr3 = new byte[i5];
-                                                        qsaVar.e(bArr3, i5);
-                                                        byteBuffer2.get(bArr3, 7, i4);
-                                                        fileOutputStream.write(bArr3, 0, i5);
-                                                        BdLog.i(i5 + " bytes written.");
-                                                        j2 = j4;
-                                                    } else {
-                                                        BdLog.i("error sample! its presentationTimeUs should not lower than before.");
-                                                    }
-                                                }
-                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                                if ((bufferInfo.flags & 4) != 0) {
-                                                    qsaVar = this;
-                                                    inputBuffers = byteBufferArr;
-                                                    z3 = true;
-                                                }
-                                            }
-                                        } else if (dequeueOutputBuffer == -3) {
-                                            byteBufferArr2 = f.getOutputBuffers();
-                                        } else if (dequeueOutputBuffer == -2) {
-                                            BdLog.i("format change : " + f.getOutputFormat());
-                                        }
-                                        qsaVar = this;
-                                        inputBuffers = byteBufferArr;
-                                    } else {
-                                        int i6 = i;
-                                        byteBuffer.put(bArr2, 0, i6);
-                                        int i7 = i3 + i6;
-                                        byteBufferArr = inputBuffers;
-                                        f.queueInputBuffer(dequeueInputBuffer, 0, i6, j3, 0);
-                                        i3 = i7;
-                                        i2 = i6;
-                                        j3 = (long) (((i7 / 2.0d) * 1000000.0d) / qsaVar.d);
-                                        bArr = bArr2;
-                                        z2 = z;
-                                    }
-                                } else {
-                                    byteBufferArr = inputBuffers;
-                                }
-                                j = 10000;
-                                dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
-                                if (dequeueOutputBuffer < 0) {
-                                }
-                                qsaVar = this;
-                                inputBuffers = byteBufferArr;
-                            }
-                            BdLog.i("acc encode done");
-                            fileInputStream2.close();
-                            fileOutputStream.close();
-                        } catch (Exception e) {
-                            e = e;
-                            fileInputStream = fileInputStream2;
-                            try {
-                                e.printStackTrace();
-                                if (fileInputStream != null) {
-                                    fileInputStream.close();
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                if (fileInputStream != null) {
-                                    try {
-                                        fileInputStream.close();
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
-                                        throw th;
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th3) {
-                            th = th3;
-                            fileInputStream = fileInputStream2;
-                            if (fileInputStream != null) {
-                            }
-                            if (fileOutputStream != null) {
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
-                        fileOutputStream = null;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        fileOutputStream = null;
-                    }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-            } catch (Exception e5) {
-                e = e5;
-                fileOutputStream = null;
-            } catch (Throwable th5) {
-                th = th5;
-                fileOutputStream = null;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, permissionList) == null) {
+            boolean z3 = false;
+            if (permissionList != null && permissionList.follow.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-    }
-
-    public final void e(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
-            int[] iArr = {96000, 88200, 64000, OpusReader.SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
-            int i2 = 0;
-            while (true) {
-                if (i2 < 13) {
-                    if (iArr[i2] == this.b) {
-                        break;
-                    }
-                    i2++;
-                } else {
-                    i2 = 4;
-                    break;
-                }
+            if (permissionList != null && permissionList.interact.intValue() == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
-            bArr[0] = -1;
-            bArr[1] = -7;
-            bArr[2] = (byte) (64 + (i2 << 2) + 0);
-            bArr[3] = (byte) (128 + (i >> 11));
-            bArr[4] = (byte) ((i & 2047) >> 3);
-            bArr[5] = (byte) (((i & 7) << 5) + 31);
-            bArr[6] = -4;
+            if (permissionList != null && permissionList.chat.intValue() == 1) {
+                z3 = true;
+            }
+            ArrayList<l55> arrayList = new ArrayList<>();
+            this.e = arrayList;
+            if (i == 1) {
+                arrayList.add(new l55(j(R.string.block_follow), z, "1"));
+                this.e.add(new l55(j(R.string.block_action), z2, "2"));
+                this.e.add(new l55(j(R.string.block_message), z3, "3"));
+            } else {
+                arrayList.add(new l55(j(R.string.block_commit), z2, "2"));
+                this.e.add(new l55(j(R.string.block_message), z3, "3"));
+            }
+            d55 d55Var = new d55(this.a);
+            this.d = d55Var;
+            d55Var.l(R.string.block_user_title);
+            this.d.k(this.e, this.i);
+            this.d.q(R.string.obfuscated_res_0x7f0f05ac, this.k);
+            this.d.p(R.string.obfuscated_res_0x7f0f03d0, this.j);
+            d55 d55Var2 = this.d;
+            d55Var2.c();
+            d55Var2.n();
         }
-    }
-
-    @TargetApi(16)
-    public final MediaCodec f() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
-            MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString("mime", "audio/mp4a-latm");
-            mediaFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.c);
-            mediaFormat.setInteger("sample-rate", this.b);
-            mediaFormat.setInteger("aac-profile", 2);
-            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-            return createEncoderByType;
-        }
-        return (MediaCodec) invokeV.objValue;
     }
 }

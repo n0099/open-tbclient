@@ -31,7 +31,6 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.mainentrance.MainEntrance;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
@@ -47,32 +46,32 @@ import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ay4;
 import com.baidu.tieba.controller.TransmitShareController;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.eu4;
+import com.baidu.tieba.di;
+import com.baidu.tieba.du4;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
-import com.baidu.tieba.hia;
-import com.baidu.tieba.iia;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.lm6;
+import com.baidu.tieba.kx4;
 import com.baidu.tieba.lx4;
-import com.baidu.tieba.mia;
 import com.baidu.tieba.mx4;
+import com.baidu.tieba.nka;
+import com.baidu.tieba.no;
 import com.baidu.tieba.nx4;
-import com.baidu.tieba.oj8;
-import com.baidu.tieba.oo;
+import com.baidu.tieba.oka;
 import com.baidu.tieba.ox4;
+import com.baidu.tieba.pm6;
 import com.baidu.tieba.px4;
 import com.baidu.tieba.qx4;
-import com.baidu.tieba.rx4;
 import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.tieba.ska;
 import com.baidu.tieba.sx4;
+import com.baidu.tieba.to8;
 import com.baidu.tieba.tx4;
-import com.baidu.tieba.uh5;
 import com.baidu.tieba.ux4;
 import com.baidu.tieba.vx4;
 import com.baidu.tieba.wx4;
 import com.baidu.tieba.xx4;
+import com.baidu.tieba.yh5;
 import com.baidu.tieba.yx4;
 import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -90,9 +89,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@oo
+@no
 /* loaded from: classes4.dex */
-public class CommonTbJsBridge implements iia {
+public class CommonTbJsBridge implements oka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANGE_POST_WALL = "postFakeTheWall";
     public static final String CHANGE_SKIN_TYPE = "changeSkinType";
@@ -190,23 +189,23 @@ public class CommonTbJsBridge implements iia {
     public transient /* synthetic */ FieldHolder $fh;
     public final String ONLY_THIRD_SHARE;
     public final String SHOW_MORE_FORUM_ICON;
-    public lx4 accountJsBridgePlugin;
-    public mx4 activityJsBridgePlugin;
+    public kx4 accountJsBridgePlugin;
+    public lx4 activityJsBridgePlugin;
     public final AliAuthHttpProxy aliHttpProxy;
-    public nx4 clipperJsBridgePlugin;
-    public ox4 deviceJsBridgePlugin;
+    public mx4 clipperJsBridgePlugin;
+    public nx4 deviceJsBridgePlugin;
     @NonNull
     public final JSONObject emptyParams4CallJs;
-    public px4 hostJsBridgePlugin;
-    public qx4 hybridDebugJsBridgePlugin;
-    public rx4 hybridJsBridgePlugin;
-    public hia jsPromptBridge;
+    public ox4 hostJsBridgePlugin;
+    public px4 hybridDebugJsBridgePlugin;
+    public qx4 hybridJsBridgePlugin;
+    public nka jsPromptBridge;
     public sx4 logJsBridgePlugin;
     public final Context mContext;
     public int mH5PersonalizedRecSwitch;
     public long mLastLoadUrlTime;
     public PermissionJudgePolicy mPermissionJudgement;
-    public eu4 mShakeController;
+    public du4 mShakeController;
     public volatile TbDownloadManager mTbDownloadManager;
     public WebView mWebView;
     public tx4 navigationBarJsBridgePlugin;
@@ -220,7 +219,7 @@ public class CommonTbJsBridge implements iia {
     public zx4 toastJsBridgePlugin;
     public ay4 yabmentJsBridgePlugin;
 
-    @Override // com.baidu.tieba.iia
+    @Override // com.baidu.tieba.oka
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         boolean z;
@@ -357,7 +356,7 @@ public class CommonTbJsBridge implements iia {
                 } else if (TOAST_POPUPVIEW.equals(str2)) {
                     try {
                         JSONObject jSONObject5 = new JSONObject(str3);
-                        jsPromptResult.confirm(showLowerHairHint(jSONObject5.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject5.optInt("ahead_type"), jSONObject5.optString("message"), jSONObject5.optString("btn_text"), jSONObject5.optInt("toast_duration"), jSONObject5.optString("schema"), jSONObject5.optString("token"), jSONObject5.optDouble(NativeConstants.OPACITY), jSONObject5.optString(BigdayActivityConfig.IMG_URL), jSONObject5.optString("url"), jSONObject5.optInt("mission_id"), jSONObject5.optString("btn_color"), jSONObject5.optString("message_color"), jSONObject5.optString("btn_text_color"), jSONObject5.optInt("status"), jSONObject5.optInt(FINISH_THIS_PAGE)).a());
+                        jsPromptResult.confirm(showLowerHairHint(jSONObject5.optInt("show_type"), jSONObject5.optInt("ahead_type"), jSONObject5.optString("message"), jSONObject5.optString("btn_text"), jSONObject5.optInt("toast_duration"), jSONObject5.optString("schema"), jSONObject5.optString("token"), jSONObject5.optDouble(NativeConstants.OPACITY), jSONObject5.optString(BigdayActivityConfig.IMG_URL), jSONObject5.optString("url"), jSONObject5.optInt("mission_id"), jSONObject5.optString("btn_color"), jSONObject5.optString("message_color"), jSONObject5.optString("btn_text_color"), jSONObject5.optInt("status"), jSONObject5.optInt(FINISH_THIS_PAGE)).a());
                     } catch (JSONException e14) {
                         BdLog.e(e14);
                     }
@@ -551,7 +550,7 @@ public class CommonTbJsBridge implements iia {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements eu4.b {
+    public class a implements du4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonTbJsBridge a;
@@ -574,7 +573,7 @@ public class CommonTbJsBridge implements iia {
             this.a = commonTbJsBridge;
         }
 
-        @Override // com.baidu.tieba.eu4.b
+        @Override // com.baidu.tieba.du4.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a.shakeCallbackjsMethod)) {
@@ -695,7 +694,7 @@ public class CommonTbJsBridge implements iia {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, str)) == null) {
-            if (!ei.isEmpty(str)) {
+            if (!di.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     return jumpLoginActivity(jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
@@ -709,13 +708,13 @@ public class CommonTbJsBridge implements iia {
         return (String) invokeL.objValue;
     }
 
-    public mia changeSkinTypeInH5(HashMap hashMap) {
+    public ska changeSkinTypeInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (hashMap == null) {
-                return miaVar;
+                return skaVar;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -724,10 +723,10 @@ public class CommonTbJsBridge implements iia {
                 e.printStackTrace();
             }
             callJsMethod(CHANGE_SKIN_TYPE, jSONObject);
-            miaVar.o(jSONObject.toString());
-            return miaVar;
+            skaVar.o(jSONObject.toString());
+            return skaVar;
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
     public CommonTbJsBridge(Context context, WebView webView) {
@@ -751,22 +750,22 @@ public class CommonTbJsBridge implements iia {
         this.mLastLoadUrlTime = 0L;
         this.mH5PersonalizedRecSwitch = -1;
         this.mTbDownloadManager = null;
-        this.accountJsBridgePlugin = new lx4();
+        this.accountJsBridgePlugin = new kx4();
         this.routerJsBridgePlugin = new vx4();
         this.toastJsBridgePlugin = new zx4();
         this.subscriptionJsBridgePlugin = new xx4();
         this.systemJsBridgePlugin = new yx4();
-        this.hostJsBridgePlugin = new px4();
+        this.hostJsBridgePlugin = new ox4();
         this.paymentJsBridgePlugin = new ux4();
         this.yabmentJsBridgePlugin = new ay4();
         this.logJsBridgePlugin = new sx4();
-        this.clipperJsBridgePlugin = new nx4();
-        this.activityJsBridgePlugin = new mx4();
+        this.clipperJsBridgePlugin = new mx4();
+        this.activityJsBridgePlugin = new lx4();
         this.shareJsBridgePlugin = new wx4();
-        this.hybridJsBridgePlugin = new rx4();
+        this.hybridJsBridgePlugin = new qx4();
         this.navigationBarJsBridgePlugin = new tx4();
-        this.deviceJsBridgePlugin = new ox4();
-        this.hybridDebugJsBridgePlugin = new qx4();
+        this.deviceJsBridgePlugin = new nx4();
+        this.hybridDebugJsBridgePlugin = new px4();
         this.mContext = context;
         this.mWebView = webView;
         this.aliHttpProxy = new AliAuthHttpProxy(webView);
@@ -775,7 +774,7 @@ public class CommonTbJsBridge implements iia {
     private void dealJump(String str) {
         TbPageContext<?> currentActivityPageContext;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, this, str) == null) && !ei.isEmpty(str) && (currentActivityPageContext = getCurrentActivityPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+        if ((interceptable == null || interceptable.invokeL(65544, this, str) == null) && !di.isEmpty(str) && (currentActivityPageContext = getCurrentActivityPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
             UrlManager.getInstance().dealOneLink(currentActivityPageContext, new String[]{str});
         }
     }
@@ -809,407 +808,407 @@ public class CommonTbJsBridge implements iia {
         }
     }
 
-    public mia checkAppInstall(String str) {
+    public ska checkAppInstall(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             return this.systemJsBridgePlugin.d(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia checkAuthState(String str) {
+    public ska checkAuthState(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             return this.accountJsBridgePlugin.d(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia checkInstallGameApk(String str) {
+    public ska checkInstallGameApk(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             return this.systemJsBridgePlugin.e(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia closeNativeMask(int i) {
+    public ska closeNativeMask(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             return this.systemJsBridgePlugin.f(this.mWebView, i);
         }
-        return (mia) invokeI.objValue;
+        return (ska) invokeI.objValue;
     }
 
-    public mia dealClickGoBackToH5(HashMap hashMap) {
+    public ska dealClickGoBackToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.g(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia dealGoBackFromNative(HashMap hashMap) {
+    public ska dealGoBackFromNative(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.h(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
     public void dealSpringFestivalTimer(HashMap hashMap) {
-        hia hiaVar;
+        nka nkaVar;
         WebView webView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) && (hiaVar = this.jsPromptBridge) != null && (webView = this.mWebView) != null && hashMap != null) {
-            hiaVar.i(webView, "getPageLeaveTime", hashMap);
+        if ((interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) && (nkaVar = this.jsPromptBridge) != null && (webView = this.mWebView) != null && hashMap != null) {
+            nkaVar.i(webView, "getPageLeaveTime", hashMap);
         }
     }
 
-    public mia deviceMotion(HashMap<String, Object> hashMap) {
+    public ska deviceMotion(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, hashMap)) == null) {
             return this.deviceJsBridgePlugin.e(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia deviceRefreshRate(HashMap<String, Object> hashMap) {
+    public ska deviceRefreshRate(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, hashMap)) == null) {
             return this.deviceJsBridgePlugin.f(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia deviceRefreshRateParams(String str) {
+    public ska deviceRefreshRateParams(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             return this.deviceJsBridgePlugin.g(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia disableBack(int i) {
+    public ska disableBack(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
             return this.systemJsBridgePlugin.i(this.mWebView, i);
         }
-        return (mia) invokeI.objValue;
+        return (ska) invokeI.objValue;
     }
 
-    public mia finishTestAnswer(long j) {
+    public ska finishTestAnswer(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
             return this.activityJsBridgePlugin.c(this.mWebView, j);
         }
-        return (mia) invokeJ.objValue;
+        return (ska) invokeJ.objValue;
     }
 
-    public mia getAppStorage(String str) {
+    public ska getAppStorage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
             return this.systemJsBridgePlugin.l(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia getGetModalData(String str) {
+    public ska getGetModalData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
             return this.toastJsBridgePlugin.e(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia getPhotoAlbumResult(HashMap<String, String> hashMap) {
+    public ska getPhotoAlbumResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.p(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
+    public ska getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.q(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
+    public ska getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
+    public ska getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.e(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia handleSaveImage(String str) {
+    public ska handleSaveImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, str)) == null) {
             return this.systemJsBridgePlugin.u(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia handleVoiceMsgResult(HashMap<String, Object> hashMap) {
+    public ska handleVoiceMsgResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, hashMap)) == null) {
             return this.hostJsBridgePlugin.h(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia nativeNetworkProxy(HashMap<String, String> hashMap) {
+    public ska nativeNetworkProxy(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, hashMap)) == null) {
             return this.hybridJsBridgePlugin.m(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia newThirdPartyLoginResultToH5(HashMap<String, Object> hashMap) {
+    public ska newThirdPartyLoginResultToH5(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, hashMap)) == null) {
             return this.accountJsBridgePlugin.s(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia notifyApkInstallResult(HashMap<String, Object> hashMap) {
+    public ska notifyApkInstallResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.B(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia notifyFileDownloadStatusResult(HashMap<String, Object> hashMap) {
+    public ska notifyFileDownloadStatusResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.C(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia onFetchHistoryMsgsResult(HashMap<String, Object> hashMap) {
+    public ska onFetchHistoryMsgsResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, hashMap)) == null) {
             return this.hostJsBridgePlugin.j(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia onKeyboardHeightChange(HashMap<String, Object> hashMap) {
+    public ska onKeyboardHeightChange(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.D(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia onReceiveNewMsgsResult(HashMap<String, Object> hashMap) {
+    public ska onReceiveNewMsgsResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, hashMap)) == null) {
             return this.hostJsBridgePlugin.k(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia onSendMsgResult(HashMap<String, Object> hashMap) {
+    public ska onSendMsgResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, hashMap)) == null) {
             return this.hostJsBridgePlugin.l(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia openMXDYab(String str) {
+    public ska openMXDYab(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, str)) == null) {
             return this.paymentJsBridgePlugin.c(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia openVipSuccessInH5(HashMap hashMap) {
+    public ska openVipSuccessInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, hashMap)) == null) {
             return this.paymentJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia orderGameApkResult(HashMap<String, Object> hashMap) {
+    public ska orderGameApkResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048658, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.F(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia perloadPicModule(ArrayList<String> arrayList) {
+    public ska perloadPicModule(ArrayList<String> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, arrayList)) == null) {
             return this.hostJsBridgePlugin.m(this.mWebView, arrayList);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia personlizedSwitchChange(String str) {
+    public ska personlizedSwitchChange(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048660, this, str)) == null) {
             return this.activityJsBridgePlugin.d(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia playSound(String str) {
+    public ska playSound(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, str)) == null) {
             return this.systemJsBridgePlugin.G(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia postWriteWallData(HashMap hashMap) {
+    public ska postWriteWallData(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048663, this, hashMap)) == null) {
             return this.activityJsBridgePlugin.e(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia preheatWeb(ArrayList<String> arrayList) {
+    public ska preheatWeb(ArrayList<String> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048664, this, arrayList)) == null) {
             return this.hostJsBridgePlugin.n(this.mWebView, arrayList);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia reHide(HashMap hashMap) {
+    public ska reHide(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048666, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.o(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia reShow(HashMap hashMap) {
+    public ska reShow(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048667, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.p(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia realNameAuthResult(HashMap<String, Object> hashMap) {
+    public ska realNameAuthResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048669, this, hashMap)) == null) {
             return this.accountJsBridgePlugin.o(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia refreshTailInH5(HashMap hashMap) {
+    public ska refreshTailInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048671, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.q(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia replyPost(String str) {
+    public ska replyPost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048672, this, str)) == null) {
             return this.routerJsBridgePlugin.r(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia replyPostResult(HashMap<String, String> hashMap) {
+    public ska replyPostResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048673, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.s(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia saveImageSuccess(HashMap<String, Integer> hashMap) {
+    public ska saveImageSuccess(HashMap<String, Integer> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048675, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.J(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia setClipperInformation(String str) {
+    public ska setClipperInformation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048680, this, str)) == null) {
             return this.clipperJsBridgePlugin.d(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public void setJsPromptBridge(hia hiaVar) {
+    public void setJsPromptBridge(nka nkaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048682, this, hiaVar) == null) {
-            this.jsPromptBridge = hiaVar;
-            this.aliHttpProxy.m(hiaVar);
+        if (interceptable == null || interceptable.invokeL(1048682, this, nkaVar) == null) {
+            this.jsPromptBridge = nkaVar;
+            this.aliHttpProxy.m(nkaVar);
         }
     }
 
@@ -1220,166 +1219,166 @@ public class CommonTbJsBridge implements iia {
         }
     }
 
-    public mia setSearchHistory(HashMap hashMap) {
+    public ska setSearchHistory(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048684, this, hashMap)) == null) {
             return this.hybridJsBridgePlugin.q(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia shareSuccessNotification(HashMap hashMap) {
+    public ska shareSuccessNotification(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048687, this, hashMap)) == null) {
             return this.shareJsBridgePlugin.h(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia springFestivalTimeToH5(HashMap<String, String> hashMap) {
+    public ska springFestivalTimeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, hashMap)) == null) {
             return this.logJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia startDownloadCss(String str) {
+    public ska startDownloadCss(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048697, this, str)) == null) {
             return this.accountJsBridgePlugin.q(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia startLoginModule(String str) {
+    public ska startLoginModule(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048699, this, str)) == null) {
             return this.accountJsBridgePlugin.r(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia switchOfflineBundleStatus(int i) {
+    public ska switchOfflineBundleStatus(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048700, this, i)) == null) {
             return this.hybridDebugJsBridgePlugin.f(this.mWebView, i);
         }
-        return (mia) invokeI.objValue;
+        return (ska) invokeI.objValue;
     }
 
-    public mia switchOfflineInterface(String str) {
+    public ska switchOfflineInterface(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048701, this, str)) == null) {
             return this.hybridDebugJsBridgePlugin.g(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia switchUrlHost(ArrayList<JSONObject> arrayList) {
+    public ska switchUrlHost(ArrayList<JSONObject> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048702, this, arrayList)) == null) {
             return this.hybridDebugJsBridgePlugin.h(this.mWebView, arrayList);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia tbPayResult(HashMap<String, String> hashMap) {
+    public ska tbPayResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048704, this, hashMap)) == null) {
             return this.yabmentJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia updateSearchForumInfo(String str) {
+    public ska updateSearchForumInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048708, this, str)) == null) {
             return this.activityJsBridgePlugin.h(this.mWebView, str);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia writePostSuccess(HashMap hashMap) {
+    public ska writePostSuccess(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048712, this, hashMap)) == null) {
             return this.activityJsBridgePlugin.k(this.mWebView, hashMap);
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia getFileDownloadProgress(String str, String str2, String str3) {
+    public ska getFileDownloadProgress(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, str, str2, str3)) == null) {
             return this.systemJsBridgePlugin.m(this.mWebView, str, str2, str3);
         }
-        return (mia) invokeLLL.objValue;
+        return (ska) invokeLLL.objValue;
     }
 
-    public mia getFileDownloadStatus(String str, String str2, String str3) {
+    public ska getFileDownloadStatus(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048605, this, str, str2, str3)) == null) {
             return this.systemJsBridgePlugin.n(this.mWebView, str, str2, str3);
         }
-        return (mia) invokeLLL.objValue;
+        return (ska) invokeLLL.objValue;
     }
 
-    public mia handlePortal(String str, String str2, String str3) {
+    public ska handlePortal(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048628, this, str, str2, str3)) == null) {
             return this.routerJsBridgePlugin.i(this.mWebView, str, str2, str3);
         }
-        return (mia) invokeLLL.objValue;
+        return (ska) invokeLLL.objValue;
     }
 
-    public mia jumpToVideo(String str, String str2, String str3) {
+    public ska jumpToVideo(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048637, this, str, str2, str3)) == null) {
             return this.routerJsBridgePlugin.l(this.mWebView, str, str2, str3);
         }
-        return (mia) invokeLLL.objValue;
+        return (ska) invokeLLL.objValue;
     }
 
-    public mia operateNotifyDataChanged(String str, String str2, boolean z) {
+    public ska operateNotifyDataChanged(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048656, this, str, str2, z)) == null) {
             return this.subscriptionJsBridgePlugin.f(this.mWebView, str, str2, z);
         }
-        return (mia) invokeLLZ.objValue;
+        return (ska) invokeLLZ.objValue;
     }
 
-    public mia sendMessage(String str, String str2, String str3) {
+    public ska sendMessage(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048679, this, str, str2, str3)) == null) {
             return this.hostJsBridgePlugin.q(this.mWebView, str, str2, str3);
         }
-        return (mia) invokeLLL.objValue;
+        return (ska) invokeLLL.objValue;
     }
 
-    public mia showDialog(int i, String str, String str2) {
+    public ska showDialog(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048688, this, i, str, str2)) == null) {
             return this.toastJsBridgePlugin.f(this.mWebView, i, str, str2);
         }
-        return (mia) invokeILL.objValue;
+        return (ska) invokeILL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1418,16 +1417,16 @@ public class CommonTbJsBridge implements iia {
         return (String) invokeV.objValue;
     }
 
-    private eu4 getShakeController() {
+    private du4 getShakeController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             if (this.mShakeController == null) {
-                this.mShakeController = new eu4(this.mContext, new a(this));
+                this.mShakeController = new du4(this.mContext, new a(this));
             }
             return this.mShakeController;
         }
-        return (eu4) invokeV.objValue;
+        return (du4) invokeV.objValue;
     }
 
     private String refreshPage() {
@@ -1475,85 +1474,85 @@ public class CommonTbJsBridge implements iia {
         }
     }
 
-    public mia deleteOfflineBundle() {
+    public ska deleteOfflineBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.hybridDebugJsBridgePlugin.c(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia getAlipayUserId() {
+    public ska getAlipayUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.aliHttpProxy.l();
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia getClipperInformation() {
+    public ska getClipperInformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.clipperJsBridgePlugin.c(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia getDeviceInfo() {
+    public ska getDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.deviceJsBridgePlugin.h(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia getHdid() {
+    public ska getHdid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             return this.deviceJsBridgePlugin.i(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia getHistoryForumData() {
+    public ska getHistoryForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             return this.systemJsBridgePlugin.o(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia getOfflineUserInfo() {
+    public ska getOfflineUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             return this.hybridDebugJsBridgePlugin.d(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia getStartLoadTimeInterval() {
+    public ska getStartLoadTimeInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             return this.systemJsBridgePlugin.r(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia getSupplementInfo() {
+    public ska getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.deviceJsBridgePlugin.j(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
     public TbDownloadManager getTbDownloadManager() {
@@ -1572,13 +1571,13 @@ public class CommonTbJsBridge implements iia {
         return (TbDownloadManager) invokeV.objValue;
     }
 
-    public mia getZid() {
+    public ska getZid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             return this.deviceJsBridgePlugin.k(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
     public int getmH5PersonalizedRecSwitch() {
@@ -1590,116 +1589,116 @@ public class CommonTbJsBridge implements iia {
         return invokeV.intValue;
     }
 
-    public mia goToNotificationSetting() {
+    public ska goToNotificationSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             return this.systemJsBridgePlugin.s(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia handleGamePushStatus() {
+    public ska handleGamePushStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             return this.subscriptionJsBridgePlugin.e(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia handleGetPhotoAlbum() {
+    public ska handleGetPhotoAlbum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             return this.systemJsBridgePlugin.t(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia hasNotificationPermission() {
+    public ska hasNotificationPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             return this.systemJsBridgePlugin.v(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia jumpToHotTrendPage() {
+    public ska jumpToHotTrendPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             MainEntrance.goToMainTabRefresh(this.mContext, 16, false);
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia keyboardHeightChange() {
+    public ska keyboardHeightChange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             return this.systemJsBridgePlugin.y(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
             this.aliHttpProxy.k();
-            eu4 eu4Var = this.mShakeController;
-            if (eu4Var != null && eu4Var.d()) {
+            du4 du4Var = this.mShakeController;
+            if (du4Var != null && du4Var.d()) {
                 this.mShakeController.c();
             }
         }
     }
 
-    public mia playVibrate() {
+    public ska playVibrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
             return this.systemJsBridgePlugin.H(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia receiveNewMsgs() {
+    public ska receiveNewMsgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) {
             return this.hostJsBridgePlugin.o(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia setDisableGoBack() {
+    public ska setDisableGoBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
             return this.navigationBarJsBridgePlugin.c(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia toOneKeyDeletion() {
+    public ska toOneKeyDeletion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) {
             return this.activityJsBridgePlugin.g(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
-    public mia updateOfflineBundle() {
+    public ska updateOfflineBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048707, this)) == null) {
             return this.hybridDebugJsBridgePlugin.i(this.mWebView);
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 
     private boolean isLegalSchema(List<String> list, String str) {
@@ -1742,7 +1741,7 @@ public class CommonTbJsBridge implements iia {
             shareItem.isShowShareOuerItem = true;
             shareItem.obj_type = 11;
             TransmitShareController.getInstance().showShareDialog(new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null));
-            oj8.b(shareItem.groupData);
+            to8.b(shareItem.groupData);
         }
     }
 
@@ -1755,10 +1754,10 @@ public class CommonTbJsBridge implements iia {
                 JSONObject jSONObject = new JSONObject(str);
                 boolean optBoolean = jSONObject.optBoolean("open");
                 String optString = jSONObject.optString("method_name");
-                uh5 uh5Var = new uh5();
-                uh5Var.g(optBoolean);
-                uh5Var.f(optString);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, uh5Var));
+                yh5 yh5Var = new yh5();
+                yh5Var.g(optBoolean);
+                yh5Var.f(optString);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, yh5Var));
                 i = 1;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -1803,45 +1802,45 @@ public class CommonTbJsBridge implements iia {
         return (String) invokeL.objValue;
     }
 
-    public mia handleGoToMyLive(String str) {
+    public ska handleGoToMyLive(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia handleGoToMyPost(String str) {
+    public ska handleGoToMyPost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, str)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mContext, str, 0, null)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia onUserLoginChanged(HashMap hashMap) {
+    public ska onUserLoginChanged(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, hashMap)) == null) {
@@ -1855,18 +1854,18 @@ public class CommonTbJsBridge implements iia {
                 e.printStackTrace();
             }
             callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
-            mia miaVar = new mia();
-            miaVar.o(jSONObject.toString());
-            return miaVar;
+            ska skaVar = new ska();
+            skaVar.o(jSONObject.toString());
+            return skaVar;
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
     public String startApp(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048696, this, str)) == null) {
-            if (!ei.isEmpty(str)) {
+            if (!di.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     return startApp(jSONObject.optString("pkgName"), jSONObject.optString("schema")).a();
@@ -1886,7 +1885,7 @@ public class CommonTbJsBridge implements iia {
         return (String) invokeL.objValue;
     }
 
-    public mia thirdPartyLoginResultToH5(HashMap hashMap) {
+    public ska thirdPartyLoginResultToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048705, this, hashMap)) == null) {
@@ -1902,11 +1901,11 @@ public class CommonTbJsBridge implements iia {
                 e.printStackTrace();
             }
             callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
-            mia miaVar = new mia();
-            miaVar.o(jSONObject.toString());
-            return miaVar;
+            ska skaVar = new ska();
+            skaVar.o(jSONObject.toString());
+            return skaVar;
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
     private void shareLoacalImage(String str, int i) {
@@ -1955,276 +1954,276 @@ public class CommonTbJsBridge implements iia {
         }
     }
 
-    public mia deviceGyroscopeParams(String str, String str2) {
+    public ska deviceGyroscopeParams(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
             return this.deviceJsBridgePlugin.d(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia finishPage(String str, String str2) {
+    public ska finishPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, str2)) == null) {
             return this.routerJsBridgePlugin.c(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
     @NonNull
-    public mia getViewPosition(@NonNull String str, @Nullable String str2) {
+    public ska getViewPosition(@NonNull String str, @Nullable String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, str, str2)) == null) {
             return this.subscriptionJsBridgePlugin.d(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia handleGoToBarDetail(String str, int i) {
+    public ska handleGoToBarDetail(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048625, this, str, i)) == null) {
             return this.routerJsBridgePlugin.h(this.mWebView, str, i);
         }
-        return (mia) invokeLI.objValue;
+        return (ska) invokeLI.objValue;
     }
 
-    public mia jumpForumRulesEditPage(String str, String str2) {
+    public ska jumpForumRulesEditPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048633, this, str, str2)) == null) {
             return this.routerJsBridgePlugin.j(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia jumpLoginActivity(int i, String str) {
+    public ska jumpLoginActivity(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048634, this, i, str)) == null) {
             return this.accountJsBridgePlugin.g(this.mWebView, i, str);
         }
-        return (mia) invokeIL.objValue;
+        return (ska) invokeIL.objValue;
     }
 
-    public mia jumpToHtmlPage(String str, int i) {
+    public ska jumpToHtmlPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048636, this, str, i)) == null) {
             return this.routerJsBridgePlugin.k(this.mWebView, str, i);
         }
-        return (mia) invokeLI.objValue;
+        return (ska) invokeLI.objValue;
     }
 
-    public mia localYaLog(String str, String str2) {
+    public ska localYaLog(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048640, this, str, str2)) == null) {
             return this.logJsBridgePlugin.c(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia openThirdPartApp(int i, String str) {
+    public ska openThirdPartApp(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048654, this, i, str)) == null) {
             return this.routerJsBridgePlugin.n(this.mWebView, i, str);
         }
-        return (mia) invokeIL.objValue;
+        return (ska) invokeIL.objValue;
     }
 
-    public mia orderGameApk(String str, String str2) {
+    public ska orderGameApk(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048657, this, str, str2)) == null) {
             return this.systemJsBridgePlugin.E(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia putAppStorage(String str, String str2) {
+    public ska putAppStorage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048665, this, str, str2)) == null) {
             return this.systemJsBridgePlugin.I(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia reportUserTheme(String str, ArrayList<String> arrayList) {
+    public ska reportUserTheme(String str, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048674, this, str, arrayList)) == null) {
             return this.routerJsBridgePlugin.t(this.mWebView, str, arrayList);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
+    public ska selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048676, this, i, arrayList)) == null) {
             return this.systemJsBridgePlugin.K(this.mWebView, i, arrayList);
         }
-        return (mia) invokeIL.objValue;
+        return (ska) invokeIL.objValue;
     }
 
-    public mia selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
+    public ska selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048677, this, str, arrayList)) == null) {
             return this.routerJsBridgePlugin.u(this.mWebView, str, arrayList);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia sendCompleteTaskReqMsg(String str, String str2) {
+    public ska sendCompleteTaskReqMsg(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048678, this, str, str2)) == null) {
             return this.activityJsBridgePlugin.f(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia startApp(String str, String str2) {
+    public ska startApp(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048695, this, str, str2)) == null) {
             return this.systemJsBridgePlugin.M(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia updateTailStyle(int i, String str) {
+    public ska updateTailStyle(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048709, this, i, str)) == null) {
             return this.activityJsBridgePlugin.i(this.mWebView, i, str);
         }
-        return (mia) invokeIL.objValue;
+        return (ska) invokeIL.objValue;
     }
 
-    public mia worldCupRaiseSuccess(String str, String str2) {
+    public ska worldCupRaiseSuccess(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048711, this, str, str2)) == null) {
             return this.activityJsBridgePlugin.j(this.mWebView, str, str2);
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia fetchHistoryMsgs(int i, long j, long j2, String str, String str2) {
+    public ska fetchHistoryMsgs(int i, long j, long j2, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
             return this.hostJsBridgePlugin.d(this.mWebView, i, j, j2, str, str2);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia fileDownloadDelete(String str, String str2, String str3, int i, String str4) {
+    public ska fileDownloadDelete(String str, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4})) == null) {
             return this.systemJsBridgePlugin.j(this.mWebView, str, str2, str3, i, str4);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia fileDownloadPause(String str, String str2, String str3, int i, String str4) {
+    public ska fileDownloadPause(String str, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4})) == null) {
             return this.systemJsBridgePlugin.k(this.mWebView, str, str2, str3, i, str4);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia launchApk(String str, String str2, String str3, int i, String str4) {
+    public ska launchApk(String str, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048639, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4})) == null) {
             return this.systemJsBridgePlugin.A(this.mWebView, str, str2, str3, i, str4);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia showTipToast(String str, String str2, String str3, int i, int i2) {
+    public ska showTipToast(String str, String str2, String str3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048692, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             return this.toastJsBridgePlugin.i(this.mWebView, str, str2, str3, i, i2);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia gamePush(String str, String str2, String str3, String str4) {
+    public ska gamePush(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048599, this, str, str2, str3, str4)) == null) {
             return this.subscriptionJsBridgePlugin.c(this.mWebView, str, str2, str3, str4);
         }
-        return (mia) invokeLLLL.objValue;
+        return (ska) invokeLLLL.objValue;
     }
 
-    public mia goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public ska goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048620, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
             return this.routerJsBridgePlugin.f(this.mWebView, str, str2, str3, str4, str5, str6, str7);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17, String str18) {
+    public ska goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17, String str18) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048622, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17, str18})) == null) {
             return this.routerJsBridgePlugin.g(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17, str18);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia installGameApk(String str, String str2, String str3, String str4, int i, String str5) {
+    public ska installGameApk(String str, String str2, String str3, String str4, int i, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048632, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), str5})) == null) {
             return this.systemJsBridgePlugin.w(this.mWebView, str, str2, str3, str4, i, str5);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia nativeNetworkProxy(String str, String str2, String str3, JSONObject jSONObject, int i, int i2) {
+    public ska nativeNetworkProxy(String str, String str2, String str3, JSONObject jSONObject, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048641, this, new Object[]{str, str2, str3, jSONObject, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             return this.hybridJsBridgePlugin.l(this.mWebView, str, str2, str3, jSONObject, i, i2);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia notifyAliAuthResult(HashMap<String, String> hashMap) {
+    public ska notifyAliAuthResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, hashMap)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             int i2 = -1;
             try {
                 i2 = Integer.parseInt(hashMap.get("status"));
-                miaVar.y(i2);
-                miaVar.u(hashMap.get("message"));
+                skaVar.y(i2);
+                skaVar.u(hashMap.get("message"));
                 if (i2 == 0) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("avatar", hashMap.get("avatar"));
                     jSONObject.put("nick_name", hashMap.get("nick_name"));
                     jSONObject.put("alipay_user_id", hashMap.get("alipay_user_id"));
-                    miaVar.o(jSONObject.toString());
+                    skaVar.o(jSONObject.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -2236,27 +2235,27 @@ public class CommonTbJsBridge implements iia {
                 i = 1;
             }
             TiebaStatic.log(statisticItem.param("obj_param1", i));
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia realNameAuth(String str, boolean z, String str2, int i) {
+    public ska realNameAuth(String str, boolean z, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048668, this, new Object[]{str, Boolean.valueOf(z), str2, Integer.valueOf(i)})) == null) {
             return this.accountJsBridgePlugin.n(this.mWebView, str, z, str2, i);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia startAllLoginModule(String str, String str2, String str3, String str4) {
+    public ska startAllLoginModule(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048694, this, str, str2, str3, str4)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (TbadkCoreApplication.isLogin()) {
-                lm6.a().d(new Runnable() { // from class: com.baidu.tieba.pw4
+                pm6.a().d(new Runnable() { // from class: com.baidu.tieba.ow4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -2268,64 +2267,64 @@ public class CommonTbJsBridge implements iia {
                         }
                     }
                 }, 100L);
-                return miaVar;
+                return skaVar;
             }
             return this.accountJsBridgePlugin.p(this.mWebView, str, str2, str3, str4);
         }
-        return (mia) invokeLLLL.objValue;
+        return (ska) invokeLLLL.objValue;
     }
 
-    public mia setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+    public ska setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048685, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
             return this.shareJsBridgePlugin.d(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, i, str9);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
+    public ska share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048686, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, str11, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str12, str13, str14, str15, jSONObject})) == null) {
             return this.shareJsBridgePlugin.f(this.mWebView, i, i2, str, str2, str3, str4, str5, str6, str7, str8, i3, str9, i4, str10, str11, j, i5, i6, j2, str12, str13, str14, str15, jSONObject);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+    public ska showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048690, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
             return this.toastJsBridgePlugin.h(this.mWebView, i, i2, str, str2, i3, str3, str4, d, str5, str6, i4, str7, str8, str9, i5, i6);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia startDownloadGameApk(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11, int i2, String str12) {
+    public ska startDownloadGameApk(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11, int i2, String str12) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048698, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, Integer.valueOf(i), str11, Integer.valueOf(i2), str12})) == null) {
             return this.systemJsBridgePlugin.N(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, i, str11, i2, str12);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia tbPay(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9, boolean z, boolean z2, String str10, String str11, String str12, String str13) {
+    public ska tbPay(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9, boolean z, boolean z2, String str10, String str11, String str12, String str13) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048703, this, new Object[]{webView, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i4), str9, Boolean.valueOf(z), Boolean.valueOf(z2), str10, str11, str12, str13})) == null) {
             return this.yabmentJsBridgePlugin.c(webView, str, i, i2, i3, str2, str3, str4, str5, str6, str7, str8, i4, str9, z, z2, str10, str11, str12, str13);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia wakeKeyboard(String str, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, JSONObject jSONObject, boolean z7) {
+    public ska wakeKeyboard(String str, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, JSONObject jSONObject, boolean z7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048710, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), jSONObject, Boolean.valueOf(z7)})) == null) {
             return this.systemJsBridgePlugin.O(this.mWebView, str, z, z2, z3, z4, z5, z6, jSONObject, z7);
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 }

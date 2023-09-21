@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.qna;
-import com.baidu.tieba.rna;
-import com.baidu.tieba.uoa;
+import com.baidu.tieba.ara;
+import com.baidu.tieba.hja;
+import com.baidu.tieba.wpa;
+import com.baidu.tieba.xpa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundListActivity a;
-    public uoa b;
+    public ara b;
     public List<DressItemData> c;
     public List<DressItemData> d;
     public DressItemData e;
@@ -47,7 +47,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void a(int i, String str, uoa uoaVar, List<DressItemData> list);
+        void a(int i, String str, ara araVar, List<DressItemData> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -178,21 +178,21 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                 if (responsedMessage.getError() == 2270014) {
                     return;
                 }
-                int i = rna.b;
-                if (responsedMessage.getError() == rna.c) {
-                    i = rna.a;
+                int i = xpa.b;
+                if (responsedMessage.getError() == xpa.c) {
+                    i = xpa.a;
                 }
                 boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                 if (fromDetail) {
                     return;
                 }
-                if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.a.q1() && (d02 = this.a.d0(propId)) != null) {
+                if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.a.O0() && (d02 = this.a.d0(propId)) != null) {
                     this.a.i0(i, responsedMessage.getErrorString(), d02, fromDetail);
                     return;
                 }
                 return;
             }
-            if (propId == this.a.a.q1() && (d0 = this.a.d0(propId)) != null) {
+            if (propId == this.a.a.O0() && (d0 = this.a.d0(propId)) != null) {
                 TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", d0.getFreeUserLevel()));
             }
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
@@ -290,8 +290,8 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            bha.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            bha.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            hja.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            hja.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -313,8 +313,8 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            bha.h(309021, BackgroundListSocketResponseMessage.class, false, false);
-            bha.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
+            hja.h(309021, BackgroundListSocketResponseMessage.class, false, false);
+            hja.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -363,20 +363,20 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
             }
             if (!StringUtils.isNull(str)) {
                 int i4 = 4;
-                if (i == rna.a) {
+                if (i == xpa.a) {
                     TbPageContext<BackgroundListActivity> pageContext = this.a.getPageContext();
                     if (z) {
                         i3 = 4;
                     } else {
                         i3 = 2;
                     }
-                    qna.d(pageContext, i3, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-                } else if (i == rna.b) {
+                    wpa.d(pageContext, i3, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+                } else if (i == xpa.b) {
                     TbPageContext<BackgroundListActivity> pageContext2 = this.a.getPageContext();
                     if (!z) {
                         i4 = 2;
                     }
-                    qna.c(pageContext2, i4, str, i2);
+                    wpa.c(pageContext2, i4, str, i2);
                 }
             }
         }

@@ -1,242 +1,275 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.RemoveFansController;
-import com.baidu.tieba.kf7;
-import com.baidu.tieba.lva;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.common.others.IStringUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.data.ApkDownloadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+import tbclient.ApkDetail;
 /* loaded from: classes6.dex */
-public class lf7 {
+public final class lf7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final lf7 a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public RemoveFansController b;
-    public kf7 c;
-    public qs9 d;
-    public lva e;
-    public e f;
 
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a();
-
-        void b(int i, String str, boolean z, int i2, long j);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements kf7.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lf7 a;
-
-        public a(lf7 lf7Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947941036, "Lcom/baidu/tieba/lf7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = lf7Var;
-        }
-
-        @Override // com.baidu.tieba.kf7.b
-        public void a(int i, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 0, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements RemoveFansController.IResultCallBack {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lf7 a;
-
-        public b(lf7 lf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lf7Var;
-        }
-
-        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
-        public void onResultCallBack(int i, String str, long j, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && this.a.f != null) {
-                this.a.f.b(i, str, z, 1, j);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements lva.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lf7 a;
-
-        public c(lf7 lf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lf7Var;
-        }
-
-        @Override // com.baidu.tieba.lva.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d.dismiss();
-                if (this.a.f != null) {
-                    this.a.f.a();
-                }
-                this.a.c.d();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements lva.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lf7 a;
-
-        public d(lf7 lf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lf7Var;
-        }
-
-        @Override // com.baidu.tieba.lva.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947941036, "Lcom/baidu/tieba/lf7;");
                 return;
             }
-            this.a.d.dismiss();
         }
+        a = new lf7();
+        String string = TbadkCoreApplication.getInst().getString(R.string.download_apk_unknown_default_name);
+        Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…apk_unknown_default_name)");
+        b = string;
+        String string2 = TbadkCoreApplication.getInst().getString(R.string.download_apk_unknown_default_tag);
+        Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.st…_apk_unknown_default_tag)");
+        c = string2;
+        String string3 = TbadkCoreApplication.getInst().getString(R.string.download_apk_unknown_default_content);
+        Intrinsics.checkNotNullExpressionValue(string3, "getInst().getString(R.st…_unknown_default_content)");
+        d = string3;
     }
 
-    public lf7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public lf7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = tbPageContext;
-        kf7 kf7Var = new kf7(tbPageContext, bdUniqueId);
-        this.c = kf7Var;
-        kf7Var.e(new a(this));
-        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
-        this.b = removeFansController;
-        removeFansController.setResultCallBack(new b(this));
     }
 
-    public void f(long j) {
+    @JvmStatic
+    public static final DownloadData a(DownloadData downloadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.b.removeFans(j);
-        }
-    }
-
-    public void g(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f = eVar;
-        }
-    }
-
-    public void d() {
-        lva lvaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lvaVar = this.e) != null) {
-            lvaVar.e();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.d == null) {
-                lva lvaVar = new lva(this.a.getContext());
-                this.e = lvaVar;
-                lvaVar.h(this.a.getString(R.string.obfuscated_res_0x7f0f04cb));
-                ArrayList arrayList = new ArrayList();
-                lva.b bVar = new lva.b(this.a.getString(R.string.obfuscated_res_0x7f0f04c4), this.e);
-                bVar.h(new c(this));
-                arrayList.add(bVar);
-                this.e.g(new d(this));
-                this.e.f(arrayList);
-                qs9 qs9Var = new qs9(this.a.getPageActivity(), this.e.b());
-                this.d = qs9Var;
-                qs9Var.a(0.7f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            String filename = s61.e(downloadData.getUrl(), "apk", "application/vnd.android.package-archive");
+            if ("apk".equals(s61.c(filename))) {
+                Intrinsics.checkNotNullExpressionValue(filename, "filename");
+                filename = StringsKt__StringsKt.substringBefore$default(filename, IStringUtil.EXTENSION_SEPARATOR + "apk", (String) null, 2, (Object) null);
             }
-            this.d.show();
+            lf7 lf7Var = a;
+            Intrinsics.checkNotNullExpressionValue(filename, "filename");
+            String c2 = lf7Var.c(downloadData, filename);
+            Intrinsics.checkNotNullExpressionValue(filename, "filename");
+            Intrinsics.checkNotNullExpressionValue(filename, "filename");
+            b(downloadData, c2, filename, filename);
+            return downloadData;
         }
+        return (DownloadData) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00c0  */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x00f9  */
+    @JvmStatic
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final DownloadData b(DownloadData downloadData, String defaultId, String defaultName, String defaultPkgName) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        boolean z8;
+        boolean z9;
+        boolean z10;
+        boolean z11;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, downloadData, defaultId, defaultName, defaultPkgName)) == null) {
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            Intrinsics.checkNotNullParameter(defaultId, "defaultId");
+            Intrinsics.checkNotNullParameter(defaultName, "defaultName");
+            Intrinsics.checkNotNullParameter(defaultPkgName, "defaultPkgName");
+            String id = downloadData.getId();
+            if (id != null && id.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                if (defaultId.length() == 0) {
+                    z11 = true;
+                } else {
+                    z11 = false;
+                }
+                if (!z11) {
+                    downloadData.setId(defaultId);
+                }
+            }
+            String name = downloadData.getName();
+            if (name != null && name.length() != 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2) {
+                if (defaultName.length() == 0) {
+                    z10 = true;
+                } else {
+                    z10 = false;
+                }
+                if (!z10) {
+                    downloadData.setName(defaultName);
+                }
+            }
+            String app_icon = downloadData.getApp_icon();
+            if (app_icon != null && app_icon.length() != 0) {
+                z3 = false;
+            } else {
+                z3 = true;
+            }
+            if (z3) {
+                downloadData.setApp_icon("https://tieba-ares.cdn.bcebos.com/mis/2023-8/1691390026104/24877895ee7a.png");
+            }
+            if (downloadData.getApkDownloadData() == null) {
+                if (defaultPkgName.length() == 0) {
+                    z9 = true;
+                } else {
+                    z9 = false;
+                }
+                if (!z9) {
+                    downloadData.setApkDownloadData(new ApkDownloadData());
+                    downloadData.getApkDownloadData().setPackageName(defaultPkgName);
+                    if (downloadData.getItemData() != null) {
+                        downloadData.setItemData(new ItemData());
+                        ItemData itemData = downloadData.getItemData();
+                        itemData.mTitle = b;
+                        itemData.mIconUrl = "https://tieba-ares.cdn.bcebos.com/mis/2023-8/1691390026104/24877895ee7a.png";
+                        itemData.mTags = CollectionsKt__CollectionsKt.arrayListOf(c);
+                        ApkDetail.Builder builder = new ApkDetail.Builder();
+                        builder.developer = d;
+                        itemData.apkDetail = builder.build(true);
+                        itemData.fileType = "app";
+                        itemData.buttonLinkType = 1;
+                    } else {
+                        String str = downloadData.getItemData().mTitle;
+                        if (str != null && str.length() != 0) {
+                            z6 = false;
+                        } else {
+                            z6 = true;
+                        }
+                        if (z6) {
+                            downloadData.getItemData().mTitle = b;
+                        } else {
+                            String str2 = downloadData.getItemData().mIconUrl;
+                            if (str2 != null && str2.length() != 0) {
+                                z7 = false;
+                            } else {
+                                z7 = true;
+                            }
+                            if (z7) {
+                                downloadData.getItemData().mIconUrl = "https://tieba-ares.cdn.bcebos.com/mis/2023-8/1691390026104/24877895ee7a.png";
+                            } else {
+                                List<String> list = downloadData.getItemData().mTags;
+                                if (list != null && !list.isEmpty()) {
+                                    z8 = false;
+                                } else {
+                                    z8 = true;
+                                }
+                                if (z8) {
+                                    downloadData.getItemData().mTags = CollectionsKt__CollectionsKt.arrayListOf(c);
+                                } else if (downloadData.getItemData().apkDetail == null) {
+                                    ApkDetail.Builder builder2 = new ApkDetail.Builder();
+                                    builder2.developer = d;
+                                    downloadData.getItemData().apkDetail = builder2.build(true);
+                                }
+                            }
+                        }
+                    }
+                    return downloadData;
+                }
+            }
+            String packageName = downloadData.getApkDownloadData().getPackageName();
+            if (packageName != null && packageName.length() != 0) {
+                z4 = false;
+            } else {
+                z4 = true;
+            }
+            if (z4) {
+                if (defaultPkgName.length() == 0) {
+                    z5 = true;
+                } else {
+                    z5 = false;
+                }
+                if (!z5) {
+                    downloadData.getApkDownloadData().setPackageName(defaultPkgName);
+                }
+            }
+            if (downloadData.getItemData() != null) {
+            }
+            return downloadData;
+        }
+        return (DownloadData) invokeLLLL.objValue;
+    }
+
+    @JvmStatic
+    public static final void d(DownloadData data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            yy6 yy6Var = new yy6();
+            yy6Var.a = data.getItemData();
+            yy6Var.b = data.getSource();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921819, yy6Var));
+        }
+    }
+
+    public final String c(DownloadData downloadData, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, downloadData, str)) == null) {
+            if (downloadData.getItemData() != null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(downloadData.getItemData().pkgName);
+                sb.append(".v");
+                ApkDetail apkDetail = downloadData.getItemData().apkDetail;
+                if (apkDetail != null) {
+                    str2 = apkDetail.version;
+                } else {
+                    str2 = null;
+                }
+                sb.append(str2);
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -32,14 +32,14 @@ import com.baidu.tbadk.widget.CardLiveLabelView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b15;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.l75;
+import com.baidu.tieba.di;
+import com.baidu.tieba.lm;
 import com.baidu.tieba.m05;
-import com.baidu.tieba.mm;
-import com.baidu.tieba.mp6;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.sp6;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.x06;
+import com.baidu.tieba.tx;
+import com.baidu.tieba.y06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
+public class MutiImgMutiPicLayout extends LinearLayout implements tx<b15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -65,10 +65,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
     public ViewGroup j;
     public String k;
     public boolean l;
-    public mp6<b15> m;
+    public sp6<b15> m;
     public b15 n;
     public int o;
-    public x06 p;
+    public y06 p;
     public LinkedList<MediaData> q;
     public boolean r;
     public int s;
@@ -83,9 +83,9 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
         void a(int i, ThreadData threadData, MediaData mediaData);
     }
 
-    public void setPreloadSizeReadyCallback(mm mmVar) {
+    public void setPreloadSizeReadyCallback(lm lmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, mmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, lmVar) == null) {
         }
     }
 
@@ -115,7 +115,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            mp6<b15> subClickListener;
+            sp6<b15> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -125,7 +125,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements x06 {
+    public class b implements y06 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgMutiPicLayout a;
@@ -148,11 +148,11 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
             this.a = mutiImgMutiPicLayout;
         }
 
-        @Override // com.baidu.tieba.x06
+        @Override // com.baidu.tieba.y06
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                mp6<b15> subClickListener = this.a.getSubClickListener();
+                sp6<b15> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.n.objType = 2;
@@ -167,7 +167,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
                     } else {
                         ThreadCardUtils.startImageViewer(view2, this.a.l, this.a.q, i, this.a.n.getThreadData(), this.a.k);
                     }
-                } else if (ListUtils.getItem(this.a.q, i) != null && !ei.isEmpty(((MediaData) ListUtils.getItem(this.a.q, i)).getJumpUrl())) {
+                } else if (ListUtils.getItem(this.a.q, i) != null && !di.isEmpty(((MediaData) ListUtils.getItem(this.a.q, i)).getJumpUrl())) {
                     UrlManager.getInstance().dealOneLink(((MediaData) ListUtils.getItem(this.a.q, i)).getJumpUrl());
                 } else {
                     ThreadCardUtils.startImageViewer(view2, this.a.l, this.a.q, i, this.a.n.getThreadData(), this.a.k);
@@ -226,11 +226,11 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
                 } else {
                     i = 14;
                 }
-                BdImage D = TbImageMemoryCache.A().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
+                BdImage C = TbImageMemoryCache.A().C(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (D != null) {
-                    i3 = D.getWidth();
-                    i2 = D.getHeight();
+                if (C != null) {
+                    i3 = C.getWidth();
+                    i2 = C.getHeight();
                 } else {
                     i2 = 0;
                 }
@@ -361,14 +361,14 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
                 if (this.d.p != null) {
-                    x06 x06Var = this.d.p;
+                    y06 y06Var = this.d.p;
                     int i2 = this.a;
                     if (this.b && this.c) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    x06Var.a(view2, i2, z);
+                    y06Var.a(view2, i2, z);
                 }
                 if (this.d.v != null && this.d.n != null && this.d.n.getThreadData() != null && !this.d.q.isEmpty() && (i = this.a) >= 0 && i < this.d.q.size()) {
                     this.d.v.a(this.a, this.d.n.getThreadData(), (MediaData) this.d.q.get(this.a));
@@ -515,10 +515,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
         }
     }
 
-    public void setSubClickListener(mp6<b15> mp6Var) {
+    public void setSubClickListener(sp6<b15> sp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, mp6Var) == null) {
-            this.m = mp6Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, sp6Var) == null) {
+            this.m = sp6Var;
         }
     }
 
@@ -612,7 +612,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.tx
     /* renamed from: i */
     public void onBindDataToView(b15 b15Var) {
         boolean z;
@@ -646,13 +646,13 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
         }
     }
 
-    public mp6<b15> getSubClickListener() {
+    public sp6<b15> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.m;
         }
-        return (mp6) invokeV.objValue;
+        return (sp6) invokeV.objValue;
     }
 
     public final void h() {
@@ -703,7 +703,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
             viewGroup.getLayoutParams().height = equipmentWidth;
             this.j.getLayoutParams().width = equipmentWidth;
             EMManager.from(this.i).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0607);
-            this.i.setTypeface(l75.L(l75.H(R.string.F_X02)));
+            this.i.setTypeface(p75.L(p75.H(R.string.F_X02)));
             this.p = new b(this);
         }
     }
@@ -779,7 +779,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ux<b15> {
         if ((interceptable != null && interceptable.invokeLI(1048583, this, mediaData, i) != null) || mediaData == null || this.h == null || i != 0) {
             return;
         }
-        if (mediaData.getLottieType() != 0 && !ei.isEmpty(mediaData.getGuideText())) {
+        if (mediaData.getLottieType() != 0 && !di.isEmpty(mediaData.getGuideText())) {
             this.h.setVisibility(0);
             this.h.h(mediaData.getGuideText());
             this.h.f();

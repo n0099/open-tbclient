@@ -1,14 +1,7 @@
 package com.baidu.tieba;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
+import java.util.List;
 /* loaded from: classes7.dex */
-public @interface r85 {
-    boolean isAsync() default false;
-
-    String value() default "";
+public interface r85 {
+    void a(List<Long> list);
 }

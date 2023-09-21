@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.tieba.homepage.personalize.adapter.RecommendRecentForumListAdapter;
 import com.baidu.tieba.homepage.personalize.view.HomePageRecentForumItemLayout;
-import com.baidu.tieba.i78;
+import com.baidu.tieba.k78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public List<i78> b;
+    public List<k78> b;
 
     /* loaded from: classes6.dex */
     public class RecentForumViewHolder extends RecyclerView.ViewHolder {
@@ -75,7 +75,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
         this.a = tbPageContext;
     }
 
-    public void setData(List<i78> list) {
+    public void setData(List<k78> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             if (this.b == null) {
@@ -96,10 +96,10 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
         return invokeV.intValue;
     }
 
-    public /* synthetic */ void l(i78 i78Var, int i, View view2) {
-        if (i78Var != null && !ei.isEmpty(i78Var.f())) {
-            UrlManager.getInstance().dealOneLink(this.a, new String[]{i78Var.f()});
-            o("c15376", i + 1, i78Var.b(), i78Var.d(), i78Var.h());
+    public /* synthetic */ void l(k78 k78Var, int i, View view2) {
+        if (k78Var != null && !di.isEmpty(k78Var.f())) {
+            UrlManager.getInstance().dealOneLink(this.a, new String[]{k78Var.f()});
+            o("c15376", i + 1, k78Var.b(), k78Var.d(), k78Var.h());
         }
     }
 
@@ -107,14 +107,14 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: m */
     public void onBindViewHolder(@NonNull RecentForumViewHolder recentForumViewHolder, final int i) {
-        final i78 i78Var;
+        final k78 k78Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, recentForumViewHolder, i) != null) || ListUtils.isEmpty(this.b) || ListUtils.getCount(this.b) <= i || (i78Var = this.b.get(i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, recentForumViewHolder, i) != null) || ListUtils.isEmpty(this.b) || ListUtils.getCount(this.b) <= i || (k78Var = this.b.get(i)) == null) {
             return;
         }
-        i78Var.k(i + 1);
-        recentForumViewHolder.a.setData(i78Var);
-        recentForumViewHolder.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.q58
+        k78Var.m(i + 1);
+        recentForumViewHolder.a.setData(k78Var);
+        recentForumViewHolder.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.s58
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,7 +122,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    RecommendRecentForumListAdapter.this.l(i78Var, i, view2);
+                    RecommendRecentForumListAdapter.this.l(k78Var, i, view2);
                 }
             }
         });

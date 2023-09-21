@@ -1,87 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.poly.widget.toast.ToastLoadingView;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class dj1 {
     public static /* synthetic */ Interceptable $ic;
+    public static Toast a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ToastLoadingView a;
-
-        public a(ToastLoadingView toastLoadingView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {toastLoadingView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = toastLoadingView;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                dj1.b(this.a);
-            }
-        }
-    }
-
-    public static void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, ToastLoadingView toastLoadingView, long j) {
+    public static View a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{viewGroup, layoutParams, toastLoadingView, Long.valueOf(j)}) == null) {
-            if (toastLoadingView.getParent() instanceof ViewGroup) {
-                ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
-            }
-            viewGroup.addView(toastLoadingView, layoutParams);
-            toastLoadingView.setLoading(true);
-            if (j != -1) {
-                viewGroup.postDelayed(new a(toastLoadingView), j);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0551, (ViewGroup) null);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cde)).setText(str);
+            return inflate;
         }
+        return (View) invokeLL.objValue;
     }
 
-    public static void b(ToastLoadingView toastLoadingView) {
+    public static void f(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, toastLoadingView) == null) && toastLoadingView != null && (toastLoadingView.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
-            toastLoadingView.setLoading(false);
+        if ((interceptable != null && interceptable.invokeLL(65541, null, context, str) != null) || context == null) {
+            return;
+        }
+        Toast toast = a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        b(context);
+        a.setView(a(context, str));
+        a.show();
+    }
+
+    public static void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            Toast toast = new Toast(context.getApplicationContext());
+            a = toast;
+            toast.setGravity(17, 0, 0);
+            a.setDuration(0);
         }
     }
 
-    public static ToastLoadingView c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str, long j) {
+    public static View c(Context context, int i, String str, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{viewGroup, layoutParams, str, Long.valueOf(j)})) == null) {
-            if (viewGroup == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0550, (ViewGroup) null);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cdd);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cde);
+            if (-1 == i) {
+                imageView.setVisibility(8);
+            } else {
+                imageView.setVisibility(0);
+                imageView.setImageResource(i);
+                if (z) {
+                    imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f0100b6));
+                }
             }
-            ToastLoadingView toastLoadingView = new ToastLoadingView(viewGroup.getContext());
-            if (!TextUtils.isEmpty(str)) {
-                toastLoadingView.setText(str);
-            }
-            a(viewGroup, layoutParams, toastLoadingView, j);
-            return toastLoadingView;
+            textView.setText(str);
+            return inflate;
         }
-        return (ToastLoadingView) invokeCommon.objValue;
+        return (View) invokeCommon.objValue;
+    }
+
+    public static void d(Context context, int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(65539, null, context, i, str) != null) || context == null) {
+            return;
+        }
+        Toast toast = a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        b(context);
+        a.setView(c(context, i, str, false));
+        a.show();
+    }
+
+    public static void e(Context context, int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, str) != null) || context == null) {
+            return;
+        }
+        Toast toast = a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        b(context);
+        a.setView(c(context, i, str, true));
+        a.show();
     }
 }

@@ -5,40 +5,76 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
 public class jkb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static boolean b = false;
-    public static boolean c = false;
-    public static boolean d = true;
-    public static long e = 300000;
-    public static int f = 10;
-    public static long g = 604800000;
-    public static long h = 104857600;
-    public static int i = 100;
-    public static int j = 5;
-    public static int k = 10;
-    public static long l = 104857600;
-    public static int m = 0;
-    public static int n = 1;
-    public static int o = 1;
-    public static int p = 0;
-    public static int q = 1;
+    public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947887592, "Lcom/baidu/tieba/jkb;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947887592, "Lcom/baidu/tieba/jkb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947887592, "Lcom/baidu/tieba/jkb;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    }
+
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
+            }
+            return sb.toString();
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947887592, "Lcom/baidu/tieba/jkb;");
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                return c(str.getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                return a(messageDigest.digest());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

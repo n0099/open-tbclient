@@ -1,84 +1,52 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.ComponentName;
+import android.content.pm.PackageManager;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class s3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i, r3a r3aVar) {
-        InterceptResult invokeIL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, r3aVar)) == null) {
-            if (i <= 0) {
-                return r3aVar.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
+            if (StringUtils.isNull(systemProperty) || JavaTypesHelper.toInt(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) < 9) {
+                return false;
             }
-            if (r3aVar.c()) {
-                return i + r3aVar.b();
-            }
-            return i + r3aVar.b() + 1;
+            return true;
         }
-        return invokeIL.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull r3a r3aVar, int i2, @Nullable T t, @Nullable t3a t3aVar, @Nullable u3a u3aVar) {
-        InterceptResult invokeCommon;
-        int i3;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), r3aVar, Integer.valueOf(i2), t, t3aVar, u3aVar})) == null) {
-            if (r3aVar.a() != -1 && r3aVar.b() != -1) {
-                int a = a(i2, r3aVar);
-                if (t3aVar != null && t != null) {
-                    if (i <= i2) {
-                        if (u3aVar != 0) {
-                            u3aVar.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i4 = i + 1;
-                    if (i4 < a) {
-                        if (u3aVar != 0) {
-                            u3aVar.a(i, a);
-                        }
-                        return false;
-                    }
-                    if (i > a) {
-                        i3 = i4;
-                    } else {
-                        i3 = a;
-                    }
-                    int i5 = i39.i(list);
-                    if (i3 >= i5 && (t3aVar.b() || i3 > i5)) {
-                        if (u3aVar != 0) {
-                            u3aVar.d(i, i3, i5, t3aVar, t);
-                        }
-                        return false;
-                    }
-                    t3aVar.a(i3);
-                    if (!t3aVar.b()) {
-                        i39.b(list, t, i3);
-                        if (u3aVar != 0) {
-                            u3aVar.c(i, i3, t3aVar, t);
-                            return true;
-                        }
-                        return true;
-                    } else if (u3aVar != 0) {
-                        u3aVar.e(i, i3, i39.d(list, i3), t3aVar, t);
-                        return true;
-                    } else {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
+            try {
+                try {
+                } catch (PackageManager.NameNotFoundException unused) {
+                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
                         return true;
                     }
-                } else if (u3aVar != 0) {
-                    u3aVar.a(i, a);
                 }
+            } catch (PackageManager.NameNotFoundException unused2) {
+            }
+            if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {
+                return true;
             }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.booleanValue;
     }
 }

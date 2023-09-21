@@ -1,30 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.os.Bundle;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
+import android.content.DialogInterface;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
+import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qs9 extends Dialog {
+public class qs9 implements csa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public View b;
-    public LinearLayout c;
-    public float d;
+    public BdUniqueId b;
+    public rs9 c;
+    public BlueCircleProgressDialog d;
+    public z95 e;
+    public HttpMessageListener f;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qs9 a;
@@ -47,100 +54,150 @@ public class qs9 extends Dialog {
             this.a = qs9Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().removeMessage(this.a.b);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qs9(Context context, View view2) {
-        super(context, 16973835);
+    /* loaded from: classes7.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qs9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(qs9 qs9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qs9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qs9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof UEGReportResponsedMessage)) {
+                return;
+            }
+            if (this.a.d != null) {
+                this.a.d.setDialogVisiable(false);
+            }
+            UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
+            String url = uEGReportResponsedMessage.getUrl();
+            if (StringUtils.isNull(url)) {
+                String errorString = uEGReportResponsedMessage.getErrorString();
+                if (StringUtils.isNull(errorString)) {
+                    errorString = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e42);
+                }
+                this.a.e.c(errorString);
+                return;
+            }
+            this.a.h(url);
+        }
+    }
+
+    public qs9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = 0.33f;
+        this.f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
         this.a = context;
-        this.b = view2;
+        this.c = new rs9();
+        z95 z95Var = new z95();
+        this.e = z95Var;
+        z95Var.a = 1000L;
     }
 
-    public void a(float f) {
+    @Override // com.baidu.tieba.csa
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.d = f;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            j();
+            this.c.a(str);
         }
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    @Override // com.baidu.tieba.csa
+    public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            requestWindowFeature(1);
-            setContentView(R.layout.person_info_more_dialog);
-            Display defaultDisplay = ((WindowManager) this.a.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            attributes.width = defaultDisplay.getWidth();
-            getWindow().setAttributes(attributes);
-            getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.d);
-            getWindow().setGravity(80);
-            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003fc);
-            setCanceledOnTouchOutside(true);
-            setCancelable(true);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fec);
-            this.c = linearLayout;
-            linearLayout.setOnClickListener(new a(this));
-            if (this.b == null) {
-                return;
-            }
-            this.c.removeAllViews();
-            if (this.b.getParent() != null) {
-                if (this.b.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.b.getParent()).removeView(this.b);
-                    this.c.addView(this.b);
-                    return;
-                }
-                return;
-            }
-            this.c.addView(this.b);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
+            this.b = bdUniqueId;
+            this.c.c(bdUniqueId);
+            this.f.setTag(bdUniqueId);
+            this.f.setSelfListener(true);
+            MessageManager.getInstance().registerListener(this.f);
         }
     }
 
-    @Override // android.app.Dialog
-    public void setContentView(View view2) {
+    @Override // com.baidu.tieba.csa
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.b = view2;
-            LinearLayout linearLayout = this.c;
-            if (linearLayout != null) {
-                linearLayout.removeAllViews();
-                if (this.b.getParent() != null) {
-                    if (this.b.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) this.b.getParent()).removeView(this.b);
-                        this.c.addView(this.b);
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            j();
+            this.c.b(str);
+        }
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            BrowserHelper.startWebActivity((Context) TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.pb_web_view_report_title), str, true);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.d == null) {
+                TbPageContext tbPageContext = null;
+                BdPageContext<?> a2 = m9.a(this.a);
+                if (a2 instanceof TbPageContext) {
+                    tbPageContext = (TbPageContext) a2;
+                }
+                if (tbPageContext == null) {
                     return;
                 }
-                this.c.addView(this.b);
+                BlueCircleProgressDialog blueCircleProgressDialog = new BlueCircleProgressDialog(tbPageContext);
+                this.d = blueCircleProgressDialog;
+                blueCircleProgressDialog.setCancelListener(new a(this));
             }
+            this.d.setDialogVisiable(true);
         }
     }
 }

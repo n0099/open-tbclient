@@ -78,8 +78,8 @@ public class a extends Dialog {
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C0773a extends WebViewClient {
-        public C0773a() {
+    public class C0766a extends WebViewClient {
+        public C0766a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -556,7 +556,7 @@ public class a extends Dialog {
     private void e() {
         this.k.setVerticalScrollBarEnabled(false);
         this.k.setHorizontalScrollBarEnabled(false);
-        this.k.setWebViewClient(new C0773a());
+        this.k.setWebViewClient(new C0766a());
         this.k.setWebChromeClient(new WebChromeClient());
         this.k.clearFormData();
         this.k.clearSslPreferences();

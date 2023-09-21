@@ -74,9 +74,9 @@ public class y2 extends u0 implements m2 {
     public final t2 z;
 
     @Override // com.baidu.tieba.m2
-    public void t(boolean z) {
+    public void B(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
         }
     }
 
@@ -446,7 +446,7 @@ public class y2 extends u0 implements m2 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int length = this.q.length;
             for (int i = 0; i < length; i++) {
                 if (this.q[i] == -1) {
@@ -519,42 +519,6 @@ public class y2 extends u0 implements m2 {
                 this.t = null;
             }
             y0.a.log("AndroidInput", "sensor listener tear down");
-        }
-    }
-
-    @Override // com.baidu.tieba.m2
-    public void d1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g();
-        }
-    }
-
-    @Override // com.baidu.tieba.m2
-    public void k0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            k();
-            Arrays.fill(this.q, -1);
-            Arrays.fill(this.o, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.m2
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            k();
-            Arrays.fill(this.q, -1);
-            Arrays.fill(this.o, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.m2
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            g();
         }
     }
 
@@ -652,9 +616,9 @@ public class y2 extends u0 implements m2 {
     }
 
     @Override // com.baidu.tieba.m2
-    public void q1() {
+    public void v1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             synchronized (this) {
                 if (this.F) {
                     this.F = false;
@@ -775,6 +739,42 @@ public class y2 extends u0 implements m2 {
             return zArr2;
         }
         return (boolean[]) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m2
+    public void k1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            g();
+        }
+    }
+
+    @Override // com.baidu.tieba.m2
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            k();
+            Arrays.fill(this.q, -1);
+            Arrays.fill(this.o, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.m2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            g();
+        }
+    }
+
+    @Override // com.baidu.tieba.m2
+    public void r0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            k();
+            Arrays.fill(this.q, -1);
+            Arrays.fill(this.o, false);
+        }
     }
 
     @Override // android.view.View.OnGenericMotionListener

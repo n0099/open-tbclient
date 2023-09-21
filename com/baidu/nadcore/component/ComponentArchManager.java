@@ -13,8 +13,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tieba.qj0;
 import com.baidu.tieba.rj0;
-import com.baidu.tieba.sj0;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
@@ -23,7 +23,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
 public class ComponentArchManager implements LifecycleObserver {
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends sj0>, sj0> b;
+    public final SimpleArrayMap<Class<? extends rj0>, rj0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -57,7 +57,7 @@ public class ComponentArchManager implements LifecycleObserver {
         this.a.add(component);
     }
 
-    public final void w(Class<? extends sj0> clazz, sj0 componentService) {
+    public final void w(Class<? extends rj0> clazz, rj0 componentService) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
         Intrinsics.checkNotNullParameter(componentService, "componentService");
         this.b.put(clazz, componentService);
@@ -85,18 +85,18 @@ public class ComponentArchManager implements LifecycleObserver {
         return this.c;
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public void onDestroy() {
-        p();
-        A();
-        this.b.clear();
-        this.a.clear();
-    }
-
-    public final void p() {
+    public final void o() {
         for (IComponentPlugin iComponentPlugin : this.a) {
             iComponentPlugin.onRelease();
         }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void onDestroy() {
+        o();
+        A();
+        this.b.clear();
+        this.a.clear();
     }
 
     public final void B(IComponentPlugin componentPlugin) {
@@ -130,7 +130,7 @@ public class ComponentArchManager implements LifecycleObserver {
         iComponentPlugin.m();
     }
 
-    public final void j(rj0 event) {
+    public final void j(qj0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         for (IComponentPlugin iComponentPlugin : this.a) {
             iComponentPlugin.s(event);
@@ -148,12 +148,12 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public <T extends sj0> T q(Class<T> clazz) {
+    public <T extends rj0> T p(Class<T> clazz) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
-        sj0 sj0Var = this.b.get(clazz);
-        if (!(sj0Var instanceof sj0)) {
-            sj0Var = null;
+        rj0 rj0Var = this.b.get(clazz);
+        if (!(rj0Var instanceof rj0)) {
+            rj0Var = null;
         }
-        return (T) sj0Var;
+        return (T) rj0Var;
     }
 }

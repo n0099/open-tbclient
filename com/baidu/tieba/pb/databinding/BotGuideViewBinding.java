@@ -51,11 +51,11 @@ public final class BotGuideViewBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) view2;
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090441);
+            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090439);
             if (eMTextView != null) {
                 return new BotGuideViewBinding(relativeLayout, relativeLayout, eMTextView);
             }
-            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f090441)));
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f090439)));
         }
         return (BotGuideViewBinding) invokeL.objValue;
     }

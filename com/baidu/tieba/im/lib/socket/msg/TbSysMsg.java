@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fl8;
 import com.baidu.tieba.im.lib.socket.msg.data.ChatEggRainData;
-import com.baidu.tieba.kh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,8 +18,10 @@ import java.io.Serializable;
 /* loaded from: classes6.dex */
 public abstract class TbSysMsg extends TbNormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String FIELD_AVATAR = "avatar";
     public static final String FIELD_CHATROOM_ID = "chatroom_id";
     public static final String FIELD_UK = "uk";
+    public static final String FIELD_USERNAME = "username";
     public static final String FIELD_USER_FROM = "user_from";
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName("ext")
@@ -297,6 +299,7 @@ public abstract class TbSysMsg extends TbNormalMsg {
         public String portrait;
         @SerializedName("identity")
         public int role;
+        @SerializedName("username")
         public String username;
 
         public User() {
@@ -345,7 +348,7 @@ public abstract class TbSysMsg extends TbNormalMsg {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return kh8.a(this.bduk);
+                return fl8.a(this.bduk);
             }
             return invokeV.longValue;
         }
@@ -381,6 +384,24 @@ public abstract class TbSysMsg extends TbNormalMsg {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.longValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
         }
     }
 

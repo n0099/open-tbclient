@@ -6,131 +6,122 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nnb extends kob {
+public class nnb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<Ssp> a;
-    public final Set<aob> b;
-    public final Set<ynb> c;
+    public String a;
+    public String b;
+    public String c;
+    public List<onb> d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nnb(int i, ObjectInput objectInput) {
-        super(i);
-        HashSet hashSet;
+    public nnb(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int readInt = objectInput.readInt();
-        HashSet hashSet2 = new HashSet(readInt);
-        HashMap hashMap = new HashMap();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            Ssp ssp = new Ssp(objectInput.readInt(), objectInput);
-            hashSet2.add(ssp);
-            for (Ssp.Pid pid : ssp.pids) {
-                hashMap.put(Long.valueOf(pid.id), pid);
-            }
-        }
-        int readInt2 = objectInput.readInt();
-        HashSet hashSet3 = new HashSet(readInt2);
-        for (int i5 = 0; i5 < readInt2; i5++) {
-            hashSet3.add(new aob(objectInput.readInt(), objectInput, hashMap));
-        }
-        this.a = Collections.unmodifiableSet(hashSet2);
-        this.b = Collections.unmodifiableSet(hashSet3);
-        if (i == 1) {
-            int readInt3 = objectInput.readInt();
-            hashSet = new HashSet(readInt3);
-            for (int i6 = 0; i6 < readInt3; i6++) {
-                hashSet.add(new ynb(objectInput.readInt(), objectInput, hashMap));
-            }
-        } else {
-            hashSet = new HashSet();
-        }
-        this.c = Collections.unmodifiableSet(hashSet);
+        this.a = "";
+        this.b = str;
+        this.c = str2;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nnb(Set<Ssp> set, Set<aob> set2, Set<ynb> set3) {
-        super(1);
+    public nnb(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {set, set2, set3};
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = set;
-        this.b = set2;
-        this.c = set3;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (jSONObject != null) {
+            this.a = jSONObject.optString("preview_type");
+            this.b = jSONObject.optString("preview_aid");
+            this.d = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("preview_cids");
+            if (optJSONArray != null && optJSONArray.length() != 0) {
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    this.d.add(new onb(optJSONArray.optJSONObject(i3)));
+                }
             }
-            if (obj == null || nnb.class != obj.getClass()) {
-                return false;
-            }
-            nnb nnbVar = (nnb) obj;
-            return Objects.equals(this.a, nnbVar.a) && Objects.equals(this.b, nnbVar.b) && Objects.equals(this.c, nnbVar.c);
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b, this.c) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kob
-    public void srzableInternal(ObjectOutput objectOutput) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (Ssp ssp : this.a) {
-                ssp.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.b.size());
-            for (aob aobVar : this.b) {
-                aobVar.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.c.size());
-            for (ynb ynbVar : this.c) {
-                ynbVar.srzable(objectOutput);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<onb> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return String.format("%s(%s)", c(), a());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b(nnb nnbVar) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nnbVar)) == null) {
+            if (nnbVar == null || (str = this.b) == null) {
+                return false;
+            }
+            return str.equals(nnbVar.a());
+        }
+        return invokeL.booleanValue;
     }
 }

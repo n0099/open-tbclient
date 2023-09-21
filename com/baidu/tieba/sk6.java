@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.Pair;
-import android.webkit.WebSettings;
+import android.annotation.SuppressLint;
 import android.webkit.WebView;
+import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.browser.exception.JsInterfaceException;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public abstract class sk6 {
+public class sk6 extends tk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final WebView a;
+    public final Map<String, AbsJsInterface> b;
 
     public sk6(WebView webView) {
         Interceptable interceptable = $ic;
@@ -38,88 +37,91 @@ public abstract class sk6 {
             }
         }
         this.a = webView;
-        webView.setDrawingCacheEnabled(false);
-        webView.setLayerType(2, null);
-        webView.setScrollBarStyle(0);
-        webView.requestFocusFromTouch();
-        if (Build.VERSION.SDK_INT >= 26) {
-            try {
-                webView.setRendererPriorityPolicy(2, false);
-            } catch (Exception e) {
-                if (TbadkCoreApplication.getInst().isDebugMode()) {
+        this.b = new ArrayMap();
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            kn6.c("newHybrid", "remove k:" + str);
+            AbsJsInterface absJsInterface = this.b.get(str);
+            if (absJsInterface != null) {
+                absJsInterface.deAttachWebView();
+            }
+            this.a.removeJavascriptInterface(str);
+        }
+    }
+
+    public static sk6 g(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webView)) == null) {
+            return new sk6(webView);
+        }
+        return (sk6) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rk6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (String str : this.b.keySet()) {
+                h(str);
+            }
+            this.b.clear();
+        }
+    }
+
+    @Override // com.baidu.tieba.rk6
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Map<String, Class<? extends AbsJsInterface>> b = an6.a().b();
+            if (!b.isEmpty()) {
+                try {
+                    e(b);
+                } catch (JsInterfaceException e) {
+                    if (!nm6.a()) {
+                        ((nn6) ServiceManager.getService(nn6.a)).a(e);
+                        return;
+                    }
                     throw e;
                 }
             }
         }
     }
 
-    public void a() {
+    public final void e(Map<String, Class<? extends AbsJsInterface>> map) throws JsInterfaceException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebSettings c = c();
-            c.setJavaScriptEnabled(true);
-            c.setCacheMode(-1);
-            if (Build.VERSION.SDK_INT >= 21) {
-                c.setMixedContentMode(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            if (d()) {
+                for (Map.Entry<String, Class<? extends AbsJsInterface>> entry : map.entrySet()) {
+                    Class<? extends AbsJsInterface> value = entry.getValue();
+                    if (c(value)) {
+                        try {
+                            f(entry.getKey(), value);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        throw new JsInterfaceException("This object has not offer method javascript to call ,please check addJavascriptInterface annotation was be added");
+                    }
+                }
+                return;
             }
-            c.setGeolocationEnabled(true);
-            c.setLoadsImagesAutomatically(true);
-            c.setBlockNetworkImage(false);
-            c.setBlockNetworkLoads(false);
-            c.setLoadWithOverviewMode(true);
-            c.setAllowFileAccess(true);
-            c.setUseWideViewPort(true);
-            c.setSupportZoom(true);
-            c.setBuiltInZoomControls(false);
-            c.setDisplayZoomControls(false);
-            c.setMediaPlaybackRequiresUserGesture(false);
-            c.setDomStorageEnabled(true);
-            try {
-                c.setAppCacheEnabled(true);
-                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
-            } catch (IOException unused) {
-                c.setAppCachePath(getContext().getCacheDir().getPath());
-            }
-            String userAgentString = c().getUserAgentString();
-            Pair<Boolean, String> k = zj6.k(userAgentString);
-            if (((Boolean) k.first).booleanValue()) {
-                TbLog hybridLog = HybridLog.getInstance();
-                hybridLog.i("WebSetting", "更新UA信息：" + ((String) k.second) + " 原UA：" + userAgentString);
-                c.setUserAgentString((String) k.second);
-            }
-            c.setJavaScriptCanOpenWindowsAutomatically(true);
-            c.setTextZoom(100);
+            throw new JsInterfaceException("The injected object is not safe, give up injection");
         }
     }
 
-    public final File b(Context context, String str) throws IOException {
-        InterceptResult invokeLL;
+    @SuppressLint({"JavascriptInterface"})
+    public final void f(String str, Class<? extends AbsJsInterface> cls) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            File file = new File(context.getCacheDir(), str);
-            if (!file.exists() && !file.mkdirs()) {
-                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
-            }
-            return file;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cls) == null) {
+            kn6.c("newHybrid", "inject k:" + str + "  v:" + cls);
+            AbsJsInterface newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+            newInstance.attachWebView(this.a);
+            this.b.put(str, newInstance);
+            this.a.addJavascriptInterface(newInstance, str);
         }
-        return (File) invokeLL.objValue;
-    }
-
-    public WebSettings c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getSettings();
-        }
-        return (WebSettings) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getContext();
-        }
-        return (Context) invokeV.objValue;
     }
 }

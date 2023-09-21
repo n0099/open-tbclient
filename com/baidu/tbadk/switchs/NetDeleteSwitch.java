@@ -25,7 +25,7 @@ public class NetDeleteSwitch extends ve {
 
     @Override // com.baidu.tieba.ve
     /* renamed from: getCrashKeys */
-    public String[] mo129getCrashKeys() {
+    public String[] mo130getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;

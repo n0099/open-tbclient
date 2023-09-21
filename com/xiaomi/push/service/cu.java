@@ -25,20 +25,20 @@ public class cu extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo756a() {
+    public String mo758a() {
         return "clear account cache.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo473a() {
+    public void mo475a() {
         fw fwVar;
-        u.m839a((Context) this.a);
-        bg.a().m797a("5");
+        u.m841a((Context) this.a);
+        bg.a().m799a("5");
         com.xiaomi.push.ab.a(this.b);
         fwVar = this.a.f847a;
         fwVar.c(fw.a());
-        com.xiaomi.channel.commonutils.logger.b.m181a("clear account and start registration. " + this.f975a);
+        com.xiaomi.channel.commonutils.logger.b.m183a("clear account and start registration. " + this.f975a);
         this.a.a(this.f976a, this.f975a);
     }
 }

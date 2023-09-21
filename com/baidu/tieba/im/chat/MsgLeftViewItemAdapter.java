@@ -20,6 +20,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     public boolean l;
     public boolean m;
     public MsgleftView n;
+    public boolean o;
 
     /* loaded from: classes6.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgleftView> {
@@ -69,6 +70,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
         }
         this.l = true;
         this.m = false;
+        this.o = false;
     }
 
     public void G(int i) {
@@ -81,24 +83,22 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: H */
     public MsgCommonItemAdapter.MsgViewHolder<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
             this.n = new MsgleftView(this.a);
-            return new a(this, this.n.u(), this.n);
+            return new a(this, this.n.g(), this.n);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
     public void I(boolean z) {
-        MsgleftView msgleftView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (msgleftView = this.n) != null) {
-            msgleftView.K(z);
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.o = z;
         }
     }
 
@@ -117,7 +117,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.pm
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.om
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -130,21 +130,22 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgleftView a2 = msgViewHolder.a();
-            a2.Z(this.g);
-            a2.S(this.l);
-            a2.N(this.h);
+            a2.F(this.o);
+            a2.T(this.g);
+            a2.N(this.l);
+            a2.I(this.h);
             a2.setUpdateListener(this.j);
-            a2.Y(this.i);
-            a2.P(this.m);
-            a2.J();
+            a2.S(this.i);
+            a2.K(this.m);
+            a2.E();
             chatMessage.getCacheData().setIs_left(1);
-            a2.T(this.b);
-            a2.U(this.c);
-            a2.W(i);
-            a2.L(this.d);
-            a2.R(chatMessage.getCacheData().getLastMsgTime());
-            a2.X(viewGroup, chatMessage);
-            a2.M(viewGroup, chatMessage);
+            a2.O(this.b);
+            a2.P(this.c);
+            a2.Q(i);
+            a2.G(this.d);
+            a2.M(chatMessage.getCacheData().getLastMsgTime());
+            a2.R(viewGroup, chatMessage);
+            a2.H(viewGroup, chatMessage);
             this.a.getLayoutMode().setNightMode(false);
             this.a.getLayoutMode().onModeChanged(view2);
             return view2;

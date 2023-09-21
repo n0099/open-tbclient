@@ -5,7 +5,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.k8a;
+import com.baidu.tieba.qaa;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public k8a b;
+    public qaa b;
     public String c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -61,21 +61,21 @@ public class AccountSafeModel extends BdBaseModel {
         return (PrivateInfoNetMessage) invokeV.objValue;
     }
 
-    public k8a N() {
+    public qaa N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (k8a) invokeV.objValue;
+        return (qaa) invokeV.objValue;
     }
 
     public final SimpleUser O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            k8a k8aVar = this.b;
-            if (k8aVar != null && k8aVar.f() != null) {
+            qaa qaaVar = this.b;
+            if (qaaVar != null && qaaVar.f() != null) {
                 return this.b.f();
             }
             return null;
@@ -136,10 +136,10 @@ public class AccountSafeModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void S(k8a k8aVar) {
+    public void S(qaa qaaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, k8aVar) == null) {
-            this.b = k8aVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, qaaVar) == null) {
+            this.b = qaaVar;
             Q();
         }
     }

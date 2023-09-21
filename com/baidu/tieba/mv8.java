@@ -1,158 +1,109 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
-import com.baidu.tbadk.core.atomData.OfficialBarFeedActivityConfig;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.immessagecenter.StrangerListActivityConfig;
-import com.baidu.tieba.immessagecenter.im.chat.notify.MessageAggregationListAdapter;
-import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
-import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class mv8 implements AdapterView.OnItemClickListener {
+public class mv8 extends om<lv8, CardViewHolder<qv8>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final BdUniqueId b;
-    public final MsgChatCenterSliceView c;
-    public final MessageAggregationListAdapter d;
-    public final MsgChatCenterSliceViewModel e;
+    public TbPageContext<?> a;
+    public sp6 b;
+    public String c;
 
-    public mv8(Context context, BdUniqueId uniqueId, MsgChatCenterSliceView sliceView, MessageAggregationListAdapter messageAggregationListAdapter, MsgChatCenterSliceViewModel viewModel) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mv8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getContext(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, uniqueId, sliceView, messageAggregationListAdapter, viewModel};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
-        Intrinsics.checkNotNullParameter(sliceView, "sliceView");
-        Intrinsics.checkNotNullParameter(viewModel, "viewModel");
-        this.a = context;
-        this.b = uniqueId;
-        this.c = sliceView;
-        this.d = messageAggregationListAdapter;
-        this.e = viewModel;
+        this.a = tbPageContext;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
-        boolean z;
-        String str;
-        String str2;
+    @Override // com.baidu.tieba.om
+    public ln getOnAdapterItemClickListener() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i < 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.getOnAdapterItemClickListener();
         }
-        MessageAggregationListAdapter messageAggregationListAdapter = this.d;
-        String str3 = null;
-        if (messageAggregationListAdapter != null) {
-            imMessageCenterShowItemData = messageAggregationListAdapter.getItem(i);
-        } else {
-            imMessageCenterShowItemData = null;
-        }
-        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getDataType() == 2) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (z) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a).createNormalCfg(imMessageCenterShowItemData.getForumName(), FrsActivityConfig.FRS_FROM_IM_REC_FORUM)));
-            sx8.a.f(imMessageCenterShowItemData);
-            return;
-        }
-        if (imMessageCenterShowItemData != null) {
-            sx8.a.d(imMessageCenterShowItemData, this.a);
-        }
-        StatisticItem statisticItem = new StatisticItem("c13720");
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        if (imMessageCenterShowItemData != null) {
-            str = imMessageCenterShowItemData.getOwnerName();
-        } else {
-            str = null;
-        }
-        if (TextUtils.isEmpty(str)) {
-            ux8.a(imMessageCenterShowItemData, this.a, this.b);
-            statisticItem.param("obj_type", 6);
-        } else if (Intrinsics.areEqual(str, "5")) {
-            TiebaStatic.log("c12931");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialBarFeedActivityConfig(this.a)));
-        } else if (Intrinsics.areEqual(str, "8")) {
-            long j2 = JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L);
-            OfficalBarChatActivityConfig officalBarChatActivityConfig = new OfficalBarChatActivityConfig(this.a, j2, imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, imMessageCenterShowItemData.getUserType());
-            sx8.a.g(j2);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, officalBarChatActivityConfig));
-        } else if (Intrinsics.areEqual(str, "7")) {
-            TiebaStatic.log(new StatisticItem("c12614"));
-            statisticItem.param("obj_type", 6);
-            sx8.a.e(imMessageCenterShowItemData);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(this.a)));
-            return;
-        } else if (Intrinsics.areEqual(str, "9")) {
-            this.c.X(imMessageCenterShowItemData);
-            if (imMessageCenterShowItemData.getAtInfoData() != null) {
-                imMessageCenterShowItemData.setAtInfoData(null);
+        return (ln) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: s */
+    public CardViewHolder<qv8> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            qv8 qv8Var = new qv8(this.a, viewGroup);
+            sp6 sp6Var = this.b;
+            if (sp6Var != null) {
+                qv8Var.k(sp6Var);
             }
-            imMessageCenterShowItemData.setUnReadCount(0);
-            this.e.B(false);
-            this.e.o().X(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L));
-            this.e.E(null, imMessageCenterShowItemData, 2);
-            sx8.a.c(imMessageCenterShowItemData);
-            this.e.o().K();
-        } else {
-            ux8.a(imMessageCenterShowItemData, this.a, this.b);
-            statisticItem.param("obj_type", 6);
+            return new CardViewHolder<>(qv8Var);
         }
-        if (imMessageCenterShowItemData != null) {
-            str2 = imMessageCenterShowItemData.getFriendName();
-        } else {
-            str2 = null;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
         }
-        if (!TextUtils.isEmpty(str2)) {
-            if (imMessageCenterShowItemData != null) {
-                str3 = imMessageCenterShowItemData.getFriendName();
+    }
+
+    public void x(sp6 sp6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, sp6Var) == null) {
+            this.b = sp6Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lv8 lv8Var, CardViewHolder<qv8> cardViewHolder) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lv8Var, cardViewHolder})) == null) {
+            if (lv8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().z(this.c);
+                qv8 a = cardViewHolder.a();
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                a.A(z);
+                cardViewHolder.a().i(lv8Var);
+                return cardViewHolder.getView();
             }
-            if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cd7))) {
-                statisticItem.param("obj_type", 8);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cda))) {
-                statisticItem.param("obj_type", 9);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cd8))) {
-                statisticItem.param("obj_type", 10);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cd3))) {
-                statisticItem.param("obj_type", 4);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cd5))) {
-                statisticItem.param("obj_type", 5);
-            }
+            return null;
         }
-        TiebaStatic.log(statisticItem);
-        if (imMessageCenterShowItemData != null) {
-            sx8.a.b(imMessageCenterShowItemData, this.a);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

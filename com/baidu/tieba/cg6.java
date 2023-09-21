@@ -1,32 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.ala.personcenter.AlaPersonCenterFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class cg6 {
+public class cg6 extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<pm> c;
-    public List<cn> d;
-    public eh6 e;
-    public ig6 f;
+    public AlaPersonCenterFragment a;
 
-    public cg6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, eh6 eh6Var) {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public boolean isAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public cg6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, eh6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,81 +43,74 @@ public class cg6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = eh6Var;
-        a();
+        this.a = new AlaPersonCenterFragment();
+        getFragmentTabStructure().frag = this.a;
     }
 
-    public final void a() {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public FragmentTabStructure createFragmentTabStructure() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bg6 bg6Var = new bg6(this.a);
-            fg6 fg6Var = new fg6(this.a);
-            gg6 gg6Var = new gg6(this.a);
-            zf6 zf6Var = new zf6(this.a);
-            eg6 eg6Var = new eg6(this.a);
-            hg6 hg6Var = new hg6(this.a);
-            dg6 dg6Var = new dg6(this.a);
-            ag6 ag6Var = new ag6(this.a);
-            this.f = new ig6(this.a);
-            kg6 kg6Var = new kg6(this.a, this.e);
-            jg6 jg6Var = new jg6(this.a);
-            this.c.add(bg6Var);
-            this.c.add(this.f);
-            this.c.add(fg6Var);
-            this.c.add(gg6Var);
-            this.c.add(zf6Var);
-            this.c.add(eg6Var);
-            this.c.add(hg6Var);
-            this.c.add(dg6Var);
-            this.c.add(ag6Var);
-            this.c.add(kg6Var);
-            this.c.add(jg6Var);
-            this.b.addAdapters(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+            fragmentTabStructure.type = 5;
+            fragmentTabStructure.textResId = R.string.ala_live;
+            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+            return fragmentTabStructure;
         }
+        return (FragmentTabStructure) invokeV.objValue;
     }
 
-    public void b(List<cn> list) {
+    public void a(pj7 pj7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && this.b != null && !ListUtils.isEmpty(list)) {
-            this.d.clear();
-            this.d.addAll(list);
-            this.b.setData(this.d);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, pj7Var) != null) || pj7Var == null || !pj7Var.h(5)) {
+            return;
+        }
+        pj7Var.a(this);
+    }
+
+    public void b(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
+            alaPersonCenterFragment.c2(str);
         }
     }
 
     public void c(String str) {
-        ig6 ig6Var;
+        AlaPersonCenterFragment alaPersonCenterFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (ig6Var = this.f) != null) {
-            ig6Var.B(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
+            alaPersonCenterFragment.d2(str);
         }
     }
 
     public void d(String str) {
-        ig6 ig6Var;
+        AlaPersonCenterFragment alaPersonCenterFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (ig6Var = this.f) != null) {
-            ig6Var.a(str);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
+            alaPersonCenterFragment.e2(str);
         }
     }
 
     public void e(String str) {
-        ig6 ig6Var;
+        AlaPersonCenterFragment alaPersonCenterFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (ig6Var = this.f) != null) {
-            ig6Var.C(str);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
+            alaPersonCenterFragment.f2(str);
         }
     }
 
-    public void f(boolean z) {
-        ig6 ig6Var;
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (ig6Var = this.f) != null) {
-            ig6Var.D(z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.mIndicator = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.mIndicator;
         }
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

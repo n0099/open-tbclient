@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
-/* loaded from: classes9.dex */
+import android.view.View;
+/* loaded from: classes8.dex */
 public interface z51 {
-    void a(JSONObject jSONObject);
+    void a(View view2, float f, float f2);
 }

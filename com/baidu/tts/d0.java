@@ -256,19 +256,32 @@ public class d0 {
             }
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:146:0x00e1 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x010f */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x0111 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:141:0x0086 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x0112 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x0114 */
         /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Removed duplicated region for block: B:106:0x01bd  */
-        /* JADX WARN: Removed duplicated region for block: B:132:0x0248 A[RETURN, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:133:0x024c  */
-        /* JADX WARN: Removed duplicated region for block: B:80:0x0166  */
+        /* JADX WARN: Removed duplicated region for block: B:106:0x01c0  */
+        /* JADX WARN: Removed duplicated region for block: B:132:0x024b A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:133:0x024f  */
+        /* JADX WARN: Removed duplicated region for block: B:80:0x0169  */
+        /* JADX WARN: Type inference failed for: r14v0, types: [org.json.JSONObject] */
+        /* JADX WARN: Type inference failed for: r15v0 */
+        /* JADX WARN: Type inference failed for: r15v11 */
+        /* JADX WARN: Type inference failed for: r15v12 */
+        /* JADX WARN: Type inference failed for: r15v5, types: [java.lang.Object, java.lang.String] */
+        /* JADX WARN: Type inference failed for: r15v6 */
+        /* JADX WARN: Type inference failed for: r15v8 */
+        /* JADX WARN: Type inference failed for: r15v9 */
         /* JADX WARN: Type inference failed for: r20v0 */
         /* JADX WARN: Type inference failed for: r20v10 */
+        /* JADX WARN: Type inference failed for: r20v11 */
         /* JADX WARN: Type inference failed for: r20v12 */
         /* JADX WARN: Type inference failed for: r20v13 */
         /* JADX WARN: Type inference failed for: r20v14 */
+        /* JADX WARN: Type inference failed for: r20v15 */
+        /* JADX WARN: Type inference failed for: r20v16 */
+        /* JADX WARN: Type inference failed for: r20v17 */
+        /* JADX WARN: Type inference failed for: r20v18 */
         /* JADX WARN: Type inference failed for: r20v6 */
         /* JADX WARN: Type inference failed for: r20v7 */
         /* JADX WARN: Type inference failed for: r20v8 */
@@ -278,21 +291,22 @@ public class d0 {
         */
         public int b(v1 v1Var) {
             Interceptable interceptable;
-            byte[] bArr;
+            ?? r20;
             int i;
-            byte[] bArr2;
+            byte[] bArr;
             f2 f2Var;
             boolean z;
             f2 f2Var2;
             w1 w1Var;
             String str;
+            byte[] bArr2;
             StringBuilder sb;
-            byte[] bArr3;
             long j;
             Interceptable interceptable2 = $ic;
             if (interceptable2 != null) {
                 interceptable = interceptable2;
-                bArr = 1048577;
+                r20 = 1048577;
+                r20 = 1048577;
                 InterceptResult invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v1Var);
                 if (invokeL != null) {
                     return invokeL.intValue;
@@ -300,7 +314,7 @@ public class d0 {
             }
             b bVar = this;
             if (v1Var.a == l0.c) {
-                byte[] bArr4 = v1Var.g;
+                byte[] bArr3 = v1Var.g;
                 ?? r6 = v1Var.c;
                 if (Math.abs((int) r6) == 1) {
                     w1 w1Var2 = v1Var.i;
@@ -310,11 +324,12 @@ public class d0 {
                         String str2 = bVar.j.b;
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("timeCostStatics = ");
-                        JSONObject jSONObject = new JSONObject();
+                        ?? jSONObject = new JSONObject();
                         try {
                             jSONObject.put(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, g2Var.c);
                             jSONObject.put("text", g2Var.e);
-                            jSONObject.put("instanceId", g2Var.d);
+                            StringBuilder sb3 = g2Var.d;
+                            jSONObject.put("instanceId", sb3);
                             jSONObject.put("beginSynthesize", g2Var.f);
                             w1Var = w1Var2;
                             try {
@@ -324,62 +339,63 @@ public class d0 {
                                 jSONObject.put("totalCost", g2Var.i - g2Var.f);
                                 g2.b bVar2 = g2Var.a;
                                 try {
-                                    if (bVar2 != null) {
-                                        long j2 = bVar2.a;
-                                        long j3 = bVar2.b;
-                                        interceptable = r6;
-                                        try {
-                                            long j4 = bVar2.c;
-                                            bArr = bArr4;
-                                            long j5 = bVar2.d;
-                                            jSONObject.put("onlineTimeStatistics", bVar2.a());
-                                            if (j2 != 0) {
-                                                jSONObject.put("sdkEarlyCost", j2 - g2Var.f);
-                                            } else if (j3 != 0) {
-                                                jSONObject.put("sdkEarlyCost", j3 - g2Var.f);
-                                            } else {
-                                                jSONObject.put("sdkEarlyCost", j4 - g2Var.f);
-                                            }
-                                            sb = sb2;
-                                            j = g2Var.i - j5;
-                                            str = str2;
-                                        } catch (JSONException e) {
-                                            e = e;
-                                            bArr = bArr4;
-                                            str = str2;
-                                            sb = sb2;
-                                            e.printStackTrace();
-                                            bArr3 = bArr;
-                                            StringBuilder sb3 = sb;
-                                            sb3.append(jSONObject.toString());
-                                            LoggerProxy.d(str, sb3.toString());
-                                            bArr2 = bArr3;
-                                            f2 f2Var3 = new f2();
-                                            bVar = this;
-                                            bVar.i = f2Var3;
-                                            f2Var3.d = bVar.j.a;
-                                            w1 w1Var3 = w1Var;
-                                            f2Var3.b = w1Var3.g;
-                                            f2Var3.c = w1Var3.b;
-                                            f2Var3.e = w1Var3.a;
-                                            if (v1Var.h == i0.a) {
-                                            }
-                                            bVar.e = v1Var.d;
-                                            if (bVar.f) {
-                                            }
-                                        }
-                                    } else {
-                                        bArr = bArr4;
-                                        interceptable = r6;
-                                        g2.a aVar = g2Var.b;
-                                        if (aVar != null) {
-                                            long j6 = aVar.a;
-                                            long j7 = aVar.b;
-                                            long j8 = j6 - g2Var.f;
-                                            JSONObject jSONObject2 = new JSONObject();
-                                            str = str2;
-                                            sb = sb2;
+                                    try {
+                                        if (bVar2 != null) {
+                                            long j2 = bVar2.a;
+                                            long j3 = bVar2.b;
+                                            interceptable = r6;
                                             try {
+                                                long j4 = bVar2.c;
+                                                r20 = bArr3;
+                                                long j5 = bVar2.d;
+                                                jSONObject.put("onlineTimeStatistics", bVar2.a());
+                                                if (j2 != 0) {
+                                                    jSONObject.put("sdkEarlyCost", j2 - g2Var.f);
+                                                } else if (j3 != 0) {
+                                                    jSONObject.put("sdkEarlyCost", j3 - g2Var.f);
+                                                } else {
+                                                    jSONObject.put("sdkEarlyCost", j4 - g2Var.f);
+                                                }
+                                                sb3 = sb2;
+                                                j = g2Var.i - j5;
+                                                str = str2;
+                                            } catch (JSONException e) {
+                                                e = e;
+                                                r20 = bArr3;
+                                                str = str2;
+                                                sb3 = sb2;
+                                                e.printStackTrace();
+                                                sb = sb3;
+                                                bArr2 = r20;
+                                                StringBuilder sb4 = sb;
+                                                sb4.append(jSONObject.toString());
+                                                LoggerProxy.d(str, sb4.toString());
+                                                bArr = bArr2;
+                                                f2 f2Var3 = new f2();
+                                                bVar = this;
+                                                bVar.i = f2Var3;
+                                                f2Var3.d = bVar.j.a;
+                                                w1 w1Var3 = w1Var;
+                                                f2Var3.b = w1Var3.g;
+                                                f2Var3.c = w1Var3.b;
+                                                f2Var3.e = w1Var3.a;
+                                                if (v1Var.h == i0.a) {
+                                                }
+                                                bVar.e = v1Var.d;
+                                                if (bVar.f) {
+                                                }
+                                            }
+                                        } else {
+                                            r20 = bArr3;
+                                            interceptable = r6;
+                                            g2.a aVar = g2Var.b;
+                                            if (aVar != null) {
+                                                long j6 = aVar.a;
+                                                long j7 = aVar.b;
+                                                long j8 = j6 - g2Var.f;
+                                                JSONObject jSONObject2 = new JSONObject();
+                                                str = str2;
+                                                sb3 = sb2;
                                                 try {
                                                     jSONObject2.put("sendDataToEngine", aVar.a);
                                                     jSONObject2.put("firstReceiveDataFromEngine", aVar.b);
@@ -390,56 +406,61 @@ public class d0 {
                                                 jSONObject.put("offlineTimeStatistics", jSONObject2);
                                                 jSONObject.put("sdkEarlyCost", j8);
                                                 j = g2Var.i - j7;
-                                            } catch (JSONException e3) {
-                                                e = e3;
-                                                e.printStackTrace();
-                                                bArr3 = bArr;
-                                                StringBuilder sb32 = sb;
-                                                sb32.append(jSONObject.toString());
-                                                LoggerProxy.d(str, sb32.toString());
-                                                bArr2 = bArr3;
-                                                f2 f2Var32 = new f2();
-                                                bVar = this;
-                                                bVar.i = f2Var32;
-                                                f2Var32.d = bVar.j.a;
-                                                w1 w1Var32 = w1Var;
-                                                f2Var32.b = w1Var32.g;
-                                                f2Var32.c = w1Var32.b;
-                                                f2Var32.e = w1Var32.a;
-                                                if (v1Var.h == i0.a) {
-                                                }
-                                                bVar.e = v1Var.d;
-                                                if (bVar.f) {
-                                                }
+                                                sb3 = sb3;
+                                                r20 = r20;
+                                            } else {
+                                                str = str2;
+                                                sb3 = sb2;
+                                                j = 0;
+                                                r20 = r20;
                                             }
-                                        } else {
-                                            str = str2;
-                                            sb = sb2;
-                                            j = 0;
+                                        }
+                                        jSONObject.put("sdkLaterCost", j);
+                                        sb = sb3;
+                                        bArr2 = r20;
+                                    } catch (JSONException e3) {
+                                        e = e3;
+                                        e.printStackTrace();
+                                        sb = sb3;
+                                        bArr2 = r20;
+                                        StringBuilder sb42 = sb;
+                                        sb42.append(jSONObject.toString());
+                                        LoggerProxy.d(str, sb42.toString());
+                                        bArr = bArr2;
+                                        f2 f2Var32 = new f2();
+                                        bVar = this;
+                                        bVar.i = f2Var32;
+                                        f2Var32.d = bVar.j.a;
+                                        w1 w1Var32 = w1Var;
+                                        f2Var32.b = w1Var32.g;
+                                        f2Var32.c = w1Var32.b;
+                                        f2Var32.e = w1Var32.a;
+                                        if (v1Var.h == i0.a) {
+                                        }
+                                        bVar.e = v1Var.d;
+                                        if (bVar.f) {
                                         }
                                     }
-                                    jSONObject.put("sdkLaterCost", j);
-                                    bArr3 = bArr;
                                 } catch (JSONException e4) {
                                     e = e4;
                                 }
                             } catch (JSONException e5) {
                                 e = e5;
-                                bArr = bArr4;
+                                r20 = bArr3;
                                 interceptable = r6;
                             }
                         } catch (JSONException e6) {
                             e = e6;
-                            bArr = bArr4;
+                            r20 = bArr3;
                             interceptable = r6;
                             w1Var = w1Var2;
                         }
-                        StringBuilder sb322 = sb;
-                        sb322.append(jSONObject.toString());
-                        LoggerProxy.d(str, sb322.toString());
-                        bArr2 = bArr3;
+                        StringBuilder sb422 = sb;
+                        sb422.append(jSONObject.toString());
+                        LoggerProxy.d(str, sb422.toString());
+                        bArr = bArr2;
                     } else {
-                        bArr2 = bArr4;
+                        bArr = bArr3;
                         interceptable = r6;
                         w1Var = w1Var2;
                     }
@@ -452,22 +473,22 @@ public class d0 {
                     f2Var322.c = w1Var322.b;
                     f2Var322.e = w1Var322.a;
                 } else {
-                    bArr2 = bArr4;
+                    bArr = bArr3;
                     interceptable = r6;
                 }
                 if (v1Var.h == i0.a) {
-                    byte[] bArr5 = v1Var.g;
-                    if (bArr5 != null && (f2Var2 = bVar.i) != null) {
+                    byte[] bArr4 = v1Var.g;
+                    if (bArr4 != null && (f2Var2 = bVar.i) != null) {
                         f2Var2.a = false;
                         f2Var2.f += v1Var.e;
-                        f2Var2.h += bArr5.length;
+                        f2Var2.h += bArr4.length;
                     }
                     d(v1Var);
-                    byte[] bArr6 = v1Var.g;
+                    byte[] bArr5 = v1Var.g;
                     FileOutputStream fileOutputStream = bVar.g;
                     if (fileOutputStream != null) {
                         try {
-                            fileOutputStream.write(bArr6);
+                            fileOutputStream.write(bArr5);
                         } catch (IOException e7) {
                             e7.printStackTrace();
                         }
@@ -492,22 +513,22 @@ public class d0 {
                         e8.printStackTrace();
                     }
                 } else {
-                    byte[] bArr7 = bArr2;
+                    byte[] bArr6 = bArr;
                     i = 0;
-                    if (bArr7.length == 0) {
-                        bVar.onDecodedData(bArr7);
+                    if (bArr6.length == 0) {
+                        bVar.onDecodedData(bArr6);
                     } else {
                         int i2 = (int) v1Var.l;
-                        byte[] bArr8 = v1Var.g;
-                        if (i2 != 0 && bArr8 != null && (f2Var = bVar.i) != null) {
+                        byte[] bArr7 = v1Var.g;
+                        if (i2 != 0 && bArr7 != null && (f2Var = bVar.i) != null) {
                             f2Var.a = true;
                             f2Var.f += v1Var.e;
-                            ByteBuffer wrap = ByteBuffer.wrap(bArr8);
+                            ByteBuffer wrap = ByteBuffer.wrap(bArr7);
                             wrap.clear();
                             wrap.order(ByteOrder.BIG_ENDIAN);
                             wrap.getInt();
                             int i3 = (v1Var.k.a * 2) / (i2 / 8);
-                            while (wrap.position() != bArr8.length) {
+                            while (wrap.position() != bArr7.length) {
                                 int i4 = wrap.getInt();
                                 wrap.getInt();
                                 bVar.i.g += i4 * i3;
@@ -515,7 +536,7 @@ public class d0 {
                             }
                         }
                         d(v1Var);
-                        int decodeWithCallback = bVar.j.c.decodeWithCallback(bArr7, interceptable == 1 ? 1 : 0);
+                        int decodeWithCallback = bVar.j.c.decodeWithCallback(bArr6, interceptable == 1 ? 1 : 0);
                         try {
                             FileOutputStream fileOutputStream3 = bVar.g;
                             if (fileOutputStream3 != null) {

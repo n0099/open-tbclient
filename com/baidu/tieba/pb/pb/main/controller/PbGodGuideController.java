@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj9;
-import com.baidu.tieba.gg5;
-import com.baidu.tieba.ha5;
-import com.baidu.tieba.ia5;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.kg5;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.lk9;
+import com.baidu.tieba.ma5;
+import com.baidu.tieba.tr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,30 +79,30 @@ public class PbGodGuideController implements LifecycleObserver {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || BreatheTipWidget.f() || this.a == null) {
                 return;
             }
-            ha5 ha5Var = new ha5();
-            ha5Var.b = R.raw.lottie_bubble_breath_tip;
-            ha5Var.a = BreatheTipWidget.PointType.LOTTIE;
-            ha5Var.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
-            ia5 ia5Var = new ia5();
-            ia5Var.a = this.a.getString(R.string.obfuscated_res_0x7f0f0ff5);
-            ia5Var.b = this.a.getString(R.string.obfuscated_res_0x7f0f0ff4);
-            ia5Var.e = R.drawable.god_post_guide_bg;
-            ia5Var.f = BdUtilHelper.getDimens(this.a, R.dimen.tbds140);
-            ia5Var.g = BdUtilHelper.getDimens(this.a, R.dimen.tbds460);
-            ia5Var.h = BdUtilHelper.getDimens(this.a, R.dimen.tbds286);
-            ia5Var.i = BdUtilHelper.getDimens(this.a, R.dimen.tbds100);
+            la5 la5Var = new la5();
+            la5Var.b = R.raw.lottie_bubble_breath_tip;
+            la5Var.a = BreatheTipWidget.PointType.LOTTIE;
+            la5Var.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
+            ma5 ma5Var = new ma5();
+            ma5Var.a = this.a.getString(R.string.obfuscated_res_0x7f0f0ff7);
+            ma5Var.b = this.a.getString(R.string.obfuscated_res_0x7f0f0ff6);
+            ma5Var.e = R.drawable.god_post_guide_bg;
+            ma5Var.f = BdUtilHelper.getDimens(this.a, R.dimen.tbds140);
+            ma5Var.g = BdUtilHelper.getDimens(this.a, R.dimen.tbds460);
+            ma5Var.h = BdUtilHelper.getDimens(this.a, R.dimen.tbds286);
+            ma5Var.i = BdUtilHelper.getDimens(this.a, R.dimen.tbds100);
             if (this.b == null) {
                 return;
             }
             BreatheTipWidget breatheTipWidget = new BreatheTipWidget(this.a);
             breatheTipWidget.j(this.b);
             breatheTipWidget.i(BreatheTipWidget.FromType.GOD);
-            breatheTipWidget.h(ia5Var, ha5Var);
+            breatheTipWidget.h(ma5Var, la5Var);
             breatheTipWidget.g(false);
             this.e = breatheTipWidget;
             if (breatheTipWidget.k((Activity) this.a, 3000L)) {
-                SharedPrefHelper.getInstance().putInt(wp9.a, SharedPrefHelper.getInstance().getInt(wp9.a, 0) + 1);
-                gg5.b("c15280", this.c, this.d);
+                SharedPrefHelper.getInstance().putInt(tr9.a, SharedPrefHelper.getInstance().getInt(tr9.a, 0) + 1);
+                kg5.b("c15280", this.c, this.d);
             }
         }
     }
@@ -130,12 +130,12 @@ public class PbGodGuideController implements LifecycleObserver {
         }
     }
 
-    public boolean b(aj9 aj9Var, Context context, View view2, String str, String str2) {
+    public boolean b(lk9 lk9Var, Context context, View view2, String str, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, aj9Var, context, view2, str, str2)) == null) {
-            wp9.a();
-            if (!wp9.c(aj9Var)) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, lk9Var, context, view2, str, str2)) == null) {
+            tr9.a();
+            if (!tr9.c(lk9Var)) {
                 return false;
             }
             this.a = new a(context, view2, str, str2);

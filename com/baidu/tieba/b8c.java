@@ -1,16 +1,50 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.opengl.EGL14;
+import android.opengl.EGLConfig;
+import android.opengl.EGLContext;
+import android.opengl.EGLDisplay;
+import android.opengl.EGLSurface;
+import android.view.Surface;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.monitor.MonitorType;
+import com.yy.transvod.player.log.TLog;
+import java.util.concurrent.atomic.AtomicBoolean;
+@TargetApi(17)
 /* loaded from: classes5.dex */
-public final class b8c {
+public final class b8c implements i8c {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static final int[] b;
+    public static final int[] g;
+    public static final int[] h;
+    public static final int[] i;
+    public static final int[] j;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicBoolean a;
+    public EGLDisplay b;
+    public EGLContext c;
+    public EGLSurface d;
+    public EGLSurface e;
+    public EGLConfig f;
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -25,8 +59,312 @@ public final class b8c {
                 return;
             }
         }
-        a = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12, 16, 12, 12, 20, 12, 16, 24, 28, 12, 12, 32, 12, 36, 12, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 32, 32, 24, 40, 28, 12, 12, 48, 52, 52, 52, 48, 52, 52, 52, 48, 52, 52, 52, 52, 52, 48, 52, 52, 52, 52, 52, 48, 52, 52, 52, 52, 52, 24, 12, 28, 12, 12, 12, 56, 60, 60, 60, 56, 60, 60, 60, 56, 60, 60, 60, 60, 60, 56, 60, 60, 60, 60, 60, 56, 60, 60, 60, 60, 60, 24, 12, 28, 12, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 0, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 
-        40, 40, 40, 40, 40, 40, 40, 40, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 56, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 14, 15, 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 22, 22, 22, 22, 23, 23, 23, 23, 24, 24, 24, 24, 25, 25, 25, 25, 26, 26, 26, 26, 27, 27, 27, 27, 28, 28, 28, 28, 29, 29, 29, 29, 30, 30, 30, 30, 31, 31, 31, 31, 32, 32, 32, 32, 33, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 35, 36, 36, 36, 36, 37, 37, 37, 37, 38, 38, 38, 38, 39, 39, 39, 39, 40, 40, 40, 40, 41, 41, 41, 41, 42, 42, 42, 42, 43, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45, 46, 46, 46, 46, 47, 47, 47, 47, 48, 48, 48, 48, 49, 49, 49, 49, 50, 50, 50, 50, 51, 51, 51, 51, 52, 52, 52, 52, 53, 53, 53, 53, 54, 54, 54, 54, 55, 55, 55, 55, 56, 56, 56, 56, 57, 57, 57, 57, 58, 58, 58, 58, 59, 59, 59, 59, 60, 60, 60, 60, 61, 61, 61, 61, 62, 62, 62, 62, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        b = new int[]{1024, 1536, 1280, 1536, 0, 256, 768, 512};
+        g = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12352, 4, 12344};
+        h = new int[]{12440, 2, 12344};
+        i = new int[]{12375, 1, 12374, 1, 12417, 12380, 12416, 12380, 12344};
+        j = new int[]{12344};
+    }
+
+    @Override // com.baidu.tieba.i8c
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            TLog.g(this, "EglCore.release enter.");
+            b(0, false);
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
+                EGLContext eGLContext = this.c;
+                if (eGLContext != EGL14.EGL_NO_CONTEXT) {
+                    EGL14.eglDestroyContext(eGLDisplay, eGLContext);
+                }
+                EGLSurface eGLSurface = this.d;
+                if (eGLSurface != EGL14.EGL_NO_SURFACE) {
+                    EGL14.eglDestroySurface(this.b, eGLSurface);
+                }
+                EGLSurface eGLSurface2 = this.e;
+                if (eGLSurface2 != EGL14.EGL_NO_SURFACE) {
+                    EGL14.eglDestroySurface(this.b, eGLSurface2);
+                    TLog.g(this, "EglCore.release offscreen surface.");
+                }
+                if (i()) {
+                    EGL14.eglReleaseThread();
+                }
+                EGL14.eglTerminate(this.b);
+            }
+            this.f = null;
+            this.b = EGL14.EGL_NO_DISPLAY;
+            this.c = EGL14.EGL_NO_CONTEXT;
+            EGLSurface eGLSurface3 = EGL14.EGL_NO_SURFACE;
+            this.d = eGLSurface3;
+            this.e = eGLSurface3;
+            this.a.set(false);
+            TLog.g(this, "EglCore.release leave.");
+        }
+    }
+
+    public b8c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicBoolean(false);
+        this.b = EGL14.EGL_NO_DISPLAY;
+        this.c = EGL14.EGL_NO_CONTEXT;
+        EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
+        this.d = eGLSurface;
+        this.e = eGLSurface;
+        this.f = null;
+    }
+
+    @Override // com.baidu.tieba.i8c
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.b != EGL14.EGL_NO_DISPLAY && this.c != EGL14.EGL_NO_CONTEXT) {
+                TLog.g(this, "already created.");
+                return;
+            }
+            TLog.g(this, "EglCore.setup enter.");
+            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
+            this.b = eglGetDisplay;
+            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
+                TLog.g(this, "EGL14.eglGetDisplay() = " + this.b);
+                int[] iArr = new int[2];
+                if (EGL14.eglInitialize(this.b, iArr, 0, iArr, 1)) {
+                    TLog.g(this, String.format("EGLDisplay.majoy:%d, EGLDisplay.minor:%d", Integer.valueOf(iArr[0]), Integer.valueOf(iArr[1])));
+                    EGLConfig[] eGLConfigArr = new EGLConfig[1];
+                    EGL14.eglChooseConfig(this.b, g, 0, eGLConfigArr, 0, 1, new int[1], 0);
+                    EGLConfig eGLConfig = eGLConfigArr[0];
+                    this.f = eGLConfig;
+                    EGLContext eglCreateContext = EGL14.eglCreateContext(this.b, eGLConfig, EGL14.eglGetCurrentContext(), h, 0);
+                    this.c = eglCreateContext;
+                    if (eglCreateContext != EGL14.EGL_NO_CONTEXT) {
+                        TLog.g(this, "EGL14.eglCreateContext() = " + this.c);
+                        EGL14.eglQueryContext(this.b, this.c, 12440, iArr, 0);
+                        TLog.g(this, String.format("EGLContext.version:%d", Integer.valueOf(iArr[0])));
+                        TLog.g(this, "EglCore.setup leave.");
+                        return;
+                    }
+                    throw new RuntimeException(String.format("EGL14.eglCreateContext() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
+                }
+                this.b = EGL14.EGL_NO_DISPLAY;
+                throw new RuntimeException(String.format("EGL14.eglInitialize() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
+            }
+            throw new RuntimeException(String.format("EGL14.eglGetDisplay() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
+        }
+    }
+
+    @Override // com.baidu.tieba.i8c
+    public boolean available() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i8c
+    public int c() {
+        InterceptResult invokeV;
+        EGLSurface eGLSurface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int[] iArr = new int[1];
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12374, iArr, 0)) {
+                return 0;
+            }
+            return iArr[0];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.i8c
+    public int f() {
+        InterceptResult invokeV;
+        EGLSurface eGLSurface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int[] iArr = new int[1];
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12375, iArr, 0)) {
+                return 0;
+            }
+            return iArr[0];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.i8c
+    public boolean swapBuffer() {
+        InterceptResult invokeV;
+        EGLSurface eGLSurface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && (eGLSurface = this.d) != EGL14.EGL_NO_SURFACE) {
+                return EGL14.eglSwapBuffers(eGLDisplay, eGLSurface);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i8c
+    public boolean b(int i2, boolean z) {
+        InterceptResult invokeCommon;
+        EGLContext eGLContext;
+        int eglGetError;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (this.b == EGL14.EGL_NO_DISPLAY) {
+                return false;
+            }
+            EGLSurface g2 = g(i2);
+            if (z) {
+                eGLContext = this.c;
+            } else {
+                eGLContext = EGL14.EGL_NO_CONTEXT;
+            }
+            if (g2 == EGL14.EGL_NO_SURFACE && eGLContext != EGL14.EGL_NO_CONTEXT) {
+                return true;
+            }
+            boolean eglMakeCurrent = EGL14.eglMakeCurrent(this.b, g2, g2, eGLContext);
+            if (!eglMakeCurrent && (eglGetError = EGL14.eglGetError()) != 12288) {
+                TLog.c(this, String.format("EGL14.eglMakeCurrent() failed. eglGetError() = 0x%04x", Integer.valueOf(eglGetError)) + " bindSurfaceType=" + i2);
+            }
+            return eglMakeCurrent;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i8c
+    public void d(boolean z) {
+        EGLSurface eGLSurface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            TLog.g(this, "EglCore.destroySurface enter, windowSurface: " + z);
+            if (z) {
+                eGLSurface = this.d;
+            } else {
+                eGLSurface = this.e;
+            }
+            if (z) {
+                this.a.set(false);
+            }
+            b(0, true);
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && eGLSurface != EGL14.EGL_NO_SURFACE) {
+                EGL14.eglDestroySurface(eGLDisplay, eGLSurface);
+                if (z) {
+                    this.d = EGL14.EGL_NO_SURFACE;
+                } else {
+                    this.e = EGL14.EGL_NO_SURFACE;
+                }
+            }
+            TLog.g(this, "EglCore.destroySurface  leave.");
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x007d, code lost:
+        if (r6.d != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x007f, code lost:
+        r1 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x00c4, code lost:
+        if (r6.e != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
+     */
+    @Override // com.baidu.tieba.i8c
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean e(Object obj) {
+        InterceptResult invokeL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("EglCore.createSurface enter: ");
+            boolean z = false;
+            if (obj != null) {
+                i2 = obj.hashCode();
+            } else {
+                i2 = 0;
+            }
+            sb.append(i2);
+            TLog.g(this, sb.toString());
+            if (this.b != EGL14.EGL_NO_DISPLAY && this.f != null) {
+                if (obj != null) {
+                    try {
+                        if (h(obj)) {
+                            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.b, this.f, obj, j, 0);
+                            this.d = eglCreateWindowSurface;
+                            if (eglCreateWindowSurface == EGL14.EGL_NO_SURFACE) {
+                                TLog.c(this, String.format("EGL14.eglCreateWindowSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
+                            }
+                            TLog.g(this, "EGL14.eglCreateWindowSurface() = " + this.d);
+                            this.a.set(b(1, true));
+                        }
+                    } catch (Exception e) {
+                        TLog.g(this, "EGL14.eglCreateWindowSurface() = " + e.toString());
+                    }
+                }
+                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.b, this.f, i, 0);
+                this.e = eglCreatePbufferSurface;
+                if (eglCreatePbufferSurface == EGL14.EGL_NO_SURFACE) {
+                    TLog.c(this, String.format("EGL14.eglCreatePbufferSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
+                }
+                b(2, true);
+                TLog.g(this, "EGL14.eglCreatePbufferSurface() = " + this.e);
+            }
+            TLog.g(this, "EglCore.createSurface leave.");
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final EGLSurface g(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+            EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
+            if (i2 == 1) {
+                return this.d;
+            }
+            if (i2 == 2) {
+                return this.e;
+            }
+            return eGLSurface;
+        }
+        return (EGLSurface) invokeI.objValue;
+    }
+
+    public boolean h(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
+            if (obj instanceof SurfaceHolder) {
+                return ((SurfaceHolder) obj).getSurface().isValid();
+            }
+            if (obj instanceof SurfaceView) {
+                return ((SurfaceView) obj).getHolder().getSurface().isValid();
+            }
+            if (obj instanceof Surface) {
+                return ((Surface) obj).isValid();
+            }
+            TLog.c(this, "param surface is invalid.");
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

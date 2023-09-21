@@ -12,7 +12,7 @@ public class t66 extends AbsDataRecorder {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t66() {
-        super(AbsDataRecorder.Scene.FRS_NEW);
+        super(AbsDataRecorder.Scene.FRS_HOT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

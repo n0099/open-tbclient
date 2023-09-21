@@ -10,7 +10,7 @@ public class la4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public Object data;
+    public Object header;
 
     public la4(Object obj) {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class la4 {
                 return;
             }
         }
-        this.data = obj;
+        this.header = obj;
     }
 }

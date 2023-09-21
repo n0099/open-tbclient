@@ -39,7 +39,7 @@ import androidx.core.widget.EdgeEffectCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k36;
+import com.baidu.tieba.l36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -97,7 +97,7 @@ public class VerticalViewPager extends ViewGroup {
     public PagerAdapter f;
     public int f0;
     public int g;
-    public k36 g0;
+    public l36 g0;
     public int h;
     public Parcelable i;
     public ClassLoader j;
@@ -962,11 +962,11 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    public void setEventListener(k36.b bVar) {
-        k36 k36Var;
+    public void setEventListener(l36.b bVar) {
+        l36 l36Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (k36Var = this.g0) != null) {
-            k36Var.f(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (l36Var = this.g0) != null) {
+            l36Var.f(bVar);
         }
     }
 
@@ -3056,7 +3056,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.g0 = new k36(this);
+            this.g0 = new l36(this);
         }
     }
 

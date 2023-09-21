@@ -53,7 +53,7 @@ public class FocusCircleView extends View {
 
         /* renamed from: com.baidu.tieba.view.widget.FocusCircleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0508a implements Animator.AnimatorListener {
+        public class C0487a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -79,7 +79,7 @@ public class FocusCircleView extends View {
                 }
             }
 
-            public C0508a(a aVar) {
+            public C0487a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +141,7 @@ public class FocusCircleView extends View {
                     FocusCircleView focusCircleView = this.a;
                     focusCircleView.d = ObjectAnimator.ofFloat(focusCircleView, Key.ALPHA, 1.0f, 0.0f);
                     this.a.d.setDuration(960L);
-                    this.a.d.addListener(new C0508a(this));
+                    this.a.d.addListener(new C0487a(this));
                 }
                 this.a.d.start();
             }

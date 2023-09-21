@@ -1,174 +1,206 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.media.CamcorderProfile;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
+import java.util.Objects;
 /* loaded from: classes8.dex */
-public class vxa {
+public class vxa implements Comparable<vxa> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948257546, "Lcom/baidu/tieba/vxa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public vxa(int i, int i2) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948257546, "Lcom/baidu/tieba/vxa;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements xxa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xxa a;
-
-        public a(xxa xxaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xxaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xxaVar;
-        }
-
-        @Override // com.baidu.tieba.xxa
-        public void a(int i, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
-                xxa xxaVar = this.a;
-                if (xxaVar != null) {
-                    xxaVar.a(i, bitmap);
-                }
-                iib.d("single-frameResult: " + i);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements xxa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xxa a;
-
-        public b(xxa xxaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xxaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xxaVar;
-        }
-
-        @Override // com.baidu.tieba.xxa
-        public void a(int i, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
-                xxa xxaVar = this.a;
-                if (xxaVar != null) {
-                    xxaVar.a(i, bitmap);
-                }
-                iib.d("multi-frameResult: " + i);
-            }
-        }
-    }
-
-    public static TbMultiMediaData a(VideoInfo videoInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
-            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
-            tbMultiMediaData.path = videoInfo.getVideoPath();
-            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
-            tbMultiMediaData.height = videoInfo.getVideoHeight();
-            tbMultiMediaData.width = videoInfo.getVideoWidth();
-            tbMultiMediaData.type = 1;
-            tbMultiMediaData.start = 0L;
-            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
-            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
-            tbMultiMediaData.scaleType = "center_inside";
-            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
-            return tbMultiMediaData;
-        }
-        return (TbMultiMediaData) invokeL.objValue;
-    }
-
-    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, xxa xxaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), xxaVar}) == null) && vlogEditManager != null && context != null && i > 0) {
-            gya gyaVar = new gya();
-            gyaVar.a = vlogEditManager.getDuration();
-            gyaVar.b = i;
-            gyaVar.f = vlogEditManager.getInputMultiMediaData();
-            MediaTrack mediaTrack = (MediaTrack) nib.c(vlogEditManager.getUpdateMediaTracks(), 0);
-            if (mediaTrack == null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            gyaVar.e = mediaTrack.mediaSegments;
-            if (i2 == 0) {
-                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+        }
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
+    }
+
+    public vxa(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            gyaVar.c = i2;
-            if (i3 == 0) {
-                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+        }
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull vxa vxaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vxaVar)) == null) {
+            int i = this.a;
+            int i2 = this.b;
+            int i3 = i * i2;
+            int i4 = vxaVar.a;
+            int i5 = vxaVar.b;
+            if (i3 == i4 * i5) {
+                return this.c - vxaVar.c;
             }
-            gyaVar.d = i3;
-            aya.f().i(gyaVar, new b(xxaVar));
+            return (i * i2) - (i4 * i5);
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return g(this, i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, xxa xxaVar) {
+    public CamcorderProfile b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), xxaVar}) == null) && multiMediaData != null && context != null && i > 0) {
-            hya hyaVar = new hya();
-            hyaVar.b = i;
-            hyaVar.a = multiMediaData.originalDuration;
-            hyaVar.e = multiMediaData;
-            if (i2 == 0) {
-                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == 720 && this.b == 480) {
+                return CamcorderProfile.get(4);
             }
-            hyaVar.c = i2;
-            if (i3 == 0) {
-                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            if (this.a == 1280 && this.b == 720) {
+                return CamcorderProfile.get(5);
             }
-            hyaVar.d = i3;
-            aya.f().j(hyaVar, new a(xxaVar));
+            if (this.a == 1920 && this.b == 1080) {
+                return CamcorderProfile.get(6);
+            }
+            if (this.a == 3840 && this.b == 2160) {
+                return CamcorderProfile.get(8);
+            }
+            return CamcorderProfile.get(5);
         }
+        return (CamcorderProfile) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (this == obj) {
+                return true;
+            }
+            if (!(obj instanceof vxa)) {
+                return false;
+            }
+            vxa vxaVar = (vxa) obj;
+            if (this.a != vxaVar.a || this.b != vxaVar.b || this.c != vxaVar.c) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean g(vxa vxaVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, vxaVar, i)) == null) {
+            if (vxaVar.e() == 720 && vxaVar.d() == 480) {
+                return CamcorderProfile.hasProfile(i, 2002);
+            }
+            if (vxaVar.e() == 1280 && vxaVar.d() == 720) {
+                return CamcorderProfile.hasProfile(i, 2003);
+            }
+            if (vxaVar.e() == 1920 && vxaVar.d() == 1080) {
+                return CamcorderProfile.hasProfile(i, 2004);
+            }
+            if (vxaVar.e() == 3840 && vxaVar.d() == 2160) {
+                return CamcorderProfile.hasProfile(i, 2005);
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return Objects.hash(Integer.valueOf(e()), Integer.valueOf(d()), Integer.valueOf(c()));
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a + "x" + this.b + " " + this.c + "p";
+        }
+        return (String) invokeV.objValue;
     }
 }

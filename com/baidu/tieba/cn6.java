@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface cn6 {
-    void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence);
+    void j(View view2, MotionEvent motionEvent);
 }

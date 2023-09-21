@@ -12,11 +12,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bha;
+import com.baidu.tieba.hja;
 import com.baidu.tieba.qz4;
 import com.baidu.tieba.userblock.message.UserBlockSetHttpResponseMessage;
 import com.baidu.tieba.userblock.message.UserBlockSetRequestMessage;
-import com.baidu.tieba.userblock.message.UserBlockSetSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +82,7 @@ public class UserBlockSetModel extends BdBaseModel {
             UserBlockSetRequestMessage userBlockSetRequestMessage;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.b != null && responsedMessage != null && (userBlockSetRequestMessage = (UserBlockSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) != null && userBlockSetRequestMessage.getBlockUserId() == this.a.a) {
-                if (!(responsedMessage instanceof UserBlockSetSocketResponseMessage) && !(responsedMessage instanceof UserBlockSetHttpResponseMessage)) {
+                if (!(responsedMessage instanceof UserBlockSetHttpResponseMessage)) {
                     this.a.b.onError(-1, this.a.Q(R.string.block_user_fail));
                     return;
                 }
@@ -147,11 +146,17 @@ public class UserBlockSetModel extends BdBaseModel {
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bha.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
-            bha.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+            hja.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
-            this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);
+        }
+    }
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = -1L;
+            MessageManager.getInstance().unRegisterListener(this.c);
         }
     }
 
@@ -165,14 +170,6 @@ public class UserBlockSetModel extends BdBaseModel {
             userBlockSetRequestMessage.setChat(i3);
             userBlockSetRequestMessage.setBlockUserId(this.a);
             sendMessage(userBlockSetRequestMessage);
-        }
-    }
-
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = -1L;
-            MessageManager.getInstance().unRegisterListener(this.c);
         }
     }
 }

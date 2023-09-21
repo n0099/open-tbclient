@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.bn;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +25,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class GroupInfoData extends AbstractImageProvider implements cn, Parcelable, Serializable, PreLoadImageProvider {
+public class GroupInfoData extends AbstractImageProvider implements bn, Parcelable, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GroupInfoData> CREATOR;
     public static final String SHARE_KEY_ACTIVE_ID = "scene_id";
@@ -334,7 +334,7 @@ public class GroupInfoData extends AbstractImageProvider implements cn, Parcelab
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,25 +1,52 @@
 package com.baidu.tieba;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes9.dex */
-public interface z60 extends Closeable {
-    void disconnect();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
+/* loaded from: classes8.dex */
+public class z60 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int getCode() throws IOException;
+    public z60() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    Map<String, List<String>> getHeaders() throws IOException;
-
-    InputStream getInputStream() throws IOException;
-
-    String getMessage() throws IOException;
-
-    InputStream m() throws IOException;
-
-    void t(int i);
-
-    int u();
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, z60.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
+                declaredMethod.setAccessible(true);
+                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
+                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, z60.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
+                declaredMethod2.setAccessible(true);
+                if (!booleanValue) {
+                    return false;
+                }
+                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
 }

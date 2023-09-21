@@ -1,20 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.base.BdActivityStack;
-import com.baidu.adp.base.BdPageContextSupport;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.ueg.UEGCancelModel;
-import com.baidu.tieba.y45;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.pay.panel.PayPanelUtils;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,39 +16,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class wpa {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public UEGCancelModel a;
-    public UEGCancelModel.b b;
-    public int c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948279649, "Lcom/baidu/tieba/wpa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948279649, "Lcom/baidu/tieba/wpa;");
-        }
-    }
 
     /* loaded from: classes8.dex */
-    public class a implements UEGCancelModel.b {
+    public class a implements z45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wpa a;
+        public final /* synthetic */ z45 a;
 
-        public a(wpa wpaVar) {
+        public a(z45 z45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wpaVar};
+                Object[] objArr = {z45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,32 +39,30 @@ public class wpa {
                     return;
                 }
             }
-            this.a = wpaVar;
+            this.a = z45Var;
         }
 
-        @Override // com.baidu.tieba.ueg.UEGCancelModel.b
-        public void a(BlockPopInfoData blockPopInfoData) {
+        @Override // com.baidu.tieba.z45.e
+        public void onClick(z45 z45Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, blockPopInfoData) != null) || blockPopInfoData == null || wpa.d) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                this.a.dismiss();
             }
-            this.a.d(blockPopInfoData);
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements y45.e {
+    public class b implements z45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BlockPopInfoData a;
-        public final /* synthetic */ wpa b;
+        public final /* synthetic */ z45 a;
 
-        public b(wpa wpaVar, BlockPopInfoData blockPopInfoData) {
+        public b(z45 z45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wpaVar, blockPopInfoData};
+                Object[] objArr = {z45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -100,33 +72,97 @@ public class wpa {
                     return;
                 }
             }
-            this.b = wpaVar;
-            this.a = blockPopInfoData;
+            this.a = z45Var;
         }
 
-        @Override // com.baidu.tieba.y45.e
-        public void onClick(y45 y45Var) {
+        @Override // com.baidu.tieba.z45.e
+        public void onClick(z45 z45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
-                y45Var.dismiss();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
+            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c implements y45.e {
+    public class c implements z45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BlockPopInfoData a;
-        public final /* synthetic */ wpa b;
+        public final /* synthetic */ z45 a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ TbPageContext c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ int f;
 
-        public c(wpa wpaVar, BlockPopInfoData blockPopInfoData) {
+        public c(z45 z45Var, int i, TbPageContext tbPageContext, String str, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wpaVar, blockPopInfoData};
+                Object[] objArr = {z45Var, Integer.valueOf(i), tbPageContext, str, str2, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z45Var;
+            this.b = i;
+            this.c = tbPageContext;
+            this.d = str;
+            this.e = str2;
+            this.f = i2;
+        }
+
+        @Override // com.baidu.tieba.z45.e
+        public void onClick(z45 z45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                this.a.dismiss();
+                int i = this.b;
+                int i2 = 2010;
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i == 5) {
+                                    TiebaStatic.log("c10767");
+                                }
+                                i2 = 0;
+                            } else {
+                                TiebaStatic.log("c10285");
+                            }
+                        } else {
+                            TiebaStatic.log("c10276");
+                        }
+                    } else {
+                        TiebaStatic.log("c10282");
+                    }
+                    PayPanelUtils.launchPayPanel(this.c, i2, this.d, this.e, String.valueOf(this.f));
+                }
+                TiebaStatic.log("c10271");
+                i2 = IMConstants.IM_MSG_TYPE_SHIELD;
+                PayPanelUtils.launchPayPanel(this.c, i2, this.d, this.e, String.valueOf(this.f));
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements z45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z45 a;
+
+        public d(z45 z45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -136,112 +172,126 @@ public class wpa {
                     return;
                 }
             }
-            this.b = wpaVar;
-            this.a = blockPopInfoData;
+            this.a = z45Var;
         }
 
-        @Override // com.baidu.tieba.y45.e
-        public void onClick(y45 y45Var) {
+        @Override // com.baidu.tieba.z45.e
+        public void onClick(z45 z45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
-                this.b.e(this.a);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
+            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                this.a.dismiss();
             }
         }
     }
 
-    public wpa() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public class e implements z45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z45 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ TbPageContext c;
+
+        public e(z45 z45Var, String str, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z45Var, str, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z45Var;
+            this.b = str;
+            this.c = tbPageContext;
+        }
+
+        @Override // com.baidu.tieba.z45.e
+        public void onClick(z45 z45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
+                this.a.dismiss();
+                if (this.b == null) {
+                    return;
+                }
+                TbadkCoreApplication.getInst().setThemeWebviewOpen(true);
+                BrowserHelper.startInternalWebActivity(this.c.getPageActivity(), this.b);
             }
         }
-        this.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
-        this.a = new UEGCancelModel();
-        if (this.b == null) {
-            this.b = new a(this);
-        }
-        this.a.O(this.b);
     }
 
-    public void c(int i) {
+    public static boolean a(DressItemData dressItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c = i;
-            this.a.N();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dressItemData)) == null) {
+            int freeUserLevel = dressItemData.getFreeUserLevel();
+            if (dressItemData.isDefault() || freeUserLevel == 0) {
+                return true;
+            }
+            if (freeUserLevel == 100) {
+                if (dressItemData.getActivityFinish() != 0) {
+                    return true;
+                }
+                return false;
+            } else if (freeUserLevel == 101) {
+                if (TbadkCoreApplication.getCurrentMemberType() == 3) {
+                    return true;
+                }
+                return false;
+            } else if (TbadkCoreApplication.getCurrentMemberType() >= 2 && TbadkCoreApplication.getCurrentVipLevel() >= freeUserLevel) {
+                return true;
+            } else {
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 
-    public final void e(BlockPopInfoData blockPopInfoData) {
-        Activity currentActivity;
+    public static void b(TbPageContext<?> tbPageContext, int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, blockPopInfoData) != null) || blockPopInfoData == null || (currentActivity = BdActivityStack.getInst().currentActivity()) == null) {
+        if ((interceptable != null && interceptable.invokeLIL(65537, null, tbPageContext, i, str) != null) || tbPageContext == null) {
             return;
         }
-        AntiHelper.p(currentActivity, blockPopInfoData.ahead_url);
+        z45 z45Var = new z45(tbPageContext.getPageActivity());
+        z45Var.setMessageId(R.string.obfuscated_res_0x7f0f16b0);
+        z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d0, new d(z45Var));
+        z45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f16af, new e(z45Var, str, tbPageContext));
+        z45Var.create(tbPageContext);
+        z45Var.show();
     }
 
-    public void g(boolean z) {
+    public static void c(TbPageContext<?> tbPageContext, int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            d = z;
-        }
-    }
-
-    public final void d(BlockPopInfoData blockPopInfoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, blockPopInfoData) != null) || blockPopInfoData == null || BdActivityStack.getInst().currentActivity() == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || tbPageContext == null) {
             return;
         }
-        String str = blockPopInfoData.block_id_code;
-        int i = blockPopInfoData.win_type;
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        String str2 = blockPopInfoData.ahead_url;
-        String str3 = blockPopInfoData.ok_info;
-        String str4 = blockPopInfoData.ahead_info;
-        String str5 = blockPopInfoData.block_info;
-        if ((i == 1 || i == 2 || i == 3 || i == 4) && !ei.isEmpty(currentAccount) && !ei.isEmpty(str)) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            boolean z = false;
-            boolean z2 = sharedPrefHelper.getBoolean(str + i + currentAccount, false);
-            if ((!ei.isEmpty(str2) || i == 4) && !ei.isEmpty(str3) && ((!ei.isEmpty(str4) || i == 4) && !ei.isEmpty(str5))) {
-                z = true;
-            }
-            if (!z2 && z) {
-                SharedPrefHelper sharedPrefHelper2 = SharedPrefHelper.getInstance();
-                sharedPrefHelper2.putBoolean(str + i + currentAccount, true);
-                h(blockPopInfoData);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.c).param("obj_type", i));
-            }
-        }
+        z45 z45Var = new z45(tbPageContext.getPageActivity());
+        z45Var.setButtonTextColor(R.color.CAM_X0305);
+        z45Var.setTitle(str);
+        a aVar = new a(z45Var);
+        z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d0, aVar);
+        z45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b5b, aVar);
+        z45Var.create(tbPageContext);
+        z45Var.show();
     }
 
-    public void f() {
-        UEGCancelModel uEGCancelModel;
+    public static void d(TbPageContext<?> tbPageContext, int i, String str, int i2, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (uEGCancelModel = this.a) != null) {
-            uEGCancelModel.onDestroy();
-        }
-    }
-
-    public final void h(BlockPopInfoData blockPopInfoData) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, blockPopInfoData) != null) || blockPopInfoData == null || (currentActivity = BdActivityStack.getInst().currentActivity()) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2), str2, str3}) != null) || tbPageContext == null) {
             return;
         }
-        y45 y45Var = new y45(currentActivity);
-        y45Var.setMessage(blockPopInfoData.block_info);
-        y45Var.setNegativeButton(blockPopInfoData.ok_info, new b(this, blockPopInfoData));
-        y45Var.setPositiveButton(blockPopInfoData.ahead_info, new c(this, blockPopInfoData));
-        y45Var.create(((BdPageContextSupport) currentActivity).getPageContext());
-        y45Var.show();
+        z45 z45Var = new z45(tbPageContext.getPageActivity());
+        z45Var.setButtonTextColor(R.color.CAM_X0305);
+        z45Var.setMessage(str);
+        z45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03d0, new b(z45Var));
+        z45Var.setPositiveButton(R.string.open_now, new c(z45Var, i, tbPageContext, str2, str3, i2));
+        z45Var.create(tbPageContext);
+        z45Var.show();
     }
 }

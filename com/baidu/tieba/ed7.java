@@ -1,62 +1,103 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardLiveView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ed7 extends yb7<CardLiveView, e77> {
+public final class ed7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ed7(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947730577, "Lcom/baidu/tieba/ed7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947730577, "Lcom/baidu/tieba/ed7;");
                 return;
             }
         }
+        a = new a(null);
     }
 
-    @Override // com.baidu.tieba.yb7, com.baidu.tieba.oc7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            int dimens = BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.M_W_X005);
-            View a = super.a(viewGroup);
-            de7.m(a, Integer.valueOf(dimens), null, Integer.valueOf(dimens));
-            return a;
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return (View) invokeL.objValue;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc7
-    /* renamed from: e */
-    public void b(@NonNull CardLiveView cardLiveView, @NonNull e77 e77Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardLiveView, e77Var) == null) {
-            cardLiveView.f(e77Var);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final void a(ea7 ea7Var) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ea7Var) == null) && ea7Var != null) {
+                ea7Var.a().a(ea7Var.b());
+                String c = ea7Var.c();
+                if (c != null && c.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    return;
+                }
+                StatisticItem statisticItem = new StatisticItem(ea7Var.c());
+                for (Map.Entry<String, String> entry : ea7Var.b().entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
+                }
+                for (Map.Entry<String, String> entry2 : ea7Var.d().entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        public final void b(ea7 statData, int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, statData, i) == null) {
+                Intrinsics.checkNotNullParameter(statData, "statData");
+                if (statData.e().length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z && (statData.b() instanceof HashMap)) {
+                    ((HashMap) statData.b()).put(statData.e(), String.valueOf(i));
+                }
+            }
         }
     }
 }

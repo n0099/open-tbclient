@@ -1,37 +1,17 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
 import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class cfb {
+public final class cfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public int b;
-    public cfb c;
-    public zeb d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public String g;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(cfb cfbVar);
-
-        void b(cfb cfbVar);
-
-        void c(int i, int i2);
-
-        void d(String str, cfb cfbVar);
-    }
+    public bfb a;
 
     public cfb() {
         Interceptable interceptable = $ic;
@@ -43,141 +23,55 @@ public abstract class cfb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new bfb();
     }
 
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String fileNameWithOutExtention;
-        StringBuilder sb;
+    public final List<com.baidu.ubs.analytics.a.n> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (str2 == null) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(this.g)) {
-                sb = new StringBuilder();
-                fileNameWithOutExtention = FileUtils.removeExtention(str);
-            } else {
-                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
-                sb = new StringBuilder();
-                sb.append(this.g);
-            }
-            sb.append(fileNameWithOutExtention);
-            sb.append(str2);
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.c();
         }
-        return (String) invokeLL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public abstract void b();
-
-    public void c(int i) {
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.a(str);
         }
     }
 
-    public abstract void d(zeb zebVar);
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    public void f(cfb cfbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cfbVar) == null) {
-            this.c = cfbVar;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
-            return;
-        }
-        this.e = true;
-        a aVar = this.a;
-        if (aVar != null) {
-            aVar.d(getClass().getName() + str, this);
-        }
-    }
-
-    public abstract void h();
-
-    public void i(int i) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.c(this.b, i);
-    }
-
-    public boolean j(zeb zebVar) {
+    public final boolean b(String str) {
         InterceptResult invokeL;
-        List<xeb> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, zebVar)) == null) {
-            if (zebVar != null && zebVar.c() != null && zebVar.c().size() == 1 && zebVar.c().get(0).a() != null && (a2 = zebVar.c().get(0).a()) != null && a2.size() == 1) {
-                xeb xebVar = a2.get(0);
-                if (xebVar.b() != null && !xebVar.b().isNeedEdit()) {
-                    return false;
-                }
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.b(str);
         }
         return invokeL.booleanValue;
     }
 
-    public int k() {
-        InterceptResult invokeV;
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void l(zeb zebVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, zebVar) == null) {
-            this.d = zebVar;
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.c(this.b, 100);
-                this.a.b(this);
-            }
-            cfb cfbVar = this.c;
-            if (cfbVar != null) {
-                cfbVar.d(zebVar);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a.a(str);
         }
     }
 
-    public boolean m() {
-        InterceptResult invokeV;
+    public final void e(com.baidu.ubs.analytics.a.n nVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
-    }
-
-    public zeb n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (zeb) invokeV.objValue;
-    }
-
-    public void o() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
+            this.a.e(nVar);
         }
-        aVar.a(this);
+    }
+
+    public final void f(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nVar) == null) {
+            this.a.d(nVar);
+        }
     }
 }

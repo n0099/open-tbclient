@@ -1,69 +1,73 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeRecommand;
 /* loaded from: classes8.dex */
-public class uoa {
+public class uoa extends HttpMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public uoa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uoa(MainTabActivity mainTabActivity) {
+        super(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void g(Message<?> message, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, message, str, z) == null) {
+            int i = Integer.MAX_VALUE;
+            if (message instanceof HttpMessage) {
+                HttpMessage httpMessage = (HttpMessage) message;
+                if (httpMessage.getParams() != null) {
+                    Object obj = httpMessage.getParams().get(GroupInfoData.SHARE_KEY_TYPE);
+                    if (obj instanceof String) {
+                        i = ekb.b((String) obj, Integer.MAX_VALUE);
+                    }
+                }
+            }
+            ep8.a(str, z, i, 2, true);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(ThemeRecommand themeRecommand) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, themeRecommand) != null) || themeRecommand == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
             return;
         }
-        this.a = themeRecommand.icon;
-        this.b = themeRecommand.tip_text;
-        this.c = themeRecommand.button_text;
-        String str = themeRecommand.button_url;
+        JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
+        if (jsonHttpResponsedMessage.getError() != 0) {
+            g(httpResponsedMessage.getOrginalMessage(), zj8.a(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString()), false);
+        } else {
+            g(httpResponsedMessage.getOrginalMessage(), TbadkCoreApplication.getInst().getResources().getString(R.string.share_success), true);
+        }
     }
 }

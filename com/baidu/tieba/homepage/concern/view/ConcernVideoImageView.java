@@ -98,8 +98,8 @@ public class ConcernVideoImageView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0230, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090799);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022f, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090790);
             this.a = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0205);
             int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext()) - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070261);

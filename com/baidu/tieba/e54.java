@@ -1,662 +1,89 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.swan.games.audio.AudioPlayer;
-import com.baidu.tieba.j54;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e54 extends EventTargetImpl implements y44, z44 {
+public class e54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayer a;
-    @V8JavascriptField
-    public boolean autoplay;
-    public String b;
-    @V8JavascriptField
-    public int buffered;
-    public ri2 c;
-    @V8JavascriptField
-    public double currentTime;
-    @V8JavascriptField
-    public long duration;
-    @V8JavascriptField
-    public boolean loop;
-    @V8JavascriptField
-    public boolean obeyMuteSwitch;
-    @V8JavascriptField
-    public boolean paused;
-    @V8JavascriptField
-    public String src;
-    @V8JavascriptField
-    public float startTime;
-    @V8JavascriptField
-    public float volume;
 
-    /* loaded from: classes5.dex */
-    public class g implements j54.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e54 a;
-
-        @Override // com.baidu.tieba.j54.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ g b;
-
-            public a(g gVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {gVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = gVar;
-                this.a = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.a.src = uw2.T().G().g(this.a);
-                    if (rr1.a) {
-                        Log.d("Aigame AudioContext", "prepare path: " + this.b.a.src + " autoPlay: " + this.b.a.autoplay + " class: " + toString());
-                    }
-                    this.b.a.D(true);
-                }
-            }
-        }
-
-        public g(e54 e54Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685317, "Lcom/baidu/tieba/e54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e54Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = e54Var;
-        }
-
-        @Override // com.baidu.tieba.j54.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.c.runOnJSThread(new a(this, str));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947685317, "Lcom/baidu/tieba/e54;");
+                return;
             }
         }
+        a = qr1.a;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ e54 b;
-
-        public a(e54 e54Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e54Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e54Var;
-            this.a = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a && !this.b.a.I()) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    this.b.a.N(d54.c(this.b));
-                    e54 e54Var = this.b;
-                    if (e54Var.autoplay) {
-                        e54Var.a.Q();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e54 a;
-
-        public b(e54 e54Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e54Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e54Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.Q();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e54 a;
-
-        public c(e54 e54Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e54Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e54Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.O();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ float a;
-        public final /* synthetic */ e54 b;
-
-        public d(e54 e54Var, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e54Var, Float.valueOf(f)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e54Var;
-            this.a = f;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.U(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e54 a;
-
-        public e(e54 e54Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e54Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e54Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.Y();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e54 a;
-
-        public f(e54 e54Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e54Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e54Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.T();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e54(ri2 ri2Var) {
-        super(ri2Var);
+    public e54(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ri2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {jsObject};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.src = "";
-        this.volume = 1.0f;
-        this.obeyMuteSwitch = true;
-        this.paused = true;
-        this.c = ri2Var;
-        z();
-    }
-
-    public static AudioPlayer B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new AudioPlayer(str);
-        }
-        return (AudioPlayer) invokeL.objValue;
-    }
-
-    public final void D(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.a == null) {
+        n32 F = n32.F(jsObject);
+        if (F == null) {
             return;
         }
-        k54.h().e().post(new a(this, z));
-    }
-
-    public final void E(b54 b54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, b54Var) == null) {
-            this.a.update(b54Var);
+        gb3 M = gb3.M();
+        if (M == null) {
+            a(F, false, b("internal error"));
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.y44
-    @JavascriptInterface
-    public void seek(float f2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048587, this, f2) == null) && this.a != null) {
-            k54.h().e().post(new d(this, f2));
-        }
-    }
-
-    @JavascriptInterface
-    public void setDataBuffer(JsArrayBuffer jsArrayBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jsArrayBuffer) == null) {
-            k54.h().m(jsArrayBuffer, new g(this));
-        }
-    }
-
-    public int A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AudioPlayer audioPlayer = this.a;
-            if (audioPlayer != null) {
-                return audioPlayer.y();
+        try {
+            boolean m = F.m("mixWithOther", false);
+            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
+            if (a) {
+                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a != null) {
-            c54 c54Var = new c54(this, d54.i());
-            c54Var.e(this);
-            this.a.V(c54Var);
+            a(F, true, "setInnerAudioOption:ok");
+        } catch (Exception unused) {
+            g82.c("InnerAudioOptionApi", "set swanApp global var error");
+            a(F, false, b("internal error"));
         }
     }
 
-    @Override // com.baidu.tieba.y44
-    @JavascriptInterface
-    public void destroy() {
+    public final void a(n32 n32Var, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a != null) {
-            k54.h().e().post(new f(this));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{n32Var, Boolean.valueOf(z), str}) == null) {
+            p54 p54Var = new p54();
+            p54Var.errMsg = str;
+            sd4.call(n32Var, z, p54Var);
         }
     }
 
-    @Override // com.baidu.tieba.y44
-    public int getCurrentTime() {
-        InterceptResult invokeV;
+    public final String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AudioPlayer audioPlayer = this.a;
-            if (audioPlayer != null) {
-                return audioPlayer.z();
-            }
-            return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return String.format("setInnerAudioOption:fail %s", str);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.y44
-    public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AudioPlayer audioPlayer = this.a;
-            if (audioPlayer != null) {
-                return (int) audioPlayer.A();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.y44
-    @JavascriptInterface
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a != null) {
-            k54.h().e().post(new c(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.y44
-    @JavascriptInterface
-    public void play() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a != null) {
-            k54.h().e().post(new b(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.y44
-    @JavascriptInterface
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.a != null) {
-            k54.h().e().post(new e(this));
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            String valueOf = String.valueOf(a54.a());
-            this.b = valueOf;
-            this.a = B(valueOf);
-            C();
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (rr1.a) {
-                Log.d("Aigame AudioContext", str);
-            }
-            char c2 = 65535;
-            switch (str.hashCode()) {
-                case -2129294769:
-                    if (str.equals("startTime")) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case -810883302:
-                    if (str.equals("volume")) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 114148:
-                    if (str.equals("src")) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case 3327652:
-                    if (str.equals("loop")) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case 1439562083:
-                    if (str.equals("autoplay")) {
-                        c2 = 4;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 != 0 && c2 != 1) {
-                if (c2 != 2) {
-                    if (c2 != 3) {
-                        if (c2 == 4 && this.autoplay) {
-                            play();
-                            return;
-                        }
-                        return;
-                    }
-                    D(false);
-                    return;
-                } else if (d54.b(this.volume)) {
-                    E(d54.c(this));
-                    return;
-                } else {
-                    this.volume = this.a.D();
-                    return;
-                }
-            }
-            E(d54.c(this));
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.z44
-    public void p(String str, JSONObject jSONObject) {
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, jSONObject) == null) {
-            switch (str.hashCode()) {
-                case -1522036513:
-                    if (str.equals("buffered")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3443508:
-                    if (str.equals("play")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3540994:
-                    if (str.equals("stop")) {
-                        c2 = 6;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 96651962:
-                    if (str.equals("ended")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 96784904:
-                    if (str.equals("error")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 106440182:
-                    if (str.equals(DownloadStatisticConstants.UBC_TYPE_PAUSE)) {
-                        c2 = 5;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 550609668:
-                    if (str.equals("canplay")) {
-                        c2 = 7;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1762557398:
-                    if (str.equals("timeupdate")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    this.buffered = A();
-                    return;
-                case 1:
-                    if (jSONObject != null) {
-                        this.duration = getDuration() / 1000;
-                        this.currentTime = getCurrentTime() / 1000.0d;
-                        return;
-                    }
-                    return;
-                case 2:
-                    this.paused = false;
-                    return;
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    this.paused = true;
-                    return;
-                case 7:
-                    this.duration = getDuration() / 1000;
-                    return;
-                default:
-                    return;
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

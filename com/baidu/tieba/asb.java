@@ -1,42 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBInterstitial;
-import com.win.opensdk.PBInterstitialListener;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class asb extends ReporterPidLoader<PBInterstitial> {
+public class asb extends tqb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements PBInterstitialListener {
+    public class a implements TTAdNative.FeedAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ PBInterstitial c;
-        public final /* synthetic */ asb d;
+        public final /* synthetic */ asb a;
 
-        public a(asb asbVar, PBInterstitial pBInterstitial) {
+        public a(asb asbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {asbVar, pBInterstitial};
+                Object[] objArr = {asbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,70 +41,40 @@ public class asb extends ReporterPidLoader<PBInterstitial> {
                     return;
                 }
             }
-            this.d = asbVar;
-            this.c = pBInterstitial;
+            this.a = asbVar;
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked((asb) this.c, this.b, new String[0]);
-                this.b = true;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJNative onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
+        public void onFeedAdLoad(List<TTFeedAd> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                LogPrinter.e("onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.d.onError(pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialDismissed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow((asb) this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialShowFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                LogPrinter.d();
-                this.d.onAdError(this.c, 0, str);
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded(this.c, new String[0]);
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
+                    onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (TTFeedAd tTFeedAd : list) {
+                    arrayList.add(new grb(tTFeedAd));
+                }
+                this.a.onAdLoaded(arrayList);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public asb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,54 +93,13 @@ public class asb extends ReporterPidLoader<PBInterstitial> {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    @Override // com.baidu.tieba.tqb
+    public void l(FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            PBInterstitial pBInterstitial = new PBInterstitial(context.getApplicationContext(), this.mPid.pid);
-            pBInterstitial.setInterstitialListener(new a(this, pBInterstitial));
-            pBInterstitial.load();
+        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
+            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
+            Ssp.Pid pid = this.mPid;
+            this.e.loadFeedAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        PBInterstitial pBInterstitial;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBInterstitial = (PBInterstitial) obj) != null) {
-            pBInterstitial.destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean isAdAvailable(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            PBInterstitial pBInterstitial = (PBInterstitial) obj;
-            if (pBInterstitial != null && pBInterstitial.isReady()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            PBInterstitial pBInterstitial = (PBInterstitial) obj;
-            onShowStart(pBInterstitial);
-            if (!pBInterstitial.isReady()) {
-                LogPrinter.e("Ad isn't ready now", new Object[0]);
-                return false;
-            }
-            pBInterstitial.show();
-            return true;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

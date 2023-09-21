@@ -1,89 +1,142 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.view.MotionEvent;
-import android.widget.TextView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.view.View;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.DownloadBar;
+import tbclient.FeedMaskLayer;
+import tbclient.FeedVideoAdComponent;
+import tbclient.MaskLayerText;
+import tbclient.VideoField;
 /* loaded from: classes5.dex */
-public final class eb7 extends LinkMovementMethod {
+public final class eb7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final eb7 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947728655, "Lcom/baidu/tieba/eb7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static final class a extends jb7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MaskLayerText a;
+
+        public a(MaskLayerText maskLayerText) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {maskLayerText};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947728655, "Lcom/baidu/tieba/eb7;");
-                return;
+            this.a = maskLayerText;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View widget) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
+                Intrinsics.checkNotNullParameter(widget, "widget");
+                gc7.c(widget.getContext(), this.a.schema);
             }
         }
-        a = new eb7();
     }
 
-    public eb7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
-        InterceptResult invokeLLL;
+    public static final SpannableString a(List<MaskLayerText> textList) {
+        InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, widget, buffer, event)) == null) {
-            Intrinsics.checkNotNullParameter(widget, "widget");
-            Intrinsics.checkNotNullParameter(buffer, "buffer");
-            Intrinsics.checkNotNullParameter(event, "event");
-            int action = event.getAction();
-            if (action == 0 || action == 1) {
-                int x = ((int) event.getX()) - widget.getTotalPaddingLeft();
-                int y = ((int) event.getY()) - widget.getTotalPaddingTop();
-                int scrollX = x + widget.getScrollX();
-                int scrollY = y + widget.getScrollY();
-                Layout layout = widget.getLayout();
-                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                ClickableSpan[] links = (ClickableSpan[]) buffer.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
-                Intrinsics.checkNotNullExpressionValue(links, "links");
-                if (links.length == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    ClickableSpan clickableSpan = links[0];
-                    if (action == 1 && clickableSpan != null) {
-                        clickableSpan.onClick(widget);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, textList)) == null) {
+            Intrinsics.checkNotNullParameter(textList, "textList");
+            if (ListUtils.isEmpty(textList)) {
+                return new SpannableString("");
+            }
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            for (MaskLayerText maskLayerText : textList) {
+                if (maskLayerText != null) {
+                    String str = maskLayerText.text;
+                    boolean z2 = true;
+                    if (str != null && str.length() != 0) {
+                        z = false;
+                    } else {
+                        z = true;
                     }
-                    return true;
+                    if (!z) {
+                        String str2 = maskLayerText.schema;
+                        if (str2 != null && str2.length() != 0) {
+                            z2 = false;
+                        }
+                        if (z2) {
+                            spannableStringBuilder.append((CharSequence) maskLayerText.text);
+                        } else {
+                            SpannableString spannableString = new SpannableString(maskLayerText.text);
+                            spannableString.setSpan(new a(maskLayerText), 0, maskLayerText.text.length(), 17);
+                            spannableStringBuilder.append((CharSequence) spannableString);
+                        }
+                    }
                 }
             }
-            return false;
+            return new SpannableString(spannableStringBuilder);
         }
-        return invokeLLL.booleanValue;
+        return (SpannableString) invokeL.objValue;
+    }
+
+    public static final void b(FeedVideoAdComponent feedVideoAdComponent, List<yc7<?>> dataList, ia7 videoSchemaData, b97 feedExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, feedVideoAdComponent, dataList, videoSchemaData, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedVideoAdComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            VideoField videoField = feedVideoAdComponent.video_info;
+            if (videoField != null) {
+                x77 b = fb7.b(videoField, videoSchemaData, feedExtraData);
+                String str = "";
+                SpannableString spannableString = new SpannableString("");
+                FeedMaskLayer mask_layer = feedVideoAdComponent.mask_layer;
+                if (mask_layer != null) {
+                    Intrinsics.checkNotNullExpressionValue(mask_layer, "mask_layer");
+                    String str2 = mask_layer.topright_text;
+                    if (str2 != null) {
+                        Intrinsics.checkNotNullExpressionValue(str2, "mask.topright_text ?: \"\"");
+                        str = str2;
+                    }
+                    List<MaskLayerText> list = mask_layer.button_texts;
+                    Intrinsics.checkNotNullExpressionValue(list, "mask.button_texts");
+                    spannableString = a(list);
+                }
+                b.m(spannableString);
+                v87 v87Var = new v87(null, null, null, null, null, null, 63, null);
+                DownloadBar download_bar = feedVideoAdComponent.download_bar;
+                if (download_bar != null) {
+                    Intrinsics.checkNotNullExpressionValue(download_bar, "download_bar");
+                    String str3 = download_bar.type;
+                    Intrinsics.checkNotNullExpressionValue(str3, "bar.type");
+                    String str4 = download_bar.icon;
+                    Intrinsics.checkNotNullExpressionValue(str4, "bar.icon");
+                    String str5 = download_bar.guide_text;
+                    Intrinsics.checkNotNullExpressionValue(str5, "bar.guide_text");
+                    String str6 = download_bar.button_text;
+                    Intrinsics.checkNotNullExpressionValue(str6, "bar.button_text");
+                    String str7 = download_bar.schema;
+                    Intrinsics.checkNotNullExpressionValue(str7, "bar.schema");
+                    v87Var = new v87(str3, str4, str5, str6, str7, feedExtraData.a());
+                }
+                dataList.add(new zc7(new w77(b, str, spannableString, v87Var), "video_ad"));
+            }
+        }
     }
 }

@@ -59,21 +59,21 @@ public class PraiseToolBarItemView extends RelativeLayout implements IFontSizeVi
         this.mPraiseView = coolPraiseView;
         coolPraiseView.setClickable(true);
         this.mPraiseView.setGravity(17);
-        this.mPraiseView.setId(R.id.obfuscated_res_0x7f091d5b);
-        PressedAlphaImageView pressedAlphaImageView = (PressedAlphaImageView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f092910);
+        this.mPraiseView.setId(R.id.obfuscated_res_0x7f091d29);
+        PressedAlphaImageView pressedAlphaImageView = (PressedAlphaImageView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f0928dd);
         ViewGroup.LayoutParams layoutParams = pressedAlphaImageView.getLayoutParams();
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070257);
         layoutParams.width = dimensionPixelSize;
         layoutParams.height = dimensionPixelSize;
         pressedAlphaImageView.setLayoutParams(layoutParams);
-        ((TextView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f092911)).setVisibility(8);
+        ((TextView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f0928de)).setVisibility(8);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimensionPixelOffset2, dimensionPixelOffset2);
         layoutParams2.leftMargin = dimensionPixelOffset;
         layoutParams2.rightMargin = dimensionPixelOffset;
         this.mPraiseView.setLayoutParams(layoutParams2);
         addView(this.mPraiseView);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams3.addRule(1, R.id.obfuscated_res_0x7f091d5b);
+        layoutParams3.addRule(1, R.id.obfuscated_res_0x7f091d29);
         layoutParams3.addRule(15);
         layoutParams3.leftMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070269);
         TextView textView = new TextView(getContext());
@@ -101,12 +101,12 @@ public class PraiseToolBarItemView extends RelativeLayout implements IFontSizeVi
         if (!isResponseFontSize()) {
             return;
         }
-        PressedAlphaImageView pressedAlphaImageView = (PressedAlphaImageView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f092910);
+        PressedAlphaImageView pressedAlphaImageView = (PressedAlphaImageView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f0928dd);
         if (pressedAlphaImageView != null) {
             FontSizeViewExtKt.setScaledWidthRes(pressedAlphaImageView, 0, R.dimen.obfuscated_res_0x7f070257);
             FontSizeViewExtKt.setScaledHeightRes(pressedAlphaImageView, 0, R.dimen.obfuscated_res_0x7f070257);
         }
-        TextView textView = (TextView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f092911);
+        TextView textView = (TextView) this.mPraiseView.findViewById(R.id.obfuscated_res_0x7f0928de);
         if (textView != null) {
             FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, R.dimen.obfuscated_res_0x7f0702e4);
         }

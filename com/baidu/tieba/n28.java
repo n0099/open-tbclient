@@ -2,28 +2,31 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class n28 extends ax<c28> {
+public class n28 extends zw<c28> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m28 f;
+    @NonNull
+    public m28 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n28(TbPageContext<?> pageContext) {
-        super(pageContext.getPageActivity());
+    public n28(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,32 +37,47 @@ public final class n28 extends ax<c28> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.f = new m28(pageContext);
+        Object obj = TbadkCoreApplication.getInst().getPersonalizeViewData().t;
+        if (obj instanceof m28) {
+            m28 m28Var = (m28) obj;
+            if (m28Var.h().getParent() == null) {
+                this.f = m28Var;
+                return;
+            }
+        }
+        this.f = new m28(tbPageContext.getPageActivity());
     }
 
-    @Override // com.baidu.tieba.ax
+    @Override // com.baidu.tieba.zw
     public View j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f.c();
+            return this.f.h();
         }
         return (View) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ux
-    /* renamed from: s */
-    public void onBindDataToView(c28 c28Var) {
+    @Override // com.baidu.tieba.zw
+    public void p(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c28Var) == null) {
-            this.f.e(c28Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            this.f.m(bdUniqueId);
         }
     }
 
-    @Override // com.baidu.tieba.vx
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tx
+    /* renamed from: s */
+    public void onBindDataToView(c28 c28Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, c28Var) == null) {
+            this.f.l(c28Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.ux
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             this.f.onChangeSkinType(tbPageContext, i);

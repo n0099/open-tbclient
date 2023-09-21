@@ -1,179 +1,154 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
-public final class hk3 extends ik3 {
+public abstract class hk3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
+    public fk3 a;
+    public ck3 b;
+    public volatile boolean c;
+    public HandlerThread d;
+    public Handler e;
+
+    public abstract void f();
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ArrayList a;
-        public final /* synthetic */ hk3 b;
+        public final /* synthetic */ hk3 a;
 
-        public a(hk3 hk3Var, ArrayList arrayList) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hk3 hk3Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hk3Var, arrayList};
+                Object[] objArr = {hk3Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = hk3Var;
-            this.a = arrayList;
+            this.a = hk3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.m(this.a);
-                this.b.j();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
+                this.a.f();
+                if (this.a.c) {
+                    this.a.a.c();
+                } else {
+                    this.a.e.removeMessages(101);
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hk3(dk3 dk3Var) {
-        super(dk3Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947826553, "Lcom/baidu/tieba/hk3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947826553, "Lcom/baidu/tieba/hk3;");
+                return;
+            }
+        }
+        f = qr1.a;
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                d();
+                this.e.sendMessage(this.e.obtainMessage(101));
+            }
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e == null) {
+            HandlerThread handlerThread = new HandlerThread("cookieSync");
+            this.d = handlerThread;
+            handlerThread.start();
+            this.e = new a(this, this.d.getLooper());
+        }
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.c = true;
+                if (this.d != null) {
+                    this.d.quitSafely();
+                }
+                this.e = null;
+                this.d = null;
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                d();
+                this.e.sendMessageDelayed(this.e.obtainMessage(101), 5000L);
+            }
+        }
+    }
+
+    public hk3(ck3 ck3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dk3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {ck3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((dk3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ik3
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
-            return;
-        }
-        long j = 0;
-        if (ik3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.g(new a(this, this.b.n()));
-        if (ik3.f) {
-            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-            return;
-        }
-        long j = 0;
-        if (ik3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.b();
-        this.g = true;
-        if (ik3.f) {
-            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
-        }
-    }
-
-    public void l() {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (ik3.f) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            this.a.h();
-            if (ik3.f) {
-                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
-            }
-        }
-    }
-
-    public ArrayList<ck3> k(String str) {
-        InterceptResult invokeL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (ik3.f) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            ArrayList<ck3> arrayList = new ArrayList<>();
-            try {
-                arrayList = this.a.e(str);
-            } catch (Exception e) {
-                h82.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
-            }
-            if (ik3.f) {
-                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void m(ArrayList<ck3> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
-            if (ik3.f) {
-                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
-            }
-            Iterator<ck3> it = arrayList.iterator();
-            while (it.hasNext()) {
-                ck3 next = it.next();
-                if (next != null) {
-                    if (ik3.f) {
-                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
-                    }
-                    int i = next.i;
-                    if (i != 0) {
-                        if (i != 2) {
-                            if (i == 3) {
-                                this.a.d(next.a, next.b, next.c);
-                                this.a.a(next);
-                                this.b.y(next);
-                            }
-                        } else {
-                            this.a.d(next.a, next.b, next.c);
-                            this.b.g(next);
-                        }
-                    } else {
-                        this.a.a(next);
-                        this.b.y(next);
-                    }
-                }
-            }
-        }
+        this.a = new fk3();
+        this.b = ck3Var;
     }
 }

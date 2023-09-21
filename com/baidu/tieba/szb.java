@@ -1,210 +1,148 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.X509TrustManager;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class szb extends SSLSocketFactory {
+public final class szb {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public SSLContext a;
-    public SSLSocket b;
-    public Context c;
-    public String[] d;
-    public String[] e;
-    public String[] f;
-    public String[] g;
 
-    public void b(X509TrustManager x509TrustManager) {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509TrustManager) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException unused) {
+            Log.e("Utils", "Exception when closing the 'Closeable'.");
         }
     }
 
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
+    public static void b(Reader reader, Writer writer) throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65537, null, reader, writer) == null) {
+            c(reader, writer, new char[4096]);
+        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948170126, "Lcom/baidu/tieba/szb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948170126, "Lcom/baidu/tieba/szb;");
+    public static void c(Reader reader, Writer writer, char[] cArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65538, null, reader, writer, cArr) != null) {
+            return;
+        }
+        while (true) {
+            int read = reader.read(cArr);
+            if (-1 == read) {
                 return;
             }
+            writer.write(cArr, 0, read);
         }
-        h = szb.class.getSimpleName();
     }
 
-    public Context getContext() {
-        InterceptResult invokeV;
+    public static Map<String, String> d(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String[] strArr = this.d;
-            if (strArr != null) {
-                return strArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            HashMap hashMap = new HashMap();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                hashMap.put(e(entry.getKey()), entry.getValue());
             }
-            return new String[0];
+            return hashMap;
         }
-        return (String[]) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public szb(X509TrustManager x509TrustManager) throws NoSuchAlgorithmException, KeyManagementException, IllegalArgumentException {
+    public static String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x509TrustManager};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.a = qzb.f();
-        b(x509TrustManager);
-        this.a.init(null, new X509TrustManager[]{x509TrustManager}, null);
-    }
-
-    public final void a(Socket socket) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, socket) == null) {
-            boolean z2 = true;
-            if (!zzb.a(this.g)) {
-                d0c.e(h, "set protocols");
-                qzb.e((SSLSocket) socket, this.g);
-                z = true;
-            } else {
-                z = false;
-            }
-            if (zzb.a(this.f) && zzb.a(this.e)) {
-                z2 = false;
-            } else {
-                d0c.e(h, "set white cipher or black cipher");
-                SSLSocket sSLSocket = (SSLSocket) socket;
-                qzb.d(sSLSocket);
-                if (!zzb.a(this.f)) {
-                    qzb.h(sSLSocket, this.f);
-                } else {
-                    qzb.b(sSLSocket, this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int i = 0;
+            if (str.length() > 0) {
+                while (str.charAt(i) == '/') {
+                    i++;
                 }
             }
-            if (!z) {
-                d0c.e(h, "set default protocols");
-                qzb.d((SSLSocket) socket);
+            return "/" + str.substring(i);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static jzb f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (str != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 2155) {
+                    if (hashCode != 2177) {
+                        if (hashCode != 2627) {
+                            if (hashCode == 2644 && str.equals("SG")) {
+                                c = 3;
+                            }
+                        } else if (str.equals("RU")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("DE")) {
+                        c = 1;
+                    }
+                } else if (str.equals("CN")) {
+                    c = 0;
+                }
+                if (c == 0) {
+                    return jzb.c;
+                }
+                if (c == 1) {
+                    return jzb.d;
+                }
+                if (c == 2) {
+                    return jzb.e;
+                }
+                if (c == 3) {
+                    return jzb.f;
+                }
             }
-            if (!z2) {
-                d0c.e(h, "set default cipher suites");
-                qzb.c((SSLSocket) socket);
+            if (str2 != null) {
+                if (str2.contains("connect-drcn")) {
+                    return jzb.c;
+                }
+                if (str2.contains("connect-dre")) {
+                    return jzb.d;
+                }
+                if (str2.contains("connect-drru")) {
+                    return jzb.e;
+                }
+                if (str2.contains("connect-dra")) {
+                    return jzb.f;
+                }
             }
+            return jzb.b;
         }
+        return (jzb) invokeLL.objValue;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i) throws IOException {
-        InterceptResult invokeLI;
+    public static String g(InputStream inputStream, String str) throws UnsupportedEncodingException, IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            d0c.e(h, "createSocket: host , port");
-            Socket createSocket = this.a.getSocketFactory().createSocket(str, i);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
-            }
-            return createSocket;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, inputStream, str)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            b(new InputStreamReader(inputStream, str), stringWriter);
+            return stringWriter.toString();
         }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
-            return createSocket(str, i);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i)) == null) {
-            return createSocket(inetAddress.getHostAddress(), i);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
-            return createSocket(inetAddress.getHostAddress(), i);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            d0c.e(h, "createSocket s host port autoClose");
-            Socket createSocket = this.a.getSocketFactory().createSocket(socket, str, i, z);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
-            }
-            return createSocket;
-        }
-        return (Socket) invokeCommon.objValue;
+        return (String) invokeLL.objValue;
     }
 }

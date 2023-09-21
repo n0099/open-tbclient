@@ -1,83 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class mo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public List<cn> d;
-    public boolean e;
-    public int f;
+    public Context a;
+    public View b;
+    public EMTextView c;
 
-    public mo7() {
+    public mo7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = context;
+        b(context);
+    }
+
+    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
+            view2.setVisibility(0);
+            bdTypeRecyclerView.addHeaderView(this.b);
         }
     }
 
-    public int a(List<cn> list) {
-        InterceptResult invokeL;
-        boolean z;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return 0;
-            }
-            if (ListUtils.isEmpty(this.d)) {
-                LinkedList linkedList = new LinkedList();
-                this.d = linkedList;
-                linkedList.addAll(list);
-                return list.size();
-            }
-            LinkedList linkedList2 = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                cn cnVar = list.get(i);
-                int i2 = 0;
-                while (true) {
-                    if (i2 < this.d.size()) {
-                        cn cnVar2 = this.d.get(i2);
-                        if (cnVar != null && (cnVar instanceof lo7) && cnVar2 != null && (cnVar2 instanceof lo7)) {
-                            ThreadData threadData = ((lo7) cnVar).getThreadData();
-                            ThreadData threadData2 = ((lo7) cnVar2).getThreadData();
-                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
-                                z = true;
-                                break;
-                            }
-                        }
-                        i2++;
-                    } else {
-                        z = false;
-                        break;
-                    }
-                }
-                if (!z) {
-                    ListUtils.add(linkedList2, cnVar);
-                }
-            }
-            if (linkedList2.size() != 0) {
-                ListUtils.addAll(this.d, 0, linkedList2);
-            }
-            return linkedList2.size();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            EMManager.from(this.c).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
         }
-        return invokeL.intValue;
+    }
+
+    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
+            view2.setVisibility(8);
+            bdTypeRecyclerView.removeHeaderView(this.b);
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(str);
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
+            return;
+        }
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0312, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c13);
+        c(TbadkCoreApplication.getInst().getSkinType());
     }
 }

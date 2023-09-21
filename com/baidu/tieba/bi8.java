@@ -1,72 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
+import android.animation.TypeEvaluator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class bi8 extends bb {
+public class bi8 implements TypeEvaluator<di8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public di8 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bi8() {
-        super(202009);
+    public bi8(di8 di8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {di8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = di8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ya
-    /* renamed from: i */
-    public SocketResponsedMessage g(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    @Override // android.animation.TypeEvaluator
+    /* renamed from: a */
+    public di8 evaluate(float f, di8 di8Var, di8 di8Var2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (!(socketResponsedMessage instanceof PushResponseMessage)) {
-                return null;
-            }
-            if (socketResponsedMessage.getError() == 110000) {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-            }
-            PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
-            if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
-                CustomMessage customMessage = new CustomMessage(2012100);
-                customMessage.setData(pushResponseMessage.getNotificationData());
-                MessageManager.getInstance().sendMessage(customMessage);
-                return null;
-            }
-            List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
-            if (groupMsg != null && groupMsg.size() > 0) {
-                for (GroupMsgData groupMsgData : groupMsg) {
-                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
-                    }
-                }
-            }
-            return socketResponsedMessage;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), di8Var, di8Var2})) == null) {
+            float f2 = 1.0f - f;
+            float f3 = f2 * f2;
+            float f4 = 2.0f * f * f2;
+            di8 di8Var3 = this.a;
+            float f5 = f * f;
+            return new di8((int) ((di8Var.a * f3) + (di8Var3.a * f4) + (di8Var2.a * f5)), (int) ((f3 * di8Var.b) + (f4 * di8Var3.b) + (f5 * di8Var2.b)));
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (di8) invokeCommon.objValue;
     }
 }

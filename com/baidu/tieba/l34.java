@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l34 extends n34 {
+public class l34 extends m34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l34() {
-        super("echo");
+        super("echoSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,21 +30,19 @@ public class l34 extends n34 {
         }
     }
 
-    @Override // com.baidu.tieba.n34
-    public h32 a(@NonNull JSONObject jSONObject, @NonNull lo2 lo2Var) {
+    @Override // com.baidu.tieba.m34
+    public g32 a(@NonNull JSONObject jSONObject, @NonNull ko2 ko2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lo2Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ko2Var)) == null) {
             int optInt = jSONObject.optInt("status", 0);
             String optString = jSONObject.optString("message");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optInt == 0) {
-                lo2Var.onSuccess(optJSONObject);
-                return null;
+                return new g32(optInt, optJSONObject);
             }
-            lo2Var.onFail(optInt, optString);
-            return null;
+            return new g32(optInt, optString);
         }
-        return (h32) invokeLL.objValue;
+        return (g32) invokeLL.objValue;
     }
 }

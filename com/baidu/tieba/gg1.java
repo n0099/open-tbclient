@@ -1,27 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gg1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile fg1 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gg1 {
+    void a(Activity activity, String str, String str2);
 
-    public static synchronized fg1 a() {
-        InterceptResult invokeV;
-        fg1 fg1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (gg1.class) {
-                if (a == null) {
-                    a = new fg1();
-                }
-                fg1Var = a;
-            }
-            return fg1Var;
-        }
-        return (fg1) invokeV.objValue;
-    }
+    void aLiAuth(Activity activity, String str, ng1<JSONObject> ng1Var);
+
+    boolean b(Context context);
+
+    void c(Activity activity, String str, bg1 bg1Var);
+
+    void d(Context context, JSONObject jSONObject, bg1 bg1Var);
+
+    void e(Activity activity, String str, bg1 bg1Var);
+
+    void f(Context context, JSONObject jSONObject);
+
+    void g(Bundle bundle);
+
+    void h(String str);
+
+    void i(Activity activity, JSONObject jSONObject, bg1 bg1Var);
+
+    String j(Context context);
 }

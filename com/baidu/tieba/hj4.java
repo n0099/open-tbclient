@@ -1,29 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.text.TextUtils;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public abstract class hj4<T> {
+public class hj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract ContentValues c(T t);
-
-    public abstract T d(Cursor cursor) throws SQLException;
-
-    public abstract List<T> e(Cursor cursor) throws SQLException;
+    public ConcurrentHashMap<Class<?>, gj4> a;
+    public ConcurrentHashMap<Class<?>, Uri> b;
 
     public hj4() {
         Interceptable interceptable = $ic;
@@ -35,74 +26,49 @@ public abstract class hj4<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    public ContentValues a(fk4 fk4Var) {
+    public <T> gj4<T> a(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fk4Var)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("bundle_id", fk4Var.g);
-            contentValues.put("category", Integer.valueOf(fk4Var.h));
-            contentValues.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, fk4Var.j);
-            contentValues.put("version_code", Long.valueOf(fk4Var.i));
-            contentValues.put("size", Long.valueOf(fk4Var.k));
-            contentValues.put(PackageTable.MD5, fk4Var.l);
-            contentValues.put("sign", fk4Var.m);
-            contentValues.put(TTDownloadField.TT_DOWNLOAD_URL, fk4Var.n);
-            contentValues.put(PackageTable.FILE_PATH, fk4Var.a);
-            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(fk4Var.b));
-            contentValues.put("create_time", Long.valueOf(fk4Var.c));
-            contentValues.put("update_time", Long.valueOf(fk4Var.d));
-            contentValues.put("state", Integer.valueOf(fk4Var.e));
-            return contentValues;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            return this.a.get(cls);
         }
-        return (ContentValues) invokeL.objValue;
+        return (gj4) invokeL.objValue;
     }
 
-    public boolean b(Cursor cursor, fk4 fk4Var) {
-        InterceptResult invokeLL;
+    public <T> Uri b(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, fk4Var)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("bundle_id");
-                int columnIndex2 = cursor.getColumnIndex("category");
-                int columnIndex3 = cursor.getColumnIndex(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
-                int columnIndex4 = cursor.getColumnIndex("version_code");
-                int columnIndex5 = cursor.getColumnIndex("size");
-                int columnIndex6 = cursor.getColumnIndex(PackageTable.MD5);
-                int columnIndex7 = cursor.getColumnIndex("sign");
-                int columnIndex8 = cursor.getColumnIndex(TTDownloadField.TT_DOWNLOAD_URL);
-                int columnIndex9 = cursor.getColumnIndex("_id");
-                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
-                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
-                int columnIndex12 = cursor.getColumnIndex("create_time");
-                int columnIndex13 = cursor.getColumnIndex("update_time");
-                int columnIndex14 = cursor.getColumnIndex("state");
-                String string = cursor.getString(columnIndex);
-                if (TextUtils.isEmpty(string)) {
-                    return false;
-                }
-                fk4Var.g = string;
-                fk4Var.h = cursor.getInt(columnIndex2);
-                fk4Var.j = cursor.getString(columnIndex3);
-                fk4Var.i = cursor.getLong(columnIndex4);
-                fk4Var.k = cursor.getLong(columnIndex5);
-                fk4Var.l = cursor.getString(columnIndex6);
-                fk4Var.m = cursor.getString(columnIndex7);
-                fk4Var.n = cursor.getString(columnIndex8);
-                fk4Var.a = cursor.getString(columnIndex10);
-                fk4Var.b = cursor.getLong(columnIndex11);
-                fk4Var.c = cursor.getLong(columnIndex12);
-                fk4Var.d = cursor.getLong(columnIndex13);
-                fk4Var.f = cursor.getLong(columnIndex9);
-                fk4Var.e = cursor.getInt(columnIndex14);
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+            return this.b.get(cls);
         }
-        return invokeLL.booleanValue;
+        return (Uri) invokeL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = new ConcurrentHashMap<>();
+            this.b = new ConcurrentHashMap<>();
+            this.a.put(fk4.class, new kj4());
+            this.a.put(gk4.class, new lj4());
+            this.a.put(dk4.class, new jj4());
+            this.a.put(bk4.class, new ij4());
+            this.a.put(PMSAppInfo.class, new fj4());
+            this.a.put(hk4.class, new mj4());
+            this.a.put(ik4.class, new nj4());
+            this.b.put(fk4.class, xj4.f);
+            this.b.put(gk4.class, xj4.g);
+            this.b.put(dk4.class, xj4.d);
+            this.b.put(bk4.class, xj4.h);
+            this.b.put(PMSAppInfo.class, xj4.e);
+            this.b.put(hk4.class, xj4.i);
+            this.b.put(ik4.class, xj4.j);
+        }
     }
 }

@@ -1,158 +1,133 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.SeekBar;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qka {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class qka {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
+    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public SeekBar b;
-    public View c;
-    public int d;
-    public ViewTreeObserver.OnGlobalLayoutListener e;
+    public HashMap<String, List<rka>> mAsyncCallBackMethodList;
+    public HashSet<String> mNotificationNameList;
 
-    /* loaded from: classes7.dex */
-    public class a implements SeekBar.OnSeekBarChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(qka qkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public ska dispatch(WebView webView, uka ukaVar, ska skaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, ukaVar, skaVar)) == null) {
+            return null;
         }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStartTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
-                mz9 mz9Var = new mz9();
-                mz9Var.a = 2;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, mz9Var));
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_transparent_seekbar));
-                mz9 mz9Var = new mz9();
-                mz9Var.a = 3;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, mz9Var));
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-                mz9 mz9Var = new mz9();
-                mz9Var.a = 1;
-                mz9Var.b = i;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, mz9Var));
-            }
-        }
+        return (ska) invokeLLL.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qka a;
-
-        public b(qka qkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qkaVar;
+    @Nullable
+    public xm6 getJsBridge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
         }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.b.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.b.getLayoutParams();
-                if (layoutParams.bottomMargin != this.a.d) {
-                    layoutParams.bottomMargin = this.a.c.getHeight() - BdUtilHelper.getDimens(this.a.a, R.dimen.tbds16);
-                    this.a.b.setLayoutParams(layoutParams);
-                    this.a.d = layoutParams.bottomMargin;
-                }
-            }
-        }
+        return (xm6) invokeV.objValue;
     }
 
-    public qka(BaseFragmentActivity baseFragmentActivity, View view2) {
+    public abstract List<ska> processNotification(WebView webView, String str, HashMap hashMap);
+
+    public qka() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = -1;
-        this.e = new b(this);
-        this.a = baseFragmentActivity;
-        this.c = view2;
-        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f092957);
-        this.b = seekBar;
-        seekBar.setOnSeekBarChangeListener(new a(this));
-        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);
     }
 
-    public void f(boolean z) {
-        int i;
+    public final void onDestroy() {
+        xm6 jsBridge;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            SeekBar seekBar = this.b;
-            if (z) {
-                i = 0;
-            } else {
-                i = 4;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (jsBridge = getJsBridge()) != null) {
+            jsBridge.onDestroy();
+        }
+    }
+
+    public ska addObserver(WebView webView, String str, ska skaVar, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{webView, str, skaVar, Boolean.valueOf(z)})) == null) {
+            if (skaVar == null) {
+                skaVar = new ska();
             }
-            seekBar.setVisibility(i);
+            if (this.mNotificationNameList.contains(str)) {
+                skaVar.n(false);
+                skaVar.t(true);
+                List<rka> list = this.mAsyncCallBackMethodList.get(str);
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
+                rka rkaVar = new rka();
+                rkaVar.e(skaVar.c());
+                rkaVar.d(z);
+                rkaVar.f(skaVar.e());
+                list.add(rkaVar);
+                this.mAsyncCallBackMethodList.put(str, list);
+                if (webView instanceof um6) {
+                    ((um6) webView).a(str, rkaVar.a());
+                }
+            }
+            return skaVar;
+        }
+        return (ska) invokeCommon.objValue;
+    }
+
+    public ska addObserver(String str, ska skaVar, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, skaVar, z)) == null) {
+            return addObserver(null, str, skaVar, z);
+        }
+        return (ska) invokeLLZ.objValue;
+    }
+
+    public ska dispatch(uka ukaVar, ska skaVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, ukaVar, skaVar)) == null) {
+            return dispatch(null, ukaVar, skaVar);
+        }
+        return (ska) invokeLL.objValue;
+    }
+
+    public void removeObserverBridge(List<Pair<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && list != null && !list.isEmpty()) {
+            for (Pair<String, String> pair : list) {
+                List<rka> list2 = this.mAsyncCallBackMethodList.get(pair.first);
+                if (list2 != null && !list2.isEmpty()) {
+                    Iterator<rka> it = list2.iterator();
+                    while (it.hasNext()) {
+                        if (TextUtils.equals(it.next().a(), pair.second)) {
+                            it.remove();
+                        }
+                    }
+                }
+            }
         }
     }
 }

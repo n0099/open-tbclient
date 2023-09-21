@@ -1,288 +1,159 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class v31 extends q41 {
+public final class v31 extends o41 {
     public static /* synthetic */ Interceptable $ic;
+    public static final g41 A;
+    public static final g41[] B;
+    public static final g41[][] C;
+    public static final g41[] D;
+    public static final g41 o;
+    public static final g41 p;
+    public static final g41 q;
+    public static final g41 r;
+    public static final g41 s;
+    public static final g41 t;
+    public static final g41 u;
+    public static final g41 v;
+    public static final g41 w;
+    public static final g41 x;
+    public static final g41 y;
+    public static final g41 z;
     public transient /* synthetic */ FieldHolder $fh;
-    public final w31 a;
+    public final StringColumn a;
+    public final IntegerColumn b;
+    public final IntegerColumn c;
+    public final StringColumn d;
+    public final StringColumn e;
+    public final StringColumn f;
+    public final IntegerColumn g;
+    public final IntegerColumn h;
+    public final LongColumn i;
+    public final LongColumn j;
+    public final StringColumn k;
+    public final StringColumn l;
+    public final StringColumn m;
+    public final Column[] n;
+
+    @Override // com.baidu.tieba.o41
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "t_apk_info" : (String) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948189749, "Lcom/baidu/tieba/v31;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948189749, "Lcom/baidu/tieba/v31;");
+                return;
+            }
+        }
+        o = o41.b(4, "key", "                   key", 0, 2);
+        p = o41.a(2, "task_id", "               task_id", 1);
+        q = o41.a(2, "status", "                status", 2);
+        r = o41.a(4, "package_name", "          package_name", 3);
+        s = o41.a(4, "url", "                   url", 4);
+        t = o41.a(4, "file", "                  file", 5);
+        u = o41.a(2, "progress", "              progress", 6);
+        v = o41.a(2, "v_progress", "            v_progress", 7);
+        w = o41.a(3, "start_download_time", "   start_download_time", 8);
+        x = o41.a(3, "finished_download_time", "finished_download_time", 9);
+        y = o41.a(4, "mt", "                    mt", 10);
+        z = o41.a(4, "ctrl", "                  ctrl", 11);
+        g41 a = o41.a(4, "extra", "                 extra", 12);
+        A = a;
+        g41 g41Var = o;
+        B = new g41[]{g41Var, p, q, r, s, t, u, v, w, x, y, z, a};
+        C = new g41[0];
+        D = new g41[]{g41Var};
+    }
 
     public v31() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new w31();
+        this.a = new StringColumn(o);
+        this.b = new IntegerColumn(p);
+        this.c = new IntegerColumn(q);
+        this.d = new StringColumn(r);
+        this.e = new StringColumn(s);
+        this.f = new StringColumn(t);
+        this.g = new IntegerColumn(u);
+        this.h = new IntegerColumn(v);
+        this.i = new LongColumn(w);
+        this.j = new LongColumn(x);
+        this.k = new StringColumn(y);
+        this.l = new StringColumn(z);
+        StringColumn stringColumn = new StringColumn(A);
+        this.m = stringColumn;
+        this.n = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, stringColumn};
     }
 
-    public String A() {
+    @Override // com.baidu.tieba.o41
+    public Column[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.e.getValue();
+            return this.n;
         }
-        return (String) invokeV.objValue;
+        return (Column[]) invokeV.objValue;
     }
 
-    public int B() {
+    @Override // com.baidu.tieba.o41
+    public g41[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.h.getValue();
+            return B;
         }
-        return invokeV.intValue;
+        return (g41[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q41
-    public p41 b() {
+    @Override // com.baidu.tieba.o41
+    public g41[][] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return C;
         }
-        return (p41) invokeV.objValue;
+        return (g41[][]) invokeV.objValue;
     }
 
-    public String c() {
+    @Override // com.baidu.tieba.o41
+    public g41[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.l.getValue();
+            return D;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.m.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.f.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.j.getValue();
-        }
-        return invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.a.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.k.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a.d.getValue();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.g.getValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public long x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.a.i.getValue();
-        }
-        return invokeV.longValue;
-    }
-
-    public int y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.a.c.getValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.a.b.getValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public v31 k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.a.l.setValue(str);
-            return this;
-        }
-        return (v31) invokeL.objValue;
-    }
-
-    public v31 l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.a.m.setValue(str);
-            return this;
-        }
-        return (v31) invokeL.objValue;
-    }
-
-    public v31 m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.a.f.setValue(str);
-            return this;
-        }
-        return (v31) invokeL.objValue;
-    }
-
-    public v31 n(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) {
-            this.a.j.setValue(j);
-            return this;
-        }
-        return (v31) invokeJ.objValue;
-    }
-
-    public v31 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.a.a.setValue(str);
-            return this;
-        }
-        return (v31) invokeL.objValue;
-    }
-
-    public v31 p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            this.a.k.setValue(str);
-            return this;
-        }
-        return (v31) invokeL.objValue;
-    }
-
-    public v31 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            this.a.d.setValue(str);
-            return this;
-        }
-        return (v31) invokeL.objValue;
-    }
-
-    public v31 r(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            this.a.g.setValue(i);
-            return this;
-        }
-        return (v31) invokeI.objValue;
-    }
-
-    public v31 s(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
-            this.a.i.setValue(j);
-            return this;
-        }
-        return (v31) invokeJ.objValue;
-    }
-
-    public v31 t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            this.a.c.setValue(i);
-            return this;
-        }
-        return (v31) invokeI.objValue;
-    }
-
-    public v31 u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            this.a.b.setValue(i);
-            return this;
-        }
-        return (v31) invokeI.objValue;
-    }
-
-    public v31 v(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            this.a.e.setValue(str);
-            return this;
-        }
-        return (v31) invokeL.objValue;
-    }
-
-    public v31 w(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
-            this.a.h.setValue(i);
-            return this;
-        }
-        return (v31) invokeI.objValue;
+        return (g41[]) invokeV.objValue;
     }
 }

@@ -1,32 +1,45 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class ysa {
+public final class ysa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final String b;
 
-    public ysa(int i, String str) {
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String packageName = kta.d().getPackageName();
+            Intrinsics.checkNotNullExpressionValue(packageName, "getAppCtx().packageName");
+            return packageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public static final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            Intent launchIntentForPackage = kta.d().getPackageManager().getLaunchIntentForPackage(kta.d().getPackageName());
+            if (launchIntentForPackage != null) {
+                launchIntentForPackage.addFlags(335577088);
+            }
+            if (launchIntentForPackage != null) {
+                int h = kta.h();
+                kta.d().startActivity(launchIntentForPackage);
+                if (z && h > 0) {
+                    Process.killProcess(h);
+                    System.exit(0);
+                    throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
+                }
             }
         }
-        this.a = i;
-        this.b = str;
     }
 }

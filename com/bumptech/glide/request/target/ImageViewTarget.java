@@ -59,7 +59,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
 
     @Override // com.bumptech.glide.request.transition.Transition.ViewAdapter
     public void setDrawable(Drawable drawable) {
-        ((ImageView) this.f1196view).setImageDrawable(drawable);
+        ((ImageView) this.f1193view).setImageDrawable(drawable);
     }
 
     @Deprecated
@@ -79,7 +79,7 @@ public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implem
     @Override // com.bumptech.glide.request.transition.Transition.ViewAdapter
     @Nullable
     public Drawable getCurrentDrawable() {
-        return ((ImageView) this.f1196view).getDrawable();
+        return ((ImageView) this.f1193view).getDrawable();
     }
 
     @Override // com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.manager.LifecycleListener

@@ -1,134 +1,64 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ucb {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948207605, "Lcom/baidu/tieba/ucb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948207605, "Lcom/baidu/tieba/ucb;");
+    public ucb(String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = pbb.m();
+        this.c = false;
+        this.a = str;
+        this.b = str2;
+        this.c = z;
     }
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException e) {
-                    if (a) {
-                        Log.e("StringUtil", e.toString());
-                    }
-                    i = 0;
-                }
-                if (i == -1) {
-                    break;
-                }
-                byteArrayOutputStream.write(bArr, 0, i);
-            }
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            try {
-                byteArrayOutputStream.close();
-            } catch (IOException e2) {
-                if (a) {
-                    Log.e("StringUtil", e2.toString());
-                }
-            }
-            return byteArray;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
-    public static String b(InputStream inputStream) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                try {
-                    byte[] a2 = a(inputStream);
-                    if (a2 != null) {
-                        String str = new String(a2);
-                        if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                            str = str.substring(1);
-                        }
-                        return str;
-                    } else if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                            return null;
-                        } catch (Exception e) {
-                            e = e;
-                            if (!a) {
-                                return null;
-                            }
-                            Log.e("StringUtil", e.toString());
-                            return null;
-                        }
-                    } else {
-                        return null;
-                    }
-                } finally {
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e2) {
-                            if (a) {
-                                Log.e("StringUtil", e2.toString());
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e3) {
-                if (a) {
-                    Log.e("StringUtil", " getStringFromInput exception: ", e3);
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                        return null;
-                    } catch (Exception e4) {
-                        e = e4;
-                        if (!a) {
-                            return null;
-                        }
-                        Log.e("StringUtil", e.toString());
-                        return null;
-                    }
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
     }
 }

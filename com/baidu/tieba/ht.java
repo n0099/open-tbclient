@@ -1,54 +1,80 @@
 package com.baidu.tieba;
 
-import android.util.DisplayMetrics;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ht {
     public static /* synthetic */ Interceptable $ic;
-    public static final DisplayMetrics a;
-    public static final float b;
+    public static volatile Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448306721, "Lcom/baidu/tieba/ht;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448306721, "Lcom/baidu/tieba/ht;");
-                return;
+    public ht() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        DisplayMetrics displayMetrics = hr.c.h().getAppContext().getResources().getDisplayMetrics();
-        a = displayMetrics;
-        b = displayMetrics.density;
     }
 
-    public static int a() {
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static Handler a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int identifier = hr.c.h().getAppContext().getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
-            int i = 0;
-            if (identifier > 0) {
-                try {
-                    i = hr.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
-                } catch (Exception unused) {
+            if (a == null) {
+                synchronized (ht.class) {
+                    if (a == null) {
+                        a = new Handler(Looper.getMainLooper());
+                    }
                 }
             }
-            if (i == 0) {
-                return (int) (b * 25.0f);
-            }
-            return i;
+            return a;
         }
-        return invokeV.intValue;
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a().post(runnable);
+            } else {
+                runnable.run();
+            }
+        }
+    }
+
+    public static void d(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
+            if (j > 0) {
+                a().postDelayed(runnable, j);
+            } else {
+                c(runnable);
+            }
+        }
     }
 }

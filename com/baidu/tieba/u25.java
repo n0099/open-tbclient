@@ -63,7 +63,7 @@ public class u25 extends BaseCardInfo {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ICardInfo i = w29.i(this.b);
+            ICardInfo i = h49.i(this.b);
             this.c = i;
             if (i != null) {
                 z = true;
@@ -74,7 +74,7 @@ public class u25 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

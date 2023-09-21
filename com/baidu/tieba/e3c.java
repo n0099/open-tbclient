@@ -1,364 +1,400 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.app.ApplicationExitInfo;
-import android.content.Context;
-import android.os.Build;
-import android.os.Process;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.charset.StandardCharsets;
-import java.util.Iterator;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire2.FieldEncoding;
+import java.io.EOFException;
+import java.io.IOException;
+import java.net.ProtocolException;
+import kotlin.jvm.internal.ByteCompanionObject;
+import okio.BufferedSource;
+import okio.ByteString;
 /* loaded from: classes5.dex */
-public class e3c {
+public final class e3c {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BufferedSource a;
+    public long b;
+    public long c;
+    public int d;
+    public int e;
+    public int f;
+    public long g;
+    public FieldEncoding h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684852, "Lcom/baidu/tieba/e3c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947684852, "Lcom/baidu/tieba/e3c;");
+    public e3c(BufferedSource bufferedSource) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bufferedSource};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("[^0-9]");
+        this.b = 0L;
+        this.c = Long.MAX_VALUE;
+        this.e = 2;
+        this.f = -1;
+        this.g = -1L;
+        this.a = bufferedSource;
     }
 
-    public static void a(Context context) {
-        ApplicationExitInfo next;
+    public final void a(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && Build.VERSION.SDK_INT > 29) {
-            Iterator<ApplicationExitInfo> it = ((ActivityManager) context.getSystemService("activity")).getHistoricalProcessExitReasons(context.getPackageName(), 0, 3).iterator();
-            while (it.hasNext() && (next = it.next()) != null) {
-                y2c.d("CrashReportUtil", next.toString());
-                try {
-                    f(next.getTraceInputStream());
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.e == i) {
+                this.e = 6;
+                return;
             }
-        }
-    }
-
-    public static void f(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, inputStream) != null) || inputStream == null) {
-            return;
-        }
-        try {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read != -1) {
-                    byteArrayOutputStream.write(bArr, 0, read);
-                } else {
-                    y2c.d("CrashReportUtil", byteArrayOutputStream.toString(StandardCharsets.UTF_8.name()));
-                    inputStream.close();
-                    byteArrayOutputStream.close();
+            long j = this.b;
+            long j2 = this.c;
+            if (j <= j2) {
+                if (j == j2) {
+                    this.c = this.g;
+                    this.g = -1L;
+                    this.e = 6;
                     return;
                 }
+                this.e = 7;
+                return;
             }
-        } catch (Throwable th) {
-            y2c.b("CrashReportUtil", th.getMessage());
+            throw new IOException("Expected to end at " + this.c + " but was " + this.b);
         }
     }
 
-    public static String b() {
+    public final long b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("ls /proc/self/fd -al").getInputStream()), 1024);
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    sb.append(readLine);
-                    sb.append("\n");
-                }
-                bufferedReader.close();
-            } catch (Exception e) {
-                y2c.d("CrashReportUtil", e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e == 2) {
+                long j = this.c - this.b;
+                this.a.require(j);
+                this.e = 6;
+                this.b = this.c;
+                this.c = this.g;
+                this.g = -1L;
+                return j;
             }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            try {
-                for (File file : new File("/proc/self/task").listFiles()) {
-                    if (file.isDirectory()) {
-                        File file2 = new File(file.getAbsolutePath() + File.separator + "comm");
-                        if (file2.isFile() && file2.exists()) {
-                            InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file2));
-                            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                            sb.append(file.getName());
-                            sb.append("---");
-                            while (true) {
-                                int read = bufferedReader.read();
-                                if (read <= 0) {
-                                    break;
-                                }
-                                sb.append((char) read);
-                            }
-                            inputStreamReader.close();
-                            bufferedReader.close();
-                        }
-                        file2.delete();
-                    }
-                }
-            } catch (Exception e) {
-                y2c.d("CrashReportUtil", e.getMessage());
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Exception e;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                i = 0;
-                for (File file : new File("/proc/self/task").listFiles()) {
-                    try {
-                        if (file.isDirectory()) {
-                            i++;
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        y2c.d("CrashReportUtil", e.getMessage());
-                        return i;
-                    }
-                }
-            } catch (Exception e3) {
-                e = e3;
-                i = 0;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            long j = -1;
-            try {
-                FileInputStream fileInputStream = new FileInputStream("/proc/" + Process.myPid() + "/status");
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    String lowerCase = readLine.toLowerCase();
-                    if (lowerCase.contains("vmsize")) {
-                        j = Integer.parseInt(a.matcher(lowerCase).replaceAll("").trim());
-                        break;
-                    }
-                }
-                fileInputStream.close();
-                bufferedReader.close();
-            } catch (Exception unused) {
-                Log.e("CrashReportUtil", "read current status failed.");
-            }
-            return j;
+            throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.e);
         }
         return invokeV.longValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 4, insn: 0x010a: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:67:0x010a */
-    /* JADX WARN: Not initialized variable reg: 5, insn: 0x010b: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r5 I:??[OBJECT, ARRAY]), block:B:67:0x010a */
-    /* JADX WARN: Removed duplicated region for block: B:101:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x00fe A[Catch: Exception -> 0x0076, TRY_ENTER, TryCatch #9 {Exception -> 0x0076, blocks: (B:60:0x00fe, B:62:0x0103, B:20:0x0072, B:24:0x007a), top: B:80:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0103 A[Catch: Exception -> 0x0076, TRY_LEAVE, TryCatch #9 {Exception -> 0x0076, blocks: (B:60:0x00fe, B:62:0x0103, B:20:0x0072, B:24:0x007a), top: B:80:0x000b }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0116 A[Catch: Exception -> 0x0112, TRY_LEAVE, TryCatch #10 {Exception -> 0x0112, blocks: (B:69:0x010e, B:73:0x0116), top: B:86:0x010e }] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x010e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void g(String str) {
-        FileChannel fileChannel;
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2;
-        FileChannel fileChannel2;
-        File file;
+    public int i() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            FileChannel fileChannel3 = null;
-            BufferedReader bufferedReader3 = null;
-            r3 = null;
-            r3 = null;
-            BufferedReader bufferedReader4 = null;
-            fileChannel3 = null;
-            try {
-                try {
-                    try {
-                        try {
-                            FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
-                            if (channel != null) {
-                                try {
-                                    InputStreamReader inputStreamReader = new InputStreamReader(Runtime.getRuntime().exec("showmap " + Process.myPid()).getInputStream());
-                                    BufferedReader bufferedReader5 = new BufferedReader(inputStreamReader, 1024);
-                                    while (true) {
-                                        try {
-                                            String readLine = bufferedReader5.readLine();
-                                            if (readLine == null) {
-                                                break;
-                                            }
-                                            channel.write(ByteBuffer.wrap(readLine.getBytes()));
-                                            channel.write(ByteBuffer.wrap("\n".getBytes()));
-                                        } catch (Exception e) {
-                                            e = e;
-                                            y2c.b("CrashReportUtil", e.getMessage());
-                                            try {
-                                                file = new File("/proc/self/smaps");
-                                                fileChannel2 = new RandomAccessFile(str, "rw").getChannel();
-                                                try {
-                                                } catch (Exception e2) {
-                                                    e = e2;
-                                                    bufferedReader2 = null;
-                                                } catch (Throwable th) {
-                                                    th = th;
-                                                    bufferedReader2 = null;
-                                                }
-                                            } catch (Exception e3) {
-                                                e = e3;
-                                                bufferedReader2 = null;
-                                            }
-                                            if (file.isFile() && file.exists() && fileChannel2 != null) {
-                                                InputStreamReader inputStreamReader2 = new InputStreamReader(new FileInputStream(file));
-                                                bufferedReader2 = new BufferedReader(inputStreamReader2);
-                                                while (true) {
-                                                    try {
-                                                        String readLine2 = bufferedReader2.readLine();
-                                                        if (readLine2 == null) {
-                                                            break;
-                                                        }
-                                                        fileChannel2.write(ByteBuffer.wrap(readLine2.getBytes()));
-                                                        fileChannel2.write(ByteBuffer.wrap("\n".getBytes()));
-                                                    } catch (Exception e4) {
-                                                        e = e4;
-                                                        fileChannel3 = fileChannel2;
-                                                        try {
-                                                            y2c.b("CrashReportUtil", e.getMessage());
-                                                            fileChannel2 = fileChannel3;
-                                                            bufferedReader4 = bufferedReader2;
-                                                            if (fileChannel2 != null) {
-                                                            }
-                                                            if (bufferedReader4 == null) {
-                                                            }
-                                                        } catch (Throwable th2) {
-                                                            th = th2;
-                                                            if (fileChannel3 != null) {
-                                                                try {
-                                                                    fileChannel3.close();
-                                                                } catch (Exception e5) {
-                                                                    y2c.b("CrashReportUtil", e5.getMessage());
-                                                                    throw th;
-                                                                }
-                                                            }
-                                                            if (bufferedReader2 != null) {
-                                                                bufferedReader2.close();
-                                                            }
-                                                            throw th;
-                                                        }
-                                                    } catch (Throwable th3) {
-                                                        th = th3;
-                                                        fileChannel3 = fileChannel2;
-                                                        th = th;
-                                                        if (fileChannel3 != null) {
-                                                        }
-                                                        if (bufferedReader2 != null) {
-                                                        }
-                                                        throw th;
-                                                    }
-                                                }
-                                                inputStreamReader2.close();
-                                                bufferedReader4 = bufferedReader2;
-                                            }
-                                            if (fileChannel2 != null) {
-                                                fileChannel2.close();
-                                            }
-                                            if (bufferedReader4 == null) {
-                                                bufferedReader4.close();
-                                                return;
-                                            }
-                                            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i = this.e;
+            if (i != 5 && i != 2) {
+                throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.e);
+            }
+            this.a.require(4L);
+            this.b += 4;
+            int readIntLe = this.a.readIntLe();
+            a(5);
+            return readIntLe;
+        }
+        return invokeV.intValue;
+    }
+
+    public long j() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int i = this.e;
+            if (i != 1 && i != 2) {
+                throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.e);
+            }
+            this.a.require(8L);
+            this.b += 8;
+            long readLongLe = this.a.readLongLe();
+            a(1);
+            return readLongLe;
+        }
+        return invokeV.longValue;
+    }
+
+    public long m() throws IOException {
+        InterceptResult invokeV;
+        byte readByte;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i != 2) {
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
+            }
+            long j = 0;
+            for (int i2 = 0; i2 < 64; i2 += 7) {
+                this.b++;
+                j |= (readByte & ByteCompanionObject.MAX_VALUE) << i2;
+                if ((this.a.readByte() & 128) == 0) {
+                    a(0);
+                    return j;
+                }
+            }
+            throw new ProtocolException("WireInput encountered a malformed varint");
+        }
+        return invokeV.longValue;
+    }
+
+    public long c() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e == 2) {
+                int i = this.d + 1;
+                this.d = i;
+                if (i <= 65) {
+                    long j = this.g;
+                    this.g = -1L;
+                    this.e = 6;
+                    return j;
+                }
+                throw new IOException("Wire recursion limit exceeded");
+            }
+            throw new IllegalStateException("Unexpected call to beginMessage()");
+        }
+        return invokeV.longValue;
+    }
+
+    public int l() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i != 2) {
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
+            }
+            int e = e();
+            a(0);
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (this.e == 6) {
+                int i = this.d - 1;
+                this.d = i;
+                if (i >= 0 && this.g == -1) {
+                    if (this.b != this.c && i != 0) {
+                        throw new IOException("Expected to end at " + this.c + " but was " + this.b);
+                    }
+                    this.c = j;
+                    return;
+                }
+                throw new IllegalStateException("No corresponding call to beginMessage()");
+            }
+            throw new IllegalStateException("Unexpected call to endMessage()");
+        }
+    }
+
+    public final void n(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            while (this.b < this.c && !this.a.exhausted()) {
+                int e = e();
+                if (e != 0) {
+                    int i2 = e >> 3;
+                    int i3 = e & 7;
+                    if (i3 != 0) {
+                        if (i3 != 1) {
+                            if (i3 != 2) {
+                                if (i3 != 3) {
+                                    if (i3 != 4) {
+                                        if (i3 == 5) {
+                                            this.e = 5;
+                                            i();
+                                        } else {
+                                            throw new ProtocolException("Unexpected field encoding: " + i3);
                                         }
+                                    } else if (i2 == i) {
+                                        return;
+                                    } else {
+                                        throw new ProtocolException("Unexpected end group");
                                     }
-                                    inputStreamReader.close();
-                                    bufferedReader3 = bufferedReader5;
-                                } catch (Exception e6) {
-                                    e = e6;
-                                } catch (Throwable th4) {
-                                    th = th4;
-                                    bufferedReader2 = null;
-                                    fileChannel3 = channel;
-                                    if (fileChannel3 != null) {
-                                    }
-                                    if (bufferedReader2 != null) {
-                                    }
-                                    throw th;
+                                } else {
+                                    n(i2);
+                                }
+                            } else {
+                                long e2 = e();
+                                this.b += e2;
+                                this.a.skip(e2);
+                            }
+                        } else {
+                            this.e = 1;
+                            j();
+                        }
+                    } else {
+                        this.e = 0;
+                        m();
+                    }
+                } else {
+                    throw new ProtocolException("Unexpected tag 0");
+                }
+            }
+            throw new EOFException();
+        }
+    }
+
+    public final int e() throws IOException {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.b++;
+            byte readByte = this.a.readByte();
+            if (readByte >= 0) {
+                return readByte;
+            }
+            int i2 = readByte & ByteCompanionObject.MAX_VALUE;
+            this.b++;
+            byte readByte2 = this.a.readByte();
+            if (readByte2 >= 0) {
+                i = readByte2 << 7;
+            } else {
+                i2 |= (readByte2 & ByteCompanionObject.MAX_VALUE) << 7;
+                this.b++;
+                byte readByte3 = this.a.readByte();
+                if (readByte3 >= 0) {
+                    i = readByte3 << 14;
+                } else {
+                    i2 |= (readByte3 & ByteCompanionObject.MAX_VALUE) << 14;
+                    this.b++;
+                    byte readByte4 = this.a.readByte();
+                    if (readByte4 >= 0) {
+                        i = readByte4 << 21;
+                    } else {
+                        int i3 = i2 | ((readByte4 & ByteCompanionObject.MAX_VALUE) << 21);
+                        this.b++;
+                        byte readByte5 = this.a.readByte();
+                        int i4 = i3 | (readByte5 << 28);
+                        if (readByte5 < 0) {
+                            for (int i5 = 0; i5 < 5; i5++) {
+                                this.b++;
+                                if (this.a.readByte() >= 0) {
+                                    return i4;
                                 }
                             }
-                            if (channel != null) {
-                                channel.close();
-                            }
-                            if (bufferedReader3 != null) {
-                                bufferedReader3.close();
-                            }
-                        } catch (Exception e7) {
-                            e = e7;
+                            throw new ProtocolException("Malformed VARINT");
                         }
-                    } catch (Throwable th5) {
-                        th = th5;
-                        bufferedReader2 = null;
+                        return i4;
                     }
-                } catch (Exception e8) {
-                    y2c.b("CrashReportUtil", e8.getMessage());
                 }
-            } catch (Throwable th6) {
-                th = th6;
-                fileChannel3 = fileChannel;
-                bufferedReader2 = bufferedReader;
+            }
+            return i2 | i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.e;
+            if (i == 7) {
+                this.e = 2;
+                return this.f;
+            } else if (i == 6) {
+                while (this.b < this.c && !this.a.exhausted()) {
+                    int e = e();
+                    if (e != 0) {
+                        int i2 = e >> 3;
+                        this.f = i2;
+                        int i3 = e & 7;
+                        if (i3 != 0) {
+                            if (i3 != 1) {
+                                if (i3 != 2) {
+                                    if (i3 != 3) {
+                                        if (i3 != 4) {
+                                            if (i3 == 5) {
+                                                this.h = FieldEncoding.FIXED32;
+                                                this.e = 5;
+                                                return i2;
+                                            }
+                                            throw new ProtocolException("Unexpected field encoding: " + i3);
+                                        }
+                                        throw new ProtocolException("Unexpected end group");
+                                    }
+                                    n(i2);
+                                } else {
+                                    this.h = FieldEncoding.LENGTH_DELIMITED;
+                                    this.e = 2;
+                                    int e2 = e();
+                                    if (e2 >= 0) {
+                                        if (this.g == -1) {
+                                            long j = this.c;
+                                            this.g = j;
+                                            long j2 = this.b + e2;
+                                            this.c = j2;
+                                            if (j2 <= j) {
+                                                return this.f;
+                                            }
+                                            throw new EOFException();
+                                        }
+                                        throw new IllegalStateException();
+                                    }
+                                    throw new ProtocolException("Negative length: " + e2);
+                                }
+                            } else {
+                                this.h = FieldEncoding.FIXED64;
+                                this.e = 1;
+                                return i2;
+                            }
+                        } else {
+                            this.h = FieldEncoding.VARINT;
+                            this.e = 0;
+                            return i2;
+                        }
+                    } else {
+                        throw new ProtocolException("Unexpected tag 0");
+                    }
+                }
+                return -1;
+            } else {
+                throw new IllegalStateException("Unexpected call to nextTag()");
             }
         }
+        return invokeV.intValue;
+    }
+
+    public FieldEncoding g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return (FieldEncoding) invokeV.objValue;
+    }
+
+    public ByteString h() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.readByteString(b());
+        }
+        return (ByteString) invokeV.objValue;
+    }
+
+    public String k() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.readUtf8(b());
+        }
+        return (String) invokeV.objValue;
     }
 }

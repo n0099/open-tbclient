@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.view.expandtab.LiveExpandTabAdapter;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sa0;
-import com.baidu.tieba.ya0;
+import com.baidu.tieba.ra0;
+import com.baidu.tieba.xa0;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
 import kotlin.Metadata;
@@ -109,10 +109,10 @@ public final class LiveExpandTabView extends ConstraintLayout {
     @JvmOverloads
     public LiveExpandTabView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05d8, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05da, (ViewGroup) this, true);
         setClickable(true);
         setDescendantFocusability(393216);
-        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091581);
+        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09156a);
         setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0607c1));
         setOnClickListener(new a());
     }
@@ -124,10 +124,10 @@ public final class LiveExpandTabView extends ConstraintLayout {
     public final void e(String str) {
         RecyclerView recyclerView = this.a;
         if (recyclerView != null) {
-            ya0 ya0Var = ya0.a;
+            xa0 xa0Var = xa0.a;
             Context context = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            recyclerView.setBackgroundDrawable(ya0Var.c(context, this.d));
+            recyclerView.setBackgroundDrawable(xa0Var.c(context, this.d));
         }
     }
 
@@ -154,12 +154,12 @@ public final class LiveExpandTabView extends ConstraintLayout {
         this.d = str;
         RecyclerView recyclerView = this.a;
         if (recyclerView != null) {
-            ya0 ya0Var = ya0.a;
+            xa0 xa0Var = xa0.a;
             Context context = recyclerView.getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            recyclerView.setBackgroundDrawable(ya0Var.c(context, str));
+            recyclerView.setBackgroundDrawable(xa0Var.c(context, str));
             recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), 4));
-            recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(sa0.b(recyclerView.getContext(), 14.0f)));
+            recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(ra0.b(recyclerView.getContext(), 14.0f)));
             LiveExpandTabAdapter liveExpandTabAdapter = new LiveExpandTabAdapter(str);
             liveExpandTabAdapter.q(new c(str));
             this.b = liveExpandTabAdapter;

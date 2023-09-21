@@ -11,7 +11,7 @@ import org.apache.commons.codec.BinaryEncoder;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.binary.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class b implements BinaryDecoder, BinaryEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 2;

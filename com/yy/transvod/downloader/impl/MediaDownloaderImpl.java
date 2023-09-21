@@ -1,9 +1,9 @@
 package com.yy.transvod.downloader.impl;
 
-import com.baidu.tieba.k3c;
+import com.baidu.tieba.c5c;
 import java.util.TreeMap;
 /* loaded from: classes10.dex */
-public class MediaDownloaderImpl extends k3c {
+public class MediaDownloaderImpl extends c5c {
     private native String nativeCheckVideoCachePath(String str);
 
     public static native void nativeClassInit();

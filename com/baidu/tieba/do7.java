@@ -1,167 +1,159 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.ShapeDrawable;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.AndroidUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailItemVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class do7 {
+public class do7 extends om<jo7, ForumRuleDetailItemVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "一";
-                case 2:
-                    return "二";
-                case 3:
-                    return "三";
-                case 4:
-                    return "四";
-                case 5:
-                    return "五";
-                case 6:
-                    return "六";
-                case 7:
-                    return "七";
-                case 8:
-                    return "八";
-                case 9:
-                    return "九";
-                case 10:
-                    return "十";
-                case 11:
-                    return "十一";
-                case 12:
-                    return "十二";
-                case 13:
-                    return "十三";
-                case 14:
-                    return "十四";
-                case 15:
-                    return "十五";
-                case 16:
-                    return "十六";
-                case 17:
-                    return "十七";
-                case 18:
-                    return "十八";
-                case 19:
-                    return "十九";
-                case 20:
-                    return "二十";
-                default:
-                    return "";
-            }
-        }
-        return (String) invokeI.objValue;
-    }
+    public Context a;
+    public TbRichText b;
+    public List<bn> c;
 
     /* loaded from: classes5.dex */
-    public static class a extends ShapeDrawable {
+    public class a implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ do7 b;
 
-        public a(int i, int i2, int i3, int i4) {
+        public a(do7 do7Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {do7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i3;
-            this.b = i4;
-            setDither(false);
-            getPaint().setColor(i);
-            setIntrinsicWidth(i2);
+            this.b = do7Var;
+            this.a = i;
         }
 
-        @Override // android.graphics.drawable.Drawable
-        public void setBounds(int i, int i2, int i3, int i4) {
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view2) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
-                super.setBounds(i, i2 + this.a, i3, i4 + this.b);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (this.b.c != null) {
+                    bn bnVar = (bn) this.b.c.get(this.a);
+                    if (bnVar instanceof jo7) {
+                        AndroidUtils.copyToClipboard(TbRichTextView.c0(((jo7) bnVar).b(), false).toString());
+                        BdUtilHelper.showToast(this.b.a, (int) R.string.obfuscated_res_0x7f0f07d7);
+                    }
+                }
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
-    public static long a(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public do7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: u */
+    public ForumRuleDetailItemVH onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            long j = 0;
-            if (StringUtils.isNull(str)) {
-                return 0L;
-            }
-            try {
-                Date parse = new SimpleDateFormat("yyyy.MM.dd").parse(str);
-                if (parse != null) {
-                    j = parse.getTime();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ForumRuleDetailItemVH forumRuleDetailItemVH = new ForumRuleDetailItemVH(this.a, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0311, viewGroup, false));
+            this.viewholder = forumRuleDetailItemVH;
+            return forumRuleDetailItemVH;
+        }
+        return (ForumRuleDetailItemVH) invokeL.objValue;
+    }
+
+    public void y(List<bn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.c = list;
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.om
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jo7 jo7Var, ForumRuleDetailItemVH forumRuleDetailItemVH) {
+        x(i, view2, viewGroup, jo7Var, forumRuleDetailItemVH);
+        return view2;
+    }
+
+    public View x(int i, View view2, ViewGroup viewGroup, jo7 jo7Var, ForumRuleDetailItemVH forumRuleDetailItemVH) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jo7Var, forumRuleDetailItemVH})) == null) {
+            if (jo7Var != null && this.a != null) {
+                forumRuleDetailItemVH.b(jo7Var.a());
+                if (!StringUtils.isNull(jo7Var.c())) {
+                    z = true;
+                    forumRuleDetailItemVH.c.setVisibility(0);
+                    forumRuleDetailItemVH.c.setText(jo7Var.c());
+                } else {
+                    forumRuleDetailItemVH.c.setVisibility(8);
+                    z = false;
                 }
-                return j / 1000;
-            } catch (ParseException e) {
-                e.printStackTrace();
-                return 0L;
+                if (jo7Var.b() != null && !StringUtils.isNull(jo7Var.b().toString())) {
+                    forumRuleDetailItemVH.d.setVisibility(0);
+                    if (!z) {
+                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) forumRuleDetailItemVH.d.getLayoutParams();
+                        layoutParams.topMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0);
+                        forumRuleDetailItemVH.d.setLayoutParams(layoutParams);
+                    }
+                    TbRichText c0 = TbRichTextView.c0(jo7Var.b(), false);
+                    this.b = c0;
+                    forumRuleDetailItemVH.d.setText(c0);
+                } else {
+                    forumRuleDetailItemVH.d.setVisibility(8);
+                }
+                forumRuleDetailItemVH.d.setOnLongClickListener(new a(this, i));
             }
+            return view2;
         }
-        return invokeL.longValue;
-    }
-
-    public static int b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            if (j < 0) {
-                return -1;
-            }
-            return (int) (j / 86400);
-        }
-        return invokeJ.intValue;
-    }
-
-    public static void c(int i, int i2, EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65538, null, i, i2, editText) == null) {
-            try {
-                Method declaredMethod = TextView.class.getDeclaredMethod("createEditorIfNeeded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(editText, new Object[0]);
-                Field declaredField = TextView.class.getDeclaredField("mEditor");
-                Field declaredField2 = Class.forName("android.widget.Editor").getDeclaredField("mCursorDrawable");
-                declaredField.setAccessible(true);
-                declaredField2.setAccessible(true);
-                Object obj = declaredField2.get(declaredField.get(editText));
-                Array.set(obj, 0, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-                Array.set(obj, 1, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-            } catch (Exception unused) {
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

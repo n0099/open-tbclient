@@ -1,40 +1,252 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
-import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.GetOpenBdussCallback;
+import com.baidu.sapi2.callback.GetUserInfoCallback;
+import com.baidu.sapi2.dto.GetOpenBdussDTO;
+import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
+import com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback;
+import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
+import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
+import com.baidu.sapi2.ecommerce.result.AddressManageResult;
+import com.baidu.sapi2.ecommerce.result.InvoiceBuildResult;
+import com.baidu.sapi2.result.GetUserInfoResult;
+import com.baidu.sapi2.result.OpenBdussResult;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tieba.ks3;
+import com.baidu.tieba.os3;
+import com.baidu.tieba.zt3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.Charset;
-@Singleton
-@Service
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class p96 implements lv2 {
-    public static /* synthetic */ Interceptable $ic;
+public class p96 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "p96";
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public q96 a;
+    public List<ur1> b;
+    public final CustomMessageListener c;
 
     /* loaded from: classes7.dex */
-    public class a implements DelegateListener {
+    public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k32 a;
+        public final /* synthetic */ sr1 a;
+        public final /* synthetic */ p96 b;
 
-        public a(p96 p96Var, k32 k32Var) {
+        /* loaded from: classes7.dex */
+        public class a extends GetUserInfoCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onFinish() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                }
+            }
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onStart() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                }
+            }
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.LoginStatusAware
+            public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
+                    this.a.a.onResult(-1);
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onFailure(GetUserInfoResult getUserInfoResult) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
+                    this.a.a.onResult(-1);
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onSuccess(GetUserInfoResult getUserInfoResult) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
+                    this.a.b.a.b = SapiAccountManager.getInstance().getSession().bduss;
+                    this.a.b.a.h = SapiAccountManager.getInstance().getSession().getPtoken();
+                    this.a.b.a.a = getUserInfoResult.displayname;
+                    this.a.b.a.g = getUserInfoResult.uid;
+                    this.a.b.a.f = getUserInfoResult.portraitHttps;
+                    uj3.a().putString("bd_box_display_name", this.a.b.a.a);
+                    uj3.a().putString("bd_box_uid", this.a.b.a.g);
+                    uj3.a().putString("bd_box_avatar_url", this.a.b.a.f);
+                    uj3.a().putString("bd_box_bduss", this.a.b.a.b);
+                    uj3.a().putString("bd_box_ptoken", this.a.b.a.h);
+                    this.a.a.onResult(0);
+                    this.a.b.t(true);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(p96 p96Var, int i, sr1 sr1Var) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p96Var, k32Var};
+                Object[] objArr = {p96Var, Integer.valueOf(i), sr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = p96Var;
+            this.a = sr1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
+                if (((Integer) customResponsedMessage.getData()).intValue() == 0) {
+                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
+                }
+                this.a.onResult(((Integer) customResponsedMessage.getData()).intValue());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p96 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(p96 p96Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p96Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p96Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
+                Integer num = (Integer) customResponsedMessage.getData();
+                if (num.intValue() != 1) {
+                    if (num.intValue() != 2) {
+                        return;
+                    }
+                    this.a.t(SapiAccountManager.getInstance().isLogin());
+                    return;
+                }
+                this.a.p(TbadkCoreApplication.getInst());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends GetUserInfoCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p96 a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.LoginStatusAware
+        public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        public b(p96 p96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p96Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,15 +256,424 @@ public class p96 implements lv2 {
                     return;
                 }
             }
-            this.a = k32Var;
+            this.a = p96Var;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(GetUserInfoResult getUserInfoResult) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
-                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) != null) {
+                return;
             }
+            this.a.t(false);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(GetUserInfoResult getUserInfoResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
+                if (getUserInfoResult != null) {
+                    this.a.a.f = getUserInfoResult.portraitHttps;
+                }
+                this.a.t(true);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d extends GetUserInfoCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sr1 a;
+        public final /* synthetic */ p96 b;
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        public d(p96 p96Var, sr1 sr1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p96Var, sr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = p96Var;
+            this.a = sr1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.LoginStatusAware
+        public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
+                this.a.onResult(-1);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(GetUserInfoResult getUserInfoResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
+                this.a.onResult(-1);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(GetUserInfoResult getUserInfoResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
+                this.b.a.b = SapiAccountManager.getInstance().getSession().bduss;
+                this.b.a.h = SapiAccountManager.getInstance().getSession().getPtoken();
+                this.b.a.a = getUserInfoResult.displayname;
+                this.b.a.g = getUserInfoResult.uid;
+                this.b.a.f = getUserInfoResult.portraitHttps;
+                uj3.a().putString("bd_box_display_name", this.b.a.a);
+                uj3.a().putString("bd_box_uid", this.b.a.g);
+                uj3.a().putString("bd_box_avatar_url", this.b.a.f);
+                uj3.a().putString("bd_box_bduss", this.b.a.b);
+                uj3.a().putString("bd_box_ptoken", this.b.a.h);
+                this.a.onResult(0);
+                this.b.t(true);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e extends GetUserInfoCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p96 a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.LoginStatusAware
+        public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(GetUserInfoResult getUserInfoResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        public e(p96 p96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p96Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(GetUserInfoResult getUserInfoResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048582, this, getUserInfoResult) != null) {
+                return;
+            }
+            this.a.a.b = SapiAccountManager.getInstance().getSession().bduss;
+            this.a.a.h = SapiAccountManager.getInstance().getSession().getPtoken();
+            this.a.a.a = getUserInfoResult.displayname;
+            this.a.a.g = getUserInfoResult.uid;
+            this.a.a.f = getUserInfoResult.portraitHttps;
+            uj3.a().putString("bd_box_display_name", this.a.a.a);
+            uj3.a().putString("bd_box_uid", this.a.a.g);
+            uj3.a().putString("bd_box_avatar_url", this.a.a.f);
+            uj3.a().putString("bd_box_bduss", this.a.a.b);
+            uj3.a().putString("bd_box_ptoken", this.a.a.h);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f extends AddressManageCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ks3.d b;
+
+        public f(p96 p96Var, String str, ks3.d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p96Var, str, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = dVar;
+        }
+
+        @Override // com.baidu.sapi2.ecommerce.callback.AddressManageCallback
+        public void onFinish(AddressManageResult addressManageResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, addressManageResult) == null) {
+                if (!"0".equals(this.a) && this.b != null) {
+                    if (addressManageResult.getResultCode() == 0) {
+                        this.b.a(addressManageResult.map.get("addrId"));
+                        return;
+                    }
+                    if (p96.e) {
+                        Log.d(p96.d, String.format("选择收货地址错误（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg()));
+                    }
+                    this.b.failed();
+                } else if (p96.e) {
+                    Log.d(p96.d, String.format("管理收货地址流程结束（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg()));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class g extends InvoiceBuildCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ zt3.d b;
+
+        public g(p96 p96Var, String str, zt3.d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p96Var, str, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = dVar;
+        }
+
+        @Override // com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback
+        public void onFinish(InvoiceBuildResult invoiceBuildResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, invoiceBuildResult) == null) {
+                if (!"0".equals(this.a) && this.b != null) {
+                    if (invoiceBuildResult.getResultCode() == 0) {
+                        this.b.a(invoiceBuildResult.map.get("invoice_id"), this.a);
+                        return;
+                    }
+                    if (p96.e) {
+                        Log.d(p96.d, String.format("获取发票错误（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg()));
+                    }
+                    this.b.failed();
+                } else if (p96.e) {
+                    Log.d(p96.d, String.format("发票管理流程结束（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg()));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class h extends GetOpenBdussCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ os3.c a;
+        public final /* synthetic */ p96 b;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: a */
+        public void onFailure(OpenBdussResult openBdussResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, openBdussResult) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        public h(p96 p96Var, os3.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p96Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = p96Var;
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: b */
+        public void onSuccess(OpenBdussResult openBdussResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, openBdussResult) != null) {
+                return;
+            }
+            this.b.a.c = openBdussResult.openBduss;
+            this.b.a.d = openBdussResult.unionid;
+            this.b.a.e = openBdussResult.tplStokenMap;
+            uj3.a().putString("bd_box_open_bduss", this.b.a.c);
+            uj3.a().putString("bd_box_union_id", this.b.a.d);
+            uj3.a().putString("bd_box_stoken", yo3.s(this.b.a.e));
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(OpenBdussResult.PARAMS_OPEN_BDUSS, this.b.a.c);
+                jSONObject.put("unionid", this.b.a.d);
+                JSONObject jSONObject2 = new JSONObject();
+                for (String str : this.b.a.e.keySet()) {
+                    jSONObject2.put(str, this.b.a.e.get(str));
+                }
+                jSONObject.put("stokenmap", jSONObject2);
+                jSONObject.put("uid", this.b.a.g);
+                jSONObject.put("bduss", this.b.a.b);
+                jSONObject.put("displayname", this.b.a.a);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            this.a.a(jSONObject.toString());
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class i {
+        public static /* synthetic */ Interceptable $ic;
+        public static final p96 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-561495881, "Lcom/baidu/tieba/p96$i;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-561495881, "Lcom/baidu/tieba/p96$i;");
+                    return;
+                }
+            }
+            a = new p96(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016924, "Lcom/baidu/tieba/p96;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948016924, "Lcom/baidu/tieba/p96;");
+                return;
+            }
+        }
+        e = qr1.a;
+    }
+
+    public static p96 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return i.a;
+        }
+        return (p96) invokeV.objValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            q96 q96Var = this.a;
+            if (q96Var != null && TextUtils.isEmpty(q96Var.b)) {
+                m();
+            }
+            return SapiAccountManager.getInstance().isLogin();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
@@ -60,22 +681,269 @@ public class p96 implements lv2 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = new a(this, 2921537);
+        this.b = new ArrayList();
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            q96 q96Var = this.a;
+            if (q96Var == null) {
+                if (!e) {
+                    return "";
+                }
+                throw new NullPointerException("AccountInfo is null");
+            }
+            if (TextUtils.isEmpty(q96Var.f)) {
+                m();
+            }
+            return this.a.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            q96 q96Var = this.a;
+            if (q96Var == null) {
+                if (!e) {
+                    return "";
+                }
+                throw new NullPointerException("AccountInfo is null");
+            }
+            if (TextUtils.isEmpty(q96Var.b)) {
+                m();
+            }
+            return this.a.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            q96 q96Var = this.a;
+            if (q96Var == null) {
+                if (!e) {
+                    return "";
+                }
+                throw new NullPointerException("AccountInfo is null");
+            }
+            if (TextUtils.isEmpty(q96Var.a)) {
+                m();
+            }
+            return this.a.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            q96 q96Var = this.a;
+            if (q96Var == null) {
+                if (!e) {
+                    return "";
+                }
+                throw new NullPointerException("AccountInfo is null");
+            }
+            if (TextUtils.isEmpty(q96Var.g)) {
+                m();
+            }
+            return this.a.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ p96(a aVar) {
+        this();
+    }
+
+    public void e(ur1 ur1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ur1Var) == null) {
+            this.b.add(ur1Var);
+        }
+    }
+
+    public void o(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
+            u();
+            p(context);
+        }
+    }
+
+    public final void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            for (ur1 ur1Var : this.b) {
+                if (ur1Var != null) {
+                    ur1Var.a(z);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.lv2
-    public void a(Context context, k32 k32Var) {
+    public void v(sr1 sr1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, k32Var) != null) || !(context instanceof Activity)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048592, this, sr1Var) == null) {
+            SapiAccountManager.getInstance().getAccountService().getUserInfo(new d(this, sr1Var), SapiAccountManager.getInstance().getSession().bduss);
         }
-        DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, o96.class, new Bundle(), new a(this, k32Var));
+    }
+
+    public void f(Context context, String str, ks3.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
+            AddressManageDTO addressManageDTO = new AddressManageDTO();
+            addressManageDTO.type = str;
+            addressManageDTO.sweepLightLoading = true;
+            PassportSDK.getInstance().loadAddressManage(context, addressManageDTO, new f(this, str, dVar));
+        }
+    }
+
+    public void g(Context context, String str, zt3.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, dVar) == null) {
+            InvoiceBuildDTO invoiceBuildDTO = new InvoiceBuildDTO();
+            invoiceBuildDTO.TYPE = str;
+            PassportSDK.getInstance().loadInvoiceBuild(context, invoiceBuildDTO, new g(this, str, dVar));
+        }
+    }
+
+    public void l(String str, ArrayList<String> arrayList, os3.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, arrayList, cVar) == null) {
+            if (this.a == null) {
+                if (!e) {
+                    return;
+                }
+                throw new NullPointerException("AccountInfo is null");
+            }
+            GetOpenBdussDTO getOpenBdussDTO = new GetOpenBdussDTO();
+            getOpenBdussDTO.clientId = str;
+            getOpenBdussDTO.targetTplList.addAll(arrayList);
+            SapiAccountManager.getInstance().getAccountService().getOpenBduss(getOpenBdussDTO, new h(this, cVar));
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            try {
+                SapiAccountManager.getInstance().getConfignation();
+            } catch (Exception unused) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
+            }
+            try {
+                SapiAccountManager.getInstance().isLogin();
+                if (SapiAccountManager.getInstance().isLogin()) {
+                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new e(this), SapiAccountManager.getInstance().getSession().bduss);
+                }
+            } catch (NullPointerException unused2) {
+            }
+        }
+    }
+
+    public final void p(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, context) == null) && this.a == null) {
+            q96 q96Var = new q96();
+            this.a = q96Var;
+            q96Var.f = uj3.a().getString("bd_box_avatar_url", "");
+            this.a.b = uj3.a().getString("bd_box_bduss", "");
+            this.a.h = uj3.a().getString("bd_box_ptoken", "");
+            this.a.g = uj3.a().getString("bd_box_uid", "");
+            this.a.c = uj3.a().getString("bd_box_open_bduss", "");
+            this.a.d = uj3.a().getString("bd_box_union_id", "");
+            this.a.e = yo3.t(uj3.a().getString("bd_box_stoken", ""));
+            this.a.a = uj3.a().getString("bd_box_display_name", "");
+        }
+    }
+
+    public void r(Context context, Bundle bundle, sr1 sr1Var) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, bundle, sr1Var) == null) {
+            if (this.a == null) {
+                this.a = new q96();
+            }
+            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true, -1);
+            loginActivityConfig.getIntent().putExtra("close", true);
+            if (bundle != null && (i2 = bundle.getInt("key_login_mode", 1)) > 1) {
+                if (i2 == 4) {
+                    i2 = 1;
+                }
+                loginActivityConfig.setIsFromAiapp(true);
+                loginActivityConfig.setThirdPartyLoginForResult(i2, "");
+            }
+            TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, loginActivityConfig));
+            MessageManager.getInstance().registerListener(new c(this, 2921362, sr1Var));
+        }
+    }
+
+    public void s(sr1 sr1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, sr1Var) == null) {
+            SapiAccountManager.getInstance().logout();
+            t(false);
+            this.a = new q96();
+            uj3.a().putString("bd_box_display_name", "");
+            uj3.a().putString("bd_box_uid", "");
+            uj3.a().putString("bd_box_avatar_url", "");
+            uj3.a().putString("bd_box_bduss", "");
+            uj3.a().putString("bd_box_ptoken", "");
+            if (sr1Var != null) {
+                sr1Var.onResult(0);
+            }
+        }
+    }
+
+    public void w(GetUserInfoResult getUserInfoResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, getUserInfoResult) == null) {
+            if (getUserInfoResult != null) {
+                try {
+                    uj3.a().putString("host_account_info_string", getUserInfoResult.toString());
+                    if (this.a == null) {
+                        this.a = new q96();
+                    }
+                    this.a.b = SapiAccountManager.getInstance().getSession().bduss;
+                    this.a.h = SapiAccountManager.getInstance().getSession().getPtoken();
+                    this.a.a = getUserInfoResult.displayname;
+                    this.a.g = getUserInfoResult.uid;
+                    this.a.f = getUserInfoResult.portraitHttps;
+                    uj3.a().putString("bd_box_display_name", this.a.a);
+                    uj3.a().putString("bd_box_uid", this.a.g);
+                    uj3.a().putString("bd_box_avatar_url", this.a.f);
+                    uj3.a().putString("bd_box_bduss", this.a.b);
+                    uj3.a().putString("bd_box_ptoken", this.a.h);
+                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new b(this), this.a.b);
+                    return;
+                } catch (Exception e2) {
+                    if (e) {
+                        e2.printStackTrace();
+                        return;
+                    }
+                    return;
+                }
+            }
+            s(null);
+        }
     }
 }

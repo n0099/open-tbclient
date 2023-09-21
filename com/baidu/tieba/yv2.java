@@ -1,186 +1,108 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tieba.xv2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Looper;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.uo3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class yv2 extends h73 {
+public class yv2 implements kw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, aq3<Bundle>> h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
-    public String g;
 
-    /* loaded from: classes8.dex */
-    public class a implements aq3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ yv2 b;
-
-        public a(yv2 yv2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yv2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yv2Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
-        /* renamed from: b */
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                this.b.g = bundle.getString("key_launch_app_id");
-                this.b.f = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, this.b.g)) {
-                    yv2 yv2Var = this.b;
-                    yv2Var.d.putInt(DnsModel.MSG_OK, yv2Var.f);
-                    this.b.c();
-                }
-                yv2.h.remove(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements aq3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ xv2.e b;
-
-        public b(String str, xv2.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
-        /* renamed from: b */
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                String string = bundle.getString("key_launch_app_id");
-                int i = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, string)) {
-                    if (i == 0) {
-                        this.b.b();
+    public static SwanAppConfigData a(File file) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file != null && file.exists()) {
+                long currentTimeMillis = System.currentTimeMillis();
+                SwanAppConfigData b = sb3.b(file.getAbsolutePath());
+                if (kw2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("buildAppJsonConfig cost = ");
+                    sb.append(currentTimeMillis2 - currentTimeMillis);
+                    sb.append("ms ; current thread is main = ");
+                    if (Looper.getMainLooper() == Looper.myLooper()) {
+                        z = true;
                     } else {
-                        this.b.a();
+                        z = false;
                     }
+                    sb.append(z);
+                    sb.append(" ; path = ");
+                    sb.append(file);
+                    Log.d("SwanPerformance", sb.toString());
                 }
-                yv2.h.remove(this.a);
+                return b;
             }
+            return null;
         }
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948343540, "Lcom/baidu/tieba/yv2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static SwanAppConfigData b(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file != null && file.exists()) {
+                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) zv2.c().b(file.getAbsolutePath());
+                if (swanAppConfigData == null) {
+                    swanAppConfigData = j53.e().j(file);
+                    if (swanAppConfigData == null) {
+                        swanAppConfigData = a(file);
+                    }
+                    zv2.c().d(file.getAbsolutePath(), swanAppConfigData);
+                } else if (kw2.a) {
+                    Log.d("SwanPerformance", "adopt cached app.json");
+                }
+                return swanAppConfigData;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948343540, "Lcom/baidu/tieba/yv2;");
-                return;
+            return null;
+        }
+        return (SwanAppConfigData) invokeL.objValue;
+    }
+
+    public static Boolean c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            Boolean bool = (Boolean) zv2.c().b("getNightModeStateCache");
+            if (bool == null) {
+                return Boolean.valueOf(nu2.M().a());
             }
-        }
-        boolean z = rr1.a;
-        h = new op4();
-    }
-
-    public yv2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (z) {
+                zv2.c().e("getNightModeStateCache");
             }
+            return bool;
         }
-        this.f = -1;
-        this.g = "";
+        return (Boolean) invokeZ.objValue;
     }
 
-    public static void k(String str) {
-        aq3<Bundle> aq3Var;
+    public static List<uo3.a> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && (aq3Var = h.get(str)) != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("key_launch_app_id", str);
-            bundle.putInt("key_launch_status", 1);
-            aq3Var.a(bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            List<uo3.a> list = (List) zv2.c().b("getStorageListCache");
+            if (list == null) {
+                List<uo3.a> d = uo3.d();
+                zv2.c().d("getStorageListCache", d);
+                return d;
+            }
+            return list;
         }
+        return (List) invokeV.objValue;
     }
 
-    public static void l(String str) {
-        aq3<Bundle> aq3Var;
+    public static void e(Boolean bool) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && (aq3Var = h.get(str)) != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("key_launch_app_id", str);
-            bundle.putInt("key_launch_status", 0);
-            aq3Var.a(bundle);
-        }
-    }
-
-    @Override // com.baidu.tieba.h73
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String string = bundle.getString("desAppId");
-            h.put(string, new a(this, string));
-        }
-    }
-
-    public static void j(String str, xv2.e eVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) && !TextUtils.isEmpty(str) && eVar != null) {
-            h.put(str, new b(str, eVar));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
+            zv2.c().d("getNightModeStateCache", bool);
         }
     }
 }

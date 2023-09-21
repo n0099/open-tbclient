@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,18 +12,18 @@ import kotlin.Pair;
 import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ix6 implements gx6 {
+public class ix6 implements ex6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gx6 a;
-    public final Map<Integer, gx6> b;
+    public final ex6 a;
+    public final Map<Integer, ex6> b;
 
-    public ix6(gx6 defaultRenderer, Pair<Integer, ? extends gx6>... renderers) {
+    public ix6(ex6 defaultLayouter, Pair<Integer, ? extends ex6>... layouter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {defaultRenderer, renderers};
+            Object[] objArr = {defaultLayouter, layouter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,52 +33,87 @@ public class ix6 implements gx6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
-        Intrinsics.checkNotNullParameter(renderers, "renderers");
-        this.a = defaultRenderer;
-        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
+        Intrinsics.checkNotNullParameter(defaultLayouter, "defaultLayouter");
+        Intrinsics.checkNotNullParameter(layouter, "layouter");
+        this.a = defaultLayouter;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
     }
 
-    @Override // com.baidu.tieba.gx6
-    public sx6 a(kv6 item, kx6 displayer, ev6 config) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.ex6
+    public void a(qv6 item, long j, qx6 displayer, kv6 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            gx6 gx6Var = this.b.get(Integer.valueOf(c(item)));
-            if (gx6Var == null) {
-                gx6Var = this.a;
-            }
-            return gx6Var.a(item, displayer, config);
+            f(item).a(item, j, displayer, config);
         }
-        return (sx6) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.gx6
-    public void b(kv6 item, Canvas canvas, kx6 displayer, ev6 config) {
+    @Override // com.baidu.tieba.ex6
+    public boolean d(qv6 item, long j, qx6 displayer, kv6 config) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            gx6 gx6Var = this.b.get(Integer.valueOf(c(item)));
-            if (gx6Var == null) {
-                gx6Var = this.a;
-            }
-            gx6Var.b(item, canvas, displayer, config);
+            return f(item).d(item, j, displayer, config);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ex6
+    public void b(qv6 item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            f(item).b(item);
         }
     }
 
-    public int c(kv6 item) {
+    public int e(qv6 item) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, item)) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
-            return item.e().g();
+            return item.e().j();
         }
         return invokeL.intValue;
+    }
+
+    public final ex6 f(qv6 qv6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, qv6Var)) == null) {
+            ex6 ex6Var = this.b.get(Integer.valueOf(e(qv6Var)));
+            if (ex6Var == null) {
+                return this.a;
+            }
+            return ex6Var;
+        }
+        return (ex6) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ex6
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c(i, i2);
+            for (ex6 ex6Var : this.b.values()) {
+                ex6Var.c(i, i2);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ex6
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+            for (ex6 ex6Var : this.b.values()) {
+                ex6Var.clear();
+            }
+        }
     }
 }

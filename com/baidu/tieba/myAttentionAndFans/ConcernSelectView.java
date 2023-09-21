@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.FollowListSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oc9;
+import com.baidu.tieba.zd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +124,7 @@ public class ConcernSelectView extends FrameLayout {
                 SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.a.f, (int) R.color.CAM_X0107);
                 if (FollowListSwitch.isOn()) {
-                    this.a.d.setText(R.string.obfuscated_res_0x7f0f1375);
+                    this.a.d.setText(R.string.obfuscated_res_0x7f0f1376);
                 } else {
                     this.a.d.setText(R.string.obfuscated_res_0x7f0f02a1);
                 }
@@ -433,13 +433,13 @@ public class ConcernSelectView extends FrameLayout {
             if (childCount < 0) {
                 childCount = 0;
             }
-            oc9 oc9Var = new oc9(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
+            zd9 zd9Var = new zd9(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
             if (i == 0 && view2.getVisibility() != 0) {
                 view2.setVisibility(0);
             }
-            oc9Var.setDuration(260L);
-            oc9Var.setAnimationListener(new d(this, i, view2));
-            view2.startAnimation(oc9Var);
+            zd9Var.setDuration(260L);
+            zd9Var.setAnimationListener(new d(this, i, view2));
+            view2.startAnimation(zd9Var);
             ImageView imageView = this.c;
             if (imageView != null) {
                 if (imageView.getAnimation() != null && !this.c.getAnimation().hasEnded()) {
@@ -517,18 +517,18 @@ public class ConcernSelectView extends FrameLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d022b, this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090aac);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090aad);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091756);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d022a, this);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090aa4);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090aa5);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091741);
             this.d = (TextView) findViewById(R.id.menu_title);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09027f);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09027d);
             if (FollowListSwitch.isOn()) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f1375);
-                this.e.setText(R.string.obfuscated_res_0x7f0f1375);
+                this.d.setText(R.string.obfuscated_res_0x7f0f1376);
+                this.e.setText(R.string.obfuscated_res_0x7f0f1376);
             }
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09096e);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0911b6);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090966);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0911a7);
             this.b.setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.f.setOnClickListener(new c(this));

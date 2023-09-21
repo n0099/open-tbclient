@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ht5;
+import com.baidu.tieba.it5;
 import com.baidu.tieba.m05;
-import com.baidu.tieba.pra;
+import com.baidu.tieba.vta;
 /* loaded from: classes4.dex */
 public class InitViewConfigTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -55,7 +55,7 @@ public class InitViewConfigTask extends LaunchTask {
                 }
             };
             BdUtilHelper.setToastView(TbadkCoreApplication.getInst().mToast);
-            ht5.a().G(System.currentTimeMillis() - currentTimeMillis);
+            it5.a().G(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -73,7 +73,7 @@ public class InitViewConfigTask extends LaunchTask {
         TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
         TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));
         TbDimenManager.getInstance().init(AppRuntime.getApplication());
-        pra.c();
+        vta.c();
         initCustomToastView();
     }
 }

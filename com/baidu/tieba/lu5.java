@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.oy;
-import com.baidu.tieba.zy;
+import com.baidu.tieba.ny;
+import com.baidu.tieba.yy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class lu5 extends hu5<h45, ThreadCardViewHolder<h45>> {
+/* loaded from: classes7.dex */
+public class lu5 extends iu5<h45, ThreadCardViewHolder<h45>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mp6<h45> g;
+    public sp6<h45> g;
 
-    /* loaded from: classes6.dex */
-    public class a extends mp6<h45> {
+    /* loaded from: classes7.dex */
+    public class a extends sp6<h45> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lu5 b;
@@ -48,7 +48,7 @@ public class lu5 extends hu5<h45, ThreadCardViewHolder<h45>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mp6
+        @Override // com.baidu.tieba.sp6
         /* renamed from: d */
         public void a(View view2, h45 h45Var) {
             Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class lu5 extends hu5<h45, ThreadCardViewHolder<h45>> {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements mn {
+    /* loaded from: classes7.dex */
+    public class b implements ln {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lu5 a;
@@ -82,25 +82,25 @@ public class lu5 extends hu5<h45, ThreadCardViewHolder<h45>> {
             this.a = lu5Var;
         }
 
-        @Override // com.baidu.tieba.mn
-        public void b(View view2, cn cnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.ln
+        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cnVar instanceof h45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (bnVar instanceof h45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                h45 h45Var = (h45) cnVar;
+                h45 h45Var = (h45) bnVar;
                 h45Var.objType = 1;
                 if (this.a.g != null) {
                     this.a.g.a(threadCardViewHolder.getView(), h45Var);
                 }
                 ThreadCardUtils.jumpToPB((b15) h45Var, view2.getContext(), this.a.C(), false);
-                threadCardViewHolder.a().p(new zy.a(1));
+                threadCardViewHolder.a().p(new yy.a(1));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lu5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_TEXT_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,18 +121,15 @@ public class lu5 extends hu5<h45, ThreadCardViewHolder<h45>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: O */
     public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            oy.b bVar = new oy.b(this.c.getPageActivity(), false);
-            dy dyVar = new dy(this.c.getPageActivity());
-            dyVar.setFrom(z());
-            dyVar.x(G());
-            bVar.n(dyVar);
-            oy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
+            ny.b bVar = new ny.b(this.c.getPageActivity(), false);
+            bVar.n(by.t(this.c.getPageActivity(), z(), G()));
+            ny k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
             k.s(C());
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.mPageId);
@@ -143,7 +140,7 @@ public class lu5 extends hu5<h45, ThreadCardViewHolder<h45>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: P */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h45 h45Var, ThreadCardViewHolder<h45> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -156,6 +153,7 @@ public class lu5 extends hu5<h45, ThreadCardViewHolder<h45>> {
                 threadCardViewHolder.e(h45Var);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().q(this.g);
+                mp6.a(threadCardViewHolder.a().g(), h45Var.u, h45Var.v);
                 M(threadCardViewHolder.getView(), h45Var, i, i);
                 return threadCardViewHolder.getView();
             }

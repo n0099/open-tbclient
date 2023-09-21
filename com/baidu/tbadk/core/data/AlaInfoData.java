@@ -4,15 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.ei;
+import com.baidu.tieba.di;
 import com.baidu.tieba.i15;
 import com.baidu.tieba.m45;
+import com.baidu.tieba.s45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +28,7 @@ import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
 /* loaded from: classes4.dex */
-public class AlaInfoData implements Serializable, Parcelable {
+public class AlaInfoData implements Serializable, Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AlaInfoData> CREATOR;
     public static final int FRS_STAGE_TYPE_AD = 0;
@@ -63,7 +65,12 @@ public class AlaInfoData implements Serializable, Parcelable {
     public int live_status;
     public int live_type;
     public transient AlaChallengeInfoData mChallengeInfoData;
+    public s45 mContainerSize;
     public String mCoverWide;
+    public String mFlv;
+    public Integer mPageFrom;
+    public s45 mPlayerSize;
+    public String mScheme;
     public YyExtData mYyExtData;
     public String media_id;
     public String media_pic;
@@ -94,7 +101,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public int describeContents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -174,12 +181,28 @@ public class AlaInfoData implements Serializable, Parcelable {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public AlaInfoData m119clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (AlaInfoData) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (AlaInfoData) invokeV.objValue;
+    }
+
     public boolean isLegalYYLiveData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            if (yyExtData != null && !ei.isEmpty(yyExtData.mSid) && !ei.isEmpty(this.mYyExtData.mSsid)) {
+            if (yyExtData != null && !di.isEmpty(yyExtData.mSid) && !di.isEmpty(this.mYyExtData.mSsid)) {
                 return true;
             }
             return false;
@@ -190,7 +213,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public boolean isVertialLive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.screen_direction == 0) {
                 return true;
             }
@@ -221,7 +244,7 @@ public class AlaInfoData implements Serializable, Parcelable {
 
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
@@ -232,7 +255,7 @@ public class AlaInfoData implements Serializable, Parcelable {
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -318,7 +341,7 @@ public class AlaInfoData implements Serializable, Parcelable {
                 yyExtData.parserJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("user_label");
-            if (this.label != null) {
+            if (optJSONObject4 != null) {
                 this.userLabelInfo = m45.g(optJSONObject4);
             }
             this.cutType = jSONObject.optInt("cut_type");
@@ -326,7 +349,7 @@ public class AlaInfoData implements Serializable, Parcelable {
             if (optJSONArray2 != null) {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     JSONObject optJSONObject5 = optJSONArray2.optJSONObject(i2);
-                    if (optJSONObject5 != null && !ei.isEmpty(optJSONObject5.optString("type"))) {
+                    if (optJSONObject5 != null && !di.isEmpty(optJSONObject5.optString("type"))) {
                         String optString = optJSONObject5.optString("type");
                         String optString2 = optJSONObject5.optString("url");
                         if ("comment".equals(optString)) {
@@ -339,6 +362,17 @@ public class AlaInfoData implements Serializable, Parcelable {
                     }
                 }
             }
+            this.mFlv = jSONObject.optString("flv");
+            this.mPageFrom = Integer.valueOf(jSONObject.optInt("page_from"));
+            this.mScheme = jSONObject.optString("scheme");
+            JSONObject optJSONObject6 = jSONObject.optJSONObject("player_size");
+            if (optJSONObject6 != null) {
+                this.mPlayerSize = s45.d(optJSONObject6);
+            }
+            JSONObject optJSONObject7 = jSONObject.optJSONObject("container_size");
+            if (optJSONObject7 != null) {
+                this.mContainerSize = s45.d(optJSONObject7);
+            }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -347,7 +381,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public void parserProtobuf(AlaLiveInfo alaLiveInfo) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, alaLiveInfo) != null) || alaLiveInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, alaLiveInfo) != null) || alaLiveInfo == null) {
             return;
         }
         try {
@@ -426,6 +460,15 @@ public class AlaInfoData implements Serializable, Parcelable {
             if (alaLiveInfo.user_label != null) {
                 this.userLabelInfo = m45.h(alaLiveInfo.user_label);
             }
+            this.mFlv = alaLiveInfo.flv;
+            this.mPageFrom = alaLiveInfo.page_from;
+            this.mScheme = alaLiveInfo.scheme;
+            if (alaLiveInfo.player_size != null) {
+                this.mPlayerSize = s45.e(alaLiveInfo.player_size);
+            }
+            if (alaLiveInfo.container_size != null) {
+                this.mContainerSize = s45.e(alaLiveInfo.container_size);
+            }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -434,7 +477,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
             parcel.writeLong(this.live_id);
             parcel.writeInt(this.live_status);
             parcel.writeParcelable(this.mYyExtData, i);

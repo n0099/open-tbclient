@@ -7,9 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.EmojiGridView;
-import com.baidu.tieba.ip8;
-import com.baidu.tieba.jp8;
-import com.baidu.tieba.mp8;
+import com.baidu.tieba.it8;
+import com.baidu.tieba.kt8;
+import com.baidu.tieba.oo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,13 +22,13 @@ public class EmojiGroupVH extends RecyclerView.ViewHolder {
     public EmojiGridView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmojiGroupVH(@NonNull View view2, @NonNull mp8 mp8Var) {
+    public EmojiGroupVH(@NonNull View view2, @NonNull kt8 kt8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, mp8Var};
+            Object[] objArr = {view2, kt8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,12 +39,12 @@ public class EmojiGroupVH extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09099d);
-        EmojiGridView emojiGridView = (EmojiGridView) view2.findViewById(R.id.obfuscated_res_0x7f09099c);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090995);
+        EmojiGridView emojiGridView = (EmojiGridView) view2.findViewById(R.id.obfuscated_res_0x7f090994);
         this.b = emojiGridView;
-        emojiGridView.setNumColumns(ip8.a());
-        jp8 jp8Var = new jp8(view2.getContext());
-        jp8Var.c(mp8Var);
-        this.b.setAdapter((ListAdapter) jp8Var);
+        emojiGridView.setNumColumns(oo8.a());
+        it8 it8Var = new it8(view2.getContext());
+        it8Var.c(kt8Var);
+        this.b.setAdapter((ListAdapter) it8Var);
     }
 }

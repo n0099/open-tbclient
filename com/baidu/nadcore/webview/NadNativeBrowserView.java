@@ -19,15 +19,15 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.fb1;
-import com.baidu.tieba.ik0;
-import com.baidu.tieba.jb1;
-import com.baidu.tieba.q61;
-import com.baidu.tieba.ra1;
-import com.baidu.tieba.tj0;
-import com.baidu.tieba.x81;
+import com.baidu.tieba.eb1;
+import com.baidu.tieba.hk0;
+import com.baidu.tieba.ib1;
+import com.baidu.tieba.p61;
+import com.baidu.tieba.qa1;
+import com.baidu.tieba.sj0;
+import com.baidu.tieba.w81;
+import com.baidu.tieba.wb1;
 import com.baidu.tieba.xb1;
-import com.baidu.tieba.yb1;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
@@ -70,8 +70,8 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
             if (!StringsKt__StringsJVMKt.startsWith$default(str, "javascript:", false, 2, null)) {
                 str = "javascript:" + str;
             }
-            jb1 jb1Var = jb1.b;
-            if (q61.b.c()) {
+            ib1 ib1Var = ib1.b;
+            if (p61.b.c()) {
                 NadNativeBrowserView.W(NadNativeBrowserView.this).evaluateJavascript(str, this.c);
             } else {
                 NadNativeBrowserView.W(NadNativeBrowserView.this).loadUrl(str);
@@ -86,15 +86,15 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
 
         @Override // android.webkit.DownloadListener
         public final void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-            ra1 downloadListener = NadNativeBrowserView.this.getDownloadListener();
+            qa1 downloadListener = NadNativeBrowserView.this.getDownloadListener();
             if (downloadListener != null) {
                 Context context = NadNativeBrowserView.this.getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
-                if (downloadListener.a(context, str, str2, str3, str4, j, NadNativeBrowserView.this.Y(true))) {
+                if (downloadListener.a(context, str, str2, str3, str4, j, NadNativeBrowserView.this.Z(true))) {
                     return;
                 }
             }
-            jb1.c(NadNativeBrowserView.this.getContext(), "downloadPlugin 没有接管下载！");
+            ib1.c(NadNativeBrowserView.this.getContext(), "downloadPlugin 没有接管下载！");
         }
     }
 
@@ -146,7 +146,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
     public void B(String str, ValueCallback<String> valueCallback) {
         super.B(str, valueCallback);
-        ik0.c(new a(str, valueCallback));
+        hk0.c(new a(str, valueCallback));
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
@@ -164,9 +164,9 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
     public void D(String str, Map<String, String> map, boolean z) {
         super.D(str, map, z);
-        jb1.c(getContext(), "LOADING URL ...");
+        ib1.c(getContext(), "LOADING URL ...");
         String str2 = this.s;
-        jb1.a(str2, "loading url, url is " + str + " and header is " + String.valueOf(map));
+        ib1.a(str2, "loading url, url is " + str + " and header is " + String.valueOf(map));
         setFirstPage(true);
         if (map == null) {
             WebView webView = this.t;
@@ -186,8 +186,8 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
-    public void I() {
-        super.I();
+    public void K() {
+        super.K();
         this.u = true;
         WebView webView = this.t;
         if (webView == null) {
@@ -205,8 +205,8 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
-    public void L() {
-        super.L();
+    public void M() {
+        super.M();
         WebView webView = this.t;
         if (webView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webView");
@@ -219,8 +219,8 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
-    public void M() {
-        super.M();
+    public void N() {
+        super.N();
         this.u = false;
         WebView webView = this.t;
         if (webView == null) {
@@ -271,7 +271,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
         }
     }
 
-    public final void Z() {
+    public final void a0() {
         if (d()) {
             setFirstPage(true);
             WebView webView = this.t;
@@ -281,14 +281,6 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
             webView.goBack();
             getNeedPageLifeCycle();
         }
-    }
-
-    public final void a0() {
-        WebView webView = this.t;
-        if (webView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("webView");
-        }
-        webView.setWebChromeClient(new xb1(this, getWebChromeClientProxy()));
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
@@ -307,12 +299,12 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
         }
     }
 
-    public final void b0() {
+    public final void c0() {
         WebView webView = this.t;
         if (webView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webView");
         }
-        webView.setWebViewClient(new yb1(this, getWebViewClientProxy()));
+        webView.setWebChromeClient(new wb1(this, getWebChromeClientProxy()));
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
@@ -322,6 +314,14 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
             Intrinsics.throwUninitializedPropertyAccessException("webView");
         }
         return webView.canGoBack();
+    }
+
+    public final void d0() {
+        WebView webView = this.t;
+        if (webView == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("webView");
+        }
+        webView.setWebViewClient(new xb1(this, getWebViewClientProxy()));
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
@@ -389,27 +389,27 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
     public boolean j() {
         if (d()) {
-            Z();
+            a0();
             return true;
         }
         return false;
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
-    public void r() {
-        WebView a2 = fb1.a().a(getContext());
+    public void s() {
+        WebView a2 = eb1.a().a(getContext());
         Intrinsics.checkNotNullExpressionValue(a2, "NativeWebViewRuntime.get…().createWebView(context)");
         this.t = a2;
-        jb1.a(this.s, "A native webView created");
-        super.r();
-        x81.c().d(getContext());
+        ib1.a(this.s, "A native webView created");
+        super.s();
+        w81.c().d(getContext());
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
     public void setWebViewClients() {
         super.setWebViewClients();
-        b0();
-        a0();
+        d0();
+        c0();
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
@@ -428,7 +428,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
-    public boolean x() {
+    public boolean y() {
         if (getWebViewScrollY() <= 0) {
             return true;
         }
@@ -459,7 +459,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
         }
     }
 
-    public String Y(boolean z) {
+    public String Z(boolean z) {
         String url;
         int i;
         WebView webView = this.t;
@@ -532,7 +532,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
         }
         WebSettings settings2 = webView5.getSettings();
         Intrinsics.checkNotNullExpressionValue(settings2, "webView.settings");
-        settings2.setUserAgentString(tj0.e());
+        settings2.setUserAgentString(sj0.e());
         WebView webView6 = this.t;
         if (webView6 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webView");

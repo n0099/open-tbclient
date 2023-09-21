@@ -83,13 +83,13 @@ public class gk extends gm {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gm.a()Ljava/lang/String; */
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gm.a()Ljava/util/Collection; */
     /* renamed from: a  reason: collision with other method in class */
-    public a m529a() {
+    public a m531a() {
         return this.a;
     }
 
     @Override // com.xiaomi.push.gm
     /* renamed from: a  reason: collision with other method in class */
-    public String mo530a() {
+    public String mo532a() {
         String str;
         StringBuilder sb = new StringBuilder();
         sb.append("<iq ");
@@ -121,7 +121,7 @@ public class gk extends gm {
             str = "type=\"get\">";
         } else {
             sb.append("type=\"");
-            sb.append(m529a());
+            sb.append(m531a());
             str = "\">";
         }
         sb.append(str);
@@ -130,9 +130,9 @@ public class gk extends gm {
             sb.append(b);
         }
         sb.append(o());
-        gq m531a = m531a();
-        if (m531a != null) {
-            sb.append(m531a.m534a());
+        gq m533a = m533a();
+        if (m533a != null) {
+            sb.append(m533a.m536a());
         }
         sb.append("</iq>");
         return sb.toString();

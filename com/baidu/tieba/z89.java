@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
+import com.baidu.searchbox.live.interfaces.like.ILiveLikeView;
+import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class z89 extends bl1<ThirdPartWxRechargeService> {
+public class z89 implements LiveLikeProxyService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +26,13 @@ public class z89 extends bl1<ThirdPartWxRechargeService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bl1
-    /* renamed from: a */
-    public ThirdPartWxRechargeService createService() throws ServiceNotFoundException {
+    @Override // com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService
+    public ILiveLikeView buildLikeViewInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a99();
         }
-        return (ThirdPartWxRechargeService) invokeV.objValue;
+        return (ILiveLikeView) invokeV.objValue;
     }
 }

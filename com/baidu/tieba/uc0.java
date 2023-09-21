@@ -3,45 +3,48 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes8.dex */
 public class uc0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> int a(List<T> list) {
-        InterceptResult invokeL;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return list.size();
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase(Locale.getDefault());
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            return 0;
+            return sb.toString();
         }
-        return invokeL.intValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    public static <T> boolean c(List<T> list) {
-        InterceptResult invokeL;
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (a(list) <= 0) {
-                return true;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return false;
+            return a(bArr, "", z);
         }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> T b(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return list.get(i);
-        }
-        return (T) invokeLI.objValue;
+        return (String) invokeLZ.objValue;
     }
 }

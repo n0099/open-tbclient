@@ -14,7 +14,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class SampleGroupDescriptionBox extends AbstractFullBox {
     public static final String TYPE = "sgpd";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;

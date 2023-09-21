@@ -1,171 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.safe.BdCloseHelper;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.json.JSONException;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class ya5 {
+public final class ya5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ItemData a;
+    public final int b;
+    public final String c;
 
-    /* loaded from: classes8.dex */
-    public static class a extends BdAsyncTask<String, Integer, Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Type inference failed for: r2v0, types: [int] */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Integer doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            HttpURLConnection httpURLConnection;
-            DataOutputStream dataOutputStream;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                HttpURLConnection httpURLConnection2 = null;
-                if (strArr != null) {
-                    ?? length = strArr.length;
-                    try {
-                        if (length != 0) {
-                            try {
-                                httpURLConnection = (HttpURLConnection) new URL("https://appc.baidu.com/appsrv?action=appdistributionlog&native_api=1").openConnection();
-                                try {
-                                    httpURLConnection.setRequestMethod("POST");
-                                    httpURLConnection.setDoOutput(true);
-                                    httpURLConnection.setDoInput(true);
-                                    httpURLConnection.setConnectTimeout(kb.d().c().b());
-                                    httpURLConnection.setReadTimeout(kb.d().b().b());
-                                    httpURLConnection.setRequestProperty("Content-Type", "application/json");
-                                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                                    httpURLConnection.connect();
-                                    try {
-                                        dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                                        try {
-                                            dataOutputStream.write(strArr[0].getBytes("UTF-8"));
-                                            dataOutputStream.flush();
-                                            BdCloseHelper.close((OutputStream) dataOutputStream);
-                                            httpURLConnection.getResponseCode();
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            BdCloseHelper.close((OutputStream) dataOutputStream);
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        dataOutputStream = null;
-                                    }
-                                } catch (Exception e) {
-                                    e = e;
-                                    e.printStackTrace();
-                                    BdCloseHelper.close(httpURLConnection);
-                                    return null;
-                                }
-                            } catch (Exception e2) {
-                                e = e2;
-                                httpURLConnection = null;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                BdCloseHelper.close(httpURLConnection2);
-                                throw th;
-                            }
-                            BdCloseHelper.close(httpURLConnection);
-                            return null;
-                        }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        httpURLConnection2 = length;
-                    }
-                }
-                return null;
+            if (obj instanceof ya5) {
+                ya5 ya5Var = (ya5) obj;
+                return Intrinsics.areEqual(this.a, ya5Var.a) && this.b == ya5Var.b && Intrinsics.areEqual(this.c, ya5Var.c);
             }
-            return (Integer) invokeL.objValue;
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void a(DownloadData downloadData, int i) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, downloadData, i) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            ItemDownloadExtraData itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
-            if (ei.isEmpty(itemDownloadExtraData.shouzhuSource)) {
-                itemDownloadExtraData.shouzhuSource = za5.f().g(itemDownloadExtraData.pkgName);
-            }
-            c(downloadData, i);
-            b(itemDownloadExtraData.pkgName, itemDownloadExtraData.appName, itemDownloadExtraData.shouzhuScene, itemDownloadExtraData.shouzhuCategory, itemDownloadExtraData.shouzhuSource, i);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
     }
 
-    public static void c(DownloadData downloadData, int i) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, downloadData, i) == null) {
-            if (i != 100 && i != 200) {
-                if (i != 300) {
-                    if (i != 400) {
-                        if (i != 500) {
-                            if (i != 600) {
-                                if (i != 700 && i != 800) {
-                                    if (i == 900) {
-                                        za5.f().k(downloadData);
-                                        return;
-                                    }
-                                    return;
-                                }
-                                za5.f().e(downloadData);
-                                return;
-                            }
-                        }
-                    }
-                    za5.f().j(downloadData);
-                    return;
-                }
-                za5.f().d(downloadData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ItemCardViewButtonData(item=" + this.a + ", position=" + this.b + ", tid=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ya5(ItemData item, int i, String tid) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {item, Integer.valueOf(i), tid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            za5.f();
         }
+        Intrinsics.checkNotNullParameter(item, "item");
+        Intrinsics.checkNotNullParameter(tid, "tid");
+        this.a = item;
+        this.b = i;
+        this.c = tid;
     }
 
-    public static void b(String str, String str2, int i, int i2, String str3, int i3) {
+    public final ItemData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("pkgname", str);
-                jSONObject.put("appname", str2);
-                jSONObject.put("host", 4);
-                jSONObject.put("scene", i);
-                jSONObject.put("category", i2);
-                jSONObject.put("event", i3);
-                jSONObject.put("source", str3);
-                new a().execute(jSONObject.toString());
-            } catch (JSONException unused) {
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (ItemData) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,124 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.baseEditMark.MarkData;
+import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vc9 {
+public class vc9 extends ij5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vc9(Context context) {
+        super(context, null, 18, 0);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && !StringUtils.isNull(str)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void b(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, obj) == null) && (obj instanceof MarkData)) {
-            MarkData markData = (MarkData) obj;
-            if (StringUtils.isNull(str)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("tid", markData.getId());
-            statisticItem.param("fname", markData.getForumName());
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1413831834:
-                    if (str.equals("c14062")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1413831833:
-                    if (str.equals("c14063")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -1413831832:
-                    if (str.equals("c14064")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -1413831831:
-                    if (str.equals("c14065")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1413831828:
-                    if (str.equals("c14068")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1413831827:
-                    if (str.equals("c14069")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2 && c != 3) {
-                        if (c == 4) {
-                            d(markData, statisticItem);
-                            statisticItem.param("obj_source", "1");
-                        }
-                    } else {
-                        statisticItem.param("obj_id", markData.getUesrId());
-                    }
-                } else {
-                    d(markData, statisticItem);
-                    statisticItem.param("obj_id", markData.getUesrId());
-                }
-            } else {
-                d(markData, statisticItem);
-            }
-            TiebaStatic.log(statisticItem);
         }
-    }
-
-    public static void c(String str, boolean z, MarkData markData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), markData}) != null) || markData == null || StringUtils.isNull(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("tid", markData.getId());
-        statisticItem.param("fname", markData.getForumName());
-        if (z) {
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "1");
-        } else {
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "2");
-        }
-        TiebaStatic.log(statisticItem);
-    }
-
-    public static void d(MarkData markData, StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, markData, statisticItem) == null) {
-            if (markData.is_deleted()) {
-                statisticItem.param("obj_param1", "3");
-            } else if (markData.isRedTipShow() && !StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) {
-                statisticItem.param("obj_param1", "1");
-            } else {
-                statisticItem.param("obj_param1", "2");
-            }
-        }
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c78);
+        this.m = new PrivilegeDeskView(context);
+        this.o = true;
+        this.i = false;
+        this.j = true;
+        this.d = R.drawable.icon_pure_post_vip24;
+        this.e = R.drawable.icon_pure_post_vip24_selection;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

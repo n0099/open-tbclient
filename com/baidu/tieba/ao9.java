@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tieba.oe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,12 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ao9 {
     public static /* synthetic */ Interceptable $ic;
+    public static ao9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public eza a;
-    public eza b;
-    public EditText c;
-    public EditText d;
-    public PostWriteCallBackData e;
+    public oe<byte[]> a;
+    public oe<byte[]> b;
 
     public ao9() {
         Interceptable interceptable = $ic;
@@ -34,180 +29,106 @@ public class ao9 {
                 return;
             }
         }
-        eza ezaVar = new eza();
-        this.a = ezaVar;
-        ezaVar.j(R.color.CAM_X0101);
-        this.a.h(R.color.cp_cont_h_alpha85);
-        eza ezaVar2 = new eza();
-        this.b = ezaVar2;
-        ezaVar2.j(R.color.CAM_X0101);
-        this.b.h(R.color.cp_cont_h_alpha85);
+        this.a = null;
+        this.b = null;
+        c();
     }
 
-    public void a(boolean z) {
-        EditText editText;
+    public static synchronized ao9 b() {
+        InterceptResult invokeV;
+        ao9 ao9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (editText = this.c) != null && editText.getText() != null) {
-            int selectionEnd = this.c.getSelectionEnd();
-            SpannableStringBuilder f = this.a.f(this.c.getText());
-            if (f != null) {
-                boolean z2 = true;
-                this.a.l(true);
-                this.c.setText(f);
-                if (z && this.a.b() >= 0) {
-                    this.c.requestFocus();
-                    this.c.setSelection(this.a.b());
-                } else {
-                    this.c.setSelection(selectionEnd);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ao9.class) {
+                if (c == null) {
+                    c = new ao9();
                 }
-                eza ezaVar = this.a;
-                if (ezaVar.b() < 0) {
-                    z2 = false;
-                }
-                ezaVar.k(z2);
+                ao9Var = c;
+            }
+            return ao9Var;
+        }
+        return (ao9) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                y45.k();
+                this.a = y45.i("tb.pb_mark");
+            }
+            if (this.b == null) {
+                y45.k();
+                this.b = y45.i("tb.pb_normal");
             }
         }
     }
 
-    public void b(boolean z) {
-        EditText editText;
+    public byte[] a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        oe.b<byte[]> h;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (editText = this.d) != null && editText.getText() != null) {
-            int selectionEnd = this.d.getSelectionEnd();
-            SpannableStringBuilder f = this.b.f(this.d.getText());
-            if (f != null) {
-                boolean z2 = true;
-                this.b.l(true);
-                this.d.setText(f);
-                if (z && this.b.b() >= 0) {
-                    this.d.requestFocus();
-                    this.d.setSelection(this.b.b());
-                } else {
-                    this.d.setSelection(selectionEnd);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (UbsABTestHelper.isNoCachePb()) {
+                return null;
+            }
+            if (z) {
+                oe<byte[]> oeVar = this.a;
+                if (oeVar != null && str != null) {
+                    h = oeVar.h(str);
                 }
-                eza ezaVar = this.b;
-                if (ezaVar.b() < 0) {
-                    z2 = false;
+                h = null;
+            } else {
+                oe<byte[]> oeVar2 = this.b;
+                if (oeVar2 != null && str != null) {
+                    h = oeVar2.h(str);
                 }
-                ezaVar.k(z2);
+                h = null;
+            }
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLZ.objValue;
+    }
+
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            if (z) {
+                oe<byte[]> oeVar = this.a;
+                if (oeVar != null && str != null) {
+                    oeVar.i(str, new byte[0], 0L);
+                    return;
+                }
+                return;
+            }
+            oe<byte[]> oeVar2 = this.b;
+            if (oeVar2 != null && str != null) {
+                oeVar2.i(str, new byte[0], 0L);
             }
         }
     }
 
-    public void c() {
+    public void f(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.n(null);
-            this.a.i(null);
-            this.a.k(false);
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
+            c();
+            this.a.e(str, bArr, 86400000L);
         }
     }
 
-    public void d() {
+    public void e(String str, boolean z, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.n(null);
-            this.b.i(null);
-            this.b.k(false);
-        }
-    }
-
-    public eza e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (eza) invokeV.objValue;
-    }
-
-    public EditText f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (EditText) invokeV.objValue;
-    }
-
-    public eza g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (eza) invokeV.objValue;
-    }
-
-    public PostWriteCallBackData h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (PostWriteCallBackData) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.g();
-            this.b.g();
-            if (this.a.d()) {
-                a(false);
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
+            c();
+            if (z) {
+                this.a.e(str, bArr, 86400000L);
+            } else {
+                this.b.e(str, bArr, 86400000L);
             }
-            if (this.b.d()) {
-                b(false);
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.c = null;
-            this.d = null;
-        }
-    }
-
-    public void k(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
-            return;
-        }
-        this.a.i(postWriteCallBackData.getSensitiveWords());
-        this.a.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.a.a())) {
-            return;
-        }
-        a(true);
-        this.e = postWriteCallBackData;
-    }
-
-    public void l(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
-            return;
-        }
-        this.b.i(postWriteCallBackData.getSensitiveWords());
-        this.b.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.b.a())) {
-            return;
-        }
-        b(true);
-    }
-
-    public void m(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, editText) == null) {
-            this.c = editText;
-        }
-    }
-
-    public void n(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, editText) == null) {
-            this.d = editText;
         }
     }
 }

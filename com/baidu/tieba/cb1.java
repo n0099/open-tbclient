@@ -1,23 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface cb1 {
-    public static final cb1 a = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "sailorIocUtil");
+    public static final cb1 b = new a();
 
-    WebView a(@NonNull Context context);
+    boolean a();
+
+    void b(@Nullable String str, @Nullable Map<String, String> map, @Nullable String str2);
+
+    void c();
 
     /* loaded from: classes5.dex */
     public class a implements cb1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.cb1
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.cb1
+        public void b(@Nullable String str, @Nullable Map<String, String> map, @Nullable String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, str2) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.cb1
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -31,16 +61,6 @@ public interface cb1 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.cb1
-        public WebView a(@NonNull Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return new WebView(context);
-            }
-            return (WebView) invokeL.objValue;
         }
     }
 }

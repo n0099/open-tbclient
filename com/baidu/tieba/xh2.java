@@ -1,90 +1,130 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.TreeMap;
 /* loaded from: classes8.dex */
-public class xh2 extends il2 {
+public final class xh2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<hl2> d;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xh2() {
-        super("combine");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948300295, "Lcom/baidu/tieba/xh2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948300295, "Lcom/baidu/tieba/xh2;");
                 return;
             }
         }
-        this.d = new ArrayList();
+        n = qr1.a;
     }
 
-    @Override // com.baidu.tieba.hl2
-    public String c(fa2 fa2Var) {
+    public xh2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static hl2 a(xh2 xh2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fa2Var)) == null) {
-            if (fa2Var != null && this.d.size() > 0) {
-                int i = 0;
-                StringBuilder sb = new StringBuilder();
-                for (hl2 hl2Var : this.d) {
-                    sb.append(hl2Var.d("event" + i, fa2Var));
-                    i++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xh2Var)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, xh2Var.a);
+            treeMap.put("pagePath", xh2Var.b);
+            treeMap.put("pageType", xh2Var.c);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, xh2Var.e);
+            if (!TextUtils.isEmpty(xh2Var.f)) {
+                if (n) {
+                    Log.d("PageReadyEvent", "add initData: " + xh2Var.f);
                 }
-                if (hl2.b) {
-                    Log.d("JSEventDispatcher", "combine msg - " + sb.toString());
-                }
-                return sb.toString();
+                treeMap.put("initData", xh2Var.f);
             }
-            return null;
+            if (!TextUtils.isEmpty(xh2Var.d)) {
+                treeMap.put("onReachBottomDistance", xh2Var.d);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(xh2Var.g));
+            if (!TextUtils.isEmpty(xh2Var.h)) {
+                treeMap.put("routeId", xh2Var.h);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(xh2Var.i));
+            if (!TextUtils.isEmpty(xh2Var.j)) {
+                treeMap.put("slavePreload", xh2Var.j);
+            }
+            treeMap.put("root", xh2Var.k);
+            e73.a(treeMap, "page ready event");
+            ye3.a(xh2Var.b, treeMap);
+            String f = yo3.f(ye3.b(xh2Var.b));
+            g82.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
+            String c = qb3.c(xh2Var.a, f);
+            xh2Var.l = c;
+            if (!TextUtils.isEmpty(c)) {
+                treeMap.put("pageConfig", xh2Var.l);
+            }
+            cd2 W = ai2.U().W();
+            if (W != null) {
+                treeMap.put("masterId", W.a());
+            }
+            if (xh2Var.m) {
+                treeMap.put("isFirstPage", YYOption.IsLive.VALUE_TRUE);
+            }
+            if (ka2.c()) {
+                treeMap.put("offlinePerfTool", String.valueOf(1));
+            }
+            if (eh3.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (eh3.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            return new hl2("PageReady", treeMap);
         }
-        return (String) invokeL.objValue;
+        return (hl2) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hl2
-    public void h(fa2 fa2Var) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fa2Var) == null) && fa2Var != null && !fa2Var.isWebView() && this.d.size() > 0) {
-            if (hl2.b) {
-                Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
-            }
-            for (hl2 hl2Var : this.d) {
-                JSEvent e = hl2Var.e(fa2Var);
-                if (e != null) {
-                    j(fa2Var, e);
-                    if (hl2.b) {
-                        Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PageReadyEvent{appPath='" + this.a + "', pagePath='" + this.b + "', pageType='" + this.c + "', onReachBottomDistance='" + this.d + "', sConsole='" + this.e + "', initData='" + this.f + "', showPerformancePanel=" + this.g + ", routeId='" + this.h + "', isT7Available=" + this.i + ", preloadFile='" + this.j + "', rootPath='" + this.k + "', pageConfig='" + this.l + "'}";
         }
-    }
-
-    public xh2 t(hl2 hl2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hl2Var)) == null) {
-            if (hl2Var != null && !this.d.contains(hl2Var)) {
-                this.d.add(hl2Var);
-            }
-            return this;
-        }
-        return (xh2) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

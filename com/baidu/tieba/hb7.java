@@ -1,58 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.ClickableSpan;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import tbclient.FeedFeedback;
+import tbclient.FeedbackReason;
 /* loaded from: classes6.dex */
-public final class hb7 implements cb7 {
+public final class hb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public hb7() {
+    public static final d97 a(FeedFeedback feedFeedback, b97 feedExtraData) {
+        InterceptResult invokeLL;
+        f97 f97Var;
+        int i;
+        Object e97Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.cb7
-    public SpannableString b(Context context, t97 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
-        m87 b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            y97 f = richTextData.f();
-            SpannableString spannableString = new SpannableString(f.c());
-            if (!TextUtils.isEmpty(richTextData.d()) && f.b() != null) {
-                if ((clickableSpan instanceof db7) && (b = f.b()) != null) {
-                    ((db7) clickableSpan).a(ce7.a.a(b));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, feedFeedback, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(feedFeedback, "<this>");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            String type = feedFeedback.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            String str = feedFeedback.title;
+            String str2 = feedFeedback.button_text;
+            String str3 = feedFeedback.common_id;
+            String str4 = feedFeedback.type;
+            if (Intrinsics.areEqual(str4, ImageViewerConfig.FROM_CONCERN)) {
+                f97Var = new f97(feedExtraData.a().a().get("user_id"), feedExtraData.a().a().get("portrait"));
+            } else if (Intrinsics.areEqual(str4, "recommend_post")) {
+                String str5 = feedExtraData.a().a().get("thread_id");
+                String str6 = feedExtraData.a().a().get("forum_id");
+                List<FeedbackReason> list = feedFeedback.dislike;
+                SparseArray sparseArray = new SparseArray();
+                for (FeedbackReason feedbackReason : list) {
+                    Integer num = feedbackReason.id;
+                    Intrinsics.checkNotNullExpressionValue(num, "reason.id");
+                    sparseArray.put(num.intValue(), feedbackReason.reason);
                 }
-                int length = f.c().length();
-                if (StringsKt__StringsJVMKt.endsWith$default(f.c(), " ", false, 2, null)) {
-                    length = f.c().length() - 1;
+                List<FeedbackReason> list2 = feedFeedback.dislike;
+                SparseArray sparseArray2 = new SparseArray();
+                for (FeedbackReason feedbackReason2 : list2) {
+                    Integer num2 = feedbackReason2.id;
+                    Intrinsics.checkNotNullExpressionValue(num2, "reason.id");
+                    sparseArray2.put(num2.intValue(), feedbackReason2.extra);
                 }
-                spannableString.setSpan(clickableSpan, 0, length, 33);
+                String str7 = feedExtraData.a().a().get("weight");
+                String str8 = feedExtraData.a().a().get("source");
+                String str9 = feedExtraData.a().a().get("threadType");
+                if (str9 != null) {
+                    i = Integer.parseInt(str9);
+                } else {
+                    i = 0;
+                }
+                e97Var = new e97(str5, str6, null, sparseArray, sparseArray2, str7, str8, feedExtraData.a().a().get("extra"), i, 4, null);
+                return new d97(type, str, str2, str3, e97Var);
+            } else {
+                f97Var = null;
             }
-            return spannableString;
+            e97Var = f97Var;
+            return new d97(type, str, str2, str3, e97Var);
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (d97) invokeLL.objValue;
     }
 }

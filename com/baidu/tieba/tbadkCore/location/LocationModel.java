@@ -14,9 +14,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.sia;
+import com.baidu.tieba.hja;
 import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tieba.yka;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -179,7 +179,7 @@ public class LocationModel extends BdBaseModel {
     public static void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            bha.h(303017, LocationSocketResponsedMessage.class, false, false);
+            hja.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -226,8 +226,8 @@ public class LocationModel extends BdBaseModel {
     public void U(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            sia.a().e(z);
-            SharedPrefHelper.getInstance().putBoolean("no_longer_show_address", sia.a().c());
+            yka.a().e(z);
+            SharedPrefHelper.getInstance().putBoolean("no_longer_show_address", yka.a().c());
         }
     }
 
@@ -241,7 +241,7 @@ public class LocationModel extends BdBaseModel {
     public void T(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = sia.a().b();
+            LocationData b2 = yka.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -297,8 +297,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             P(locationData);
-            sia.a().f(System.currentTimeMillis());
-            sia.a().d(locationData);
+            yka.a().f(System.currentTimeMillis());
+            yka.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

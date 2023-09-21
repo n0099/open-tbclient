@@ -18,7 +18,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @JvmName(name = "H5ShowDialogHelper")
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class fz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public final class fz4 {
             }
             hashMap.put("dialogId", str);
             hashMap.put("btnId", id);
-            um6.a().d(webView, "showDialog", hashMap);
+            ym6.a().d(webView, "showDialog", hashMap);
         }
     }
 
@@ -122,7 +122,7 @@ public final class fz4 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{activity, webView, Integer.valueOf(i), str, str2})) == null) {
             Intrinsics.checkNotNullParameter(activity, "activity");
             Intrinsics.checkNotNullParameter(webView, "webView");
-            if (i == 1 && (a = qq6.a.a(str)) != null) {
+            if (i == 1 && (a = wq6.a.a(str)) != null) {
                 String optString = a.optString("title");
                 String optString2 = a.optString("desc");
                 JSONArray optJSONArray = a.optJSONArray("btn");
@@ -186,7 +186,7 @@ public final class fz4 {
                 str = "";
             }
             hashMap.put("dialogId", str);
-            um6.a().d(webView, "showDialog", hashMap);
+            ym6.a().d(webView, "showDialog", hashMap);
         }
     }
 }

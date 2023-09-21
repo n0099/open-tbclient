@@ -4,8 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
-import com.baidu.tieba.jh8;
+import com.baidu.tieba.el8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -455,7 +454,7 @@ public final class AbilityItem implements Serializable {
         public final String scene;
         @SerializedName("show_msg_type")
         public final List<Integer> showMsgType;
-        @SerializedName(RecordVideoActivityConfig.SHOW_TYPE)
+        @SerializedName("show_type")
         public final int showType;
         @SerializedName("to_uk")
         public final String toUk;
@@ -701,7 +700,7 @@ public final class AbilityItem implements Serializable {
         public final boolean shouldShow() {
             InterceptResult invokeV;
             boolean z;
-            boolean c;
+            boolean e;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 if (this.showType == 2) {
@@ -717,14 +716,14 @@ public final class AbilityItem implements Serializable {
                     return false;
                 }
                 try {
-                    c = jh8.c(this.toUk);
-                } catch (Exception e) {
-                    BdLog.e(e);
+                    e = el8.e(this.toUk);
+                } catch (Exception e2) {
+                    BdLog.e(e2);
                 }
-                if (this.showType == 0 && c) {
+                if (this.showType == 0 && e) {
                     return true;
                 }
-                if (this.showType == 1 && !c) {
+                if (this.showType == 1 && !e) {
                     return true;
                 }
                 return false;

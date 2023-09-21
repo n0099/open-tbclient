@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.content.ContentValues;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ij4 {
+public class ij4 extends gj4<bk4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Class<?>, hj4> a;
-    public ConcurrentHashMap<Class<?>, Uri> b;
 
     public ij4() {
         Interceptable interceptable = $ic;
@@ -26,49 +25,58 @@ public class ij4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        c();
     }
 
-    public <T> hj4<T> a(Class<T> cls) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gj4
+    /* renamed from: f */
+    public ContentValues c(bk4 bk4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            return this.a.get(cls);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bk4Var)) == null) {
+            return a(bk4Var);
         }
-        return (hj4) invokeL.objValue;
+        return (ContentValues) invokeL.objValue;
     }
 
-    public <T> Uri b(Class<T> cls) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gj4
+    /* renamed from: g */
+    public bk4 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-            return this.b.get(cls);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                bk4 bk4Var = new bk4();
+                if (b(cursor, bk4Var)) {
+                    return bk4Var;
+                }
+                return null;
+            }
+            return null;
         }
-        return (Uri) invokeL.objValue;
+        return (bk4) invokeL.objValue;
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.gj4
+    public List<bk4> e(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = new ConcurrentHashMap<>();
-            this.b = new ConcurrentHashMap<>();
-            this.a.put(gk4.class, new lj4());
-            this.a.put(hk4.class, new mj4());
-            this.a.put(ek4.class, new kj4());
-            this.a.put(ck4.class, new jj4());
-            this.a.put(PMSAppInfo.class, new gj4());
-            this.a.put(ik4.class, new nj4());
-            this.a.put(jk4.class, new oj4());
-            this.b.put(gk4.class, yj4.f);
-            this.b.put(hk4.class, yj4.g);
-            this.b.put(ek4.class, yj4.d);
-            this.b.put(ck4.class, yj4.h);
-            this.b.put(PMSAppInfo.class, yj4.e);
-            this.b.put(ik4.class, yj4.i);
-            this.b.put(jk4.class, yj4.j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                do {
+                    bk4 bk4Var = new bk4();
+                    if (b(cursor, bk4Var)) {
+                        arrayList.add(bk4Var);
+                    }
+                } while (cursor.moveToNext());
+                return arrayList;
+            }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 }

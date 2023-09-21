@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h45 extends b15 implements cn {
+public class h45 extends b15 implements bn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -123,7 +123,7 @@ public class h45 extends b15 implements cn {
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         OriginalThreadInfo originalThreadInfo;
@@ -190,8 +190,8 @@ public class h45 extends b15 implements cn {
                         }
                         return ThreadData.TYPE_FRS_HOTTOPIC;
                     }
-                    rha rhaVar = this.t.funAdData;
-                    if (rhaVar != null && rhaVar.h()) {
+                    xja xjaVar = this.t.funAdData;
+                    if (xjaVar != null && xjaVar.h()) {
                         if (this.t.funAdData.i()) {
                             return AdvertAppInfo.H;
                         }

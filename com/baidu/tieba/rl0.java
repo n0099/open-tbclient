@@ -1,25 +1,14 @@
 package com.baidu.tieba;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Build;
 import android.text.TextUtils;
-import android.widget.RemoteViews;
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.notification.NotificationReceiver;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.searchbox.ui.SystemBarTintManager;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,47 +16,104 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
-public class rl0 {
+public abstract class rl0 implements zl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NotificationManager a;
-    public NotificationCompat.Builder b;
+    public final hl0 a;
+    public long b;
+    public yl0 c;
+    public wl0 d;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rl0 a;
+        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-457316971, "Lcom/baidu/tieba/rl0$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-457317002, "Lcom/baidu/tieba/rl0$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-457316971, "Lcom/baidu/tieba/rl0$b;");
+                    classClinitInterceptable.invokePostClinit(-457317002, "Lcom/baidu/tieba/rl0$a;");
                     return;
                 }
             }
-            a = new rl0(null);
+            int[] iArr = new int[AdDownloadStatus.values().length];
+            b = iArr;
+            try {
+                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                b[AdDownloadStatus.FAILED.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                b[AdDownloadStatus.DOWNLOADING.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[AdDownloadStatus.PAUSE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                b[AdDownloadStatus.COMPLETED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                b[AdDownloadStatus.INSTALLED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            int[] iArr2 = new int[AdDownloadAction.values().length];
+            a = iArr2;
+            try {
+                iArr2[AdDownloadAction.START.ordinal()] = 1;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[AdDownloadAction.PAUSE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[AdDownloadAction.RESUME.ordinal()] = 3;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                a[AdDownloadAction.PROGRESS_UPDATE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[AdDownloadAction.COMPLETE.ordinal()] = 5;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[AdDownloadAction.INSTALL_FINISH.ordinal()] = 6;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                a[AdDownloadAction.FAIL.ordinal()] = 7;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                a[AdDownloadAction.FAIL_PERMISSION_DENY.ordinal()] = 8;
+            } catch (NoSuchFieldError unused14) {
+            }
         }
     }
 
-    public rl0() {
+    public rl0(@NonNull hl0 hl0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hl0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,263 +123,274 @@ public class rl0 {
                 return;
             }
         }
-        this.a = (NotificationManager) tj0.b().getSystemService("notification");
+        this.b = 0L;
+        this.c = null;
+        this.a = hl0Var;
+        d();
     }
 
-    public static rl0 f() {
-        InterceptResult invokeV;
+    public void m(@Nullable yl0 yl0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (rl0) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a == null) {
-            return;
-        }
-        try {
-            a(135637042);
-            a(1743353008);
-            a(-1276312226);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public /* synthetic */ rl0(a aVar) {
-        this();
-    }
-
-    public void a(int i) {
-        NotificationManager notificationManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (notificationManager = this.a) == null) {
-            return;
-        }
-        try {
-            notificationManager.cancel(i);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final NotificationCompat.Builder c() {
-        InterceptResult invokeV;
-        NotificationCompat.Builder builder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context b2 = tj0.b();
-            if (Build.VERSION.SDK_INT >= 26) {
-                d();
-                builder = new NotificationCompat.Builder(b2, "com.baidu.nadcore.notification.channel");
+        if (interceptable == null || interceptable.invokeL(1048589, this, yl0Var) == null) {
+            this.c = yl0Var;
+            if (f()) {
+                b(AdDownloadCode.ERROR_FAST_CLICK);
+            } else if (this.a.f()) {
+                b(AdDownloadCode.ERROR_INVALID_DATA);
             } else {
-                builder = new NotificationCompat.Builder(b2);
+                g();
+                b(AdDownloadCode.SUCCESS);
             }
-            builder.setSmallIcon(hl0.b().f());
-            builder.setWhen(System.currentTimeMillis());
-            builder.setPriority(0);
-            builder.setDefaults(-1);
-            builder.setVisibility(1);
-            builder.setVibrate(new long[]{0});
-            builder.setSound(null);
-            return builder;
         }
-        return (NotificationCompat.Builder) invokeV.objValue;
     }
 
-    @RequiresApi(api = 26)
+    @Override // com.baidu.tieba.zl0
+    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull hl0 hl0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, hl0Var) == null) {
+            switch (a.a[adDownloadAction.ordinal()]) {
+                case 1:
+                    p();
+                    break;
+                case 2:
+                    q();
+                    break;
+                case 3:
+                    p();
+                    break;
+                case 4:
+                    this.a.i = Math.max(hl0Var.i, hl0Var.j);
+                    if (this.a.q.w) {
+                        ql0.f().l(this.a);
+                        break;
+                    }
+                    break;
+                case 5:
+                    q();
+                    break;
+                case 6:
+                    q();
+                    break;
+                case 7:
+                    q();
+                    b(AdDownloadCode.ERROR_OTHERS);
+                    return;
+                case 8:
+                    if (rm0.f(hl0Var)) {
+                        b(AdDownloadCode.ERROR_PERMISSION_DENIED);
+                        return;
+                    }
+                    break;
+            }
+            b(AdDownloadCode.SUCCESS);
+        }
+    }
+
+    public final void b(AdDownloadCode adDownloadCode) {
+        yl0 yl0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) != null) || (yl0Var = this.c) == null) {
+            return;
+        }
+        if (adDownloadCode == AdDownloadCode.SUCCESS) {
+            yl0Var.a(this.a.c);
+        } else {
+            yl0Var.b(adDownloadCode);
+        }
+    }
+
+    public void n(yl0 yl0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, yl0Var) == null) {
+            this.c = yl0Var;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            uk0.c().a(this.a);
+        }
+    }
+
     public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            r();
+            i();
         }
-        NotificationChannel notificationChannel = new NotificationChannel("com.baidu.nadcore.notification.channel", "下载消息提示", 4);
-        notificationChannel.setLockscreenVisibility(1);
-        notificationChannel.enableLights(false);
-        notificationChannel.enableVibration(false);
-        notificationChannel.setVibrationPattern(new long[]{0});
-        notificationChannel.setSound(null, null);
-        this.a.createNotificationChannel(notificationChannel);
     }
 
-    public boolean g() {
+    public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean areNotificationsEnabled = NotificationManagerCompat.from(tj0.b()).areNotificationsEnabled();
-            if (this.a != null && !TextUtils.isEmpty("com.baidu.nadcore.notification.channel") && Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = this.a.getNotificationChannel("com.baidu.nadcore.notification.channel");
-                if (notificationChannel == null) {
-                    return areNotificationsEnabled;
-                }
-                if (areNotificationsEnabled && notificationChannel.getImportance() != 0) {
-                    return true;
-                }
-                return false;
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = currentTimeMillis - this.b;
+            this.b = currentTimeMillis;
+            if (j > 0 && j < 1000) {
+                return true;
             }
-            return areNotificationsEnabled;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public PendingIntent e(String str, il0 il0Var) {
-        InterceptResult invokeLL;
-        String str2;
+    @Override // com.baidu.tieba.zl0
+    public hl0 getData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, il0Var)) == null) {
-            if (!TextUtils.isEmpty(str) && il0Var != null) {
-                Context b2 = tj0.b();
-                Intent intent = new Intent(str);
-                intent.setComponent(new ComponentName(b2.getPackageName(), NotificationReceiver.class.getName()));
-                intent.putExtra("key_package_name", il0Var.d);
-                File file = il0Var.h;
-                if (file != null && file.exists()) {
-                    str2 = il0Var.h.getAbsolutePath();
-                } else {
-                    str2 = "";
-                }
-                intent.putExtra("key_download_path", str2);
-                intent.putExtra("key_notify_type", il0Var.q.m);
-                intent.putExtra("key_notification_id", il0Var.e().hashCode());
-                intent.putExtra("key_extra_param", il0Var.p.a);
-                return a71.a(b2, il0Var.e().hashCode(), intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
         }
-        return (PendingIntent) invokeLL.objValue;
+        return (hl0) invokeV.objValue;
     }
 
-    public void i(il0 il0Var, String str) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, il0Var, str) != null) || this.a == null) {
-            return;
-        }
-        try {
-            b();
-            Context b2 = tj0.b();
-            String str2 = il0Var.p.h;
-            String str3 = "";
-            if (TextUtils.equals(str, "notify_type_pause")) {
-                str3 = b2.getResources().getString(R.string.nad_download_paused);
-            } else if (TextUtils.equals(str, "notify_type_stop")) {
-                str3 = b2.getResources().getString(R.string.nad_download_stopped);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (gm0.c().e(this)) {
+                gm0.c().d();
+                return;
             }
-            NotificationCompat.Builder c = c();
-            c.setTicker(str2 + str3);
-            c.setContentTitle(str2);
-            c.setContentText(str3);
-            c.setAutoCancel(true);
-            c.setOngoing(false);
-            this.a.notify(1743353008, c.build());
-        } catch (Exception e) {
-            e.printStackTrace();
+            uk0.c().j(this.a);
+            q();
         }
     }
 
-    public void h(String str, String str2, String str3, String str4) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, str4) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (!TextUtils.isEmpty(str)) {
-                clogBuilder.z(str);
-            }
-            if (!TextUtils.equals(str, ClogBuilder.LogType.DOWNLOAD_INSTALL.type) && !TextUtils.equals(str, ClogBuilder.LogType.OPEN_APP.type)) {
-                clogBuilder.u(ClogBuilder.Page.AD_NOTIFICATION);
-            } else {
-                clogBuilder.u(ClogBuilder.Page.RETARGET);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                clogBuilder.j(str2);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                clogBuilder.p(str3);
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                clogBuilder.k(str4);
-            }
-            x31.e(clogBuilder);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            uk0.c().k(this.a.e(), this);
         }
     }
 
-    public void j(@NonNull Bitmap bitmap, @NonNull RemoteViews remoteViews, PendingIntent pendingIntent, PendingIntent pendingIntent2, @NonNull il0 il0Var) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap, remoteViews, pendingIntent, pendingIntent2, il0Var) != null) || this.a == null) {
-            return;
-        }
-        try {
-            a(il0Var.e().hashCode());
-            NotificationCompat.Builder c = c();
-            if (Build.VERSION.SDK_INT >= 24) {
-                c.setCustomContentView(remoteViews).setContentIntent(pendingIntent).setDeleteIntent(pendingIntent2).setPriority(2).setAutoCancel(true);
-            } else {
-                c.setContentIntent(pendingIntent).setDeleteIntent(pendingIntent2).setLargeIcon(bitmap).setContentTitle(il0Var.p.h).setContentText(il0Var.q.n).setPriority(2).setAutoCancel(true);
-            }
-            Notification build = c.build();
-            build.flags |= 32;
-            this.a.notify(il0Var.e().hashCode(), build);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            uk0.c().p(this.a.e(), this);
+            vl0.b(this.a);
         }
     }
 
-    public void k(il0 il0Var) {
+    public final void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, il0Var) != null) || this.a == null) {
-            return;
-        }
-        try {
-            b();
-            Context b2 = tj0.b();
-            String str = il0Var.p.h;
-            String string = b2.getResources().getString(R.string.nad_download_succeed);
-            NotificationCompat.Builder c = c();
-            c.setTicker(string);
-            c.setContentTitle(str);
-            c.setContentText(string);
-            c.setContentIntent(e(NotificationReceiver.RECEIVER_ACTION_DOWNLOAD_SUCCESS, il0Var));
-            c.setAutoCancel(true);
-            c.setOngoing(false);
-            this.a.notify(-1276312226, c.build());
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            uk0.c().l(this.a);
         }
     }
 
-    public void l(il0 il0Var) {
-        NotificationManager notificationManager;
+    public void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, il0Var) != null) || (notificationManager = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            m(this.c);
         }
-        try {
-            notificationManager.cancel(1743353008);
-            this.a.cancel(-1276312226);
-            Context b2 = tj0.b();
-            String str = il0Var.p.h;
-            String string = b2.getResources().getString(R.string.nad_downloading);
-            int i = (int) (il0Var.i * 100.0f);
-            if (this.b == null) {
-                NotificationCompat.Builder c = c();
-                this.b = c;
-                c.setAutoCancel(false);
-                this.b.setOngoing(true);
-                NotificationCompat.Builder builder = this.b;
-                builder.setTicker(string + "：" + str);
-                this.b.setContentTitle(str);
-                this.b.setContentText(string);
-            } else {
-                NotificationCompat.Builder builder2 = this.b;
-                builder2.setTicker(string + "：" + str);
-                this.b.setContentTitle(str);
-                this.b.setDefaults(4);
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            uk0.c().n(this.a);
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            if (this.d == null && this.a.b()) {
+                this.d = vl0.a(this.a);
             }
-            this.b.setProgress(100, i, false);
-            this.a.notify(135637042, this.b.build());
-        } catch (Exception e) {
-            e.printStackTrace();
+            wl0 wl0Var = this.d;
+            if (wl0Var != null) {
+                wl0Var.a();
+            }
+        }
+    }
+
+    public final void q() {
+        wl0 wl0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (wl0Var = this.d) != null) {
+            wl0Var.d();
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.a.i(yk0.b().query(this.a.e()));
+        }
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!rm0.g(this.a.h)) {
+                uk0.c().a(this.a);
+                this.a.g();
+                return false;
+            }
+            AdAppStateManager.instance().register(this.a);
+            hl0 hl0Var = this.a;
+            return rm0.e(hl0Var.h, hl0Var.a());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            switch (a.b[this.a.c.ordinal()]) {
+                case 1:
+                    o();
+                    break;
+                case 2:
+                    uk0.e(AdDownloadAction.FAIL_RETRY, this.a);
+                    o();
+                    break;
+                case 3:
+                    h();
+                    break;
+                case 4:
+                    k();
+                    break;
+                case 5:
+                    if (e()) {
+                        uk0.e(AdDownloadAction.INSTALL_START, this.a);
+                        break;
+                    } else {
+                        boolean z = false;
+                        if (tn0.b().a().a("nad_failed_retry_switch", 0) == 1) {
+                            z = true;
+                        }
+                        if (z) {
+                            hl0 hl0Var = this.a;
+                            if (hl0Var.c == AdDownloadStatus.PAUSE) {
+                                k();
+                            } else {
+                                hl0Var.i = 0.0f;
+                                hl0Var.j = 0.0f;
+                                o();
+                            }
+                            yk0.b().e(this.a);
+                            break;
+                        }
+                    }
+                    break;
+                case 6:
+                    if (rm0.c(this.a.d)) {
+                        uk0.d(this.a);
+                        break;
+                    } else {
+                        this.a.c = AdDownloadStatus.NONE;
+                        o();
+                        break;
+                    }
+            }
+            if (!TextUtils.isEmpty(this.a.f)) {
+                bj0.b(this.a.f);
+            }
         }
     }
 }

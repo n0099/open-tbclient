@@ -1,53 +1,60 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Message;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.webSocket.WebSocketException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.tts.client.SpeechSynthesizer;
+import java.net.SocketException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes5.dex */
 public class dj {
     public static /* synthetic */ Interceptable $ic;
-    public static dj h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<BasicNameValuePair> b;
-    public String[] c;
-    public String d;
-    public ej e;
-    public ArrayList<cj> f;
-    public cj g;
+    public Handler a;
+    public volatile zj b;
+    public volatile bk c;
+    public zi.a d;
+    public URI e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
+    public String[] k;
+    public List<BasicNameValuePair> l;
+    public bj m;
+    public yj n;
+    public boolean o;
+    public boolean p;
+    public volatile boolean q;
+    public long r;
+    public xi s;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448302567, "Lcom/baidu/tieba/dj;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448302567, "Lcom/baidu/tieba/dj;");
+    public void B(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements cj {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dj a;
@@ -70,105 +77,183 @@ public class dj {
             this.a = djVar;
         }
 
-        @Override // com.baidu.tieba.cj
-        public void a(String str) {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((cj) it.next()).a(str);
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                Object obj = message.obj;
+                if (obj instanceof xj) {
+                    xj xjVar = (xj) obj;
+                    if (this.a.m != null) {
+                        this.a.m.a(xjVar.a);
+                    }
+                } else if (obj instanceof rj) {
+                    rj rjVar = (rj) obj;
+                    if (this.a.m != null) {
+                        this.a.m.d(rjVar.a);
+                    } else if (this.a.y()) {
+                        BdLog.d("could not call onRawTextMessage() .. handler already NULL");
+                    }
+                } else if (obj instanceof fj) {
+                    fj fjVar = (fj) obj;
+                    if (this.a.m != null) {
+                        this.a.m.f(fjVar);
+                    } else if (this.a.y()) {
+                        BdLog.d("could not call onBinaryMessage() .. handler already NULL");
+                    }
+                } else if (obj instanceof oj) {
+                    pj pjVar = new pj();
+                    pjVar.a = ((oj) obj).a;
+                    this.a.c.b(pjVar);
+                } else if (obj instanceof pj) {
+                    pj pjVar2 = (pj) obj;
+                    if (this.a.m != null) {
+                        this.a.m.e();
+                    }
+                } else {
+                    String str = null;
+                    if (obj instanceof hj) {
+                        this.a.q(1, null);
+                    } else if (obj instanceof vj) {
+                        vj vjVar = (vj) obj;
+                        if (vjVar.a) {
+                            if (this.a.m != null) {
+                                this.a.m.onOpen(vjVar.b);
+                                this.a.o = true;
+                                this.a.p = false;
+                                if (this.a.m != null) {
+                                    this.a.m.c(null);
+                                }
+                                if (BdBaseApplication.getInst().isDebugMode()) {
+                                    Log.d("TB-WebSocket", "建立连接：握手成功");
+                                    return;
+                                }
+                                return;
+                            }
+                            this.a.q(6, "handler already NULL");
+                        }
+                    } else if (obj instanceof ij) {
+                        SocketException socketException = ((ij) obj).a;
+                        if (socketException != null) {
+                            str = socketException.getMessage();
+                        }
+                        dj djVar = this.a;
+                        djVar.q(3, "WebSockets connection lost = " + str);
+                    } else if (obj instanceof qj) {
+                        WebSocketException webSocketException = ((qj) obj).a;
+                        if (webSocketException != null) {
+                            str = webSocketException.getMessage();
+                        }
+                        dj djVar2 = this.a;
+                        djVar2.q(4, "WebSockets protocol violation error = " + str);
+                    } else if (obj instanceof kj) {
+                        dj djVar3 = this.a;
+                        djVar3.q(5, "WebSockets internal error (" + ((kj) obj).a.toString() + SmallTailInfo.EMOTION_SUFFIX);
+                    } else if (obj instanceof uj) {
+                        uj ujVar = (uj) obj;
+                        dj djVar4 = this.a;
+                        djVar4.q(6, "Server error " + ujVar.a + " (" + ujVar.b + SmallTailInfo.EMOTION_SUFFIX);
+                    } else if (obj instanceof jj) {
+                        dj djVar5 = this.a;
+                        djVar5.q(2, "WebSockets connot connect:" + ((jj) obj).a);
+                    } else if (obj instanceof wj) {
+                        if (this.a.m != null) {
+                            this.a.m.i(((wj) message.obj).a);
+                        }
+                    } else if (!(obj instanceof lj)) {
+                        if (!(obj instanceof sj)) {
+                            this.a.B(obj);
+                            return;
+                        }
+                        this.a.s = null;
+                        xi xiVar = ((sj) message.obj).a;
+                        if (this.a.m != null) {
+                            this.a.m.g(2, xiVar);
+                        }
+                        if (this.a.m != null) {
+                            this.a.m.c(xiVar);
+                        }
+                    } else {
+                        this.a.s = null;
+                        xi xiVar2 = ((lj) message.obj).a;
+                        if (this.a.m != null) {
+                            this.a.m.h(xiVar2);
+                        }
+                        if (this.a.m != null) {
+                            this.a.m.c(xiVar2);
+                        }
+                    }
                 }
             }
         }
+    }
 
-        @Override // com.baidu.tieba.cj
-        public void c(yi yiVar) {
+    /* loaded from: classes5.dex */
+    public class b extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dj a;
+
+        public b(dj djVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yiVar) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((cj) it.next()).c(yiVar);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {djVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = djVar;
         }
 
-        @Override // com.baidu.tieba.cj
-        public void d(byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((cj) it.next()).d(bArr);
-                }
-            }
+        public /* synthetic */ b(dj djVar, a aVar) {
+            this(djVar);
         }
 
-        @Override // com.baidu.tieba.cj
-        public void f(gj gjVar) {
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, gjVar) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((cj) it.next()).f(gjVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.cj
-        public void h(yi yiVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, yiVar) == null) && yiVar != null) {
-                yiVar.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.cj
-        public void i(yi yiVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yiVar) == null) && yiVar != null) {
-                yiVar.b();
-            }
-        }
-
-        @Override // com.baidu.tieba.cj
-        public void onOpen(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((cj) it.next()).onOpen(map);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.cj
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) != null) {
-                return;
-            }
-            this.a.e = null;
-            Iterator it = this.a.f.iterator();
-            while (it.hasNext()) {
-                ((cj) it.next()).b(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.cj
-        public void g(int i, yi yiVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048582, this, i, yiVar) == null) && yiVar != null) {
-                yiVar.a(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.cj
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((cj) it.next()).e();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Thread.currentThread().setName("WebSocketConnector");
+                long currentTimeMillis = System.currentTimeMillis();
+                try {
+                    zi ziVar = new zi();
+                    this.a.d = ziVar.a(this.a.g, this.a.h, this.a.n, false);
+                    if (this.a.q) {
+                        this.a.C(new hj());
+                        return;
+                    }
+                    try {
+                        if (!this.a.d.isConnected()) {
+                            this.a.C(new jj(2, "cannot connect"));
+                            return;
+                        }
+                        this.a.r = System.currentTimeMillis() - currentTimeMillis;
+                        this.a.t();
+                        this.a.u();
+                        gj gjVar = new gj(this.a.g + ":" + this.a.h);
+                        gjVar.b = this.a.i;
+                        gjVar.c = this.a.j;
+                        gjVar.e = this.a.k;
+                        gjVar.f = this.a.l;
+                        this.a.c.b(gjVar);
+                        if (this.a.q) {
+                            this.a.C(new hj());
+                        }
+                    } catch (Throwable th) {
+                        if (this.a.y()) {
+                            BdLog.e("----WebSocketConnector error. e:" + th.getMessage());
+                        }
+                        this.a.C(new kj(new Exception(th)));
+                    }
+                } catch (Throwable th2) {
+                    this.a.C(new jj(2, th2.getMessage()));
                 }
             }
         }
@@ -178,229 +263,276 @@ public class dj {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = new ArrayList<>();
-        this.g = null;
-        this.g = new a(this);
+        this.o = false;
+        this.p = false;
+        this.q = false;
+        this.s = null;
+        s();
     }
 
-    public boolean c(cj cjVar) {
-        InterceptResult invokeL;
+    public boolean A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cjVar)) == null) {
-            if (cjVar != null) {
-                synchronized (dj.class) {
-                    if (!this.f.contains(cjVar)) {
-                        return this.f.add(cjVar);
-                    }
-                    return false;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.s != null) {
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public synchronized boolean p(yi yiVar) {
-        InterceptResult invokeL;
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, yiVar)) == null) {
-            synchronized (this) {
-                if (yiVar == null) {
-                    return false;
-                }
-                BdUtilHelper.checkMainThread();
-                if (this.e != null) {
-                    return this.e.D(yiVar);
-                }
-                if (yiVar != null) {
-                    yiVar.a(1);
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(int i, String str) {
-        ej ejVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (ejVar = this.e) != null) {
-            this.e = null;
-            ejVar.q(i, str);
-            if (this.e != null) {
-                BdLog.e("close is opened and thread is leaded!!!");
-                this.e = null;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null) {
+            this.b.a();
         }
     }
 
-    public static dj h() {
+    public void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.c != null) {
+            this.c.a();
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a = new a(this);
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.b = new zj(this.a, this.d, this.n, "WebSocketReader");
+            this.b.start();
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
+            handlerThread.start();
+            this.c = new bk(handlerThread.getLooper(), this.a, this.d, this.n);
+        }
+    }
+
+    public long v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (h == null) {
-                synchronized (dj.class) {
-                    if (h == null) {
-                        h = new dj();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.b != null) {
+                return this.b.c();
             }
-            return h;
-        }
-        return (dj) invokeV.objValue;
-    }
-
-    public void d() {
-        ej ejVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ejVar = this.e) != null) {
-            ejVar.o();
-        }
-    }
-
-    public void e() {
-        ej ejVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ejVar = this.e) != null) {
-            ejVar.p();
-        }
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ej ejVar = this.e;
-            if (ejVar != null) {
-                return ejVar.v();
-            }
-            return -1L;
+            return 0L;
         }
         return invokeV.longValue;
     }
 
-    public boolean i() {
+    public long w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (n()) {
-                BdUtilHelper.checkMainThread();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.c != null) {
+                return this.c.c();
             }
-            ej ejVar = this.e;
-            if (ejVar != null && ejVar.z() && !this.e.A()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (n()) {
-                BdUtilHelper.checkMainThread();
-            }
-            ej ejVar = this.e;
-            if (ejVar != null && ejVar.z()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ej ejVar = this.e;
-            if (ejVar != null) {
-                return ejVar.w();
-            }
-            return -1L;
+            return 0L;
         }
         return invokeV.longValue;
     }
 
-    public boolean m() {
+    public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (n()) {
-                BdUtilHelper.checkMainThread();
-            }
-            ej ejVar = this.e;
-            if (ejVar != null && ejVar.x()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.p;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean n() {
+    public final boolean y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return BdBaseApplication.getInst().isDebugMode();
         }
         return invokeV.booleanValue;
     }
 
-    public void l(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
+    public boolean z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, strArr, list) == null) {
-            this.a = str;
-            this.d = str2;
-            this.c = strArr;
-            this.b = list;
-            n();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void C(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            Message obtainMessage = this.a.obtainMessage();
+            obtainMessage.obj = obj;
+            this.a.sendMessage(obtainMessage);
         }
     }
 
-    public boolean o() {
-        InterceptResult invokeV;
+    public boolean D(xi xiVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (n()) {
-                BdUtilHelper.checkMainThread();
-            }
-            ej ejVar = this.e;
-            if (ejVar != null) {
-                if (!ejVar.x() && !this.e.z()) {
-                    this.e.q(1, null);
-                    this.e = null;
-                } else {
-                    n();
-                    return true;
-                }
-            }
-            this.e = new ej();
-            try {
-                zj zjVar = new zj();
-                zjVar.j(this.d);
-                this.e.r(this.a, this.c, this.g, zjVar, this.b);
-                return true;
-            } catch (WebSocketException unused) {
-                this.e = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, xiVar)) == null) {
+            if (xiVar == null) {
                 return false;
             }
+            if (this.s == null && z()) {
+                this.s = xiVar;
+                return E(xiVar);
+            }
+            y();
+            if (xiVar != null) {
+                xiVar.a(1);
+            }
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public final boolean E(xi xiVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, xiVar)) == null) {
+            if (this.c == null) {
+                C(new kj(new Exception("mWriter = null")));
+                return false;
+            }
+            return this.c.b(new nj(xiVar));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void q(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
+            if (BdBaseApplication.getInst().isDebugMode()) {
+                Log.d("TB-WebSocket", "连接断开：[" + i + PreferencesUtil.RIGHT_MOUNT + str);
+            }
+            this.o = false;
+            this.q = true;
+            if (this.b != null) {
+                this.b.p();
+                this.b = null;
+            }
+            if (this.c != null) {
+                this.c.i();
+                this.c = null;
+            }
+            zi.a aVar = this.d;
+            if (aVar != null) {
+                try {
+                    aVar.close();
+                } catch (Throwable th) {
+                    if (y()) {
+                        th.printStackTrace();
+                    }
+                }
+                this.d = null;
+            }
+            bj bjVar = this.m;
+            this.m = null;
+            if (bjVar != null) {
+                try {
+                    bjVar.b(i, str);
+                } catch (Exception e) {
+                    if (y()) {
+                        BdLog.d(e.getMessage());
+                    }
+                }
+            }
+        }
+    }
+
+    public void r(String str, String[] strArr, bj bjVar, yj yjVar, List<BasicNameValuePair> list) throws WebSocketException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, strArr, bjVar, yjVar, list) == null) {
+            this.p = true;
+            zi.a aVar = this.d;
+            if (aVar != null && aVar.isConnected()) {
+                throw new WebSocketException("already connected");
+            }
+            try {
+                URI uri = new URI(str);
+                this.e = uri;
+                if (!uri.getScheme().equals(SpeechSynthesizer.REQUEST_PROTOCOL_WS) && !this.e.getScheme().equals(SpeechSynthesizer.REQUEST_PROTOCOL_WSS)) {
+                    throw new WebSocketException("unsupported scheme for WebSockets URI");
+                }
+                if (!this.e.getScheme().equals(SpeechSynthesizer.REQUEST_PROTOCOL_WSS)) {
+                    this.f = this.e.getScheme();
+                    if (this.e.getPort() == -1) {
+                        if (this.f.equals(SpeechSynthesizer.REQUEST_PROTOCOL_WS)) {
+                            this.h = 80;
+                        } else {
+                            this.h = 443;
+                        }
+                    } else {
+                        this.h = this.e.getPort();
+                    }
+                    if (this.e.getHost() != null) {
+                        this.g = this.e.getHost();
+                        if (this.e.getPath() != null && !this.e.getPath().equals("")) {
+                            this.i = this.e.getPath();
+                            if (this.e.getQuery() != null && !this.e.getQuery().equals("")) {
+                                this.j = this.e.getQuery();
+                                this.k = strArr;
+                                this.l = list;
+                                this.m = bjVar;
+                                this.n = new yj(yjVar);
+                                new b(this, null).start();
+                                return;
+                            }
+                            this.j = null;
+                            this.k = strArr;
+                            this.l = list;
+                            this.m = bjVar;
+                            this.n = new yj(yjVar);
+                            new b(this, null).start();
+                            return;
+                        }
+                        this.i = "/";
+                        if (this.e.getQuery() != null) {
+                            this.j = this.e.getQuery();
+                            this.k = strArr;
+                            this.l = list;
+                            this.m = bjVar;
+                            this.n = new yj(yjVar);
+                            new b(this, null).start();
+                            return;
+                        }
+                        this.j = null;
+                        this.k = strArr;
+                        this.l = list;
+                        this.m = bjVar;
+                        this.n = new yj(yjVar);
+                        new b(this, null).start();
+                        return;
+                    }
+                    throw new WebSocketException("no host specified in WebSockets URI");
+                }
+                throw new WebSocketException("secure WebSockets not implemented");
+            } catch (URISyntaxException unused) {
+                throw new WebSocketException("invalid WebSockets URI");
+            }
+        }
     }
 }

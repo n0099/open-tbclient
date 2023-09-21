@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn;
+import com.baidu.tieba.bc8;
+import com.baidu.tieba.bn;
 import com.baidu.tieba.hottopic.controller.HotRanklistModel;
-import com.baidu.tieba.nj7;
-import com.baidu.tieba.pb8;
-import com.baidu.tieba.pj7;
-import com.baidu.tieba.sn5;
-import com.baidu.tieba.xb8;
+import com.baidu.tieba.tb8;
+import com.baidu.tieba.wn5;
+import com.baidu.tieba.xj7;
+import com.baidu.tieba.zj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,31 +38,31 @@ import java.util.List;
 import tbclient.Media;
 import tbclient.TopicList.TopicList;
 /* loaded from: classes6.dex */
-public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7 {
+public class FrsHottopicFragment extends BaseFragment implements xj7, bc8.a, zj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotRanklistModel a;
-    public pb8 b;
-    public xb8 c;
+    public tb8 b;
+    public bc8 c;
     public long d;
     public String e;
     public String f;
-    public sn5 g;
+    public wn5 g;
     public CustomMessageListener h;
     public HotRanklistModel.b i;
     public CustomMessageListener j;
 
-    @Override // com.baidu.tieba.pj7
-    public void u0() {
+    @Override // com.baidu.tieba.zj7
+    public void C0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.nj7
-    public void y0(boolean z) {
+    @Override // com.baidu.tieba.xj7
+    public void G0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
         }
     }
 
@@ -129,24 +129,24 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
         }
 
         @Override // com.baidu.tieba.hottopic.controller.HotRanklistModel.b
-        public void a(boolean z, pb8 pb8Var, int i, String str) {
+        public void a(boolean z, tb8 tb8Var, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), pb8Var, Integer.valueOf(i), str}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), tb8Var, Integer.valueOf(i), str}) == null) {
                 this.a.hideLoadingView();
-                this.a.h2();
+                this.a.n2();
                 this.a.c.h(false);
                 if (!z) {
-                    if (!this.a.g2()) {
-                        this.a.k2();
+                    if (!this.a.m2()) {
+                        this.a.q2();
                         return;
                     }
                     return;
                 }
-                this.a.b = pb8Var;
-                xb8 xb8Var = this.a.c;
+                this.a.b = tb8Var;
+                bc8 bc8Var = this.a.c;
                 FrsHottopicFragment frsHottopicFragment = this.a;
-                xb8Var.e(frsHottopicFragment.f2(frsHottopicFragment.b));
-                if (!this.a.g2()) {
+                bc8Var.e(frsHottopicFragment.l2(frsHottopicFragment.b));
+                if (!this.a.m2()) {
                     this.a.c.i();
                 }
             }
@@ -213,24 +213,24 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
         this.j = new c(this, 2001624);
     }
 
-    public final void h2() {
+    public final void n2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.c.g(true);
-            sn5 sn5Var = this.g;
-            if (sn5Var != null && sn5Var.isViewAttached()) {
+            wn5 wn5Var = this.g;
+            if (wn5Var != null && wn5Var.isViewAttached()) {
                 this.g.dettachView(this.c.a());
             }
             MessageManager.getInstance().unRegisterListener(this.h);
         }
     }
 
-    public final void i2() {
+    public final void o2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (isPrimary()) {
-                sn5 sn5Var = this.g;
-                if (sn5Var != null && sn5Var.isViewAttached()) {
+                wn5 wn5Var = this.g;
+                if (wn5Var != null && wn5Var.isViewAttached()) {
                     registerListener(this.h);
                     return;
                 } else {
@@ -245,22 +245,22 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             TiebaStatic.log(new StatisticItem("c13008").param("fid", this.d).param("obj_type", 2).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                k2();
+                q2();
                 return;
             }
-            h2();
+            n2();
             this.c.d();
-            if (!g2()) {
-                j2();
+            if (!m2()) {
+                p2();
             } else {
                 this.c.h(true);
             }
@@ -272,41 +272,40 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.onChangeSkinType(i);
-            xb8 xb8Var = this.c;
-            if (xb8Var != null) {
-                xb8Var.c();
+            bc8 bc8Var = this.c;
+            if (bc8Var != null) {
+                bc8Var.c();
             }
-            sn5 sn5Var = this.g;
-            if (sn5Var != null && sn5Var.isViewAttached()) {
+            wn5 wn5Var = this.g;
+            if (wn5Var != null && wn5Var.isViewAttached()) {
                 this.g.onChangeSkinType();
             }
         }
     }
 
-    @Override // com.baidu.tieba.nj7
-    public void S1() {
+    @Override // com.baidu.tieba.zj7
+    public void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.d();
+            refresh();
         }
     }
 
-    public final boolean g2() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xj7
+    public void Y1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.b();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.d();
         }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public TbPageTag getTbPageTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             TbPageTag tbPageTag = super.getTbPageTag();
             tbPageTag.locatePage = "4";
             tbPageTag.tabId = 401;
@@ -315,10 +314,10 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nj7
+    @Override // com.baidu.tieba.xj7
     public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             refresh();
         }
     }
@@ -331,18 +330,19 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
         }
     }
 
-    public final void j2() {
+    public final boolean m2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c.g(false);
-            showLoadingView(this.c.a(), true, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703aa));
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c.b();
         }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.h);
             super.onDestroy();
         }
@@ -351,7 +351,7 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && !g2()) {
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && !m2()) {
             refresh();
         }
     }
@@ -359,7 +359,7 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
+        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
             return;
         }
         refresh();
@@ -368,27 +368,27 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onPrimary();
-            i2();
+            o2();
         }
     }
 
-    @Override // com.baidu.tieba.pj7
-    public void w1() {
+    public final void p2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            refresh();
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.c.g(false);
+            showLoadingView(this.c.a(), true, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703aa));
         }
     }
 
-    public final List<cn> f2(pb8 pb8Var) {
+    public final List<bn> l2(tb8 tb8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pb8Var)) == null) {
-            if (pb8Var != null && !ListUtils.isEmpty(pb8Var.a())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tb8Var)) == null) {
+            if (tb8Var != null && !ListUtils.isEmpty(tb8Var.a())) {
                 ArrayList arrayList = new ArrayList();
-                for (TopicList topicList : pb8Var.a()) {
+                for (TopicList topicList : tb8Var.a()) {
                     if (topicList != null) {
                         ThreadData threadData = new ThreadData();
                         threadData.setTid(topicList.topic_tid + "");
@@ -424,30 +424,10 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
         return (List) invokeL.objValue;
     }
 
-    public final void k2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.c.g(false);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
-            if (this.g == null) {
-                sn5 sn5Var = new sn5(getPageContext().getContext(), getNetRefreshListener());
-                this.g = sn5Var;
-                sn5Var.d(null);
-                this.g.c(null);
-                this.g.b(null);
-                this.g.e();
-                this.g.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            }
-            this.g.onChangeSkinType();
-            this.g.attachView(this.c.a(), true);
-            registerListener(this.h);
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
             HotRanklistModel hotRanklistModel = new HotRanklistModel(getPageContext());
             this.a = hotRanklistModel;
@@ -467,13 +447,33 @@ public class FrsHottopicFragment extends BaseFragment implements nj7, xb8.a, pj7
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0380, (ViewGroup) null);
-            xb8 xb8Var = new xb8(this, inflate, getPageContext());
-            this.c = xb8Var;
-            xb8Var.f(getTbPageTag());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0381, (ViewGroup) null);
+            bc8 bc8Var = new bc8(this, inflate, getPageContext());
+            this.c = bc8Var;
+            bc8Var.f(getTbPageTag());
             return inflate;
         }
         return (View) invokeLLL.objValue;
+    }
+
+    public final void q2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            this.c.g(false);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
+            if (this.g == null) {
+                wn5 wn5Var = new wn5(getPageContext().getContext(), getNetRefreshListener());
+                this.g = wn5Var;
+                wn5Var.d(null);
+                this.g.c(null);
+                this.g.b(null);
+                this.g.e();
+                this.g.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            }
+            this.g.onChangeSkinType();
+            this.g.attachView(this.c.a(), true);
+            registerListener(this.h);
+        }
     }
 }

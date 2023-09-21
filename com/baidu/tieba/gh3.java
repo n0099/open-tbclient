@@ -1,132 +1,244 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class gh3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
+    public static volatile gh3 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public kh3 a;
+    public lh3 b;
+    public b c;
+    public ih3 d;
 
-    public static String a(@NonNull String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            return str + str2;
-        }
-        return (String) invokeLL.objValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
-            vj3.a().putBoolean(a("SwanAppStabilitySp-autoObtain", str), z);
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class b implements jh3<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONArray b;
 
-    public static void j(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, str, i) == null) {
-            vj3.a().putInt(a("SwanAppStabilitySp-autoObtainDataLen", str), i);
+        public b(gh3 gh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gh3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-    }
 
-    public static void k(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
-            vj3.a().putInt(a("SwanAppStabilitySp-obtainIntervalMs", str), i);
+        public /* synthetic */ b(gh3 gh3Var, a aVar) {
+            this(gh3Var);
         }
-    }
 
-    public static void l(boolean z, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65547, null, z, str) == null) {
-            vj3.a().putBoolean(a("SwanAppStabilitySp-obtainData", str), z);
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b = null;
+            }
         }
-    }
 
-    public static void m(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) {
-            vj3.a().putBoolean(a("SwanAppStabilitySp-stabilityProfile", str), z);
-        }
-    }
-
-    public static void n(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
-            vj3.a().putInt(a("SwanAppStabilitySp-swanStartupStability", str), i);
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            String appId = gb3.K().getAppId();
-            pj3 a = vj3.a();
-            a.remove(a("SwanAppStabilitySp-obtainData", appId));
-            a.remove(a("SwanAppStabilitySp-autoObtain", appId));
-            a.remove(a("SwanAppStabilitySp-swanStartupStability", appId));
-            a.remove(a("SwanAppStabilitySp-obtainIntervalMs", appId));
-            a.remove(a("SwanAppStabilitySp-autoObtainDataLen", appId));
-            a.remove(a("SwanAppStabilitySp-stabilityProfile", appId));
+        public JSONObject c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("extra", this.b);
+                } catch (JSONException e) {
+                    if (jh3.a) {
+                        Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
+                    }
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return vj3.a().getInt(a("SwanAppStabilitySp-autoObtainDataLen", gb3.K().getAppId()), i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947793879, "Lcom/baidu/tieba/gh3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947793879, "Lcom/baidu/tieba/gh3;");
+                return;
+            }
         }
-        return invokeI.intValue;
+        e = qr1.a;
     }
 
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            return vj3.a().getInt(a("SwanAppStabilitySp-obtainIntervalMs", gb3.K().getAppId()), i);
-        }
-        return invokeI.intValue;
-    }
-
-    public static int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return vj3.a().getInt(a("SwanAppStabilitySp-swanStartupStability", gb3.K().getAppId()), i);
-        }
-        return invokeI.intValue;
-    }
-
-    public static boolean f() {
+    public static gh3 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return vj3.a().getBoolean(a("SwanAppStabilitySp-autoObtain", gb3.K().getAppId()), false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f == null) {
+                synchronized (gh3.class) {
+                    if (f == null) {
+                        f = new gh3();
+                    }
+                }
+            }
+            return f;
         }
-        return invokeV.booleanValue;
+        return (gh3) invokeV.objValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return vj3.a().getBoolean(a("SwanAppStabilitySp-obtainData", gb3.K().getAppId()), false);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.c();
+            this.b.b();
+            this.c.b();
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean h() {
+    public ih3 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return vj3.a().getBoolean(a("SwanAppStabilitySp-stabilityProfile", gb3.K().getAppId()), false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
-        return invokeV.booleanValue;
+        return (ih3) invokeV.objValue;
+    }
+
+    public gh3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new kh3();
+        this.b = new lh3();
+        this.c = new b(this, null);
+        this.d = new ih3();
+    }
+
+    public File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(e());
+            jSONArray.put(g());
+            jSONArray.put(c());
+            return this.d.d(jSONArray);
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject c = this.c.c();
+            if (e) {
+                Log.d("SwanStabilityTracer", "extraTraces: " + c);
+            }
+            return c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject d = this.a.d();
+            if (e) {
+                Log.d("SwanStabilityTracer", "LaunchTraces: " + d);
+            }
+            return d;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONObject g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject c = this.b.c();
+            if (e) {
+                Log.d("SwanStabilityTracer", "WhiteTraces: " + c);
+            }
+            return c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.c.b != null && this.c.b.length() != 0) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(e());
+            jSONArray.put(g());
+            jSONArray.put(c());
+            this.d.d(jSONArray);
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            this.b.a(jSONObject);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            j(str, null);
+        }
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.a.b(jSONObject);
+        }
+    }
+
+    public void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            this.a.a(str, str2);
+        }
     }
 }

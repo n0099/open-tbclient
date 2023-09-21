@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
-import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.qx5;
-import com.baidu.tieba.sr5;
+import com.baidu.tieba.rx5;
 import com.baidu.tieba.tr5;
+import com.baidu.tieba.ur5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,9 +36,9 @@ import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000\u0080\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\n\u0018\u00002\u00020\u00012\u00020\u0002B\u001f\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\b\u0010\u001c\u001a\u00020\u001dH\u0016J\u0006\u0010\u001e\u001a\u00020\u0015J\b\u0010\u001f\u001a\u00020 H\u0016J\u0012\u0010!\u001a\u00020 2\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006H\u0002J\"\u0010\"\u001a\u00020#2\u0006\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020%2\b\u0010'\u001a\u0004\u0018\u00010\u0006H\u0016J\u0010\u0010(\u001a\u00020#2\u0006\u0010)\u001a\u00020%H\u0016J\"\u0010*\u001a\u00020+2\u0006\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020/2\b\u00100\u001a\u0004\u0018\u000101H\u0016J\b\u00102\u001a\u00020#H\u0016J\u0012\u00103\u001a\u00020 2\b\u00104\u001a\u0004\u0018\u000105H\u0016J\u000e\u00106\u001a\u00020#2\u0006\u00107\u001a\u00020 J\u0006\u00108\u001a\u00020#J\b\u00109\u001a\u00020#H\u0016J\u000e\u0010:\u001a\u00020#2\u0006\u0010;\u001a\u00020 J\u001c\u0010<\u001a\u00020#2\b\u0010=\u001a\u0004\u0018\u00010+2\b\u00100\u001a\u0004\u0018\u000101H\u0016J\b\u0010>\u001a\u00020#H\u0002R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u0013\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u0016\u001a\u00020\u00178BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u0018\u0010\u0019¨\u0006?"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/slice/MsgChatCenterSlice;", "Lcom/baidu/tieba/immessagecenter/slice/Slice;", "Lcom/baidu/tbadk/mvc/event/IEventDelegate;", "frag", "Lcom/baidu/tbadk/core/BaseFragment;", "intent", "Landroid/content/Intent;", "pageSource", "", "(Lcom/baidu/tbadk/core/BaseFragment;Landroid/content/Intent;Ljava/lang/String;)V", "context", "Landroid/content/Context;", "getFrag", "()Lcom/baidu/tbadk/core/BaseFragment;", "getIntent", "()Landroid/content/Intent;", "mAccountChangedListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mHomeTabClickListener", "mMessageFromNotifyCenterListener", "sliceView", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView;", "viewEvent", "Lcom/baidu/tbadk/mvc/core/ViewEventCenter;", "getViewEvent", "()Lcom/baidu/tbadk/mvc/core/ViewEventCenter;", "viewEvent$delegate", "Lkotlin/Lazy;", "getUniqueId", "Lcom/baidu/adp/BdUniqueId;", "getView", "isEventMustSelf", "", "isFromNotify", "onActivityResult", "", "requestCode", "", "resultCode", "data", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "onEventDispatch", "mvcEvent", "Lcom/baidu/tbadk/mvc/event/MvcEvent;", "onNetworkChange", "hasNetwork", "onPagePrimary", MissionEvent.MESSAGE_PAUSE, "onUserChanged", "isLogin", "onViewCreated", "view", "registerListeners", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\u0080\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\n\u0018\u00002\u00020\u00012\u00020\u0002B\u001f\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\b\u0010\u001c\u001a\u00020\u001dH\u0016J\u0006\u0010\u001e\u001a\u00020\u0015J\b\u0010\u001f\u001a\u00020 H\u0016J\u0012\u0010!\u001a\u00020 2\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006H\u0002J\"\u0010\"\u001a\u00020#2\u0006\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020%2\b\u0010'\u001a\u0004\u0018\u00010\u0006H\u0016J\u0010\u0010(\u001a\u00020#2\u0006\u0010)\u001a\u00020%H\u0016J\"\u0010*\u001a\u00020+2\u0006\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020/2\b\u00100\u001a\u0004\u0018\u000101H\u0016J\b\u00102\u001a\u00020#H\u0016J\u0012\u00103\u001a\u00020 2\b\u00104\u001a\u0004\u0018\u000105H\u0016J\u000e\u00106\u001a\u00020#2\u0006\u00107\u001a\u00020 J\u0006\u00108\u001a\u00020#J\b\u00109\u001a\u00020#H\u0016J\u000e\u0010:\u001a\u00020#2\u0006\u0010;\u001a\u00020 J\u001c\u0010<\u001a\u00020#2\b\u0010=\u001a\u0004\u0018\u00010+2\b\u00100\u001a\u0004\u0018\u000101H\u0016J\b\u0010>\u001a\u00020#H\u0002R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u0013\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u0016\u001a\u00020\u00178BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u0018\u0010\u0019¨\u0006?"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/slice/MsgChatCenterSlice;", "Lcom/baidu/tieba/im/base/core/slice/Slice;", "Lcom/baidu/tbadk/mvc/event/IEventDelegate;", "frag", "Lcom/baidu/tbadk/core/BaseFragment;", "intent", "Landroid/content/Intent;", "pageSource", "", "(Lcom/baidu/tbadk/core/BaseFragment;Landroid/content/Intent;Ljava/lang/String;)V", "context", "Landroid/content/Context;", "getFrag", "()Lcom/baidu/tbadk/core/BaseFragment;", "getIntent", "()Landroid/content/Intent;", "mAccountChangedListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mHomeTabClickListener", "mMessageFromNotifyCenterListener", "sliceView", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgChatCenterSliceView;", "viewEvent", "Lcom/baidu/tbadk/mvc/core/ViewEventCenter;", "getViewEvent", "()Lcom/baidu/tbadk/mvc/core/ViewEventCenter;", "viewEvent$delegate", "Lkotlin/Lazy;", "getUniqueId", "Lcom/baidu/adp/BdUniqueId;", "getView", "isEventMustSelf", "", "isFromNotify", "onActivityResult", "", "requestCode", "", "resultCode", "data", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "onEventDispatch", "mvcEvent", "Lcom/baidu/tbadk/mvc/event/MvcEvent;", "onNetworkChange", "hasNetwork", "onPagePrimary", MissionEvent.MESSAGE_PAUSE, "onUserChanged", "isLogin", "onViewCreated", "view", "registerListeners", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgChatCenterSlice extends Slice implements sr5 {
+public final class MsgChatCenterSlice extends Slice implements tr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseFragment j;
@@ -51,24 +51,24 @@ public final class MsgChatCenterSlice extends Slice implements sr5 {
     public final CustomMessageListener q;
     public final CustomMessageListener r;
 
-    @Override // com.baidu.tieba.sr5
-    public boolean N0(tr5 tr5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tr5Var)) == null) ? tr5Var == null : invokeL.booleanValue;
-    }
-
-    public final void g0(boolean z) {
+    public final void i0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.sr5
-    public boolean s1() {
+    @Override // com.baidu.tieba.tr5
+    public boolean j(ur5 ur5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, ur5Var)) == null) ? ur5Var == null : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tr5
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -253,14 +253,14 @@ public final class MsgChatCenterSlice extends Slice implements sr5 {
         this.r = new b(this);
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void O(int i, int i2, Intent intent) {
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
+    public void Q(int i, int i2, Intent intent) {
         String str;
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
-            super.O(i, i2, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            super.Q(i, i2, intent);
             if (i2 == -1 && i == 12011) {
                 Intrinsics.checkNotNull(intent);
                 Bundle extras = intent.getExtras();
@@ -295,10 +295,10 @@ public final class MsgChatCenterSlice extends Slice implements sr5 {
         }
     }
 
-    public final boolean d0(Intent intent) {
+    public final boolean f0(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, intent)) == null) {
             if (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) {
                 return false;
             }
@@ -307,27 +307,27 @@ public final class MsgChatCenterSlice extends Slice implements sr5 {
         return invokeL.booleanValue;
     }
 
-    public final void e0(boolean z) {
+    public final void g0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.n.o0(z);
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             super.onChangeSkinType(i);
             this.n.onChangeSkinType(i);
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View R(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
+    public View T(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, inflater, container, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inflater, container, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
             Intrinsics.checkNotNullParameter(container, "container");
             if (bundle != null) {
@@ -338,54 +338,46 @@ public final class MsgChatCenterSlice extends Slice implements sr5 {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void X(View view2, Bundle bundle) {
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
+    public void Z(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, bundle) == null) {
-            qx5.b(view2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
+            rx5.b(view2);
             getLifecycle().addObserver(this.n);
-            c0().addEventDelegate(this);
-            h0();
-            if (d0(this.k)) {
+            e0().addEventDelegate(this);
+            j0();
+            if (f0(this.k)) {
                 this.n.onNewIntent(this.k);
             } else {
                 this.n.m0();
             }
-            super.X(view2, bundle);
+            super.Z(view2, bundle);
         }
     }
 
-    public final MsgChatCenterSliceView b0() {
+    public final MsgChatCenterSliceView d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.n;
         }
         return (MsgChatCenterSliceView) invokeV.objValue;
     }
 
-    public final ViewEventCenter c0() {
+    public final ViewEventCenter e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return (ViewEventCenter) this.o.getValue();
         }
         return (ViewEventCenter) invokeV.objValue;
     }
 
-    public final void f0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.n.n().A();
-            this.n.w0();
-        }
-    }
-
-    @Override // com.baidu.tieba.sr5
+    @Override // com.baidu.tieba.tr5
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             BdUniqueId uniqueId = this.j.getPageContext().getUniqueId();
             Intrinsics.checkNotNullExpressionValue(uniqueId, "frag.pageContext.uniqueId");
             return uniqueId;
@@ -395,6 +387,14 @@ public final class MsgChatCenterSlice extends Slice implements sr5 {
 
     public final void h0() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.n.o().A();
+            this.n.w0();
+        }
+    }
+
+    public final void j0() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             MessageManager.getInstance().registerListener(this.p);
             MessageManager.getInstance().registerListener(this.q);
@@ -402,20 +402,20 @@ public final class MsgChatCenterSlice extends Slice implements sr5 {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice, com.baidu.tieba.immessagecenter.slice.ability.LifecycleAbility
+    @Override // com.baidu.tieba.im.base.core.slice.Slice, com.baidu.tieba.im.base.core.slice.ability.LifecycleAbility
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onPause();
-            this.n.n().z();
-            this.n.a0();
+            this.n.o().z();
+            this.n.Z();
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice, com.baidu.tieba.immessagecenter.slice.ability.LifecycleAbility
+    @Override // com.baidu.tieba.im.base.core.slice.Slice, com.baidu.tieba.im.base.core.slice.ability.LifecycleAbility
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
             TbSingleton.getInstance().setNeedJoinChatRoom(false);
             MessageManager.getInstance().unRegisterListener(this.p);

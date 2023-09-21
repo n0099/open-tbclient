@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import androidx.annotation.NonNull;
-@FunctionalInterface
 /* loaded from: classes6.dex */
-public interface go0<T> {
-    void accept(@NonNull T t) throws Throwable;
+public interface go0 {
+    void a(@NonNull Application application);
+
+    void b();
 }

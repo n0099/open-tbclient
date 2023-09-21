@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dmb;
-import com.baidu.tieba.jmb;
-import com.baidu.tieba.ulb;
+import com.baidu.tieba.bob;
+import com.baidu.tieba.mnb;
+import com.baidu.tieba.vnb;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class b extends Fragment {
     public View a;
     public ListView b;
-    public jmb c;
+    public bob c;
 
-    public final List<ulb> W1() {
-        return dmb.a(getContext());
+    public final List<mnb> c2() {
+        return vnb.a(getContext());
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -29,12 +29,12 @@ public class b extends Fragment {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0325, viewGroup, false);
         this.a = inflate;
-        ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f090368);
+        ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f090362);
         this.b = listView;
         listView.setDivider(null);
-        jmb jmbVar = new jmb(getContext(), W1());
-        this.c = jmbVar;
-        this.b.setAdapter((ListAdapter) jmbVar);
+        bob bobVar = new bob(getContext(), c2());
+        this.c = bobVar;
+        this.b.setAdapter((ListAdapter) bobVar);
         return this.a;
     }
 }

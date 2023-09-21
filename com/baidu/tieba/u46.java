@@ -1,178 +1,244 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.DeleteThreadInfo;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.tieba.w46;
+import com.baidu.tieba.z46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public class u46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpMessageListener a;
-    public c b;
-    public CustomMessageListener c;
 
     /* loaded from: classes8.dex */
-    public interface c {
-        void a(DeleteThreadHttpResponseMessage deleteThreadHttpResponseMessage);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends CustomMessageListener {
+    public class a implements z46.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u46 a;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ x46 b;
+        public final /* synthetic */ boolean c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(u46 u46Var, int i) {
-            super(i);
+        public a(TbPageContext tbPageContext, x46 x46Var, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u46Var, Integer.valueOf(i)};
+                Object[] objArr = {tbPageContext, x46Var, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = u46Var;
+            this.a = tbPageContext;
+            this.b = x46Var;
+            this.c = z;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.z46.i
+        public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                this.a.c((JSONObject) customResponsedMessage.getData());
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+                if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                    u46.e(jSONArray, this.b.a(), this.b.b(), this.c);
+                } else {
+                    BdUtilHelper.showToast(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0e42);
+                }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b extends HttpMessageListener {
+    public class b implements w46.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u46 a;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ x46 b;
+        public final /* synthetic */ boolean c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(u46 u46Var, int i) {
-            super(i);
+        public b(TbPageContext tbPageContext, x46 x46Var, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u46Var, Integer.valueOf(i)};
+                Object[] objArr = {tbPageContext, x46Var, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = u46Var;
+            this.a = tbPageContext;
+            this.b = x46Var;
+            this.c = z;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.tieba.w46.h
+        public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003185 || !(httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) || !httpResponsedMessage.isSuccess() || this.a.b == null) {
-                return;
-            }
-            this.a.b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
-        }
-    }
-
-    public u46(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.c = new a(this, 2016489);
-        if (this.a == null) {
-            this.a = new b(this, CmdConfigHttp.CMD_NEG_DELETE_THREAD);
-        }
-        MessageManager.getInstance().registerListener(this.a);
-        MessageManager.getInstance().registerListener(this.c);
-    }
-
-    public void f(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.b = cVar;
-        }
-    }
-
-    public final void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-            try {
-                int i = jSONObject.getInt("type");
-                String JsonArrayToString = StringHelper.JsonArrayToString(jSONObject.getJSONArray("thread_ids"));
-                String JsonArrayToString2 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("reason"));
-                String JsonArrayToString3 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("is_frs_masks"));
-                String string = jSONObject.getString("forum_id");
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
-                httpMessage.addParam("type", i);
-                httpMessage.addParam("thread_ids", JsonArrayToString);
-                httpMessage.addParam("is_frs_masks", JsonArrayToString3);
-                httpMessage.addParam("reason", JsonArrayToString2);
-                httpMessage.addParam("forum_id", string);
-                httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
-                MessageManager.getInstance().sendMessage(httpMessage);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+                if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                    u46.e(jSONArray, this.b.a(), this.b.b(), this.c);
+                } else {
+                    BdUtilHelper.showToast(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0e42);
+                }
             }
         }
     }
 
-    public void d() {
+    public static void b(TbPageContext tbPageContext, x46 x46Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.c);
-            MessageManager.getInstance().unRegisterListener(this.a);
+        if ((interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, x46Var) == null) && tbPageContext != null && tbPageContext.getPageActivity() != null && tbPageContext.getPageActivity().getWindow() != null) {
+            if (x46Var.getType() == 3) {
+                z = true;
+            } else {
+                z = false;
+            }
+            w46 w46Var = new w46(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView());
+            if (x46Var != null) {
+                w46Var.z(z);
+            }
+            AntiData c = gi7.f().c();
+            SparseArray<String> sparseArray = new SparseArray<>();
+            if (c != null && c.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
+                for (int i = 0; i < delThreadInfoList.size(); i++) {
+                    if (!TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
+                        sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
+                    }
+                }
+            }
+            JSONArray jSONArray = new JSONArray();
+            JSONArray jSONArray2 = new JSONArray();
+            List<ThreadData> g = gi7.f().g();
+            for (int i2 = 0; i2 < g.size(); i2++) {
+                if (g.get(i2) != null) {
+                    jSONArray.put(g.get(i2).getTid());
+                    if (z) {
+                        jSONArray2.put("1");
+                    } else if (!g.get(i2).isScoreThread() && !g.get(i2).isWorksInfo()) {
+                        jSONArray2.put("0");
+                    } else {
+                        jSONArray2.put("1");
+                    }
+                }
+            }
+            NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
+            negativeFeedBackData.setFeedBackReasonMap(sparseArray);
+            if (x46Var != null) {
+                negativeFeedBackData.setDeleteType(x46Var.getType());
+            }
+            negativeFeedBackData.setTidArray(jSONArray);
+            negativeFeedBackData.setMaskTidArray(jSONArray2);
+            negativeFeedBackData.setFid(gi7.f().d());
+            w46Var.A(negativeFeedBackData);
+            w46Var.B(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_5)});
+            w46Var.D("1");
+            w46Var.C(new b(tbPageContext, x46Var, z));
         }
     }
 
-    public void e() {
+    public static void c(TbPageContext tbPageContext, x46 x46Var, y46 y46Var, UserData userData) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.a);
-            MessageManager.getInstance().registerListener(this.c);
+        if ((interceptable == null || interceptable.invokeLLLL(65538, null, tbPageContext, x46Var, y46Var, userData) == null) && tbPageContext != null && tbPageContext.getPageActivity() != null && tbPageContext.getPageActivity().getWindow() != null) {
+            if (x46Var.getType() == 3) {
+                z = true;
+            } else {
+                z = false;
+            }
+            z46 z46Var = new z46(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), y46Var, userData);
+            if (x46Var != null) {
+                z46Var.F(z);
+            }
+            AntiData c = gi7.f().c();
+            SparseArray<String> sparseArray = new SparseArray<>();
+            if (c != null && c.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
+                for (int i = 0; i < delThreadInfoList.size(); i++) {
+                    if (!TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
+                        sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
+                    }
+                }
+            }
+            JSONArray jSONArray = new JSONArray();
+            JSONArray jSONArray2 = new JSONArray();
+            List<ThreadData> g = gi7.f().g();
+            for (int i2 = 0; i2 < g.size(); i2++) {
+                if (g.get(i2) != null) {
+                    jSONArray.put(g.get(i2).getTid());
+                    if (z) {
+                        jSONArray2.put("1");
+                    } else if (!g.get(i2).isScoreThread() && !g.get(i2).isWorksInfo()) {
+                        jSONArray2.put("0");
+                    } else {
+                        jSONArray2.put("1");
+                    }
+                }
+            }
+            NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
+            negativeFeedBackData.setFeedBackReasonMap(sparseArray);
+            if (x46Var != null) {
+                negativeFeedBackData.setDeleteType(x46Var.getType());
+            }
+            negativeFeedBackData.setTidArray(jSONArray);
+            negativeFeedBackData.setMaskTidArray(jSONArray2);
+            negativeFeedBackData.setFid(gi7.f().d());
+            z46Var.G(negativeFeedBackData);
+            z46Var.H(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_5)});
+            z46Var.J("1");
+            z46Var.I(new a(tbPageContext, x46Var, z));
+        }
+    }
+
+    public static void d(int i, TbPageContext tbPageContext, x46 x46Var, y46 y46Var, UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), tbPageContext, x46Var, y46Var, userData}) == null) {
+            if (1 == i) {
+                c(tbPageContext, x46Var, y46Var, userData);
+            } else {
+                b(tbPageContext, x46Var);
+            }
+        }
+    }
+
+    public static void e(JSONArray jSONArray, ForumManageModel forumManageModel, ThreadData threadData, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONArray, forumManageModel, threadData, Boolean.valueOf(z)}) == null) && forumManageModel != null && threadData != null && threadData.getAuthor() != null) {
+            String userId = threadData.getAuthor().getUserId();
+            String id = threadData.getId();
+            String forum_name = threadData.getForum_name();
+            String valueOf = String.valueOf(threadData.getFid());
+            boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
+            if (jSONArray != null) {
+                forumManageModel.h0(StringHelper.JsonArrayToString(jSONArray));
+            }
+            forumManageModel.i0(valueOf, forum_name, id, null, 0, 1, isCurrentAccount, threadData.getBaijiahaoData(), z);
         }
     }
 }

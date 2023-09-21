@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.android.util.soloader.SoUtils;
+import com.baidu.tieba.ah3;
 import com.baidu.tieba.bh3;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.lr4;
-import com.baidu.tieba.rr1;
+import com.baidu.tieba.kr4;
+import com.baidu.tieba.qr1;
+import com.baidu.tieba.wg3;
 import com.baidu.tieba.xg3;
-import com.baidu.tieba.yg3;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -34,7 +34,7 @@ import java.util.zip.ZipFile;
 public final class SoLoader {
     public static final String TAG = "SoLoader";
     public StringBuilder sb = new StringBuilder();
-    public static final boolean DEBUG = rr1.a;
+    public static final boolean DEBUG = qr1.a;
     public static final Set<String> sLoadedLibraries = Collections.synchronizedSet(new HashSet());
     public static final List<File> soSources = new ArrayList();
 
@@ -52,10 +52,10 @@ public final class SoLoader {
     }
 
     public static String getV8SoDependentFilePath() {
-        if (!sLoadedLibraries.contains(bh3.c())) {
+        if (!sLoadedLibraries.contains(ah3.c())) {
             return null;
         }
-        String d = bh3.d();
+        String d = ah3.d();
         if (DEBUG) {
             Log.i("SoLoader", "getV8SoDependentFilePath:" + d);
         }
@@ -126,12 +126,12 @@ public final class SoLoader {
         return sLoadedLibraries.contains(str);
     }
 
-    public static ch3 loadV8EngineSo(Context context) {
-        String c = bh3.c();
+    public static bh3 loadV8EngineSo(Context context) {
+        String c = ah3.c();
         if (sLoadedLibraries.contains(c)) {
-            return ch3.e();
+            return bh3.e();
         }
-        ch3 h = bh3.h(context, new SoLoader());
+        bh3 h = ah3.h(context, new SoLoader());
         if (h.b()) {
             sLoadedLibraries.add(c);
         }
@@ -182,7 +182,7 @@ public final class SoLoader {
         if (sLoadedLibraries.contains(str)) {
             return true;
         }
-        boolean load = load(context, str, (yg3) null, true);
+        boolean load = load(context, str, (xg3) null, true);
         if (load) {
             sLoadedLibraries.add(str);
         }
@@ -194,7 +194,7 @@ public final class SoLoader {
         if (sLoadedLibraries.contains(str)) {
             return;
         }
-        xg3 a = xg3.a();
+        wg3 a = wg3.a();
         if (!z) {
             load = new SoLoader().loadInternalFromLocal(context, str, a, z2);
         } else {
@@ -206,33 +206,33 @@ public final class SoLoader {
     }
 
     @SuppressLint({"BDThrowableCheck"})
-    private boolean loadInternal(Context context, String str, yg3 yg3Var, boolean z) {
+    private boolean loadInternal(Context context, String str, xg3 xg3Var, boolean z) {
         if (TextUtils.isEmpty(str)) {
             if (!DEBUG) {
                 return false;
             }
             throw new IllegalArgumentException("load so library argument error,soName is null.");
-        } else if (loadLibrary(yg3Var, str, SoUtils.SOLOG.SO_LOAD_LIBRARY)) {
+        } else if (loadLibrary(xg3Var, str, SoUtils.SOLOG.SO_LOAD_LIBRARY)) {
             return true;
         } else {
-            return loadInternalFromLocal(context, str, yg3Var, z);
+            return loadInternalFromLocal(context, str, xg3Var, z);
         }
     }
 
-    public static boolean load(Context context, String str, yg3 yg3Var, boolean z) {
-        if (yg3Var == null) {
-            yg3Var = xg3.a();
+    public static boolean load(Context context, String str, xg3 xg3Var, boolean z) {
+        if (xg3Var == null) {
+            xg3Var = wg3.a();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {
             soLoader.initSoSource(context);
         }
-        return soLoader.loadInternal(context, str, yg3Var, z);
+        return soLoader.loadInternal(context, str, xg3Var, z);
     }
 
-    private boolean load(yg3 yg3Var, String str, String str2, String str3) {
+    private boolean load(xg3 xg3Var, String str, String str2, String str3) {
         try {
-            yg3Var.load(str2);
+            xg3Var.load(str2);
             return true;
         } catch (Throwable th) {
             if (DEBUG) {
@@ -244,7 +244,7 @@ public final class SoLoader {
         }
     }
 
-    private boolean loadInternalFromLocal(Context context, String str, yg3 yg3Var, boolean z) {
+    private boolean loadInternalFromLocal(Context context, String str, xg3 xg3Var, boolean z) {
         String fullName = SoUtils.getFullName(str);
         ZipFile apkZipFile = getApkZipFile(context);
         if (apkZipFile == null) {
@@ -255,13 +255,13 @@ public final class SoLoader {
             String str2 = SoUtils.uris[0] + File.separator + fullName;
             File file = new File(getNativeLibraryDir(context), fullName);
             if (file.exists()) {
-                if (file.length() == getSoSize(apkZipFile, str2) && load(yg3Var, fullName, file.getAbsolutePath(), SoUtils.SOLOG.SO_NATIVE_LIB_LOAD)) {
+                if (file.length() == getSoSize(apkZipFile, str2) && load(xg3Var, fullName, file.getAbsolutePath(), SoUtils.SOLOG.SO_NATIVE_LIB_LOAD)) {
                     return true;
                 }
             }
             File file2 = new File(getReleaseSoFilePath(context), fullName);
             if (file2.exists()) {
-                if (file2.length() == getSoSize(apkZipFile, str2) && load(yg3Var, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_LIB_LOAD)) {
+                if (file2.length() == getSoSize(apkZipFile, str2) && load(xg3Var, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_LIB_LOAD)) {
                     return true;
                 }
             }
@@ -270,21 +270,21 @@ public final class SoLoader {
                 return false;
             }
             for (int i = 0; i < SoUtils.uris.length; i++) {
-                if (executeRelease(apkZipFile, fullName, SoUtils.uris[i], new File(getReleaseSoFilePath(context), fullName)) && load(yg3Var, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_EXECUTE_LOAD)) {
+                if (executeRelease(apkZipFile, fullName, SoUtils.uris[i], new File(getReleaseSoFilePath(context), fullName)) && load(xg3Var, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_EXECUTE_LOAD)) {
                     return true;
                 }
             }
             SoUtils.sendLog(this.sb.toString());
             return false;
         } finally {
-            lr4.d(apkZipFile);
+            kr4.d(apkZipFile);
         }
     }
 
-    private boolean loadLibrary(yg3 yg3Var, String str, String str2) {
+    private boolean loadLibrary(xg3 xg3Var, String str, String str2) {
         String simpleName = SoUtils.getSimpleName(str);
         try {
-            yg3Var.loadLibrary(simpleName);
+            xg3Var.loadLibrary(simpleName);
             return true;
         } catch (Throwable th) {
             if (DEBUG) {
@@ -308,8 +308,8 @@ public final class SoLoader {
                     try {
                         if (SoUtils.copyStream(inputStream2, fileOutputStream, 256) > 0) {
                             boolean renameTo = file2.renameTo(file);
-                            lr4.d(inputStream2);
-                            lr4.d(fileOutputStream);
+                            kr4.d(inputStream2);
+                            kr4.d(fileOutputStream);
                             return renameTo;
                         }
                         inputStream = inputStream2;
@@ -320,20 +320,20 @@ public final class SoLoader {
                             if (DEBUG) {
                                 Log.e("SoLoader", "SoLoader releaseFileFromApk exception.", e);
                             }
-                            lr4.d(inputStream);
-                            lr4.d(fileOutputStream);
+                            kr4.d(inputStream);
+                            kr4.d(fileOutputStream);
                             return false;
                         } catch (Throwable th) {
                             th = th;
-                            lr4.d(inputStream);
-                            lr4.d(fileOutputStream);
+                            kr4.d(inputStream);
+                            kr4.d(fileOutputStream);
                             throw th;
                         }
                     } catch (Throwable th2) {
                         th = th2;
                         inputStream = inputStream2;
-                        lr4.d(inputStream);
-                        lr4.d(fileOutputStream);
+                        kr4.d(inputStream);
+                        kr4.d(fileOutputStream);
                         throw th;
                     }
                 } catch (Exception e2) {
@@ -353,8 +353,8 @@ public final class SoLoader {
         } else {
             fileOutputStream = null;
         }
-        lr4.d(inputStream);
-        lr4.d(fileOutputStream);
+        kr4.d(inputStream);
+        kr4.d(fileOutputStream);
         return false;
     }
 
@@ -418,7 +418,7 @@ public final class SoLoader {
                                 }
                                 if (fileLock != null) {
                                 }
-                                lr4.d(fileChannel);
+                                kr4.d(fileChannel);
                                 return z;
                             }
                         }
@@ -435,7 +435,7 @@ public final class SoLoader {
                         } catch (IOException e5) {
                             e = e5;
                             e.printStackTrace();
-                            lr4.d(fileChannel);
+                            kr4.d(fileChannel);
                             return z;
                         }
                     }
@@ -449,11 +449,11 @@ public final class SoLoader {
                         } catch (IOException e7) {
                             e = e7;
                             e.printStackTrace();
-                            lr4.d(fileChannel);
+                            kr4.d(fileChannel);
                             return z;
                         }
                     }
-                    lr4.d(fileChannel);
+                    kr4.d(fileChannel);
                     return z;
                 }
             } catch (Throwable th) {
@@ -465,7 +465,7 @@ public final class SoLoader {
                         e8.printStackTrace();
                     }
                 }
-                lr4.d(parentFile);
+                kr4.d(parentFile);
                 throw th;
             }
         } catch (Exception e9) {
@@ -475,17 +475,17 @@ public final class SoLoader {
             e.printStackTrace();
             if (fileLock != null) {
             }
-            lr4.d(fileChannel);
+            kr4.d(fileChannel);
             return z;
         } catch (Throwable th2) {
             th = th2;
             parentFile = 0;
             if (0 != 0) {
             }
-            lr4.d(parentFile);
+            kr4.d(parentFile);
             throw th;
         }
-        lr4.d(fileChannel);
+        kr4.d(fileChannel);
         return z;
     }
 }

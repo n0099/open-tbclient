@@ -5,7 +5,6 @@ import android.media.AudioManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,6 @@ import java.lang.ref.WeakReference;
 public class VideoAudioHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTOPLAY_SOURCE_FRS = 2;
-    public static final int AUTOPLAY_SOURCE_FRS_HEAD = 5;
     public static final int AUTOPLAY_SOURCE_HOME = 1;
     public static final int AUTOPLAY_SOURCE_LIST = 4;
     public static final int AUTOPLAY_SOURCE_PB = 3;
@@ -69,15 +67,11 @@ public class VideoAudioHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             if (i != 3 && i != 4) {
-                if (i != 5) {
-                    int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
-                    if ((autoPlaySwitch == 3 || !BdNetTypeUtil.isWifiNet()) && (autoPlaySwitch != 2 || !BdNetTypeUtil.isMobileNet())) {
-                        return false;
-                    }
-                } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !BdNetTypeUtil.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1)) {
-                    return false;
+                int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
+                if ((autoPlaySwitch != 3 && BdNetTypeUtil.isWifiNet()) || (autoPlaySwitch == 2 && BdNetTypeUtil.isMobileNet())) {
+                    return true;
                 }
-                return true;
+                return false;
             }
             return BdNetTypeUtil.isWifiNet();
         }

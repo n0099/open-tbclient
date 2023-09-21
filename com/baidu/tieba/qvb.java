@@ -1,30 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes7.dex */
-public final class qvb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int a = 1;
-    public static final int b = 2;
-    public static final int c = 3;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qvb {
+    void onAdClicked(Ssp.Pid pid);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948106700, "Lcom/baidu/tieba/qvb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948106700, "Lcom/baidu/tieba/qvb;");
-        }
-    }
+    void onAdClose(Ssp.Pid pid);
+
+    void onAdLoad(Ssp.Pid pid);
+
+    void onAdLoadError(Ssp.Pid pid, int i, String str);
+
+    void onAdLoaded(Ssp.Pid pid, double d);
+
+    void onAdShow(Ssp.Pid pid, double d);
+
+    void onAdShowError(Ssp.Pid pid, int i, String str);
+
+    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
 }

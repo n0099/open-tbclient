@@ -75,7 +75,7 @@ public final class k extends v implements View.OnClickListener {
         this.vp.setText(aVar.getTitle());
         this.iu.setText(aVar.gJ());
         String eL = aVar.eL();
-        Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e62);
+        Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5d);
         KSImageLoader.loadCircleIcon(this.nC, eL, drawable);
         String aj = com.kwad.components.ad.c.b.aj();
         if (!ax.dT(aj)) {
@@ -138,17 +138,17 @@ public final class k extends v implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913b1);
-        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913ba);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913b9);
-        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913bb);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913b4);
-        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f0913b2);
-        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f0913b5);
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913b6));
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913b7));
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913b8));
-        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913b3);
+        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913a1);
+        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913aa);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913a9);
+        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913ab);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913a4);
+        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f0913a2);
+        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f0913a5);
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913a6));
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913a7));
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913a8));
+        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0913a3);
         this.pV.setOnClickListener(this);
         this.vq.setOnClickListener(this);
     }
@@ -182,7 +182,7 @@ public final class k extends v implements View.OnClickListener {
     }
 
     public final void f(ViewGroup viewGroup) {
-        super.a(viewGroup, R.id.obfuscated_res_0x7f0913be, R.id.obfuscated_res_0x7f0913bd);
+        super.a(viewGroup, R.id.obfuscated_res_0x7f0913ae, R.id.obfuscated_res_0x7f0913ad);
         initView();
     }
 

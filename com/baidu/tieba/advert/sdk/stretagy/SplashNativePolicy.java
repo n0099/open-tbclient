@@ -2,10 +2,12 @@ package com.baidu.tieba.advert.sdk.stretagy;
 
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ci;
-import com.baidu.tieba.r85;
-import com.baidu.tieba.y86;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.v85;
+import com.baidu.tieba.z86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,20 +39,21 @@ public class SplashNativePolicy {
     public static final int SPLASH_PLG_OPEN = 17;
     public static final int SPLASH_PLG_OTHERS = 112;
     public static final int SPLASH_REQUEST_START = 96;
+    public static final String TAG = "SplashNativePolicy";
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean loadResult;
     public int plgAdType;
 
-    @r85
+    @v85
     private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
 
-    @r85
+    @v85
     private native void nativeReleaseSplash();
 
-    @r85
+    @v85
     private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
 
-    @r85
+    @v85
     private native void onNativeSplashEvent(int i, int i2);
 
     /* loaded from: classes5.dex */
@@ -83,15 +86,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        y86.d().l(true);
+                        z86.d().l(true);
                         return;
                     case 129:
-                        y86.d().l(false);
+                        z86.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        y86.d().b();
+                        z86.d().b();
                         return;
                     case 131:
                     default:
@@ -115,25 +118,28 @@ public class SplashNativePolicy {
             }
         }
         this.plgAdType = 0;
-        this.loadResult = ci.d().h("splash_policy", 1);
+        this.loadResult = bi.d().h("splash_policy", 1);
         PrintStream printStream = System.out;
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
+        DefaultLog.getInstance().i(TAG, "开屏广告：方法 SplashNativePolicy");
     }
 
-    @r85
+    @v85
     public void eventCallback(int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             PrintStream printStream = System.out;
             printStream.println("SplashPolicy eventCallback=>" + i);
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i(TAG, "开屏广告：方法 eventCallback, eventCode is: " + i + " , plgAdType is: " + this.plgAdType);
             if (i != 128 && i != 129) {
                 if (i == 131) {
-                    y86.d().i(-1);
+                    z86.d().i(-1);
                 } else if (i == 132) {
-                    y86.d().i(-2);
+                    z86.d().i(-2);
                 } else if (i == 130) {
-                    y86.d().i(-3);
+                    z86.d().i(-3);
                 }
             } else {
                 int i3 = this.plgAdType;
@@ -144,20 +150,20 @@ public class SplashNativePolicy {
                 } else {
                     i2 = 3;
                 }
-                y86.d().i(i2);
+                z86.d().i(i2);
             }
             if (BdUtilHelper.isMainThread()) {
                 switch (i) {
                     case 128:
-                        y86.d().l(true);
+                        z86.d().l(true);
                         return;
                     case 129:
-                        y86.d().l(false);
+                        z86.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        y86.d().b();
+                        z86.d().b();
                         return;
                     case 131:
                     default:
@@ -175,6 +181,8 @@ public class SplashNativePolicy {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i(TAG, "开屏广告：方法 initSplashPolicy, bearEnable is: " + z + " , plgEnable is: " + z2 + " , cpcEnable is: " + z3 + " , firstTimeout is: " + i + " ,lastTimeout is: " + i2 + " , loadResult is: " + this.loadResult);
             if (this.loadResult) {
                 if (z) {
                     i3 = 32;
@@ -206,6 +214,8 @@ public class SplashNativePolicy {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i(TAG, "开屏广告：方法 updateSplashConfig, bearEnable is: " + z + " , plgEnable is: " + z2 + " , cpcEnable is: " + z3 + " , firstTimeout is: " + i + " ,lastTimeout is: " + i2 + " , loadResult is: " + this.loadResult);
             if (this.loadResult) {
                 if (z) {
                     i3 = 32;
@@ -239,41 +249,53 @@ public class SplashNativePolicy {
         return invokeV.booleanValue;
     }
 
-    public void releaseSplash() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.loadResult) {
-            nativeReleaseSplash();
-        }
-    }
-
     public void onSplashEvent(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.loadResult) {
-            onNativeSplashEvent(i, 0);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i(TAG, "开屏广告：方法 onSplashEvent(int eventCode), eventCode is: " + i + " , loadResult is: " + this.loadResult);
+            if (this.loadResult) {
+                onNativeSplashEvent(i, 0);
+            }
         }
     }
 
     public void onSplashEvent(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) && this.loadResult) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            this.plgAdType = 112;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i(TAG, "开屏广告：方法 onSplashEvent(int eventCode, int plgType), eventCode is: " + i + ", plgType is: " + i2 + " , loadResult is: " + this.loadResult);
+            if (this.loadResult) {
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        if (i2 != 2) {
+                            if (i2 != 3) {
+                                this.plgAdType = 112;
+                            } else {
+                                this.plgAdType = 120;
+                            }
                         } else {
-                            this.plgAdType = 120;
+                            this.plgAdType = 122;
                         }
                     } else {
-                        this.plgAdType = 122;
+                        this.plgAdType = 113;
                     }
                 } else {
-                    this.plgAdType = 113;
+                    this.plgAdType = 123;
                 }
-            } else {
-                this.plgAdType = 123;
+                onNativeSplashEvent(i, this.plgAdType);
             }
-            onNativeSplashEvent(i, this.plgAdType);
+        }
+    }
+
+    public void releaseSplash() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i(TAG, "开屏广告：方法 releaseSplash, loadResult is: " + this.loadResult);
+            if (this.loadResult) {
+                nativeReleaseSplash();
+            }
         }
     }
 }

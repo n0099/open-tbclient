@@ -23,20 +23,20 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co5;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.ez8;
-import com.baidu.tieba.fz8;
-import com.baidu.tieba.immessagecenter.slice.Slice;
+import com.baidu.tieba.di;
+import com.baidu.tieba.go5;
+import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalReplyBinding;
 import com.baidu.tieba.impersonal.reply.ChatReplyAdapter;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.tieba.iz8;
+import com.baidu.tieba.k09;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.ly8;
-import com.baidu.tieba.n09;
-import com.baidu.tieba.zy8;
+import com.baidu.tieba.p09;
+import com.baidu.tieba.q09;
+import com.baidu.tieba.t09;
+import com.baidu.tieba.wz8;
+import com.baidu.tieba.y19;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,12 +47,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000u\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b*\u0001\u000e\u0018\u0000 .2\u00020\u0001:\u0001.B'\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\bJ\b\u0010\u001b\u001a\u00020\u0011H\u0002J\u0010\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u001fH\u0017J$\u0010 \u001a\u0004\u0018\u00010!2\u0006\u0010\"\u001a\u00020#2\u0006\u0010$\u001a\u00020%2\b\u0010&\u001a\u0004\u0018\u00010'H\u0016J\u001c\u0010(\u001a\u00020\u001d2\b\u0010)\u001a\u0004\u0018\u00010!2\b\u0010&\u001a\u0004\u0018\u00010'H\u0016J\b\u0010*\u001a\u00020\u001dH\u0002J\b\u0010+\u001a\u00020\u001dH\u0002J\u0010\u0010,\u001a\u00020\u001d2\u0006\u0010-\u001a\u00020\u0005H\u0002R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u000fR\u0010\u0010\u0007\u001a\u0004\u0018\u00010\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\u0014\u001a\u0006\u0012\u0002\b\u00030\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u001a0\u0019X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006/"}, d2 = {"Lcom/baidu/tieba/impersonal/slices/ChatReplySlice;", "Lcom/baidu/tieba/immessagecenter/slice/Slice;", "repo", "Lcom/baidu/tieba/impersonal/sprite/ChatSpriteRepo;", "talkType", "", "talkPrologue", "forumId", "(Lcom/baidu/tieba/impersonal/sprite/ChatSpriteRepo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "binding", "Lcom/baidu/tieba/impersonal/databinding/SlicePersonalReplyBinding;", "clickTime", "", "fetchNewCallback", "com/baidu/tieba/impersonal/slices/ChatReplySlice$fetchNewCallback$1", "Lcom/baidu/tieba/impersonal/slices/ChatReplySlice$fetchNewCallback$1;", "isSpriteReply", "", "mChatReplyAdapter", "Lcom/baidu/tieba/impersonal/reply/ChatReplyAdapter;", "mOnItemClickListener", "Lcom/baidu/adp/widget/ListView/BdRecyclerView$OnItemClickListener;", "request", "Lcom/baidu/tbadk/net/FastRequest;", "requestCallback", "Lcom/baidu/tbadk/net/FastRequest$Callback;", "Lcom/baidu/tieba/impersonal/data/QuickReplyData;", "isFastClick", "onChangeSkinType", "", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", "onViewCreated", "view", "registerMsgListener", "requestQuestionData", "sendMessage", "text", "Companion", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000u\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b*\u0001\u000e\u0018\u0000 .2\u00020\u0001:\u0001.B'\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\bJ\b\u0010\u001b\u001a\u00020\u0011H\u0002J\u0010\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u001fH\u0017J$\u0010 \u001a\u0004\u0018\u00010!2\u0006\u0010\"\u001a\u00020#2\u0006\u0010$\u001a\u00020%2\b\u0010&\u001a\u0004\u0018\u00010'H\u0016J\u001c\u0010(\u001a\u00020\u001d2\b\u0010)\u001a\u0004\u0018\u00010!2\b\u0010&\u001a\u0004\u0018\u00010'H\u0016J\b\u0010*\u001a\u00020\u001dH\u0002J\b\u0010+\u001a\u00020\u001dH\u0002J\u0010\u0010,\u001a\u00020\u001d2\u0006\u0010-\u001a\u00020\u0005H\u0002R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u000fR\u0010\u0010\u0007\u001a\u0004\u0018\u00010\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\u0014\u001a\u0006\u0012\u0002\b\u00030\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u001a0\u0019X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006/"}, d2 = {"Lcom/baidu/tieba/impersonal/slices/ChatReplySlice;", "Lcom/baidu/tieba/im/base/core/slice/Slice;", "repo", "Lcom/baidu/tieba/impersonal/sprite/ChatSpriteRepo;", "talkType", "", "talkPrologue", "forumId", "(Lcom/baidu/tieba/impersonal/sprite/ChatSpriteRepo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "binding", "Lcom/baidu/tieba/impersonal/databinding/SlicePersonalReplyBinding;", "clickTime", "", "fetchNewCallback", "com/baidu/tieba/impersonal/slices/ChatReplySlice$fetchNewCallback$1", "Lcom/baidu/tieba/impersonal/slices/ChatReplySlice$fetchNewCallback$1;", "isSpriteReply", "", "mChatReplyAdapter", "Lcom/baidu/tieba/impersonal/reply/ChatReplyAdapter;", "mOnItemClickListener", "Lcom/baidu/adp/widget/ListView/BdRecyclerView$OnItemClickListener;", "request", "Lcom/baidu/tbadk/net/FastRequest;", "requestCallback", "Lcom/baidu/tbadk/net/FastRequest$Callback;", "Lcom/baidu/tieba/impersonal/data/QuickReplyData;", "isFastClick", "onChangeSkinType", "", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", "onViewCreated", "view", "registerMsgListener", "requestQuestionData", "sendMessage", "text", "Companion", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class ChatReplySlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n09 j;
+    public final y19 j;
     public final String k;
     public final String l;
     public final String m;
@@ -81,7 +81,7 @@ public final class ChatReplySlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a extends n09.a {
+    public static final class a extends y19.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatReplySlice a;
@@ -104,21 +104,21 @@ public final class ChatReplySlice extends Slice {
             this.a = chatReplySlice;
         }
 
-        @Override // com.baidu.tieba.n09.b
-        public void a(List<? extends zy8> list) {
+        @Override // com.baidu.tieba.y19.b
+        public void a(List<? extends k09> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 Intrinsics.checkNotNullParameter(list, "list");
-                for (zy8 zy8Var : list) {
+                for (k09 k09Var : list) {
                     TbLog defaultLog = DefaultLog.getInstance();
-                    defaultLog.i("sendSpriteMsg", "新消息返回：" + zy8Var.b());
-                    if (ei.isEquals(zy8Var.b(), co5.d())) {
+                    defaultLog.i("sendSpriteMsg", "新消息返回：" + k09Var.b());
+                    if (di.isEquals(k09Var.b(), go5.d())) {
                         DefaultLog.getInstance().i("sendSpriteMsg", "命中匹配，是通过sendSpriteMsg发送的");
                         return;
                     }
                 }
                 this.a.r = true;
-                this.a.j0();
+                this.a.l0();
             }
         }
     }
@@ -152,7 +152,7 @@ public final class ChatReplySlice extends Slice {
             QuickReplyData.QuestionData questionData;
             String question;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && !this.a.h0()) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && !this.a.j0()) {
                 ChatReplyAdapter chatReplyAdapter = this.a.p;
                 if (chatReplyAdapter != null) {
                     questionData = chatReplyAdapter.l(i);
@@ -164,13 +164,13 @@ public final class ChatReplySlice extends Slice {
                     if (StringUtils.isNull(questionData.getQuestion())) {
                         return;
                     }
-                    chatReplySlice.k0(question);
+                    chatReplySlice.m0(question);
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     if (currentAccount == null) {
                         currentAccount = "";
                     }
                     Intrinsics.checkNotNullExpressionValue(currentAccount, "TbadkApplication.getCurrentAccount() ?: \"\"");
-                    ly8.a("c15230", currentAccount, questionData.getQuestion());
+                    wz8.a("c15230", currentAccount, questionData.getQuestion());
                 }
             }
         }
@@ -180,7 +180,7 @@ public final class ChatReplySlice extends Slice {
     public static final class c extends FastRequest.b<QuickReplyData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatReplySlice b;
+        public final /* synthetic */ ChatReplySlice c;
 
         public c(ChatReplySlice chatReplySlice) {
             Interceptable interceptable = $ic;
@@ -197,35 +197,35 @@ public final class ChatReplySlice extends Slice {
                     return;
                 }
             }
-            this.b = chatReplySlice;
+            this.c = chatReplySlice;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: g */
-        public void b(int i, String errMsg, QuickReplyData quickReplyData) {
+        /* renamed from: i */
+        public void d(int i, String errMsg, QuickReplyData quickReplyData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, errMsg, quickReplyData) == null) {
                 Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                super.b(i, errMsg, quickReplyData);
+                super.d(i, errMsg, quickReplyData);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: h */
-        public void f(QuickReplyData result) {
+        /* renamed from: j */
+        public void g(QuickReplyData result) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
-                super.f(result);
+                super.g(result);
                 if (!ListUtils.isEmpty(result.getQuestionList())) {
-                    ChatReplyAdapter chatReplyAdapter = this.b.p;
+                    ChatReplyAdapter chatReplyAdapter = this.c.p;
                     if (chatReplyAdapter != null) {
                         chatReplyAdapter.setData(result.getQuestionList());
                     }
-                    if (this.b.r) {
-                        SlicePersonalReplyBinding slicePersonalReplyBinding = this.b.n;
+                    if (this.c.r) {
+                        SlicePersonalReplyBinding slicePersonalReplyBinding = this.c.n;
                         if (slicePersonalReplyBinding == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("binding");
                             slicePersonalReplyBinding = null;
@@ -237,7 +237,7 @@ public final class ChatReplySlice extends Slice {
         }
     }
 
-    public ChatReplySlice(n09 repo, String talkType, String talkPrologue, String str) {
+    public ChatReplySlice(y19 repo, String talkType, String talkPrologue, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -264,16 +264,16 @@ public final class ChatReplySlice extends Slice {
         this.u = new b(this);
     }
 
-    public final void k0(String str) {
+    public final void m0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            ez8<fz8> a2 = iz8.a(str);
+            p09<q09> a2 = t09.a(str);
             Intrinsics.checkNotNullExpressionValue(a2, "genTextMsg(text)");
             this.j.t(a2);
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
     @SuppressLint({"NotifyDataSetChanged"})
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
@@ -286,8 +286,8 @@ public final class ChatReplySlice extends Slice {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View R(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
+    public View T(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
@@ -301,13 +301,13 @@ public final class ChatReplySlice extends Slice {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void X(View view2, Bundle bundle) {
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
+    public void Z(View view2, Bundle bundle) {
         ChatReplyAdapter chatReplyAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.X(view2, bundle);
-            Context context = I().getContext();
+            super.Z(view2, bundle);
+            Context context = L().getContext();
             SlicePersonalReplyBinding slicePersonalReplyBinding = null;
             if (context != null) {
                 chatReplyAdapter = new ChatReplyAdapter(context);
@@ -327,7 +327,7 @@ public final class ChatReplySlice extends Slice {
                 slicePersonalReplyBinding3 = null;
             }
             slicePersonalReplyBinding3.c.setFadingEdgeLength(UtilHelper.getDimenPixelSize(R.dimen.tbds60));
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(I().getContext(), 0, false);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(L().getContext(), 0, false);
             SlicePersonalReplyBinding slicePersonalReplyBinding4 = this.n;
             if (slicePersonalReplyBinding4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -355,12 +355,12 @@ public final class ChatReplySlice extends Slice {
                 slicePersonalReplyBinding = slicePersonalReplyBinding7;
             }
             slicePersonalReplyBinding.c.setOnItemClickListener(this.u);
-            i0();
-            j0();
+            k0();
+            l0();
         }
     }
 
-    public final boolean h0() {
+    public final boolean j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -373,18 +373,18 @@ public final class ChatReplySlice extends Slice {
         return invokeV.booleanValue;
     }
 
-    public final void i0() {
+    public final void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.j.a(this.s);
         }
     }
 
-    public final void j0() {
+    public final void l0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.q == null) {
-                this.q = new FastRequest(I().getPageContext(), CmdConfigHttp.CMD_REQUEST_SPRITE_QUESTION_REPLY, TbConfig.REQUEST_SPRITE_QUESTION_REPLY);
+                this.q = new FastRequest(L().getPageContext(), CmdConfigHttp.CMD_REQUEST_SPRITE_QUESTION_REPLY, TbConfig.REQUEST_SPRITE_QUESTION_REPLY);
             }
             FastRequest fastRequest = this.q;
             Intrinsics.checkNotNull(fastRequest);

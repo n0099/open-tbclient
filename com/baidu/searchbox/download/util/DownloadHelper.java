@@ -39,9 +39,9 @@ import com.baidu.searchbox.permission.DangerousPermissionManager;
 import com.baidu.searchbox.permission.DangerousPermissionUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b20;
-import com.baidu.tieba.f10;
-import com.baidu.tieba.z10;
+import com.baidu.tieba.a20;
+import com.baidu.tieba.e10;
+import com.baidu.tieba.y10;
 import com.kuaishou.weapon.p0.h;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
@@ -278,8 +278,8 @@ public final class DownloadHelper {
     }
 
     public static boolean checkTeenagerStyleAndTip() {
-        if (f10.a.e()) {
-            UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f1645).show();
+        if (e10.a.e()) {
+            UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f1648).show();
             return true;
         }
         return false;
@@ -506,7 +506,7 @@ public final class DownloadHelper {
                         externalStorageCallBack3.onResult(false);
                     }
                     if (PreferenceUtils.getBoolean(DownloadHelper.DOWNLOAD_GOTO_SETTING_DIALOG_SHOW, false)) {
-                        z10.i();
+                        y10.i();
                     } else {
                         PreferenceUtils.setBoolean(DownloadHelper.DOWNLOAD_GOTO_SETTING_DIALOG_SHOW, true);
                     }
@@ -1018,45 +1018,45 @@ public final class DownloadHelper {
         String fileSuffix = FileClassifyHelper.getFileSuffix(str3);
         int category = FileClassifyHelper.getCategory(fileSuffix, str2);
         if (category == 0) {
-            return R.drawable.obfuscated_res_0x7f0805d7;
+            return R.drawable.obfuscated_res_0x7f0805d6;
         }
         if (category == 1) {
-            return R.drawable.obfuscated_res_0x7f0805d0;
-        }
-        if (category == 2) {
             return R.drawable.obfuscated_res_0x7f0805cf;
         }
+        if (category == 2) {
+            return R.drawable.obfuscated_res_0x7f0805ce;
+        }
         if (category == 3) {
-            return R.drawable.obfuscated_res_0x7f0805cd;
+            return R.drawable.obfuscated_res_0x7f0805cc;
         }
         if (category == 6) {
-            return R.drawable.obfuscated_res_0x7f0805d1;
+            return R.drawable.obfuscated_res_0x7f0805d0;
         }
         if (category == 8) {
-            return R.drawable.obfuscated_res_0x7f0805d9;
+            return R.drawable.obfuscated_res_0x7f0805d8;
         }
         if (category == 4) {
             DocClassifyHelper.DocCategroy docDetailType = DocClassifyHelper.getDocDetailType(fileSuffix, str2);
             if (docDetailType == DocClassifyHelper.DocCategroy.PDF) {
-                return R.drawable.obfuscated_res_0x7f0805d4;
-            }
-            if (docDetailType == DocClassifyHelper.DocCategroy.PPT) {
-                return R.drawable.obfuscated_res_0x7f0805d5;
-            }
-            if (docDetailType == DocClassifyHelper.DocCategroy.WORD) {
-                return R.drawable.obfuscated_res_0x7f0805d8;
-            }
-            if (docDetailType == DocClassifyHelper.DocCategroy.EXCEL) {
-                return R.drawable.obfuscated_res_0x7f0805ce;
-            }
-            if (docDetailType != DocClassifyHelper.DocCategroy.TEXT) {
                 return R.drawable.obfuscated_res_0x7f0805d3;
             }
-            return R.drawable.obfuscated_res_0x7f0805d6;
+            if (docDetailType == DocClassifyHelper.DocCategroy.PPT) {
+                return R.drawable.obfuscated_res_0x7f0805d4;
+            }
+            if (docDetailType == DocClassifyHelper.DocCategroy.WORD) {
+                return R.drawable.obfuscated_res_0x7f0805d7;
+            }
+            if (docDetailType == DocClassifyHelper.DocCategroy.EXCEL) {
+                return R.drawable.obfuscated_res_0x7f0805cd;
+            }
+            if (docDetailType != DocClassifyHelper.DocCategroy.TEXT) {
+                return R.drawable.obfuscated_res_0x7f0805d2;
+            }
+            return R.drawable.obfuscated_res_0x7f0805d5;
         } else if (category != 11) {
-            return R.drawable.obfuscated_res_0x7f0805d3;
-        } else {
             return R.drawable.obfuscated_res_0x7f0805d2;
+        } else {
+            return R.drawable.obfuscated_res_0x7f0805d1;
         }
     }
 
@@ -1419,7 +1419,7 @@ public final class DownloadHelper {
                         if (eventCallback2 != null) {
                             eventCallback2.callBack(3, new EventCallback.EventBackInfo(EventCallback.Info.INFO_PERMISSION_SYSTEM_GRANTED));
                         }
-                        b20.t(str, true);
+                        a20.t(str, true);
                         return;
                     }
                     ExternalStorageCallBack externalStorageCallBack3 = ExternalStorageCallBack.this;
@@ -1430,8 +1430,8 @@ public final class DownloadHelper {
                     if (eventCallback3 != null) {
                         eventCallback3.callBack(2, new EventCallback.EventBackInfo(110));
                     }
-                    b20.t(str, false);
-                    z10.k(realTopActivity, str, eventCallback);
+                    a20.t(str, false);
+                    y10.k(realTopActivity, str, eventCallback);
                 }
             }
         });

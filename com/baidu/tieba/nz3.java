@@ -1,22 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface nz3<VIEW extends View> {
-    void a(String str);
+public class nz3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public DownloadState a;
+    public String b;
+    public int c;
 
-    void b(DownloadState downloadState);
+    public nz3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = DownloadState.NOT_START;
+        this.c = Integer.parseInt("0");
+    }
 
-    nz3 c(Context context, DownloadParams downloadParams, iz3 iz3Var);
-
-    void d(int i);
-
-    void e(Object obj);
-
-    void f();
-
-    VIEW getRealView();
+    public static nz3 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            nz3 nz3Var = new nz3();
+            nz3Var.b = str2;
+            return nz3Var;
+        }
+        return (nz3) invokeLL.objValue;
+    }
 }

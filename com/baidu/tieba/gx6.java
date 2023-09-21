@@ -1,9 +1,32 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
+import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
+import com.baidu.tieba.lx6;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface gx6 {
-    sx6 a(kv6 kv6Var, kx6 kx6Var, ev6 ev6Var);
+public final class gx6 extends cx6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(kv6 kv6Var, Canvas canvas, kx6 kx6Var, ev6 ev6Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gx6() {
+        super(new AkTopRetainer(0.0f, 0.5f, 1, null), new jx6());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((lx6) objArr[0], (lx6.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

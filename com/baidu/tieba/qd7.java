@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardVirtualHeadView;
+import com.baidu.tieba.feed.component.CardOriginCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qd7 extends yb7<CardVirtualHeadView, r77> {
+public class qd7 extends hc7<CardOriginCardView, o77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class qd7 extends yb7<CardVirtualHeadView, r77> {
         }
     }
 
-    @Override // com.baidu.tieba.yb7, com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.hc7, com.baidu.tieba.xc7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            de7.k(a, 0);
+            me7.k(a, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.xc7
     /* renamed from: e */
-    public void b(@NonNull CardVirtualHeadView cardVirtualHeadView, @NonNull r77 r77Var) {
+    public void b(@NonNull CardOriginCardView cardOriginCardView, @NonNull o77 o77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVirtualHeadView, r77Var) == null) {
-            cardVirtualHeadView.v(r77Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardOriginCardView, o77Var) == null) {
+            cardOriginCardView.a(o77Var);
         }
     }
 }

@@ -1,34 +1,34 @@
 package rx.observables;
 
-import com.baidu.tieba.ebc;
-import com.baidu.tieba.gfc;
-import com.baidu.tieba.pbc;
-import com.baidu.tieba.sac;
-import com.baidu.tieba.tac;
-import com.baidu.tieba.uac;
-import com.baidu.tieba.yac;
-import com.baidu.tieba.zac;
+import com.baidu.tieba.hdc;
+import com.baidu.tieba.kcc;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.mcc;
+import com.baidu.tieba.qcc;
+import com.baidu.tieba.rcc;
+import com.baidu.tieba.wcc;
+import com.baidu.tieba.ygc;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
+public abstract class SyncOnSubscribe<S, T> implements kcc.a<T> {
     public abstract S a();
 
-    public abstract S b(S s, tac<? super T> tacVar);
+    public abstract S b(S s, lcc<? super T> lccVar);
 
     public void c(S s) {
     }
 
     /* loaded from: classes2.dex */
-    public static final class SubscriptionProducer<S, T> extends AtomicLong implements uac, zac, tac<T> {
+    public static final class SubscriptionProducer<S, T> extends AtomicLong implements mcc, rcc, lcc<T> {
         public static final long serialVersionUID = -3736864024352728072L;
-        public final yac<? super T> actualSubscriber;
+        public final qcc<? super T> actualSubscriber;
         public boolean hasTerminated;
         public boolean onNextCalled;
         public final SyncOnSubscribe<S, T> parent;
         public S state;
 
-        public SubscriptionProducer(yac<? super T> yacVar, SyncOnSubscribe<S, T> syncOnSubscribe, S s) {
-            this.actualSubscriber = yacVar;
+        public SubscriptionProducer(qcc<? super T> qccVar, SyncOnSubscribe<S, T> syncOnSubscribe, S s) {
+            this.actualSubscriber = qccVar;
             this.parent = syncOnSubscribe;
             this.state = s;
         }
@@ -37,20 +37,20 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
             try {
                 this.parent.c(this.state);
             } catch (Throwable th) {
-                ebc.e(th);
-                gfc.j(th);
+                wcc.e(th);
+                ygc.j(th);
             }
         }
 
         private void fastPath() {
             SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
-            yac<? super T> yacVar = this.actualSubscriber;
+            qcc<? super T> qccVar = this.actualSubscriber;
             do {
                 try {
                     this.onNextCalled = false;
                     nextIteration(syncOnSubscribe);
                 } catch (Throwable th) {
-                    handleThrownError(yacVar, th);
+                    handleThrownError(qccVar, th);
                     return;
                 }
             } while (!tryUnsubscribe());
@@ -65,7 +65,7 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
             return true;
         }
 
-        @Override // com.baidu.tieba.zac
+        @Override // com.baidu.tieba.rcc
         public boolean isUnsubscribed() {
             if (get() < 0) {
                 return true;
@@ -73,7 +73,7 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
             return false;
         }
 
-        @Override // com.baidu.tieba.tac
+        @Override // com.baidu.tieba.lcc
         public void onCompleted() {
             if (!this.hasTerminated) {
                 this.hasTerminated = true;
@@ -86,7 +86,7 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
             throw new IllegalStateException("Terminal event already emitted.");
         }
 
-        @Override // com.baidu.tieba.zac
+        @Override // com.baidu.tieba.rcc
         public void unsubscribe() {
             long j;
             do {
@@ -98,13 +98,13 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
             } while (!compareAndSet(j, -2L));
         }
 
-        private void handleThrownError(yac<? super T> yacVar, Throwable th) {
+        private void handleThrownError(qcc<? super T> qccVar, Throwable th) {
             if (this.hasTerminated) {
-                gfc.j(th);
+                ygc.j(th);
                 return;
             }
             this.hasTerminated = true;
-            yacVar.onError(th);
+            qccVar.onError(th);
             unsubscribe();
         }
 
@@ -114,7 +114,7 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
 
         private void slowPath(long j) {
             SyncOnSubscribe<S, T> syncOnSubscribe = this.parent;
-            yac<? super T> yacVar = this.actualSubscriber;
+            qcc<? super T> qccVar = this.actualSubscriber;
             do {
                 long j2 = j;
                 do {
@@ -128,7 +128,7 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
                             j2--;
                         }
                     } catch (Throwable th) {
-                        handleThrownError(yacVar, th);
+                        handleThrownError(qccVar, th);
                         return;
                     }
                 } while (j2 != 0);
@@ -137,7 +137,7 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
             tryUnsubscribe();
         }
 
-        @Override // com.baidu.tieba.tac
+        @Override // com.baidu.tieba.lcc
         public void onError(Throwable th) {
             if (!this.hasTerminated) {
                 this.hasTerminated = true;
@@ -150,7 +150,7 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
             throw new IllegalStateException("Terminal event already emitted.");
         }
 
-        @Override // com.baidu.tieba.tac
+        @Override // com.baidu.tieba.lcc
         public void onNext(T t) {
             if (!this.onNextCalled) {
                 this.onNextCalled = true;
@@ -160,9 +160,9 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
             throw new IllegalStateException("onNext called multiple times!");
         }
 
-        @Override // com.baidu.tieba.uac
+        @Override // com.baidu.tieba.mcc
         public void request(long j) {
-            if (j > 0 && pbc.b(this, j) == 0) {
+            if (j > 0 && hdc.b(this, j) == 0) {
                 if (j == Long.MAX_VALUE) {
                     fastPath();
                 } else {
@@ -172,19 +172,19 @@ public abstract class SyncOnSubscribe<S, T> implements sac.a<T> {
         }
     }
 
-    public final void call(yac<? super T> yacVar) {
+    public final void call(qcc<? super T> qccVar) {
         try {
-            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(yacVar, this, a());
-            yacVar.b(subscriptionProducer);
-            yacVar.f(subscriptionProducer);
+            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(qccVar, this, a());
+            qccVar.b(subscriptionProducer);
+            qccVar.f(subscriptionProducer);
         } catch (Throwable th) {
-            ebc.e(th);
-            yacVar.onError(th);
+            wcc.e(th);
+            qccVar.onError(th);
         }
     }
 
-    @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
+    @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((yac) ((yac) obj));
+        call((qcc) ((qcc) obj));
     }
 }

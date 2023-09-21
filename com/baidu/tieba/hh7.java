@@ -1,25 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class hh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fh7 a;
+    public TbPageContext<?> a;
+    public BdTypeRecyclerView b;
+    public ih7 c;
+    public jn d;
+    public List<om> e;
 
-    public hh7(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    public hh7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,23 +34,36 @@ public class hh7 {
                 return;
             }
         }
-        if (bdTypeListView == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new dh7(tbPageContext, mh7.d, tbPageContext.getUniqueId()));
-        fh7 fh7Var = new fh7(tbPageContext, nh7.h, tbPageContext.getUniqueId());
-        this.a = fh7Var;
-        arrayList.add(fh7Var);
-        arrayList.add(new eh7(tbPageContext, mh7.c, tbPageContext.getUniqueId()));
-        arrayList.add(new gh7(tbPageContext, mh7.e, tbPageContext.getUniqueId()));
-        bdTypeListView.addAdapters(arrayList);
+        this.e = new LinkedList();
+        this.a = tbPageContext;
+        this.b = bdTypeRecyclerView;
+        a();
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.a.u(onClickListener);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ih7 ih7Var = new ih7(this.a);
+            this.c = ih7Var;
+            this.e.add(ih7Var);
+            jn jnVar = new jn(this.a);
+            this.d = jnVar;
+            this.e.add(jnVar);
+            this.b.addAdapters(this.e);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void c(List<bn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b.setData(list);
         }
     }
 }

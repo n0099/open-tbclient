@@ -140,28 +140,28 @@ public class p {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't wrap try/catch for region: R(21:3|(1:5)|84|7|(17:79|80|10|(1:12)|13|14|15|16|17|18|19|20|(1:22)|23|(2:25|(2:29|(1:31)(5:33|34|35|36|(2:38|(15:40|41|42|44|45|46|47|48|49|50|51|52|53|54|(1:56)(2:57|58))(2:65|66))(2:67|68))))|72|(0)(0))|9|10|(0)|13|14|15|16|17|18|19|20|(0)|23|(0)|72|(0)(0)) */
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x00df, code lost:
+        /* JADX WARN: Can't wrap try/catch for region: R(21:3|(1:5)|84|7|(17:79|80|10|(1:12)|13|14|15|16|17|18|19|20|(1:22)|23|(2:25|(2:29|(1:31)(5:33|34|35|36|(2:38|(15:40|41|42|43|44|45|46|47|48|49|50|51|52|53|(1:55)(2:56|57))(2:65|66))(2:67|68))))|72|(0)(0))|9|10|(0)|13|14|15|16|17|18|19|20|(0)|23|(0)|72|(0)(0)) */
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x00e1, code lost:
             r0 = move-exception;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:24:0x00e0, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:24:0x00e2, code lost:
             com.baidu.tts.chainofresponsibility.logger.LoggerProxy.d(r12.y, "parseLong exception = " + r0.getMessage());
             r20 = 0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:28:0x0139, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:28:0x013b, code lost:
             r0 = move-exception;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x013a, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x013c, code lost:
             com.baidu.tts.chainofresponsibility.logger.LoggerProxy.d(r13.y, "parseLong exception = " + r0.getMessage());
          */
-        /* JADX WARN: Code restructure failed: missing block: B:7:0x0083, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:7:0x0085, code lost:
             if (android.text.TextUtils.isEmpty(r0) == false) goto L7;
          */
-        /* JADX WARN: Removed duplicated region for block: B:19:0x00a9  */
-        /* JADX WARN: Removed duplicated region for block: B:32:0x01c9  */
-        /* JADX WARN: Removed duplicated region for block: B:35:0x01d5  */
-        /* JADX WARN: Removed duplicated region for block: B:42:0x0233 A[RETURN] */
-        /* JADX WARN: Removed duplicated region for block: B:43:0x0234  */
+        /* JADX WARN: Removed duplicated region for block: B:19:0x00ab  */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x01cb  */
+        /* JADX WARN: Removed duplicated region for block: B:35:0x01d7  */
+        /* JADX WARN: Removed duplicated region for block: B:42:0x0235 A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x0236  */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         /*
@@ -589,21 +589,21 @@ public class p {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:136:0x006e */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0053 */
     /* JADX WARN: Can't wrap try/catch for region: R(8:5|(2:6|7)|(5:9|10|11|12|(3:13|14|(1:16)(1:17)))|18|19|20|(1:22)(3:66|(3:69|(2:71|(3:73|(2:75|(2:77|78)(2:80|81))(2:82|(2:84|(1:105)(5:88|89|90|91|(2:93|(2:95|96)(2:97|98))(2:99|100)))(2:107|108))|79)(2:109|110))(2:111|112)|67)|113)|(4:24|(1:26)(1:64)|27|(2:29|(9:33|34|(1:36)(1:51)|37|38|39|(1:41)|42|(2:44|46)(1:47))(1:31))(4:55|(1:57)(2:60|(1:62)(1:63))|58|59))(1:65)) */
-    /* JADX WARN: Code restructure failed: missing block: B:71:0x021f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x022f, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x0220, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x0230, code lost:
         r0.printStackTrace();
         com.baidu.tts.chainofresponsibility.logger.LoggerProxy.e(r18.a, "offline resource is invalid");
         r0 = com.baidu.tts.z0.a().a(com.baidu.tts.u0.k0);
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Not initialized variable reg: 10, insn: 0x0236: MOVE  (r6 I:??[OBJECT, ARRAY]) = (r10 I:??[OBJECT, ARRAY]), block:B:74:0x0236 */
-    /* JADX WARN: Not initialized variable reg: 11, insn: 0x0238: MOVE  (r6 I:??[OBJECT, ARRAY]) = (r11 I:??[OBJECT, ARRAY]), block:B:74:0x0236 */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x039f A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x009c A[Catch: JSONException -> 0x021f, TryCatch #11 {JSONException -> 0x021f, blocks: (B:31:0x008f, B:33:0x009c, B:35:0x00b0, B:37:0x00b6, B:39:0x00ce, B:41:0x00dc, B:43:0x0103, B:45:0x010f, B:67:0x01f2, B:46:0x0125, B:47:0x0138, B:49:0x0140, B:51:0x0152, B:53:0x0158, B:58:0x016e, B:60:0x017a, B:62:0x019c, B:63:0x01b1, B:64:0x01c4, B:57:0x016b, B:65:0x01d7, B:66:0x01ea, B:68:0x01fb, B:69:0x020d, B:54:0x015d), top: B:130:0x008f, inners: #8 }] */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00af  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0258  */
+    /* JADX WARN: Not initialized variable reg: 10, insn: 0x0246: MOVE  (r6 I:??[OBJECT, ARRAY]) = (r10 I:??[OBJECT, ARRAY]), block:B:74:0x0246 */
+    /* JADX WARN: Not initialized variable reg: 11, insn: 0x0248: MOVE  (r6 I:??[OBJECT, ARRAY]) = (r11 I:??[OBJECT, ARRAY]), block:B:74:0x0246 */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x03af A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x009d A[Catch: JSONException -> 0x022f, TryCatch #11 {JSONException -> 0x022f, blocks: (B:31:0x008f, B:33:0x009d, B:35:0x00b2, B:37:0x00b8, B:39:0x00d1, B:41:0x00e0, B:43:0x0107, B:45:0x0114, B:67:0x0200, B:46:0x012a, B:47:0x013e, B:49:0x0147, B:51:0x015b, B:53:0x0161, B:58:0x0177, B:60:0x0184, B:62:0x01a7, B:63:0x01bc, B:64:0x01d0, B:57:0x0174, B:65:0x01e4, B:66:0x01f8, B:68:0x0209, B:69:0x021c, B:54:0x0166), top: B:130:0x008f, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00b1  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x0268  */
     /* JADX WARN: Type inference failed for: r11v4 */
     /* JADX WARN: Type inference failed for: r11v5 */
     /* JADX WARN: Type inference failed for: r11v6, types: [java.io.Closeable] */

@@ -1,28 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class y89 implements ThirdPartAliRechargeService {
+public class y89 extends al1<LiveLikeProxyService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public void aliSign(@NonNull Activity activity, @NonNull String str, @Nullable ThirdPartAliRechargeService.ThirdPartAliSignCallback thirdPartAliSignCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, thirdPartAliSignCallback) == null) {
-        }
-    }
 
     public y89() {
         Interceptable interceptable = $ic;
@@ -38,21 +26,15 @@ public class y89 implements ThirdPartAliRechargeService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public String aliRecharge(Activity activity, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.al1
+    /* renamed from: a */
+    public LiveLikeProxyService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
-            rv4 rv4Var = new rv4();
-            rv4Var.a = activity;
-            rv4Var.b = str;
-            rv4Var.c = z;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, rv4Var);
-            if (runTask == null) {
-                return "";
-            }
-            return (String) runTask.getData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new z89();
         }
-        return (String) invokeLLZ.objValue;
+        return (LiveLikeProxyService) invokeV.objValue;
     }
 }

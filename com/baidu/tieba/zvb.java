@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes9.dex */
-public interface zvb<T> {
-    void onFailure(int i, String str);
 
-    void onSuccess(T t);
+import com.fun.ad.sdk.internal.api.PidLoader;
+/* loaded from: classes9.dex */
+public interface zvb<N> {
+    N a(PidLoader pidLoader, String str);
 }

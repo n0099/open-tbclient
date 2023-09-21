@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.be1;
+import com.baidu.tieba.ae1;
 /* loaded from: classes3.dex */
 public class BdBaseImageView extends ImageView {
     public boolean a;
@@ -23,8 +23,8 @@ public class BdBaseImageView extends ImageView {
     public void draw(Canvas canvas) {
         try {
             if (b()) {
-                be1.c(getContext(), getDrawable());
-                this.b = be1.e(getContext());
+                ae1.c(getContext(), getDrawable());
+                this.b = ae1.e(getContext());
                 this.a = false;
             }
             super.draw(canvas);
@@ -35,7 +35,7 @@ public class BdBaseImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageAlpha(int i) {
         if (a()) {
-            be1.d(getContext(), getDrawable(), i);
+            ae1.d(getContext(), getDrawable(), i);
         } else {
             super.setImageAlpha(i);
         }
@@ -60,14 +60,14 @@ public class BdBaseImageView extends ImageView {
     }
 
     public final boolean a() {
-        if (Color.alpha(be1.e(getContext())) != 0) {
+        if (Color.alpha(ae1.e(getContext())) != 0) {
             return true;
         }
         return false;
     }
 
     public final boolean b() {
-        if (!this.a && this.b == be1.e(getContext())) {
+        if (!this.a && this.b == ae1.e(getContext())) {
             return false;
         }
         return true;

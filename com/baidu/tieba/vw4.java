@@ -1,62 +1,53 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class vw4 implements ItemCardHelper.c {
+public class vw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rj6<WebView> a;
+    public View a;
+    public int b;
 
-    public vw4(@NonNull rj6<WebView> rj6Var) {
+    public vw4(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rj6Var};
+            Object[] objArr = {view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = rj6Var;
+        this.a = view2;
+        this.b = i;
     }
 
-    @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
-    public void a(long j) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            c(this.a.call(), String.valueOf(j), 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
-    public void b(long j) {
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            c(this.a.call(), String.valueOf(j), 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-    }
-
-    public final void c(WebView webView, @NonNull String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, webView, str, i) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("id", str);
-            hashMap.put("resultCode", Integer.valueOf(i));
-            hashMap.put("name", null);
-            um6.a().d(webView, "orderGameApkResult", hashMap);
-        }
+        return (View) invokeV.objValue;
     }
 }

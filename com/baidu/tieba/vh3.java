@@ -1,24 +1,51 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.tieba.ew2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vh3 {
+public final class vh3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static volatile boolean b;
-    public static volatile boolean c;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hi3 a;
+
+        public a(hi3 hi3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hi3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hi3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nh3.k("671", this.a.f());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,184 +60,47 @@ public class vh3 {
                 return;
             }
         }
-        a = rr1.a;
-        b = false;
-        c = false;
-        ou2.g0().getSwitch("swan_app_use_route_statistic", false);
-        d = false;
+        a = qr1.a;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void a(yi4 yi4Var, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "mIsStartByApi = " + c);
-            }
-            boolean z = c;
-            k(false);
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "mIsStartFirstPage = " + b);
-            }
-            boolean z = b;
-            l(false);
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void d(h13 h13Var, String str, yx1 yx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, h13Var, str, yx1Var) == null) {
-            e(h13Var, str, yx1Var, null);
-        }
-    }
-
-    public static void e(h13 h13Var, String str, yx1 yx1Var, String str2) {
-        hb3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65541, null, h13Var, str, yx1Var, str2) != null) || !d || (b0 = hb3.b0()) == null) {
-            return;
-        }
-        ew2.a W = b0.W();
-        ki3 ki3Var = new ki3();
-        ki3Var.a = ai3.n(W.G());
-        ki3Var.f = W.H();
-        if (y82.d()) {
-            ki3Var.c = "remote-debug";
-        } else if (g73.D()) {
-            ki3Var.c = "local-debug";
-        } else {
-            ki3Var.c = W.T();
-        }
-        ki3Var.b = "pageshow";
-        if (!TextUtils.isEmpty(str)) {
-            ki3Var.e = str;
-        }
-        if (h13Var != null) {
-            ki3Var.a("path", h13Var.a);
-            ki3Var.a("routeType", h13Var.e);
-            ki3Var.a("routeid", h13Var.f);
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            ki3Var.a(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, str2);
-        }
-        if (yx1Var != null && yx1Var.c > 0) {
-            ki3Var.a("valuetype", yx1Var.g);
-        }
-        Bundle P = W.P();
-        if (P != null) {
-            ki3Var.d(P.getString("ubc"));
-        }
-        ki3Var.b(ai3.k(W.W()));
-        if (a) {
-            Log.d("SwanAppRouteUbc", "onRouteEvent - " + ki3Var.f());
-        }
-        ai3.onEvent(ki3Var);
-    }
-
-    public static h13 f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            qa2 U = uw2.T().U();
-            h13 h13Var = null;
-            if (U == null) {
-                return null;
-            }
-            na2 j = U.j((U.k() - i) - 1);
-            if (j instanceof pa2) {
-                h13Var = ((pa2) j).o3();
-                h13Var.e = "1";
-                h13Var.f = str;
-            }
-            g(h13Var);
-            return h13Var;
-        }
-        return (h13) invokeLI.objValue;
-    }
-
-    public static void g(h13 h13Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, h13Var) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "recordRouteAllByApi");
-            }
-            if (!c()) {
-                k(true);
-                d(h13Var, null, null);
-            }
-        }
-    }
-
-    public static void h(h13 h13Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, h13Var) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "recordRouteAllByResume");
-            }
-            d(h13Var, null, null);
-        }
-    }
-
-    public static void i(h13 h13Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, h13Var) == null) {
-            j(h13Var, null);
-        }
-    }
-
-    public static synchronized void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            synchronized (vh3.class) {
-                c = z;
-            }
-        }
-    }
-
-    public static synchronized void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            synchronized (vh3.class) {
-                b = z;
-            }
-        }
-    }
-
-    public static void j(h13 h13Var, an3 an3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, h13Var, an3Var) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "recordRouteFailByApi - pageParam=" + h13Var + " errCode=" + an3Var);
-            }
-            if (c) {
-                if (an3Var == null) {
-                    an3Var = new an3();
-                    an3Var.k(5L);
-                    an3Var.i(58L);
-                    an3Var.d("route check fail");
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{yi4Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (yi4Var == null) {
+                if (a) {
+                    Log.d("SwanStabilityUbc", "pms callback is null");
+                    return;
                 }
-                e(h13Var, "fail", null, String.valueOf(an3Var.a()));
+                return;
             }
+            zm3 zm3Var = new zm3();
+            zm3Var.k(11L);
+            zm3Var.i(2331L);
+            zm3Var.f("Retry=" + z + ", Scene=" + yi4Var.getClass().getName());
+            hi3 hi3Var = new hi3();
+            hi3Var.q(zh3.n(i));
+            hi3Var.p(zm3Var);
+            if (yi4Var instanceof he2) {
+                hi3Var.r(((he2) yi4Var).I0());
+            }
+            b(hi3Var);
+            if (a) {
+                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + yi4Var.getClass().getSimpleName());
+            }
+        }
+    }
+
+    public static void b(hi3 hi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, hi3Var) == null) {
+            if (hi3Var == null) {
+                if (a) {
+                    Log.d("SwanStabilityUbc", "event is null");
+                    return;
+                }
+                return;
+            }
+            ao3.k(new a(hi3Var), "SwanStabilityUBC");
         }
     }
 }

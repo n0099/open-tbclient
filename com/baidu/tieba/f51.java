@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f51 implements h51 {
+public class f51 {
     public static /* synthetic */ Interceptable $ic;
+    public static f51 b;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public g51 a;
 
     public f51() {
         Interceptable interceptable = $ic;
@@ -21,23 +24,38 @@ public class f51 implements h51 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.h51
-    public void a(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            m51.f().m(runnable, str, i, j);
+        this.a = new d51();
+        if (!w41.a()) {
+            this.a = new e51();
         }
     }
 
-    @Override // com.baidu.tieba.h51
-    public void b(@NonNull Runnable runnable, @NonNull String str, long j) {
+    public static f51 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
-            m51.f().q(runnable, str, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (f51.class) {
+                    if (b == null) {
+                        b = new f51();
+                    }
+                }
+            }
+            return b;
         }
+        return (f51) invokeV.objValue;
+    }
+
+    @NonNull
+    public g51 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (g51) invokeV.objValue;
     }
 }

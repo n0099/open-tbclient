@@ -82,7 +82,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m119clone() {
+    public ImMessageCenterShowItemData m120clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

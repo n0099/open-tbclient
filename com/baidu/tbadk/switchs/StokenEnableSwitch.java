@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class StokenEnableSwitch extends ve {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "android_stoken_new";
@@ -24,7 +24,7 @@ public class StokenEnableSwitch extends ve {
 
     @Override // com.baidu.tieba.ve
     /* renamed from: getCrashKeys */
-    public String[] mo129getCrashKeys() {
+    public String[] mo130getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

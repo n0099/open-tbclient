@@ -1,27 +1,51 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class oy0 {
+public class oy0 implements eo0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ny0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ny0 a() {
+    @Override // com.baidu.tieba.eo0
+    public float getLaunchSpeedScore() {
         InterceptResult invokeV;
-        ny0 ny0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (oy0.class) {
-                if (a == null) {
-                    a = new ny0();
-                }
-                ny0Var = a;
-            }
-            return ny0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return -1.0f;
         }
-        return (ny0) invokeV.objValue;
+        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.tieba.eo0
+    public float getStaticDeviceScore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return -1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public oy0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

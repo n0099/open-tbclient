@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kcc;
+import com.baidu.tieba.ncc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,30 +10,467 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Queue;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.atomic.AtomicReferenceArray;
+import rx.Notification;
+import rx.schedulers.Schedulers;
 /* loaded from: classes7.dex */
-public final class odc<T> implements Queue<T> {
+public final class odc<T> implements kcc.a<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int i;
-    public static final Object j;
+    public static final ddc<kcc<? extends Notification<?>>, kcc<?>> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicLong a;
-    public int b;
-    public long c;
-    public int d;
-    public AtomicReferenceArray<Object> e;
-    public int f;
-    public AtomicReferenceArray<Object> g;
-    public final AtomicLong h;
+    public final kcc<T> a;
+    public final ddc<? super kcc<? extends Notification<?>>, ? extends kcc<?>> b;
+    public final boolean c;
+    public final boolean d;
+    public final ncc e;
 
-    public static int b(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 : invokeI.intValue;
+    /* loaded from: classes7.dex */
+    public static class a implements ddc<kcc<? extends Notification<?>>, kcc<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.odc$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0403a implements ddc<Notification<?>, Notification<?>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0403a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.ddc
+            public Notification<?> call(Notification<?> notification) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notification)) == null) {
+                    return Notification.c(null);
+                }
+                return (Notification) invokeL.objValue;
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: com.baidu.tieba.kcc<R>, com.baidu.tieba.kcc<?> */
+        @Override // com.baidu.tieba.ddc
+        public kcc<?> call(kcc<? extends Notification<?>> kccVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kccVar)) == null) {
+                return kccVar.p(new C0403a(this));
+            }
+            return (kcc) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements xcc {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qcc a;
+        public final /* synthetic */ jhc b;
+        public final /* synthetic */ kec c;
+        public final /* synthetic */ AtomicLong d;
+        public final /* synthetic */ nhc e;
+        public final /* synthetic */ odc f;
+
+        /* loaded from: classes7.dex */
+        public class a extends qcc<T> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public boolean e;
+            public final /* synthetic */ b f;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f = bVar;
+            }
+
+            @Override // com.baidu.tieba.qcc
+            public void f(mcc mccVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, mccVar) == null) {
+                    this.f.c.c(mccVar);
+                }
+            }
+
+            @Override // com.baidu.tieba.lcc
+            public void onError(Throwable th) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048579, this, th) == null) && !this.e) {
+                    this.e = true;
+                    unsubscribe();
+                    this.f.b.onNext(Notification.b(th));
+                }
+            }
+
+            @Override // com.baidu.tieba.lcc
+            public void onNext(T t) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && !this.e) {
+                    this.f.a.onNext(t);
+                    g();
+                    this.f.c.b(1L);
+                }
+            }
+
+            public final void g() {
+                long j;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    do {
+                        j = this.f.d.get();
+                        if (j == Long.MAX_VALUE) {
+                            return;
+                        }
+                    } while (!this.f.d.compareAndSet(j, j - 1));
+                }
+            }
+
+            @Override // com.baidu.tieba.lcc
+            public void onCompleted() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.e) {
+                    this.e = true;
+                    unsubscribe();
+                    this.f.b.onNext(Notification.a());
+                }
+            }
+        }
+
+        public b(odc odcVar, qcc qccVar, jhc jhcVar, kec kecVar, AtomicLong atomicLong, nhc nhcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {odcVar, qccVar, jhcVar, kecVar, atomicLong, nhcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = odcVar;
+            this.a = qccVar;
+            this.b = jhcVar;
+            this.c = kecVar;
+            this.d = atomicLong;
+            this.e = nhcVar;
+        }
+
+        @Override // com.baidu.tieba.xcc
+        public void call() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isUnsubscribed()) {
+                return;
+            }
+            a aVar = new a(this);
+            this.e.a(aVar);
+            this.f.a.O(aVar);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements kcc.b<Notification<?>, Notification<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ odc a;
+
+        /* loaded from: classes7.dex */
+        public class a extends qcc<Notification<?>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ qcc e;
+            public final /* synthetic */ c f;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public a(c cVar, qcc qccVar, qcc qccVar2) {
+                super(qccVar);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, qccVar, qccVar2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super((qcc) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f = cVar;
+                this.e = qccVar2;
+            }
+
+            @Override // com.baidu.tieba.qcc
+            public void f(mcc mccVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, mccVar) == null) {
+                    mccVar.request(Long.MAX_VALUE);
+                }
+            }
+
+            @Override // com.baidu.tieba.lcc
+            public void onError(Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                    this.e.onError(th);
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.lcc
+            /* renamed from: g */
+            public void onNext(Notification<?> notification) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notification) == null) {
+                    if (notification.i() && this.f.a.c) {
+                        this.e.onCompleted();
+                    } else if (notification.j() && this.f.a.d) {
+                        this.e.onError(notification.e());
+                    } else {
+                        this.e.onNext(notification);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.lcc
+            public void onCompleted() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    this.e.onCompleted();
+                }
+            }
+        }
+
+        public c(odc odcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {odcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = odcVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.kcc.b, com.baidu.tieba.ddc
+        public qcc<? super Notification<?>> call(qcc<? super Notification<?>> qccVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qccVar)) == null) {
+                return new a(this, qccVar, qccVar);
+            }
+            return (qcc) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements xcc {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kcc a;
+        public final /* synthetic */ qcc b;
+        public final /* synthetic */ AtomicLong c;
+        public final /* synthetic */ ncc.a d;
+        public final /* synthetic */ xcc e;
+        public final /* synthetic */ AtomicBoolean f;
+
+        /* loaded from: classes7.dex */
+        public class a extends qcc<Object> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d e;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public a(d dVar, qcc qccVar) {
+                super(qccVar);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar, qccVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super((qcc) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.e = dVar;
+            }
+
+            @Override // com.baidu.tieba.qcc
+            public void f(mcc mccVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, mccVar) == null) {
+                    mccVar.request(Long.MAX_VALUE);
+                }
+            }
+
+            @Override // com.baidu.tieba.lcc
+            public void onError(Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                    this.e.b.onError(th);
+                }
+            }
+
+            @Override // com.baidu.tieba.lcc
+            public void onCompleted() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.e.b.onCompleted();
+                }
+            }
+
+            @Override // com.baidu.tieba.lcc
+            public void onNext(Object obj) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.e.b.isUnsubscribed()) {
+                    if (this.e.c.get() > 0) {
+                        d dVar = this.e;
+                        dVar.d.b(dVar.e);
+                        return;
+                    }
+                    this.e.f.compareAndSet(false, true);
+                }
+            }
+        }
+
+        public d(odc odcVar, kcc kccVar, qcc qccVar, AtomicLong atomicLong, ncc.a aVar, xcc xccVar, AtomicBoolean atomicBoolean) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {odcVar, kccVar, qccVar, atomicLong, aVar, xccVar, atomicBoolean};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kccVar;
+            this.b = qccVar;
+            this.c = atomicLong;
+            this.d = aVar;
+            this.e = xccVar;
+            this.f = atomicBoolean;
+        }
+
+        @Override // com.baidu.tieba.xcc
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.O(new a(this, this.b));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements mcc {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicLong a;
+        public final /* synthetic */ kec b;
+        public final /* synthetic */ AtomicBoolean c;
+        public final /* synthetic */ ncc.a d;
+        public final /* synthetic */ xcc e;
+
+        public e(odc odcVar, AtomicLong atomicLong, kec kecVar, AtomicBoolean atomicBoolean, ncc.a aVar, xcc xccVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {odcVar, atomicLong, kecVar, atomicBoolean, aVar, xccVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = atomicLong;
+            this.b = kecVar;
+            this.c = atomicBoolean;
+            this.d = aVar;
+            this.e = xccVar;
+        }
+
+        @Override // com.baidu.tieba.mcc
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j > 0) {
+                hdc.b(this.a, j);
+                this.b.request(j);
+                if (this.c.compareAndSet(true, false)) {
+                    this.d.b(this.e);
+                }
+            }
+        }
     }
 
     static {
@@ -48,455 +486,69 @@ public final class odc<T> implements Queue<T> {
                 return;
             }
         }
-        i = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-        j = new Object();
+        f = new a();
     }
 
-    @Override // java.util.Queue
-    public T poll() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.g;
-            long d = d();
-            int i2 = this.f;
-            int c = c(d, i2);
-            T t = (T) g(atomicReferenceArray, c);
-            if (t == j) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (t != null && !z) {
-                o(atomicReferenceArray, c, null);
-                n(d + 1);
-                return t;
-            } else if (!z) {
-                return null;
-            } else {
-                return k(h(atomicReferenceArray), d, i2);
-            }
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public odc(int i2) {
+    public odc(kcc<T> kccVar, ddc<? super kcc<? extends Notification<?>>, ? extends kcc<?>> ddcVar, boolean z, boolean z2, ncc nccVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {kccVar, ddcVar, Boolean.valueOf(z), Boolean.valueOf(z2), nccVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        int b = zdc.b(i2);
-        int i5 = b - 1;
-        AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(b + 1);
-        this.e = atomicReferenceArray;
-        this.d = i5;
-        a(b);
-        this.g = atomicReferenceArray;
-        this.f = i5;
-        this.c = i5 - 1;
-        this.a = new AtomicLong();
-        this.h = new AtomicLong();
+        this.a = kccVar;
+        this.b = ddcVar;
+        this.c = z;
+        this.d = z2;
+        this.e = nccVar;
     }
 
-    @Override // java.util.Queue
-    public boolean offer(T t) {
+    public static <T> kcc<T> a(kcc<T> kccVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, t)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.e;
-            long e = e();
-            int i2 = this.d;
-            int c = c(e, i2);
-            if (e < this.c) {
-                return r(atomicReferenceArray, t, e, c);
-            }
-            long j2 = this.b + e;
-            if (g(atomicReferenceArray, c(j2, i2)) == null) {
-                this.c = j2 - 1;
-                return r(atomicReferenceArray, t, e, c);
-            } else if (g(atomicReferenceArray, c(1 + e, i2)) == null) {
-                return r(atomicReferenceArray, t, e, c);
-            } else {
-                m(atomicReferenceArray, e, c, t, i2);
-                return true;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kccVar)) == null) {
+            return b(kccVar, f);
         }
-        return invokeL.booleanValue;
+        return (kcc) invokeL.objValue;
     }
 
-    public static int c(long j2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            int i3 = ((int) j2) & i2;
-            b(i3);
-            return i3;
-        }
-        return invokeCommon.intValue;
+    @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((qcc) ((qcc) obj));
     }
 
-    public static <E> Object g(AtomicReferenceArray<Object> atomicReferenceArray, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReferenceArray, i2)) == null) {
-            return atomicReferenceArray.get(i2);
-        }
-        return invokeLI.objValue;
-    }
-
-    public final void p(AtomicReferenceArray<Object> atomicReferenceArray, AtomicReferenceArray<Object> atomicReferenceArray2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, atomicReferenceArray, atomicReferenceArray2) == null) {
-            int length = atomicReferenceArray.length() - 1;
-            b(length);
-            o(atomicReferenceArray, length, atomicReferenceArray2);
-        }
-    }
-
-    public static void o(AtomicReferenceArray<Object> atomicReferenceArray, int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65541, null, atomicReferenceArray, i2, obj) == null) {
-            atomicReferenceArray.lazySet(i2, obj);
-        }
-    }
-
-    public final void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.b = Math.min(i2 / 4, i);
-        }
-    }
-
-    @Override // java.util.Queue, java.util.Collection
-    public boolean add(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean addAll(Collection<? extends T> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean contains(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean containsAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final AtomicReferenceArray<Object> h(AtomicReferenceArray<Object> atomicReferenceArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, atomicReferenceArray)) == null) {
-            int length = atomicReferenceArray.length() - 1;
-            b(length);
-            return (AtomicReferenceArray) g(atomicReferenceArray, length);
-        }
-        return (AtomicReferenceArray) invokeL.objValue;
-    }
-
-    public final void n(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.h.lazySet(j2);
-        }
-    }
-
-    public final void q(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.a.lazySet(j2);
-        }
-    }
-
-    @Override // java.util.Collection
-    public boolean remove(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, obj)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean removeAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean retainAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public <E> E[] toArray(E[] eArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, eArr)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (E[]) ((Object[]) invokeL.objValue);
-    }
-
-    @Override // java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
-            }
-        }
-    }
-
-    public final long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h.get();
-        }
-        return invokeV.longValue;
-    }
-
-    public final long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.util.Queue
-    public T element() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.h.get();
-        }
-        return invokeV.longValue;
-    }
-
-    public final long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (i() == f()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.Collection, java.lang.Iterable
-    public Iterator<T> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public T peek() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.g;
-            long d = d();
-            int i2 = this.f;
-            T t = (T) g(atomicReferenceArray, c(d, i2));
-            if (t == j) {
-                return j(h(atomicReferenceArray), d, i2);
-            }
-            return t;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public T remove() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // java.util.Collection
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            long f = f();
-            while (true) {
-                long i2 = i();
-                long f2 = f();
-                if (f == f2) {
-                    return (int) (i2 - f2);
-                }
-                f = f2;
-            }
-        } else {
-            return invokeV.intValue;
-        }
-    }
-
-    @Override // java.util.Collection
-    public Object[] toArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Object[]) invokeV.objValue;
-    }
-
-    public final T j(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            this.g = atomicReferenceArray;
-            return (T) g(atomicReferenceArray, c(j2, i2));
-        }
-        return (T) invokeCommon.objValue;
-    }
-
-    public final T k(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            this.g = atomicReferenceArray;
-            int c = c(j2, i2);
-            T t = (T) g(atomicReferenceArray, c);
-            if (t == null) {
-                return null;
-            }
-            o(atomicReferenceArray, c, null);
-            n(j2 + 1);
-            return t;
-        }
-        return (T) invokeCommon.objValue;
-    }
-
-    public boolean l(T t, T t2) {
+    public static <T> kcc<T> b(kcc<T> kccVar, ddc<? super kcc<? extends Notification<?>>, ? extends kcc<?>> ddcVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, t, t2)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.e;
-            long i2 = i();
-            int i3 = this.d;
-            long j2 = 2 + i2;
-            if (g(atomicReferenceArray, c(j2, i3)) == null) {
-                int c = c(i2, i3);
-                o(atomicReferenceArray, c + 1, t2);
-                o(atomicReferenceArray, c, t);
-                q(j2);
-                return true;
-            }
-            AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-            this.e = atomicReferenceArray2;
-            int c2 = c(i2, i3);
-            o(atomicReferenceArray2, c2 + 1, t2);
-            o(atomicReferenceArray2, c2, t);
-            p(atomicReferenceArray, atomicReferenceArray2);
-            o(atomicReferenceArray, c2, j);
-            q(j2);
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, kccVar, ddcVar)) == null) {
+            return kcc.d(new odc(kccVar, ddcVar, true, false, Schedulers.trampoline()));
         }
-        return invokeLL.booleanValue;
+        return (kcc) invokeLL.objValue;
     }
 
-    public final void m(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2, T t, long j3) {
+    public void call(qcc<? super T> qccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2), t, Long.valueOf(j3)}) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-            this.e = atomicReferenceArray2;
-            this.c = (j3 + j2) - 1;
-            o(atomicReferenceArray2, i2, t);
-            p(atomicReferenceArray, atomicReferenceArray2);
-            o(atomicReferenceArray, i2, j);
-            q(j2 + 1);
+        if (interceptable == null || interceptable.invokeL(1048576, this, qccVar) == null) {
+            AtomicBoolean atomicBoolean = new AtomicBoolean(true);
+            AtomicLong atomicLong = new AtomicLong();
+            ncc.a createWorker = this.e.createWorker();
+            qccVar.b(createWorker);
+            nhc nhcVar = new nhc();
+            qccVar.b(nhcVar);
+            ihc<T, T> P = ghc.Q().P();
+            P.F(vgc.a());
+            kec kecVar = new kec();
+            b bVar = new b(this, qccVar, P, kecVar, atomicLong, nhcVar);
+            createWorker.b(new d(this, this.b.call(P.o(new c(this))), qccVar, atomicLong, createWorker, bVar, atomicBoolean));
+            qccVar.f(new e(this, atomicLong, kecVar, atomicBoolean, createWorker, bVar));
         }
-    }
-
-    public final boolean r(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{atomicReferenceArray, t, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            o(atomicReferenceArray, i2, t);
-            q(j2 + 1);
-            return true;
-        }
-        return invokeCommon.booleanValue;
     }
 }

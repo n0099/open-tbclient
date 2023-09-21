@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class yy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class yy4 {
     public final View b;
     public final ThreadAchievementShareInfo.ParamBean c;
     public TbRichTextView d;
-    public z16 e;
+    public a26 e;
     public TbImageView f;
     public TextView g;
     public TextView h;
@@ -136,9 +136,9 @@ public class yy4 {
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            z16 z16Var = new z16();
-            this.e = z16Var;
-            z16Var.u(BdUtilHelper.getDimens(this.a, R.dimen.tbds38));
+            a26 a26Var = new a26();
+            this.e = a26Var;
+            a26Var.u(BdUtilHelper.getDimens(this.a, R.dimen.tbds38));
             this.e.x(BdUtilHelper.getDimens(this.a, R.dimen.tbds42));
             this.e.k(BdUtilHelper.getDimens(this.a, R.dimen.tbds23));
             this.e.p(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);

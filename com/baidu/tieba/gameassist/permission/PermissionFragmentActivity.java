@@ -15,8 +15,8 @@ import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gz7;
-import com.baidu.tieba.t71;
+import com.baidu.tieba.iz7;
+import com.baidu.tieba.s71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -216,13 +216,13 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
             String stringExtra = intent.getStringExtra("request");
             this.c = intent.getStringArrayExtra("permissions");
             int intExtra = intent.getIntExtra(WebChromeClient.KEY_ARG_CALLBACK, 0);
-            this.a = (PermissionService.IGrantCallback) gz7.a.get(Integer.valueOf(intExtra));
-            gz7.a.remove(Integer.valueOf(intExtra));
+            this.a = (PermissionService.IGrantCallback) iz7.a.get(Integer.valueOf(intExtra));
+            iz7.a.remove(Integer.valueOf(intExtra));
             if (stringExtra != null) {
                 if (stringExtra.equals("requestFloatPermission")) {
-                    t1();
+                    p1();
                 } else if (stringExtra.equals("requestPermissions")) {
-                    v1();
+                    r1();
                 }
             }
         }
@@ -261,7 +261,7 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
         }
     }
 
-    public void t1() {
+    public void p1() {
         PermissionService.IGrantCallback iGrantCallback;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (iGrantCallback = this.a) == null) {
@@ -297,14 +297,14 @@ public class PermissionFragmentActivity extends BaseFragmentActivity {
         finish();
     }
 
-    public void v1() {
+    public void r1() {
         String[] strArr;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.c != null) {
             this.b.clear();
             if (Build.VERSION.SDK_INT >= 23) {
                 for (String str : this.c) {
-                    if (t71.a(this, str) != 0) {
+                    if (s71.a(this, str) != 0) {
                         this.b.add(str);
                     }
                 }

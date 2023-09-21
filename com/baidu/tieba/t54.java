@@ -1,26 +1,33 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class t54 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int c() {
-        InterceptResult invokeV;
+    public static int b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 102400;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z && z2) {
+                return 3;
+            }
+            if (z) {
+                return 1;
+            }
+            return z2 ? 2 : 0;
         }
-        return invokeV.intValue;
+        return invokeCommon.intValue;
     }
 
     static {
@@ -36,45 +43,43 @@ public class t54 {
                 return;
             }
         }
-        a = rr1.a;
-        b = -1;
+        a = qr1.a;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    @NonNull
+    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b < 0) {
-                ou2.g0().getSwitch("minigame_code_cache_max_count", 20);
-                b = 20;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
+            codeCacheSetting.id = str;
+            ArrayList<String> arrayList = new ArrayList<>();
+            codeCacheSetting.pathList = arrayList;
+            arrayList.add(str2);
+            if (str.hashCode() == -1253235525 && str.equals("gamejs")) {
+                c = 0;
+            } else {
+                c = 65535;
             }
-            return b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b() * 6 * 1048576;
-        }
-        return invokeV.longValue;
-    }
-
-    public static s54 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            s54 s54Var = new s54();
-            s54Var.a = b();
-            s54Var.b = c();
-            s54Var.c = d();
+            if (c != 0) {
+                codeCacheSetting.maxCount = 20;
+                codeCacheSetting.sizeLimit = 102400;
+            } else {
+                r54 a2 = s54.a();
+                codeCacheSetting.maxCount = a2.a;
+                codeCacheSetting.sizeLimit = a2.b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = a2.c;
+            }
             if (a) {
-                Log.d("GameCodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + s54Var.a + " ,sizeLimit: " + s54Var.b);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting diskCodeCacheSizeThreshold: " + codeCacheSetting.diskCodeCacheSizeThreshold);
             }
-            return s54Var;
+            return codeCacheSetting;
         }
-        return (s54) invokeV.objValue;
+        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
     }
 }

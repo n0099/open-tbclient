@@ -1,122 +1,115 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
+import android.content.Context;
+import android.util.SparseIntArray;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.GameLaunchMessage;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class do9 {
+public abstract class do9<T, V extends TypeAdapter.ViewHolder> extends om<T, V> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile do9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ot9 a;
+    public PbFragment b;
+    public AbsVideoPbFragment c;
+    public int d;
+    public boolean e;
+    public SparseIntArray f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947711419, "Lcom/baidu/tieba/do9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947711419, "Lcom/baidu/tieba/do9;");
-        }
-    }
-
-    public do9() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public do9(ot9 ot9Var, BdUniqueId bdUniqueId) {
+        super(r0, bdUniqueId);
+        AbsPbActivity m0;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ot9Var, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static do9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (do9.class) {
-                    if (a == null) {
-                        a = new do9();
-                    }
-                }
-            }
-            return a;
-        }
-        return (do9) invokeV.objValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str != null && str.contains("bookcover:")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return str.contains("xiaoying.tv");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean b(String str) {
-        InterceptResult invokeL;
-        Map<String, String> paramPair;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (paramPair = UrlManager.getParamPair(UrlManager.getParamStr(str))) == null) {
-                return false;
-            }
-            String str2 = paramPair.get("url");
-            if (!TextUtils.isEmpty(str2)) {
-                return b(ei.getUrlDecode(str2));
-            }
-            return "1".equals(paramPair.get("tbgametype"));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(TbPageContext tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) != null) || tbPageContext == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (b(str)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-        } else if (d(str)) {
-            UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{str}, true);
+        if (ot9Var == null) {
+            m0 = null;
         } else {
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+            m0 = ot9Var.m0();
+        }
+        this.d = 3;
+        this.e = false;
+        this.f = new SparseIntArray();
+        t(ot9Var);
+    }
+
+    @Override // com.baidu.tieba.om
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            this.d = TbadkCoreApplication.getInst().getSkinType();
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public int s(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = this.f.get(i, -1);
+            if (i2 != -1) {
+                return i2;
+            }
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
+            this.f.put(i, dimensionPixelSize);
+            return dimensionPixelSize;
+        }
+        return invokeI.intValue;
+    }
+
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void t(ot9 ot9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ot9Var) == null) && ot9Var != null) {
+            this.a = ot9Var;
+            this.b = ot9Var.S1();
+            AbsVideoPbFragment b0 = ot9Var.b0();
+            this.c = b0;
+            PbFragment pbFragment = this.b;
+            if (pbFragment != null) {
+                this.mContext = pbFragment.getActivity();
+            } else if (b0 != null) {
+                this.mContext = b0.getActivity();
+            } else {
+                this.mContext = null;
+            }
         }
     }
 }

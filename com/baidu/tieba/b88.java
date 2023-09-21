@@ -1,192 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.module.frs.FrsService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.GodInfo;
-import tbclient.Personalized.DataRes;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import tbclient.PeiwanInfo;
 /* loaded from: classes5.dex */
 public class b88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a extends xx5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ k58 c;
-
-        public a(String str, boolean z, k58 k58Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), k58Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = z;
-            this.c = k58Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.xx5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            int i;
-            int i2;
-            int intValue;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    x45.k();
-                    oe<byte[]> j = x45.j("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
-                    if (j == null) {
-                        return Boolean.FALSE;
-                    }
-                    byte[] bArr = j.get("0");
-                    if (bArr != null && bArr.length != 0) {
-                        DataRes.Builder builder = new DataRes.Builder((DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class));
-                        if (builder.thread_list != null && builder.thread_list.size() > 0) {
-                            for (int i3 = 0; i3 < builder.thread_list.size(); i3++) {
-                                ThreadInfo threadInfo = builder.thread_list.get(i3);
-                                if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == JavaTypesHelper.toLong(this.a, -1L)) {
-                                    ThreadInfo.Builder builder2 = new ThreadInfo.Builder(threadInfo);
-                                    User.Builder builder3 = new User.Builder(builder2.author);
-                                    if (this.b) {
-                                        i = 1;
-                                    } else {
-                                        i = 0;
-                                    }
-                                    builder3.is_like = Integer.valueOf(i);
-                                    if (this.b) {
-                                        i2 = 1;
-                                    } else {
-                                        i2 = 0;
-                                    }
-                                    builder3.has_concerned = Integer.valueOf(i2);
-                                    GodInfo.Builder builder4 = new GodInfo.Builder(builder3.god_data);
-                                    if (this.b) {
-                                        intValue = builder3.fans_num.intValue() + 1;
-                                        builder4.followed = 1;
-                                    } else {
-                                        intValue = builder3.fans_num.intValue() - 1;
-                                        builder4.followed = 0;
-                                    }
-                                    builder3.fans_num = Integer.valueOf(intValue);
-                                    builder3.god_data = builder4.build(true);
-                                    builder2.author = builder3.build(true);
-                                    builder.thread_list.set(i3, builder2.build(true));
-                                }
-                            }
-                            DataRes.Builder builder5 = new DataRes.Builder(builder.build(true));
-                            if (this.c != null) {
-                                this.c.g(builder5.thread_list);
-                            }
-                            j.g("0", builder5.build(true).toByteArray());
-                            return Boolean.TRUE;
-                        }
-                        return Boolean.FALSE;
-                    }
-                    return Boolean.FALSE;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return Boolean.FALSE;
-                }
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements cx5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cx5
-        /* renamed from: a */
-        public void onReturnDataInUI(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public static void a(UpdateAttentionMessage updateAttentionMessage, k58 k58Var) {
+    public static void a(ThreadData threadData) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, updateAttentionMessage, k58Var) == null) && updateAttentionMessage != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-            by5.b(new a(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention, k58Var), new b());
+        if ((interceptable == null || interceptable.invokeL(65536, null, threadData) == null) && threadData != null && threadData.getPeiwanInfo() != null) {
+            PeiwanInfo peiwanInfo = threadData.getPeiwanInfo();
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_CLICK);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_locate", String.valueOf(threadData.floorPosition));
+            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, peiwanInfo.room_id.longValue());
+            if (threadData.isFromNet) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            statisticItem.addParam("obj_param1", str);
+            statisticItem.eventStat();
         }
     }
 
-    public static void b(DataRes.Builder builder, UpdateAttentionMessage updateAttentionMessage, k58 k58Var) {
-        User user;
-        int intValue;
+    public static boolean b(TbPageContext<?> tbPageContext, bn bnVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, builder, updateAttentionMessage, k58Var) == null) && builder != null && updateAttentionMessage != null) {
-            int i = 0;
-            while (true) {
-                if (i >= builder.thread_list.size()) {
-                    break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, bnVar)) == null) {
+            if (bnVar instanceof aq6) {
+                aq6 aq6Var = (aq6) bnVar;
+                ThreadData threadData = aq6Var.a;
+                if (threadData != null && threadData.getVoiceRoomData() != null && !StringUtils.isNull(aq6Var.a.getVoiceRoomData().room_name) && aq6Var.a.getVoiceRoomData().room_id.longValue() > 0) {
+                    ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).navToVoiceRoom(tbPageContext, aq6Var.a.getVoiceRoomData().room_id.longValue());
+                    return true;
                 }
-                ThreadInfo threadInfo = builder.thread_list.get(i);
-                if (threadInfo != null && (user = threadInfo.author) != null && user.id.longValue() == JavaTypesHelper.toLong(updateAttentionMessage.getData().toUid, -1L)) {
-                    ThreadInfo.Builder builder2 = new ThreadInfo.Builder(threadInfo);
-                    User.Builder builder3 = new User.Builder(builder2.author);
-                    builder3.is_like = Integer.valueOf(updateAttentionMessage.getData().isAttention ? 1 : 0);
-                    builder3.has_concerned = Integer.valueOf(updateAttentionMessage.getData().isAttention ? 1 : 0);
-                    GodInfo.Builder builder4 = new GodInfo.Builder(builder3.god_data);
-                    if (updateAttentionMessage.getData().isAttention) {
-                        intValue = builder3.fans_num.intValue() + 1;
-                        builder4.followed = 1;
-                    } else {
-                        builder4.followed = 0;
-                        intValue = builder3.fans_num.intValue() - 1;
-                    }
-                    builder3.fans_num = Integer.valueOf(intValue);
-                    builder3.god_data = builder4.build(true);
-                    builder2.author = builder3.build(true);
-                    builder.thread_list.set(i, builder2.build(true));
-                } else {
-                    i++;
+                ThreadData threadData2 = aq6Var.a;
+                if (threadData2 != null && threadData2.getPeiwanInfo() != null && !StringUtils.isNull(aq6Var.a.getPeiwanInfo().scheme)) {
+                    UrlManager.getInstance().dealOneLink(aq6Var.a.getPeiwanInfo().scheme);
+                    a(aq6Var.a);
+                    return true;
                 }
+                return false;
             }
-            a(updateAttentionMessage, k58Var);
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 }

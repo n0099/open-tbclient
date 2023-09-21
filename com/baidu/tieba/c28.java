@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,317 +17,185 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-import tbclient.ClickBackCard;
-import tbclient.ClickBackCardItem;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.HotCard;
+import tbclient.ThemeColorInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public final class c28 extends cq6 {
+public class c28 extends b15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a U0;
     public transient /* synthetic */ FieldHolder $fh;
-    public String S0;
-    public List<b> T0;
+    public String a;
+    public ThemeColorInfo b;
+    public ThemeColorInfo c;
+    public String d;
+    public String e;
+    public List<ThreadData> f;
+    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622976, "Lcom/baidu/tieba/c28;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947622976, "Lcom/baidu/tieba/c28;");
-                return;
-            }
-        }
-        U0 = new a(null);
-    }
-
-    @JvmStatic
-    public static final boolean X(c28 c28Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.b15
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c28Var)) == null) ? U0.b(c28Var) : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final boolean Z(c28 c28Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.b15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, c28Var)) == null) ? U0.c(c28Var) : invokeL.booleanValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                int i = SharedPrefHelper.getInstance().getInt("key_recom_topic_card_show_times", 0);
-                int i2 = SharedPrefHelper.getInstance().getInt("key_recom_topic_card_curr_show_times", 0);
-                long currentTimeMillis = System.currentTimeMillis();
-                long j = SharedPrefHelper.getInstance().getLong("key_recom_topic_card_last_show_time", 0L);
-                String tidString = SharedPrefHelper.getInstance().getString("key_recom_topic_card_curr_tid_builder", "");
-                StringBuilder sb = new StringBuilder(tidString);
-                if (StringHelper.isTaday(j) && i2 < i) {
-                    Intrinsics.checkNotNullExpressionValue(tidString, "tidString");
-                    if (!StringsKt__StringsKt.contains$default((CharSequence) tidString, (CharSequence) str, false, 2, (Object) null)) {
-                        SharedPrefHelper.getInstance().putInt("key_recom_topic_card_curr_show_times", i2 + 1);
-                        SharedPrefHelper.getInstance().putLong("key_recom_topic_card_last_show_time", currentTimeMillis);
-                        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                        sb.append(str);
-                        sharedPrefHelper.putString("key_recom_topic_card_curr_tid_builder", sb.toString());
-                        return true;
-                    }
-                }
-                if (StringHelper.isTaday(j) || i <= 0) {
-                    return false;
-                }
-                SharedPrefHelper.getInstance().putInt("key_recom_topic_card_curr_show_times", 1);
-                SharedPrefHelper.getInstance().putLong("key_recom_topic_card_last_show_time", currentTimeMillis);
-                SharedPrefHelper.getInstance().putString("key_recom_topic_card_curr_tid_builder", str);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final boolean b(c28 c28Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c28Var)) == null) {
-                if (c28Var != null && !StringUtils.isNull(c28Var.W()) && c28Var.V() != null && !c28Var.V().isEmpty()) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final boolean c(c28 c28Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c28Var)) == null) {
-                if (TbadkCoreApplication.isLogin() && c28Var != null && ListUtils.isNotEmpty(c28Var.V())) {
-                    String str = c28Var.g;
-                    Intrinsics.checkNotNullExpressionValue(str, "data.tid");
-                    if (a(str)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b implements cn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public long c;
-        public String d;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.c;
-            }
-            return invokeV.longValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.cn
-        public BdUniqueId getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                BdUniqueId TYPE_RECOMMEND_TOPIC_CARD = cq6.C0;
-                Intrinsics.checkNotNullExpressionValue(TYPE_RECOMMEND_TOPIC_CARD, "TYPE_RECOMMEND_TOPIC_CARD");
-                return TYPE_RECOMMEND_TOPIC_CARD;
-            }
-            return (BdUniqueId) invokeV.objValue;
-        }
-
-        public final void e(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-                this.c = j;
-            }
-        }
-
-        public final void f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                this.d = str;
-            }
-        }
-
-        public final void g(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.b = str;
-            }
-        }
-
-        public final void h(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.a = str;
-            }
-        }
+        return (ThreadData) invokeV.objValue;
     }
 
     public c28() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.T0 = new ArrayList();
+        this.f = new ArrayList();
     }
 
-    public final List<b> V() {
+    public ThemeColorInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.T0;
+            return this.b;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ThemeColorInfo g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
+    }
+
+    public List<ThreadData> getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
         }
         return (List) invokeV.objValue;
     }
 
-    public final String W() {
+    public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.S0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String getTid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cq6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BdUniqueId TYPE_RECOMMEND_TOPIC_CARD = cq6.C0;
-            Intrinsics.checkNotNullExpressionValue(TYPE_RECOMMEND_TOPIC_CARD, "TYPE_RECOMMEND_TOPIC_CARD");
-            return TYPE_RECOMMEND_TOPIC_CARD;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return iq6.B0;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void Y(ClickBackCard clickBackCard) {
+    public static boolean h(List<ThreadInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, clickBackCard) != null) || clickBackCard == null) {
-            return;
-        }
-        this.S0 = clickBackCard.card_name;
-        this.T0.clear();
-        List<ClickBackCardItem> list = clickBackCard.card_list;
-        if (ListUtils.isNotEmpty(list)) {
-            for (ClickBackCardItem clickBackCardItem : list) {
-                b bVar = new b();
-                bVar.h(clickBackCardItem.text);
-                bVar.g(clickBackCardItem.jump_url);
-                Long l = clickBackCardItem.business_id;
-                Intrinsics.checkNotNullExpressionValue(l, "item.business_id");
-                bVar.e(l.longValue());
-                bVar.f(clickBackCardItem.business_type);
-                this.T0.add(bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
             }
+            for (int i = 0; i < list.size(); i++) {
+                ThreadData threadData = new ThreadData();
+                threadData.setNeedCheckNTitle(false);
+                threadData.parserProtobuf(list.get(i));
+                if (TextUtils.isEmpty(threadData.getTitleText())) {
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.e("HotCard", "圈层热贴下发贴子title为空tid=" + threadData.getTid());
+                    return false;
+                }
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void setTid(String str) {
+    public void i(HotCard hotCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.g = str;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, hotCard) != null) || hotCard == null) {
+            return;
         }
+        this.f.clear();
+        if (ListUtils.isNotEmpty(hotCard.thread_list)) {
+            for (int i = 0; i < hotCard.thread_list.size(); i++) {
+                ThreadData threadData = new ThreadData();
+                threadData.setNeedCheckNTitle(false);
+                threadData.parserProtobuf(hotCard.thread_list.get(i));
+                this.f.add(threadData);
+            }
+        }
+        this.a = hotCard.card_title;
+        this.b = hotCard.card_background;
+        this.c = hotCard.post_color;
+        this.d = hotCard.jump_text;
+        this.e = hotCard.jump_link;
+        this.g = hotCard.card_offset.intValue();
+    }
+
+    public static boolean l(DataRes.Builder builder) {
+        InterceptResult invokeL;
+        HotCard hotCard;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, builder)) == null) {
+            if (TbadkCoreApplication.isLogin() && builder != null && (hotCard = builder.hot_card) != null && h(hotCard.thread_list)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

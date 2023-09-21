@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.gamecenter.appmanager.install.InstallPluginDelegateActivity;
+import com.baidu.down.manage.Download;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +15,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x24 extends ActivityDelegation {
+public class x24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Download a;
     public JSONObject b;
     public d c;
+    public z24 d;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -64,9 +64,9 @@ public class x24 extends ActivityDelegation {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g24.n().t(this.b);
-                g24.n().l(this.a);
-                g24.n().k();
+                f24.n().t(this.b);
+                f24.n().l(this.a);
+                f24.n().k();
             }
         }
     }
@@ -75,17 +75,16 @@ public class x24 extends ActivityDelegation {
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public JSONObject a;
+        public Download a;
         public JSONObject b;
-        public z24 c;
-        public Activity d;
+        public y24 c;
 
-        public c(@NonNull JSONObject jSONObject, JSONObject jSONObject2, @NonNull z24 z24Var, Activity activity) {
+        public c(@NonNull Download download, JSONObject jSONObject, @NonNull y24 y24Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, jSONObject2, z24Var, activity};
+                Object[] objArr = {download, jSONObject, y24Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -95,29 +94,28 @@ public class x24 extends ActivityDelegation {
                     return;
                 }
             }
-            this.a = jSONObject;
-            this.b = jSONObject2;
-            this.c = z24Var;
-            this.d = activity;
+            this.a = download;
+            this.b = jSONObject;
+            this.c = y24Var;
         }
 
-        public /* synthetic */ c(JSONObject jSONObject, JSONObject jSONObject2, z24 z24Var, Activity activity, a aVar) {
-            this(jSONObject, jSONObject2, z24Var, activity);
+        public /* synthetic */ c(Download download, JSONObject jSONObject, y24 y24Var, a aVar) {
+            this(download, jSONObject, y24Var);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g24.n().G(this.b);
-                i34.a(this.a.optString("packageName"), "installApp", null, null, new g34(this.b));
-                x24.f(this.d, this.a, this.c);
+                f24.n().G(this.b);
+                h34.a(this.a.getKeyByUser(), "installApp", null, null, new f34(this.b));
+                f24.n().r(AppRuntime.getAppContext(), this.a.getUrl(), this.a.getKeyByUser(), this.c);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class d implements z24 {
+    public class d implements y24 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -142,7 +140,7 @@ public class x24 extends ActivityDelegation {
             this.c = x24Var;
         }
 
-        @Override // com.baidu.tieba.z24
+        @Override // com.baidu.tieba.y24
         public void setFilePath(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -150,7 +148,7 @@ public class x24 extends ActivityDelegation {
             }
         }
 
-        @Override // com.baidu.tieba.z24
+        @Override // com.baidu.tieba.y24
         public void setPackageName(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -158,15 +156,15 @@ public class x24 extends ActivityDelegation {
             }
         }
 
-        @Override // com.baidu.tieba.a34
-        public void a(c34 c34Var) {
+        @Override // com.baidu.tieba.z24
+        public void a(b34 b34Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c34Var) == null) {
-                if (x24.d) {
-                    Log.d("InstallAppDelegation", "onResult mPackageName:" + this.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, b34Var) == null) {
+                if (x24.e) {
+                    Log.d("InstallAppLocal", "onResult mPackageName:" + this.a);
                 }
-                this.c.setResult(c34Var);
-                j24.d.execute(new b(this.b, this.a, null));
+                this.c.setResult(b34Var);
+                i24.d.execute(new b(this.b, this.a, null));
             }
         }
     }
@@ -184,13 +182,15 @@ public class x24 extends ActivityDelegation {
                 return;
             }
         }
-        d = rr1.a;
+        e = qr1.a;
     }
 
-    public x24() {
+    public x24(Download download, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -200,97 +200,34 @@ public class x24 extends ActivityDelegation {
                 return;
             }
         }
+        this.a = download;
+        this.b = jSONObject;
         this.c = new d(this);
     }
 
-    public final void g() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setResult(b34 b34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, b34Var) == null) {
+            z24 z24Var = this.d;
+            if (z24Var != null) {
+                z24Var.a(b34Var);
+            }
+            if (b34Var != null && !b34Var.d()) {
+                h34.a(this.a.getKeyByUser(), "installApp", "fail", String.valueOf(b34Var.c()), new f34(this.b));
+            }
             if (this.c != null) {
-                g24.n().B(this.a, this.c);
+                f24.n().B(this.a.getKeyByUser(), this.c);
                 this.c = null;
             }
-            this.c = null;
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onAgentDestroy() {
+    public void c(z24 z24Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (d) {
-                Log.d("InstallAppDelegation", "onAgentDestroy mPackageName:" + this.a);
-            }
-            g();
-        }
-    }
-
-    public static void f(Activity activity, @NonNull JSONObject jSONObject, @NonNull z24 z24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, activity, jSONObject, z24Var) == null) {
-            String optString = jSONObject.optString("url");
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString2 = jSONObject.optString("packageName");
-            if (g24.n().y(optString) == null && optBoolean) {
-                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                    y74.c().d(optString, optString2);
-                    return;
-                }
-                return;
-            }
-            g24.n().r(activity, optString, optString2, z24Var);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setResult(c34 c34Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, c34Var) == null) {
-            if (c34Var != null) {
-                this.mResult.putString("functionType", c34Var.a());
-                this.mResult.putString("resultData", c34Var.b());
-                this.mResult.putInt("resultStatus", c34Var.c());
-                if (!c34Var.d()) {
-                    i34.a(this.a, "installApp", "fail", String.valueOf(c34Var.c()), new g34(this.b));
-                }
-            }
-            g();
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (d) {
-                Log.d("InstallAppDelegation", "onExec mParams" + this.mParams);
-            }
-            this.b = ho3.d(this.mParams.getString("ubc_params", ""));
-            JSONObject d2 = ho3.d(this.mParams.getString("data", ""));
-            String optString = d2.optString("packageName");
-            this.a = optString;
-            this.mResult.putString("packageName", optString);
-            j24.d.execute(new c(d2, this.b, this.c, getAgent(), null));
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onSelfFinish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (d) {
-                Log.d("InstallAppDelegation", "onSelfFinish mPackageName:" + this.a);
-            }
-            int i = 31003;
-            if (getAgent() instanceof InstallPluginDelegateActivity) {
-                i = ((InstallPluginDelegateActivity) getAgent()).a();
-            }
-            i34.a(this.a, "installApp", "fail", String.valueOf(i), new g34(this.b));
-            g();
+        if (interceptable == null || interceptable.invokeL(1048576, this, z24Var) == null) {
+            this.d = z24Var;
+            i24.d.execute(new c(this.a, this.b, this.c, null));
         }
     }
 }

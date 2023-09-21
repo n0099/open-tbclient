@@ -1,7 +1,7 @@
 package com.huawei.hms.opendevice;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xyb;
+import com.baidu.tieba.p0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,11 +64,11 @@ public class OpenDeviceTaskApiCall extends TaskApiCall<OpenDeviceHmsClient, Odid
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
-    public void doExecute(OpenDeviceHmsClient openDeviceHmsClient, ResponseErrorCode responseErrorCode, String str, xyb<OdidResult> xybVar) {
+    public void doExecute(OpenDeviceHmsClient openDeviceHmsClient, ResponseErrorCode responseErrorCode, String str, p0c<OdidResult> p0cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, openDeviceHmsClient, responseErrorCode, str, xybVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, openDeviceHmsClient, responseErrorCode, str, p0cVar) == null) {
             if (responseErrorCode == null) {
-                xybVar.c(new ApiException(new Status(1)));
+                p0cVar.c(new ApiException(new Status(1)));
                 return;
             }
             HiAnalyticsClient.reportExit(openDeviceHmsClient.getContext(), getUri(), getTransactionId(), responseErrorCode.getStatusCode(), responseErrorCode.getErrorCode(), 60300305);
@@ -79,11 +79,11 @@ public class OpenDeviceTaskApiCall extends TaskApiCall<OpenDeviceHmsClient, Odid
                 OdidResult odidResult = new OdidResult();
                 odidResult.setId(odidResp.getId());
                 odidResult.setStatus(new Status(0));
-                xybVar.setResult(odidResult);
+                p0cVar.setResult(odidResult);
                 return;
             }
             HMSLog.i("OpenDeviceTaskApiCall", "onResult, returnCode: " + responseErrorCode.getErrorCode());
-            xybVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+            p0cVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
         }
     }
 }

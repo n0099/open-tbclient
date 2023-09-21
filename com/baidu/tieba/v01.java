@@ -1,146 +1,177 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class v01 {
+public final class v01 extends w01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<Object> a;
+    public final String b;
+    public final Boolean c;
+    public final String d;
+    public final String e;
+    public final String f;
 
-    public static final void a(a11 mpdModel, JSONArray clarityUrlList) {
-        ArrayList<w01> a;
-        int i;
-        boolean z;
-        w01 w01Var;
-        ArrayList<Object> d;
-        boolean e;
-        ArrayList<w01> a2;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, mpdModel, clarityUrlList) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(clarityUrlList, "clarityUrlList");
-            b11 b = mpdModel.b();
-            if (b != null && (a = b.a()) != null) {
-                b11 b2 = mpdModel.b();
-                if (b2 != null && (a2 = b2.a()) != null) {
-                    i = a2.size();
-                } else {
-                    i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof v01) {
+                    v01 v01Var = (v01) obj;
+                    return Intrinsics.areEqual(this.a, v01Var.a) && Intrinsics.areEqual(this.b, v01Var.b) && Intrinsics.areEqual(b(), v01Var.b()) && Intrinsics.areEqual(c(), v01Var.c()) && Intrinsics.areEqual(e(), v01Var.e()) && Intrinsics.areEqual(a(), v01Var.a());
                 }
-                if (i > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    a = null;
-                }
-                if (a != null && (w01Var = a.get(0)) != null && (d = w01Var.d()) != null) {
-                    int size = d.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        JSONObject jSONObject = new JSONObject();
-                        Object obj = d.get(i2);
-                        if (!(obj instanceof c11)) {
-                            obj = null;
-                        }
-                        c11 c11Var = (c11) obj;
-                        if (c11Var != null) {
-                            jSONObject.put("key", c11Var.g());
-                            jSONObject.put(MultiRatePlayUrlHelper.RANK, c11Var.j());
-                            jSONObject.put("title", c11Var.k());
-                            jSONObject.put("url", c11Var.l());
-                            jSONObject.put("width", c11Var.m());
-                            jSONObject.put("height", c11Var.f());
-                            jSONObject.put("download_url", c11Var.d());
-                            jSONObject.put("airPlay_url", c21.a(new String[]{c11Var.a(), c11Var.d(), c11Var.l()}));
-                            jSONObject.put("videoBps", c11Var.b());
-                            jSONObject.put("vodMoovSize", c11Var.h());
-                            jSONObject.put("video_clarity_score", c11Var.c());
-                            jSONObject.put("prefetch_size", c11Var.i());
-                            Boolean b3 = w01Var.b();
-                            if (b3 != null) {
-                                e = b3.booleanValue();
-                            } else {
-                                e = c11Var.e();
-                            }
-                            jSONObject.put("gopAlign", e);
-                            clarityUrlList.put(jSONObject);
-                        }
-                    }
-                }
+                return false;
             }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList<Object> arrayList = this.a;
+            int hashCode = (arrayList != null ? arrayList.hashCode() : 0) * 31;
+            String str = this.b;
+            int hashCode2 = (hashCode + (str != null ? str.hashCode() : 0)) * 31;
+            Boolean b = b();
+            int hashCode3 = (hashCode2 + (b != null ? b.hashCode() : 0)) * 31;
+            String c = c();
+            int hashCode4 = (hashCode3 + (c != null ? c.hashCode() : 0)) * 31;
+            String e = e();
+            int hashCode5 = (hashCode4 + (e != null ? e.hashCode() : 0)) * 31;
+            String a = a();
+            return hashCode5 + (a != null ? a.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "AdaptationSet(representationList=" + this.a + ", type=" + this.b + ", frmAlign=" + b() + ", pre=" + c() + ", suf=" + e() + ", codecs=" + a() + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v01(ArrayList<Object> arrayList, String str, Boolean bool, String str2, String str3, String str4) {
+        super(bool, str2, str3, str4);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList, str, bool, str2, str3, str4};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Boolean) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = arrayList;
+        this.b = str;
+        this.c = bool;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ v01(ArrayList arrayList, String str, Boolean bool, String str2, String str3, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(arrayList, str, r3, r4, r5, r6);
+        String str5;
+        String str6;
+        String str7;
+        Boolean bool2 = (i & 4) != 0 ? null : bool;
+        if ((i & 8) != 0) {
+            str5 = "";
+        } else {
+            str5 = str2;
+        }
+        if ((i & 16) != 0) {
+            str6 = "";
+        } else {
+            str6 = str3;
+        }
+        if ((i & 32) != 0) {
+            str7 = "";
+        } else {
+            str7 = str4;
         }
     }
 
-    public static final void b(a11 mpdModel, JSONObject mpdJson) {
-        JSONArray optJSONArray;
-        JSONArray jSONArray;
-        int i;
-        JSONArray optJSONArray2;
-        Boolean bool;
-        JSONArray jSONArray2;
-        int i2;
-        JSONArray jSONArray3;
-        int i3;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, mpdModel, mpdJson) == null) {
-            Intrinsics.checkNotNullParameter(mpdModel, "mpdModel");
-            Intrinsics.checkNotNullParameter(mpdJson, "mpdJson");
-            JSONObject optJSONObject = mpdJson.optJSONObject("video");
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("adaptation_set")) != null) {
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                int i4 = 0;
-                while (i4 < length) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i4);
-                    if (optJSONObject2 != null && (optJSONArray2 = optJSONObject2.optJSONArray("representation_list")) != null) {
-                        ArrayList arrayList2 = new ArrayList();
-                        int length2 = optJSONArray2.length();
-                        int i5 = 0;
-                        while (i5 < length2) {
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i5);
-                            if (optJSONObject3 != null) {
-                                jSONArray2 = optJSONArray;
-                                jSONArray3 = optJSONArray2;
-                                i3 = length2;
-                                i2 = length;
-                                arrayList2.add(new c11(optJSONObject3.optString("key"), optJSONObject3.optInt(MultiRatePlayUrlHelper.RANK), optJSONObject3.optString("title"), optJSONObject3.optString("url"), optJSONObject3.optString("download_url"), optJSONObject3.optString("airPlay_url"), optJSONObject3.optInt(MultiRatePlayUrlHelper.BPS), optJSONObject3.optInt("width"), optJSONObject3.optInt("height"), optJSONObject3.optDouble("size"), optJSONObject3.optInt("moov_size"), optJSONObject3.optDouble("clarity_score", -1.0d), optJSONObject3.optInt("prefetch_size", 0), optJSONObject3.optBoolean("frm_align")));
-                            } else {
-                                jSONArray2 = optJSONArray;
-                                i2 = length;
-                                jSONArray3 = optJSONArray2;
-                                i3 = length2;
-                            }
-                            i5++;
-                            optJSONArray2 = jSONArray3;
-                            optJSONArray = jSONArray2;
-                            length2 = i3;
-                            length = i2;
-                        }
-                        jSONArray = optJSONArray;
-                        i = length;
-                        String optString = optJSONObject2.optString("type");
-                        if (optJSONObject2.has("frm_align")) {
-                            bool = Boolean.valueOf(optJSONObject2.optBoolean("frm_align"));
-                        } else {
-                            bool = null;
-                        }
-                        arrayList.add(new w01(arrayList2, optString, bool, optJSONObject2.optString("pre"), optJSONObject2.optString("suf"), optJSONObject2.optString("codecs")));
-                    } else {
-                        jSONArray = optJSONArray;
-                        i = length;
-                    }
-                    i4++;
-                    optJSONArray = jSONArray;
-                    length = i;
-                }
-                mpdModel.f(new b11(arrayList, null, null, null, null, 30, null));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public Boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (Boolean) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final ArrayList<Object> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

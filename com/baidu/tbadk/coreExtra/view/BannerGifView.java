@@ -249,7 +249,7 @@ public class BannerGifView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.gif_banner_view, this);
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0904c4);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0904bd);
             this.c = inflate.findViewById(R.id.image_mask);
             GifView gifView = (GifView) inflate.findViewById(R.id.image_gif);
             this.a = gifView;

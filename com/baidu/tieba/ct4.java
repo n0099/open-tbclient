@@ -1,130 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLConnection;
+import java.util.zip.GZIPInputStream;
 /* loaded from: classes5.dex */
 public class ct4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public LinearLayout b;
-    public TextView c;
-    public DecimalFormat d;
-    public String e;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ct4 a;
-
-        public a(ct4 ct4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ct4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    @NonNull
+    public static String a(@NonNull File file) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            String canonicalPath = file.getCanonicalPath();
+            if (!canonicalPath.endsWith("/")) {
+                return canonicalPath + "/";
             }
-            this.a = ct4Var;
+            return canonicalPath;
         }
+        return (String) invokeL.objValue;
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
+    @NonNull
+    public static String c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
+            if (guessContentTypeFromName == null) {
+                return "text/plain";
             }
+            return guessContentTypeFromName;
         }
+        return (String) invokeL.objValue;
     }
 
-    public ct4(Context context) {
+    @NonNull
+    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            return d(file.getPath(), new FileInputStream(file));
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    @Nullable
+    public static File b(@NonNull File file, @NonNull String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
+            String a = a(file);
+            String canonicalPath = new File(file, str).getCanonicalPath();
+            if (canonicalPath.startsWith(a)) {
+                return new File(canonicalPath);
             }
+            return null;
         }
-        this.a = context;
-        d();
+        return (File) invokeLL.objValue;
     }
 
-    public LinearLayout a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (LinearLayout) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f();
-            gb3.M().postDelayed(new a(this), 3000L);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.setVisibility(8);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.setVisibility(0);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0952, (ViewGroup) null);
-            this.b = linearLayout;
-            linearLayout.setVisibility(8);
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092395);
-            this.d = new DecimalFormat("0.0#");
-            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f15ab);
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                this.c.setText(this.d.format(Float.parseFloat(str)) + this.e);
-                b();
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) {
+            if (str.endsWith(".svgz")) {
+                return new GZIPInputStream(inputStream);
             }
+            return inputStream;
         }
+        return (InputStream) invokeLL.objValue;
     }
 }

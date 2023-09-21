@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class gs2 extends bp2<ds2> {
+public class gs2 extends ap2<cs2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pageScrollBack" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pageScrollUp" : (String) invokeV.objValue;
     }
 
     public gs2() {
@@ -36,13 +37,18 @@ public class gs2 extends bp2<ds2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ds2 ds2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull cs2 cs2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ds2Var) == null) {
-            d(ds2Var, command.what, null, false);
-            ds2Var.x0();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, cs2Var) == null) {
+            int i = command.arg1;
+            int g = xo3.g(command.arg2);
+            int i2 = command.arg3;
+            int i3 = command.arg4;
+            String str = command.what;
+            d(cs2Var, str, "(top, inputHeight, keyboardHeight, cursorSpacing) " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + g + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3, false);
+            cs2Var.y0(i, g, i2, i3);
         }
     }
 }

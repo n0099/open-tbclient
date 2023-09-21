@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tieba.l75;
+import com.baidu.tieba.p75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class EMManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 EMManager eMManager = this.b;
-                eMManager.backGroundDrawable = l75.F(eMManager.backGroundDrawable, this.a, this.b.fromView.getMeasuredHeight());
+                eMManager.backGroundDrawable = p75.F(eMManager.backGroundDrawable, this.a, this.b.fromView.getMeasuredHeight());
                 this.b.fromView.setBackgroundDrawable(this.b.backGroundDrawable);
             }
         }
@@ -92,7 +92,7 @@ public class EMManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 EMManager eMManager = this.c;
-                eMManager.backGroundDrawable = l75.G(eMManager.backGroundDrawable, this.a, this.b, this.c.fromView.getMeasuredHeight());
+                eMManager.backGroundDrawable = p75.G(eMManager.backGroundDrawable, this.a, this.b, this.c.fromView.getMeasuredHeight());
                 this.c.fromView.setBackgroundDrawable(this.c.backGroundDrawable);
             }
         }
@@ -114,7 +114,7 @@ public class EMManager {
             }
         }
         this.fromView = view2;
-        this.backGroundDrawable = l75.e(view2);
+        this.backGroundDrawable = p75.e(view2);
     }
 
     public EMManager setTextLinePadding(int i) {
@@ -123,7 +123,7 @@ public class EMManager {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
             View view2 = this.fromView;
             if (view2 instanceof EMTextView) {
-                ((EMTextView) view2).setLineSpacing(l75.p(i), ((EMTextView) this.fromView).getLineSpacingMultiplier());
+                ((EMTextView) view2).setLineSpacing(p75.p(i), ((EMTextView) this.fromView).getLineSpacingMultiplier());
                 return this;
             }
             throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
@@ -138,7 +138,7 @@ public class EMManager {
             if (!(this.fromView instanceof TextView)) {
                 return this;
             }
-            float[] E = l75.E(i);
+            float[] E = p75.E(i);
             ((TextView) this.fromView).setShadowLayer(E[1], E[2], E[3], (int) E[0]);
             return this;
         }
@@ -161,7 +161,7 @@ public class EMManager {
             if (this.fromView == null) {
                 return this;
             }
-            this.backGroundDrawable = l75.c(this.backGroundDrawable, i);
+            this.backGroundDrawable = p75.c(this.backGroundDrawable, i);
             return this;
         }
         return (EMManager) invokeI.objValue;
@@ -170,7 +170,7 @@ public class EMManager {
     public void setBackGroundColor(int i) {
         Drawable k;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.fromView == null || (k = l75.k(this.backGroundDrawable, i)) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.fromView == null || (k = p75.k(this.backGroundDrawable, i)) == null) {
             return;
         }
         this.backGroundDrawable = k;
@@ -180,7 +180,7 @@ public class EMManager {
     public void setBackGroundColorString(String str) {
         Drawable l;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || this.fromView == null || (l = l75.l(this.backGroundDrawable, str)) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || this.fromView == null || (l = p75.l(this.backGroundDrawable, str)) == null) {
             return;
         }
         this.backGroundDrawable = l;
@@ -190,7 +190,7 @@ public class EMManager {
     public void setBackGroundRealColor(int i) {
         Drawable z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.fromView == null || (z = l75.z(this.backGroundDrawable, i)) == null) {
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.fromView == null || (z = p75.z(this.backGroundDrawable, i)) == null) {
             return;
         }
         this.backGroundDrawable = z;
@@ -213,7 +213,7 @@ public class EMManager {
             if (this.fromView == null) {
                 return this;
             }
-            Drawable f = l75.f(this.backGroundDrawable, i);
+            Drawable f = p75.f(this.backGroundDrawable, i);
             if (f == null) {
                 return this;
             }
@@ -231,7 +231,7 @@ public class EMManager {
             if (this.fromView == null) {
                 return this;
             }
-            Drawable g = l75.g(this.backGroundDrawable, i);
+            Drawable g = p75.g(this.backGroundDrawable, i);
             if (g == null) {
                 return this;
             }
@@ -249,7 +249,7 @@ public class EMManager {
             if (this.fromView == null) {
                 return this;
             }
-            this.backGroundDrawable = l75.h(this.backGroundDrawable, i);
+            this.backGroundDrawable = p75.h(this.backGroundDrawable, i);
             return this;
         }
         return (EMManager) invokeI.objValue;
@@ -262,7 +262,7 @@ public class EMManager {
             if (this.fromView == null) {
                 return this;
             }
-            this.backGroundDrawable = l75.o(this.backGroundDrawable, i);
+            this.backGroundDrawable = p75.o(this.backGroundDrawable, i);
             return this;
         }
         return (EMManager) invokeI.objValue;
@@ -275,7 +275,7 @@ public class EMManager {
             if (this.fromView == null) {
                 return this;
             }
-            this.backGroundDrawable = l75.n(this.backGroundDrawable, i);
+            this.backGroundDrawable = p75.n(this.backGroundDrawable, i);
             return this;
         }
         return (EMManager) invokeI.objValue;
@@ -284,7 +284,7 @@ public class EMManager {
     public void setGradientColor(int[] iArr) {
         Drawable s;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, iArr) != null) || this.fromView == null || (s = l75.s(this.backGroundDrawable, Direction.BOTTOM, iArr)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, iArr) != null) || this.fromView == null || (s = p75.s(this.backGroundDrawable, Direction.BOTTOM, iArr)) == null) {
             return;
         }
         this.backGroundDrawable = s;
@@ -313,7 +313,7 @@ public class EMManager {
             if (!(view2 instanceof TextView)) {
                 return this;
             }
-            ((TextView) view2).setLinkTextColor(l75.i(i));
+            ((TextView) view2).setLinkTextColor(p75.i(i));
             return this;
         }
         return (EMManager) invokeI.objValue;
@@ -322,7 +322,7 @@ public class EMManager {
     public void setMaskBackGround(int i) {
         Drawable w;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048592, this, i) != null) || this.fromView == null || (w = l75.w(this.backGroundDrawable, l75.I(i))) == null) {
+        if ((interceptable != null && interceptable.invokeI(1048592, this, i) != null) || this.fromView == null || (w = p75.w(this.backGroundDrawable, p75.I(i))) == null) {
             return;
         }
         this.backGroundDrawable = w;
@@ -336,7 +336,7 @@ public class EMManager {
             if (this.fromView == null) {
                 return this;
             }
-            Drawable y = l75.y(this.backGroundDrawable, i);
+            Drawable y = p75.y(this.backGroundDrawable, i);
             if (y == null) {
                 return this;
             }
@@ -355,7 +355,7 @@ public class EMManager {
             if (view2 == null) {
                 return this;
             }
-            Drawable D = l75.D(view2, this.backGroundDrawable, l75.I(i));
+            Drawable D = p75.D(view2, this.backGroundDrawable, p75.I(i));
             if (D == null) {
                 return this;
             }
@@ -375,7 +375,7 @@ public class EMManager {
             if (!(view2 instanceof TextView)) {
                 return this;
             }
-            ((TextView) view2).setTextColor(l75.i(i));
+            ((TextView) view2).setTextColor(p75.i(i));
             return this;
         }
         return (EMManager) invokeI.objValue;
@@ -389,7 +389,7 @@ public class EMManager {
             if (!(view2 instanceof TextView)) {
                 return this;
             }
-            ((TextView) view2).setTextColor(l75.j(str));
+            ((TextView) view2).setTextColor(p75.j(str));
             return this;
         }
         return (EMManager) invokeL.objValue;
@@ -403,7 +403,7 @@ public class EMManager {
             if (!(view2 instanceof TextView)) {
                 return this;
             }
-            ((TextView) view2).setTextColor(l75.J(i));
+            ((TextView) view2).setTextColor(p75.J(i));
             return this;
         }
         return (EMManager) invokeI.objValue;
@@ -417,7 +417,7 @@ public class EMManager {
             if (!(view2 instanceof TextView)) {
                 return this;
             }
-            ((TextView) view2).setTextSize(0, l75.p(i));
+            ((TextView) view2).setTextSize(0, p75.p(i));
             return this;
         }
         return (EMManager) invokeI.objValue;
@@ -431,7 +431,7 @@ public class EMManager {
             if (!(view2 instanceof TextView)) {
                 return this;
             }
-            ((TextView) view2).setTypeface(l75.L(l75.H(i)));
+            ((TextView) view2).setTypeface(p75.L(p75.H(i)));
             return this;
         }
         return (EMManager) invokeI.objValue;
@@ -463,7 +463,7 @@ public class EMManager {
     public void setGradientColor(int[] iArr, Direction direction) {
         Drawable s;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048588, this, iArr, direction) != null) || this.fromView == null || (s = l75.s(this.backGroundDrawable, direction, iArr)) == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048588, this, iArr, direction) != null) || this.fromView == null || (s = p75.s(this.backGroundDrawable, direction, iArr)) == null) {
             return;
         }
         this.backGroundDrawable = s;
@@ -473,7 +473,7 @@ public class EMManager {
     public void setGradientColorValue(int[] iArr, Direction direction) {
         Drawable M;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048589, this, iArr, direction) != null) || this.fromView == null || (M = l75.M(this.backGroundDrawable, direction, iArr)) == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048589, this, iArr, direction) != null) || this.fromView == null || (M = p75.M(this.backGroundDrawable, direction, iArr)) == null) {
             return;
         }
         this.backGroundDrawable = M;
@@ -488,7 +488,7 @@ public class EMManager {
             if (!(view2 instanceof TextView)) {
                 return this;
             }
-            ((TextView) view2).setTextColor(l75.K(i, i2));
+            ((TextView) view2).setTextColor(p75.K(i, i2));
             return this;
         }
         return (EMManager) invokeII.objValue;

@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.NegativeFeedBackData;
@@ -16,27 +14,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ThemeColorInfo;
+import tbclient.AlaLiveInfo;
+import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes5.dex */
 public class f78 extends b15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<i78> b;
-    public int c;
-    public int d;
-    public boolean e;
-    @Nullable
-    public ThemeColorInfo f;
+    public List<AlaLiveInfo> a;
 
     @Override // com.baidu.tieba.b15
     public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
         return (NegativeFeedBackData) invokeV.objValue;
@@ -46,7 +37,7 @@ public class f78 extends b15 {
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
         return (ThreadData) invokeV.objValue;
@@ -65,7 +56,7 @@ public class f78 extends b15 {
                 return;
             }
         }
-        g = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public f78() {
@@ -81,130 +72,35 @@ public class f78 extends b15 {
                 return;
             }
         }
-        this.c = Integer.MIN_VALUE;
-        this.d = Integer.MIN_VALUE;
-        this.b = new ArrayList();
+        this.a = new ArrayList();
     }
 
-    @Nullable
-    public ThemeColorInfo c() {
+    public List<AlaLiveInfo> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (ThemeColorInfo) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<i78> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            return this.a;
         }
         return (List) invokeV.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public void d(UserFollowLive userFollowLive) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (!ListUtils.isEmpty(this.b) && !ei.isEmpty(this.a)) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userFollowLive) == null) {
+            this.a.clear();
+            if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !ListUtils.isEmpty(userFollowLive.user_follow_live)) {
+                this.a.addAll(userFollowLive.user_follow_live);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.b.clear();
-        this.a = jSONObject.optString("sign_scheme");
-        jSONObject.optInt("sample_type");
-        this.f = cra.j(jSONObject.optJSONObject("background_info"));
-        JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    i78 i78Var = new i78();
-                    i78Var.j(optJSONObject);
-                    if (i78Var.i()) {
-                        this.b.add(i78Var);
-                    }
-                }
-            }
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.e = z;
         }
     }
 }

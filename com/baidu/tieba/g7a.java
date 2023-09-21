@@ -1,57 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
 /* loaded from: classes6.dex */
-public final class g7a implements tc7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface g7a {
+    void a();
 
-    @Override // com.baidu.tieba.tc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10734" : (String) invokeV.objValue;
-    }
+    void onChangeSkinType();
 
-    public g7a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void setButtonText(String str, int i);
 
-    @Override // com.baidu.tieba.tc7
-    public Map<String, String> a(f87 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.putAll(x6a.a.a(businessInfo));
-            String str = a.get("is_vertical_video");
-            if (str == null) {
-                str = "0";
-            }
-            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str);
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
+    void setButtonTextColor(@ColorRes int i);
+
+    void setButtonTextNightColor(int i);
+
+    void setButtonTextSize(@DimenRes int i);
+
+    void setInitText(String str);
+
+    void setRatio(int i);
 }

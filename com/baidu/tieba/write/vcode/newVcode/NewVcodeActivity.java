@@ -9,13 +9,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.ae5;
-import com.baidu.tieba.t0b;
+import com.baidu.tieba.ee5;
+import com.baidu.tieba.l2b;
+import com.baidu.tieba.m2b;
+import com.baidu.tieba.n2b;
+import com.baidu.tieba.o2b;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.u0b;
-import com.baidu.tieba.v0b;
-import com.baidu.tieba.w0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public u0b c;
+    public m2b c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -72,9 +72,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ae5 ae5Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ee5 ee5Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ae5Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
+                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ee5Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
                     if (postWriteCallBackData.getErrorCode() == 220015) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
@@ -90,17 +90,17 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                         intent2.putExtras(bundle2);
                         this.a.setResult(0, intent2);
                         this.a.finish();
-                    } else if (ae5Var != null && writeData != null) {
+                    } else if (ee5Var != null && writeData != null) {
                         this.a.e = JavaTypesHelper.toInt("4", 0);
                         this.a.c.d();
                         this.a.c.onDestroy();
                         this.a.d = writeData;
-                        this.a.d.setVcodeMD5(ae5Var.b());
-                        this.a.d.setVcodeUrl(ae5Var.c());
-                        this.a.d.setVcodeExtra(ae5Var.a());
+                        this.a.d.setVcodeMD5(ee5Var.b());
+                        this.a.d.setVcodeUrl(ee5Var.c());
+                        this.a.d.setVcodeExtra(ee5Var.a());
                         this.a.a.setWriteData(this.a.d);
                         NewVcodeActivity newVcodeActivity = this.a;
-                        newVcodeActivity.c = newVcodeActivity.z1();
+                        newVcodeActivity.c = newVcodeActivity.a1();
                         this.a.c.e(true, postWriteCallBackData.getErrorString());
                         this.a.b.setPresenter(this.a.c);
                         this.a.c.a(this.a.g);
@@ -113,7 +113,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
         }
     }
@@ -121,7 +121,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -129,7 +129,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             this.c.onDestroy();
         }
@@ -138,7 +138,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             WriteData writeData = this.d;
             if (writeData != null) {
                 bundle.putString("model", writeData.toDraftString());
@@ -149,10 +149,28 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
+    public final m2b a1() {
+        InterceptResult invokeV;
+        m2b n2bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.e == JavaTypesHelper.toInt("5", 0)) {
+                n2bVar = new l2b(this.b, this.a);
+            } else if (this.e == JavaTypesHelper.toInt("4", 0)) {
+                n2bVar = new o2b(this.b, this.a);
+            } else {
+                n2bVar = new n2b(this.b, this.a);
+            }
+            n2bVar.c(this.f);
+            return n2bVar;
+        }
+        return (m2b) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1) {
                 if (i == 12006) {
@@ -168,7 +186,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             boolean z = false;
             if (bundle != null) {
@@ -196,28 +214,10 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.i0(z);
             }
-            u0b z1 = z1();
-            this.c = z1;
-            this.b.setPresenter(z1);
+            m2b a1 = a1();
+            this.c = a1;
+            this.b.setPresenter(a1);
             this.c.a(this.g);
         }
-    }
-
-    public final u0b z1() {
-        InterceptResult invokeV;
-        u0b v0bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.e == JavaTypesHelper.toInt("5", 0)) {
-                v0bVar = new t0b(this.b, this.a);
-            } else if (this.e == JavaTypesHelper.toInt("4", 0)) {
-                v0bVar = new w0b(this.b, this.a);
-            } else {
-                v0bVar = new v0b(this.b, this.a);
-            }
-            v0bVar.c(this.f);
-            return v0bVar;
-        }
-        return (u0b) invokeV.objValue;
     }
 }

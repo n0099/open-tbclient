@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,30 +7,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class i80 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static boolean b;
-    public static boolean c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947807240, "Lcom/baidu/tieba/i80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947807240, "Lcom/baidu/tieba/i80;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947807240, "Lcom/baidu/tieba/i80;")) == null) {
+            return;
         }
-        a = AppConfig.isDebug();
-        b = QuickPersistConfig.getInstance().getBoolean("enable_external_opt", true);
-        c = QuickPersistConfig.getInstance().getBoolean("enable_external_push_opt", false);
-        if (a) {
-            Log.d("ExternalABUtils", "external opt ab:" + a() + " push opt ab:" + b());
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947807240, "Lcom/baidu/tieba/i80;");
         }
     }
 
@@ -41,16 +30,7 @@ public class i80 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+            return a;
         }
         return invokeV.booleanValue;
     }

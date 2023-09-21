@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArrayMap;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,17 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class td5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final td5 d;
+    public static final td5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public Map<String, ud5> b;
-    public int c;
+    public HashMap<String, ud5> a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,69 +32,44 @@ public class td5 {
                 return;
             }
         }
-        d = new td5(false);
+        b = new td5();
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public td5(boolean z) {
+    public td5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = z;
     }
 
-    public static td5 e(JSONObject jSONObject) {
+    public static td5 c(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                return d;
+                return b;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
-            if (optJSONObject == null) {
-                return d;
-            }
-            td5 td5Var = new td5(true);
+            JSONObject optJSONObject = jSONObject.optJSONObject("maintab_strategy");
+            td5 td5Var = new td5();
             td5Var.a(optJSONObject);
             return td5Var;
         }
         return (td5) invokeL.objValue;
     }
 
-    public ud5 c(String str) {
+    public ud5 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.b != null && !TextUtils.isEmpty(str)) {
-                return this.b.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a != null && !StringUtils.isNull(str)) {
+                return this.a.get(str);
             }
             return null;
         }
@@ -116,20 +88,17 @@ public class td5 {
         } else {
             length = optJSONArray.length();
         }
-        this.b = new ArrayMap(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                ud5 d2 = ud5.d(optJSONObject);
-                if (!TextUtils.isEmpty(d2.a())) {
-                    this.b.put(d2.a(), d2);
+        if (optJSONArray != null) {
+            this.a = new HashMap<>();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    ud5 g = ud5.g(optJSONObject);
+                    if (!StringUtils.isNull(g.f())) {
+                        this.a.put(g.f(), g);
+                    }
                 }
             }
-        }
-        try {
-            this.c = Integer.parseInt(jSONObject.optString("freq"));
-        } catch (Exception unused) {
-            this.c = 0;
         }
     }
 }

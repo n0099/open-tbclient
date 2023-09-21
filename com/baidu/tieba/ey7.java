@@ -1,87 +1,43 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomListNetModel;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
-import com.baidu.tieba.gw4;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
+import tbclient.CommonReq;
+import tbclient.VoiceRoomListPage.DataReq;
+import tbclient.VoiceRoomListPage.VoiceRoomListPageReqIdl;
 /* loaded from: classes5.dex */
-public final class ey7 {
+public class ey7 implements INetRequestData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final VoiceRoomListNetModel a;
+    public final long a;
+    public final long b;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements NetModel.k<cy7, dy7> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fw4<List<VoiceRoomWrapper>> a;
-
-        public a(fw4<List<VoiceRoomWrapper>> fw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fw4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fw4Var;
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, String> getHttpHeader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-
-        @Override // com.baidu.tbadk.mvc.model.NetModel.l
-        public void G(MvcHttpResponsedMessage<dy7> mvcHttpResponsedMessage, MvcHttpMessage<cy7, dy7> mvcHttpMessage, MvcNetMessage<cy7, dy7> mvcNetMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) && mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-                if (mvcHttpResponsedMessage.getError() == 0) {
-                    this.a.a(new gw4.c(mvcHttpResponsedMessage.getData().a()));
-                    return;
-                }
-                fw4<List<VoiceRoomWrapper>> fw4Var = this.a;
-                String errorString = mvcHttpResponsedMessage.getErrorString();
-                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
-                fw4Var.a(new gw4.a(errorString, null, 2, null));
-            }
-        }
-
-        @Override // com.baidu.tbadk.mvc.model.NetModel.m
-        public void v(MvcSocketResponsedMessage<dy7, ?> mvcSocketResponsedMessage, MvcSocketMessage<cy7, dy7> mvcSocketMessage, MvcNetMessage<cy7, dy7> mvcNetMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) && mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-                if (mvcSocketResponsedMessage.getError() == 0) {
-                    this.a.a(new gw4.c(mvcSocketResponsedMessage.getData().a()));
-                    return;
-                }
-                fw4<List<VoiceRoomWrapper>> fw4Var = this.a;
-                String errorString = mvcSocketResponsedMessage.getErrorString();
-                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
-                fw4Var.a(new gw4.a(errorString, null, 2, null));
-            }
-        }
+        return (HashMap) invokeV.objValue;
     }
 
-    public ey7() {
+    public ey7(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,20 +47,58 @@ public final class ey7 {
                 return;
             }
         }
-        this.a = new VoiceRoomListNetModel();
+        this.a = j;
+        this.b = j2;
     }
 
-    public final void a(TbPageContext<?> tbPageContext, long j, long j2, fw4<List<VoiceRoomWrapper>> callback) {
+    public final double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2), callback}) == null) {
-            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            cy7 cy7Var = new cy7(j, j2);
-            this.a.setUniqueId(tbPageContext.getUniqueId());
-            this.a.p0(cy7Var);
-            this.a.o0(new a(callback));
-            this.a.loadData();
-            callback.a(new gw4.b(null, 1, null));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         }
+        return invokeV.doubleValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.ISocketProtobufRequestData
+    public Object encodeSocketRequestData(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.call_from = Long.valueOf(this.a);
+                builder.fid = Long.valueOf(this.b);
+                CommonReq.Builder builder2 = new CommonReq.Builder();
+                builder2.q_type = Integer.valueOf(m05.c().e());
+                builder2.scr_dip = Double.valueOf(a());
+                builder2.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
+                builder2.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
+                VoiceRoomListPageReqIdl.Builder builder3 = new VoiceRoomListPageReqIdl.Builder();
+                builder3.data = builder.build(false);
+                return builder3.build(false);
+            } catch (Exception unused) {
+                BdLog.d("data convert error");
+                return null;
+            }
+        }
+        return invokeZ.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, Object> makeHttpParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put(IntentConfig.CALL_FROM, Long.valueOf(this.a));
+            hashMap.put("fid", Long.valueOf(this.b));
+            hashMap.put("q_type", Integer.valueOf(m05.c().e()));
+            hashMap.put("scr_dip", Double.valueOf(a()));
+            hashMap.put("scr_h", Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
+            hashMap.put("scr_w", Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

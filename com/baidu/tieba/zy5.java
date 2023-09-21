@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Looper;
-import android.os.MessageQueue;
-import android.text.TextUtils;
+import android.content.MutableContextWrapper;
+import android.webkit.JsPromptResult;
 import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.xy5;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.hybrid.BridgeWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,177 +15,181 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import java.util.HashMap;
 /* loaded from: classes9.dex */
 public class zy5 {
     public static /* synthetic */ Interceptable $ic;
-    public static List<String> a;
+    public static zy5 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes9.dex */
-    public class a implements xy5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.xy5.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i("WebPreheat", "预热成功:" + this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ xy5.b c;
-
-        public b(Context context, String str, xy5.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = str;
-            this.c = bVar;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                xy5 a = yy5.b().a(this.a.getApplicationContext(), this.b);
-                if (a != null) {
-                    a.b(this.c);
-                    return false;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
+    public final HashMap<String, yy5> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948376307, "Lcom/baidu/tieba/zy5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948376307, "Lcom/baidu/tieba/zy5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948376307, "Lcom/baidu/tieba/zy5;");
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class a implements pka {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nka a;
+        public final /* synthetic */ WebView b;
+
+        public a(zy5 zy5Var, nka nkaVar, WebView webView) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zy5Var, nkaVar, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948376307, "Lcom/baidu/tieba/zy5;");
+            this.a = nkaVar;
+            this.b = webView;
+        }
+
+        @Override // com.baidu.tieba.pka
+        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
+                nka nkaVar = this.a;
+                if (nkaVar != null) {
+                    return nkaVar.c(this.b, str, jsPromptResult);
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public zy5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new ArrayList();
+        this.a = new HashMap<>();
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static zy5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            for (String str2 : a) {
-                if (str2 != null && str != null && str.startsWith(str2)) {
-                    return str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (zy5.class) {
+                    if (b == null) {
+                        b = new zy5();
+                    }
                 }
+            }
+            return b;
+        }
+        return (zy5) invokeV.objValue;
+    }
+
+    public yy5 a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (this.a.size() >= 8) {
+                f();
+            }
+            yy5 yy5Var = new yy5();
+            BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
+            bridgeWebView.setBackgroundColor(R.color.transparent);
+            az5.b(bridgeWebView);
+            nka nkaVar = new nka();
+            nkaVar.a(new CommonTbJsBridge(context, bridgeWebView));
+            cx4 cx4Var = new cx4();
+            cx4Var.b(new a(this, nkaVar, bridgeWebView));
+            bridgeWebView.setWebChromeClient(cx4Var);
+            yy5Var.a = bridgeWebView;
+            yy5Var.b = str;
+            yy5Var.c = 0;
+            this.a.put(str, yy5Var);
+            return yy5Var;
+        }
+        return (yy5) invokeLL.objValue;
+    }
+
+    public yy5 c(Activity activity, String str) {
+        InterceptResult invokeLL;
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str)) == null) {
+            yy5 yy5Var = this.a.get(str);
+            if (yy5Var != null && (webView = yy5Var.a) != null) {
+                ((MutableContextWrapper) webView.getContext()).setBaseContext(activity);
+                this.a.remove(str);
+                return yy5Var;
             }
             return null;
         }
-        return (String) invokeL.objValue;
+        return (yy5) invokeLL.objValue;
     }
 
-    public static void c(JSONArray jSONArray) {
+    public boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, jSONArray) != null) || jSONArray == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.a.containsKey(str);
         }
-        a.clear();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            try {
-                a.add((String) jSONArray.get(i));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return;
-            }
-        }
+        return invokeL.booleanValue;
     }
 
-    public static void b(WebView webView) {
+    public boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, webView) != null) || webView == null) {
-            return;
-        }
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        webView.getSettings().setAllowFileAccess(true);
-        webView.getSettings().setDatabaseEnabled(true);
-        webView.getSettings().setDomStorageEnabled(true);
-        webView.getSettings().setTextZoom(100);
-        webView.getSettings().setDatabasePath(webView.getContext().getApplicationContext().getDir("databases", 0).getAbsolutePath());
-        webView.setHorizontalScrollBarEnabled(false);
-        webView.setHorizontalScrollbarOverlay(false);
-    }
-
-    public static boolean d(Context context, String str, xy5.b bVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, bVar)) == null) {
-            if (!TextUtils.isEmpty(str) && !yy5.b().d(str)) {
-                Looper.myQueue().addIdleHandler(new b(context, str, bVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.a.containsKey(str) && this.a.get(str) != null && this.a.get(str).a()) {
                 return true;
             }
             return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static void e(JSONArray jSONArray) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, jSONArray) != null) || jSONArray == null) {
-            return;
-        }
-        int length = jSONArray.length();
-        for (int i = 0; i < length; i++) {
-            String optString = jSONArray.optString(i);
-            d(TbadkCoreApplication.getInst(), optString, new a(optString));
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            long j = 0;
+            String str = null;
+            for (String str2 : this.a.keySet()) {
+                yy5 yy5Var = this.a.get(str2);
+                if (yy5Var != null) {
+                    if (yy5Var.d < j) {
+                        str = yy5Var.b;
+                    }
+                    j = yy5Var.d;
+                }
+            }
+            if (str != null) {
+                this.a.remove(str);
+            }
         }
     }
 }

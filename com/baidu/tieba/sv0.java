@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sv0 extends wv0 {
+public class sv0 extends yv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,20 +25,43 @@ public class sv0 extends wv0 {
         }
     }
 
-    @Override // com.baidu.tieba.wv0, com.baidu.tieba.uv0, com.baidu.tieba.vv0, com.baidu.tieba.rv0
-    public void k(@NonNull ww0 ww0Var) {
-        int i;
+    @Override // com.baidu.tieba.yv0
+    public boolean E() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ww0Var) == null) {
-            super.k(ww0Var);
-            if (PlayerEvent.ACTION_PLAYER_ATTACH.equals(ww0Var.c())) {
-                if (q().n1().g()) {
-                    i = 0;
-                } else {
-                    i = 8;
-                }
-                L(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return q().V();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yv0
+    public void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            M(q().V());
+        }
+    }
+
+    @Override // com.baidu.tieba.yv0
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean E = E();
+            if (E && h21.c(getContext()) == 0) {
+                h21.d(getContext(), (int) (h21.b(getContext()) * 0.35d));
             }
+            L(E);
+            boolean z = !E;
+            M(z);
+            P(z);
+        }
+    }
+
+    public void P(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            q().w0(z);
         }
     }
 }

@@ -1,45 +1,36 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tieba.y45;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BawuThrones;
 /* loaded from: classes7.dex */
 public class ri7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y45 a;
-    public TextView b;
-    public TextView c;
-    public ImageView d;
-    public TextView e;
-    public boolean f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ri7 a;
+        public final /* synthetic */ z45 a;
 
-        public a(ri7 ri7Var) {
+        public a(z45 z45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ri7Var};
+                Object[] objArr = {z45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,188 +40,59 @@ public class ri7 {
                     return;
                 }
             }
-            this.a = ri7Var;
+            this.a = z45Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ri7 ri7Var = this.a;
-                ri7Var.f = !ri7Var.f;
-                this.a.h();
+                this.a.dismiss();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements y45.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ri7 c;
-
-        public b(ri7 ri7Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ri7Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ri7Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // com.baidu.tieba.y45.e
-        public void onClick(y45 y45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
-                SharedPrefHelper.getInstance().putBoolean("key_frs_recommend_tip", !this.c.f);
-                xh7.c().d(this.a, this.b);
-                this.c.a.dismiss();
-                this.c.a = null;
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements y45.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ri7 a;
-
-        public c(ri7 ri7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ri7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ri7Var;
-        }
-
-        @Override // com.baidu.tieba.y45.e
-        public void onClick(y45 y45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, y45Var) != null) {
-                return;
-            }
-            this.a.f = false;
-            this.a.a.dismiss();
-            this.a.a = null;
-        }
-    }
-
-    public ri7() {
+    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
+        int equipmentWidth;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = this.b;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-            }
-            TextView textView2 = this.c;
-            if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-            }
-            h();
-            TextView textView3 = this.e;
-            if (textView3 != null) {
-                SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = null;
-        }
-    }
-
-    public final void h() {
-        ImageView imageView;
-        Drawable maskDrawable;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (imageView = this.d) == null) {
-            return;
-        }
-        if (this.f) {
-            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
-        } else {
-            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
-        }
-        imageView.setImageDrawable(maskDrawable);
-    }
-
-    public void i(TbPageContext tbPageContext, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, str, str2) == null) {
-            y45 y45Var = this.a;
-            if (y45Var != null && y45Var.isShowing()) {
-                return;
-            }
-            y45 y45Var2 = new y45(tbPageContext.getPageActivity());
-            this.a = y45Var2;
-            y45Var2.setContentViewSize(1);
-            this.a.setNegativeTextColor(R.color.CAM_X0105);
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925d1);
-            this.b = textView;
-            textView.setText(R.string.frs_recommend_thread_sure_title);
-            this.c = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            BawuThrones b2 = xh7.c().b();
-            if (b2 != null) {
-                TextView textView2 = this.c;
-                String string = tbPageContext.getString(R.string.frs_recommend_thread_sure_content);
-                Integer num = b2.total_recommend_num;
-                textView2.setText(String.format(string, b2.bazhu_level, num, Integer.valueOf(num.intValue() - b2.used_recommend_num.intValue())));
+        if ((interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) && activity != null && tbPageContext != null) {
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_general_tab_notify_dialog_layout, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.general_title);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.general_content_1);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.general_content_2);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.general_content_3);
+            TextView textView5 = (TextView) inflate.findViewById(R.id.general_btn);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
+            z45 z45Var = new z45(activity);
+            z45Var.setContentView(inflate);
+            z45Var.setContentViewSize(2);
+            z45Var.setCanceledOnTouchOutside(true);
+            z45Var.setAutoNight(true);
+            z45Var.setCancelable(true);
+            int dimens = BdUtilHelper.getDimens(activity, R.dimen.tbds31);
+            SkinManager.setBackgroundShapeDrawable(inflate, dimens, R.color.CAM_X0201, R.color.CAM_X0101);
+            tbImageView.setRadius(dimens);
+            tbImageView.setConrers(3);
+            tbImageView.setIsBitmapPic(true);
+            int dimens2 = BdUtilHelper.getDimens(activity, R.dimen.tbds44);
+            if (UtilHelper.getRealScreenOrientation(activity) == 2) {
+                equipmentWidth = BdUtilHelper.getEquipmentHeight(activity);
             } else {
-                this.c.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), "D", 2, 2));
+                equipmentWidth = BdUtilHelper.getEquipmentWidth(activity);
             }
-            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906e2);
-            this.e = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-            inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new a(this));
-            f();
-            this.a.setContentView(inflate);
-            this.a.setPositiveButton(tbPageContext.getString(R.string.frs_recommend_thread_confirm), new b(this, str, str2));
-            this.a.setNegativeButton(tbPageContext.getString(R.string.next_time), new c(this));
-            this.a.create(tbPageContext).show();
+            int i = equipmentWidth - (dimens2 * 2);
+            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = (i * 556) / 988;
+            tbImageView.setLayoutParams(layoutParams);
+            SkinManager.setImageResource(tbImageView, R.drawable.frs_general_tab_notify_pic);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
+            textView5.setOnClickListener(new a(z45Var));
+            z45Var.create(tbPageContext).show();
         }
     }
 }

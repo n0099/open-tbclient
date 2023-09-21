@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.lb3;
+import com.baidu.tieba.kb3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,35 +15,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.TimeoutException;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public final class s73 extends kw2<s73> implements r73 {
+public final class s73 extends ob3 implements q73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t73 b;
-    public final String c;
-    public final Set<aq3<lb3.a>> d;
-    public final Set<aq3<s73>> e;
-    public final Set<String> f;
-    public final Set<Integer> g;
-    public Exception h;
-    public long i;
-    public boolean j;
-    public final Runnable k;
-
-    public s73 Y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this : (s73) invokeV.objValue;
-    }
+    public final HashMap<String, String> b;
+    public final HashMap<String, r73> c;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements zp3<kb3.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s73 a;
@@ -70,15 +48,80 @@ public final class s73 extends kw2<s73> implements r73 {
             this.a = s73Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zp3
+        /* renamed from: b */
+        public void a(kb3.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+                if (s73.d) {
+                    s73 s73Var = this.a;
+                    s73Var.T("onEventCallback msg" + aVar);
+                }
+                this.a.V(aVar);
             }
-            synchronized (this.a.b) {
-                this.a.b.b0(this.a, this.a.W());
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements zp3<kb3.a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s73 a;
+
+        public b(s73 s73Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s73Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = s73Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zp3
+        /* renamed from: b */
+        public void a(kb3.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+                if (s73.d) {
+                    s73 s73Var = this.a;
+                    s73Var.T("onEventCallback msg" + aVar);
+                }
+                this.a.W(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static s73 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-477545029, "Lcom/baidu/tieba/s73$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-477545029, "Lcom/baidu/tieba/s73$c;");
+                    return;
+                }
+            }
+            a = new s73(fb3.K());
         }
     }
 
@@ -95,205 +138,113 @@ public final class s73 extends kw2<s73> implements r73 {
                 return;
             }
         }
-        l = rr1.a;
+        d = qr1.a;
     }
 
-    public Exception N() {
+    public static s73 R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return (Exception) invokeV.objValue;
-    }
-
-    public boolean P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.h != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean R() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.i < 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public s73 call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return call(r73.o0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return c.a;
         }
         return (s73) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dq3
-    public /* bridge */ /* synthetic */ dq3 i() {
-        Y();
-        return this;
+    public static void S() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            R();
+        }
     }
 
-    public s73(@NonNull t73 t73Var, String str) {
-        String str2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s73(jb3 jb3Var) {
+        super(jb3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t73Var, str};
+            Object[] objArr = {jb3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((jb3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new HashSet();
-        this.e = new HashSet();
-        this.f = new HashSet();
-        this.g = new HashSet();
-        this.h = null;
-        this.i = 0L;
-        this.j = false;
-        this.k = new a(this);
-        this.b = t73Var;
-        if (TextUtils.isEmpty(str)) {
-            str2 = UUID.randomUUID().toString();
-        } else {
-            str2 = str;
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        if (d) {
+            T("SwanIpc");
         }
-        this.c = str2;
-        if (l) {
-            U("IpcSession", "host=" + t73Var + " id=" + str + " mId=" + this.c);
-        }
+        db3 db3Var = new db3();
+        db3Var.f(new b(this), "event_messenger_call_out");
+        db3Var.f(new a(this), "event_messenger_call_in");
+        u(db3Var);
     }
 
-    public s73 F(aq3<s73> aq3Var) {
-        InterceptResult invokeL;
+    public static synchronized boolean J(@NonNull Bundle bundle, @NonNull String str) {
+        InterceptResult invokeLL;
+        boolean L;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aq3Var)) == null) {
-            H(this.e, aq3Var);
-            return this;
-        }
-        return (s73) invokeL.objValue;
-    }
-
-    public s73 G(aq3<lb3.a> aq3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aq3Var)) == null) {
-            H(this.d, aq3Var);
-            return this;
-        }
-        return (s73) invokeL.objValue;
-    }
-
-    public s73 I(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            synchronized (this.b) {
-                this.g.add(Integer.valueOf(i));
-                Y();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bundle, str)) == null) {
+            synchronized (s73.class) {
+                L = R().L(Z(bundle), str);
             }
-            return this;
+            return L;
         }
-        return (s73) invokeI.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public s73 J(String str) {
-        InterceptResult invokeL;
+    public static synchronized boolean K(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        boolean L;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this.b) {
-                this.f.add(str);
-                Y();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            synchronized (s73.class) {
+                L = R().L(a0(str), str2);
             }
-            return this;
+            return L;
         }
-        return (s73) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public s73 K(boolean z) {
-        InterceptResult invokeZ;
+    public final synchronized boolean I(@NonNull r73 r73Var, @NonNull Bundle bundle) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            synchronized (this.b) {
-                this.j = z;
-                Y();
-            }
-            return this;
-        }
-        return (s73) invokeZ.objValue;
-    }
-
-    public final void T(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && l) {
-            Log.i("IpcSession", SwanAppProcessInfo.current() + " >> " + str);
-        }
-    }
-
-    public static String O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                ActivityManager activityManager = (ActivityManager) AppRuntime.getAppContext().getSystemService("activity");
-                if (activityManager == null) {
-                    return "ActivityManager=null";
-                }
-                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
-                if (runningAppProcesses == null) {
-                    return "RunningAppProcessInfoList=null";
-                }
-                StringBuilder sb = new StringBuilder();
-                String str = "";
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo != null) {
-                        sb.append(str);
-                        sb.append(runningAppProcessInfo.processName);
-                        str = ",";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, r73Var, bundle)) == null) {
+            synchronized (this) {
+                if (r73Var.Z()) {
+                    if (L(r73Var, bundle.getString("ipc_topic", ""))) {
+                        z = true;
                     }
                 }
-                return sb.toString();
-            } catch (Exception e) {
-                return e.toString();
+                z = false;
             }
+            return z;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public final <CallBackT> s73 H(@NonNull Set<CallBackT> set, CallBackT callbackt) {
+    public final void U(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            T(str + ": " + str2);
+        }
+    }
+
+    public s73 b0(r73 r73Var, Exception exc) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, callbackt)) == null) {
-            synchronized (this.b) {
-                if (Z() && callbackt != null) {
-                    set.add(callbackt);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, r73Var, exc)) == null) {
+            if (r73Var != null) {
+                synchronized (this.c) {
+                    r73Var.M(exc);
+                    this.c.remove(r73Var.Q());
                 }
             }
             return this;
@@ -301,218 +252,200 @@ public final class s73 extends kw2<s73> implements r73 {
         return (s73) invokeLL.objValue;
     }
 
-    public final void U(String str, String str2) {
+    public static synchronized r73 Q(@NonNull String str) {
+        InterceptResult invokeL;
+        r73 e0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
-            T(str + ": " + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            synchronized (s73.class) {
+                e0 = R().e0(str);
+            }
+            return e0;
+        }
+        return (r73) invokeL.objValue;
+    }
+
+    public static synchronized r73 Z(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
+        r73 c0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bundle)) == null) {
+            synchronized (s73.class) {
+                c0 = R().c0(bundle);
+            }
+            return c0;
+        }
+        return (r73) invokeL.objValue;
+    }
+
+    public static synchronized r73 a0(@NonNull String str) {
+        InterceptResult invokeL;
+        r73 d0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            synchronized (s73.class) {
+                d0 = R().d0(str, null);
+            }
+            return d0;
+        }
+        return (r73) invokeL.objValue;
+    }
+
+    public final void T(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && d) {
+            Log.i("SwanIpc", SwanAppProcessInfo.current() + " >> " + str);
         }
     }
 
-    public final z73 L() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Bundle D = D();
-            D.putString("ipc_session_id", this.c);
-            D.putLong("ipc_session_timeout", this.i);
-            D.putInt("ipc_session_repal", SwanAppProcessInfo.current().index);
-            D.putString("ipc_topic", this.b.X(this));
-            z73 z73Var = new z73(V(), D);
-            z73Var.p(true);
-            if (SwanAppProcessInfo.current().isSwanService && !this.j) {
-                z = false;
-            } else {
-                z = true;
-            }
-            z73Var.f(z);
-            for (Integer num : this.g) {
-                int intValue = num.intValue();
-                if (SwanAppProcessInfo.checkProcessId(intValue)) {
-                    z73Var.a(intValue);
-                }
-            }
-            for (String str : this.f) {
-                if (!TextUtils.isEmpty(str)) {
-                    z73Var.c(str);
-                }
-            }
-            if (l) {
-                U("createMsg", "msgCooker=" + z73Var + " bundle=" + D);
-            }
-            return z73Var;
-        }
-        return (z73) invokeV.objValue;
-    }
-
-    public s73 M(Exception exc) {
+    public String X(@NonNull r73 r73Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, exc)) == null) {
-            synchronized (this.b) {
-                if (!R()) {
-                    gb3.M().removeCallbacks(this.k);
-                    this.i = -1L;
-                    this.h = exc;
-                    this.d.clear();
-                    for (aq3<s73> aq3Var : this.e) {
-                        aq3Var.a(this);
-                    }
-                    this.e.clear();
-                    this.j = false;
-                    this.f.clear();
-                    this.g.clear();
-                    a();
-                }
-            }
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, r73Var)) == null) {
+            return Y(r73Var.Q());
         }
-        return (s73) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public long S(long j) {
-        InterceptResult invokeJ;
-        long j2;
-        boolean z;
+    public String Y(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
-            synchronized (this.b) {
-                if (Z()) {
-                    this.i = Math.max(Math.max(j, r73.o0), this.i);
-                    Handler M = gb3.M();
-                    if (this.i > 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        M.removeCallbacks(this.k);
-                        M.postDelayed(this.k, this.i);
-                    }
-                }
-                j2 = this.i;
-            }
-            return j2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return this.b.get(str);
         }
-        return invokeJ.longValue;
+        return (String) invokeL.objValue;
     }
 
-    public final int V() {
-        InterceptResult invokeV;
-        int i;
+    public final synchronized r73 c0(Bundle bundle) {
+        InterceptResult invokeL;
+        String string;
+        r73 d0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            boolean z = SwanAppProcessInfo.current().isSwanService;
-            if (z) {
-                i = 111;
-            } else {
-                i = 11;
-            }
-            if (l) {
-                U("msgType", "service=" + z + " msgType=" + i);
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.kw2
-    public synchronized String toString() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bundle)) == null) {
             synchronized (this) {
-                str = "IpcSession: id=" + this.c + " timeout=" + this.i;
+                if (bundle == null) {
+                    string = null;
+                } else {
+                    string = bundle.getString("ipc_session_id");
+                }
+                d0 = d0(string, bundle);
             }
-            return str;
+            return d0;
         }
-        return (String) invokeV.objValue;
+        return (r73) invokeL.objValue;
     }
 
-    public Exception W() {
-        InterceptResult invokeV;
+    public final synchronized boolean L(@NonNull r73 r73Var, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r73Var, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (!r73Var.Z()) {
+                    return false;
+                }
+                String Q = r73Var.Q();
+                String str2 = this.b.get(Q);
+                boolean z2 = !TextUtils.isEmpty(str2);
+                z = (!z2 || TextUtils.equals(str2, str)) ? true : true;
+                if (z && !z2 && !TextUtils.isEmpty(str)) {
+                    this.b.put(Q, str);
+                }
+                return z;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void V(kb3.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            if (d) {
+                U("onCallIn", "msg=" + aVar);
+            }
+            if (aVar != null) {
+                Bundle D = aVar.D();
+                kb3.a aVar2 = new kb3.a("event_messenger_call", D);
+                r73 Z = Z(D);
+                if (!I(Z, D) || !Z.X(aVar2)) {
+                    fb3.K().A(aVar2);
+                }
+            }
+        }
+    }
+
+    public final void W(kb3.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            if (d) {
+                U("onCallOut", "msg=" + aVar);
+            }
+            if (aVar != null) {
+                Z(aVar.D()).call();
+            }
+        }
+    }
+
+    public final synchronized r73 e0(String str) {
+        InterceptResult invokeL;
+        r73 c0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            synchronized (this) {
+                c0 = c0(null);
+                L(c0, str);
+                if (d) {
+                    U("topic", str + " session=" + c0);
+                }
+            }
+            return c0;
+        }
+        return (r73) invokeL.objValue;
+    }
+
+    public final synchronized r73 d0(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        r73 r73Var;
+        boolean z;
         long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (l) {
-                j = System.nanoTime();
-            } else {
-                j = 0;
-            }
-            TimeoutException timeoutException = new TimeoutException("#ipcHttpTimeout session=" + this + " processList=" + O());
-            if (l) {
-                Log.d("IpcSession", "#newIpcTimeoutException 耗时(ms): " + ((System.nanoTime() - j) / 1000000.0d));
-            }
-            return timeoutException;
-        }
-        return (Exception) invokeV.objValue;
-    }
-
-    public boolean Z() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            synchronized (this.b) {
-                if (!R() && !P() && !TextUtils.isEmpty(this.c)) {
-                    z = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, bundle)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    r73Var = null;
                 } else {
-                    z = false;
+                    r73Var = this.c.get(str);
                 }
-                if (l) {
-                    U("valid", z + " isFinished=" + R() + " hasException=" + this.h + " id=" + this.c);
+                if (r73Var == null || !r73Var.Z()) {
+                    b0(r73Var, new IllegalStateException("invalid session"));
+                    r73Var = new r73(this, str);
+                    this.c.put(r73Var.Q(), r73Var);
                 }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean X(lb3.a aVar) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, aVar)) == null) {
-            synchronized (this.b) {
-                if (Z() && !this.d.isEmpty() && aVar != null) {
+                if (bundle != null && I(r73Var, bundle)) {
                     z = true;
                 } else {
                     z = false;
                 }
                 if (z) {
-                    for (aq3<lb3.a> aq3Var : this.d) {
-                        aq3Var.a(aVar);
+                    int i = bundle.getInt("ipc_session_repal", SwanAppProcessInfo.UNKNOWN.index);
+                    if (SwanAppProcessInfo.checkProcessId(i)) {
+                        r73Var.I(i);
+                    } else if (SwanAppProcessInfo.SERVICE.index == i) {
+                        r73Var.K(true);
                     }
                 }
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public s73 call(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j)) == null) {
-            synchronized (this.b) {
-                if (l) {
-                    U(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j);
-                }
-                if (Z()) {
-                    long S = S(j);
-                    if (l) {
-                        U(NotificationCompat.CATEGORY_CALL, "joinTimeout=" + S);
-                    }
-                    x73.e().h(L());
-                    a();
+                if (z) {
+                    j = bundle.getLong("ipc_session_timeout");
                 } else {
-                    this.b.b0(this, new IllegalStateException("invalid session call"));
+                    j = q73.o0;
                 }
-                Y();
+                r73Var.S(j);
+                if (d) {
+                    U("session", "id=" + str + " session=" + bundle + " session=" + r73Var);
+                }
             }
-            return this;
+            return r73Var;
         }
-        return (s73) invokeJ.objValue;
+        return (r73) invokeLL.objValue;
     }
 }

@@ -1,223 +1,163 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.BdStatsItem;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.PriorityQueue;
 /* loaded from: classes6.dex */
 public class gka {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static MainTabScheduleStrategy b;
-    public static boolean c;
-    public static final PriorityQueue<mka> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdStatsItem a;
+    public String b;
+    public boolean c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gka.d();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gka.d();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mka a;
-
-        public c(mka mkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mkaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947798188, "Lcom/baidu/tieba/gka;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947798188, "Lcom/baidu/tieba/gka;");
+    public gka(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = MainTabScheduleStrategy.FLUSHING;
-        c = false;
-        d = new PriorityQueue<>();
+        this.b = null;
+        this.c = false;
+        e(str, false);
     }
 
-    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
+    public void a() {
+        jka c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
-            eka.a("MainTabScheduler changeScheduleStrategy:" + mainTabScheduleStrategy);
-            b = mainTabScheduleStrategy;
-            if (mainTabScheduleStrategy != MainTabScheduleStrategy.UNSCHEDULE && !c) {
-                g(true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
+            long timeCost = this.a.getTimeCost();
+            if (timeCost > 3000) {
+                ika ikaVar = c.f;
+                ikaVar.a += timeCost;
+                ikaVar.b++;
+                hka.b(c, 10);
             }
         }
     }
 
-    public static void c(mka mkaVar) {
+    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        jka c;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, mkaVar) == null) {
-            eka.a("MainTabScheduler execStep onStep:" + mkaVar.a);
-            System.nanoTime();
-            mkaVar.b();
-            SafeHandler.getInst().postAtFrontOfQueue(new c(mkaVar));
-        }
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || c) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
             return;
         }
-        c = true;
         if (z) {
-            SafeHandler.getInst().postAtFrontOfQueue(new a());
+            ika ikaVar = c.d;
+            if (ikaVar == null) {
+                return;
+            }
+            ikaVar.b++;
+            if (z2) {
+                ikaVar.a += j2;
+                ikaVar.d += j;
+            } else {
+                ikaVar.c++;
+            }
         } else {
-            SafeHandler.getInst().post(new b());
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            c = false;
-            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
+            ika ikaVar2 = c.e;
+            if (ikaVar2 == null) {
                 return;
             }
-            if (b == MainTabScheduleStrategy.FLUSHING) {
-                e();
-                return;
+            ikaVar2.b++;
+            if (z2) {
+                ikaVar2.a += j3;
+                ikaVar2.d += j;
+            } else {
+                ikaVar2.c++;
             }
-            if (d.peek() != null && a >= d.peek().a) {
-                mka poll = d.poll();
-                if (poll == null) {
-                    return;
+            j2 = j3;
+        }
+        this.a = null;
+        if (z2) {
+            hka.b(c, 10);
+        }
+        if (this.b == "frsStat") {
+            if (!z2 || j2 > 3000) {
+                BdStatsItem bdStatsItem = new BdStatsItem("dbg");
+                bdStatsItem.append("act", "frs");
+                String str3 = "0";
+                if (z2) {
+                    str2 = "0";
+                } else {
+                    str2 = "1";
                 }
-                c(poll);
-            }
-            if (b == MainTabScheduleStrategy.SCHEDULE) {
-                g(false);
+                bdStatsItem.append("result", str2);
+                if (z) {
+                    str3 = "1";
+                }
+                bdStatsItem.append("isHttp", str3);
+                bdStatsItem.append("timeCost", String.valueOf(j2));
+                bdStatsItem.append(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
+                bdStatsItem.append(StatConstants.KEY_EXT_ERR_MSG, str);
+                bdStatsItem.append("down", String.valueOf(j));
+                BdStatisticsManager.getInstance().debug("frs", bdStatsItem);
             }
         }
     }
 
-    public static void e() {
+    public final jka c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            while (!d.isEmpty()) {
-                mka poll = d.poll();
-                if (poll != null) {
-                    eka.a("MainTabScheduler flushAllSteps onStep:" + poll.a);
-                    poll.b();
-                    poll.c();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return hka.e(this.b, d(), this.c);
+        }
+        return (jka) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType == 0) {
+                return "N";
             }
+            if (netType == 1) {
+                return "WIFI";
+            }
+            if (netType == 3) {
+                return "3G";
+            }
+            if (netType != 2) {
+                return "N";
+            }
+            return "2G";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.startTimer();
         }
     }
 
-    public static void f(mka mkaVar) {
+    public void e(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, mkaVar) != null) || mkaVar == null) {
-            return;
-        }
-        if (b == MainTabScheduleStrategy.FLUSHING) {
-            if (!(mkaVar instanceof nka)) {
-                eka.a("MainTabScheduler registerNextStep onStep:" + mkaVar.a);
-                mkaVar.d();
-                mkaVar.b();
-            }
-            mkaVar.c();
-            return;
-        }
-        mkaVar.d();
-        eka.a("MainTabScheduler registerNextStep:" + mkaVar.a);
-        d.add(mkaVar);
-        if (b != MainTabScheduleStrategy.UNSCHEDULE && !c) {
-            g(false);
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
+            this.b = str;
+            this.c = z;
+            this.a = new BdStatsItem("dbg");
+            hka.c(str, d(), z);
         }
     }
 }

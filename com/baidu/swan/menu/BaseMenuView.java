@@ -46,8 +46,8 @@ public abstract class BaseMenuView extends FrameLayout {
         super(context, attributeSet, i);
         this.a = context;
         View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0095, this);
-        this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090330);
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090541);
+        this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090329);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090539);
         this.e = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e5);
     }
 
@@ -61,7 +61,7 @@ public abstract class BaseMenuView extends FrameLayout {
 
     public void setMode() {
         Resources resources = getResources();
-        this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081442));
+        this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08143d));
         this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0603f3));
         this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0603f4));
         this.c.setAlpha(1.0f);

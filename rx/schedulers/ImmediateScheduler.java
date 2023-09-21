@@ -1,11 +1,11 @@
 package rx.schedulers;
 
-import com.baidu.tieba.vac;
+import com.baidu.tieba.ncc;
 @Deprecated
 /* loaded from: classes2.dex */
-public final class ImmediateScheduler extends vac {
-    @Override // com.baidu.tieba.vac
-    public vac.a createWorker() {
+public final class ImmediateScheduler extends ncc {
+    @Override // com.baidu.tieba.ncc
+    public ncc.a createWorker() {
         return null;
     }
 

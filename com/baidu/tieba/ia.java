@@ -254,13 +254,13 @@ public class ia extends aa<SocketMessage, SocketMessageTask> implements pa {
     }
 
     @Override // com.baidu.tieba.pa
-    public void c(yi yiVar) {
+    public void c(xi xiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, yiVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, xiVar) == null) {
             E();
             pa paVar = this.f;
             if (paVar != null) {
-                paVar.c(yiVar);
+                paVar.c(xiVar);
             }
         }
     }
@@ -452,10 +452,10 @@ public class ia extends aa<SocketMessage, SocketMessageTask> implements pa {
     }
 
     @Override // com.baidu.tieba.pa
-    public void d(gj gjVar) {
+    public void d(fj fjVar) {
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, gjVar) != null) || gjVar == null || (bArr = gjVar.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, fjVar) != null) || fjVar == null || (bArr = fjVar.a) == null) {
             return;
         }
         this.i = System.currentTimeMillis();
@@ -466,8 +466,8 @@ public class ia extends aa<SocketMessage, SocketMessageTask> implements pa {
             ka.a("queue", b2, h, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
             ga o = o(b2, h);
             if (o != null) {
-                o.m = gjVar.b;
-                o.n = gjVar.c;
+                o.m = fjVar.b;
+                o.n = fjVar.c;
             }
             if (this.h != null) {
                 if (c.a.b() == this.h.c() && ea.i(this.d, this.e)) {
@@ -484,7 +484,7 @@ public class ia extends aa<SocketMessage, SocketMessageTask> implements pa {
             }
             pa paVar = this.f;
             if (paVar != null) {
-                paVar.d(gjVar);
+                paVar.d(fjVar);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2000986));
         } catch (CoderException unused) {

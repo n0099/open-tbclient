@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tieba.ku9;
 import com.baidu.tieba.m05;
-import com.baidu.tieba.ns9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class ProfileRequestMessage extends NetMessage {
     public boolean isSelf;
     public Integer is_from_usercenter;
     public Integer is_guest;
-    public ns9 mPersonCenterData;
+    public ku9 mPersonCenterData;
     public Integer needUsergrowthTask;
     public Integer need_post_count;
     public Integer page;
@@ -112,13 +112,13 @@ public class ProfileRequestMessage extends NetMessage {
         return (Integer) invokeV.objValue;
     }
 
-    public ns9 getPersonCenterData() {
+    public ku9 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mPersonCenterData;
         }
-        return (ns9) invokeV.objValue;
+        return (ku9) invokeV.objValue;
     }
 
     public Long get_friend_uid() {
@@ -273,10 +273,10 @@ public class ProfileRequestMessage extends NetMessage {
         }
     }
 
-    public void setPersonCenterData(ns9 ns9Var) {
+    public void setPersonCenterData(ku9 ku9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, ns9Var) == null) {
-            this.mPersonCenterData = ns9Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, ku9Var) == null) {
+            this.mPersonCenterData = ku9Var;
         }
     }
 

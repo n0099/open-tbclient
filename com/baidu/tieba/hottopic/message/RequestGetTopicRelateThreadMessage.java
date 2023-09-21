@@ -20,7 +20,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1110common;
+    public CommonReq f1106common;
     public Long last_id;
     public Integer page_no;
     public Integer pmy_source;
@@ -60,7 +60,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1400common = getCommon();
+                builder.f1395common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.rn = getRn();
@@ -90,7 +90,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f1110common;
+            return this.f1106common;
         }
         return (CommonReq) invokeV.objValue;
     }
@@ -206,7 +206,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, commonReq) == null) {
-            this.f1110common = commonReq;
+            this.f1106common = commonReq;
         }
     }
 

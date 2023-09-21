@@ -28,15 +28,15 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.iy7;
+import com.baidu.tieba.di;
+import com.baidu.tieba.ky7;
+import com.baidu.tieba.lt4;
 import com.baidu.tieba.mt4;
-import com.baidu.tieba.nt4;
-import com.baidu.tieba.p46;
-import com.baidu.tieba.sq6;
+import com.baidu.tieba.q46;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoMiddleFragment;
+import com.baidu.tieba.yq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean b;
     public List<VideoItemData> c;
     public VideoMiddleFragment d;
-    public p46 e;
+    public q46 e;
     public boolean f;
     public Rect g;
     public String h;
@@ -61,7 +61,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean shouldChangeStatusBarIconAndTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -71,7 +71,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public String taskActionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? "712" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? "712" : (String) invokeV.objValue;
     }
 
     public VideoPlayActivity() {
@@ -110,67 +110,67 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            p46 p46Var = this.e;
-            if (p46Var != null) {
-                p46Var.h();
+            q46 q46Var = this.e;
+            if (q46Var != null) {
+                q46Var.h();
             }
-            iy7.m().c(iy7.s());
-            sq6.a();
+            ky7.m().c(ky7.s());
+            yq6.a();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
             VideoMiddleFragment videoMiddleFragment = this.d;
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(false);
                 this.d.setUserVisibleHint(false);
             }
-            nt4.w().E();
+            mt4.w().E();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
             VideoMiddleFragment videoMiddleFragment = this.d;
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(true);
                 this.d.setUserVisibleHint(true);
-                nt4.w().Q(mt4.c0, this.d.n());
+                mt4.w().Q(lt4.c0, this.d.p());
             }
         }
     }
 
-    public Rect t1() {
+    public Rect p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.g;
         }
         return (Rect) invokeV.objValue;
     }
 
-    public String v1() {
+    public String r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.h;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void w1() {
+    public final void s1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.c = (List) getIntent().getSerializableExtra("video_list");
             this.a = getIntent().getStringExtra("key_nid");
         }
@@ -188,9 +188,9 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void s1() {
+    public final void n1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ENTER_VIDEO_PAGE);
             if (TextUtils.isEmpty(this.a)) {
                 statisticItem.param("obj_type", "1");
@@ -205,13 +205,13 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048579, this, i, i2, intent) != null) || VcodeTool.tryProcessActivityResultOnWriteScene(i, i2, intent)) {
+        if ((interceptable != null && interceptable.invokeIIL(1048580, this, i, i2, intent) != null) || VcodeTool.tryProcessActivityResultOnWriteScene(i, i2, intent)) {
             return;
         }
         super.onActivityResult(i, i2, intent);
         VideoMiddleFragment videoMiddleFragment = this.d;
         if (videoMiddleFragment != null) {
-            videoMiddleFragment.q(i, i2, intent);
+            videoMiddleFragment.x(i, i2, intent);
         }
     }
 
@@ -219,7 +219,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         VideoMiddleFragment videoMiddleFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (videoMiddleFragment = this.d) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (videoMiddleFragment = this.d) != null) {
             videoMiddleFragment.onChangeSkinType(i);
         }
     }
@@ -227,7 +227,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !BdActivityStack.getInst().isActivityExist("MainTabActivity")) {
                 this.b = true;
             }
@@ -237,20 +237,20 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
-            setContentView(R.layout.obfuscated_res_0x7f0d09fd);
-            this.e = new p46(getPageContext(), "client_videomiddle");
-            w1();
-            x1();
+            setContentView(R.layout.obfuscated_res_0x7f0d09fa);
+            this.e = new q46(getPageContext(), "client_videomiddle");
+            s1();
+            t1();
             addNoAdjustSoftInputHeightListener();
             setActivityBgTransparent();
-            s1();
+            n1();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
             if (this.f != z) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921645, Boolean.valueOf(z)));
@@ -266,14 +266,14 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, keyEvent)) == null) {
             if (i == 4) {
                 VideoMiddleFragment videoMiddleFragment = this.d;
                 if (videoMiddleFragment != null) {
-                    if (videoMiddleFragment.s()) {
+                    if (videoMiddleFragment.A()) {
                         return false;
                     }
-                    this.d.V0();
+                    this.d.b1();
                 }
                 finish();
                 return false;
@@ -286,7 +286,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void setIsAddSwipeBackLayout(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048588, this, z) != null) || this.mSwipeBackLayout == null) {
+        if ((interceptable != null && interceptable.invokeZ(1048591, this, z) != null) || this.mSwipeBackLayout == null) {
             return;
         }
         if (this.b) {
@@ -301,16 +301,16 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void x1() {
+    public final void t1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             if (ListUtils.isEmpty(this.c) && !ListUtils.isEmpty(VideoPlayActivityConfig.bigDataList)) {
                 ArrayList arrayList = new ArrayList();
                 this.c = arrayList;
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.c)) {
-                BdUtilHelper.showToast(this, (int) R.string.obfuscated_res_0x7f0f0e3d);
+                BdUtilHelper.showToast(this, (int) R.string.obfuscated_res_0x7f0f0e3f);
                 finish();
                 return;
             }
@@ -318,16 +318,16 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (list != null && list.size() > 0 && this.c.get(0) != null) {
                 this.h = this.c.get(0).thread_id;
             }
-            if (getIntent() != null && !ei.isEmpty(VideoPlayActivityConfig.VIDEO_VIEW_RECT)) {
+            if (getIntent() != null && !di.isEmpty(VideoPlayActivityConfig.VIDEO_VIEW_RECT)) {
                 this.g = (Rect) getIntent().getParcelableExtra(VideoPlayActivityConfig.VIDEO_VIEW_RECT);
             }
             VideoMiddleFragment videoMiddleFragment = new VideoMiddleFragment();
             this.d = videoMiddleFragment;
-            videoMiddleFragment.n2(getUniqueId());
+            videoMiddleFragment.t2(getUniqueId());
             this.d.setArguments(getIntent().getExtras());
-            this.d.o2(this.c);
+            this.d.u2(this.c);
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092982, this.d);
+            beginTransaction.add(R.id.obfuscated_res_0x7f09294c, this.d);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
         }

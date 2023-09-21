@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,123 +10,85 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class v06 implements w06 {
+public class v06 extends a16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConstrainImageLayout.c e;
 
-    @Override // com.baidu.tieba.w06
-    public int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 4) {
-                return 1;
+    /* loaded from: classes8.dex */
+    public class a implements ConstrainImageLayout.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(v06 v06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return (i < 4 || i >= 7) ? 3 : 2;
         }
-        return invokeI.intValue;
+
+        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
+        public void a(TbImageView tbImageView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
+                tbImageView.setRadiusById(R.string.J_X05);
+                tbImageView.clearCornerFlag();
+                tbImageView.setDrawCorner(true);
+                tbImageView.setConrers(0);
+                if (i2 == 1) {
+                    tbImageView.setConrers(15);
+                } else if (i2 > 1) {
+                    if (i == 0) {
+                        tbImageView.setConrers(5);
+                    } else if (i == i2 - 1) {
+                        tbImageView.setConrers(10);
+                    }
+                }
+            }
+        }
     }
 
-    public v06() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v06(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = new a(this);
     }
 
-    @Override // com.baidu.tieba.w06
+    @Override // com.baidu.tieba.a16, com.baidu.tieba.x06
     public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
-            if (ListUtils.getCount(list) <= 0) {
-                return i2;
+            if (list.size() < this.b) {
+                list.size();
             }
-            if (i == 0) {
-                return e(constrainImageLayout, list, i2);
-            }
-            if (i == 1) {
-                return d(constrainImageLayout, list, i2);
-            }
-            if (i == 2) {
-                return c(constrainImageLayout, list, i2);
-            }
-            return i2;
+            constrainImageLayout.setTbImageViewConfiguration(this.e);
+            return super.a(constrainImageLayout, list, i, i2);
         }
         return invokeLLII.intValue;
-    }
-
-    public final int c(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, constrainImageLayout, list, i)) == null) {
-            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
-                int count = ListUtils.getCount(list);
-                constrainImageLayout.setImageMaxChildCount(3);
-                int i2 = count - 9;
-                if (i2 > 0) {
-                    int i3 = i + 3;
-                    List<MediaData> subList = ListUtils.subList(list, i, i3);
-                    constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
-                    constrainImageLayout.setUrls(subList, i, true);
-                    return i3;
-                }
-                constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
-                constrainImageLayout.setExtraCenterText(null);
-                return count;
-            }
-            return i;
-        }
-        return invokeLLI.intValue;
-    }
-
-    public final int d(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, constrainImageLayout, list, i)) == null) {
-            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
-                if (ListUtils.getCount(list) == 4) {
-                    int i2 = i + 2;
-                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
-                    return i2;
-                }
-                int i3 = i + 3;
-                constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
-                return i3;
-            }
-            return i;
-        }
-        return invokeLLI.intValue;
-    }
-
-    public final int e(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
-            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
-                int count = ListUtils.getCount(list);
-                if (count == 1) {
-                    constrainImageLayout.setUrls(list, i);
-                    return 0;
-                } else if (count != 2 && count != 4 && count != 5) {
-                    int i2 = i + 3;
-                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
-                    return i2;
-                } else {
-                    int i3 = i + 2;
-                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
-                    return i3;
-                }
-            }
-            return i;
-        }
-        return invokeLLI.intValue;
     }
 }

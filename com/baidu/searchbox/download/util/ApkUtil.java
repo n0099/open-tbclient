@@ -54,9 +54,9 @@ import com.baidu.searchbox.schemedispatch.monitor.OpenAppManager;
 import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b20;
-import com.baidu.tieba.qw;
-import com.baidu.tieba.z10;
+import com.baidu.tieba.a20;
+import com.baidu.tieba.pw;
+import com.baidu.tieba.y10;
 import com.google.android.material.internal.CollapsingTextHelper;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.File;
@@ -113,7 +113,7 @@ public class ApkUtil {
     }
 
     public static boolean enableShowInstallPermissionDialog() {
-        if (BdBoxActivityManager.isForeground() && z10.h()) {
+        if (BdBoxActivityManager.isForeground() && y10.h()) {
             return true;
         }
         return false;
@@ -151,7 +151,7 @@ public class ApkUtil {
                         jSONObject.put("pkg", str);
                     } catch (Exception unused3) {
                     }
-                    b20.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject);
+                    a20.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject);
                     ApkUtil.doInstalledCloudStatisticJob(jSONObject.toString());
                 } else if (ApkUtil.mInstallPKGMap != null && ApkUtil.mInstallPKGMap.containsKey(str)) {
                     if (queryInstalledApk.containsKey(str3) && ApkUtil.filesEquals((String) ApkUtil.mInstallPKGMap.get(str), str2)) {
@@ -162,7 +162,7 @@ public class ApkUtil {
                                 jSONObject2.put("pkg", str);
                             } catch (Exception unused4) {
                             }
-                            b20.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject2);
+                            a20.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject2);
                             ApkUtil.doInstalledCloudStatisticJob(l.longValue());
                             ApkUtil.deleteDownload(context, l.longValue());
                             return;
@@ -176,7 +176,7 @@ public class ApkUtil {
                                 jSONObject3.put("pkg", str);
                             } catch (Exception unused5) {
                             }
-                            b20.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject3);
+                            a20.x("file", DownloadStatisticConstants.UBC_TYPE_FINISH_INSTALL, "other", "auto", "app", jSONObject3);
                             ApkUtil.doInstallHijackCloudStatisticJob(entry.getValue().longValue());
                             return;
                         }
@@ -773,8 +773,8 @@ public class ApkUtil {
             public void run() {
                 try {
                     if (ApkUtil.access$700()) {
-                        z10.c(BdBoxActivityManager.getTopActivity(), z10.b, new z10.g() { // from class: com.baidu.searchbox.download.util.ApkUtil.9.1
-                            @Override // com.baidu.tieba.z10.g
+                        y10.c(BdBoxActivityManager.getTopActivity(), y10.b, new y10.g() { // from class: com.baidu.searchbox.download.util.ApkUtil.9.1
+                            @Override // com.baidu.tieba.y10.g
                             public void onRequestPermissionsResult(boolean z) {
                             }
                         }, 102);
@@ -813,7 +813,7 @@ public class ApkUtil {
 
     public static void openApp(Context context, String str, String str2, String str3, String str4, String str5, InterceptCallback interceptCallback) {
         if (!TextUtils.isEmpty(str2) && context != null) {
-            qw.b().h(str, str2, true, interceptCallback, OpenAppManager.isNoAlertSwitchOn("h5"), new InvokeStatistic().addExtPackage(str2).setPage("package").setFrom(str3).addSContent(str4).addurl(str5));
+            pw.b().h(str, str2, true, interceptCallback, OpenAppManager.isNoAlertSwitchOn("h5"), new InvokeStatistic().addExtPackage(str2).setPage("package").setFrom(str3).addSContent(str4).addurl(str5));
         } else if (interceptCallback != null) {
             interceptCallback.onResult(false);
         }

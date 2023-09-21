@@ -17,7 +17,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c56;
+import com.baidu.tieba.d56;
 import com.baidu.tieba.view.widget.mediaedit.RangeSlider;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
@@ -581,7 +581,7 @@ public class VideoClipLayout extends FrameLayout {
     public final void G(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, c56.VideoClipLayout);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, d56.VideoClipLayout);
             this.u = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
         }
@@ -666,9 +666,9 @@ public class VideoClipLayout extends FrameLayout {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09cc, (ViewGroup) null);
-            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f09283a);
-            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f092839);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09c9, (ViewGroup) null);
+            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f092805);
+            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f092804);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.e = customLinearLayoutManager;

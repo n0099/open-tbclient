@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.data.TopNotifyData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class b75 implements t65 {
+public final class b75 implements w65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +31,7 @@ public final class b75 implements t65 {
         }
     }
 
-    @Override // com.baidu.tieba.t65
+    @Override // com.baidu.tieba.w65
     public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class b75 implements t65 {
             Intrinsics.checkNotNullParameter(strategyData, "strategyData");
             Intrinsics.checkNotNullParameter(extraData, "extraData");
             HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "topNotify");
+            hashMap.put("dialogName", "newGod");
             hashMap.putAll(strategyData);
             hashMap.putAll(extraData);
             return hashMap;
@@ -48,14 +48,20 @@ public final class b75 implements t65 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.t65
+    @Override // com.baidu.tieba.w65
     public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
-        TopNotifyData a;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
-            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || eg5.j() || ne5.c() || (a = TopNotifyData.Companion.a()) == null || !mg5.a.d(a)) {
+            boolean z2 = SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_new_god_pop_is_show"), false);
+            if (TbSingleton.getInstance().getNewGodData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z2 || !z) {
                 return false;
             }
             return true;

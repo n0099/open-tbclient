@@ -1,17 +1,13 @@
 package com.baidu.tieba;
+
+import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
 /* loaded from: classes5.dex */
 public interface egb {
+    IMediaPlayer a();
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str, egb egbVar);
-    }
+    String b();
 
-    void cancel();
+    lhb c();
 
-    boolean isRunning();
-
-    void pause();
-
-    void start();
+    String e();
 }

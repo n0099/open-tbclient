@@ -1,48 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.util.Log;
+import android.view.KeyEvent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mg3;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class x12 extends n12 {
+public class x12 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
+    public static volatile x12 h;
+    public static rt2 i;
+    public static boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
-
-    @Override // com.baidu.tieba.kz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ShowSMSPanelApi" : (String) invokeV.objValue;
-    }
+    public HashMap<String, Boolean> a;
+    public HashMap<String, rt2> b;
+    public int c;
+    public zp3<Integer> d;
+    public vw2 e;
+    public do2 f;
 
     /* loaded from: classes8.dex */
-    public class a implements aq3<kg3<mg3.e>> {
+    public class a extends do2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ x12 d;
+        public final /* synthetic */ x12 a;
 
-        public a(x12 x12Var, String str, String str2, String str3) {
+        public a(x12 x12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x12Var, str, str2, str3};
+                Object[] objArr = {x12Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,124 +50,344 @@ public class x12 extends n12 {
                     return;
                 }
             }
-            this.d = x12Var;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
+            this.a = x12Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
-        /* renamed from: b */
-        public void a(kg3<mg3.e> kg3Var) {
+        @Override // com.baidu.tieba.do2, com.baidu.tieba.eo2
+        public boolean onKeyDown(int i, KeyEvent keyEvent) {
+            InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
-                if (!fg3.h(kg3Var)) {
-                    int b = kg3Var.b();
-                    this.d.d(this.a, new h32(b, fg3.f(b)));
-                    return;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, keyEvent)) == null) {
+                if (i == 4 && this.a.d != null && this.a.g()) {
+                    this.a.d.a(1);
+                    return true;
                 }
-                this.d.z(this.b, this.c);
-                this.d.d(this.a, new h32(0));
+                return false;
             }
+            return invokeIL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x12(@NonNull iz1 iz1Var) {
-        super(iz1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iz1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((iz1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948247440, "Lcom/baidu/tieba/x12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948247440, "Lcom/baidu/tieba/x12;");
                 return;
             }
         }
+        g = qr1.a;
     }
 
-    public h32 A(String str) {
-        InterceptResult invokeL;
+    public static x12 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#openSystemSMSPanel", false);
-            Pair<h32, JSONObject> s = s(str);
-            h32 h32Var = (h32) s.first;
-            if (!h32Var.isSuccess()) {
-                return h32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            h82.b("ShowSMSPanelApi", "params: ", jSONObject);
-            String optString = jSONObject.optString("content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("recipients");
-            if (optJSONArray == null) {
-                return new h32(202);
-            }
-            String y = y(optJSONArray);
-            if (!TextUtils.isEmpty(y) && !TextUtils.isEmpty(optString)) {
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new h32(202);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (h == null) {
+                synchronized (x12.class) {
+                    if (h == null) {
+                        h = new x12();
+                    }
                 }
-                gb3.K().q().e0().g(getContext(), "scope_show_sms_panel", new a(this, optString2, y, optString));
-                return h32.f();
             }
-            return new h32(202);
+            return h;
         }
-        return (h32) invokeL.objValue;
+        return (x12) invokeV.objValue;
     }
 
-    public final void x() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ki3 ki3Var = new ki3();
-            ki3Var.b = "sms_panel";
-            ki3Var.e = String.valueOf(this.f);
-            ki3Var.a("appid", gb3.K().getAppId());
-            ai3.x("1639", ki3Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            g82.i("SwanInlinePlayerManager", "clearCacheVideo: ");
+            i = null;
+            j = false;
         }
     }
 
-    public final String y(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i2 = this.c;
+            if (i2 != 90 && i2 != -90) {
+                return false;
             }
-            StringBuilder sb = new StringBuilder();
-            this.f = jSONArray.length();
-            for (int i = 0; i < this.f; i++) {
-                String optString = jSONArray.optString(i);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                sb.append(optString);
-                if (i != this.f - 1) {
-                    sb.append(ParamableElem.DIVIDE_PARAM);
-                }
-            }
-            return sb.toString();
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void z(@NonNull String str, @NonNull String str2) {
+    public final boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.SENDTO");
-            intent.setData(Uri.parse("smsto:" + str));
-            intent.putExtra("sms_body", str2);
-            getContext().startActivity(intent);
-            x();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.c == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        zp3<Integer> zp3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g() && (zp3Var = this.d) != null) {
+            zp3Var.a(0);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            tw2.T().getActivity().u0(this.f);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            synchronized (this) {
+                x();
+                w();
+                this.a = null;
+                this.b.clear();
+                this.d = null;
+            }
+            h = null;
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d = null;
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            g82.i("SwanInlinePlayerManager", "setCacheInUsed: true");
+            j = true;
+        }
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            SwanAppActivity activity = tw2.T().getActivity();
+            do2 do2Var = this.f;
+            if (do2Var != null && activity != null) {
+                activity.G0(do2Var);
+            }
+        }
+    }
+
+    public void x() {
+        vw2 vw2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (vw2Var = this.e) != null) {
+            ww2.f(vw2Var);
+            this.e = null;
+        }
+    }
+
+    public x12() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = -1;
+        this.d = null;
+        this.e = null;
+        this.f = new a(this);
+    }
+
+    public rt2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (g && i != null) {
+                Log.i("SwanInlinePlayerManager", "getCacheVideoPlayer: " + i.c());
+            }
+            return i;
+        }
+        return (rt2) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            boolean z2 = true;
+            if (d() != null && d().e0() == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            z2 = (!z || j) ? false : false;
+            g82.i("SwanInlinePlayerManager", "hasCacheVideo: " + z2);
+            return z2;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(rt2 rt2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, rt2Var) == null) && rt2Var != null && !TextUtils.isEmpty(rt2Var.c())) {
+            this.b.put(rt2Var.c(), rt2Var);
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.b.remove(str);
+        }
+    }
+
+    public void t(rt2 rt2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, rt2Var) == null) {
+            if (g) {
+                Log.i("SwanInlinePlayerManager", "setCacheVideo: " + rt2Var.toString());
+            }
+            i = rt2Var;
+        }
+    }
+
+    public void u(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            this.c = i2;
+        }
+    }
+
+    public void v(zp3<Integer> zp3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, zp3Var) == null) {
+            this.d = zp3Var;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            oa2 H = tw2.T().H();
+            if (g()) {
+                if (g) {
+                    Log.i("SwanInlinePlayerManager", "onForegroundChange: full screen ");
+                }
+                if (H != null) {
+                    H.T3(false);
+                }
+                ca3.g();
+                ca3.m(true);
+            } else if (h()) {
+                if (g) {
+                    Log.i("SwanInlinePlayerManager", "onForegroundChange: Setting portrait fullscreen immersion.");
+                }
+                if (H != null) {
+                    H.T3(true);
+                }
+            } else {
+                if (g) {
+                    Log.i("SwanInlinePlayerManager", "onForegroundChange: vertical screen. ");
+                }
+                if (H != null) {
+                    H.T3(false);
+                }
+            }
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (g) {
+                    Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: empty player id ");
+                    return;
+                }
+                return;
+            }
+            HashMap<String, rt2> hashMap = this.b;
+            if (hashMap != null && hashMap.size() > 0) {
+                int i2 = 0;
+                for (String str2 : this.b.keySet()) {
+                    if (str2.equals(str)) {
+                        if (g) {
+                            Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: skip itself." + str);
+                        }
+                    } else {
+                        rt2 rt2Var = this.b.get(str2);
+                        if (rt2Var != null) {
+                            if (i2 < 3) {
+                                if (!rt2Var.i0()) {
+                                    rt2Var.pause();
+                                    rt2Var.Q().c(rt2Var.c());
+                                } else {
+                                    i2++;
+                                }
+                            } else {
+                                rt2Var.pause();
+                                rt2Var.Q().c(rt2Var.c());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void l(String str, boolean z) {
+        HashMap<String, Boolean> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) && (hashMap = this.a) != null) {
+            hashMap.put(str, Boolean.valueOf(z));
+        }
+    }
+
+    public void o(rt2 rt2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, rt2Var) != null) || rt2Var == null) {
+            return;
+        }
+        if (d() == null) {
+            j = false;
+        } else if (TextUtils.equals(d().c(), rt2Var.c())) {
+            g82.i("SwanInlinePlayerManager", "releaseCacheVideo: clear cache video " + rt2Var.c());
+            i = null;
+            j = false;
+        }
+    }
+
+    public void q(String str) {
+        HashMap<String, Boolean> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && (hashMap = this.a) != null) {
+            hashMap.remove(str);
+            int size = this.a.keySet().size();
+            if (g) {
+                Log.i("SwanInlinePlayerManager", "removePlayerState: last player count " + size);
+            }
         }
     }
 }

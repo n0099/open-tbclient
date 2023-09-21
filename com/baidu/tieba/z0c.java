@@ -1,114 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.SpriteEntity;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public final class z0c {
-    public static /* synthetic */ Interceptable $ic;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+/* loaded from: classes8.dex */
+public abstract class z0c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "PBKDF2";
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<a1c> b;
 
-    public z0c(SpriteEntity spriteEntity) {
-        List<a1c> emptyList;
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948307580, "Lcom/baidu/tieba/z0c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spriteEntity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = spriteEntity.imageKey;
-        List<FrameEntity> list = spriteEntity.frames;
-        if (list != null) {
-            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            a1c a1cVar = null;
-            for (FrameEntity it : list) {
-                Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                a1c a1cVar2 = new a1c(it);
-                if ((!a1cVar2.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) a1cVar2.d())).e() && a1cVar != null) {
-                    a1cVar2.f(a1cVar.d());
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948307580, "Lcom/baidu/tieba/z0c;");
+        }
+    }
+
+    public static byte[] a(char[] cArr, byte[] bArr, int i, int i2, boolean z) {
+        SecretKeyFactory secretKeyFactory;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{cArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            try {
+                PBEKeySpec pBEKeySpec = new PBEKeySpec(cArr, bArr, i, i2);
+                if (z) {
+                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
+                } else {
+                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
                 }
-                emptyList.add(a1cVar2);
-                a1cVar = a1cVar2;
-            }
-        } else {
-            emptyList = CollectionsKt__CollectionsKt.emptyList();
-        }
-        this.b = emptyList;
-    }
-
-    public z0c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();
+            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+                String str = a;
+                h1c.c(str, "pbkdf exception : " + e.getMessage());
+                return new byte[0];
             }
         }
-        this.a = jSONObject.optString("imageKey");
-        ArrayList arrayList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("frames");
-        if (optJSONArray != null) {
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                if (optJSONObject != null) {
-                    a1c a1cVar = new a1c(optJSONObject);
-                    if ((!a1cVar.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) a1cVar.d())).e() && arrayList.size() > 0) {
-                        a1cVar.f(((a1c) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).d());
-                    }
-                    arrayList.add(a1cVar);
-                }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static byte[] b(char[] cArr, byte[] bArr, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, cArr, bArr, i, i2)) == null) {
+            return a(cArr, bArr, i, i2, false);
+        }
+        return (byte[]) invokeLLII.objValue;
+    }
+
+    public static byte[] c(char[] cArr, byte[] bArr, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, cArr, bArr, i, i2)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (Build.VERSION.SDK_INT < 26) {
+                h1c.c(a, "system version not high than 26");
+                return bArr2;
             }
+            return a(cArr, bArr, i, i2, true);
         }
-        this.b = CollectionsKt___CollectionsKt.toList(arrayList);
-    }
-
-    public final List<a1c> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (byte[]) invokeLLII.objValue;
     }
 }

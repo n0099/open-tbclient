@@ -1,116 +1,189 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.annotation.SuppressLint;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentDelegate;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.FragmentTabStructure;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.personcenter.AlaPersonCenterFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes8.dex */
-public class yf6 extends FragmentDelegate {
+public class yf6 extends to6<ThreadData> implements qp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaPersonCenterFragment a;
+    public TbPageContext<?> i;
+    public RelativeLayout j;
+    public ThreadData k;
+    public View l;
+    public View m;
+    public View n;
+    public TextView o;
+    public TextView p;
+    public TextView q;
+    public RelativeLayout r;
+    public final View.OnClickListener s;
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public boolean isAvailable() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qp6
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    public yf6() {
+    @Override // com.baidu.tieba.to6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0352 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.qp6
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yf6 a;
+
+        public a(yf6 yf6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yf6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yf6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.k != null && this.a.e() != null) {
+                this.a.e().a(view2, this.a.k);
+                TiebaStatic.log(new StatisticItem("c11844").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.a.k.getFid()));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yf6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AlaPersonCenterFragment();
-        getFragmentTabStructure().frag = this.a;
+        this.s = new a(this);
+        this.i = tbPageContext;
+        View h = h();
+        this.l = h.findViewById(R.id.obfuscated_res_0x7f0908e9);
+        this.m = h.findViewById(R.id.obfuscated_res_0x7f091e8a);
+        this.n = h.findViewById(R.id.obfuscated_res_0x7f091e8d);
+        this.j = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901fa);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09020e);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922dd);
+        this.r = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901d6);
+        this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09023b);
     }
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public FragmentTabStructure createFragmentTabStructure() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.to6
+    /* renamed from: s */
+    public void i(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.type = 5;
-            fragmentTabStructure.textResId = R.string.ala_live;
-            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
-            return fragmentTabStructure;
-        }
-        return (FragmentTabStructure) invokeV.objValue;
-    }
-
-    public void a(fj7 fj7Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, fj7Var) != null) || fj7Var == null || !fj7Var.h(5)) {
-            return;
-        }
-        fj7Var.a(this);
-    }
-
-    public void b(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
-            alaPersonCenterFragment.W1(str);
+        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
+            this.k = threadData;
+            t();
         }
     }
 
-    public void c(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment;
+    public void u(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
-            alaPersonCenterFragment.X1(str);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            this.p.setOnClickListener(this.s);
         }
     }
 
-    public void d(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment;
+    @Override // com.baidu.tieba.to6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
-            alaPersonCenterFragment.Y1(str);
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && this.a != i) {
+            SkinManager.setBackgroundResource(this.p, R.drawable.ala_live_card_start_live_selector);
+            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.r, R.color.CAM_X0201);
+            this.a = i;
         }
     }
 
-    public void e(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment;
+    public final void t() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaPersonCenterFragment = this.a) != null) {
-            alaPersonCenterFragment.Z1(str);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (!this.k.hasRecommend) {
+                this.q.setVisibility(8);
+                this.m.setVisibility(8);
+                this.n.setVisibility(8);
+                ViewGroup.LayoutParams layoutParams = this.r.getLayoutParams();
+                layoutParams.height = BdUtilHelper.getEquipmentHeight(this.i.getPageActivity()) / 4;
+                this.r.setLayoutParams(layoutParams);
+            } else {
+                this.q.setVisibility(0);
+                this.m.setVisibility(0);
+                this.n.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams2 = this.r.getLayoutParams();
+                layoutParams2.height = this.i.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201);
+                this.r.setLayoutParams(layoutParams2);
+            }
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
         }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.mIndicator = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.mIndicator;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

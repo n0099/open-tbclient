@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d2a;
-import com.baidu.tieba.e2a;
-import com.baidu.tieba.vha;
+import com.baidu.tieba.b4a;
+import com.baidu.tieba.bka;
+import com.baidu.tieba.c4a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,14 +54,14 @@ public class QRCodeStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921388, e2a.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
+                return new CustomResponsedMessage<>(2921388, c4a.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements CustomMessageTask.CustomRunnable<vha> {
+    public class b implements CustomMessageTask.CustomRunnable<bka> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,20 +80,20 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<vha> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<bka> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String str = null;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof vha)) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof bka)) {
                     return null;
                 }
-                vha data = customMessage.getData();
+                bka data = customMessage.getData();
                 int i = data.a;
                 if (i == 0) {
-                    str = d2a.b(data.c);
+                    str = b4a.b(data.c);
                 } else if (i == 1) {
-                    str = d2a.c(data.d);
+                    str = b4a.c(data.d);
                 }
                 if (TextUtils.isEmpty(str)) {
                     data.e = "qr_none";

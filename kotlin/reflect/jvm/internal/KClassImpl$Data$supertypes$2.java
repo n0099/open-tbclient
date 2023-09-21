@@ -40,10 +40,10 @@ public final class KClassImpl$Data$supertypes$2 extends Lambda implements Functi
         boolean z;
         TypeConstructor typeConstructor = this.this$0.getDescriptor().getTypeConstructor();
         Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "descriptor.typeConstructor");
-        Collection<KotlinType> mo2106getSupertypes = typeConstructor.mo2106getSupertypes();
-        Intrinsics.checkExpressionValueIsNotNull(mo2106getSupertypes, "descriptor.typeConstructor.supertypes");
-        ArrayList<KTypeImpl> arrayList = new ArrayList(mo2106getSupertypes.size());
-        for (final KotlinType kotlinType : mo2106getSupertypes) {
+        Collection<KotlinType> mo2108getSupertypes = typeConstructor.mo2108getSupertypes();
+        Intrinsics.checkExpressionValueIsNotNull(mo2108getSupertypes, "descriptor.typeConstructor.supertypes");
+        ArrayList<KTypeImpl> arrayList = new ArrayList(mo2108getSupertypes.size());
+        for (final KotlinType kotlinType : mo2108getSupertypes) {
             Intrinsics.checkExpressionValueIsNotNull(kotlinType, "kotlinType");
             arrayList.add(new KTypeImpl(kotlinType, new Function0<Type>() { // from class: kotlin.reflect.jvm.internal.KClassImpl$Data$supertypes$2$$special$$inlined$mapTo$lambda$1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,9 +54,9 @@ public final class KClassImpl$Data$supertypes$2 extends Lambda implements Functi
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function0
                 public final Type invoke() {
-                    ClassifierDescriptor mo2105getDeclarationDescriptor = KotlinType.this.getConstructor().mo2105getDeclarationDescriptor();
-                    if (mo2105getDeclarationDescriptor instanceof ClassDescriptor) {
-                        Class<?> javaClass = UtilKt.toJavaClass((ClassDescriptor) mo2105getDeclarationDescriptor);
+                    ClassifierDescriptor mo2107getDeclarationDescriptor = KotlinType.this.getConstructor().mo2107getDeclarationDescriptor();
+                    if (mo2107getDeclarationDescriptor instanceof ClassDescriptor) {
+                        Class<?> javaClass = UtilKt.toJavaClass((ClassDescriptor) mo2107getDeclarationDescriptor);
                         if (javaClass != null) {
                             if (Intrinsics.areEqual(KClassImpl.this.getJClass().getSuperclass(), javaClass)) {
                                 Type genericSuperclass = KClassImpl.this.getJClass().getGenericSuperclass();
@@ -71,11 +71,11 @@ public final class KClassImpl$Data$supertypes$2 extends Lambda implements Functi
                                 Intrinsics.checkExpressionValueIsNotNull(type, "jClass.genericInterfaces[index]");
                                 return type;
                             }
-                            throw new KotlinReflectionInternalError("No superclass of " + this.this$0 + " in Java reflection for " + mo2105getDeclarationDescriptor);
+                            throw new KotlinReflectionInternalError("No superclass of " + this.this$0 + " in Java reflection for " + mo2107getDeclarationDescriptor);
                         }
-                        throw new KotlinReflectionInternalError("Unsupported superclass of " + this.this$0 + ": " + mo2105getDeclarationDescriptor);
+                        throw new KotlinReflectionInternalError("Unsupported superclass of " + this.this$0 + ": " + mo2107getDeclarationDescriptor);
                     }
-                    throw new KotlinReflectionInternalError("Supertype not a class: " + mo2105getDeclarationDescriptor);
+                    throw new KotlinReflectionInternalError("Supertype not a class: " + mo2107getDeclarationDescriptor);
                 }
             }));
         }

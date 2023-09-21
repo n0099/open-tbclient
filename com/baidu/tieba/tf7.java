@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tieba.forumMember.bawu.BawuManagerApplyInfoView;
-import com.baidu.tieba.forumMember.bawu.BawuMemberInfoView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,57 +16,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class tf7 extends BaseAdapter {
+public class tf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ArrayList<uf7> b;
-    public kg7 c;
-    public int d;
-    public int e;
-    public d f;
+    public e35 a;
+    public ArrayList<sf7> b;
+    public b c;
+    public HttpMessageListener d;
 
     /* loaded from: classes8.dex */
-    public interface d {
-        void a(String str);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
+    public interface b {
+        void a(int i, String str, ArrayList<sf7> arrayList);
     }
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tf7 a;
 
-        public a(tf7 tf7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(tf7 tf7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tf7Var};
+                Object[] objArr = {tf7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -79,127 +56,36 @@ public class tf7 extends BaseAdapter {
             this.a = tf7Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null) {
-                this.a.f.a(this.a.c.a());
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof GetForbiddenFansResponse)) {
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tf7 a;
-
-        public b(tf7 tf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
+            this.a.a = getForbiddenFansResponse.getPageData();
+            if (this.a.b == null) {
+                this.a.b = new ArrayList();
+            }
+            if (this.a.a != null) {
+                if (this.a.a.a() == 1) {
+                    this.a.b.clear();
+                }
+                if (getForbiddenFansResponse.getFansList() != null) {
+                    this.a.b.addAll(getForbiddenFansResponse.getFansList());
                 }
             }
-            this.a = tf7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null) {
-                this.a.f.a(this.a.c.a());
+            if (this.a.c != null) {
+                this.a.c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.b);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-
-        public c(tf7 tf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public RelativeLayout a;
-        public BawuMemberInfoView b;
-        public BawuMemberInfoView c;
-        public BawuManagerApplyInfoView d;
-        public BawuManagerApplyInfoView e;
-
-        public e(tf7 tf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-
-        public f(tf7 tf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public tf7(TbPageContext<?> tbPageContext) {
+    public tf7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -209,172 +95,69 @@ public class tf7 extends BaseAdapter {
                 return;
             }
         }
-        this.d = 0;
-        this.e = 0;
-        this.a = tbPageContext;
-        this.b = new ArrayList<>();
-        this.d = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds31);
-        this.e = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds0);
+        this.d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public uf7 getItem(int i) {
-        InterceptResult invokeI;
+    public void j(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ArrayList<uf7> arrayList = this.b;
-            if (arrayList != null && i < arrayList.size()) {
-                return this.b.get(i);
-            }
-            return null;
-        }
-        return (uf7) invokeI.objValue;
-    }
-
-    public void d(ArrayList<uf7> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
-    public void e(kg7 kg7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kg7Var) == null) {
-            this.c = kg7Var;
-        }
-    }
-
-    public void f(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.f = dVar;
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return getItem(i).a();
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ArrayList<uf7> arrayList = this.b;
-            if (arrayList != null) {
-                return arrayList.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            e35 e35Var = this.a;
+            if (e35Var != null && e35Var.b() == 1) {
+                return true;
             }
-            return 0;
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        e eVar;
-        f fVar;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (getItemViewType(i) == 0) {
-                if (view2 != null && (view2.getTag() instanceof f)) {
-                    fVar = (f) view2.getTag();
-                } else {
-                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0157, viewGroup, false);
-                    fVar = new f(this);
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092510);
-                    view2.setTag(fVar);
-                }
-                fVar.a.setText(((of7) getItem(i)).b());
-                EMManager.from(view2).setBackGroundColor(R.color.CAM_X0204);
-                this.a.getLayoutMode().onModeChanged(view2);
-            } else if (getItemViewType(i) == 1) {
-                if (view2 != null && (view2.getTag() instanceof e)) {
-                    eVar = (e) view2.getTag();
-                    eVar.b.setVisibility(0);
-                    eVar.c.setVisibility(8);
-                    eVar.d.setVisibility(8);
-                    eVar.e.setVisibility(8);
-                } else {
-                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0156, viewGroup, false);
-                    eVar = new e(this);
-                    eVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090370);
-                    eVar.b = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0914ff);
-                    eVar.c = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091f76);
-                    eVar.d = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0914fe);
-                    eVar.e = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091f75);
-                    view2.setTag(eVar);
-                }
-                nf7 nf7Var = (nf7) getItem(i);
-                if (nf7Var != null && nf7Var.c() != null && nf7Var.c().size() > 0) {
-                    if (nf7Var.e() && nf7Var.b()) {
-                        RelativeLayout relativeLayout = eVar.a;
-                        int i2 = this.d;
-                        relativeLayout.setPadding(i2, 0, i2, this.e);
-                        kg7 kg7Var = this.c;
-                        if (kg7Var != null && !kg7Var.c()) {
-                            if (nf7Var.c().size() == 2) {
-                                if (nf7Var.d().equals(this.a.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                                    eVar.e.setVisibility(8);
-                                    eVar.d.setVisibility(8);
-                                } else if (nf7Var.d().equals(this.a.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                                    eVar.e.setVisibility(8);
-                                    eVar.d.setVisibility(0);
-                                    eVar.d.a(this.a.getResources().getString(R.string.tip_assist_apply), this.c.b());
-                                    eVar.d.setOnClickListener(new a(this));
-                                }
-                            } else if (nf7Var.d().equals(this.a.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                                eVar.c.setVisibility(8);
-                                eVar.e.setVisibility(8);
-                                eVar.d.setVisibility(8);
-                            } else if (nf7Var.d().equals(this.a.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                                eVar.c.setVisibility(8);
-                                eVar.e.setVisibility(0);
-                                eVar.d.setVisibility(8);
-                                eVar.e.a(this.a.getResources().getString(R.string.tip_assist_apply), this.c.b());
-                                eVar.e.setOnClickListener(new b(this));
-                            }
-                        }
-                    } else {
-                        RelativeLayout relativeLayout2 = eVar.a;
-                        int i3 = this.d;
-                        relativeLayout2.setPadding(i3, 0, i3, 0);
-                        eVar.d.setVisibility(8);
-                        eVar.e.setVisibility(8);
-                    }
-                    eVar.b.c(nf7Var.c().get(0));
-                    if (nf7Var.c().size() >= 2) {
-                        eVar.c.c(nf7Var.c().get(1));
-                        eVar.c.setVisibility(0);
-                    } else {
-                        eVar.c.setVisibility(8);
-                    }
-                    EMManager.from(view2).setBackGroundColor(R.color.CAM_X0201);
-                    this.a.getLayoutMode().onModeChanged(view2);
-                }
-            } else if (getItemViewType(i) == 2) {
-                if (view2 != null && (view2.getTag() instanceof c)) {
-                    c cVar = (c) view2.getTag();
-                } else {
-                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0155, viewGroup, false);
-                    c cVar2 = new c(this);
-                    cVar2.a = view2.findViewById(R.id.obfuscated_res_0x7f09091b);
-                    view2.setTag(cVar2);
-                }
-                EMManager.from(view2).setBackGroundColor(R.color.CAM_X0204);
-                this.a.getLayoutMode().onModeChanged(view2);
-            }
-            return view2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam("pn", 1);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e35 e35Var = this.a;
+            int i = 1;
+            if (e35Var != null && e35Var.b() != 1) {
+                return;
+            }
+            e35 e35Var2 = this.a;
+            if (e35Var2 != null) {
+                i = 1 + e35Var2.a();
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam("pn", i);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
     }
 }

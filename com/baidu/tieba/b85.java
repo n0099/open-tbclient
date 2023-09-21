@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
-import com.baidu.tbadk.util.AppLaunchInfoFetcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b85 implements AppLaunchInfoFetcher.a {
+public class b85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,14 +20,6 @@ public class b85 implements AppLaunchInfoFetcher.a {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(jx5 jx5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jx5Var) == null) && jx5Var != null) {
-            GrowthFunnelHelper.updateAppStartInfoByInfo(jx5Var.a, jx5Var.b);
         }
     }
 }

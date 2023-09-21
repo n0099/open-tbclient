@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.BannerImage;
 /* loaded from: classes7.dex */
-public class q25 extends BaseCardInfo implements cn {
+public class q25 extends BaseCardInfo implements bn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class q25 extends BaseCardInfo implements cn {
         this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

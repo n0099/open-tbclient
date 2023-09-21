@@ -101,11 +101,11 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
         @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "R", ExifInterface.GPS_DIRECTION_TRUE, "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
         /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$combineInternal$2$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C07931<T> implements FlowCollector, SuspendFunction {
+        public static final class C07861<T> implements FlowCollector, SuspendFunction {
             public final /* synthetic */ int $i;
             public final /* synthetic */ Channel<IndexedValue<Object>> $resultChannel;
 
-            public C07931(Channel<IndexedValue<Object>> channel, int i) {
+            public C07861(Channel<IndexedValue<Object>> channel, int i) {
                 this.$resultChannel = channel;
                 this.$i = i;
             }
@@ -182,9 +182,9 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
                 } else {
                     ResultKt.throwOnFailure(obj);
                     Flow flow = this.$flows[this.$i];
-                    C07931 c07931 = new C07931(this.$resultChannel, this.$i);
+                    C07861 c07861 = new C07861(this.$resultChannel, this.$i);
                     this.label = 1;
-                    if (flow.collect(c07931, this) == coroutine_suspended) {
+                    if (flow.collect(c07861, this) == coroutine_suspended) {
                         return coroutine_suspended;
                     }
                 }
@@ -271,12 +271,12 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
                 byte[] bArr2 = (byte[]) this.L$2;
                 channel2 = (Channel) this.L$1;
                 ResultKt.throwOnFailure(obj);
-                obj2 = ((ChannelResult) obj).m2316unboximpl();
+                obj2 = ((ChannelResult) obj).m2318unboximpl();
                 objArr2 = (Object[]) this.L$0;
                 combineKt$combineInternal$22 = this;
                 b = r23;
                 bArr = bArr2;
-                indexedValue = (IndexedValue) ChannelResult.m2309getOrNullimpl(obj2);
+                indexedValue = (IndexedValue) ChannelResult.m2311getOrNullimpl(obj2);
                 if (indexedValue != null) {
                     return Unit.INSTANCE;
                 }
@@ -291,7 +291,7 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
                         break;
                     }
                     bArr[index] = b;
-                    indexedValue = (IndexedValue) ChannelResult.m2309getOrNullimpl(channel2.mo2298tryReceivePtdJZtk());
+                    indexedValue = (IndexedValue) ChannelResult.m2311getOrNullimpl(channel2.mo2300tryReceivePtdJZtk());
                 } while (indexedValue != null);
                 if (i == 0) {
                     Object[] objArr4 = (Object[]) combineKt$combineInternal$22.$arrayFactory.invoke();
@@ -363,7 +363,7 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
         combineKt$combineInternal$2.I$0 = length;
         combineKt$combineInternal$2.I$1 = b3;
         combineKt$combineInternal$2.label = 1;
-        obj2 = channel.mo2297receiveCatchingJP2dKIU(combineKt$combineInternal$2);
+        obj2 = channel.mo2299receiveCatchingJP2dKIU(combineKt$combineInternal$2);
         if (obj2 == coroutine_suspended) {
             return coroutine_suspended;
         }
@@ -372,7 +372,7 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
         channel2 = channel;
         b = b3;
         i = length;
-        indexedValue = (IndexedValue) ChannelResult.m2309getOrNullimpl(obj2);
+        indexedValue = (IndexedValue) ChannelResult.m2311getOrNullimpl(obj2);
         if (indexedValue != null) {
         }
     }

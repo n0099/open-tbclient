@@ -1,400 +1,183 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import java.io.EOFException;
 import java.io.IOException;
-import java.net.ProtocolException;
-import kotlin.jvm.internal.ByteCompanionObject;
-import okio.BufferedSource;
-import okio.ByteString;
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 /* loaded from: classes7.dex */
-public final class m1c {
+public class m1c implements X509TrustManager {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BufferedSource a;
-    public long b;
-    public long c;
-    public int d;
-    public int e;
-    public int f;
-    public long g;
-    public FieldEncoding h;
+    public List<X509TrustManager> a;
 
-    public m1c(BufferedSource bufferedSource) {
+    public void b(X509Certificate[] x509CertificateArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921258, "Lcom/baidu/tieba/m1c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947921258, "Lcom/baidu/tieba/m1c;");
+                return;
+            }
+        }
+        b = m1c.class.getSimpleName();
+    }
+
+    public m1c(InputStream inputStream, String str) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bufferedSource};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {inputStream, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 0L;
-        this.c = Long.MAX_VALUE;
-        this.e = 2;
-        this.f = -1;
-        this.g = -1L;
-        this.a = bufferedSource;
+        this.a = new ArrayList();
+        a(inputStream, str);
     }
 
-    public final void a(int i) throws IOException {
+    public final void a(InputStream inputStream, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.e == i) {
-                this.e = 6;
-                return;
-            }
-            long j = this.b;
-            long j2 = this.c;
-            if (j <= j2) {
-                if (j == j2) {
-                    this.c = this.g;
-                    this.g = -1L;
-                    this.e = 6;
-                    return;
-                }
-                this.e = 7;
-                return;
-            }
-            throw new IOException("Expected to end at " + this.c + " but was " + this.b);
-        }
-    }
-
-    public final long b() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.e == 2) {
-                long j = this.c - this.b;
-                this.a.require(j);
-                this.e = 6;
-                this.b = this.c;
-                this.c = this.g;
-                this.g = -1L;
-                return j;
-            }
-            throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.e);
-        }
-        return invokeV.longValue;
-    }
-
-    public int i() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i = this.e;
-            if (i != 5 && i != 2) {
-                throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.e);
-            }
-            this.a.require(4L);
-            this.b += 4;
-            int readIntLe = this.a.readIntLe();
-            a(5);
-            return readIntLe;
-        }
-        return invokeV.intValue;
-    }
-
-    public long j() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i = this.e;
-            if (i != 1 && i != 2) {
-                throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.e);
-            }
-            this.a.require(8L);
-            this.b += 8;
-            long readLongLe = this.a.readLongLe();
-            a(1);
-            return readLongLe;
-        }
-        return invokeV.longValue;
-    }
-
-    public long m() throws IOException {
-        InterceptResult invokeV;
-        byte readByte;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i = this.e;
-            if (i != 0 && i != 2) {
-                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
-            }
-            long j = 0;
-            for (int i2 = 0; i2 < 64; i2 += 7) {
-                this.b++;
-                j |= (readByte & ByteCompanionObject.MAX_VALUE) << i2;
-                if ((this.a.readByte() & 128) == 0) {
-                    a(0);
-                    return j;
-                }
-            }
-            throw new ProtocolException("WireInput encountered a malformed varint");
-        }
-        return invokeV.longValue;
-    }
-
-    public long c() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.e == 2) {
-                int i = this.d + 1;
-                this.d = i;
-                if (i <= 65) {
-                    long j = this.g;
-                    this.g = -1L;
-                    this.e = 6;
-                    return j;
-                }
-                throw new IOException("Wire recursion limit exceeded");
-            }
-            throw new IllegalStateException("Unexpected call to beginMessage()");
-        }
-        return invokeV.longValue;
-    }
-
-    public int l() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i = this.e;
-            if (i != 0 && i != 2) {
-                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
-            }
-            int e = e();
-            a(0);
-            return e;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(long j) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            if (this.e == 6) {
-                int i = this.d - 1;
-                this.d = i;
-                if (i >= 0 && this.g == -1) {
-                    if (this.b != this.c && i != 0) {
-                        throw new IOException("Expected to end at " + this.c + " but was " + this.b);
-                    }
-                    this.c = j;
-                    return;
-                }
-                throw new IllegalStateException("No corresponding call to beginMessage()");
-            }
-            throw new IllegalStateException("Unexpected call to endMessage()");
-        }
-    }
-
-    public final void n(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            while (this.b < this.c && !this.a.exhausted()) {
-                int e = e();
-                if (e != 0) {
-                    int i2 = e >> 3;
-                    int i3 = e & 7;
-                    if (i3 != 0) {
-                        if (i3 != 1) {
-                            if (i3 != 2) {
-                                if (i3 != 3) {
-                                    if (i3 != 4) {
-                                        if (i3 == 5) {
-                                            this.e = 5;
-                                            i();
-                                        } else {
-                                            throw new ProtocolException("Unexpected field encoding: " + i3);
-                                        }
-                                    } else if (i2 == i) {
-                                        return;
-                                    } else {
-                                        throw new ProtocolException("Unexpected end group");
-                                    }
-                                } else {
-                                    n(i2);
-                                }
-                            } else {
-                                long e2 = e();
-                                this.b += e2;
-                                this.a.skip(e2);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, inputStream, str) == null) {
+            if (inputStream != null && str != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                try {
+                    try {
+                        TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("X509");
+                        KeyStore keyStore = KeyStore.getInstance("bks");
+                        keyStore.load(inputStream, str.toCharArray());
+                        trustManagerFactory.init(keyStore);
+                        TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
+                        for (int i = 0; i < trustManagers.length; i++) {
+                            if (trustManagers[i] instanceof X509TrustManager) {
+                                this.a.add((X509TrustManager) trustManagers[i]);
                             }
-                        } else {
-                            this.e = 1;
-                            j();
                         }
-                    } else {
-                        this.e = 0;
-                        m();
+                        u1c.b(inputStream);
+                    } finally {
+                        u1c.b(inputStream);
                     }
-                } else {
-                    throw new ProtocolException("Unexpected tag 0");
+                } catch (IOException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
+                    String str2 = b;
+                    v1c.d(str2, "loadInputStream: exception : " + e.getMessage());
                 }
+                String str3 = b;
+                v1c.b(str3, "loadInputStream: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                return;
             }
-            throw new EOFException();
+            throw new IllegalArgumentException("inputstream or trustPwd is null");
         }
     }
 
-    public final int e() throws IOException {
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, x509CertificateArr, str) == null) {
+            v1c.e(b, "checkClientTrusted: ");
+            for (X509TrustManager x509TrustManager : this.a) {
+                try {
+                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+                    return;
+                } catch (CertificateException e) {
+                    String str2 = b;
+                    v1c.d(str2, "checkServerTrusted CertificateException" + e.getMessage());
+                }
+            }
+            throw new CertificateException("checkServerTrusted CertificateException");
+        }
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, x509CertificateArr, str) == null) {
+            b(x509CertificateArr);
+            v1c.e(b, "checkServerTrusted begin ,server ca chain size is : " + x509CertificateArr.length + " ,auth type is : " + str);
+            long currentTimeMillis = System.currentTimeMillis();
+            for (X509Certificate x509Certificate : x509CertificateArr) {
+                v1c.b(b, "server ca chain: getSubjectDN is :" + x509Certificate.getSubjectDN());
+                v1c.b(b, "IssuerDN :" + x509Certificate.getIssuerDN());
+                v1c.b(b, "SerialNumber : " + x509Certificate.getSerialNumber());
+            }
+            int size = this.a.size();
+            for (int i = 0; i < size; i++) {
+                try {
+                    v1c.e(b, "check server i : " + i);
+                    X509TrustManager x509TrustManager = this.a.get(i);
+                    X509Certificate[] acceptedIssuers = x509TrustManager.getAcceptedIssuers();
+                    if (acceptedIssuers != null) {
+                        v1c.e(b, "client root ca size is : " + acceptedIssuers.length);
+                        for (int i2 = 0; i2 < acceptedIssuers.length; i2++) {
+                            v1c.b(b, "client root ca getIssuerDN :" + acceptedIssuers[i2].getIssuerDN());
+                        }
+                    }
+                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+                    v1c.e(b, "checkServerTrusted succeed ,root ca issuer is : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
+                    return;
+                } catch (CertificateException e) {
+                    v1c.d(b, "checkServerTrusted error :" + e.getMessage() + " , time : " + i);
+                    if (i == size - 1) {
+                        if (x509CertificateArr != null && x509CertificateArr.length > 0) {
+                            v1c.d(b, "root ca issuer : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
+                        }
+                        throw e;
+                    }
+                }
+            }
+            v1c.b(b, "checkServerTrusted: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+        }
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public X509Certificate[] getAcceptedIssuers() {
         InterceptResult invokeV;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.b++;
-            byte readByte = this.a.readByte();
-            if (readByte >= 0) {
-                return readByte;
-            }
-            int i2 = readByte & ByteCompanionObject.MAX_VALUE;
-            this.b++;
-            byte readByte2 = this.a.readByte();
-            if (readByte2 >= 0) {
-                i = readByte2 << 7;
-            } else {
-                i2 |= (readByte2 & ByteCompanionObject.MAX_VALUE) << 7;
-                this.b++;
-                byte readByte3 = this.a.readByte();
-                if (readByte3 >= 0) {
-                    i = readByte3 << 14;
-                } else {
-                    i2 |= (readByte3 & ByteCompanionObject.MAX_VALUE) << 14;
-                    this.b++;
-                    byte readByte4 = this.a.readByte();
-                    if (readByte4 >= 0) {
-                        i = readByte4 << 21;
-                    } else {
-                        int i3 = i2 | ((readByte4 & ByteCompanionObject.MAX_VALUE) << 21);
-                        this.b++;
-                        byte readByte5 = this.a.readByte();
-                        int i4 = i3 | (readByte5 << 28);
-                        if (readByte5 < 0) {
-                            for (int i5 = 0; i5 < 5; i5++) {
-                                this.b++;
-                                if (this.a.readByte() >= 0) {
-                                    return i4;
-                                }
-                            }
-                            throw new ProtocolException("Malformed VARINT");
-                        }
-                        return i4;
-                    }
+            try {
+                ArrayList arrayList = new ArrayList();
+                for (X509TrustManager x509TrustManager : this.a) {
+                    arrayList.addAll(Arrays.asList(x509TrustManager.getAcceptedIssuers()));
                 }
-            }
-            return i2 | i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = this.e;
-            if (i == 7) {
-                this.e = 2;
-                return this.f;
-            } else if (i == 6) {
-                while (this.b < this.c && !this.a.exhausted()) {
-                    int e = e();
-                    if (e != 0) {
-                        int i2 = e >> 3;
-                        this.f = i2;
-                        int i3 = e & 7;
-                        if (i3 != 0) {
-                            if (i3 != 1) {
-                                if (i3 != 2) {
-                                    if (i3 != 3) {
-                                        if (i3 != 4) {
-                                            if (i3 == 5) {
-                                                this.h = FieldEncoding.FIXED32;
-                                                this.e = 5;
-                                                return i2;
-                                            }
-                                            throw new ProtocolException("Unexpected field encoding: " + i3);
-                                        }
-                                        throw new ProtocolException("Unexpected end group");
-                                    }
-                                    n(i2);
-                                } else {
-                                    this.h = FieldEncoding.LENGTH_DELIMITED;
-                                    this.e = 2;
-                                    int e2 = e();
-                                    if (e2 >= 0) {
-                                        if (this.g == -1) {
-                                            long j = this.c;
-                                            this.g = j;
-                                            long j2 = this.b + e2;
-                                            this.c = j2;
-                                            if (j2 <= j) {
-                                                return this.f;
-                                            }
-                                            throw new EOFException();
-                                        }
-                                        throw new IllegalStateException();
-                                    }
-                                    throw new ProtocolException("Negative length: " + e2);
-                                }
-                            } else {
-                                this.h = FieldEncoding.FIXED64;
-                                this.e = 1;
-                                return i2;
-                            }
-                        } else {
-                            this.h = FieldEncoding.VARINT;
-                            this.e = 0;
-                            return i2;
-                        }
-                    } else {
-                        throw new ProtocolException("Unexpected tag 0");
-                    }
-                }
-                return -1;
-            } else {
-                throw new IllegalStateException("Unexpected call to nextTag()");
+                return (X509Certificate[]) arrayList.toArray(new X509Certificate[arrayList.size()]);
+            } catch (Exception e) {
+                String str = b;
+                v1c.d(str, "getAcceptedIssuers exception : " + e.getMessage());
+                return new X509Certificate[0];
             }
         }
-        return invokeV.intValue;
-    }
-
-    public FieldEncoding g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return (FieldEncoding) invokeV.objValue;
-    }
-
-    public ByteString h() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.readByteString(b());
-        }
-        return (ByteString) invokeV.objValue;
-    }
-
-    public String k() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.readUtf8(b());
-        }
-        return (String) invokeV.objValue;
+        return (X509Certificate[]) invokeV.objValue;
     }
 }

@@ -13,7 +13,7 @@ import kotlin.jvm.internal.markers.KMappedMarker;
 /* loaded from: classes10.dex */
 public abstract class ULongIterator implements Iterator<ULong>, KMappedMarker {
     /* renamed from: nextULong-s-VKNKU */
-    public abstract long mo1091nextULongsVKNKU();
+    public abstract long mo1093nextULongsVKNKU();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -23,11 +23,11 @@ public abstract class ULongIterator implements Iterator<ULong>, KMappedMarker {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // java.util.Iterator
     public /* bridge */ /* synthetic */ ULong next() {
-        return ULong.m1016boximpl(m1311nextsVKNKU());
+        return ULong.m1018boximpl(m1313nextsVKNKU());
     }
 
     /* renamed from: next-s-VKNKU  reason: not valid java name */
-    public final long m1311nextsVKNKU() {
-        return mo1091nextULongsVKNKU();
+    public final long m1313nextsVKNKU() {
+        return mo1093nextULongsVKNKU();
     }
 }

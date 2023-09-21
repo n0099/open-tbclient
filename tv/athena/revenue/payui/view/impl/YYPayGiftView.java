@@ -13,11 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cjc;
-import com.baidu.tieba.gkc;
-import com.baidu.tieba.lkc;
-import com.baidu.tieba.ojc;
-import com.baidu.tieba.yjc;
+import com.baidu.tieba.dmc;
+import com.baidu.tieba.glc;
+import com.baidu.tieba.qlc;
+import com.baidu.tieba.ukc;
+import com.baidu.tieba.ylc;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -26,29 +26,29 @@ import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes2.dex */
-public class YYPayGiftView extends LinearLayout implements gkc {
+public class YYPayGiftView extends LinearLayout implements ylc {
     public int a;
     public int b;
     public Button c;
     public GridView d;
     public View e;
     public TextView f;
-    public gkc.a g;
+    public ylc.a g;
     public GiftBagsInfo h;
     public PayUIKitConfig i;
     public List<GiftBagItemInfo> j;
-    public lkc k;
+    public dmc k;
 
-    @Override // com.baidu.tieba.dkc
+    @Override // com.baidu.tieba.vlc
     public void attachWindow(Window window) {
     }
 
-    @Override // com.baidu.tieba.dkc
+    @Override // com.baidu.tieba.vlc
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.dkc
+    @Override // com.baidu.tieba.vlc
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -72,31 +72,31 @@ public class YYPayGiftView extends LinearLayout implements gkc {
         this.b = i2;
         this.i = payUIKitConfig;
         c(context);
-        cjc.b(this.a, this.b, "17", "", "", "");
+        ukc.b(this.a, this.b, "17", "", "", "");
     }
 
-    @Override // com.baidu.tieba.gkc
-    public void setCallback(gkc.a aVar) {
+    @Override // com.baidu.tieba.ylc
+    public void setCallback(ylc.a aVar) {
         this.g = aVar;
     }
 
-    @Override // com.baidu.tieba.gkc
+    @Override // com.baidu.tieba.ylc
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         RLog.info("YYPayGiftView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
         this.h = giftBagsInfo;
     }
 
     public final void c(Context context) {
-        LayoutInflater.from(new ContextThemeWrapper(context, yjc.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(context, qlc.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
         Button button = (Button) findViewById(R.id.btn_know);
         this.c = button;
         button.setOnClickListener(new a());
         this.f = (TextView) findViewById(R.id.tv_title);
         this.e = findViewById(R.id.rl_container);
         this.d = (GridView) findViewById(R.id.grid_pay_gift);
-        lkc lkcVar = new lkc(context, this.j, this.i);
-        this.k = lkcVar;
-        this.d.setAdapter((ListAdapter) lkcVar);
+        dmc dmcVar = new dmc(context, this.j, this.i);
+        this.k = dmcVar;
+        this.d.setAdapter((ListAdapter) dmcVar);
     }
 
     public final void e() {
@@ -111,7 +111,7 @@ public class YYPayGiftView extends LinearLayout implements gkc {
         }
     }
 
-    @Override // com.baidu.tieba.dkc
+    @Override // com.baidu.tieba.vlc
     public void refreshView() {
         RLog.info("YYPayGiftView", "refreshView mGiftBagsInfo:" + this.h);
         GiftBagsInfo giftBagsInfo = this.h;
@@ -124,7 +124,7 @@ public class YYPayGiftView extends LinearLayout implements gkc {
             this.j.clear();
             this.j.addAll(this.h.giftbag);
             this.k.notifyDataSetChanged();
-            ojc.a(this.j.size(), this.e, this.d);
+            glc.a(this.j.size(), this.e, this.d);
             f();
             e();
             return;

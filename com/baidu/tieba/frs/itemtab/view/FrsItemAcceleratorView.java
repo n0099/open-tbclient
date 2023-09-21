@@ -20,7 +20,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zfa;
+import com.baidu.tieba.fia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -195,7 +195,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             if (StringUtils.isNull(this.g)) {
                 EMManager.from(this.c).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0303);
             } else {
-                EMManager.from(this.c).setCorner(R.string.J_X07).setBackGroundRealColor(zfa.f(this.g));
+                EMManager.from(this.c).setCorner(R.string.J_X07).setBackGroundRealColor(fia.f(this.g));
             }
             EMManager.from(this.d).setTextSelectorColor(R.color.CAM_X0101);
             EMManager.from(this.e).setBackGroundColor(R.color.CAM_X0617);
@@ -234,7 +234,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = new ImageView(getContext());
             this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080a64, null);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080a63, null);
             addView(this.a);
         }
     }
@@ -274,7 +274,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             this.f = new ImageView(getContext());
             this.f.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             this.f.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005), 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006), 0);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080c43, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080c42, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.c.addView(this.f);
         }
     }

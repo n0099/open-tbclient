@@ -1,28 +1,28 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.ebc;
-import com.baidu.tieba.pbc;
-import com.baidu.tieba.pdc;
-import com.baidu.tieba.pec;
-import com.baidu.tieba.tac;
-import com.baidu.tieba.uac;
-import com.baidu.tieba.wec;
-import com.baidu.tieba.yac;
+import com.baidu.tieba.hdc;
+import com.baidu.tieba.hfc;
+import com.baidu.tieba.hgc;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.mcc;
+import com.baidu.tieba.ogc;
+import com.baidu.tieba.qcc;
+import com.baidu.tieba.wcc;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
-public final class QueuedProducer<T> extends AtomicLong implements uac, tac<T> {
+public final class QueuedProducer<T> extends AtomicLong implements mcc, lcc<T> {
     public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;
-    public final yac<? super T> child;
+    public final qcc<? super T> child;
     public volatile boolean done;
     public Throwable error;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
-    @Override // com.baidu.tieba.tac
+    @Override // com.baidu.tieba.lcc
     public void onCompleted() {
         this.done = true;
         drain();
@@ -32,13 +32,13 @@ public final class QueuedProducer<T> extends AtomicLong implements uac, tac<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedProducer(yac<? super T> yacVar) {
-        this(yacVar, r0);
-        Queue pdcVar;
-        if (wec.b()) {
-            pdcVar = new pec();
+    public QueuedProducer(qcc<? super T> qccVar) {
+        this(qccVar, r0);
+        Queue hfcVar;
+        if (ogc.b()) {
+            hfcVar = new hgc();
         } else {
-            pdcVar = new pdc();
+            hfcVar = new hfc();
         }
     }
 
@@ -54,26 +54,26 @@ public final class QueuedProducer<T> extends AtomicLong implements uac, tac<T> {
         return true;
     }
 
-    @Override // com.baidu.tieba.tac
+    @Override // com.baidu.tieba.lcc
     public void onError(Throwable th) {
         this.error = th;
         this.done = true;
         drain();
     }
 
-    @Override // com.baidu.tieba.tac
+    @Override // com.baidu.tieba.lcc
     public void onNext(T t) {
         if (!offer(t)) {
             onError(new MissingBackpressureException());
         }
     }
 
-    @Override // com.baidu.tieba.uac
+    @Override // com.baidu.tieba.mcc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                pbc.b(this, j);
+                hdc.b(this, j);
                 drain();
                 return;
             }
@@ -82,8 +82,8 @@ public final class QueuedProducer<T> extends AtomicLong implements uac, tac<T> {
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    public QueuedProducer(yac<? super T> yacVar, Queue<Object> queue) {
-        this.child = yacVar;
+    public QueuedProducer(qcc<? super T> qccVar, Queue<Object> queue) {
+        this.child = qccVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -111,7 +111,7 @@ public final class QueuedProducer<T> extends AtomicLong implements uac, tac<T> {
     private void drain() {
         boolean z;
         if (this.wip.getAndIncrement() == 0) {
-            yac<? super T> yacVar = this.child;
+            qcc<? super T> qccVar = this.child;
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {
                 this.wip.lazySet(1);
@@ -133,9 +133,9 @@ public final class QueuedProducer<T> extends AtomicLong implements uac, tac<T> {
                     }
                     try {
                         if (poll == NULL_SENTINEL) {
-                            yacVar.onNext(null);
+                            qccVar.onNext(null);
                         } else {
-                            yacVar.onNext(poll);
+                            qccVar.onNext(poll);
                         }
                         j--;
                         j2++;
@@ -143,7 +143,7 @@ public final class QueuedProducer<T> extends AtomicLong implements uac, tac<T> {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        ebc.g(th, yacVar, poll);
+                        wcc.g(th, qccVar, poll);
                         return;
                     }
                 }

@@ -1,58 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class nma extends CustomMessageListener {
-    public static /* synthetic */ Interceptable $ic;
+public class nma {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public q35 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nma(MainTabActivity mainTabActivity, kka kkaVar) {
-        super(2921333);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, kkaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948008647, "Lcom/baidu/tieba/nma;")) == null) {
+            return;
         }
-        this.a = mainTabActivity;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948008647, "Lcom/baidu/tieba/nma;");
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (intent == null) {
+                return false;
+            }
+            String action = intent.getAction();
+            Set<String> categories = intent.getCategories();
+            if (a && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
+                z = true;
+            } else {
+                z = false;
+            }
+            a = false;
+            return z;
         }
-        if (this.b == null && !(customResponsedMessage.getData() instanceof q35)) {
-            return;
-        }
-        if (customResponsedMessage.getData() != null) {
-            this.b = (q35) customResponsedMessage.getData();
-        }
-        if (this.b != null && TbadkCoreApplication.isLogin()) {
-            ika ikaVar = this.a.w;
-            q35 q35Var = this.b;
-            ikaVar.j(q35Var.a, q35Var.b, q35Var.c);
-        }
+        return invokeL.booleanValue;
     }
 }

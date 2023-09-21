@@ -26,7 +26,7 @@ public abstract class TbNormalMsg extends TbBaseMsg {
         }
     }
 
-    @Override // com.baidu.tieba.im.lib.socket.msg.TbBaseMsg
+    @Override // com.baidu.tieba.im.lib.socket.msg.TbBaseMsg, java.lang.Object
     public Object clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

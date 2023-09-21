@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+@Service
 /* loaded from: classes8.dex */
-public class ye9 {
+public final class ye9 implements if5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ye9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
 
     public ye9() {
         Interceptable interceptable = $ic;
@@ -23,44 +26,33 @@ public class ye9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
     }
 
-    public static ye9 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.if5
+    public af5 a(String schema) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new ye9();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, schema)) == null) {
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            try {
+                if (StringsKt__StringsKt.contains$default((CharSequence) schema, (CharSequence) "tbtopicdetail", false, 2, (Object) null) || StringsKt__StringsKt.contains$default((CharSequence) schema, (CharSequence) "unidispatch/topicdetail", false, 2, (Object) null)) {
+                    String c = ox5.c(WebviewHelper.getMatchStringFromURL(schema, "topic_id="), null);
+                    af5 af5Var = new af5();
+                    af5Var.c(c);
+                    af5Var.d(true);
+                    return af5Var;
+                }
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                } else {
+                    throw e;
+                }
             }
-            return b;
+            return new af5();
         }
-        return (ye9) invokeV.objValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = false;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
-        }
+        return (af5) invokeL.objValue;
     }
 }

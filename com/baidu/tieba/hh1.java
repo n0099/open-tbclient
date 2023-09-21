@@ -1,32 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Environment;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.jh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 /* loaded from: classes6.dex */
 public class hh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jh1 a;
+    public LruCache<String, Bitmap> a;
 
-    public hh1(Context context) {
+    /* loaded from: classes6.dex */
+    public class a extends LruCache<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hh1 hh1Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hh1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) {
+                return bitmap.getByteCount() / 1024;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    public hh1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,70 +65,34 @@ public class hh1 {
                 return;
             }
         }
-        File b = b(context, "bitmap");
-        if (!b.exists()) {
-            b.mkdirs();
-        }
-        try {
-            this.a = jh1.r(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
-        } catch (IOException e) {
-            e.printStackTrace();
+        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+    }
+
+    public void a(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            String b = mh1.b(str);
+            if (b(b) == null) {
+                this.a.put(b, bitmap);
+            }
         }
     }
 
-    public void a(String str) {
+    public final Bitmap b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.get(str);
         }
-        try {
-            jh1.c n = this.a.n(nh1.b(str));
-            if (n == null) {
-                return;
-            }
-            if (dh1.b(str, n.f(0))) {
-                n.e();
-            } else {
-                n.a();
-            }
-            this.a.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public File b(Context context, String str) {
-        InterceptResult invokeLL;
-        String path;
+    public Bitmap c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
-                path = context.getExternalCacheDir().getPath();
-            } else {
-                path = context.getCacheDir().getPath();
-            }
-            return new File(path + File.separator + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return b(mh1.b(str));
         }
-        return (File) invokeLL.objValue;
-    }
-
-    public Bitmap c(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
-            if (this.a == null) {
-                return null;
-            }
-            jh1.e p = this.a.p(nh1.b(str));
-            if (p == null) {
-                return null;
-            }
-            FileInputStream fileInputStream = (FileInputStream) p.a(0);
-            if (i > 0 && i2 > 0) {
-                return mh1.b(fileInputStream.getFD(), i, i2);
-            }
-            return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
-        }
-        return (Bitmap) invokeLII.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 }

@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
-import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.HotForum.ForumInfo;
 /* loaded from: classes8.dex */
-public class x69 implements BrowserProxyService {
+public class x69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,17 +24,15 @@ public class x69 implements BrowserProxyService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.BrowserProxyService
-    @NonNull
-    public IBrowserView buildLightBrowserViewInstance() {
-        InterceptResult invokeV;
+    public void a(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (pm6.e("https://live-tmp/")) {
-                return new y69();
-            }
-            return new v69();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) && forumInfo != null) {
+            String str = forumInfo.avatar;
+            forumInfo.forum_id.longValue();
+            String str2 = forumInfo.forum_name;
+            forumInfo.time_out.longValue();
+            forumInfo.member_count.longValue();
+            forumInfo.thread_count.longValue();
         }
-        return (IBrowserView) invokeV.objValue;
     }
 }

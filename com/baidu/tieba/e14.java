@@ -1,66 +1,171 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class e14 extends c14 {
+public class e14 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static e14 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.c14
-    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681473, "Lcom/baidu/tieba/e14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947681473, "Lcom/baidu/tieba/e14;");
+                return;
+            }
         }
+        a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
+        b = new e14();
     }
 
-    @Override // com.baidu.tieba.c14
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "reward_banner_html" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e14(Context context, AdElementInfo adElementInfo, d04 d04Var) {
-        super(context, adElementInfo, d04Var);
+    public e14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, adElementInfo, d04Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (d04) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.c14
-    @SuppressLint({"InflateParams"})
-    public View u() {
+    public static e14 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0737, (ViewGroup) null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (View) invokeV.objValue;
+        return (e14) invokeV.objValue;
+    }
+
+    public synchronized void a(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            synchronized (this) {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
+                    File file = new File(a);
+                    if (!file.exists() && !file.mkdirs()) {
+                        if (qr1.a) {
+                            Log.d("GameGuideConfigCache", "创建缓存目录失败");
+                        }
+                        return;
+                    }
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null && listFiles.length > 0) {
+                        for (File file2 : listFiles) {
+                            if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
+                                kr4.j(file2);
+                            }
+                        }
+                    }
+                    boolean N = kr4.N(str2, new File(a, b(str, j)));
+                    if (qr1.a) {
+                        Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
+                    }
+                    return;
+                }
+                if (qr1.a) {
+                    Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
+                }
+            }
+        }
+    }
+
+    public final String b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return str + "_" + j;
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final boolean d(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            if (file != null && file.exists()) {
+                String[] split = file.getName().split("_");
+                if (split.length != 2) {
+                    return true;
+                }
+                try {
+                    if (Long.valueOf(split[1]).longValue() > SystemClock.elapsedRealtime()) {
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    if (qr1.a) {
+                        th.printStackTrace();
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    if (qr1.a) {
+                        Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
+                    }
+                    return null;
+                }
+                File file = new File(a);
+                if (!file.exists()) {
+                    if (qr1.a) {
+                        Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
+                    }
+                    return null;
+                }
+                File[] listFiles = file.listFiles();
+                if (listFiles != null && listFiles.length > 0) {
+                    File file2 = null;
+                    for (File file3 : listFiles) {
+                        if (d(file3)) {
+                            kr4.j(file3);
+                        } else if (file3.getName().startsWith(str)) {
+                            file2 = file3;
+                        }
+                    }
+                    if (file2 == null) {
+                        return null;
+                    }
+                    return kr4.E(file2);
+                }
+                if (qr1.a) {
+                    Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
+                }
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

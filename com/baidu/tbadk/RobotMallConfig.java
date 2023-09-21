@@ -1,5 +1,6 @@
 package com.baidu.tbadk;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -89,6 +90,7 @@ public class RobotMallConfig {
         this.isVaild = z;
     }
 
+    @NonNull
     public static RobotMallConfig parseJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

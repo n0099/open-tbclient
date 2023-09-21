@@ -121,16 +121,16 @@ public class BdLocationMananger {
                     if (i != 2) {
                         if (i != 3) {
                             if (i == 4 && StringUtils.isNull(str)) {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1a);
+                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1c);
                             }
                         } else if (StringUtils.isNull(str)) {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c13);
+                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
                         }
                     } else if (StringUtils.isNull(str)) {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c19);
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1b);
                     }
                 } else if (StringUtils.isNull(str)) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c19);
                 }
                 this.a.doCallBacks(i, str, address);
             }
@@ -177,19 +177,19 @@ public class BdLocationMananger {
                         if (i != 3) {
                             if (i != 4) {
                                 if (i == 6) {
-                                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1a);
+                                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1c);
                                 }
                             } else {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1a);
+                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1c);
                             }
                         } else {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c13);
+                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
                         }
                     } else {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c19);
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c1b);
                     }
                 } else {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c19);
                 }
                 BdLocationMananger bdLocationMananger = this.a;
                 bdLocationMananger.doCallBacks(bdLocationMananger.errorCode, str, null);

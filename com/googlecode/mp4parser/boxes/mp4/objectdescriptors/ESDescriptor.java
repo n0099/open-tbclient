@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 @Descriptor(tags = {3})
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ESDescriptor extends BaseDescriptor {
     public static Logger log = Logger.getLogger(ESDescriptor.class.getName());
     public int URLFlag;

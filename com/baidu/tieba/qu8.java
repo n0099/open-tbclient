@@ -1,114 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes7.dex */
-public final class qu8 {
+public class qu8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final int b;
-    public boolean c;
 
-    @JvmOverloads
-    public qu8(long j, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104437, "Lcom/baidu/tieba/qu8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948104437, "Lcom/baidu/tieba/qu8;");
                 return;
             }
         }
-        this.a = j;
-        this.b = i;
-        this.c = z;
+        a = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
     }
 
-    public /* synthetic */ qu8(long j, int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(j, (i2 & 2) != 0 ? 2 : i, (i2 & 4) != 0 ? false : z);
-    }
-
-    public final long a() {
-        InterceptResult invokeV;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return (((b.a(this.a) * 31) + this.b) * 31) + a.a(this.c);
-        }
-        return invokeV.intValue;
-    }
-
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b(str, null);
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static void b(String str, BdSwitchView.SwitchState switchState) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, switchState) == null) {
+            StatisticItem param = new StatisticItem(str).param("uid", a);
+            if (switchState != null) {
+                if (switchState == BdSwitchView.SwitchState.OFF) {
+                    i = 1;
+                } else {
+                    i = 2;
+                }
+                param.param("obj_type", i);
             }
-            if (!(obj instanceof qu8)) {
-                return false;
-            }
-            qu8 qu8Var = (qu8) obj;
-            if (this.a == qu8Var.a && this.b == qu8Var.b && this.c == qu8Var.c) {
-                return true;
-            }
-            return false;
+            TiebaStatic.log(param);
         }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "NavigationData(dataId=" + this.a + ", type=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
     }
 }

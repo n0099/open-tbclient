@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes6.dex */
-public class ku7 implements v65 {
+public class ku7 implements i65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.i65
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_GUIDE_STRATEGY" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsGuide" : (String) invokeV.objValue;
     }
 
     public ku7() {
@@ -34,13 +34,13 @@ public class ku7 implements v65 {
         }
     }
 
-    @Override // com.baidu.tieba.v65
-    public t65 a() {
+    @Override // com.baidu.tieba.i65
+    public Class<? extends g65> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ju7();
+            return ju7.class;
         }
-        return (t65) invokeV.objValue;
+        return (Class) invokeV.objValue;
     }
 }

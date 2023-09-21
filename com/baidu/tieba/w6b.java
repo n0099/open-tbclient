@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class w6b extends e1a {
+public class w6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.i1a
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "post_success" : (String) invokeV.objValue;
-    }
+    public int a;
+    public List<xz7> b;
+    public List<String> c;
+    public int d;
+    public List<a25> e;
 
     public w6b() {
         Interceptable interceptable = $ic;
@@ -29,7 +25,9 @@ public final class w6b extends e1a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
     }
 }

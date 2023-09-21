@@ -1,105 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BDLayoutMode;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipDailyList;
+import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes5.dex */
-public class ab9 {
+public class ab9 implements bn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public String b;
-    public View c;
+    public xa9 a;
+    public List<bb9> b;
 
-    public ab9() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947609553, "Lcom/baidu/tieba/ab9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947609553, "Lcom/baidu/tieba/ab9;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public ab9(VipDailyList vipDailyList) {
+        List<VipThemeItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipDailyList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public View a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0976, (ViewGroup) null);
-            this.a = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f09245a);
-            this.a.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
-            this.a.setBackgroundColor(ub9.a(str));
-        }
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void f(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            View view2 = this.c;
-            if (z) {
-                i = 0;
-            } else {
-                i = 4;
+        if (vipDailyList != null && (list = vipDailyList.item) != null && list.size() > 0) {
+            String str = vipDailyList.card_id;
+            xa9 xa9Var = new xa9();
+            this.a = xa9Var;
+            xa9Var.e(1);
+            this.a.d(vipDailyList.class_name);
+            this.a.f(vipDailyList.class_url_name);
+            this.a.g(vipDailyList.class_url);
+            this.b = new ArrayList();
+            for (VipThemeItem vipThemeItem : vipDailyList.item) {
+                this.b.add(new bb9(vipThemeItem));
             }
-            view2.setVisibility(i);
-        }
-    }
-
-    public void c(TbPageContext<?> tbPageContext) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            BDLayoutMode layoutMode = tbPageContext.getLayoutMode();
-            if (skinType == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.setNightMode(z);
-            tbPageContext.getLayoutMode().onModeChanged(this.a);
-            this.a.setBackgroundColor(ub9.a(this.b));
         }
     }
 }

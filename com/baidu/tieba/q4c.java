@@ -1,153 +1,86 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.material.internal.ManufacturerUtils;
-import com.yy.transvod.player.log.TLog;
 /* loaded from: classes7.dex */
 public class q4c {
     public static /* synthetic */ Interceptable $ic;
+    public static p4c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (h() && Build.MODEL.equals("MI 8")) {
-                TLog.m("extraDelta", "from MI 8 extraDelta= 45");
-                return 60;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043305, "Lcom/baidu/tieba/q4c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (c()) {
-                String str = Build.MODEL;
-                if (str.equals("SEA-AL10")) {
-                    TLog.m("extraDelta", "from huawei nova 5 pro extraDelta= 100");
-                    return 20;
-                } else if (str.equals("ELE-AL00")) {
-                    TLog.m("extraDelta", "from huawei p30 extraDelta= 80");
-                    return 80;
-                }
-            }
-            if (g()) {
-                if (Build.MODEL.equals("vivo X21A")) {
-                    TLog.m("extraDelta", "from vivo X21A extraDelta= 110");
-                    return 100;
-                }
-                TLog.m("extraDelta", "from VIVO extraDelta= 150");
-                return 150;
-            } else if (e()) {
-                String str2 = Build.MODEL;
-                if (str2.equals("OPPO A37m")) {
-                    TLog.m("extraDelta", "from OPPO A37m extraDelta= 150");
-                    return 150;
-                } else if (str2.equals("PBEM00")) {
-                    TLog.m("extraDelta", "from oppo r17 extraDelta= 300");
-                    return 300;
-                } else {
-                    TLog.m("extraDelta", "from oppo extraDelta= 100");
-                    return 100;
-                }
-            } else if (b()) {
-                TLog.m("extraDelta", "from EMUI extraDelta= 150");
-                return 150;
-            } else if (d()) {
-                TLog.m("extraDelta", "from MIUI extraDelta= 150");
-                return 150;
-            } else if (f()) {
-                TLog.m("extraDelta", "from SAMSUNG extraDelta= 50");
-                return 50;
-            } else {
-                TLog.m("extraDelta", "from default extraDelta= 100");
-                return 100;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948043305, "Lcom/baidu/tieba/q4c;");
+                return;
             }
         }
-        return invokeV.intValue;
+        a = new u4c();
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            a.d(str, str2);
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            a.e(str, str2);
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            a.i(str, str2);
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    public static void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if ("OPPO".equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            a.w(str, str2);
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public static void c(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (ManufacturerUtils.SAMSUNG.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
+            a.e(str, str2, th);
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if ("vivo".equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
+            a.i(str, str2, th);
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean h() {
-        InterceptResult invokeV;
+    public static void h(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, th) == null) {
+            a.w(str, str2, th);
         }
-        return invokeV.booleanValue;
+    }
+
+    public static void f(p4c p4cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, p4cVar) == null) && p4cVar != null) {
+            a = p4cVar;
+        }
     }
 }

@@ -1,25 +1,69 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
-import java.util.List;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface yfc {
-    void addLogDelegate(IRLogDelegate iRLogDelegate);
+public abstract class yfc<E> extends ufc<E> {
+    public static /* synthetic */ Interceptable $ic;
+    public static final long f;
+    public transient /* synthetic */ FieldHolder $fh;
+    public volatile long producerIndex;
 
-    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948329683, "Lcom/baidu/tieba/yfc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948329683, "Lcom/baidu/tieba/yfc;");
+                return;
+            }
+        }
+        f = ogc.a(yfc.class, "producerIndex");
+    }
 
-    List<IRevenue> getAllRevenue();
+    public final long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.producerIndex;
+        }
+        return invokeV.longValue;
+    }
 
-    IMiddleRevenue getMiddleRevenue(int i, int i2);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yfc(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
 
-    IRevenue getRevenue(int i, int i2);
-
-    zfc getYYPayMiddleService(int i, int i2);
-
-    void removeRevenueConfig(int i, int i2);
-
-    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
+    public final void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            ogc.a.i(this, f, j);
+        }
+    }
 }

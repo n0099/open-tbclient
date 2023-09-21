@@ -1,189 +1,157 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.n12;
+import com.baidu.tieba.sk3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tk3 implements SensorEventListener {
+public class tk3 extends dd3 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile tk3 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public SensorManager b;
-    public Sensor c;
-    public a d;
-    public double[] e;
-    public boolean f;
-    public long g;
-    public int h;
 
     /* loaded from: classes8.dex */
-    public interface a {
-        void a(double[] dArr);
-    }
+    public class a implements sk3.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ y12 c;
+        public final /* synthetic */ tk3 d;
 
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, sensor, i2) == null) {
+        public a(tk3 tk3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y12 y12Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tk3Var, unitedSchemeEntity, callbackHandler, y12Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = tk3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = y12Var;
+        }
+
+        @Override // com.baidu.tieba.sk3.a
+        public void a(double[] dArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
+                if (dArr != null && dArr.length == 3) {
+                    g82.i("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
+                    this.d.k(this.a, this.b, this.c, dArr);
+                    return;
+                }
+                g82.c("accelerometer", "illegal accelerometers");
+            }
         }
     }
 
-    public tk3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tk3(dc3 dc3Var) {
+        super(dc3Var, "/swanAPI/startAccelerometer");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new double[3];
-        this.f = false;
-        this.g = 0L;
     }
 
-    public static tk3 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, gb3 gb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (i == null) {
-                synchronized (tk3.class) {
-                    if (i == null) {
-                        i = new tk3();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, gb3Var)) == null) {
+            if (gb3Var == null) {
+                g82.c("accelerometer", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (dd3.b) {
+                    Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
+                }
+                return false;
+            } else if (context == null) {
+                g82.c("accelerometer", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (dd3.b) {
+                    Log.d("SwanAppAction", "startAccelerometer --- illegal context");
+                }
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    if (dd3.b) {
+                        Log.d("SwanAppAction", "startAccelerometer --- params is empty");
                     }
+                    g82.c("accelerometer", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
                 }
-            }
-            return i;
-        }
-        return (tk3) invokeV.objValue;
-    }
-
-    public static synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (tk3.class) {
-                if (i == null) {
-                    return;
-                }
-                i.c();
-            }
-        }
-    }
-
-    public final synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                h82.i("accelerometer", "release");
-                if (this.f) {
-                    g();
-                }
-                this.a = null;
-                i = null;
-            }
-        }
-    }
-
-    public synchronized void b(Context context, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
-            synchronized (this) {
-                this.a = context;
-                this.h = i2;
-            }
-        }
-    }
-
-    public synchronized void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this) {
-                this.d = aVar;
-            }
-        }
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    h82.c("accelerometer", "start error, none context");
-                } else if (this.f) {
-                    h82.o("accelerometer", "has already start");
-                } else {
-                    SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
-                    this.b = sensorManager;
-                    if (sensorManager != null) {
-                        Sensor defaultSensor = sensorManager.getDefaultSensor(1);
-                        this.c = defaultSensor;
-                        this.b.registerListener(this, defaultSensor, 1);
-                        this.f = true;
-                        h82.i("accelerometer", "start listen");
-                    } else {
-                        h82.c("accelerometer", "none sensorManager");
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    if (dd3.b) {
+                        Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
                     }
+                    g82.c("accelerometer", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
                 }
+                g82.i("accelerometer", " init ");
+                y12 y12Var = new y12("accelerometerChange", optParamsAsJo, optString);
+                sk3 a2 = sk3.a();
+                a2.b(context, n12.b.a(optParamsAsJo.optString("interval")));
+                a2.e(new a(this, unitedSchemeEntity, callbackHandler, y12Var));
+                a2.f();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                y12Var.a(unitedSchemeEntity, callbackHandler);
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public synchronized void g() {
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y12 y12Var, double[] dArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (!this.f) {
-                    h82.o("accelerometer", "has already stop");
-                    return;
-                }
-                if (this.b != null) {
-                    this.b.unregisterListener(this);
-                }
-                this.b = null;
-                this.c = null;
-                this.f = false;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, y12Var, dArr) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("x", dArr[0]);
+                jSONObject.put("y", dArr[1]);
+                jSONObject.put("z", dArr[2]);
+                y12Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                g82.c("accelerometer", "handle compass,json error，" + e.toString());
+                y12Var.e(unitedSchemeEntity, callbackHandler, "Json error");
             }
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
-            float[] fArr = sensorEvent.values;
-            if (fArr != null && fArr.length == 3) {
-                synchronized (this) {
-                    if (this.f && this.d != null && System.currentTimeMillis() - this.g > this.h) {
-                        this.e[0] = (-sensorEvent.values[0]) / 9.8d;
-                        this.e[1] = (-sensorEvent.values[1]) / 9.8d;
-                        this.e[2] = (-sensorEvent.values[2]) / 9.8d;
-                        this.d.a(this.e);
-                        this.g = System.currentTimeMillis();
-                    }
-                    if (hb3.v) {
-                        Log.d("AccelerometerManager", "current Time : " + this.g + "current Acc x : " + this.e[0] + "current Acc y : " + this.e[1] + "current Acc z : " + this.e[2]);
-                    }
-                }
-                return;
-            }
-            h82.o("accelerometer", "illegal accelerometer event");
         }
     }
 }

@@ -1,418 +1,355 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.os.Bundle;
+import android.media.MediaFormat;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.e6c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.yy.render.trans.SimpleClientMessageSender;
 import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.preference.Preference;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import org.json.JSONObject;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class n7c extends SimpleClientMessageSender {
+public abstract class n7c extends w7c implements e6c.a {
     public static /* synthetic */ Interceptable $ic;
-    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String f;
-    public final Gson g;
-    public final ExecutorService h;
+    public int o;
+    public MediaFormat p;
+    public MediaInfo q;
+    public h7c r;
+    public WeakReference<w6c> s;
+    public long t;
+    public long u;
+    public long v;
+    public boolean w;
+    public long x;
+    public long y;
+    public AtomicBoolean z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947956815, "Lcom/baidu/tieba/n7c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947956815, "Lcom/baidu/tieba/n7c;");
-        }
-    }
+    public abstract void B();
 
-    @Override // com.yy.render.trans.SimpleClientMessageSender
-    public void d(String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-        }
-    }
+    public abstract void C();
 
-    @Override // com.yy.render.trans.SimpleClientMessageSender
-    public String e(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
+    public abstract int D(MediaSample mediaSample);
 
-    @Override // com.yy.render.trans.SimpleClientMessageSender
-    public void f(String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle) == null) {
-        }
-    }
+    public abstract void z(MediaFormat mediaFormat, int i);
 
-    @Override // com.yy.render.trans.SimpleClientMessageSender
-    public String g(String str, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bundle)) == null) {
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.yy.render.trans.SimpleClientMessageSender
-    public void j(String str, int i2, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048582, this, str, i2, str2, str3) == null) {
-        }
-    }
-
-    @Override // com.yy.render.trans.SimpleClientMessageSender
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(n7c n7cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n7cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "C-preference-" + n7c.n());
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n7c a;
-
-        public b(n7c n7cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n7cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n7cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TLog.h("[PreferenceClient]", "initPreference");
-                i3c i3cVar = new i3c();
-                i3cVar.a = "initPreference";
-                n7c n7cVar = this.a;
-                n7cVar.l(n7cVar.g.toJson(i3cVar));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HashMap a;
-        public final /* synthetic */ n7c b;
-
-        public c(n7c n7cVar, HashMap hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n7cVar, hashMap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = n7cVar;
-            this.a = hashMap;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TLog.h("[PreferenceClient]", "setMediaConfig");
-                String json = this.b.g.toJson(this.a);
-                i3c i3cVar = new i3c();
-                i3cVar.a = "setMediaConfig";
-                i3cVar.b.put("configs", json);
-                n7c n7cVar = this.b;
-                n7cVar.l(n7cVar.g.toJson(i3cVar));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i7c a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ e4c e;
-        public final /* synthetic */ boolean f;
-
-        public d(n7c n7cVar, i7c i7cVar, int i, int i2, String str, e4c e4cVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n7cVar, i7cVar, Integer.valueOf(i), Integer.valueOf(i2), str, e4cVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i7cVar;
-            this.b = i;
-            this.c = i2;
-            this.d = str;
-            this.e = e4cVar;
-            this.f = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != null && (i = this.b) == 0) {
-                    if (i == 0) {
-                        TLog.h("[PreferenceClient]", "onStatistics,taskId:" + this.c + ",type:" + this.b + ",text:" + this.d);
-                        this.a.a(this.c, this.b, this.d);
-                        return;
-                    } else if (this.e == null) {
-                        TLog.h("[PreferenceClient]", "onStatistics,taskId:" + this.c + ",type:" + this.b + ",text:" + this.d);
-                        this.a.a(this.c, this.b, this.d);
-                        return;
-                    }
-                }
-                if (this.b == 0) {
-                    return;
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put("pkg", g3c.a(null));
-                hashMap.put("appinfo", g3c.b(null));
-                String str = "";
-                String str2 = "";
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    str2 = str2 + "&" + entry.getKey() + "=" + entry.getValue();
-                }
-                String str3 = this.d + str2;
-                if (this.e != null && this.b != 0) {
-                    HashMap<String, String> hashMap2 = new HashMap<>();
-                    this.e.a(this.c, this.b, this.f, hashMap2);
-                    if (hashMap2.size() > 0) {
-                        if (this.d.contains("scene=")) {
-                            hashMap2.remove("scene");
-                        }
-                        hashMap2.remove("pkg");
-                        hashMap2.remove("appinfo");
-                        for (Map.Entry<String, String> entry2 : hashMap2.entrySet()) {
-                            str = str + "&" + ((Object) entry2.getKey()) + "=" + ((Object) entry2.getValue());
-                        }
-                        str3 = str3 + str;
-                    }
-                }
-                TLog.h("[PreferenceClient]", "PlayerStatisticsParams,taskId:" + this.c + ",stop:" + this.f + ",type:" + this.b + ",text:" + str3);
-                d7c.i(this.c, this.b, str3);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n7c(String str) {
-        super(str);
+    public n7c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((String) newInitContext.callArgs[0]);
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = Executors.newSingleThreadExecutor(new a(this));
-        this.f = str;
-        this.g = new GsonBuilder().excludeFieldsWithModifiers(128, 8).serializeNulls().create();
+        this.o = 0;
+        this.p = null;
+        this.q = MediaInfo.a();
+        this.r = new h7c();
+        this.s = new WeakReference<>(null);
+        this.t = 0L;
+        this.u = 0L;
+        this.v = 0L;
+        this.w = true;
+        this.x = 0L;
+        this.y = 0L;
+        this.z = new AtomicBoolean(false);
     }
 
-    public static /* synthetic */ int n() {
-        return r();
-    }
-
-    public static synchronized int r() {
-        InterceptResult invokeV;
-        int i2;
+    public void A() {
+        s6c s6cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (n7c.class) {
-                i2 = i;
-                i = i2 + 1;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            x();
+            TLog.g(this, "MediaCodec decoderError");
+            WeakReference<s6c> weakReference = this.g;
+            if (weakReference != null && (s6cVar = weakReference.get()) != null) {
+                Message obtain = Message.obtain();
+                obtain.what = 53;
+                s6cVar.a(obtain, this.a);
             }
-            return i2;
         }
-        return invokeV.intValue;
     }
 
-    public void q() {
+    @Override // com.baidu.tieba.q7c
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            TLog.g(this, "CodecFilter.setop enter.");
+            this.z.set(true);
+            this.l.g(1002);
+            this.l.f(1002);
+        }
+    }
+
+    public void E(MediaSample mediaSample, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, mediaSample, j) == null) {
+            long j2 = this.y;
+            if (j2 > 0) {
+                long j3 = mediaSample.v;
+                if (j3 < j2) {
+                    j += j2 - Math.max(j3, this.x);
+                }
+                this.x = 0L;
+                this.y = 0L;
+                if (j > 0) {
+                    a7c.d(mediaSample, 11, j);
+                }
+            } else if (j > 0) {
+                a7c.d(mediaSample, 11, j);
+            }
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (!this.f.isEmpty()) {
+                int i = 0;
+                while (true) {
+                    MediaSample poll = this.f.poll();
+                    if (poll == null) {
+                        break;
+                    }
+                    i++;
+                    v(poll, 5, "player is stopped");
+                    h6c.f().e(poll);
+                }
+                TLog.g(this, String.format("CodecFilter there are still %d entries in queue that not decoded.", Integer.valueOf(i)));
+            }
+            if (!this.r.b()) {
+                int i2 = 0;
+                while (true) {
+                    MediaSample c = this.r.c();
+                    if (c != null) {
+                        i2++;
+                        v(c, 6, "player is stopped");
+                        h6c.f().e(c);
+                    } else {
+                        TLog.g(this, String.format("CodecFilter there are still %d entries in queue that not presented.", Integer.valueOf(i2)));
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.w7c, com.baidu.tieba.o7c
+    public void a() {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.h.execute(new b(this));
-        }
-    }
-
-    public void s(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, hashMap) == null) && hashMap != null) {
-            this.h.execute(new c(this, hashMap));
-        }
-    }
-
-    @Override // com.yy.render.trans.SimpleClientMessageSender
-    public void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, str2) != null) || !str.equals(this.f)) {
-            return;
-        }
-        try {
-            p(str2);
-        } catch (Exception e) {
-            e.printStackTrace();
-            TLog.d("[PreferenceClient]", "(onDataFromServer) ex" + e.getMessage());
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:30:?, code lost:
-        return "";
-     */
-    @Override // com.yy.render.trans.SimpleClientMessageSender
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String i(String str, String str2) {
-        InterceptResult invokeLL;
-        f7c e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            String str3 = "";
-            if (!str.equals(this.f)) {
-                return "";
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str2);
-                String optString = jSONObject.optString("cmd");
-                JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                char c2 = 65535;
-                if (optString.hashCode() == 2015108602 && optString.equals("onDnsHostResolve")) {
-                    c2 = 0;
-                }
-                g7c a2 = Preference.a();
-                if (a2 == null || (e = a2.e(jSONObject2.optString("hostName"))) == null) {
-                    return "";
-                }
-                str3 = f7c.b(e);
-                TLog.h("[PreferenceClient]", "return DnsHostResolve result to subprocess:" + str3);
-                return str3;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                TLog.d("[PreferenceClient]", "(onDataFromServerForStr) ex" + e2.getMessage());
-                return str3;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final void p(String str) throws Exception {
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString("cmd");
-            if (optString.hashCode() == -1048965022 && optString.equals("onStatistics")) {
-                c2 = 0;
+            TLog.g(this, "CodecFilter.setup enter. type:" + i7c.a[this.q.a]);
+            e6c e6cVar = this.l;
+            Object[] objArr = new Object[1];
+            if (this.c == 0) {
+                str = "video";
             } else {
-                c2 = 65535;
+                str = "audio";
             }
-            if (c2 == 0) {
-                i7c b2 = Preference.b();
-                e4c c3 = Preference.c();
-                JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                int optInt = jSONObject2.optInt("taskId");
-                this.h.execute(new d(this, b2, jSONObject2.optInt("type"), optInt, jSONObject2.optString("text"), c3, jSONObject2.optBoolean("stop")));
+            objArr[0] = str;
+            e6cVar.setName(String.format("VOD %s decode", objArr));
+            this.t = 0L;
+            this.u = 0L;
+            this.z.set(false);
+            super.a();
+            TLog.g(this, "CodecFilter.setup leave. type:" + i7c.a[this.q.a]);
+        }
+    }
+
+    @Override // com.baidu.tieba.w7c, com.baidu.tieba.q7c
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            TLog.g(this, "CodecFilter.release enter. type:" + i7c.a[this.q.a]);
+            super.p();
+            this.p = null;
+            F();
+            TLog.g(this, String.format("inputCount:%d, outputCount:%d", Long.valueOf(this.t), Long.valueOf(this.u)));
+            TLog.g(this, "CodecFilter.release leave. type:" + i7c.a[this.q.a]);
+        }
+    }
+
+    @Override // com.baidu.tieba.w7c
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (this.w) {
+                I();
+            } else {
+                H();
+            }
+            MediaSample peek = this.f.peek();
+            if (peek == null) {
+                this.l.g(2102);
+                return;
+            }
+            synchronized (this.k) {
+                if (this.d != null) {
+                    this.d.e(peek.E);
+                }
+            }
+            a7c.c(peek, 5);
+            int D = D(peek);
+            if (D != -2) {
+                if (D != -1) {
+                    if (D == 1) {
+                        this.f.poll();
+                    }
+                } else {
+                    this.f.poll();
+                    v(peek, 6, "exception occurs");
+                    h6c.f().e(peek);
+                }
+                if (!this.f.isEmpty() && !this.z.get()) {
+                    this.l.f(2102);
+                    return;
+                }
+                return;
+            }
+            p7c p7cVar = this.e;
+            if (p7cVar != null) {
+                p7cVar.j(D);
+            }
+        }
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.r.b()) {
+            int i = 0;
+            while (true) {
+                MediaSample c = this.r.c();
+                if (c != null) {
+                    i++;
+                    h6c.f().e(c);
+                } else {
+                    TLog.g(this, String.format("there are still %d entries in queue that not presented.", Integer.valueOf(i)));
+                    return;
+                }
+            }
+        }
+    }
+
+    public final void H() {
+        MediaSample poll;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f.size() >= 15 && (poll = this.f.poll()) != null) {
+            MediaInfo mediaInfo = poll.i;
+            if (mediaInfo.k != null) {
+                mediaInfo.k = null;
+            }
+            h6c.f().e(poll);
+        }
+    }
+
+    public final void I() {
+        int size;
+        MediaSample peek;
+        MediaSample poll;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (size = this.f.size()) >= 15 && (peek = this.f.peek()) != null && peek.d) {
+            Iterator<MediaSample> it = this.f.iterator();
+            int i = -1;
+            boolean z = false;
+            int i2 = -1;
+            int i3 = -1;
+            while (it.hasNext()) {
+                MediaSample next = it.next();
+                i2++;
+                if (i2 != 0 && next.d && i3 == -1) {
+                    i3 = i2;
+                    z = true;
+                }
+            }
+            if (z) {
+                TLog.g(this, "first frame index 0second frame index " + i3 + "inputSize " + size);
+                Iterator<MediaSample> it2 = this.f.iterator();
+                while (it2.hasNext()) {
+                    it2.next();
+                    i++;
+                    if (i >= 0 && i < i3 && (poll = this.f.poll()) != null) {
+                        MediaInfo mediaInfo = poll.i;
+                        if (mediaInfo.k != null) {
+                            mediaInfo.k = null;
+                        }
+                        h6c.f().e(poll);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.q7c, com.baidu.tieba.o7c
+    public void d(String str, Object obj, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.t = 0L;
+            this.u = 0L;
+            if (str.compareTo("setFormat") == 0 && (obj instanceof MediaFormat)) {
+                Message obtain = Message.obtain();
+                obtain.what = 2001;
+                obtain.obj = obj;
+                obtain.arg1 = i;
+                this.l.g(2001);
+                this.l.sendMessage(obtain);
+                TLog.g(this, "CodecFilter sendEmptyMessage(CODEC_FILTER_CREATE_DECODER)");
+            }
+            super.d(str, obj, i, z);
+        }
+    }
+
+    @Override // com.baidu.tieba.q7c, com.baidu.tieba.o7c
+    public final void f(MediaSample mediaSample) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, mediaSample) == null) {
+            if (this.z.get()) {
+                TLog.c(this, "CodecFilter codec is stop");
+                h6c.f().e(mediaSample);
+            } else if (mediaSample.f) {
+                h6c.f().e(mediaSample);
+                TLog.c(this, "CodecFilter.processMediaSample bForVideoCodecConfigfOnly is true!!");
+            } else {
+                this.t++;
+                mediaSample.s = this.o;
+                a7c.c(mediaSample, 4);
+                this.f.add(mediaSample);
+                p7c p7cVar = this.e;
+                if (p7cVar != null && this.i && p7cVar.g() == 6) {
+                    this.l.f(2102);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.w7c, com.baidu.tieba.e6c.a
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, message) == null) {
+            switch (message.what) {
+                case 2001:
+                    z((MediaFormat) message.obj, message.arg1);
+                    return;
+                case 2002:
+                    B();
+                    return;
+                case 2003:
+                    C();
+                    return;
+                default:
+                    super.handleMessage(message);
+                    return;
             }
         }
     }

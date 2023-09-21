@@ -14,12 +14,12 @@ public abstract class ThumbnailImageViewTarget<T> extends ImageViewTarget<T> {
 
     @Override // com.bumptech.glide.request.target.ImageViewTarget
     public void setResource(@Nullable T t) {
-        ViewGroup.LayoutParams layoutParams = ((ImageView) this.f1196view).getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = ((ImageView) this.f1193view).getLayoutParams();
         Drawable drawable = getDrawable(t);
         if (layoutParams != null && layoutParams.width > 0 && layoutParams.height > 0) {
             drawable = new FixedSizeDrawable(drawable, layoutParams.width, layoutParams.height);
         }
-        ((ImageView) this.f1196view).setImageDrawable(drawable);
+        ((ImageView) this.f1193view).setImageDrawable(drawable);
     }
 
     @Deprecated

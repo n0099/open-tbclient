@@ -1,22 +1,80 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.xml.sax.Attributes;
+import java.util.Map;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class il6 extends fl6 {
+public class il6 implements el6<Pair<String, Map<String, String>>, Response> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HttpManager a;
 
-    @Override // com.baidu.tieba.fl6
-    public void a(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+    /* loaded from: classes6.dex */
+    public class a extends ResponseCallback<Response> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zcc a;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: parseResponse  reason: avoid collision after fix types in other method */
+        public Response parseResponse2(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? response : (Response) invokeLI.objValue;
+        }
+
+        public a(il6 il6Var, zcc zccVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {il6Var, zccVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zccVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(Response response, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, response, i) == null) {
+                this.a.call(response, null);
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public /* bridge */ /* synthetic */ Response parseResponse(Response response, int i) throws Exception {
+            parseResponse2(response, i);
+            return response;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                this.a.call(null, exc);
+            }
         }
     }
 
@@ -30,28 +88,38 @@ public class il6 extends fl6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = HttpManager.getDefault(mm6.getContext());
     }
 
-    @Override // com.baidu.tieba.fl6
-    public void b(boolean z, String str, Attributes attributes) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.el6
+    @Nullable
+    /* renamed from: c */
+    public Response a(Pair<String, Map<String, String>> pair) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
-            String value = attributes.getValue("", "src");
-            if (!TextUtils.isEmpty(value)) {
-                String str2 = "http";
-                if (!value.startsWith("http")) {
-                    StringBuilder sb = new StringBuilder();
-                    if (z) {
-                        str2 = "https";
-                    }
-                    sb.append(str2);
-                    sb.append(":");
-                    sb.append(value);
-                    value = sb.toString();
-                }
-                jl6.g().b(value, value, new HashMap());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair)) == null) {
+            if (pair != null && !TextUtils.isEmpty(pair.first)) {
+                return this.a.getRequest().url(pair.first).tag(this).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).followRedirects(false).followSslRedirects(false).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
+            }
+            return null;
+        }
+        return (Response) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.el6
+    /* renamed from: d */
+    public void b(Pair<String, Map<String, String>> pair, zcc<Response, Exception> zccVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, pair, zccVar) == null) {
+            if (pair != null && !TextUtils.isEmpty(pair.first)) {
+                this.a.getRequest().url(pair.first).tag(this).followRedirects(false).followSslRedirects(false).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeAsync(new a(this, zccVar));
+            } else {
+                zccVar.call(null, new IllegalArgumentException("url is null !"));
             }
         }
     }

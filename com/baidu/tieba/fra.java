@@ -1,54 +1,118 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class fra extends hra<Integer> {
+public class fra {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fra(String str, Integer num, String str2) {
-        super(str, num, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, num, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775124, "Lcom/baidu/tieba/fra;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947775124, "Lcom/baidu/tieba/fra;");
                 return;
             }
         }
+        a = new TreeMap();
     }
 
-    @Override // com.baidu.tieba.gra
-    public void h() {
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.m(b(), d().intValue());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (a.containsKey(str) && (a.get(str) instanceof Boolean)) {
+                return ((Boolean) a.get(str)).booleanValue();
+            }
+            Bundle bundle = null;
+            boolean z = false;
+            if (context != null && str != null) {
+                try {
+                    ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                    if (applicationInfo != null) {
+                        bundle = applicationInfo.metaData;
+                    }
+                    if (bundle != null) {
+                        z = bundle.getBoolean(str);
+                    }
+                } catch (PackageManager.NameNotFoundException unused) {
+                }
+                a.put(str, Boolean.valueOf(z));
+            }
+            return z;
         }
+        return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gra
-    /* renamed from: n */
-    public Integer f() {
-        InterceptResult invokeV;
+    public static int b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Integer.valueOf(super.l(b(), a().intValue()));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (a.containsKey(str) && (a.get(str) instanceof Integer)) {
+                return ((Integer) a.get(str)).intValue();
+            }
+            Bundle bundle = null;
+            int i = 0;
+            if (context != null && str != null) {
+                try {
+                    ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                    if (applicationInfo != null) {
+                        bundle = applicationInfo.metaData;
+                    }
+                    if (bundle != null) {
+                        i = bundle.getInt(str);
+                    }
+                } catch (PackageManager.NameNotFoundException unused) {
+                }
+                a.put(str, Integer.valueOf(i));
+            }
+            return i;
         }
-        return (Integer) invokeV.objValue;
+        return invokeLL.intValue;
+    }
+
+    public static String c(Context context, String str) {
+        InterceptResult invokeLL;
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (a.containsKey(str) && (a.get(str) instanceof String)) {
+                return (String) a.get(str);
+            }
+            String str2 = null;
+            if (context != null && str != null) {
+                try {
+                    ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                    if (applicationInfo != null) {
+                        bundle = applicationInfo.metaData;
+                    } else {
+                        bundle = null;
+                    }
+                    if (bundle != null) {
+                        str2 = bundle.getString(str);
+                    }
+                } catch (PackageManager.NameNotFoundException unused) {
+                }
+                a.put(str, str2);
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

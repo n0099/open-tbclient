@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.searchbox.v8engine.InspectorNativeChannel;
 import com.baidu.searchbox.v8engine.InspectorNativeClient;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
-import com.baidu.tieba.i92;
-import com.baidu.tieba.m92;
-import com.baidu.tieba.o92;
+import com.baidu.tieba.h92;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,51 +17,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.zxing.common.StringUtils;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.StringTokenizer;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k92 implements Runnable {
+public class k92 implements h92.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static int i;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public OutputStream b;
-    public o92 c;
-    public LinkedBlockingQueue<String> d;
-    public InspectorNativeClient e;
-    public pi2 f;
-    public i92.b g;
+    public final h92.b a;
+    public gbc b;
+    public InspectorNativeClient c;
+    public oi2 d;
+    public LinkedBlockingQueue<String> e;
+    public String f;
 
     /* loaded from: classes6.dex */
-    public class a implements o92.a {
+    public class b extends gbc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k92 a;
 
-        /* renamed from: com.baidu.tieba.k92$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0366a implements Runnable {
+        public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+            public final /* synthetic */ b a;
 
-            public RunnableC0366a(a aVar) {
+            public a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
+                    Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -72,35 +61,37 @@ public class k92 implements Runnable {
                         return;
                     }
                 }
-                this.a = aVar;
+                this.a = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String str = (String) this.a.a.d.poll();
+                    String str = (String) this.a.a.e.poll();
                     while (str != null) {
-                        this.a.a.e.dispatchProtocolMessage(str);
+                        this.a.a.c.dispatchProtocolMessage(str);
+                        this.a.c(str);
                         this.a.d(str);
-                        str = (String) this.a.a.d.poll();
+                        str = (String) this.a.a.e.poll();
                     }
                 }
             }
         }
 
+        /* renamed from: com.baidu.tieba.k92$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class b implements Runnable {
+        public class RunnableC0365b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+            public final /* synthetic */ b a;
 
-            public b(a aVar) {
+            public RunnableC0365b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
+                    Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -110,30 +101,31 @@ public class k92 implements Runnable {
                         return;
                     }
                 }
-                this.a = aVar;
+                this.a = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g.onConnected();
-                    this.a.a.g = null;
-                    int unused = k92.i = 2;
+                    this.a.a.a.onConnected();
                 }
             }
         }
 
-        public a(k92 k92Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(k92 k92Var, URI uri) {
+            super(uri);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k92Var};
+                Object[] objArr = {k92Var, uri};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((URI) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -142,83 +134,128 @@ public class k92 implements Runnable {
             this.a = k92Var;
         }
 
-        @Override // com.baidu.tieba.o92.a
-        public void a(WebSocketFrame webSocketFrame) {
+        public final void c(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
-                this.a.d.offer(webSocketFrame.g());
-                this.a.f.postOnJSThread(new RunnableC0366a(this));
-            }
-        }
-
-        @Override // com.baidu.tieba.o92.a
-        public void b(IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
-                h82.d("ClientHandler", "V8 inspector exception", iOException);
-                this.a.l();
-            }
-        }
-
-        public final void d(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(str) && this.a.g != null && k92.i != 2) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && this.a.a != null) {
                 try {
                     if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                        gb3 K = gb3.K();
-                        SwanAppActivity w = gb3.K().w();
+                        fb3 K = fb3.K();
+                        SwanAppActivity w = K.w();
                         if (K.E() && w != null) {
-                            w.runOnUiThread(new b(this));
+                            w.runOnUiThread(new RunnableC0365b(this));
                         }
                     }
                 } catch (JSONException e) {
-                    if (k92.h) {
-                        Log.e("ClientHandler", "message is not a Json object", e);
+                    if (k92.g) {
+                        Log.e("V8InspectorClient", "message is not a Json object", e);
                     }
                 }
             }
         }
 
-        @Override // com.baidu.tieba.o92.a
-        public void onClose() {
+        @Override // com.baidu.tieba.gbc
+        public void onOpen(acc accVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                h82.i("ClientHandler", "V8 inspector closed");
-                this.a.l();
+            if (interceptable == null || interceptable.invokeL(1048581, this, accVar) == null) {
+                g82.i("V8InspectorClient", "V8 inspector opened");
+                cd2 W = ai2.U().W();
+                if (W instanceof gd2) {
+                    this.a.d = (oi2) W.e();
+                }
+                if (this.a.d == null) {
+                    g82.i("V8InspectorClient", "inner error, V8 mEngine is null");
+                    close();
+                    return;
+                }
+                k92 k92Var = this.a;
+                k92Var.c = k92Var.d.q0(new a(this.a));
             }
         }
 
-        @Override // com.baidu.tieba.o92.a
-        public void onOpen() {
+        /* JADX WARN: Code restructure failed: missing block: B:22:0x0045, code lost:
+            if (r2 == 1) goto L20;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x0047, code lost:
+            com.baidu.tieba.g82.c("V8InspectorClient", "Undefined command");
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:24:0x004d, code lost:
+            com.baidu.tieba.g82.i("V8InspectorClient", "v8 inspector close");
+            com.baidu.tieba.b92.d();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
+            return;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:42:?, code lost:
+            return;
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final void d(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                h82.i("ClientHandler", "V8 inspector opened");
-                dd2 W = bi2.U().W();
-                if (W instanceof hd2) {
-                    this.a.f = (pi2) W.e();
-                }
-                if (this.a.f == null) {
-                    h82.i("ClientHandler", "inner error, V8 mEngine is null");
-                    this.a.l();
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("command");
+                if (TextUtils.isEmpty(optString)) {
                     return;
                 }
-                if (this.a.e != null) {
-                    this.a.e.destroy();
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != -934641255) {
+                    if (hashCode == 94756344 && optString.equals("close")) {
+                        c = 1;
+                    }
+                } else if (optString.equals("reload")) {
+                    c = 0;
                 }
-                k92 k92Var = this.a;
-                k92Var.e = k92Var.f.q0(new b(this.a));
-                int unused = k92.i = 1;
+                g82.i("V8InspectorClient", "v8 inspector reload");
+                String optString2 = jSONObject.optString("value");
+                if (!TextUtils.isEmpty(optString2) && TextUtils.equals(Uri.parse(optString2).getHost(), "swanAPI")) {
+                    SchemeRouter.invoke(AppRuntime.getAppContext(), optString2);
+                }
+            } catch (JSONException e) {
+                if (k92.g) {
+                    Log.e("V8InspectorClient", "message is not a json object", e);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gbc
+        public void onClose(int i, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+                g82.i("V8InspectorClient", "V8 inspector closed");
+            }
+        }
+
+        @Override // com.baidu.tieba.gbc
+        public void onError(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
+                g82.d("V8InspectorClient", "V8 inspector error", exc);
+            }
+        }
+
+        @Override // com.baidu.tieba.gbc
+        public void onMessage(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.a.e.offer(str);
+                this.a.d.postOnJSThread(new a(this));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends InspectorNativeChannel {
+    public class a extends InspectorNativeChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k92 a;
 
-        public b(k92 k92Var) {
+        public a(k92 k92Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -241,10 +278,12 @@ public class k92 implements Runnable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 try {
-                    this.a.c.j(new WebSocketFrame(WebSocketFrame.OpCode.Text, true, str));
+                    if (this.a.b != null) {
+                        this.a.b.send(str);
+                    }
                 } catch (Exception unused) {
-                    if (k92.h) {
-                        Log.d("ClientHandler", "V8 send message fail, try to check if websocket has opened");
+                    if (k92.g) {
+                        Log.d("V8InspectorClient", "V8 send message fail, try to check if websocket has opened");
                     }
                 }
             }
@@ -255,14 +294,14 @@ public class k92 implements Runnable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (k92.h) {
-                    Log.d("ClientHandler", "getInspectorMessage");
+                if (k92.g) {
+                    Log.d("V8InspectorClient", "getInspectorMessage");
                 }
                 try {
-                    return (String) this.a.d.take();
+                    return (String) this.a.e.take();
                 } catch (InterruptedException e) {
-                    if (k92.h) {
-                        Log.e("ClientHandler", "awaitMessage on Debugger", e);
+                    if (k92.g) {
+                        Log.e("V8InspectorClient", "awaitMessage on Debugger", e);
                         return "";
                     }
                     return "";
@@ -285,156 +324,50 @@ public class k92 implements Runnable {
                 return;
             }
         }
-        h = rr1.a;
+        g = qr1.a;
     }
 
-    public k92(InputStream inputStream, OutputStream outputStream) {
+    @Override // com.baidu.tieba.h92.c
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                b bVar = new b(this, new URI(this.f));
+                this.b = bVar;
+                bVar.connect();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.h92.c
+    public void stop() {
+        gbc gbcVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (gbcVar = this.b) != null) {
+            gbcVar.close();
+            this.b = null;
+        }
+    }
+
+    public k92(String str, h92.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, outputStream};
+            Object[] objArr = {str, bVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new LinkedBlockingQueue<>();
-        this.a = inputStream;
-        this.b = outputStream;
-    }
-
-    public static String n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            try {
-                return URLDecoder.decode(str, StringUtils.UTF8);
-            } catch (UnsupportedEncodingException unused) {
-                if (h) {
-                    Log.d("ClientHandler", "Encoding not supported, ignored");
-                }
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void o(i92.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && i == 0) {
-            this.g = bVar;
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinkedBlockingQueue<String> linkedBlockingQueue = this.d;
-            if (linkedBlockingQueue != null) {
-                linkedBlockingQueue.clear();
-                this.d = null;
-            }
-            InspectorNativeClient inspectorNativeClient = this.e;
-            if (inspectorNativeClient != null) {
-                inspectorNativeClient.destroy();
-                this.e = null;
-            }
-            InputStream inputStream = this.a;
-            if (inputStream != null) {
-                lr4.d(inputStream);
-                this.a = null;
-            }
-            OutputStream outputStream = this.b;
-            if (outputStream != null) {
-                lr4.d(outputStream);
-                this.b = null;
-            }
-            this.c = null;
-            this.f = null;
-            i = 3;
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final void m(BufferedReader bufferedReader, m92.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferedReader, aVar) == null) {
-            try {
-                String readLine = bufferedReader.readLine();
-                if (readLine == null) {
-                    return;
-                }
-                StringTokenizer stringTokenizer = new StringTokenizer(readLine);
-                if (stringTokenizer.hasMoreTokens()) {
-                    aVar.b = stringTokenizer.nextToken();
-                    if (stringTokenizer.hasMoreTokens()) {
-                        aVar.c = n(stringTokenizer.nextToken());
-                        if (stringTokenizer.hasMoreTokens()) {
-                            aVar.d = stringTokenizer.nextToken();
-                        } else {
-                            aVar.d = "HTTP/1.1";
-                            if (h) {
-                                Log.d("ClientHandler", "no protocol version specified, Assuming HTTP/1.1.");
-                            }
-                        }
-                        String readLine2 = bufferedReader.readLine();
-                        while (readLine2 != null && !readLine2.trim().isEmpty()) {
-                            if (h) {
-                                Log.d("ClientHandler", "Http header :" + readLine2);
-                            }
-                            int indexOf = readLine2.indexOf(58);
-                            if (indexOf >= 0) {
-                                aVar.a.put(readLine2.substring(0, indexOf).trim().toLowerCase(), readLine2.substring(indexOf + 1).trim());
-                            }
-                            readLine2 = bufferedReader.readLine();
-                        }
-                        return;
-                    }
-                    throw new RuntimeException("BAD REQUEST: Missing URI. Usage: GET /example/file.html");
-                }
-                throw new RuntimeException("BAD REQUEST: Syntax error. Usage: GET /example/file.html");
-            } catch (IOException e) {
-                if (h) {
-                    Log.e("ClientHandler", "Decode header exception", e);
-                }
-            }
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.a));
-                    m92.a aVar = new m92.a();
-                    m(bufferedReader, aVar);
-                    n92.a(aVar).e(this.b);
-                    if (aVar.e) {
-                        if (i != 0 && i != 3) {
-                            za3.f(ou2.c(), R.string.obfuscated_res_0x7f0f0167).G();
-                            return;
-                        }
-                        o92 o92Var = new o92();
-                        this.c = o92Var;
-                        o92Var.k(new a(this));
-                        this.c.h(this.a, this.b);
-                    }
-                } catch (RuntimeException e) {
-                    if (h) {
-                        Log.e("ClientHandler", "Request parse fail", e);
-                    }
-                }
-            } finally {
-                lr4.d(this.a);
-                lr4.d(this.b);
-            }
-        }
+        this.e = new LinkedBlockingQueue<>();
+        this.f = str;
+        this.a = bVar;
     }
 }

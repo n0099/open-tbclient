@@ -15,21 +15,21 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.a1b;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.f3b;
+import com.baidu.tieba.c4b;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.iza;
-import com.baidu.tieba.k2b;
-import com.baidu.tieba.p1b;
-import com.baidu.tieba.q1b;
-import com.baidu.tieba.qq6;
-import com.baidu.tieba.rj6;
-import com.baidu.tieba.rq6;
+import com.baidu.tieba.h3b;
+import com.baidu.tieba.i3b;
+import com.baidu.tieba.p4b;
+import com.baidu.tieba.vj6;
+import com.baidu.tieba.wq6;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.UpdateWriteDataBiz;
-import com.baidu.tieba.x2b;
+import com.baidu.tieba.x4b;
+import com.baidu.tieba.xq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,18 +47,18 @@ public final class UpdateWriteDataBiz extends BizBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.s1b
-    public q1b[] f() {
+    @Override // com.baidu.tieba.k3b
+    public i3b[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (q1b[]) invokeV.objValue;
+        return (i3b[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UpdateWriteDataBiz(TbPageContext<?> pageContext, TbWebView webView, final WriteData writeData, k2b writePageState, final Function1<? super JSONObject, Unit> onAddDraftData) {
+    public UpdateWriteDataBiz(TbPageContext<?> pageContext, TbWebView webView, final WriteData writeData, c4b writePageState, final Function1<? super JSONObject, Unit> onAddDraftData) {
         super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,7 +70,7 @@ public final class UpdateWriteDataBiz extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (k2b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c4b) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,33 +81,33 @@ public final class UpdateWriteDataBiz extends BizBase {
         Intrinsics.checkNotNullParameter(writeData, "writeData");
         Intrinsics.checkNotNullParameter(writePageState, "writePageState");
         Intrinsics.checkNotNullParameter(onAddDraftData, "onAddDraftData");
-        webView.H(WebViewActivityConfig.TAG_PAGE_DATA, new rj6() { // from class: com.baidu.tieba.r2b
+        webView.H(WebViewActivityConfig.TAG_PAGE_DATA, new vj6() { // from class: com.baidu.tieba.j4b
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.rj6, java.util.concurrent.Callable
+            @Override // com.baidu.tieba.vj6, java.util.concurrent.Callable
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? UpdateWriteDataBiz.r(UpdateWriteDataBiz.this) : invokeV.objValue;
             }
         });
-        webView.H("draftData", new rj6() { // from class: com.baidu.tieba.p2b
+        webView.H("draftData", new vj6() { // from class: com.baidu.tieba.h4b
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.rj6, java.util.concurrent.Callable
+            @Override // com.baidu.tieba.vj6, java.util.concurrent.Callable
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? UpdateWriteDataBiz.s(WriteData.this, this, onAddDraftData) : invokeV.objValue;
             }
         });
-        webView.H("bubbleData", new rj6() { // from class: com.baidu.tieba.n2b
+        webView.H("bubbleData", new vj6() { // from class: com.baidu.tieba.f4b
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.rj6, java.util.concurrent.Callable
+            @Override // com.baidu.tieba.vj6, java.util.concurrent.Callable
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -144,18 +144,18 @@ public final class UpdateWriteDataBiz extends BizBase {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(onAddDraftData, "$onAddDraftData");
             JSONObject jSONObject = new JSONObject();
-            rq6.a(jSONObject, "title", writeData.getTitle());
+            xq6.a(jSONObject, "title", writeData.getTitle());
             if (TextUtils.isEmpty(writeData.getContent()) && writeData.getRichContentData() != null) {
-                rq6.a(jSONObject, "content", this$0.D(writeData.getRichContentData()));
+                xq6.a(jSONObject, "content", this$0.D(writeData.getRichContentData()));
             } else {
-                rq6.a(jSONObject, "content", writeData.getContent());
+                xq6.a(jSONObject, "content", writeData.getContent());
             }
-            rq6.a(jSONObject, "fid", writeData.getForumId());
-            rq6.a(jSONObject, TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
-            rq6.a(jSONObject, "topic_id", writeData.getTopicId());
-            rq6.a(jSONObject, "post_prefix", writeData.getPostPrefix());
-            rq6.a(jSONObject, "is_question", Boolean.valueOf(writeData.isQuestionThread()));
-            rq6.a(jSONObject, "selectForumInfo", writeData.getSelectForumInfo());
+            xq6.a(jSONObject, "fid", writeData.getForumId());
+            xq6.a(jSONObject, TiebaStatic.Params.H5_FORUM_NAME, writeData.getForumName());
+            xq6.a(jSONObject, "topic_id", writeData.getTopicId());
+            xq6.a(jSONObject, "post_prefix", writeData.getPostPrefix());
+            xq6.a(jSONObject, "is_question", Boolean.valueOf(writeData.isQuestionThread()));
+            xq6.a(jSONObject, "selectForumInfo", writeData.getSelectForumInfo());
             onAddDraftData.invoke(jSONObject);
             return jSONObject;
         }
@@ -199,18 +199,18 @@ public final class UpdateWriteDataBiz extends BizBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject4 = new JSONObject();
-            b = x2b.b(k().getType());
-            rq6.a(jSONObject4, "type", b);
-            rq6.a(jSONObject4, "fid", k().getForumId());
-            rq6.a(jSONObject4, TiebaStatic.Params.H5_FORUM_NAME, k().getForumName());
-            rq6.a(jSONObject4, TiebaStatic.Params.FIRST_DIR, k().getFirstDir());
-            rq6.a(jSONObject4, TiebaStatic.Params.SECOND_DIR, k().getSecondDir());
-            rq6.a(jSONObject4, "tid", k().getThreadId());
-            rq6.a(jSONObject4, "title", k().getTitle());
-            rq6.a(jSONObject4, "content", k().getContent());
-            rq6.a(jSONObject4, IntentConfig.CALL_FROM, k().getCallFrom());
-            rq6.a(jSONObject4, "isInterceptWriteResultDialog", Boolean.valueOf(k().isInterceptWriteResultDialog()));
-            rq6.a(jSONObject4, "isPutStorageTid", Boolean.valueOf(k().isPutStorageTid()));
+            b = p4b.b(k().getType());
+            xq6.a(jSONObject4, "type", b);
+            xq6.a(jSONObject4, "fid", k().getForumId());
+            xq6.a(jSONObject4, TiebaStatic.Params.H5_FORUM_NAME, k().getForumName());
+            xq6.a(jSONObject4, TiebaStatic.Params.FIRST_DIR, k().getFirstDir());
+            xq6.a(jSONObject4, TiebaStatic.Params.SECOND_DIR, k().getSecondDir());
+            xq6.a(jSONObject4, "tid", k().getThreadId());
+            xq6.a(jSONObject4, "title", k().getTitle());
+            xq6.a(jSONObject4, "content", k().getContent());
+            xq6.a(jSONObject4, IntentConfig.CALL_FROM, k().getCallFrom());
+            xq6.a(jSONObject4, "isInterceptWriteResultDialog", Boolean.valueOf(k().isInterceptWriteResultDialog()));
+            xq6.a(jSONObject4, "isPutStorageTid", Boolean.valueOf(k().isPutStorageTid()));
             PostPrefixData prefixData = k().getPrefixData();
             String str = null;
             if (prefixData != null) {
@@ -218,64 +218,64 @@ public final class UpdateWriteDataBiz extends BizBase {
             } else {
                 jSONObject = null;
             }
-            rq6.a(jSONObject4, BaseWriteConfig.PREFIX_DATA, jSONObject);
-            rq6.a(jSONObject4, "from", k().getFrom());
-            rq6.a(jSONObject4, "topic_id", k().getTopicId());
-            rq6.a(jSONObject4, "statistic_from", Integer.valueOf(k().getStatisticFrom()));
-            rq6.a(jSONObject4, BaseWriteConfig.PRIVATE_THREAD, Integer.valueOf(k().getPrivateThread()));
+            xq6.a(jSONObject4, BaseWriteConfig.PREFIX_DATA, jSONObject);
+            xq6.a(jSONObject4, "from", k().getFrom());
+            xq6.a(jSONObject4, "topic_id", k().getTopicId());
+            xq6.a(jSONObject4, "statistic_from", Integer.valueOf(k().getStatisticFrom()));
+            xq6.a(jSONObject4, BaseWriteConfig.PRIVATE_THREAD, Integer.valueOf(k().getPrivateThread()));
             FrsTabInfoData frsTabInfoData = k().getFrsTabInfoData();
             if (frsTabInfoData != null) {
                 jSONObject2 = frsTabInfoData.toJsonObject();
             } else {
                 jSONObject2 = null;
             }
-            rq6.a(jSONObject4, "frs_tab_info_data", jSONObject2);
-            rq6.a(jSONObject4, "isCanGoods", Boolean.valueOf(k().isCanGoods()));
-            rq6.a(jSONObject4, "isVoiceEnable", Boolean.valueOf(k().isVoiceEnable()));
-            rq6.a(jSONObject4, WriteActivityConfig.DISABLE_AUDIO_MESSAGE, k().getDisableAudioMessage());
-            rq6.a(jSONObject4, "isNotificationH5", Boolean.valueOf(k().isNotificationH5()));
-            rq6.a(jSONObject4, "isNotFakePost", Boolean.valueOf(k().isNotFakePost()));
-            rq6.a(jSONObject4, "active_name", k().getActiveName());
-            rq6.a(jSONObject4, "active_task_name", k().getActiveTaskName());
-            rq6.a(jSONObject4, "hint_text", k().getHintText());
-            rq6.a(jSONObject4, "input_insert_at_list", k().getInputInsertAtList());
+            xq6.a(jSONObject4, "frs_tab_info_data", jSONObject2);
+            xq6.a(jSONObject4, "isCanGoods", Boolean.valueOf(k().isCanGoods()));
+            xq6.a(jSONObject4, "isVoiceEnable", Boolean.valueOf(k().isVoiceEnable()));
+            xq6.a(jSONObject4, WriteActivityConfig.DISABLE_AUDIO_MESSAGE, k().getDisableAudioMessage());
+            xq6.a(jSONObject4, "isNotificationH5", Boolean.valueOf(k().isNotificationH5()));
+            xq6.a(jSONObject4, "isNotFakePost", Boolean.valueOf(k().isNotFakePost()));
+            xq6.a(jSONObject4, "active_name", k().getActiveName());
+            xq6.a(jSONObject4, "active_task_name", k().getActiveTaskName());
+            xq6.a(jSONObject4, "hint_text", k().getHintText());
+            xq6.a(jSONObject4, "input_insert_at_list", k().getInputInsertAtList());
             WriteVoteData writeVoteData = k().getWriteVoteData();
             if (writeVoteData != null) {
                 jSONObject3 = writeVoteData.toJsonObject();
             } else {
                 jSONObject3 = null;
             }
-            rq6.a(jSONObject4, "vote_data", jSONObject3);
-            rq6.a(jSONObject4, "isFromItemDetail", Boolean.valueOf(k().isFromItemDetail()));
-            rq6.a(jSONObject4, "intent_start_count", Integer.valueOf(k().getIntentStarCount()));
+            xq6.a(jSONObject4, "vote_data", jSONObject3);
+            xq6.a(jSONObject4, "isFromItemDetail", Boolean.valueOf(k().isFromItemDetail()));
+            xq6.a(jSONObject4, "intent_start_count", Integer.valueOf(k().getIntentStarCount()));
             SerializableItemInfo intentItemInfo = k().getIntentItemInfo();
             if (intentItemInfo != null) {
                 str = intentItemInfo.toJson();
             }
-            rq6.a(jSONObject4, "intent_item_info", str);
-            rq6.a(jSONObject4, "item_id", k().getItem_id());
-            rq6.a(jSONObject4, "isSaveDraft", Boolean.valueOf(k().isSaveDraft()));
-            rq6.a(jSONObject4, "more_forum_img", k().getMoreForumImg());
-            rq6.a(jSONObject4, "more_forum_title", k().getMoreForumTitle());
-            rq6.a(jSONObject4, "more_forum_url", k().getMoreForumUrl());
-            rq6.a(jSONObject4, WriteActivityConfig.IS_ARTICLE, k().getIsArticle());
-            rq6.a(jSONObject4, "isFromGameRank", Boolean.valueOf(k().isFromGameRank()));
-            rq6.a(jSONObject4, "game_id", k().getGameId());
-            rq6.a(jSONObject4, "game_name", k().getGameName());
-            rq6.a(jSONObject4, "rewards_type", k().getRewardsType());
-            rq6.a(jSONObject4, "xiuxiu_original_content", k().getXiuxiuOriginalContent());
-            rq6.a(jSONObject4, "xiuxiu_original_fname", k().getXiuxiuOriginalFname());
-            rq6.a(jSONObject4, "entrance_type", Integer.valueOf(k().getEntranceType()));
-            rq6.a(jSONObject4, "isFromErrorDialog", Boolean.valueOf(k().isFromErrorDialog()));
-            rq6.a(jSONObject4, "net_img_url", k().getNetImgUrl());
-            rq6.a(jSONObject4, WriteActivityConfig.FORUM_FIRST_CATEGORY, k().getFirstClass());
-            rq6.a(jSONObject4, "question_tag_id", k().getQuestionTagId());
+            xq6.a(jSONObject4, "intent_item_info", str);
+            xq6.a(jSONObject4, "item_id", k().getItem_id());
+            xq6.a(jSONObject4, "isSaveDraft", Boolean.valueOf(k().isSaveDraft()));
+            xq6.a(jSONObject4, "more_forum_img", k().getMoreForumImg());
+            xq6.a(jSONObject4, "more_forum_title", k().getMoreForumTitle());
+            xq6.a(jSONObject4, "more_forum_url", k().getMoreForumUrl());
+            xq6.a(jSONObject4, WriteActivityConfig.IS_ARTICLE, k().getIsArticle());
+            xq6.a(jSONObject4, "isFromGameRank", Boolean.valueOf(k().isFromGameRank()));
+            xq6.a(jSONObject4, "game_id", k().getGameId());
+            xq6.a(jSONObject4, "game_name", k().getGameName());
+            xq6.a(jSONObject4, "rewards_type", k().getRewardsType());
+            xq6.a(jSONObject4, "xiuxiu_original_content", k().getXiuxiuOriginalContent());
+            xq6.a(jSONObject4, "xiuxiu_original_fname", k().getXiuxiuOriginalFname());
+            xq6.a(jSONObject4, "entrance_type", Integer.valueOf(k().getEntranceType()));
+            xq6.a(jSONObject4, "isFromErrorDialog", Boolean.valueOf(k().isFromErrorDialog()));
+            xq6.a(jSONObject4, "net_img_url", k().getNetImgUrl());
+            xq6.a(jSONObject4, WriteActivityConfig.FORUM_FIRST_CATEGORY, k().getFirstClass());
+            xq6.a(jSONObject4, "question_tag_id", k().getQuestionTagId());
             if (SharedPrefHelper.getInstance().getBoolean(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false)) {
-                rq6.a(jSONObject4, "isAgreeProtocol", 1);
+                xq6.a(jSONObject4, "isAgreeProtocol", 1);
             } else {
-                rq6.a(jSONObject4, "isAgreeProtocol", 0);
+                xq6.a(jSONObject4, "isAgreeProtocol", 0);
             }
-            rq6.a(jSONObject4, WriteActivityConfig.KEY_WEBVIEW_DATA, l().m());
+            xq6.a(jSONObject4, WriteActivityConfig.KEY_WEBVIEW_DATA, l().m());
             return jSONObject4;
         }
         return (JSONObject) invokeV.objValue;
@@ -296,7 +296,7 @@ public final class UpdateWriteDataBiz extends BizBase {
                     sb.append((String) obj);
                 } else if (obj instanceof ImageFileInfo) {
                     sb.append("\n");
-                    sb.append(iza.c + f3b.a.a((ImageFileInfo) obj, i) + iza.a.d());
+                    sb.append(a1b.c + x4b.a.a((ImageFileInfo) obj, i) + a1b.a.d());
                 }
                 i = i2;
             }
@@ -310,7 +310,7 @@ public final class UpdateWriteDataBiz extends BizBase {
     public final void E(String str) {
         JSONObject a;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || (a = qq6.a.a(str)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || (a = wq6.a.a(str)) == null) {
             return;
         }
         H(a);
@@ -325,7 +325,7 @@ public final class UpdateWriteDataBiz extends BizBase {
         }
         l().r(k().getForumId());
         l().g().d();
-        k2b.d(l(), 0, 1, null);
+        c4b.d(l(), 0, 1, null);
     }
 
     public final void H(JSONObject jSONObject) {
@@ -348,11 +348,11 @@ public final class UpdateWriteDataBiz extends BizBase {
         }
     }
 
-    @Override // com.baidu.tieba.s1b
-    public p1b[] d() {
+    @Override // com.baidu.tieba.k3b
+    public h3b[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new p1b[]{n(55, new UpdateWriteDataBiz$editorActionHandlers$1(this)), n(66, new UpdateWriteDataBiz$editorActionHandlers$2(this)), n(3, new UpdateWriteDataBiz$editorActionHandlers$3(this)), n(74, new UpdateWriteDataBiz$editorActionHandlers$4(this))} : (p1b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new h3b[]{n(55, new UpdateWriteDataBiz$editorActionHandlers$1(this)), n(66, new UpdateWriteDataBiz$editorActionHandlers$2(this)), n(3, new UpdateWriteDataBiz$editorActionHandlers$3(this)), n(74, new UpdateWriteDataBiz$editorActionHandlers$4(this))} : (h3b[]) invokeV.objValue;
     }
 
     public final JSONObject z() {
@@ -372,7 +372,7 @@ public final class UpdateWriteDataBiz extends BizBase {
         return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s1b
+    @Override // com.baidu.tieba.k3b
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

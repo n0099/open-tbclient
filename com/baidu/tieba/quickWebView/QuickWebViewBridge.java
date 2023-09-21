@@ -6,10 +6,10 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.f2a;
-import com.baidu.tieba.mia;
-import com.baidu.tieba.oo;
+import com.baidu.tieba.d4a;
+import com.baidu.tieba.no;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
+import com.baidu.tieba.ska;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
-@oo
+@no
 /* loaded from: classes7.dex */
 public class QuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public f2a mProxy;
+    public d4a mProxy;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -56,21 +56,21 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f2a f2aVar = this.b.mProxy;
+                d4a d4aVar = this.b.mProxy;
                 QuickWebViewBridgeData quickWebViewBridgeData = this.a;
-                f2aVar.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+                d4aVar.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickWebViewBridge(Context context, f2a f2aVar) {
+    public QuickWebViewBridge(Context context, d4a d4aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, f2aVar};
+            Object[] objArr = {context, d4aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,10 +82,10 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = f2aVar;
+        this.mProxy = d4aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.iia
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.oka
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -109,11 +109,11 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public mia requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public ska requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -131,24 +131,24 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
             if (this.mProxy != null) {
                 SafeHandler.getInst().post(new a(this, quickWebViewBridgeData));
             }
-            miaVar.x(str);
-            return miaVar;
+            skaVar.x(str);
+            return skaVar;
         }
-        return (mia) invokeLLLL.objValue;
+        return (ska) invokeLLLL.objValue;
     }
 
-    public mia requestByNativeToH5(HashMap<String, String> hashMap) {
+    public ska requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (hashMap != null && hashMap.get("result") != null) {
-                miaVar.o(hashMap.get("result"));
-                miaVar.x(hashMap.get("NotificationKey"));
+                skaVar.o(hashMap.get("result"));
+                skaVar.x(hashMap.get("NotificationKey"));
             }
-            miaVar.A(true);
-            return miaVar;
+            skaVar.A(true);
+            return skaVar;
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 }

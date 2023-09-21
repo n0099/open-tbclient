@@ -18,21 +18,21 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.pb5;
+import com.baidu.tieba.di;
+import com.baidu.tieba.tb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class BlueLikeButton extends TextView implements pb5 {
+public class BlueLikeButton extends TextView implements tb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
 
-    @Override // com.baidu.tieba.pb5
+    @Override // com.baidu.tieba.tb5
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -107,14 +107,14 @@ public class BlueLikeButton extends TextView implements pb5 {
         this.b = false;
     }
 
-    @Override // com.baidu.tieba.pb5
+    @Override // com.baidu.tieba.tb5
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.b) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
-        if (!ei.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+        if (!di.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             StatisticItem statisticItem = new StatisticItem("c12507");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem.param("obj_locate", 2);
@@ -126,14 +126,14 @@ public class BlueLikeButton extends TextView implements pb5 {
             if ((context instanceof Activity) && (context instanceof IPageStayDuration)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
                 List<String> currentPageSourceKeyList = ((IPageStayDuration) context).getCurrentPageSourceKeyList();
-                if (currentPageSourceKeyList != null && StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !ei.isEmpty(stringExtra)) {
+                if (currentPageSourceKeyList != null && StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !di.isEmpty(stringExtra)) {
                     TiebaStatic.log(new StatisticItem("c12613").param("obj_type", 1).param("tid", stringExtra));
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.pb5
+    @Override // com.baidu.tieba.tb5
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -141,7 +141,7 @@ public class BlueLikeButton extends TextView implements pb5 {
         }
     }
 
-    @Override // com.baidu.tieba.pb5
+    @Override // com.baidu.tieba.tb5
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -149,7 +149,7 @@ public class BlueLikeButton extends TextView implements pb5 {
         }
     }
 
-    @Override // com.baidu.tieba.pb5
+    @Override // com.baidu.tieba.tb5
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {

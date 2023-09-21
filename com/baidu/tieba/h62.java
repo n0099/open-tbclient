@@ -1,24 +1,32 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class h62 extends e62 {
+public class h62 extends d62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
-    public String l;
-    public float m;
-    public boolean n;
-    public boolean o;
+    public List<m42> k;
+    public v42 l;
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h62(String str) {
         super(str);
-        String[] split;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,47 +42,27 @@ public class h62 extends e62 {
                 return;
             }
         }
-        this.l = "sans-serif";
-        this.m = yo3.g(10.0f);
-        this.n = false;
-        this.o = false;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = jSONObject.optString("text");
-            String optString = jSONObject.optString("font");
-            if (optString != null && optString.length() > 0) {
-                for (String str2 : optString.split(" ")) {
-                    if (str2.contains("italic")) {
-                        this.o = true;
-                    } else if (str2.contains("oblique")) {
-                        this.o = true;
-                    } else if (str2.contains("bold")) {
-                        this.n = true;
-                    } else if (!str2.contains("normal")) {
-                        if (Character.isDigit(str2.charAt(0))) {
-                            int length = str2.length();
-                            int i3 = 0;
-                            while (true) {
-                                if (i3 >= str2.length()) {
-                                    break;
-                                } else if (!Character.isDigit(str2.charAt(i3))) {
-                                    length = i3;
-                                    break;
-                                } else {
-                                    i3++;
-                                }
-                            }
-                            this.m = yo3.g(Float.parseFloat(str2.substring(0, length)));
-                        } else {
-                            this.l = str2;
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            if (rr1.a) {
-                e.printStackTrace();
-            }
+        this.k = new ArrayList();
+        v42 v42Var = new v42(str);
+        this.l = v42Var;
+        this.k.add(v42Var);
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.l.c();
         }
+        return invokeV.intValue;
+    }
+
+    public List<m42> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.k;
+        }
+        return (List) invokeV.objValue;
     }
 }

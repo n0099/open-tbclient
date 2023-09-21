@@ -5,16 +5,20 @@ import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.immessagecenter.chatgroup.data.AtData;
+import com.baidu.tieba.ct8;
+import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
+import com.baidu.tieba.im.base.core.inputtool.InputToolFragment;
+import com.baidu.tieba.im.base.core.inputtool.data.AtData;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbAtUserInfo;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
+import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
-import com.baidu.tieba.ko8;
+import com.baidu.tieba.uf8;
+import com.baidu.tieba.ze8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,13 +35,14 @@ import java.util.List;
 import java.util.Map;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\b\u0005\u0018\u0000 \u00192\u00020\u0001:\u0002\u0019\u001aB\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u001c\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b2\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\u000b0\bH\u0002J$\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00112\b\u0010\u0012\u001a\u0004\u0018\u00010\u0013H\u0016J$\u0010\u0014\u001a\u0010\u0012\u0004\u0012\u00020\u0016\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u00152\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\u000b0\bH\u0002J\b\u0010\u0017\u001a\u00020\u0016H\u0016J\u0016\u0010\u0018\u001a\u00020\u00162\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\u000b0\bH\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "repo", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/GroupChatRepo;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/GroupChatRepo;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "buildAtData", "", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AtUserInfo;", "subContent", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent;", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "payload", "", "getRobotParams", "", "", "provideType", "spliceHelpAtTextData", "Companion", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\b\u0005\u0018\u0000 \u001c2\u00020\u0001:\u0002\u001c\u001dB\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u001c\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u000b0\n2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\r0\nH\u0002J,\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0010\u0010\u0012\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0014\u0018\u00010\u00132\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J$\u0010\u0017\u001a\u0010\u0012\u0004\u0012\u00020\u0019\u0012\u0004\u0012\u00020\u0016\u0018\u00010\u00182\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\r0\nH\u0002J\b\u0010\u001a\u001a\u00020\u0019H\u0016J\u0016\u0010\u001b\u001a\u00020\u00192\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\r0\nH\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001e"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler;", "Lcom/baidu/tieba/im/base/core/uilist/BaseAbilityHandler;", "repo", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/GroupChatRepo;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "sendTextMsgCallBack", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendMsgAbiCallBack;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/GroupChatRepo;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendMsgAbiCallBack;)V", "buildAtData", "", "Lcom/baidu/tieba/im/lib/socket/msg/TbAtUserInfo;", "subContent", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent;", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "payload", "", "getRobotParams", "", "", "provideType", "spliceHelpAtTextData", "Companion", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class SendStructMsgHandler extends ko8 {
+public final class SendStructMsgHandler extends uf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final GroupChatRepo b;
     public final ChatPage c;
+    public final ct8 d;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +59,7 @@ public final class SendStructMsgHandler extends ko8 {
         }
     }
 
-    @Override // com.baidu.tieba.ko8
+    @Override // com.baidu.tieba.uf8
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -124,7 +129,7 @@ public final class SendStructMsgHandler extends ko8 {
             return (String) invokeV.objValue;
         }
 
-        @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\u0010\u0000\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\b\u0086\b\u0018\u00002\u00020\u0001:\u0001\u001fB7\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\u0014\u0010\b\u001a\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n\u0018\u00010\t¢\u0006\u0002\u0010\u000bJ\t\u0010\u0014\u001a\u00020\u0003HÆ\u0003J\u000b\u0010\u0015\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\u000b\u0010\u0016\u001a\u0004\u0018\u00010\u0007HÆ\u0003J\u0017\u0010\u0017\u001a\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n\u0018\u00010\tHÆ\u0003JC\u0010\u0018\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u00072\u0016\b\u0002\u0010\b\u001a\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n\u0018\u00010\tHÆ\u0001J\u0013\u0010\u0019\u001a\u00020\u001a2\b\u0010\u001b\u001a\u0004\u0018\u00010\nHÖ\u0003J\t\u0010\u001c\u001a\u00020\u001dHÖ\u0001J\t\u0010\u001e\u001a\u00020\u0003HÖ\u0001R\u0018\u0010\u0004\u001a\u0004\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u0013\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR$\u0010\b\u001a\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n\u0018\u00010\t8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u0011R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013¨\u0006 "}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent;", "Ljava/io/Serializable;", "type", "", "atData", "Lcom/baidu/tieba/immessagecenter/chatgroup/data/AtData;", "content", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent$ContentData;", "robotParams", "", "", "(Ljava/lang/String;Lcom/baidu/tieba/immessagecenter/chatgroup/data/AtData;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent$ContentData;Ljava/util/Map;)V", "getAtData", "()Lcom/baidu/tieba/immessagecenter/chatgroup/data/AtData;", "getContent", "()Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent$ContentData;", "getRobotParams", "()Ljava/util/Map;", "getType", "()Ljava/lang/String;", "component1", "component2", "component3", "component4", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", TTDownloadField.TT_HASHCODE, "", "toString", "ContentData", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+        @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\u0010\u0000\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\b\u0086\b\u0018\u00002\u00020\u0001:\u0001\u001fB7\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\u0014\u0010\b\u001a\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n\u0018\u00010\t¢\u0006\u0002\u0010\u000bJ\t\u0010\u0014\u001a\u00020\u0003HÆ\u0003J\u000b\u0010\u0015\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\u000b\u0010\u0016\u001a\u0004\u0018\u00010\u0007HÆ\u0003J\u0017\u0010\u0017\u001a\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n\u0018\u00010\tHÆ\u0003JC\u0010\u0018\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u00072\u0016\b\u0002\u0010\b\u001a\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n\u0018\u00010\tHÆ\u0001J\u0013\u0010\u0019\u001a\u00020\u001a2\b\u0010\u001b\u001a\u0004\u0018\u00010\nHÖ\u0003J\t\u0010\u001c\u001a\u00020\u001dHÖ\u0001J\t\u0010\u001e\u001a\u00020\u0003HÖ\u0001R\u0018\u0010\u0004\u001a\u0004\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u0013\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR$\u0010\b\u001a\u0010\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\n\u0018\u00010\t8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u0011R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013¨\u0006 "}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent;", "Ljava/io/Serializable;", "type", "", "atData", "Lcom/baidu/tieba/im/base/core/inputtool/data/AtData;", "content", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent$ContentData;", "robotParams", "", "", "(Ljava/lang/String;Lcom/baidu/tieba/im/base/core/inputtool/data/AtData;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent$ContentData;Ljava/util/Map;)V", "getAtData", "()Lcom/baidu/tieba/im/base/core/inputtool/data/AtData;", "getContent", "()Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent$ContentData;", "getRobotParams", "()Ljava/util/Map;", "getType", "()Ljava/lang/String;", "component1", "component2", "component3", "component4", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", TTDownloadField.TT_HASHCODE, "", "toString", "ContentData", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
         /* loaded from: classes6.dex */
         public static final class SubContent implements Serializable {
             public static /* synthetic */ Interceptable $ic;
@@ -401,12 +406,12 @@ public final class SendStructMsgHandler extends ko8 {
         }
     }
 
-    public SendStructMsgHandler(GroupChatRepo repo, ChatPage chatPage) {
+    public SendStructMsgHandler(GroupChatRepo repo, ChatPage chatPage, ct8 sendTextMsgCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {repo, chatPage};
+            Object[] objArr = {repo, chatPage, sendTextMsgCallBack};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -418,29 +423,31 @@ public final class SendStructMsgHandler extends ko8 {
         }
         Intrinsics.checkNotNullParameter(repo, "repo");
         Intrinsics.checkNotNullParameter(chatPage, "chatPage");
+        Intrinsics.checkNotNullParameter(sendTextMsgCallBack, "sendTextMsgCallBack");
         this.b = repo;
         this.c = chatPage;
+        this.d = sendTextMsgCallBack;
     }
 
-    @Override // com.baidu.tieba.ko8
-    public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
+    @Override // com.baidu.tieba.uf8
+    public void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
         Boolean bool;
         boolean z;
-        GroupInputViewController E2;
+        InputToolFragment M2;
+        InputDelegate r2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseMsg, obj) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseItem, obj) == null) {
             Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            if (this.c.c1()) {
+            if (this.c.e1()) {
                 return;
             }
             Conf conf = (Conf) DataExt.toEntity(abilityItem.getConfMap(), Conf.class);
             if (conf.getSubContent() != null && (!conf.getSubContent().isEmpty())) {
                 String h = h(conf.getSubContent());
-                List<AtUserInfo> f = f(conf.getSubContent());
-                Map<String, Object> g = g(conf.getSubContent());
-                TextMsg create = TextMsg.create(h);
-                Intrinsics.checkNotNullExpressionValue(create, "create(sendText)");
-                create.addAtUserInfo(f);
+                List<TbAtUserInfo> f = f(conf.getSubContent());
+                Map<String, ? extends Object> g = g(conf.getSubContent());
+                TbTextMsg a = TbTextMsg.Companion.a(h);
+                a.addAtUserInfo(f);
                 if (obj instanceof Boolean) {
                     bool = (Boolean) obj;
                 } else {
@@ -451,27 +458,25 @@ public final class SendStructMsgHandler extends ko8 {
                 } else {
                     z = false;
                 }
-                if (baseMsg != null && z) {
-                    ReMsgInfo create2 = ReMsgInfo.create(baseMsg, baseMsg.getThumbnailText().toString());
-                    Intrinsics.checkNotNullExpressionValue(create2, "create(oriMsg, oriMsg.thumbnailText.toString())");
-                    create.setReMsgInfo(create2);
+                if (baseItem != null && z) {
+                    a.setReMsgInfo(TbReMsgInfo.Companion.a(baseItem.getTbMsg(), baseItem.getTbMsg().getThumbnailText().toString()));
                 }
                 if (g != null) {
-                    create.setRobotParams(g);
+                    a.setRobotParams(g);
                 }
-                this.b.g0(create);
-                if (z && (E2 = this.c.H0().E2()) != null) {
-                    E2.g0();
+                this.d.a(a);
+                ze8.A(this.b, a, null, 2, null);
+                if (z && (M2 = this.c.J0().M2()) != null && (r2 = M2.r2()) != null) {
+                    r2.d();
                 }
             }
         }
     }
 
-    public final List<AtUserInfo> f(List<Conf.SubContent> list) {
+    public final List<TbAtUserInfo> f(List<Conf.SubContent> list) {
         InterceptResult invokeL;
         String str;
-        String str2;
-        String str3;
+        String atPortrait;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
@@ -488,20 +493,14 @@ public final class SendStructMsgHandler extends ko8 {
                     String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
                     Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(atData?.atBaiduUk)");
                     long parseLong = Long.parseLong(bdUidFromBdUK);
-                    AtUserInfo.AtType atType = AtUserInfo.AtType.USER;
-                    if (atData != null) {
-                        str2 = atData.getAtName();
-                    } else {
-                        str2 = null;
+                    TbAtUserInfo.a aVar = TbAtUserInfo.Companion;
+                    TbAtUserInfo.AtType atType = TbAtUserInfo.AtType.USER;
+                    String str2 = "";
+                    String str3 = (atData == null || (str3 = atData.getAtName()) == null) ? "" : "";
+                    if (atData != null && (atPortrait = atData.getAtPortrait()) != null) {
+                        str2 = atPortrait;
                     }
-                    if (atData != null) {
-                        str3 = atData.getAtPortrait();
-                    } else {
-                        str3 = null;
-                    }
-                    AtUserInfo create = AtUserInfo.create(atType, parseLong, str2, str3, i);
-                    Intrinsics.checkNotNullExpressionValue(create, "create(AtUserInfo.AtType…tData?.atPortrait, index)");
-                    arrayList.add(create);
+                    arrayList.add(aVar.a(atType, parseLong, str3, str2, i));
                 }
                 i = i2;
             }

@@ -1,52 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class i96 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
+    public static boolean c;
+    public static long d;
+    public static String e;
+    public static long f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public i96(int i, int i2) {
+    public static void a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST_SUCCESS_NOT_SHOW);
+            statisticItem.param("obj_source", str);
+            statisticItem.param("obj_type", "a064");
+            if (j96.b.equals(str)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
+            }
+            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+            statisticItem.param(TiebaStatic.Params.SPLASH_UNI, j);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && b && a && c) {
+            if (j96.b.equals(g)) {
+                a(j96.c, null, d);
+            } else {
+                a(j96.b, e, f);
+            }
+            c();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            b = false;
+            a = false;
+            c = false;
+            d = 0L;
+            e = null;
+            f = 0L;
+            g = null;
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            c = true;
+            g = str;
+            b();
+        }
+    }
+
+    public static void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
+            a = true;
+            d = j;
+            b();
+        }
+    }
+
+    public static void f(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (i == 3 && !iw5.v()) {
                 return;
             }
+            b = true;
+            e = iw5.m(i);
+            f = j;
+            b();
         }
-        this.a = i;
-        this.b = i2;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
     }
 }

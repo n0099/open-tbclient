@@ -114,7 +114,7 @@ public class ToastCustom {
         layoutParams.height = -2;
         layoutParams.width = -2;
         layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100447;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100448;
         layoutParams.type = 2005;
         layoutParams.setTitle("Toast");
         WindowManager.LayoutParams layoutParams2 = this.mWinParams;
@@ -416,7 +416,7 @@ public class ToastCustom {
                 }
             };
             this.mNextView.setClickable(true);
-            View findViewById = this.mNextView.findViewById(R.id.obfuscated_res_0x7f090720);
+            View findViewById = this.mNextView.findViewById(R.id.obfuscated_res_0x7f090717);
             if (findViewById != null) {
                 findViewById.setOnClickListener(onClickListener);
             } else {

@@ -56,28 +56,28 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.ApkDetail;
-/* loaded from: classes9.dex */
-public class yx4 implements tm6 {
+/* loaded from: classes8.dex */
+public class yx4 implements xm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PermissionJudgePolicy a;
-    public vw4 b;
+    public uw4 b;
 
     public static /* synthetic */ WebView z(WebView webView) {
         return webView;
     }
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        sm6.a(this, webView, str, jSONObject);
+        wm6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public /* synthetic */ void onDestroy() {
-        sm6.b(this);
+        wm6.b(this);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends InsertGalleryAsyncTask.InsertGalleryListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class yx4 implements tm6 {
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("result", -1);
-                um6.a().d(this.a, "saveImageSuccess", linkedHashMap);
+                ym6.a().d(this.a, "saveImageSuccess", linkedHashMap);
             }
         }
 
@@ -117,7 +117,7 @@ public class yx4 implements tm6 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("result", 0);
-                um6.a().d(this.a, "saveImageSuccess", linkedHashMap);
+                ym6.a().d(this.a, "saveImageSuccess", linkedHashMap);
             }
         }
     }
@@ -136,12 +136,12 @@ public class yx4 implements tm6 {
         }
     }
 
-    public mia A(WebView webView, String str, String str2, String str3, int i, String str4) {
+    public ska A(WebView webView, String str, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), str4})) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             boolean startAppByPkgName = UtilHelper.startAppByPkgName(str);
             dz4.b().a(TbadkCoreStatisticKey.KEY_H5_LAUNCH_APK, Integer.toString(i), str2, str3, -1);
             try {
@@ -152,83 +152,83 @@ public class yx4 implements tm6 {
                     i2 = 2;
                 }
                 jSONObject.put("resultCode", i2);
-                miaVar.o(jSONObject.toString());
+                skaVar.o(jSONObject.toString());
             } catch (JSONException unused) {
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia B(WebView webView, HashMap<String, Object> hashMap) {
+    public ska B(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, hashMap)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", hashMap.get("resultCode"));
                 jSONObject.put("pkgName", hashMap.get("pkgName"));
                 a(webView, CommonTbJsBridge.INSTALL_APK_RESULT, jSONObject);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia D(WebView webView, HashMap<String, Object> hashMap) {
+    public ska D(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("height", hashMap.get("height"));
                 jSONObject.put("animationDuration", hashMap.get("animationDuration"));
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia F(WebView webView, HashMap<String, Object> hashMap) {
+    public ska F(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("id", hashMap.get("id"));
                 jSONObject.put("resultCode", hashMap.get("resultCode"));
                 jSONObject.put("name", hashMap.get("name"));
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia c(WebView webView, HashMap hashMap) {
+    public ska c(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, hashMap)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (hashMap == null) {
-                return miaVar;
+                return skaVar;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -237,18 +237,18 @@ public class yx4 implements tm6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.CHANGE_SKIN_TYPE, jSONObject);
-            miaVar.o(jSONObject.toString());
-            return miaVar;
+            skaVar.o(jSONObject.toString());
+            return skaVar;
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia e(WebView webView, String str) {
+    public ska e(WebView webView, String str) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, webView, str)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (!StringUtils.isNull(str)) {
                 if (UtilHelper.isInstalledPackage(webView.getContext(), str)) {
                     i = 1;
@@ -261,15 +261,15 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                miaVar.o(jSONObject.toString());
+                skaVar.o(jSONObject.toString());
             } catch (JSONException unused) {
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia g(WebView webView, HashMap hashMap) {
+    public ska g(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, webView, hashMap)) == null) {
@@ -280,19 +280,19 @@ public class yx4 implements tm6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.CLICK_GO_BACK_TO_H5, jSONObject);
-            mia miaVar = new mia();
-            miaVar.o(jSONObject.toString());
-            return miaVar;
+            ska skaVar = new ska();
+            skaVar.o(jSONObject.toString());
+            return skaVar;
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia i(WebView webView, int i) {
+    public ska i(WebView webView, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048599, this, webView, i)) == null) {
-            mia miaVar = new mia();
-            Activity a2 = im6.a(webView.getContext());
+            ska skaVar = new ska();
+            Activity a2 = mm6.a(webView.getContext());
             if (a2 instanceof BaseWebViewActivity) {
                 if (i == 0) {
                     ((BaseWebViewActivity) a2).setSwipeBackEnabled(true);
@@ -300,31 +300,31 @@ public class yx4 implements tm6 {
                     ((BaseWebViewActivity) a2).setSwipeBackEnabled(false);
                 }
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLI.objValue;
+        return (ska) invokeLI.objValue;
     }
 
-    public mia p(WebView webView, HashMap<String, String> hashMap) {
+    public ska p(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048607, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("imageUrl", hashMap.get("url"));
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
     public final boolean x(List<String> list, String str) {
@@ -343,11 +343,11 @@ public class yx4 implements tm6 {
         return invokeLL.booleanValue;
     }
 
-    public mia C(WebView webView, HashMap<String, Object> hashMap) {
+    public ska C(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, hashMap)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("status", hashMap.get("status"));
@@ -358,17 +358,17 @@ public class yx4 implements tm6 {
                 jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_URL, hashMap.get(CommonTbJsBridge.FILE_DOWNLOAD_URL));
                 jSONObject.put("fileName", hashMap.get("fileName"));
                 a(webView, CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT, jSONObject);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia q(WebView webView, HashMap<String, List<HashMap>> hashMap) {
+    public ska q(WebView webView, HashMap<String, List<HashMap>> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048608, this, webView, hashMap)) == null) {
@@ -376,7 +376,7 @@ public class yx4 implements tm6 {
             if (hashMap == null) {
                 return null;
             }
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
                 JSONObject jSONObject = new JSONObject();
                 JSONArray jSONArray2 = new JSONArray();
@@ -403,61 +403,61 @@ public class yx4 implements tm6 {
                 }
                 jSONObject.put("resultCode", i);
                 jSONObject.put("imageArray", jSONArray);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia u(WebView webView, String str) {
+    public ska u(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, webView, str)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (this.a == null) {
                 this.a = new PermissionJudgePolicy();
             }
             this.a.clearRequestPermissionList();
-            Activity a2 = im6.a(webView.getContext());
+            Activity a2 = mm6.a(webView.getContext());
             if (a2 == null) {
-                miaVar.p();
-                return miaVar;
+                skaVar.p();
+                return skaVar;
             }
             this.a.appendRequestPermission(a2, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (this.a.startRequestPermission(a2)) {
-                miaVar.r("权限申请");
-                return miaVar;
+                skaVar.r("权限申请");
+                return skaVar;
             }
             new InsertGalleryAsyncTask(a2, str, new a(this, webView)).execute(new String[0]);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia E(final WebView webView, String str, String str2) {
+    public ska E(final WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, webView, str, str2)) == null) {
-            mia miaVar = new mia();
-            Activity a2 = im6.a(webView.getContext());
+            ska skaVar = new ska();
+            Activity a2 = mm6.a(webView.getContext());
             if (this.b == null) {
-                this.b = new vw4(new rj6() { // from class: com.baidu.tieba.kx4
+                this.b = new uw4(new vj6() { // from class: com.baidu.tieba.jx4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.rj6, java.util.concurrent.Callable
+                    @Override // com.baidu.tieba.vj6, java.util.concurrent.Callable
                     public final Object call() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -479,63 +479,63 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLLL.objValue;
+        return (ska) invokeLLL.objValue;
     }
 
-    public mia I(WebView webView, String str, String str2) {
+    public ska I(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, str2)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
             sharedPrefHelper.putString("key_local_app_storage_" + str, str2);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLLL.objValue;
+        return (ska) invokeLLL.objValue;
     }
 
-    public mia G(WebView webView, String str) {
+    public ska G(WebView webView, String str) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (BdNetTypeUtil.isNetWorkAvailable()) {
                 oz4.e().f(webView).i(str);
                 i = 1;
             } else {
-                Activity a2 = im6.a(webView.getContext());
+                Activity a2 = mm6.a(webView.getContext());
                 if (a2 != null) {
-                    BdUtilHelper.showToast(a2, (int) R.string.obfuscated_res_0x7f0f0e40);
+                    BdUtilHelper.showToast(a2, (int) R.string.obfuscated_res_0x7f0f0e42);
                 }
                 i = 0;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
     public final String L(WebView webView, String str) {
@@ -567,14 +567,14 @@ public class yx4 implements tm6 {
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v5, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    public mia d(WebView webView, String str) {
+    public ska d(WebView webView, String str) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, webView, str)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (!StringUtils.isNull(str)) {
-                Context a2 = im6.a(webView.getContext());
+                Context a2 = mm6.a(webView.getContext());
                 if (a2 == null) {
                     a2 = webView.getContext();
                 }
@@ -585,22 +585,22 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia f(WebView webView, int i) {
+    public ska f(WebView webView, int i) {
         InterceptResult invokeLI;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, webView, i)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (i == 1) {
                 z = true;
             } else {
@@ -610,82 +610,82 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                miaVar.o(jSONObject.toString());
+                skaVar.o(jSONObject.toString());
             } catch (JSONException e) {
                 BdLog.e(e);
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLI.objValue;
+        return (ska) invokeLI.objValue;
     }
 
-    public mia l(WebView webView, String str) {
+    public ska l(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, webView, str)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
             String string = sharedPrefHelper.getString("key_local_app_storage_" + str, "");
-            int i = !ei.isEmpty(string) ? 1 : 0;
+            int i = !di.isEmpty(string) ? 1 : 0;
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
                 jSONObject.put("data", string);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia H(WebView webView) {
+    public ska H(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, webView)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             boolean g = oz4.e().f(webView).g();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", g ? 1 : 0);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia o(WebView webView) {
+    public ska o(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, webView)) == null) {
-            mia miaVar = new mia();
-            JSONArray o = e17.n().o();
+            ska skaVar = new ska();
+            JSONArray n = l17.m().n();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                jSONObject.put("historyForumArray", o);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                jSONObject.put("historyForumArray", n);
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia v(WebView webView) {
+    public ska v(WebView webView) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, webView)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (Build.VERSION.SDK_INT >= 19) {
                 i = NotificationManagerCompat.from(webView.getContext()).areNotificationsEnabled();
             } else {
@@ -694,47 +694,47 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia J(WebView webView, HashMap<String, Integer> hashMap) {
+    public ska J(WebView webView, HashMap<String, Integer> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, webView, hashMap)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (hashMap != null && hashMap.get("result").intValue() == -1) {
-                miaVar.r("图片保存错误");
+                skaVar.r("图片保存错误");
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia h(WebView webView, HashMap hashMap) {
+    public ska h(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, webView, hashMap)) == null) {
             JSONObject jSONObject = new JSONObject();
             a(webView, CommonTbJsBridge.GO_BACK_FROM_NATIVE, jSONObject);
-            mia miaVar = new mia();
-            miaVar.o(jSONObject.toString());
-            return miaVar;
+            ska skaVar = new ska();
+            skaVar.o(jSONObject.toString());
+            return skaVar;
         }
-        return (mia) invokeLL.objValue;
+        return (ska) invokeLL.objValue;
     }
 
-    public mia K(WebView webView, int i, ArrayList<JSONObject> arrayList) {
+    public ska K(WebView webView, int i, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048586, this, webView, i, arrayList)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.setMaxImagesAllowed(i);
             if (arrayList != null) {
@@ -763,29 +763,29 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 0);
-                miaVar.o(jSONObject2.toString());
-                return miaVar;
+                skaVar.o(jSONObject2.toString());
+                return skaVar;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeLIL.objValue;
+        return (ska) invokeLIL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0052  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public mia M(WebView webView, String str, String str2) {
+    public ska M(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         boolean z;
         Intent launchIntentForPackage;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, webView, str, str2)) == null) {
-            mia miaVar = new mia();
-            List<String> a2 = pc5.a();
-            Activity a3 = im6.a(webView.getContext());
+            ska skaVar = new ska();
+            List<String> a2 = tc5.a();
+            Activity a3 = mm6.a(webView.getContext());
             int i = 0;
             try {
                 if (x(a2, str2) && a3 != null) {
@@ -805,18 +805,18 @@ public class yx4 implements tm6 {
                         i = 1;
                     }
                     jSONObject.put("resultCode", i);
-                    miaVar.o(jSONObject.toString());
-                    return miaVar;
+                    skaVar.o(jSONObject.toString());
+                    return skaVar;
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 if (z) {
                 }
                 jSONObject2.put("resultCode", i);
-                miaVar.o(jSONObject2.toString());
-                return miaVar;
+                skaVar.o(jSONObject2.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
             z = false;
             if (!z) {
@@ -824,24 +824,24 @@ public class yx4 implements tm6 {
                 z = true;
             }
         } else {
-            return (mia) invokeLLL.objValue;
+            return (ska) invokeLLL.objValue;
         }
     }
 
-    public mia N(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11, int i2, String str12) {
+    public ska N(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11, int i2, String str12) {
         InterceptResult invokeCommon;
         String str13;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, Integer.valueOf(i), str11, Integer.valueOf(i2), str12})) == null) {
-            mia miaVar = new mia();
-            Activity a2 = im6.a(webView.getContext());
+            ska skaVar = new ska();
+            Activity a2 = mm6.a(webView.getContext());
             if (a2 != null && !PermissionUtil.checkWriteExternalStorage(a2)) {
                 PermissionUtil.requestWriteExternalStorage(a2, 0);
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("resultCode", 3);
-                    miaVar.o(jSONObject.toString());
-                    return miaVar;
+                    skaVar.o(jSONObject.toString());
+                    return skaVar;
                 } catch (JSONException unused) {
                 }
             }
@@ -895,15 +895,15 @@ public class yx4 implements tm6 {
                     i3 = 2;
                 }
                 jSONObject2.put("resultCode", i3);
-                miaVar.o(jSONObject2.toString());
+                skaVar.o(jSONObject2.toString());
             } catch (JSONException unused2) {
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia O(WebView webView, String str, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, JSONObject jSONObject, boolean z7) {
+    public ska O(WebView webView, String str, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, JSONObject jSONObject, boolean z7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), jSONObject, Boolean.valueOf(z7)})) == null) {
@@ -921,14 +921,14 @@ public class yx4 implements tm6 {
                 gy4Var.g = z5;
                 gy4Var.h = z6;
                 gy4Var.b(jSONObject);
-                hu6.b().b(new fy4(webView, z7, gy4Var));
+                nu6.b().b(new fy4(webView, z7, gy4Var));
             }
-            return new mia();
+            return new ska();
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.tm6
+    @Override // com.baidu.tieba.xm6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -961,12 +961,12 @@ public class yx4 implements tm6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public mia j(WebView webView, String str, String str2, String str3, int i, String str4) {
+    public ska j(WebView webView, String str, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), str4})) == null) {
-            mia miaVar = new mia();
-            Context a2 = im6.a(webView.getContext());
+            ska skaVar = new ska();
+            Context a2 = mm6.a(webView.getContext());
             if (a2 == null) {
                 a2 = webView.getContext();
             }
@@ -975,8 +975,8 @@ public class yx4 implements tm6 {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("resultCode", 3);
-                    miaVar.o(jSONObject.toString());
-                    return miaVar;
+                    skaVar.o(jSONObject.toString());
+                    return skaVar;
                 } catch (JSONException unused) {
                 }
             }
@@ -988,19 +988,19 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 1);
-                miaVar.o(jSONObject2.toString());
+                skaVar.o(jSONObject2.toString());
             } catch (JSONException unused2) {
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia k(WebView webView, String str, String str2, String str3, int i, String str4) {
+    public ska k(WebView webView, String str, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), str4})) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             DownloadData downloadData = new DownloadData(str2 + ".v" + str3);
             downloadData.setUrl(str);
             downloadData.setName(str2);
@@ -1008,106 +1008,106 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                miaVar.o(jSONObject.toString());
+                skaVar.o(jSONObject.toString());
             } catch (JSONException unused) {
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 
-    public mia m(WebView webView, String str, String str2, String str3) {
+    public ska m(WebView webView, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048603, this, webView, str, str2, str3)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             DownloadData downloadData = new DownloadData(str + ".v" + str2);
             downloadData.setName(str);
             int p = nz4.a(downloadData).p(downloadData);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", p);
-                miaVar.o(jSONObject.toString());
+                skaVar.o(jSONObject.toString());
             } catch (JSONException unused) {
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLLLL.objValue;
+        return (ska) invokeLLLL.objValue;
     }
 
-    public mia n(WebView webView, String str, String str2, String str3) {
+    public ska n(WebView webView, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048604, this, webView, str, str2, str3)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             DownloadData downloadData = new DownloadData(str + ".v" + str2);
             downloadData.setName(str);
             int q = nz4.a(downloadData).q(downloadData);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", q);
-                miaVar.o(jSONObject.toString());
+                skaVar.o(jSONObject.toString());
             } catch (JSONException unused) {
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeLLLL.objValue;
+        return (ska) invokeLLLL.objValue;
     }
 
-    public mia r(WebView webView) {
+    public ska r(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, webView)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("loadUrlTime", webView);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia y(WebView webView) {
+    public ska y(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, webView)) == null) {
-            return new mia();
+            return new ska();
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia s(WebView webView) {
+    public ska s(WebView webView) {
         InterceptResult invokeL;
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, webView)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             try {
                 currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
             }
             if (currentActivity == null) {
-                return miaVar;
+                return skaVar;
             }
             currentActivity.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName())));
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia t(WebView webView) {
+    public ska t(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, webView)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             if (TbadkCoreApplication.getInst().getCurrentActivity() == null) {
-                return miaVar;
+                return skaVar;
             }
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) TbadkCoreApplication.getInst().getCurrentActivity(), new WriteImagesInfo().toJsonString(), true);
             albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
@@ -1119,22 +1119,22 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return miaVar;
+                return skaVar;
             }
         }
-        return (mia) invokeL.objValue;
+        return (ska) invokeL.objValue;
     }
 
-    public mia w(WebView webView, String str, String str2, String str3, String str4, int i, String str5) {
+    public ska w(WebView webView, String str, String str2, String str3, String str4, int i, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048614, this, new Object[]{webView, str, str2, str3, str4, Integer.valueOf(i), str5})) == null) {
-            mia miaVar = new mia();
-            Context a2 = im6.a(webView.getContext());
+            ska skaVar = new ska();
+            Context a2 = mm6.a(webView.getContext());
             if (a2 == null) {
                 a2 = webView.getContext();
             }
@@ -1143,8 +1143,8 @@ public class yx4 implements tm6 {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("resultCode", 3);
-                    miaVar.o(jSONObject.toString());
-                    return miaVar;
+                    skaVar.o(jSONObject.toString());
+                    return skaVar;
                 } catch (JSONException unused) {
                 }
             }
@@ -1159,11 +1159,11 @@ public class yx4 implements tm6 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 1);
-                miaVar.o(jSONObject2.toString());
+                skaVar.o(jSONObject2.toString());
             } catch (JSONException unused2) {
             }
-            return miaVar;
+            return skaVar;
         }
-        return (mia) invokeCommon.objValue;
+        return (ska) invokeCommon.objValue;
     }
 }

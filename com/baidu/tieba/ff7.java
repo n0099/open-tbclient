@@ -1,23 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes5.dex */
 public interface ff7 {
-    void a(gf7 gf7Var);
+    void setRadius(float f);
 
-    void b(DownloadData downloadData, gf7 gf7Var);
+    void setRadius(float f, float f2, float f3, float f4);
 
-    boolean c(DownloadData downloadData, gf7 gf7Var);
+    void setRadiusBottom(float f);
 
-    void d(DownloadData downloadData);
+    void setRadiusBottomLeft(float f);
 
-    int e(DownloadData downloadData);
+    void setRadiusBottomRight(float f);
 
-    void f(DownloadData downloadData);
+    void setRadiusLeft(float f);
 
-    int g(DownloadData downloadData);
+    void setRadiusRight(float f);
 
-    String h(DownloadData downloadData);
+    void setRadiusTop(float f);
 
-    void i(gf7 gf7Var);
+    void setRadiusTopLeft(float f);
+
+    void setRadiusTopRight(float f);
+
+    void setStrokeColor(int i);
+
+    void setStrokeWidth(float f);
+
+    void setStrokeWidthColor(float f, int i);
 }

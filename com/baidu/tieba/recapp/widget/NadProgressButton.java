@@ -18,8 +18,8 @@ import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.il0;
-import com.baidu.tieba.k66;
+import com.baidu.tieba.hl0;
+import com.baidu.tieba.l66;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
 @Metadata(d1 = {"\u0000\u008c\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u00106\u001a\u0002072\u0006\u00108\u001a\u000209H\u0016J\u0012\u0010:\u001a\u0002072\b\u0010;\u001a\u0004\u0018\u00010<H\u0002J\u0012\u0010=\u001a\u0002072\b\u0010;\u001a\u0004\u0018\u00010<H\u0002J\b\u0010>\u001a\u00020\u0001H\u0016J \u0010?\u001a\u0002042\u0006\u0010@\u001a\u00020\b2\u0006\u0010A\u001a\u0002042\u0006\u0010B\u001a\u00020CH\u0002J\b\u0010D\u001a\u00020\u0001H\u0016J\b\u0010E\u001a\u000207H\u0002J\u0010\u0010F\u001a\u0002072\u0006\u0010G\u001a\u00020\bH\u0016J\u0012\u0010H\u001a\u00020C2\b\u0010I\u001a\u0004\u0018\u00010\u0001H\u0016J\u0012\u0010J\u001a\u0002072\b\u0010;\u001a\u0004\u0018\u00010<H\u0014J\u0018\u0010K\u001a\u0002072\u0006\u0010L\u001a\u00020\b2\u0006\u0010M\u001a\u00020\bH\u0014J\u0012\u0010N\u001a\u0002072\b\u0010O\u001a\u0004\u0018\u00010\rH\u0016J\u001a\u0010P\u001a\u0002072\b\u0010Q\u001a\u0004\u0018\u00010\u000b2\u0006\u0010R\u001a\u00020SH\u0016R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u000f\u001a\u00020\u00108FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u0011\u0010\u0012R\u001b\u0010\u0015\u001a\u00020\u00168FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0019\u0010\u0014\u001a\u0004\b\u0017\u0010\u0018R\u000e\u0010\u001a\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u001d\u001a\u00020\u001e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b!\u0010\u0014\u001a\u0004\b\u001f\u0010 R\u001b\u0010\"\u001a\u00020\u00108BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010\u0014\u001a\u0004\b#\u0010\u0012R\u0010\u0010%\u001a\u0004\u0018\u00010&X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020)X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010-\u001a\u00020.8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b1\u0010\u0014\u001a\u0004\b/\u00100R\u0010\u00102\u001a\u0004\u0018\u00010&X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00103\u001a\u000204X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00105\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006T"}, d2 = {"Lcom/baidu/tieba/recapp/widget/NadProgressButton;", "Landroid/view/View;", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "buttonText", "", "clickInterceptListener", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView$OnClickInterceptListener;", "horizontalDistance", "measurePaint", "Landroid/graphics/Paint;", "getMeasurePaint", "()Landroid/graphics/Paint;", "measurePaint$delegate", "Lkotlin/Lazy;", "measureRec", "Landroid/graphics/Rect;", "getMeasureRec", "()Landroid/graphics/Rect;", "measureRec$delegate", "progress", "progressBgColor", "progressBgColorRes", "progressOval", "Landroid/graphics/RectF;", "getProgressOval", "()Landroid/graphics/RectF;", "progressOval$delegate", "progressPaint", "getProgressPaint", "progressPaint$delegate", "progressShader", "Landroid/graphics/Shader;", "radius", "status", "Lcom/baidu/nadcore/download/consts/AdDownloadStatus;", "strokeWidth", "textColorInProgress", "textColorInProgressRes", "textPaint", "Landroid/text/TextPaint;", "getTextPaint", "()Landroid/text/TextPaint;", "textPaint$delegate", "textShader", "textSize", "", "verticalDistance", UbcRemoteStat.BIND_SERVICE, "", "p0", "Landroid/view/ViewGroup;", "drawProgress", "canvas", "Landroid/graphics/Canvas;", "drawText", "getActionBar", "getMeasuredSizeBySpec", "measureSpec", "originSize", "isWidth", "", "getRealView", "initPaint", "onChangeSkinType", "type", "onClickIntercept", "view", "onDraw", "onMeasure", "widthMeasureSpec", "heightMeasureSpec", "setOnClickInterceptListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, StickerDataChangeType.UPDATE, "text", "adDownloadBean", "Lcom/baidu/nadcore/download/model/AdDownloadBean;", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class NadProgressButton extends View implements k66 {
+public final class NadProgressButton extends View implements l66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -50,7 +50,7 @@ public final class NadProgressButton extends View implements k66 {
     public AdDownloadStatus f;
     public String g;
     public float h;
-    public k66.a i;
+    public l66.a i;
     public int j;
     public final Lazy k;
     public final Lazy l;
@@ -137,7 +137,7 @@ public final class NadProgressButton extends View implements k66 {
         }
     }
 
-    @Override // com.baidu.tieba.bm0
+    @Override // com.baidu.tieba.am0
     public void c(ViewGroup p0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p0) == null) {
@@ -151,7 +151,7 @@ public final class NadProgressButton extends View implements k66 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bm0
+    @Override // com.baidu.tieba.am0
     public View getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -257,12 +257,12 @@ public final class NadProgressButton extends View implements k66 {
         return (Rect) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k66
+    @Override // com.baidu.tieba.l66
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            k66.a aVar = this.i;
+            l66.a aVar = this.i;
             if (aVar != null) {
                 return aVar.a(view2);
             }
@@ -271,7 +271,7 @@ public final class NadProgressButton extends View implements k66 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.k66
+    @Override // com.baidu.tieba.l66
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -292,8 +292,8 @@ public final class NadProgressButton extends View implements k66 {
         }
     }
 
-    @Override // com.baidu.tieba.k66
-    public void setOnClickInterceptListener(k66.a aVar) {
+    @Override // com.baidu.tieba.l66
+    public void setOnClickInterceptListener(l66.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
             this.i = aVar;
@@ -420,8 +420,8 @@ public final class NadProgressButton extends View implements k66 {
         }
     }
 
-    @Override // com.baidu.tieba.bm0
-    public void update(String str, il0 adDownloadBean) {
+    @Override // com.baidu.tieba.am0
+    public void update(String str, hl0 adDownloadBean) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, adDownloadBean) == null) {
             Intrinsics.checkNotNullParameter(adDownloadBean, "adDownloadBean");

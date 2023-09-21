@@ -19,10 +19,10 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an5;
-import com.baidu.tieba.ei;
-import com.baidu.tieba.kn5;
-import com.baidu.tieba.xm5;
+import com.baidu.tieba.bn5;
+import com.baidu.tieba.di;
+import com.baidu.tieba.en5;
+import com.baidu.tieba.on5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +126,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements xm5 {
+    public class c implements bn5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -149,7 +149,7 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.baidu.tieba.xm5
+        @Override // com.baidu.tieba.bn5
         public void a(BdImage bdImage, String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLLZ(1048576, this, bdImage, str, z) != null) || bdImage == null) {
@@ -322,8 +322,8 @@ public class RichImageItem extends FrameLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0887, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091203);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0883, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0911f4);
             this.a = tbImageView;
             tbImageView.setTagTextSize(BdUtilHelper.getDimens(getContext(), R.dimen.T_X10));
             this.a.setDrawBorder(true);
@@ -331,8 +331,8 @@ public class RichImageItem extends FrameLayout {
             this.a.setAutoChangeStyle(true);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090875);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09086e);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09086d);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090866);
             this.a.setVisibility(0);
             findViewById.setVisibility(0);
             this.a.setGifIconSupport(true);
@@ -367,19 +367,19 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = kn5.g(i, i * 2);
+            ImageOperation g = on5.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                BdImage d2 = new an5().d(this.d, new c(this), true);
+                BdImage d2 = new en5().d(this.d, new c(this), true);
                 if (d2 != null && d2.getWidth() > 0 && d2.getHeight() > 0) {
                     post(new d(this, d2));
                 }
                 this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f0618));
             } else if (this.d.getImageType() == 1) {
                 String filePath = this.d.getFilePath();
-                if (!ei.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                if (!di.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
                     this.a.setTag(BdResourceLoader.getInstance().genCacheKey(filePath, 20));
                     BdResourceLoader.getInstance().loadResource(filePath, 20, new e(this), 0, 0, null, null, filePath, Boolean.FALSE, null);
                 }

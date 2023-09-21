@@ -1,76 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveNormalCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class te6 extends pm<we6, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder> {
+public class te6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public fb6 b;
+    public BdPageContext a;
+    public final List<om> b;
+    public BdTypeMultiColumnListView c;
+    public ue6 d;
+    public xe6 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public te6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public te6(BdPageContext bdPageContext, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {bdPageContext, bdTypeMultiColumnListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.b = new ArrayList();
+        this.a = bdPageContext;
+        this.c = bdTypeMultiColumnListView;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: s */
-    public AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder(new AlaGameFrsLiveNormalCardView(this.a));
-        }
-        return (AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder) invokeL.objValue;
-    }
-
-    public void u(fb6 fb6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fb6Var) == null) {
-            this.b = fb6Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new ue6((TbPageContext) this.a, af6.b);
+            this.e = new xe6((TbPageContext) this.a, af6.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.c.addAdapters(this.b);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, we6 we6Var, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder alaGameFrsNormalViewHolder) {
-        InterceptResult invokeCommon;
+    public void b(jb6 jb6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, we6Var, alaGameFrsNormalViewHolder})) == null) {
-            alaGameFrsNormalViewHolder.a.i(we6Var);
-            alaGameFrsNormalViewHolder.a.t(this.b);
-            return alaGameFrsNormalViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jb6Var) == null) {
+            ue6 ue6Var = this.d;
+            if (ue6Var != null) {
+                ue6Var.u(jb6Var);
+            }
+            xe6 xe6Var = this.e;
+            if (xe6Var != null) {
+                xe6Var.u(jb6Var);
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void c(List<bn> list) {
+        BdTypeMultiColumnListView bdTypeMultiColumnListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeMultiColumnListView = this.c) != null) {
+            bdTypeMultiColumnListView.setData(list);
+        }
     }
 }

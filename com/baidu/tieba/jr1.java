@@ -1,78 +1,83 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes6.dex */
-public class jr1 {
+public class jr1 implements ar1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public ir1 a;
+    public String b;
+    public hr1 c;
 
-    public jr1(Context context) {
+    public jr1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0040  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        Uri parse;
-        Cursor query;
-        StringBuilder sb;
-        String str3;
+    @Override // com.baidu.tieba.ar1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (i != 0) {
-                if (i == 1) {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-                } else if (i != 2) {
-                    parse = null;
-                    query = this.a.getContentResolver().query(parse, null, null, null, null);
-                    if (query != null) {
-                        r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                        query.close();
-                    }
-                    return r0;
-                } else {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
-                }
-                sb.append(str3);
-                sb.append(str);
-                str2 = sb.toString();
-            } else {
-                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = this.a.a(0, null);
             }
-            parse = Uri.parse(str2);
-            query = this.a.getContentResolver().query(parse, null, null, null, null);
-            if (query != null) {
-            }
-            return r0;
+            return this.b;
         }
-        return (String) invokeIL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ar1
+    public void a(Context context, br1 br1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, br1Var) == null) {
+            this.a = new ir1(context);
+            if (b()) {
+                this.c = new hr1(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.c);
+            }
+            if (br1Var != null) {
+                br1Var.a();
+            }
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                str = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
+            } catch (Throwable unused) {
+                str = null;
+            }
+            if ("1".equals(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

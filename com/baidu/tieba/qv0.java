@@ -1,65 +1,78 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Context;
+import android.os.Message;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes7.dex */
-public class qv0 extends jz0 {
+public abstract class qv0 implements xv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
+    public sz0 a;
 
-    @Override // com.baidu.tieba.jz0, com.baidu.tieba.xx0
-    public void q(@NonNull ww0 ww0Var) {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ww0Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Nullable
+    public ViewGroup.LayoutParams f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (ViewGroup.LayoutParams) invokeV.objValue;
+    }
+
+    public void h(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract void i();
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-476710943, "Lcom/baidu/tieba/qv0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-476710943, "Lcom/baidu/tieba/qv0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[PlayerStatus.values().length];
-            a = iArr;
-            try {
-                iArr[PlayerStatus.PLAYING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PlayerStatus.COMPLETE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    public void k(@NonNull vw0 vw0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vw0Var) == null) {
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    public void n(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, playerStatus, playerStatus2) == null) {
         }
     }
 
@@ -77,85 +90,42 @@ public class qv0 extends jz0 {
         }
     }
 
-    public final boolean L() {
+    public bu0 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return hx0.h().d(u().B(), u().L());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.u();
         }
-        return invokeV.booleanValue;
+        return (bu0) invokeV.objValue;
     }
 
-    public final void M() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h.setBackgroundColor(-65536);
-        }
-    }
-
-    public final void N() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (L()) {
-                i = DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK;
-            } else {
-                i = -65536;
-            }
-            this.h.setBackgroundColor(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.wz0
-    public View getContentView() {
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+            return this.a.getContentView().getContext();
         }
-        return (View) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xx0
-    @Nullable
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
+    public void e(vw0 vw0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new int[]{4, 2, 5, 3};
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jz0
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.D();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_layer_debug_info_layout, null);
-            this.e = linearLayout;
-            this.f = (TextView) linearLayout.findViewById(R.id.text_version_code);
-            this.g = (TextView) this.e.findViewById(R.id.text_status);
-            this.h = (TextView) this.e.findViewById(R.id.text_pcdn_status);
-            this.g.setText(PlayerStatus.IDLE.name());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vw0Var) == null) {
+            this.a.O(vw0Var);
         }
     }
 
-    @Override // com.baidu.tieba.jz0, com.baidu.tieba.xx0
-    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+    public void o(vw0 vw0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, playerStatus, playerStatus2) == null) {
-            super.h(playerStatus, playerStatus2);
-            this.g.setText(playerStatus.name());
-            int i = a.a[playerStatus.ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    M();
-                    return;
-                }
-                return;
-            }
-            N();
+        if (interceptable == null || interceptable.invokeL(1048588, this, vw0Var) == null) {
+            this.a.H(vw0Var);
+        }
+    }
+
+    public void p(@NonNull sz0 sz0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, sz0Var) == null) {
+            this.a = sz0Var;
         }
     }
 }

@@ -28,18 +28,18 @@ public final class UtilsKt {
     */
     public static final JavaDefaultValue lexicalCastFrom(KotlinType kotlinType, String str) {
         Object obj;
-        ClassifierDescriptor mo2105getDeclarationDescriptor = kotlinType.getConstructor().mo2105getDeclarationDescriptor();
-        if (mo2105getDeclarationDescriptor instanceof ClassDescriptor) {
-            ClassDescriptor classDescriptor = (ClassDescriptor) mo2105getDeclarationDescriptor;
+        ClassifierDescriptor mo2107getDeclarationDescriptor = kotlinType.getConstructor().mo2107getDeclarationDescriptor();
+        if (mo2107getDeclarationDescriptor instanceof ClassDescriptor) {
+            ClassDescriptor classDescriptor = (ClassDescriptor) mo2107getDeclarationDescriptor;
             if (classDescriptor.getKind() == ClassKind.ENUM_CLASS) {
                 MemberScope unsubstitutedInnerClassesScope = classDescriptor.getUnsubstitutedInnerClassesScope();
                 Name identifier = Name.identifier(str);
                 Intrinsics.checkExpressionValueIsNotNull(identifier, "Name.identifier(value)");
-                ClassifierDescriptor mo2107getContributedClassifier = unsubstitutedInnerClassesScope.mo2107getContributedClassifier(identifier, NoLookupLocation.FROM_BACKEND);
-                if (!(mo2107getContributedClassifier instanceof ClassDescriptor)) {
+                ClassifierDescriptor mo2109getContributedClassifier = unsubstitutedInnerClassesScope.mo2109getContributedClassifier(identifier, NoLookupLocation.FROM_BACKEND);
+                if (!(mo2109getContributedClassifier instanceof ClassDescriptor)) {
                     return null;
                 }
-                ClassDescriptor classDescriptor2 = (ClassDescriptor) mo2107getContributedClassifier;
+                ClassDescriptor classDescriptor2 = (ClassDescriptor) mo2109getContributedClassifier;
                 if (classDescriptor2.getKind() != ClassKind.ENUM_ENTRY) {
                     return null;
                 }

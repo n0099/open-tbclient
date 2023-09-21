@@ -1,87 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsGameLiveDoubleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class se6 {
+public class se6 extends om<lf6, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public BdTypeListView b;
-    public final List<pm> c;
-    public re6 d;
-    public oe6 e;
-    public me6 f;
-    public ne6 g;
+    public TbPageContext<?> a;
+    public jb6 b;
+    public String c;
 
-    public se6(BdPageContext bdPageContext, BdTypeListView bdTypeListView, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public se6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext, bdTypeListView, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = bdPageContext;
-        this.b = bdTypeListView;
-        a(z);
+        this.a = tbPageContext;
     }
 
-    public final void a(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: s */
+    public AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (z) {
-                oe6 oe6Var = new oe6((TbPageContext) this.a, hf6.c);
-                this.e = oe6Var;
-                this.c.add(oe6Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView = new AlaGameFrsGameLiveDoubleView(this.a);
+            alaGameFrsGameLiveDoubleView.t(this.c);
+            return new AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder(alaGameFrsGameLiveDoubleView);
+        }
+        return (AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder) invokeL.objValue;
+    }
+
+    public void u(jb6 jb6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jb6Var) == null) {
+            this.b = jb6Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lf6 lf6Var, AlaGameFrsGameLiveDoubleView.AlaGameFrsGameLiveDoubleViewHolder alaGameFrsGameLiveDoubleViewHolder) {
+        InterceptResult invokeCommon;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lf6Var, alaGameFrsGameLiveDoubleViewHolder})) == null) {
+            alaGameFrsGameLiveDoubleViewHolder.a.i(lf6Var);
+            alaGameFrsGameLiveDoubleViewHolder.a.u(this.b);
+            String str2 = "";
+            if (StringUtils.isNull(lf6Var.a.getThreadAlaInfo().appId)) {
+                str = "";
             } else {
-                re6 re6Var = new re6((TbPageContext) this.a, hf6.c);
-                this.d = re6Var;
-                this.c.add(re6Var);
+                str = lf6Var.a.getThreadAlaInfo().appId;
             }
-            this.f = new me6((TbPageContext) this.a, ue6.a);
-            this.g = new ne6((TbPageContext) this.a, ve6.a);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.addAdapters(this.c);
-        }
-    }
-
-    public void b(fb6 fb6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fb6Var) == null) {
-            re6 re6Var = this.d;
-            if (re6Var != null) {
-                re6Var.u(fb6Var);
+            ib6.b().a(new StatisticItem("c12115").param("obj_id", lf6Var.a.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str));
+            ThreadData threadData = lf6Var.b;
+            if (threadData != null) {
+                if (!StringUtils.isNull(threadData.getThreadAlaInfo().appId)) {
+                    str2 = lf6Var.b.getThreadAlaInfo().appId;
+                }
+                ib6.b().a(new StatisticItem("c12115").param("obj_id", lf6Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, str2));
             }
-            oe6 oe6Var = this.e;
-            if (oe6Var != null) {
-                oe6Var.u(fb6Var);
-            }
+            return alaGameFrsGameLiveDoubleViewHolder.getView();
         }
-    }
-
-    public void c(List<cn> list) {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeListView = this.b) != null) {
-            bdTypeListView.setData(list);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

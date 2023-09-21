@@ -49,7 +49,7 @@ public class g05 {
             BdResourceLoader.getInstance().registerLoaderProc(27, new BigImageLoaderProc(27));
             BdResourceLoader.getInstance().registerLoaderProc(29, new SimpleForeverLoaderProc(true, 29));
             BdResourceLoader.getInstance().registerLoaderProc(32, new LocalFileDrawableLoaderProc(32));
-            BdResourceLoader.getInstance().registerLoaderProc(23, new zb5());
+            BdResourceLoader.getInstance().registerLoaderProc(23, new dc5());
             BdResourceLoader.getInstance().registerLoaderProc(33, new MemeLoaderProc2());
             BdResourceLoader.getInstance().registerLoaderProc(34, new EmotionShareLoaderProc());
             BdResourceLoader.getInstance().registerLoaderProc(35, new LocalFileImageLoaderProc(160, 160));

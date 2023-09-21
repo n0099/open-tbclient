@@ -9,11 +9,11 @@ import android.view.ViewConfiguration;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
-import com.baidu.tieba.rr1;
-import com.baidu.tieba.t93;
+import com.baidu.tieba.qr1;
+import com.baidu.tieba.s93;
 /* loaded from: classes4.dex */
 public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
-    public static final boolean x = rr1.a;
+    public static final boolean x = qr1.a;
     public HEADERTYPE a;
     public float b;
     public float c;
@@ -36,7 +36,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public boolean t;
     public float u;
     public boolean v;
-    public t93<T> w;
+    public s93<T> w;
 
     /* loaded from: classes4.dex */
     public enum HEADERTYPE {
@@ -209,7 +209,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         return this.e;
     }
 
-    public t93<T> getRefreshableFactory() {
+    public s93<T> getRefreshableFactory() {
         return this.w;
     }
 

@@ -1,228 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.log.Logger;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qf8 {
+public class qf8 extends pf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static qf8 a;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean e;
 
-    public qf8() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948090022, "Lcom/baidu/tieba/qf8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948090022, "Lcom/baidu/tieba/qf8;");
+                return;
+            }
+        }
+        f = BdUniqueId.gen().getId();
+    }
+
+    @Override // com.baidu.tieba.pf8, com.baidu.tieba.kf8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qf8(BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        super(itemsDTO);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {itemsDTO};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BotsDTO.BotListDTO.SkillDTO.ItemsDTO) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.e = false;
     }
 
-    public static qf8 d() {
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (qf8.class) {
-                    if (a == null) {
-                        a = new qf8();
-                    }
-                }
-            }
-            return a;
-        }
-        return (qf8) invokeV.objValue;
-    }
-
-    public SQLiteStatement a(String str) {
-        InterceptResult invokeL;
-        SQLiteDatabase c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (c = pf8.c()) == null) {
-                return null;
-            }
-            try {
-                return c.compileStatement(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (SQLiteStatement) invokeL.objValue;
-    }
-
-    public void b() {
-        SQLiteDatabase c;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (c = pf8.c()) == null) {
-            return;
-        }
-        BdLog.i("begin commit transaction");
-        if (c.inTransaction()) {
-            try {
-                c.setTransactionSuccessful();
-                c.endTransaction();
-                return;
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
-                BdLog.e(e.getMessage());
-                Logger.addLog("im", -1L, 0, "im_check: endTransaction error:" + e.getMessage(), -1, "", new Object[0]);
-                return;
-            }
-        }
-        BdLog.e("there is no current transaction");
-    }
-
-    public void f() {
-        SQLiteDatabase c;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = pf8.c()) == null) {
-            return;
-        }
-        if (c.inTransaction()) {
-            BdLog.e("there is exist transaction");
-            return;
-        }
-        try {
-            c.beginTransaction();
-            BdLog.i("db.beginTransaction");
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
-            BdLog.e(e.getMessage());
-            Logger.addLog("im", -1L, 0, "im_check: startTransaction error:" + e.getMessage(), -1, "", new Object[0]);
-        }
-    }
-
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            SQLiteDatabase c = pf8.c();
-            if (c == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.c;
+            if (optsDTO == null || optsDTO.getExt() == null) {
                 return false;
             }
-            try {
-                c.execSQL(str);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                Logger.addLog("im", -1L, 0, "im_check: execSQL error:" + e.getMessage(), -1, "", new Object[0]);
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = this.c.getExt();
+            if (StringUtils.isNull(ext.getPicPath()) || StringUtils.isNull(ext.getPicSize())) {
                 return false;
             }
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public long insert(SQLiteStatement sQLiteStatement) {
-        InterceptResult invokeL;
+    public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sQLiteStatement)) == null) {
-            if (sQLiteStatement == null) {
-                return -1L;
-            }
-            try {
-                return sQLiteStatement.executeInsert();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                Logger.addLog("im", -1L, 0, "im_check: update error:" + e.getMessage(), -1, "", new Object[0]);
-                return -1L;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.e = z;
         }
-        return invokeL.longValue;
     }
 
-    public boolean delete(String str, String str2, String[] strArr) {
-        InterceptResult invokeLLL;
+    public void s(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, strArr)) == null) {
-            SQLiteDatabase c = pf8.c();
-            if (c == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                if (c.delete(str, str2, strArr) <= 0) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.c != null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = new BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext();
+            ext.setPicPath(str);
+            ext.setPicSize(str2);
+            this.c.setExt(ext);
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public Cursor e(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, strArr)) == null) {
-            SQLiteDatabase c = pf8.c();
-            if (c == null) {
-                return null;
-            }
-            try {
-                return c.rawQuery(str, strArr);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage() + str);
-                return null;
-            }
-        }
-        return (Cursor) invokeLL.objValue;
-    }
-
-    public long insert(String str, String str2, ContentValues contentValues) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, contentValues)) == null) {
-            SQLiteDatabase c = pf8.c();
-            if (c == null || TextUtils.isEmpty(str)) {
-                return -1L;
-            }
-            try {
-                return c.insert(str, str2, contentValues);
-            } catch (Exception e) {
-                Logger.addLog("im", -1L, 0, "im_check: insertOrUpdate error:" + e.getMessage(), -1, "", new Object[0]);
-                BdLog.e(e.getMessage());
-                return -1L;
-            }
-        }
-        return invokeLLL.longValue;
-    }
-
-    public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, contentValues, str2, strArr)) == null) {
-            SQLiteDatabase c = pf8.c();
-            if (c == null || TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            try {
-                return c.update(str, contentValues, str2, strArr);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                Logger.addLog("im", -1L, 0, "im_check: update error" + e.getMessage(), -1, "", new Object[0]);
-                return -1;
-            }
-        }
-        return invokeLLLL.intValue;
     }
 }

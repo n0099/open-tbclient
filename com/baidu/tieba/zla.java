@@ -1,78 +1,104 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdDimDialog;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.coreExtra.util.DialogUtil;
+import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
+import com.baidu.tbadk.widget.image.TbImage;
+import com.baidu.tieba.controller.TransmitShareController;
+import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
+import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
+import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.view.CenterCoverTip;
+import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.tieba.view.ShadowLinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Map;
+import tbclient.GetMyPost.DataRes;
+import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes9.dex */
-public class zla extends CustomMessageListener {
+public class zla {
     public static /* synthetic */ Interceptable $ic;
+    public static PostWriteCallBackData d;
+    public static ee5 e;
+    public static WriteData f;
+    public static AntiData g;
+    public static Intent h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final yka b;
+    public final BdUniqueId a;
+    public BlueCircleProgressDialog b;
+    public TbPageContext<?> c;
 
     /* loaded from: classes9.dex */
-    public class a implements uea<rea> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zla a;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ NavigationBarCoverTip b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ zla e;
 
-        /* renamed from: com.baidu.tieba.zla$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class RunnableC0545a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ rea a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0545a(a aVar, rea reaVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, reaVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = reaVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                rea reaVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (reaVar = this.a) != null) {
-                    this.b.a.l(reaVar);
-                }
-            }
-        }
-
-        public a(zla zlaVar) {
+        public a(zla zlaVar, Activity activity, NavigationBarCoverTip navigationBarCoverTip, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zlaVar};
+                Object[] objArr = {zlaVar, activity, navigationBarCoverTip, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -82,16 +108,42 @@ public class zla extends CustomMessageListener {
                     return;
                 }
             }
-            this.a = zlaVar;
+            this.e = zlaVar;
+            this.a = activity;
+            this.b = navigationBarCoverTip;
+            this.c = j;
+            this.d = j2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.uea
-        /* renamed from: b */
-        public void a(rea reaVar) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reaVar) == null) {
-                this.a.a.runOnUiThread(new RunnableC0545a(this, reaVar));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yla.a("发帖-成功： 开始分享 -- start");
+                view2.setOnClickListener(null);
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    BdUtilHelper.showToast(this.a, (int) R.string.obfuscated_res_0x7f0f0e42);
+                    this.b.b();
+                    yla.a("发帖-成功： 开始分享 -- 失败 -- 无网");
+                    return;
+                }
+                int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
+                int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
+                float f = this.a.getResources().getDisplayMetrics().density;
+                if (TbImageHelper.getInstance().isShowBigImage()) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+                requestGetMyPostNetMessage.setTag(this.e.a);
+                requestGetMyPostNetMessage.setParams(this.c, this.d, 0L, equipmentWidth, equipmentHeight, f, i);
+                MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
+                yla.a("发帖-成功： 开始分享 -- 发送GetMyPost");
+                this.e.q(this.a);
+                this.b.b();
+                yla.a("发帖-成功： 开始分享 -- 关闭成功弹框");
             }
         }
     }
@@ -100,14 +152,14 @@ public class zla extends CustomMessageListener {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BdDimDialog a;
+        public final /* synthetic */ CenterCoverTip a;
 
-        public b(zla zlaVar, BdDimDialog bdDimDialog) {
+        public b(zla zlaVar, CenterCoverTip centerCoverTip) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zlaVar, bdDimDialog};
+                Object[] objArr = {zlaVar, centerCoverTip};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,14 +169,14 @@ public class zla extends CustomMessageListener {
                     return;
                 }
             }
-            this.a = bdDimDialog;
+            this.a = centerCoverTip;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
+                this.a.b();
             }
         }
     }
@@ -133,15 +185,18 @@ public class zla extends CustomMessageListener {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BdDimDialog a;
-        public final /* synthetic */ zla b;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ CenterCoverTip b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ zla e;
 
-        public c(zla zlaVar, BdDimDialog bdDimDialog) {
+        public c(zla zlaVar, Activity activity, CenterCoverTip centerCoverTip, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zlaVar, bdDimDialog};
+                Object[] objArr = {zlaVar, activity, centerCoverTip, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -151,17 +206,42 @@ public class zla extends CustomMessageListener {
                     return;
                 }
             }
-            this.b = zlaVar;
-            this.a = bdDimDialog;
+            this.e = zlaVar;
+            this.a = activity;
+            this.b = centerCoverTip;
+            this.c = j;
+            this.d = j2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-                UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
-                this.b.m();
+                yla.a("发帖-成功2： 开始分享 -- start");
+                view2.setOnClickListener(null);
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    BdUtilHelper.showToast(this.a, (int) R.string.obfuscated_res_0x7f0f0e42);
+                    this.b.b();
+                    yla.a("发帖-成功2： 开始分享 -- 失败 -- 无网");
+                    return;
+                }
+                int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
+                int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
+                float f = this.a.getResources().getDisplayMetrics().density;
+                if (TbImageHelper.getInstance().isShowBigImage()) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+                requestGetMyPostNetMessage.setTag(this.e.a);
+                requestGetMyPostNetMessage.setParams(this.c, this.d, 0L, equipmentWidth, equipmentHeight, f, i);
+                MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
+                yla.a("发帖-成功2： 开始分享 -- 发送GetMyPost");
+                this.e.q(this.a);
+                this.b.b();
+                yla.a("发帖-成功2： 开始分享 -- 关闭成功弹框");
             }
         }
     }
@@ -170,16 +250,16 @@ public class zla extends CustomMessageListener {
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BdDimDialog a;
-        public final /* synthetic */ rea b;
+        public final /* synthetic */ NavigationBarCoverTip a;
+        public final /* synthetic */ String b;
         public final /* synthetic */ zla c;
 
-        public d(zla zlaVar, BdDimDialog bdDimDialog, rea reaVar) {
+        public d(zla zlaVar, NavigationBarCoverTip navigationBarCoverTip, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zlaVar, bdDimDialog, reaVar};
+                Object[] objArr = {zlaVar, navigationBarCoverTip, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -190,142 +270,764 @@ public class zla extends CustomMessageListener {
                 }
             }
             this.c = zlaVar;
-            this.a = bdDimDialog;
-            this.b = reaVar;
+            this.a = navigationBarCoverTip;
+            this.b = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-                tea teaVar = new tea();
-                rea reaVar = this.b;
-                if (reaVar != null) {
-                    teaVar.g(reaVar.a());
-                    teaVar.h(this.b.b());
+                this.a.b();
+                if (this.c.o(this.b)) {
+                    StatisticItem statisticItem = new StatisticItem("c13673");
+                    statisticItem.param("obj_source", 13);
+                    statisticItem.param("obj_type", 2);
+                    TiebaStatic.log(statisticItem);
                 }
-                new sea(this.c.a, teaVar).a();
-                this.c.o();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zla(MainTabActivity mainTabActivity, kka kkaVar) {
-        super(2001384);
+    /* loaded from: classes9.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ Activity c;
+        public final /* synthetic */ NavigationBarCoverTip d;
+        public final /* synthetic */ zla e;
+
+        public e(zla zlaVar, String str, boolean z, Activity activity, NavigationBarCoverTip navigationBarCoverTip) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zlaVar, str, Boolean.valueOf(z), activity, navigationBarCoverTip};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = zlaVar;
+            this.a = str;
+            this.b = z;
+            this.c = activity;
+            this.d = navigationBarCoverTip;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yla.a("发帖-成功： 开启 -- start");
+                view2.setOnClickListener(null);
+                boolean z2 = false;
+                if (this.e.o(this.a)) {
+                    if (!xe5.d().f) {
+                        new MsgRemindModel(this.e.c).R(1, true, null);
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!xe5.d().g) {
+                        new MsgRemindModel(this.e.c).R(20, true, null);
+                        z = true;
+                    }
+                    if (!this.b) {
+                        DialogUtil.jumpSystemNotificationSetting(this.c);
+                    }
+                    z2 = z;
+                } else if (this.e.n(this.a)) {
+                    if (!xe5.d().f) {
+                        new MsgRemindModel(this.e.c).R(1, true, null);
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!this.b) {
+                        DialogUtil.jumpSystemNotificationSetting(this.c);
+                    }
+                    z2 = z;
+                } else if (this.e.m(this.a) && !this.b) {
+                    DialogUtil.jumpSystemNotificationSetting(this.c);
+                }
+                if (z2) {
+                    PushOpenUtil.showPushPermissionSucToast(this.c);
+                }
+                this.d.b();
+                if (this.e.o(this.a)) {
+                    StatisticItem statisticItem = new StatisticItem("c13673");
+                    statisticItem.param("obj_source", 13);
+                    statisticItem.param("obj_type", 1);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WriteData a;
+        public final /* synthetic */ Activity b;
+
+        public f(zla zlaVar, WriteData writeData, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zlaVar, writeData, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = writeData;
+            this.b = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yla.a("发帖-失败： 重新编辑 -- start");
+                view2.setOnClickListener(null);
+                WriteData writeData = this.a;
+                int i = 1;
+                if (writeData != null && writeData.isWork()) {
+                    WorkPublishOpenHelper.Companion.d(this.a, this.b);
+                    ama.b(true);
+                    return;
+                }
+                WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.b);
+                Intent intent = zla.h;
+                if (intent != null) {
+                    newInstance.setIntent(intent);
+                }
+                newInstance.setFromErrorDialog(true);
+                WriteData writeData2 = this.a;
+                if (writeData2 != null) {
+                    if (writeData2.isWriteTest()) {
+                        newInstance.setIsWriteTest(true);
+                    }
+                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_WRITE_TEST_ICON_CLICK).param("obj_type", 3);
+                    if (this.a.isWriteTest()) {
+                        i = 2;
+                    }
+                    TiebaStatic.log(param.param("obj_source", i));
+                }
+                newInstance.send();
+                ama.b(false);
+                yla.a("发帖-失败： 重新编辑 -- end");
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class g extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final zla a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(zla zlaVar) {
+            super(CmdConfigHttp.CMD_GET_MY_POST);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zlaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zlaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                yla.a("发帖-成功： 分享进行 -- 接受GetMyPost");
+                zla zlaVar = this.a;
+                if (zlaVar != null) {
+                    zlaVar.l();
+                    if (httpResponsedMessage instanceof GetMyPostHttpResponseMessage) {
+                        GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) httpResponsedMessage;
+                        zlaVar.k(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
+                    }
+                }
+            }
+        }
+    }
+
+    public zla() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, kkaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.a = BdUniqueId.gen();
+        p();
     }
 
-    public final void k() {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MainTabActivity mainTabActivity = this.a;
-            if (mainTabActivity.E == null) {
-                mainTabActivity.E = new xea(mainTabActivity.getPageContext(), new a(this));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            yla.a("发帖-成功： 开始分享 -- 隐藏loading -- start");
+            BlueCircleProgressDialog blueCircleProgressDialog = this.b;
+            if (blueCircleProgressDialog != null) {
+                blueCircleProgressDialog.setDialogVisiable(false);
+                yla.a("发帖-成功： 开始分享 -- 隐藏loading -- end");
             }
-            this.a.E.b();
         }
     }
 
-    public final void m() {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 3).param("obj_locate", 3));
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            g gVar = new g(this);
+            gVar.setTag(this.a);
+            gVar.setSelfListener(true);
+            MessageManager.getInstance().registerListener(gVar);
         }
     }
 
-    public final void n() {
+    public static int j(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 3).param("obj_locate", 3));
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
-        }
-    }
-
-    public final void l(rea reaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reaVar) == null) && !this.a.F && TbadkCoreApplication.isLogin() && this.a.z.intValue() == 8) {
-            NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(this.a);
-            newStyleStampDialogView.setStampData(reaVar);
-            BdDimDialog bdDimDialog = new BdDimDialog(this.a);
-            bdDimDialog.setContentView(newStyleStampDialogView);
-            bdDimDialog.show();
-            n();
-            this.a.F = true;
-            newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new b(this, bdDimDialog));
-            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new c(this, bdDimDialog));
-            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new d(this, bdDimDialog, reaVar));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        yka ykaVar;
-        yka ykaVar2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-            int intValue = this.a.z.intValue();
-            this.a.z = (Integer) customResponsedMessage.getData();
-            if (this.a.z.intValue() == 1) {
-                yka ykaVar3 = this.b;
-                if (ykaVar3 != null && ykaVar3.a() != null) {
-                    this.b.a().a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, threadData)) == null) {
+            if (threadData != null) {
+                if (threadData.isRealGod()) {
+                    return 4;
                 }
-            } else if (intValue == 1 && (ykaVar = this.b) != null && ykaVar.a() != null) {
-                this.b.a().f();
+                if (threadData.getIsLive() == 1) {
+                    return 3;
+                }
+                if (!threadData.isRealVideoThread()) {
+                    return 1;
+                }
+                return 2;
             }
-            if (this.a.z.intValue() == 21 && (ykaVar2 = this.b) != null && ykaVar2.a() != null) {
-                this.b.a().c();
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final boolean m(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return "pb_to_personalize".equals(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean n(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return "post_question_success".equals(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean o(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return "post_success".equals(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void q(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            BlueCircleProgressDialog blueCircleProgressDialog = new BlueCircleProgressDialog(activity);
+            this.b = blueCircleProgressDialog;
+            blueCircleProgressDialog.setDialogVisiable(true);
+            yla.a("发帖-成功： 开始分享 -- 显示loading");
+        }
+    }
+
+    public static String i(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, threadData)) == null) {
+            if (threadData == null || threadData.getMedias() == null) {
+                return null;
             }
-            if (this.a.z.intValue() == 8) {
-                px5.d().k(true);
-                yka ykaVar4 = this.b;
-                if (ykaVar4 != null && ykaVar4.a() != null) {
-                    this.b.a().b();
-                }
-                if (!this.a.F) {
-                    k();
-                }
-                if (TbadkCoreApplication.isLogin() && !kx5.b()) {
-                    MainTabActivity mainTabActivity = this.a;
-                    if (mainTabActivity.K && mainTabActivity.J) {
-                        new kx5().c(this.a.getPageContext().getPageActivity());
-                        return;
+            ArrayList<MediaData> medias = threadData.getMedias();
+            int size = medias.size();
+            for (int i = 0; i < size; i++) {
+                MediaData mediaData = medias.get(i);
+                if (mediaData != null && mediaData.getType() == 3) {
+                    if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
+                        return mediaData.getThumbnails_url();
                     }
-                    return;
+                    if (!StringUtils.isNull(mediaData.getPicUrl())) {
+                        return mediaData.getPicUrl();
+                    }
                 }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void k(int i, GetMyPostResIdl getMyPostResIdl) {
+        DataRes dataRes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, getMyPostResIdl) == null) {
+            yla.a("发帖-成功： 分享进行 -- 处理GetMyPost");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity == null) {
+                yla.a("发帖-成功： 分享进行 -- 处理GetMyPost -- 失败 -- ACT为NULL");
+            } else if (i == 0 && getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(getMyPostResIdl.data.thread_info);
+                s(threadData, currentActivity);
+            } else {
+                BdUtilHelper.showToast(currentActivity, (int) R.string.obfuscated_res_0x7f0f0e42);
+                yla.a("发帖-成功： 分享进行 -- 处理GetMyPost -- 失败 -- 请求数据异常");
+            }
+        }
+    }
+
+    public void r(PostWriteCallBackData postWriteCallBackData, WriteData writeData) {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, postWriteCallBackData, writeData) == null) {
+            yla.a("发帖-成功2： 成功弹框 -- start");
+            long j = JavaTypesHelper.toLong(postWriteCallBackData.getPostId(), 0L);
+            long j2 = JavaTypesHelper.toLong(postWriteCallBackData.getThreadId(), 0L);
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            FrameLayout frameLayout = (FrameLayout) currentActivity.findViewById(16908290);
+            CenterCoverTip centerCoverTip = null;
+            for (int i = 0; i < frameLayout.getChildCount(); i++) {
+                if (frameLayout.getChildAt(i) instanceof CenterCoverTip) {
+                    centerCoverTip = (CenterCoverTip) frameLayout.getChildAt(i);
+                }
+            }
+            if (centerCoverTip == null) {
+                centerCoverTip = new CenterCoverTip(currentActivity);
+                frameLayout.addView(centerCoverTip, new FrameLayout.LayoutParams(-1, -2, 17));
+            }
+            CenterCoverTip centerCoverTip2 = centerCoverTip;
+            centerCoverTip2.setVisibility(8);
+            View inflate = LayoutInflater.from(currentActivity).inflate(R.layout.new_write_success_dialog, (ViewGroup) null, false);
+            TbImage tbImage = (TbImage) inflate.findViewById(R.id.webp_view);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.icon_title);
+            View findViewById = inflate.findViewById(R.id.content_view);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09259a);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090523);
+            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.icon_close);
+            if (writeData.isQuestionThread()) {
+                if (postWriteCallBackData.getInviteesNumberInt() < 50) {
+                    string = TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content_send_help1);
+                } else {
+                    string = String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content_send_help), postWriteCallBackData.getInviteesNumber());
+                }
+            } else {
+                string = TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content2);
+            }
+            textView.setText(string);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
+            tBSpecificationBtn.setConfig(new ra5());
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0108);
+            tBSpecificationBtn.k();
+            EMManager.from(findViewById).setShadow(R.array.S_O_X003).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            imageView.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_send_success_title));
+            imageView2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+            Uri c2 = wu6.c("icon_publish_success_bg.webp");
+            if (c2 != null) {
+                tbImage.setImageURI(c2);
+                tbImage.p();
+            }
+            imageView2.setOnClickListener(new b(this, centerCoverTip2));
+            tBSpecificationBtn.setOnClickListener(new c(this, currentActivity, centerCoverTip2, j2, j));
+            centerCoverTip2.setBackgroundColor(0);
+            centerCoverTip2.h(inflate, 3000);
+            ama.a(true, false);
+            yla.a("发帖-成功2： 成功弹框 -- 成功 -- end");
+        }
+    }
+
+    public final void s(ThreadData threadData, Activity activity) {
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, threadData, activity) == null) {
+            yla.a("发帖-成功： 分享弹框 -- start");
+            if (threadData != null && activity != null) {
+                String valueOf = String.valueOf(threadData.getFid());
+                String forum_name = threadData.getForum_name();
+                String title = threadData.getTitle();
+                if (TextUtils.isEmpty(title)) {
+                    title = threadData.getAbstract();
+                }
+                String tid = threadData.getTid();
+                String str = TbConfig.HTTPS_PB_PREFIX + tid + "?share=9105&fr=share";
+                String i = i(threadData);
+                if (i == null) {
+                    parse = null;
+                } else {
+                    parse = Uri.parse(i);
+                }
+                String str2 = threadData.getAbstract();
+                String format = MessageFormat.format(activity.getResources().getString(R.string.share_content_tpl), title, str2);
+                ShareItem shareItem = new ShareItem();
+                shareItem.title = title;
+                shareItem.content = format;
+                shareItem.readCount = 0L;
+                shareItem.shareAbstract = str2;
+                shareItem.linkUrl = str;
+                shareItem.shareReportFrom = 5;
+                shareItem.extData = tid;
+                shareItem.objParam1 = 3;
+                shareItem.fid = valueOf;
+                shareItem.fName = forum_name;
+                shareItem.tid = tid;
+                shareItem.isFromFeed = true;
+                shareItem.objSource = 15;
+                shareItem.obj_type = j(threadData);
+                if (parse != null) {
+                    shareItem.imageUri = parse;
+                }
+                shareItem.originalThreadInfo = OriginalThreadInfo.ShareInfo.generateShareInfo(threadData);
+                shareItem.forwardInfo = ShareItem.ForwardInfo.generateForwardInfo(threadData);
+                TbadkCoreApplication.getInst().setShareItem(shareItem);
+                shareItem.smartAppShareImageUrl = threadData.getShareImageUrl();
+                Bundle bundle = new Bundle();
+                bundle.putInt("obj_param1", shareItem.objParam1);
+                bundle.putInt("obj_type", shareItem.obj_type);
+                bundle.putString("fid", shareItem.fid);
+                bundle.putString("tid", shareItem.tid);
+                bundle.putInt("obj_source", shareItem.shareReportFrom);
+                shareItem.setStats(bundle);
+                yla.a("发帖-成功： 分享弹框 -- 显示 -- end");
+                TransmitShareController.getInstance().showShareDialog(new ShareDialogConfig((Context) activity, shareItem, true, true));
+            }
+        }
+    }
+
+    public void t(PostWriteCallBackData postWriteCallBackData, ee5 ee5Var, WriteData writeData, AntiData antiData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048585, this, postWriteCallBackData, ee5Var, writeData, antiData) == null) {
+            if (postWriteCallBackData == null) {
+                yla.a("发帖-失败： 失败弹框 -- 无backData");
                 return;
             }
-            px5.d().k(false);
-            xea xeaVar = this.a.E;
-            if (xeaVar != null) {
-                xeaVar.a();
-                this.a.E = null;
+            d = postWriteCallBackData;
+            e = ee5Var;
+            f = writeData;
+            g = antiData;
+            yla.a("发帖-失败： 失败弹框 -- start");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity == null) {
+                yla.a("发帖-失败： 失败弹框 -- 失败 -- 当前Activity为NULL");
+                return;
             }
+            FrameLayout frameLayout = (FrameLayout) currentActivity.findViewById(16908290);
+            if (frameLayout == null) {
+                yla.a("发帖-失败： 失败弹框 -- 失败 -- 当前Activity的content为NULL");
+                return;
+            }
+            NavigationBarCoverTip navigationBarCoverTip = null;
+            for (int i = 0; i < frameLayout.getChildCount(); i++) {
+                if (frameLayout.getChildAt(i) instanceof NavigationBarCoverTip) {
+                    navigationBarCoverTip = (NavigationBarCoverTip) frameLayout.getChildAt(i);
+                }
+            }
+            if (navigationBarCoverTip == null) {
+                navigationBarCoverTip = new NavigationBarCoverTip(currentActivity);
+                frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
+            }
+            navigationBarCoverTip.setVisibility(8);
+            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.tb_top_toast_layout, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
+            TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
+            TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_content);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.tb_top_toast_btn);
+            textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_fail_title));
+            String errorString = postWriteCallBackData.getErrorString();
+            if (TextUtils.isEmpty(errorString)) {
+                textView2.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_fail_content));
+            } else {
+                textView2.setText(errorString);
+            }
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_fail_btn));
+            tBSpecificationBtn.setConfig(new ta5());
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0301);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0301);
+            tBSpecificationBtn.k();
+            shadowLinearLayout.b();
+            tBSpecificationBtn.setOnClickListener(new f(this, writeData, currentActivity));
+            navigationBarCoverTip.setBackgroundColor(0);
+            navigationBarCoverTip.k(currentActivity, shadowLinearLayout, 5000);
+            if (writeData != null && writeData.isWork()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            ama.a(false, z);
+            yla.a("发帖-失败： 失败弹框 -- 成功 -- end");
+        }
+    }
+
+    public void u(long j, long j2, String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            yla.a("发帖-成功： 成功弹框 -- start");
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            if (j2 == 0) {
+                yla.a("发帖-成功： 成功弹框 -- 失败 --   threadId = " + j2);
+            } else if ((o(str) && j == 0) || (n(str) && j == 0)) {
+                yla.a("发帖-成功： 成功弹框 -- 失败 -- postId = " + j);
+            } else {
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity == null) {
+                    yla.a("发帖-成功： 成功弹框 -- 失败 -- 当前Activity为NULL");
+                    return;
+                }
+                FrameLayout frameLayout = (FrameLayout) currentActivity.findViewById(16908290);
+                if (frameLayout == null) {
+                    yla.a("发帖-成功： 成功弹框 -- 失败 -- 当前Activity的content为NULL");
+                    return;
+                }
+                NavigationBarCoverTip navigationBarCoverTip = null;
+                for (int i = 0; i < frameLayout.getChildCount(); i++) {
+                    if (frameLayout.getChildAt(i) instanceof NavigationBarCoverTip) {
+                        navigationBarCoverTip = (NavigationBarCoverTip) frameLayout.getChildAt(i);
+                    }
+                }
+                if (navigationBarCoverTip == null) {
+                    navigationBarCoverTip = new NavigationBarCoverTip(currentActivity);
+                    frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
+                }
+                NavigationBarCoverTip navigationBarCoverTip2 = navigationBarCoverTip;
+                navigationBarCoverTip2.setVisibility(8);
+                ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.tb_top_toast_layout, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
+                TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
+                TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_content);
+                ImageView imageView = (ImageView) shadowLinearLayout.findViewById(R.id.tb_top_toast_icon_cancel);
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.tb_top_toast_btn);
+                xd5 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
+                n3a g2 = o3a.e().g("pb_to_personalize");
+                n3a g3 = o3a.e().g("post_question_success");
+                String str3 = "";
+                if (!o(str) || pushStrategyConfig == null || !pushStrategyConfig.d()) {
+                    str2 = "";
+                } else {
+                    Map<String, String> readConfig = PushOpenUtil.readConfig(str);
+                    str3 = readConfig.get(PushOpenUtil.VIEW_PARAMS_KEY_TITLE);
+                    str2 = readConfig.get(PushOpenUtil.VIEW_PARAMS_KEY_DESC);
+                }
+                if (m(str) && g2 != null) {
+                    str3 = g2.f();
+                    str2 = g2.d();
+                }
+                if (n(str) && g3 != null) {
+                    str3 = g3.f();
+                    str2 = g3.d();
+                }
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_push_title);
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_push_text);
+                }
+                textView.setText(str3);
+                textView2.setText(str2);
+                tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b39));
+                imageView.setVisibility(0);
+                o3a.e().h(str);
+                if (imageView != null) {
+                    imageView.setOnClickListener(new d(this, navigationBarCoverTip2, str));
+                }
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0302);
+                SkinManager.setViewTextColor(imageView, (int) R.color.CAM_X0302);
+                tBSpecificationBtn.k();
+                shadowLinearLayout.b();
+                tBSpecificationBtn.setOnClickListener(new e(this, str, NotificationManagerCompat.from(currentActivity).areNotificationsEnabled(), currentActivity, navigationBarCoverTip2));
+                navigationBarCoverTip2.setBackgroundColor(0);
+                navigationBarCoverTip2.k(currentActivity, shadowLinearLayout, 5000);
+                if (o(str)) {
+                    ama.a(true, false);
+                    yla.a("发帖-成功： 成功弹框 -- 成功 -- end");
+                    StatisticItem statisticItem = new StatisticItem("c13674");
+                    statisticItem.param("obj_source", 13);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+    }
+
+    public void v(PostWriteCallBackData postWriteCallBackData, WriteData writeData) {
+        int i;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, postWriteCallBackData, writeData) == null) {
+            yla.a("发帖-成功： 成功弹框 -- start");
+            if (postWriteCallBackData == null || postWriteCallBackData.getToast() != null || writeData.isInterceptWriteResultDialog()) {
+                return;
+            }
+            long j = JavaTypesHelper.toLong(postWriteCallBackData.getPostId(), 0L);
+            long j2 = JavaTypesHelper.toLong(postWriteCallBackData.getThreadId(), 0L);
+            if (j != 0 && j2 != 0) {
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity == null) {
+                    yla.a("发帖-成功： 成功弹框 -- 失败 -- 当前Activity为NULL");
+                    return;
+                }
+                FrameLayout frameLayout = (FrameLayout) currentActivity.findViewById(16908290);
+                if (frameLayout == null) {
+                    yla.a("发帖-成功： 成功弹框 -- 失败 -- 当前Activity的content为NULL");
+                    return;
+                }
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_POST_SUCCESS);
+                if ("main_tab".equals(writeData.getFrom())) {
+                    statisticItem.param("obj_locate", 1);
+                } else if ("frs".equals(writeData.getFrom())) {
+                    statisticItem.param("obj_locate", 2);
+                } else {
+                    statisticItem.param("obj_locate", -1);
+                }
+                int type = writeData.getType();
+                if (type != 9) {
+                    if (type != 11) {
+                        if (type == 14) {
+                            statisticItem.param("obj_type", 3);
+                        }
+                    } else {
+                        statisticItem.param("obj_type", 1);
+                    }
+                } else {
+                    statisticItem.param("obj_type", 2);
+                }
+                TiebaStatic.log(statisticItem);
+                if (writeData.isWriteTest()) {
+                    r(postWriteCallBackData, writeData);
+                    return;
+                }
+                NavigationBarCoverTip navigationBarCoverTip = null;
+                for (int i2 = 0; i2 < frameLayout.getChildCount(); i2++) {
+                    if (frameLayout.getChildAt(i2) instanceof NavigationBarCoverTip) {
+                        navigationBarCoverTip = (NavigationBarCoverTip) frameLayout.getChildAt(i2);
+                    }
+                }
+                if (navigationBarCoverTip == null) {
+                    navigationBarCoverTip = new NavigationBarCoverTip(currentActivity);
+                    frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
+                }
+                NavigationBarCoverTip navigationBarCoverTip2 = navigationBarCoverTip;
+                navigationBarCoverTip2.setVisibility(8);
+                ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.tb_top_toast_layout, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
+                TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
+                TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_content);
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.tb_top_toast_btn);
+                Resources resources = TbadkCoreApplication.getInst().getResources();
+                if (writeData.isQuestionThread()) {
+                    i = R.string.write_thread_success_title_send_help;
+                } else {
+                    i = R.string.write_thread_success_title;
+                }
+                String string2 = resources.getString(i);
+                if (writeData.isQuestionThread()) {
+                    if (postWriteCallBackData.getInviteesNumberInt() < 50) {
+                        string = TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content_send_help1);
+                    } else {
+                        string = String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content_send_help), postWriteCallBackData.getInviteesNumber());
+                    }
+                } else {
+                    string = TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content);
+                }
+                textView.setText(string2);
+                textView2.setText(string);
+                tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
+                tBSpecificationBtn.setConfig(new ta5());
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0302);
+                tBSpecificationBtn.k();
+                shadowLinearLayout.b();
+                tBSpecificationBtn.setOnClickListener(new a(this, currentActivity, navigationBarCoverTip2, j2, j));
+                navigationBarCoverTip2.setBackgroundColor(0);
+                navigationBarCoverTip2.k(currentActivity, shadowLinearLayout, 5000);
+                ama.a(true, false);
+                yla.a("发帖-成功： 成功弹框 -- 成功 -- end");
+                return;
+            }
+            yla.a("发帖-成功： 成功弹框 -- 失败 -- postId = " + j + "  threadId = " + j2);
+        }
+    }
+
+    public void w(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, postWriteCallBackData) == null) {
+            yla.a("发帖-成功-视频： 成功弹框 -- start");
+            if (postWriteCallBackData == null) {
+                return;
+            }
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity == null) {
+                yla.a("发帖-成功-视频： 成功弹框 -- 失败 -- 当前Activity为NULL");
+                return;
+            }
+            FrameLayout frameLayout = (FrameLayout) currentActivity.findViewById(16908290);
+            if (frameLayout == null) {
+                yla.a("发帖-成功-视频： 成功弹框 -- 失败 -- 当前Activity的content为NULL");
+                return;
+            }
+            NavigationBarCoverTip navigationBarCoverTip = null;
+            for (int i = 0; i < frameLayout.getChildCount(); i++) {
+                if (frameLayout.getChildAt(i) instanceof NavigationBarCoverTip) {
+                    navigationBarCoverTip = (NavigationBarCoverTip) frameLayout.getChildAt(i);
+                }
+            }
+            if (navigationBarCoverTip == null) {
+                navigationBarCoverTip = new NavigationBarCoverTip(currentActivity);
+                frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
+            }
+            navigationBarCoverTip.setVisibility(8);
+            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.tb_top_toast_layout_no_tip, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
+            TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
+            textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_video_title));
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+            shadowLinearLayout.b();
+            navigationBarCoverTip.setBackgroundColor(0);
+            navigationBarCoverTip.k(currentActivity, shadowLinearLayout, 5000);
+            ama.a(true, true);
+            yla.a("发帖-成功-视频： 成功弹框 -- 成功 -- end");
         }
     }
 }

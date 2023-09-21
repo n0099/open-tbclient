@@ -1,181 +1,119 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tieba.pb.pb.main.PbCommenFloorItemViewHolder;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class oo9 {
+public class oo9 extends aj5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final oo9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public VoiceData.VoiceModel b;
+    public PbEditorData.ThreadData c;
+    public BaseActivity<?> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948039120, "Lcom/baidu/tieba/oo9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948039120, "Lcom/baidu/tieba/oo9;");
-                return;
-            }
-        }
-        a = new oo9();
-    }
-
-    public oo9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oo9(EditorTools editorTools) {
+        super(editorTools);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {editorTools};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @JvmStatic
-    public static final boolean a(aj9 aj9Var, tha thaVar) {
-        InterceptResult invokeLL;
-        ThreadData O;
-        MetaData author;
-        String userId;
-        String str;
-        MetaData t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aj9Var, thaVar)) == null) {
-            if (aj9Var != null && (O = aj9Var.O()) != null && (author = O.getAuthor()) != null && (userId = author.getUserId()) != null) {
-                if (thaVar != null && (t = thaVar.t()) != null) {
-                    str = t.getUserId();
-                } else {
-                    str = null;
-                }
-                return userId.equals(str);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void b(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, tha thaVar, aj9 aj9Var) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, pbCommenFloorItemViewHolder, thaVar, aj9Var) == null) && thaVar != null && aj9Var != null) {
-            if (pbCommenFloorItemViewHolder != null) {
-                imageView = pbCommenFloorItemViewHolder.H;
-            } else {
-                imageView = null;
-            }
-            if (imageView != null) {
-                imageView.setVisibility(8);
-            }
-        }
-    }
-
-    @JvmStatic
-    public static final void d(TextView textView, aj9 aj9Var, String str) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, textView, aj9Var, str) == null) {
-            if (textView != null) {
-                obj = textView.getTag();
-            } else {
-                obj = null;
-            }
-            if (!(obj instanceof tha)) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            e(textView, (tha) obj, aj9Var, str);
         }
     }
 
-    @JvmStatic
-    public static final boolean c(aj9 aj9Var) {
-        InterceptResult invokeL;
-        ThreadData O;
+    public void d(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aj9Var)) == null) {
-            if (aj9Var != null && (O = aj9Var.O()) != null) {
-                return O.isBlocked();
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseActivity) == null) && !StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && a() != null) {
+            a().D(new wi5(2, 12, " "));
         }
-        return invokeL.booleanValue;
     }
 
-    @JvmStatic
-    public static final void e(TextView textView, tha thaVar, aj9 aj9Var, String str) {
+    public VoiceData.VoiceModel b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65542, null, textView, thaVar, aj9Var, str) == null) && textView != null && thaVar != null) {
-            textView.setTag(thaVar);
-            if (aj9Var != null && aj9Var.j0()) {
-                thaVar.p1(Boolean.FALSE);
-                thaVar.d1(0);
-                textView.setTag(null);
-            } else if (thaVar.t() != null) {
-                MetaData t = thaVar.t();
-                Intrinsics.checkNotNullExpressionValue(t, "postData.author");
-                if (str != null && !Intrinsics.areEqual(str, "0") && Intrinsics.areEqual(str, t.getUserId())) {
-                    thaVar.p1(Boolean.TRUE);
-                    thaVar.d1(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds82));
-                    textView.setAlpha(1.0f);
-                    textView.setText(R.string.host_name);
-                    textView.setBackgroundColor(0);
-                    EMManager.from(textView).setCorner(R.string.J_X04).setBorderWidth(R.dimen.L_X01).setTextColor(R.color.CAM_X0302).setBorderColor(R.color.CAM_X0302);
-                } else if (t.getIs_bawu() == 1 && thaVar.C0()) {
-                    EMManager.from(textView).setTextColor(R.color.CAM_X0101).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0302);
-                    thaVar.p1(Boolean.TRUE);
-                    thaVar.d1(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds108));
-                    textView.setText(R.string.brand_official);
-                } else if (t.getIs_bawu() == 1 && Intrinsics.areEqual("manager", t.getBawu_type())) {
-                    EMManager.from(textView).setTextColor(R.color.CAM_X0101).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0302);
-                    thaVar.p1(Boolean.TRUE);
-                    thaVar.d1(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds82));
-                    textView.setText(R.string.bawu_member_bazhu_tip);
-                } else if (t.getIs_bawu() == 1 && Intrinsics.areEqual(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST, t.getBawu_type())) {
-                    EMManager.from(textView).setTextColor(R.color.CAM_X0101).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0302);
-                    thaVar.p1(Boolean.TRUE);
-                    thaVar.d1(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds108));
-                    textView.setText(R.string.bawu_member_xbazhu_tip);
-                } else if (t.getIs_bawu() == 1 && Intrinsics.areEqual("pri_content_assist", t.getBawu_type())) {
-                    EMManager.from(textView).setTextColor(R.color.CAM_X0101).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0302);
-                    thaVar.p1(Boolean.TRUE);
-                    thaVar.d1(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds134));
-                    textView.setText(R.string.bawu_content_assist_tip);
-                } else if (t.getIs_bawu() == 1 && Intrinsics.areEqual("pri_manage_assist", t.getBawu_type())) {
-                    EMManager.from(textView).setTextColor(R.color.CAM_X0101).setCorner(R.string.J_X04).setBackGroundColor(R.color.CAM_X0302);
-                    thaVar.p1(Boolean.TRUE);
-                    thaVar.d1(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds134));
-                    textView.setText(R.string.bawu_manage_assist_tip);
-                } else {
-                    thaVar.p1(Boolean.FALSE);
-                    thaVar.d1(0);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (VoiceData.VoiceModel) invokeV.objValue;
+    }
+
+    public BaseActivity<?> getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (BaseActivity) invokeV.objValue;
+    }
+
+    public void e(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) && i2 == -1 && i == 23004) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010040));
+        }
+    }
+
+    public void f() {
+        PbEditorData.ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (threadData = this.c) != null && !StringUtils.isNull(threadData.getAuthorName()) && this.c.getAuthorId() > 0) {
+            String valueOf = String.valueOf(this.c.getAuthorId());
+            if (valueOf != null && !valueOf.equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.d.getActivity(), this.c.getAuthorId(), this.c.getAuthorName(), this.c.getAuthorNameShow(), GiftTabActivityConfig.FROM_PB, JavaTypesHelper.toLong(this.c.getThreadId(), 0L), JavaTypesHelper.toLong(this.c.getPostId(), 0L))));
             } else {
-                thaVar.p1(Boolean.FALSE);
-                thaVar.d1(0);
+                BdUtilHelper.showToast(this.d.getActivity(), (int) R.string.can_not_send_gift_to_yourself);
+            }
+        }
+    }
+
+    public void g(BaseActivity<?> baseActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, baseActivity) == null) {
+            this.d = baseActivity;
+        }
+    }
+
+    public void i(VoiceData.VoiceModel voiceModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, voiceModel) == null) {
+            this.b = voiceModel;
+        }
+    }
+
+    public void h(PbEditorData.ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
+            this.c = threadData;
+            if (a() != null && this.c != null) {
+                a().setFid(JavaTypesHelper.toLong(this.c.getForumId(), 0L));
+                a().setTid(this.c.getThreadId());
+                a().D(new wi5(70, -1, this.c.getForumId()));
             }
         }
     }

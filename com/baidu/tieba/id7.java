@@ -3,16 +3,17 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardPeiWanWrapperView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.feed.component.BrowseLocationView;
+import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class id7 extends yb7<CardPeiWanWrapperView, i77> {
+public class id7 extends hc7<BrowseLocationView, BrowseLocationUiState> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,27 +37,27 @@ public class id7 extends yb7<CardPeiWanWrapperView, i77> {
         }
     }
 
-    @Override // com.baidu.tieba.yb7, com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.hc7, com.baidu.tieba.xc7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            int dimens = BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.M_W_X005);
             View a = super.a(viewGroup);
-            de7.m(a, null, null, Integer.valueOf(dimens));
+            me7.h(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc7
+    @Override // com.baidu.tieba.xc7
     /* renamed from: e */
-    public void b(@NonNull CardPeiWanWrapperView cardPeiWanWrapperView, @NonNull i77 i77Var) {
+    public void b(@NonNull BrowseLocationView browseLocationView, @NonNull BrowseLocationUiState browseLocationUiState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPeiWanWrapperView, i77Var) == null) {
-            cardPeiWanWrapperView.a(i77Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, browseLocationView, browseLocationUiState) == null) {
+            kp6.b().a(new StatisticItem("c11272"));
+            browseLocationView.a(browseLocationUiState);
         }
     }
 }

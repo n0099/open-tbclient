@@ -115,18 +115,18 @@ public final class R {
         public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f080282;
         public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f080283;
         public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f080284;
-        public static final int notification_action_background = 0x7f081111;
-        public static final int notification_bg = 0x7f081112;
-        public static final int notification_bg_low = 0x7f081113;
-        public static final int notification_bg_low_normal = 0x7f081114;
-        public static final int notification_bg_low_pressed = 0x7f081115;
-        public static final int notification_bg_normal = 0x7f081116;
-        public static final int notification_bg_normal_pressed = 0x7f081117;
-        public static final int notification_icon_background = 0x7f081118;
-        public static final int notification_template_icon_bg = 0x7f081119;
-        public static final int notification_template_icon_low_bg = 0x7f08111a;
-        public static final int notification_tile_bg = 0x7f08111b;
-        public static final int notify_panel_notification_icon_bg = 0x7f08111e;
+        public static final int notification_action_background = 0x7f08110c;
+        public static final int notification_bg = 0x7f08110d;
+        public static final int notification_bg_low = 0x7f08110e;
+        public static final int notification_bg_low_normal = 0x7f08110f;
+        public static final int notification_bg_low_pressed = 0x7f081110;
+        public static final int notification_bg_normal = 0x7f081111;
+        public static final int notification_bg_normal_pressed = 0x7f081112;
+        public static final int notification_icon_background = 0x7f081113;
+        public static final int notification_template_icon_bg = 0x7f081114;
+        public static final int notification_template_icon_low_bg = 0x7f081115;
+        public static final int notification_tile_bg = 0x7f081116;
+        public static final int notify_panel_notification_icon_bg = 0x7f081119;
     }
 
     /* loaded from: classes3.dex */
@@ -169,48 +169,48 @@ public final class R {
         public static final int action_image = 0x7f090078;
         public static final int action_text = 0x7f090080;
         public static final int actions = 0x7f090081;
-        public static final int async = 0x7f0902de;
-        public static final int bdvideoplayer_seekbar = 0x7f0903ca;
-        public static final int blocking = 0x7f090416;
-        public static final int bt_retry = 0x7f0904a6;
-        public static final int center = 0x7f090683;
-        public static final int chronometer = 0x7f09070f;
-        public static final int dialog_button = 0x7f0908a1;
-        public static final int forever = 0x7f090baf;
-        public static final int fragment_container_view_tag = 0x7f090c3f;
-        public static final int icon = 0x7f090ffc;
-        public static final int icon_group = 0x7f091006;
-        public static final int info = 0x7f091134;
-        public static final int italic = 0x7f0911a5;
-        public static final int left = 0x7f0914e3;
-        public static final int line1 = 0x7f091536;
-        public static final int line3 = 0x7f091538;
-        public static final int main_duration_text = 0x7f0916c2;
-        public static final int main_progress_text = 0x7f0916c8;
-        public static final int main_view_seekbar = 0x7f0916d4;
-        public static final int normal = 0x7f0919b4;
-        public static final int notification_background = 0x7f0919cc;
-        public static final int notification_main_column = 0x7f0919ce;
-        public static final int notification_main_column_container = 0x7f0919cf;
-        public static final int play_error_layout_retry = 0x7f091ce1;
-        public static final int progress = 0x7f091dad;
-        public static final int right = 0x7f091f56;
-        public static final int right_icon = 0x7f091f70;
-        public static final int right_side = 0x7f091f78;
-        public static final int tag_accessibility_actions = 0x7f0923de;
-        public static final int tag_accessibility_clickable_spans = 0x7f0923df;
-        public static final int tag_accessibility_heading = 0x7f0923e0;
-        public static final int tag_accessibility_pane_title = 0x7f0923e1;
-        public static final int tag_screen_reader_focusable = 0x7f092436;
-        public static final int tag_transition_group = 0x7f092446;
-        public static final int tag_unhandled_key_event_manager = 0x7f092448;
-        public static final int tag_unhandled_key_listeners = 0x7f092449;
-        public static final int text = 0x7f0924c8;
-        public static final int text2 = 0x7f0924ca;
-        public static final int time = 0x7f09259a;
-        public static final int title = 0x7f0925d1;
-        public static final int tv_error = 0x7f09275d;
-        public static final int visible_removing_fragment_view_tag = 0x7f092a00;
+        public static final int async = 0x7f0902dc;
+        public static final int bdvideoplayer_seekbar = 0x7f0903c4;
+        public static final int blocking = 0x7f09040e;
+        public static final int bt_retry = 0x7f09049f;
+        public static final int center = 0x7f09067b;
+        public static final int chronometer = 0x7f090706;
+        public static final int dialog_button = 0x7f090898;
+        public static final int forever = 0x7f090ba2;
+        public static final int fragment_container_view_tag = 0x7f090c32;
+        public static final int icon = 0x7f090ff0;
+        public static final int icon_group = 0x7f090ff9;
+        public static final int info = 0x7f091123;
+        public static final int italic = 0x7f091196;
+        public static final int left = 0x7f0914ce;
+        public static final int line1 = 0x7f091520;
+        public static final int line3 = 0x7f091522;
+        public static final int main_duration_text = 0x7f0916ab;
+        public static final int main_progress_text = 0x7f0916b1;
+        public static final int main_view_seekbar = 0x7f0916bd;
+        public static final int normal = 0x7f0919a0;
+        public static final int notification_background = 0x7f0919b8;
+        public static final int notification_main_column = 0x7f0919ba;
+        public static final int notification_main_column_container = 0x7f0919bb;
+        public static final int play_error_layout_retry = 0x7f091caf;
+        public static final int progress = 0x7f091d7b;
+        public static final int right = 0x7f091f1f;
+        public static final int right_icon = 0x7f091f39;
+        public static final int right_side = 0x7f091f41;
+        public static final int tag_accessibility_actions = 0x7f0923a9;
+        public static final int tag_accessibility_clickable_spans = 0x7f0923aa;
+        public static final int tag_accessibility_heading = 0x7f0923ab;
+        public static final int tag_accessibility_pane_title = 0x7f0923ac;
+        public static final int tag_screen_reader_focusable = 0x7f092401;
+        public static final int tag_transition_group = 0x7f092411;
+        public static final int tag_unhandled_key_event_manager = 0x7f092413;
+        public static final int tag_unhandled_key_listeners = 0x7f092414;
+        public static final int text = 0x7f092494;
+        public static final int text2 = 0x7f092496;
+        public static final int time = 0x7f092566;
+        public static final int title = 0x7f09259d;
+        public static final int tv_error = 0x7f092728;
+        public static final int visible_removing_fragment_view_tag = 0x7f0929cb;
     }
 
     /* loaded from: classes3.dex */
@@ -223,18 +223,18 @@ public final class R {
         public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0173;
         public static final int bdvideoplayer_layout_net_error = 0x7f0d0174;
         public static final int bdvideoplayer_seek_bar_view = 0x7f0d0175;
-        public static final int custom_dialog = 0x7f0d0241;
-        public static final int notification_action = 0x7f0d0745;
-        public static final int notification_action_tombstone = 0x7f0d0746;
-        public static final int notification_template_custom_big = 0x7f0d074d;
-        public static final int notification_template_icon_group = 0x7f0d074e;
-        public static final int notification_template_part_chronometer = 0x7f0d0752;
-        public static final int notification_template_part_time = 0x7f0d0753;
+        public static final int custom_dialog = 0x7f0d0240;
+        public static final int notification_action = 0x7f0d0744;
+        public static final int notification_action_tombstone = 0x7f0d0745;
+        public static final int notification_template_custom_big = 0x7f0d074c;
+        public static final int notification_template_icon_group = 0x7f0d074d;
+        public static final int notification_template_part_chronometer = 0x7f0d0751;
+        public static final int notification_template_part_time = 0x7f0d0752;
     }
 
     /* loaded from: classes3.dex */
     public static final class raw {
-        public static final int tnconfig = 0x7f110075;
+        public static final int tnconfig = 0x7f110074;
     }
 
     /* loaded from: classes3.dex */
@@ -248,13 +248,13 @@ public final class R {
         public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f0345;
         public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0346;
         public static final int bdvideoplayer_tip_net_error = 0x7f0f0347;
-        public static final int install_alert_tips = 0x7f0f0aaa;
-        public static final int install_loading_tips = 0x7f0f0aad;
-        public static final int install_negative_msg = 0x7f0f0aae;
-        public static final int install_positive_btn = 0x7f0f0ab1;
-        public static final int predownload_net_error_msg = 0x7f0f1147;
-        public static final int predownload_no_available_msg = 0x7f0f1148;
-        public static final int status_bar_notification_info_overflow = 0x7f0f147b;
+        public static final int install_alert_tips = 0x7f0f0aac;
+        public static final int install_loading_tips = 0x7f0f0aaf;
+        public static final int install_negative_msg = 0x7f0f0ab0;
+        public static final int install_positive_btn = 0x7f0f0ab3;
+        public static final int predownload_net_error_msg = 0x7f0f1149;
+        public static final int predownload_no_available_msg = 0x7f0f114a;
+        public static final int status_bar_notification_info_overflow = 0x7f0f147e;
     }
 
     /* loaded from: classes3.dex */

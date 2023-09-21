@@ -28,9 +28,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hs5;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.rh5;
+import com.baidu.tieba.is5;
+import com.baidu.tieba.ks5;
+import com.baidu.tieba.vh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     public LinearLayout l;
     public TextView m;
     public ImageView n;
-    public final hs5 o;
+    public final is5 o;
     public final CustomMessageListener p;
 
     /* loaded from: classes4.dex */
@@ -95,7 +95,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
                 }
                 this.a.o.u(((Boolean) customResponsedMessage.getData()).booleanValue());
                 if (error == 0 && this.a.o.f()) {
-                    this.a.o.v(true);
+                    this.a.o.w(true);
                 }
             }
         }
@@ -120,7 +120,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
             }
         }
         this.a = 3;
-        this.o = new hs5();
+        this.o = new is5();
         this.p = new a(this, 2921697);
         c(context);
     }
@@ -145,7 +145,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
             }
         }
         this.a = 3;
-        this.o = new hs5();
+        this.o = new is5();
         this.p = new a(this, 2921697);
         c(context);
     }
@@ -182,7 +182,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
             }
         }
         this.a = 3;
-        this.o = new hs5();
+        this.o = new is5();
         this.p = new a(this, 2921697);
         c(context);
     }
@@ -198,23 +198,23 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
             }
             if (view2 != this.j && view2 != this.k) {
                 if (view2.getId() == R.id.novel_member_rights_page) {
-                    js5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.o.m()), this.o.i(), this.o.e(), this.o.h(), this.o.d(), this.o.g(), this.o.j());
+                    ks5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.o.m()), this.o.i(), this.o.e(), this.o.h(), this.o.d(), this.o.g(), this.o.j());
                     return;
                 } else {
-                    js5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK, i, String.valueOf(this.o.m()), this.o.i(), this.o.e(), this.o.h(), this.o.d(), this.o.g(), this.o.j());
+                    ks5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK, i, String.valueOf(this.o.m()), this.o.i(), this.o.e(), this.o.h(), this.o.d(), this.o.g(), this.o.j());
                     return;
                 }
             }
-            js5.c(CommonStatisticKey.KEY_PB_NOVEL_JUMP_STORY_CHANNEL_CLICK, String.valueOf(this.o.m()), this.o.i(), this.o.d(), this.o.g(), this.o.j());
+            ks5.c(CommonStatisticKey.KEY_PB_NOVEL_JUMP_STORY_CHANNEL_CLICK, String.valueOf(this.o.m()), this.o.i(), this.o.d(), this.o.g(), this.o.j());
         }
     }
 
-    public void setData(rh5 rh5Var) {
+    public void setData(vh5 vh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, rh5Var) == null) {
-            if (rh5Var != null && !rh5Var.n()) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, vh5Var) == null) {
+            if (vh5Var != null && !vh5Var.n()) {
                 setVisibility(0);
-                this.o.t(rh5Var);
+                this.o.t(vh5Var);
                 if (!StringUtils.isNull(this.o.k())) {
                     this.c.startLoad(this.o.k(), 10, false);
                 } else {
@@ -279,13 +279,13 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         }
     }
 
-    public void d(rh5 rh5Var) {
+    public void d(vh5 vh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rh5Var) == null) {
-            if (rh5Var.j()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vh5Var) == null) {
+            if (vh5Var.j()) {
                 this.b.setVisibility(8);
                 this.g.setVisibility(0);
-                String m = rh5Var.m();
+                String m = vh5Var.m();
                 if (TextUtils.isEmpty(m)) {
                     m = getContext().getString(R.string.novel_member_payed);
                 }
@@ -335,14 +335,14 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !StringUtils.isNull(this.o.c()) && !StringUtils.isNull(this.o.a())) {
             if (this.o.o()) {
-                hs5 hs5Var = this.o;
-                j(hs5Var.x(hs5Var.c()), true);
+                is5 is5Var = this.o;
+                j(is5Var.x(is5Var.c()), true);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
             } else if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(getContext());
             } else {
-                hs5 hs5Var2 = this.o;
-                j(hs5Var2.x(hs5Var2.a()), false);
+                is5 is5Var2 = this.o;
+                j(is5Var2.x(is5Var2.a()), false);
             }
         }
     }
@@ -439,7 +439,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     public void setStatisticData(String str, String str2, int i, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, str2, Integer.valueOf(i), str3, str4, str5}) == null) {
-            this.o.w(str, str2, i, str3, str4, str5);
+            this.o.v(str, str2, i, str3, str4, str5);
         }
     }
 }

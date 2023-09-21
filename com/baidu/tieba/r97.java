@@ -9,11 +9,11 @@ public class r97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public int c;
-    public boolean d;
-    public double e;
-    public double f;
+    public String b;
+    public String c;
+    public String d;
+    public ea7 e;
+    public String f;
 
     public r97() {
         Interceptable interceptable = $ic;

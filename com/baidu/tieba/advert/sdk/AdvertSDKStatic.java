@@ -8,13 +8,13 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.g86;
-import com.baidu.tieba.hw5;
-import com.baidu.tieba.i86;
+import com.baidu.tieba.h86;
+import com.baidu.tieba.iw5;
+import com.baidu.tieba.j86;
+import com.baidu.tieba.mw4;
 import com.baidu.tieba.nw4;
-import com.baidu.tieba.ow4;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.y86;
+import com.baidu.tieba.vj1;
+import com.baidu.tieba.z86;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,12 +29,12 @@ public class AdvertSDKStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class f implements CustomMessageTask.CustomRunnable<nw4> {
+    public class f implements CustomMessageTask.CustomRunnable<mw4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a implements nw4 {
+        public class a implements mw4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,22 +54,22 @@ public class AdvertSDKStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.nw4
+            @Override // com.baidu.tieba.mw4
             public float a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return wj1.h();
+                    return vj1.h();
                 }
                 return invokeV.floatValue;
             }
 
-            @Override // com.baidu.tieba.nw4
+            @Override // com.baidu.tieba.mw4
             public int b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return wj1.g();
+                    return vj1.g();
                 }
                 return invokeV.intValue;
             }
@@ -90,7 +90,7 @@ public class AdvertSDKStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<nw4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<mw4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -130,13 +130,13 @@ public class AdvertSDKStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                i86.u();
+                j86.y();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements CustomMessageTask.CustomRunnable<ow4> {
+    public class b implements CustomMessageTask.CustomRunnable<nw4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,15 +155,15 @@ public class AdvertSDKStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ow4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<nw4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || !PermissionUtil.isAgreePrivacyPolicy()) {
                     return null;
                 }
-                y86.d().k(customMessage.getData());
-                return new CustomResponsedMessage<>(2016555, Long.valueOf(hw5.l()));
+                z86.d().k(customMessage.getData());
+                return new CustomResponsedMessage<>(2016555, Long.valueOf(iw5.l()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -196,7 +196,7 @@ public class AdvertSDKStatic {
                 if (!PermissionUtil.isAgreePrivacyPolicy()) {
                     return null;
                 }
-                y86.d().j(5);
+                z86.d().j(5);
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -230,7 +230,7 @@ public class AdvertSDKStatic {
                 if (!PermissionUtil.isAgreePrivacyPolicy()) {
                     return null;
                 }
-                y86.d().j(6);
+                z86.d().j(6);
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -264,7 +264,7 @@ public class AdvertSDKStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                y86.d().n(customMessage.getData());
+                z86.d().n(customMessage.getData());
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -272,7 +272,7 @@ public class AdvertSDKStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class g implements CustomMessageTask.CustomRunnable<ow4> {
+    public class g implements CustomMessageTask.CustomRunnable<nw4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -291,11 +291,11 @@ public class AdvertSDKStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ow4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<nw4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                y86.d().a();
+                z86.d().a();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -326,14 +326,14 @@ public class AdvertSDKStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921657, Boolean.valueOf(y86.d().g()));
+                return new CustomResponsedMessage<>(2921657, Boolean.valueOf(z86.d().g()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class i implements CustomMessageTask.CustomRunnable<ow4> {
+    public class i implements CustomMessageTask.CustomRunnable<nw4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -352,11 +352,11 @@ public class AdvertSDKStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ow4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<nw4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                y86.d().m();
+                z86.d().m();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -376,9 +376,9 @@ public class AdvertSDKStatic {
                 return;
             }
         }
-        new g86().g();
+        new h86().g();
         if (PermissionUtil.isAgreePrivacyPolicy() && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            i86.u();
+            j86.y();
         }
         MessageManager.getInstance().registerListener(new a(2921554));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016555, new b());

@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes6.dex */
 public interface iz3 {
-    void a(int i);
+    void a(DownloadInfo downloadInfo);
 
     void b();
 
-    void c(DownloadState downloadState, int i);
+    DownloadInfo c(String str);
 
-    void d(String str);
+    void close();
 
-    String e();
-
-    void f(boolean z);
+    void delete(DownloadInfo downloadInfo);
 }

@@ -1,360 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.DislikeReason;
+import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes7.dex */
 public class q78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public TbPageContext b;
-    public FastRequest c;
-    public boolean d;
-    public d e;
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(e78 e78Var);
-
-        void onFail();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements FastRequest.e<e78> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q78 a;
-
-        public a(q78 q78Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q78Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void a(DataRes.Builder builder, List<bn> list) {
+        aq6 aq6Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) && builder != null && list != null) {
+            LongSparseArray longSparseArray = new LongSparseArray();
+            for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
+                if (threadPersonalized2 != null) {
+                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
                 }
             }
-            this.a = q78Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.e
-        @Nullable
-        /* renamed from: b */
-        public e78 a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-                return (e78) invokeL.objValue;
-            }
-            return this.a.l(str);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends FastRequest.b<e78> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ q78 d;
-
-        public b(q78 q78Var, String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q78Var, str, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = q78Var;
-            this.b = str;
-            this.c = j;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: g */
-        public void b(int i, @NonNull String str, @Nullable e78 e78Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, e78Var) == null) {
-                super.b(i, str, e78Var);
-                this.d.d = true;
-                this.d.a.onFail();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: h */
-        public void f(@NonNull e78 e78Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, e78Var) == null) {
-                super.f(e78Var);
-                this.d.d = true;
-                e78Var.g(this.b);
-                e78Var.f(String.valueOf(this.c));
-                this.d.j(this.c);
-                q78 q78Var = this.d;
-                if (q78Var.i(q78Var.e)) {
-                    this.d.a.a(e78Var);
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                bn bnVar = (bn) ListUtils.getItem(list, i);
+                if ((bnVar instanceof aq6) && (threadData = (aq6Var = (aq6) bnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(JavaTypesHelper.toLong(threadData.getTid(), 0L))) != null) {
+                    aq6Var.C(threadPersonalized.source);
+                    aq6Var.F(threadPersonalized.weight);
+                    aq6Var.x(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        aq6Var.z(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                    if (list2 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list2) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        aq6Var.feedBackReasonMap = sparseArray;
+                        aq6Var.y(threadPersonalized.extra);
+                    }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public long b;
-
-        public d(q78 q78Var, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q78Var, Long.valueOf(j), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-        }
-
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return invokeV.longValue;
-        }
-    }
-
-    public q78(TbPageContext<?> tbPageContext) {
+    public static void b(List<bn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = true;
-        this.b = tbPageContext;
-    }
-
-    @NonNull
-    public final List<d> g(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return DataExt.toEntityList(str, d.class);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @NonNull
-    public final String h(@NonNull List<d> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return "";
-            }
-            return DataExt.toJson(list);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public final d j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            d dVar = new d(this, j, System.currentTimeMillis());
-            this.e = dVar;
-            return dVar;
-        }
-        return (d) invokeJ.objValue;
-    }
-
-    public final e78 l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return e78.e(new JSONObject(str));
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (e78) invokeL.objValue;
-    }
-
-    public void n(@NonNull ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            o(threadData.getForum_name(), threadData.getFid(), threadData.getTid());
-        }
-    }
-
-    public final void p(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            synchronized (this) {
-                SharedPrefHelper.getInstance().putString("key_homepage_rec_forum_record_info", str);
-            }
-        }
-    }
-
-    public void q(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.a = cVar;
-        }
-    }
-
-    public final boolean i(@Nullable d dVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) {
-            if (dVar == null) {
-                return false;
-            }
-            List<d> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(m())) {
-                arrayList = g(m());
-            }
-            long j = dVar.a;
-            long j2 = dVar.b;
-            d dVar2 = (d) ListUtils.getItem(arrayList, 1);
-            d dVar3 = (d) ListUtils.getItem(arrayList, 0);
-            if (dVar2 != null) {
-                if (dVar3 == null || j2 - dVar2.c() < 86400000) {
-                    return false;
-                }
-                if (j2 - dVar3.c() < 86400000 && j == dVar3.a) {
-                    return false;
-                }
-                return true;
-            } else if (dVar3 != null && j2 - dVar3.c() < 86400000 && j == dVar3.a) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.e == null) {
-                return false;
-            }
-            List<d> list = null;
-            if (!TextUtils.isEmpty(m())) {
-                list = g(m());
-            }
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            ListUtils.add(list, 0, this.e);
-            if (ListUtils.getCount(list) > 2) {
-                list = list.subList(0, 2);
-            }
-            String h = h(list);
-            if (TextUtils.isEmpty(h)) {
-                return false;
-            }
-            p(h);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public final String m() {
-        InterceptResult invokeV;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                string = SharedPrefHelper.getInstance().getString("key_homepage_rec_forum_record_info", "");
-            }
-            return string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void o(@Nullable String str, long j, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Long.valueOf(j), str2}) != null) || this.a == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str) || j <= 0 || !this.d) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
             return;
         }
-        if (this.c == null) {
-            this.c = new FastRequest(this.b, CmdConfigHttp.CMD_GET_HOMEPAGE_REC_FORUM_INFO, TbConfig.GET_HOMEPAGE_REC_FORUM_INFO);
+        int count = ListUtils.getCount(list);
+        int i = 0;
+        while (i < count) {
+            bn bnVar = (bn) ListUtils.getItem(list, i);
+            boolean z = bnVar instanceof pq6;
+            if (z) {
+                ((pq6) bnVar).j(true);
+            }
+            i++;
+            bn bnVar2 = (bn) ListUtils.getItem(list, i);
+            if (z && (bnVar2 instanceof pq6)) {
+                pq6 pq6Var = (pq6) bnVar;
+                pq6 pq6Var2 = (pq6) bnVar2;
+                if (pq6Var.r()) {
+                    pq6Var2.j(false);
+                    if (pq6Var2 instanceof x78) {
+                        pq6Var.I(false);
+                    }
+                }
+            }
+            if (bnVar instanceof x78) {
+                ((x78) bnVar).I(false);
+            }
         }
-        this.d = false;
-        FastRequest fastRequest = this.c;
-        fastRequest.N("forum_id", Long.valueOf(j));
-        fastRequest.N("forum_name", str);
-        fastRequest.S(HttpMessageTask.HTTP_METHOD.POST);
-        fastRequest.P(new b(this, str2, j));
-        fastRequest.U(new a(this));
-        fastRequest.O();
+    }
+
+    public static void c(DataRes.Builder builder, List<bn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
+            b(list);
+            a(builder, list);
+        }
     }
 }

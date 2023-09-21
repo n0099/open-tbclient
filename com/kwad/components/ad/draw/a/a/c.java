@@ -288,8 +288,8 @@ public final class c extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09127d);
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091348);
+        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09126d);
+        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091338);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

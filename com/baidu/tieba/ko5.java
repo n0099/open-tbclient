@@ -1,19 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+@Deprecated
 /* loaded from: classes6.dex */
-public class ko5 {
+public final class ko5 {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
-    public static ServiceReference a;
+    public static final ko5 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, jo5> a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,15 +35,49 @@ public class ko5 {
                 return;
             }
         }
-        a = new ServiceReference("AlaLiveSdk", "IMSdkServicePerson");
+        b = new ko5();
     }
 
-    public static lo5 a() {
-        InterceptResult invokeV;
+    public ko5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (lo5) ServiceManager.getService(a);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (lo5) invokeV.objValue;
+        this.a = new HashMap();
+    }
+
+    public static void a(@NonNull String str, @NonNull jo5 jo5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, jo5Var) == null) {
+            b.a.put(str, jo5Var);
+        }
+    }
+
+    @Nullable
+    public static <T> T b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (T) b.a.get(str);
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @NonNull
+    public static <T> T c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (T) Objects.requireNonNull(b(str));
+        }
+        return (T) invokeL.objValue;
     }
 }

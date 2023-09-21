@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.ix5;
-import com.baidu.tieba.s7a;
+import com.baidu.tieba.jx5;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.y9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class VideoPlayDispatcher implements s7a {
+public class VideoPlayDispatcher implements y9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +43,7 @@ public class VideoPlayDispatcher implements s7a {
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0186  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0196  */
-    @Override // com.baidu.tieba.s7a
+    @Override // com.baidu.tieba.y9a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -141,7 +141,7 @@ public class VideoPlayDispatcher implements s7a {
                     } else {
                         str = VideoPlayActivityConfig.FROM_H5_SEARCH;
                     }
-                    ix5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", str, "", z2, false, JavaTypesHelper.toLong(videoItemData.forum_id, 0L));
+                    jx5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", str, "", z2, false, JavaTypesHelper.toLong(videoItemData.forum_id, 0L));
                     return;
                 }
             }

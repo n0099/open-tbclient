@@ -24,7 +24,7 @@ public class MemoryPressureListener {
 
     @CalledByNative
     public static void addNativeCallback() {
-        addCallback(new MemoryPressureCallback() { // from class: com.baidu.tieba.p8c
+        addCallback(new MemoryPressureCallback() { // from class: com.baidu.tieba.hac
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

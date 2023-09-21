@@ -1,9 +1,9 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g39;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
+import com.baidu.tieba.r49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class OnePicInfoCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String desc;
-    public final List<g39> iconList;
+    public final List<r49> iconList;
     public final String pic;
     public final int tBgColor;
     public final int tBgColorN;
@@ -58,12 +58,12 @@ public class OnePicInfoCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject != null) {
-                g39 g39Var = new g39();
-                g39Var.c = optJSONObject.optInt("type");
-                g39Var.a = optJSONObject.optString("url");
-                g39Var.b = optJSONObject.optString("urlNight");
-                g39Var.d = optJSONObject.optString("content", "");
-                this.iconList.add(g39Var);
+                r49 r49Var = new r49();
+                r49Var.c = optJSONObject.optInt("type");
+                r49Var.a = optJSONObject.optString("url");
+                r49Var.b = optJSONObject.optString("urlNight");
+                r49Var.d = optJSONObject.optString("content", "");
+                this.iconList.add(r49Var);
             }
         }
     }
@@ -77,7 +77,7 @@ public class OnePicInfoCard extends BaseCardInfo {
         return (String) invokeV.objValue;
     }
 
-    public List<g39> getIconList() {
+    public List<r49> getIconList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

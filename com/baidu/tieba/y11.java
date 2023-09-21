@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class y11 {
-    public static /* synthetic */ Interceptable $ic;
-    public static int a;
+public final class y11 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -2;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -24,5 +26,39 @@ public class y11 {
         if ((invokeClinit.flags & 1) != 0) {
             classClinitInterceptable.invokePostClinit(1948277200, "Lcom/baidu/tieba/y11;");
         }
+    }
+
+    public static void a(ClarityUrlList clarityUrlList) {
+        ClarityUrlList.c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
+            Iterator it = clarityUrlList.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    cVar = (ClarityUrlList.c) it.next();
+                    if ("auto".equals(cVar.c())) {
+                        break;
+                    }
+                } else {
+                    cVar = null;
+                    break;
+                }
+            }
+            if (cVar != null) {
+                clarityUrlList.remove(cVar);
+            }
+        }
+    }
+
+    public static l01 b(ClarityUrlList clarityUrlList, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
+            a(clarityUrlList);
+            int f = k21.f(a);
+            a = f;
+            return k21.g(clarityUrlList, f, d, false);
+        }
+        return (l01) invokeCommon.objValue;
     }
 }

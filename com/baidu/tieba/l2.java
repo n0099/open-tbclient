@@ -184,7 +184,7 @@ public final class l2 extends k2 {
                         this.d.getExecutedRunnables().get(i).run();
                     }
                 }
-                this.d.mo6getInput().q1();
+                this.d.mo6getInput().v1();
                 this.l++;
                 this.d.getApplicationListener().render();
             }

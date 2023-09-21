@@ -1,67 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class it9 extends pm<bu9, CardViewHolder<ru9>> {
+public class it9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public it9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public static final ft9 a(TbPageContext<?> tbPageContext, ExcContent excContent) {
+        InterceptResult invokeLL;
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null) {
+                return null;
             }
+            if (l.longValue() == 2) {
+                return new dt9(excContent);
+            }
+            if (excContent.type.longValue() == 0) {
+                return new jt9(tbPageContext.getPageActivity(), excContent);
+            }
+            if (excContent.type.longValue() != 1) {
+                return null;
+            }
+            return new et9(tbPageContext, excContent);
         }
-        this.a = tbPageContext;
+        return (ft9) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: s */
-    public CardViewHolder<ru9> onCreateViewHolder(ViewGroup viewGroup) {
+    public static final gt9 b(ExcContent excContent) {
         InterceptResult invokeL;
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new ru9(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
+                return null;
+            }
+            return new ht9(excContent);
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bu9 bu9Var, CardViewHolder<ru9> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bu9Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(bu9Var);
-            return cardViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
+        return (gt9) invokeL.objValue;
     }
 }

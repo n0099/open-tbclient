@@ -8,7 +8,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vlb;
+import com.baidu.tieba.nnb;
 import java.util.List;
 /* loaded from: classes9.dex */
 public abstract class c extends LinearLayout {
@@ -16,12 +16,12 @@ public abstract class c extends LinearLayout {
     public TextView b;
     public RadioButton c;
     public LinearLayout d;
-    public vlb e;
-    public List<vlb> f;
+    public nnb e;
+    public List<nnb> f;
 
     public abstract boolean d();
 
-    public abstract vlb getConfigModel();
+    public abstract nnb getConfigModel();
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -35,11 +35,11 @@ public abstract class c extends LinearLayout {
         }
     }
 
-    public c(Context context, RadioGroup radioGroup, vlb vlbVar, List<vlb> list) {
+    public c(Context context, RadioGroup radioGroup, nnb nnbVar, List<nnb> list) {
         super(context);
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0857, this);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0855, this);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        b(radioGroup, vlbVar, list);
+        b(radioGroup, nnbVar, list);
     }
 
     public void setChecked(boolean z) {
@@ -58,14 +58,14 @@ public abstract class c extends LinearLayout {
         this.b.setText(str);
     }
 
-    public void b(RadioGroup radioGroup, vlb vlbVar, List<vlb> list) {
+    public void b(RadioGroup radioGroup, nnb nnbVar, List<nnb> list) {
         this.a = radioGroup;
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e4f);
-        this.c = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091e4d);
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e4e);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e1c);
+        this.c = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091e1a);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e1b);
         this.d = linearLayout;
         linearLayout.setVisibility(8);
-        this.e = vlbVar;
+        this.e = nnbVar;
         this.f = list;
         setOnClickListener(new a());
     }

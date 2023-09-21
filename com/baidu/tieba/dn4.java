@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dn4 extends pm4 {
+public class dn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dn4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public dn4() {
@@ -28,69 +28,43 @@ public class dn4 extends pm4 {
         }
     }
 
-    @Override // com.baidu.tieba.pm4, com.baidu.tieba.sm4
-    public void b(JSONObject jSONObject, cj4 cj4Var, @Nullable cj4 cj4Var2, @Nullable cj4 cj4Var3) {
+    public static dn4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, jSONObject, cj4Var, cj4Var2, cj4Var3) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (dn4.class) {
+                    if (a == null) {
+                        a = new dn4();
+                    }
+                }
+            }
+            return a;
         }
-        fn4.b().e(jSONObject.optJSONObject("tipmsgs"));
-        jn4.f().k(jSONObject.optJSONObject("page_tips"));
-        bn4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
-        ln4.a().d(jSONObject.optJSONObject("pkg_preload"));
-        tn4.f(jSONObject.optJSONObject("app_inner_preload"));
-        en4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
-        qn4.b().d(jSONObject.optJSONObject("tts"));
-        mn4.a().e(jSONObject.optJSONObject("simple_control_item"));
-        rn4.e(jSONObject.optJSONObject("update_expire_time"));
-        if (nn4.a) {
-            c(jSONObject);
-        }
-        pn4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
-        gn4.a().c(jSONObject.optJSONObject("local_debug"));
-        si4.a().b(jSONObject.optJSONObject(si4.a().c()));
-        if (on4.b()) {
-            in4.a().b(jSONObject.optJSONObject("api_description"));
-        }
-        hn4.a().e(jSONObject.optJSONObject("no_history_apps"));
+        return (dn4) invokeV.objValue;
     }
 
-    public final void c(@NonNull JSONObject jSONObject) {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ri4.b().i().getString("get_pkg_retry_version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (optJSONObject = jSONObject.optJSONObject("heartbeat")) == null || optJSONObject.optLong("errno") != 0) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        qi4 b = si4.b();
-        jr4 jr4Var = null;
-        if (b != null) {
-            jr4Var = b.i();
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("switch")) {
+            return;
         }
-        String optString = optJSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString)) {
-            nn4.b = optString;
-            if (jr4Var != null) {
-                jr4Var.putString("key_h2_heart_beat_version", optString);
-            }
-        }
-        JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-        if (optJSONObject2 != null) {
-            if (optJSONObject2.optInt("switch") > 0) {
-                int optInt = optJSONObject2.optInt("timespan");
-                int optInt2 = optJSONObject2.optInt("timeout");
-                if (jr4Var != null) {
-                    if (optInt > 0) {
-                        jr4Var.putInt("key_h2_heart_beat_timespan", optInt);
-                    }
-                    if (optInt2 > 0) {
-                        jr4Var.putInt("key_h2_heart_beat_timeout", optInt2);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            nn4.a = false;
-        }
+        int optInt = optJSONObject.optInt("switch", 0);
+        ri4.b().i().putString("get_pkg_retry_version", optString);
+        ri4.b().i().putInt("get_pkg_retry_switch", optInt);
     }
 }

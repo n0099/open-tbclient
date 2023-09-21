@@ -1,44 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class j69 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map<String, String> a() {
-        InterceptResult invokeV;
+    public static void a(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (a == null) {
-                try {
-                    Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
-                    declaredField.setAccessible(true);
-                    a = (Map) declaredField.get(null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return a;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, str, map) != null) || di.isEmpty(str)) {
+            return;
         }
-        return (Map) invokeV.objValue;
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (map != null) {
+            for (String str2 : map.keySet()) {
+                statisticItem.param(str2, map.get(str2));
+            }
+        }
+        TiebaStatic.log(statisticItem);
     }
 
-    public static void b(String str) {
+    public static void b(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            try {
-                ApplicationInfo.class.getField("primaryCpuAbi").set(((PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0])).applicationInfo, str);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if ((interceptable != null && interceptable.invokeL(65537, null, map) != null) || map == null) {
+            return;
         }
+        HashMap hashMap = new HashMap();
+        String remove = map.remove("key");
+        for (String str : map.keySet()) {
+            hashMap.put(str, map.get(str));
+        }
+        a(remove, hashMap);
     }
 }

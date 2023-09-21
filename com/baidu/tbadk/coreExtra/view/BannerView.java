@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j3a;
+import com.baidu.tieba.h5a;
 import com.baidu.tieba.l25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -170,7 +170,7 @@ public class BannerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, l25Var) == null) {
             this.l = l25Var;
-            j3a.f(l25Var.g, this.f, l25Var.h, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+            h5a.f(l25Var.g, this.f, l25Var.h, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 
@@ -266,7 +266,7 @@ public class BannerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0143, this);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0904c4);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0904bd);
             this.c = button;
             button.setOnClickListener(this.o);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.banner_image);

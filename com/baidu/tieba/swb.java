@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.vwb;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class swb implements Runnable {
+public final class swb extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ vwb.a a;
+    public final Context a;
+    public final cxb b;
+    public volatile boolean c;
 
-    public swb(vwb.a aVar) {
+    public swb(Context context, cxb cxbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {context, cxbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,14 +29,31 @@ public class swb implements Runnable {
                 return;
             }
         }
-        this.a = aVar;
+        this.a = context;
+        this.b = cxbVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.d();
+            this.c = true;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.c) {
+                if (vwb.d().h(this.a)) {
+                    this.b.a(com.google.ar.core.p.COMPLETED);
+                    return;
+                }
+                try {
+                    Thread.sleep(200L);
+                } catch (InterruptedException unused) {
+                }
+            }
         }
     }
 }

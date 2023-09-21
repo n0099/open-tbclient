@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.z7a;
+import com.baidu.tieba.faa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.GetMoreMsg.GetMoreMsgResIdl;
 public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z7a loadMoreData;
+    public faa loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreHttpResponseMessage() {
@@ -37,13 +37,13 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         }
     }
 
-    public z7a getData() {
+    public faa getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.loadMoreData;
         }
-        return (z7a) invokeV.objValue;
+        return (faa) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,9 +61,9 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         }
         DataRes dataRes = getMoreMsgResIdl.data;
         if (dataRes != null && dataRes != null) {
-            z7a z7aVar = new z7a();
-            this.loadMoreData = z7aVar;
-            z7aVar.c(getMoreMsgResIdl.data);
+            faa faaVar = new faa();
+            this.loadMoreData = faaVar;
+            faaVar.c(getMoreMsgResIdl.data);
         }
     }
 }

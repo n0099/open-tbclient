@@ -26,13 +26,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.hia;
-import com.baidu.tieba.iia;
-import com.baidu.tieba.jia;
+import com.baidu.tieba.hi9;
+import com.baidu.tieba.ii9;
+import com.baidu.tieba.nka;
+import com.baidu.tieba.oka;
 import com.baidu.tieba.payment.data.PayVcodeInfoData;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
-import com.baidu.tieba.wg9;
-import com.baidu.tieba.xg9;
+import com.baidu.tieba.pka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PayVcodeModel a;
-    public wg9 b;
+    public hi9 b;
     public String c;
     public String d;
     public String e;
@@ -57,8 +57,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public String j;
     public String k;
     public boolean l;
-    public hia m;
-    public jia n;
+    public nka m;
+    public pka n;
     public HttpMessageListener o;
 
     public PayVcodeActivity() {
@@ -106,7 +106,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) {
-                    this.a.b.E(false);
+                    this.a.b.y(false);
                     if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponsePayNewVcodeInfoMessage)) {
                         ResponsePayNewVcodeInfoMessage responsePayNewVcodeInfoMessage = (ResponsePayNewVcodeInfoMessage) httpResponsedMessage;
                         if (!responsePayNewVcodeInfoMessage.hasError()) {
@@ -115,73 +115,73 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                                 this.a.d = payNewVcodeInfoData.getCaptcha_vcode_str();
                                 this.a.e = payNewVcodeInfoData.getVcode_pic_url();
                                 this.a.f = payNewVcodeInfoData.getCaptcha_code_type();
-                                this.a.O1();
+                                this.a.p1();
                                 return;
                             }
                             String errorString = responsePayNewVcodeInfoMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fc6);
+                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fc8);
                             }
                             this.a.showToast(errorString);
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0e40);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0e42);
                     }
                 }
             }
         };
     }
 
-    public final void N1() {
+    public final void n1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.E(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.y(true);
             this.a.N();
-        }
-    }
-
-    public final void P1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            S1(true);
-        }
-    }
-
-    public final void W1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.E(true);
-            this.b.z().loadUrl(this.c);
-        }
-    }
-
-    public final void X1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.M();
-            registerListener(this.o);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
             this.g.removeMessages(1);
             this.g.removeMessages(2);
             this.g.removeMessages(3);
-            hia hiaVar = this.m;
-            if (hiaVar != null) {
-                hiaVar.h();
+            nka nkaVar = this.m;
+            if (nkaVar != null) {
+                nkaVar.h();
             }
+        }
+    }
+
+    public final void r1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            t1(true);
+        }
+    }
+
+    public final void x1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.b.y(true);
+            this.b.t().loadUrl(this.c);
+        }
+    }
+
+    public final void z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.a.M();
+            registerListener(this.o);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
             this.b.onChangeSkinType(i);
         }
@@ -190,10 +190,10 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             super.onWindowFocusChanged(z);
             if (z && !this.i) {
-                Y1();
+                A1();
             }
         }
     }
@@ -202,9 +202,9 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
             if (i == 4) {
-                S1(false);
+                t1(false);
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
@@ -212,291 +212,13 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         return invokeIL.booleanValue;
     }
 
-    public final void O1() {
+    public void A1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !StringUtils.isNull(this.j)) {
-            TbWebView z = this.b.z();
-            z.loadUrl("javascript:" + this.j + "()");
-        }
-    }
-
-    public final void R1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !StringUtils.isNull(this.k) && this.l) {
-            TbWebView z = this.b.z();
-            z.loadUrl("javascript:" + this.k + "()");
-        }
-    }
-
-    public void S1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b.t().setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
-            alphaAnimation.setDuration(300L);
-            alphaAnimation.setFillAfter(true);
-            this.b.t().startAnimation(alphaAnimation);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
-            loadAnimation.setDuration(300L);
-            loadAnimation.setFillAfter(true);
-            loadAnimation.setAnimationListener(new Animation.AnimationListener(this, z) { // from class: com.baidu.tieba.payment.PayVcodeActivity.10
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ boolean a;
-                public final /* synthetic */ PayVcodeActivity b;
-
-                @Override // android.view.animation.Animation.AnimationListener
-                public void onAnimationRepeat(Animation animation) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-                    }
-                }
-
-                @Override // android.view.animation.Animation.AnimationListener
-                public void onAnimationStart(Animation animation) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                    }
-                }
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = this;
-                    this.a = z;
-                }
-
-                @Override // android.view.animation.Animation.AnimationListener
-                public void onAnimationEnd(Animation animation) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        if (this.a && !StringUtils.isNull(this.b.h)) {
-                            Intent intent = new Intent();
-                            intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, this.b.h);
-                            intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, this.b.d);
-                            this.b.setResult(-1, intent);
-                        }
-                        this.b.closeActivity();
-                    }
-                }
-            });
-            this.b.y().startAnimation(loadAnimation);
-        }
-    }
-
-    public final void T1(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            this.c = UtilHelper.appendCuidParam(TbConfig.SERVER_ADDRESS + "mo/q/captcha?version=" + TbConfig.getVersion());
-            this.d = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_MD5);
-            this.e = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_URL);
-            this.a = new PayVcodeModel(getPageContext());
-            this.g = new Handler(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PayVcodeActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.os.Handler
-                public void handleMessage(Message message) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                        super.handleMessage(message);
-                        int i = message.what;
-                        if (i != 1) {
-                            if (i != 2) {
-                                if (i != 3) {
-                                    return;
-                                }
-                                this.a.P1();
-                                return;
-                            }
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0fc5);
-                            return;
-                        }
-                        this.a.N1();
-                    }
-                }
-            };
-        }
-    }
-
-    public final void U1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            wg9 wg9Var = new wg9(this);
-            this.b = wg9Var;
-            wg9Var.x().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PayVcodeActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, view2) != null) {
-                        return;
-                    }
-                    this.a.R1();
-                }
-            });
-            this.b.u().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PayVcodeActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && !this.a.l) {
-                        this.a.b.E(true);
-                        this.a.b.z().Z();
-                        this.a.b.z().loadUrl(this.a.c);
-                    }
-                }
-            });
-            xg9 xg9Var = new xg9(this);
-            xg9Var.a(this.n);
-            this.b.z().setWebChromeClient(xg9Var);
-            this.b.z().setWebViewClient(new WebViewClient(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PayVcodeActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.webkit.WebViewClient
-                public void onPageFinished(WebView webView, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
-                        super.onPageFinished(webView, str);
-                        this.a.b.E(false);
-                        this.a.b.D(!this.a.l);
-                    }
-                }
-            });
-            this.b.t().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PayVcodeActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.a.S1(false);
-                    }
-                }
-            });
-        }
-    }
-
-    public void Y1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.t().setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.f().setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
             alphaAnimation.setDuration(300L);
-            this.b.t().startAnimation(alphaAnimation);
+            this.b.f().startAnimation(alphaAnimation);
             Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
             loadAnimation.setDuration(300L);
             loadAnimation.setFillAfter(true);
@@ -543,25 +265,165 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     if (interceptable2 != null && interceptable2.invokeL(1048576, this, animation) != null) {
                         return;
                     }
-                    this.a.W1();
+                    this.a.x1();
                 }
             });
-            this.b.y().startAnimation(loadAnimation);
+            this.b.s().startAnimation(loadAnimation);
             this.i = true;
+        }
+    }
+
+    public final void v1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            hi9 hi9Var = new hi9(this);
+            this.b = hi9Var;
+            hi9Var.h().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PayVcodeActivity a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, view2) != null) {
+                        return;
+                    }
+                    this.a.s1();
+                }
+            });
+            this.b.g().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PayVcodeActivity a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && !this.a.l) {
+                        this.a.b.y(true);
+                        this.a.b.t().Z();
+                        this.a.b.t().loadUrl(this.a.c);
+                    }
+                }
+            });
+            ii9 ii9Var = new ii9(this);
+            ii9Var.a(this.n);
+            this.b.t().setWebChromeClient(ii9Var);
+            this.b.t().setWebViewClient(new WebViewClient(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PayVcodeActivity a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.webkit.WebViewClient
+                public void onPageFinished(WebView webView, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
+                        super.onPageFinished(webView, str);
+                        this.a.b.y(false);
+                        this.a.b.x(!this.a.l);
+                    }
+                }
+            });
+            this.b.f().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PayVcodeActivity a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.a.t1(false);
+                    }
+                }
+            });
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             requestWindowFeature(1);
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            hia hiaVar = new hia();
-            this.m = hiaVar;
-            hiaVar.a(new iia(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.2
+            nka nkaVar = new nka();
+            this.m = nkaVar;
+            nkaVar.a(new oka(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity this$0;
@@ -584,7 +446,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.iia
+                @Override // com.baidu.tieba.oka
                 public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                     InterceptResult invokeLLLL;
                     Interceptable interceptable2 = $ic;
@@ -650,7 +512,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     return invokeLLLL.booleanValue;
                 }
             });
-            this.n = new jia(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.3
+            this.n = new pka(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity a;
@@ -673,22 +535,160 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     this.a = this;
                 }
 
-                @Override // com.baidu.tieba.jia
+                @Override // com.baidu.tieba.pka
                 public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                         if (this.a.m != null) {
-                            return this.a.m.c(this.a.b.z().getInnerWebView(), str, jsPromptResult);
+                            return this.a.m.c(this.a.b.t().getInnerWebView(), str, jsPromptResult);
                         }
                         return false;
                     }
                     return invokeLL.booleanValue;
                 }
             };
-            T1(bundle);
-            U1();
-            X1();
+            u1(bundle);
+            v1();
+            z1();
+        }
+    }
+
+    public final void p1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !StringUtils.isNull(this.j)) {
+            TbWebView t = this.b.t();
+            t.loadUrl("javascript:" + this.j + "()");
+        }
+    }
+
+    public final void s1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !StringUtils.isNull(this.k) && this.l) {
+            TbWebView t = this.b.t();
+            t.loadUrl("javascript:" + this.k + "()");
+        }
+    }
+
+    public void t1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.b.f().setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
+            alphaAnimation.setDuration(300L);
+            alphaAnimation.setFillAfter(true);
+            this.b.f().startAnimation(alphaAnimation);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
+            loadAnimation.setDuration(300L);
+            loadAnimation.setFillAfter(true);
+            loadAnimation.setAnimationListener(new Animation.AnimationListener(this, z) { // from class: com.baidu.tieba.payment.PayVcodeActivity.10
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ boolean a;
+                public final /* synthetic */ PayVcodeActivity b;
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                    }
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = this;
+                    this.a = z;
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
+                        if (this.a && !StringUtils.isNull(this.b.h)) {
+                            Intent intent = new Intent();
+                            intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, this.b.h);
+                            intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, this.b.d);
+                            this.b.setResult(-1, intent);
+                        }
+                        this.b.closeActivity();
+                    }
+                }
+            });
+            this.b.s().startAnimation(loadAnimation);
+        }
+    }
+
+    public final void u1(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
+            this.c = UtilHelper.appendCuidParam(TbConfig.SERVER_ADDRESS + "mo/q/captcha?version=" + TbConfig.getVersion());
+            this.d = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_MD5);
+            this.e = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_URL);
+            this.a = new PayVcodeModel(getPageContext());
+            this.g = new Handler(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PayVcodeActivity a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.os.Handler
+                public void handleMessage(Message message) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
+                        super.handleMessage(message);
+                        int i = message.what;
+                        if (i != 1) {
+                            if (i != 2) {
+                                if (i != 3) {
+                                    return;
+                                }
+                                this.a.r1();
+                                return;
+                            }
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0fc7);
+                            return;
+                        }
+                        this.a.n1();
+                    }
+                }
+            };
         }
     }
 }

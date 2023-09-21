@@ -4,7 +4,8 @@ import android.app.Application;
 import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fpa;
+import com.baidu.tieba.lra;
+import com.baidu.tieba.mra;
 import com.baidu.tieba.tracker.Tracker;
 import com.baidu.tieba.tracker.core.data.EventParams;
 import com.baidu.tieba.tracker.core.data.IEventNode;
@@ -38,7 +39,7 @@ public final class Tracker {
     public static final a i;
     public static final Lazy<Tracker> j;
     public transient /* synthetic */ FieldHolder $fh;
-    public fpa a;
+    public mra a;
     public final Map<String, List<IEventNode>> b;
     public final Handler c;
     public long d;
@@ -47,9 +48,9 @@ public final class Tracker {
     public boolean g;
     public Function0<Unit> h;
 
-    public final void m(Application app) {
+    public final void n(Application app) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, app) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, app) == null) {
             Intrinsics.checkNotNullParameter(app, "app");
         }
     }
@@ -95,12 +96,12 @@ public final class Tracker {
             return (Tracker) invokeV.objValue;
         }
 
-        public final void c(fpa fpaVar) {
+        public final void c(mra mraVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fpaVar) != null) || fpaVar == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mraVar) != null) || mraVar == null) {
                 return;
             }
-            Tracker.i.b().p(fpaVar);
+            Tracker.i.b().q(mraVar);
         }
 
         public final void d(String ubcId, IEventNode iEventNode) {
@@ -135,44 +136,39 @@ public final class Tracker {
         j = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) Tracker$Companion$instance$2.INSTANCE);
     }
 
-    public final Set<String> h() {
+    public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+            return this.g;
         }
-        return (Set) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public final Set<String> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final Set<String> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
         return (Set) invokeV.objValue;
     }
 
-    public final void j() {
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Handler handler = this.c;
             final Function0<Unit> function0 = this.h;
-            handler.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.apa
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Tracker.k(Function0.this);
-                    }
-                }
-            });
-            Handler handler2 = this.c;
-            final Function0<Unit> function02 = this.h;
-            handler2.post(new Runnable() { // from class: com.baidu.tieba.bpa
+            handler.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.gra
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -181,6 +177,20 @@ public final class Tracker {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         Tracker.l(Function0.this);
+                    }
+                }
+            });
+            Handler handler2 = this.c;
+            final Function0<Unit> function02 = this.h;
+            handler2.post(new Runnable() { // from class: com.baidu.tieba.hra
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        Tracker.m(Function0.this);
                     }
                 }
             });
@@ -241,7 +251,7 @@ public final class Tracker {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2() {
-                fpa fpaVar;
+                mra mraVar;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
                     return;
@@ -251,9 +261,9 @@ public final class Tracker {
                 synchronized (map) {
                     if (!tracker.b.isEmpty()) {
                         for (Map.Entry entry : tracker.b.entrySet()) {
-                            fpaVar = tracker.a;
-                            if (fpaVar != null) {
-                                fpaVar.b((String) entry.getKey(), (List) entry.getValue());
+                            mraVar = tracker.a;
+                            if (mraVar != null) {
+                                mraVar.b((String) entry.getKey(), (List) entry.getValue());
                             }
                         }
                         tracker.b.clear();
@@ -272,7 +282,7 @@ public final class Tracker {
         }
     }
 
-    public static final void k(Function0 tmp0) {
+    public static final void l(Function0 tmp0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, tmp0) == null) {
             Intrinsics.checkNotNullParameter(tmp0, "$tmp0");
@@ -280,7 +290,7 @@ public final class Tracker {
         }
     }
 
-    public static final void l(Function0 tmp0) {
+    public static final void m(Function0 tmp0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, tmp0) == null) {
             Intrinsics.checkNotNullParameter(tmp0, "$tmp0");
@@ -288,7 +298,7 @@ public final class Tracker {
         }
     }
 
-    public static final void s(Function0 tmp0) {
+    public static final void t(Function0 tmp0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, tmp0) == null) {
             Intrinsics.checkNotNullParameter(tmp0, "$tmp0");
@@ -296,7 +306,7 @@ public final class Tracker {
         }
     }
 
-    public static final void t(Function0 tmp0) {
+    public static final void u(Function0 tmp0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, tmp0) == null) {
             Intrinsics.checkNotNullParameter(tmp0, "$tmp0");
@@ -304,36 +314,71 @@ public final class Tracker {
         }
     }
 
-    public final void p(fpa fpaVar) {
+    public final void q(mra mraVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fpaVar) == null) {
-            this.a = fpaVar;
-            if (fpaVar != null) {
-                fpaVar.a();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mraVar) == null) {
+            this.a = mraVar;
+            if (mraVar != null) {
+                mraVar.a();
             }
         }
     }
 
-    public final void q(boolean z) {
+    public final void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.g = z;
         }
     }
 
+    public final void s(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            Handler handler = this.c;
+            final Function0<Unit> function0 = this.h;
+            handler.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.kra
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        Tracker.t(Function0.this);
+                    }
+                }
+            });
+            Handler handler2 = this.c;
+            final Function0<Unit> function02 = this.h;
+            handler2.post(new Runnable() { // from class: com.baidu.tieba.jra
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        Tracker.u(Function0.this);
+                    }
+                }
+            });
+            this.d = i2 * 60 * 1000;
+        }
+    }
+
     public final void f(String str, IEventNode iEventNode) {
-        fpa fpaVar;
+        mra mraVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, iEventNode) == null) {
-            if (o(iEventNode) && (fpaVar = this.a) != null) {
-                fpaVar.c(str, iEventNode);
+            if (p(iEventNode) && lra.a.a(iEventNode) && (mraVar = this.a) != null) {
+                mraVar.c(str, iEventNode);
             }
-            if (n(iEventNode)) {
+            if (o(iEventNode)) {
                 if (this.b.get(str) == null) {
                     this.b.put(str, new ArrayList());
                     Handler handler = this.c;
                     final Function0<Unit> function0 = this.h;
-                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.cpa
+                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ira
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -354,12 +399,12 @@ public final class Tracker {
         }
     }
 
-    public final boolean n(IEventNode iEventNode) {
+    public final boolean o(IEventNode iEventNode) {
         InterceptResult invokeL;
         IEventNode iEventNode2;
         EventParams trackParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iEventNode)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iEventNode)) == null) {
             IEventNode next = iEventNode.getNext();
             while (true) {
                 if (next != null) {
@@ -384,13 +429,13 @@ public final class Tracker {
         return invokeL.booleanValue;
     }
 
-    public final boolean o(IEventNode iEventNode) {
+    public final boolean p(IEventNode iEventNode) {
         InterceptResult invokeL;
         Object obj;
         IEventNode iEventNode2;
         EventParams trackParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iEventNode)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iEventNode)) == null) {
             IEventNode next = iEventNode.getNext();
             while (true) {
                 obj = null;
@@ -410,40 +455,5 @@ public final class Tracker {
             return Intrinsics.areEqual(obj, TraceType.Error.name());
         }
         return invokeL.booleanValue;
-    }
-
-    public final void r(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.d = i2 * 60 * 1000;
-            Handler handler = this.c;
-            final Function0<Unit> function0 = this.h;
-            handler.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.epa
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Tracker.s(Function0.this);
-                    }
-                }
-            });
-            Handler handler2 = this.c;
-            final Function0<Unit> function02 = this.h;
-            handler2.postDelayed(new Runnable() { // from class: com.baidu.tieba.dpa
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Tracker.t(Function0.this);
-                    }
-                }
-            }, this.d);
-        }
     }
 }

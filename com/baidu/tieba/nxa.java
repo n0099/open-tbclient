@@ -1,45 +1,95 @@
 package com.baidu.tieba;
+
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface nxa {
+public class nxa implements View.OnTouchListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Spannable a;
+    public f26 b;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(float f);
-
-        float getSpeed();
-
-        void onFinish();
-
-        void onProgress(float f);
+    public nxa(Spannable spannable) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spannable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.a = spannable;
     }
 
-    void a();
-
-    boolean b();
-
-    int getMaxDuration();
-
-    float getProgress();
-
-    int getSlideNum();
-
-    void invalidate();
-
-    void reset();
-
-    void setMaxDuration(int i);
-
-    void setMinDuration(int i);
-
-    void setOnProgressListener(a aVar);
-
-    void setProgress(long j);
-
-    void setShowDeleteLastTip(boolean z);
-
-    void setVisibility(int i);
-
-    void start();
-
-    void stop();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        f26 f26Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (!(view2 instanceof TextView)) {
+                return false;
+            }
+            TextView textView = (TextView) view2;
+            if (action == 3 && (f26Var = this.b) != null) {
+                f26Var.m(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                view2.invalidate();
+                this.b = null;
+                return false;
+            }
+            if (action == 1 || action == 0) {
+                int x = (int) motionEvent.getX();
+                int y = (int) motionEvent.getY();
+                Layout layout = textView.getLayout();
+                if (layout == null) {
+                    return false;
+                }
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
+                Spannable spannable = this.a;
+                if (spannable == null) {
+                    return false;
+                }
+                f26[] f26VarArr = (f26[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, f26.class);
+                if (f26VarArr != null && f26VarArr.length != 0 && f26VarArr[0] != null) {
+                    if (action == 1) {
+                        f26VarArr[0].m(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                        f26VarArr[0].onClick(textView);
+                        view2.invalidate();
+                    } else {
+                        this.b = f26VarArr[0];
+                        Spannable spannable2 = this.a;
+                        Selection.setSelection(spannable2, spannable2.getSpanStart(f26VarArr[0]), this.a.getSpanEnd(f26VarArr[0]));
+                        view2.invalidate();
+                    }
+                    return true;
+                }
+                f26 f26Var2 = this.b;
+                if (f26Var2 != null) {
+                    f26Var2.m(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    view2.invalidate();
+                }
+                Selection.removeSelection(this.a);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

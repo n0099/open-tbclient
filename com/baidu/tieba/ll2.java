@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes6.dex */
-public class ll2 extends hl2 {
+/* loaded from: classes7.dex */
+public class ll2 extends gl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+    public final g32 c;
 
-    public ll2() {
+    public ll2(@NonNull String str, @NonNull g32 g32Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, g32Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,22 +27,17 @@ public class ll2 extends hl2 {
                 return;
             }
         }
-        this.a = "route";
+        this.a = str;
+        this.c = g32Var;
     }
 
-    @Override // com.baidu.tieba.hl2
+    @Override // com.baidu.tieba.gl2
     public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("fromId", this.c);
-            map.put("toId", this.d);
-            map.put("toTabIndex", this.g);
-            if (!TextUtils.isEmpty(this.e)) {
-                map.put("routeType", this.e);
-            }
-            if (!TextUtils.isEmpty(this.f)) {
-                map.put("toPage", this.f);
-            }
+            map.put("status", Integer.valueOf(this.c.b));
+            map.put("data", this.c.d);
+            map.put("message", this.c.c);
         }
     }
 }

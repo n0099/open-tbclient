@@ -1,100 +1,215 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class w00 {
+public class w00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
 
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(File file) {
+    public w00() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = 2;
+        this.d = 0;
+    }
+
+    public static w00 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            w00 w00Var = new w00();
+            w00Var.a = str;
+            int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
+            w00Var.d = length;
+            if (length < 14) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "0";
+                }
+                w00Var.b = str2;
+            }
+            return w00Var;
+        }
+        return (w00) invokeLL.objValue;
+    }
+
+    public static boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 14 : invokeI.booleanValue;
+    }
+
+    public static boolean d(String str) {
         InterceptResult invokeL;
-        FileReader fileReader;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
-        FileReader fileReader2 = null;
-        try {
-            fileReader = new FileReader(file);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
+    }
+
+    public static w00 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? g(j(str)) : (w00) invokeL.objValue;
+    }
+
+    public static w00 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
             try {
-                try {
-                    char[] cArr = new char[8192];
-                    CharArrayWriter charArrayWriter = new CharArrayWriter();
-                    while (true) {
-                        int read = fileReader.read(cArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        charArrayWriter.write(cArr, 0, read);
-                    }
-                    String charArrayWriter2 = charArrayWriter.toString();
-                    try {
-                        fileReader.close();
-                    } catch (Exception e) {
-                        c(e);
-                    }
-                    return charArrayWriter2;
-                } catch (Exception e2) {
-                    e = e2;
-                    c(e);
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (Exception e3) {
-                            c(e3);
-                        }
-                    }
-                    return null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                fileReader2 = fileReader;
-                if (fileReader2 != null) {
-                    try {
-                        fileReader2.close();
-                    } catch (Exception e4) {
-                        c(e4);
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                String str2 = "0";
+                String str3 = "0";
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!i("ZGV2aWNlaWQ=").equals(next) && !i("dmVy").equals(next)) {
+                        str3 = jSONObject.optString(next, "0");
                     }
                 }
-                throw th;
+                String string = jSONObject.getString(i("ZGV2aWNlaWQ="));
+                int i = jSONObject.getInt(i("dmVy"));
+                int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
+                if (!TextUtils.isEmpty(string)) {
+                    w00 w00Var = new w00();
+                    w00Var.a = string;
+                    w00Var.c = i;
+                    w00Var.d = length;
+                    if (length < 14) {
+                        if (!TextUtils.isEmpty(str3)) {
+                            str2 = str3;
+                        }
+                        w00Var.b = str2;
+                    }
+                    w00Var.k();
+                    return w00Var;
+                }
+            } catch (JSONException e) {
+                v00.c(e);
             }
-        } catch (Exception e5) {
-            e = e5;
-            fileReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (fileReader2 != null) {
-            }
-            throw th;
+            return null;
         }
+        return (w00) invokeL.objValue;
     }
 
-    public static void b(Closeable closeable) {
+    public static String i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException e) {
-            c(e);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? new String(o00.b(str.getBytes())) : (String) invokeL.objValue;
     }
 
-    public static void c(Throwable th) {
+    public static String j(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                byte[] a = yz.a();
+                return new String(uz.d(a, a, o00.b(str.getBytes())));
+            } catch (Exception e) {
+                v00.c(e);
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                byte[] a = yz.a();
+                return o00.a(uz.c(a, a, str.getBytes()), "utf-8");
+            } catch (UnsupportedEncodingException | Exception e) {
+                v00.c(e);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d(this.b) : invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.d) : invokeV.booleanValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m(l()) : (String) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (f()) {
+                str = "O";
+            } else if (!b()) {
+                return false;
+            } else {
+                str = "0";
+            }
+            this.b = str;
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.a).put(i("aW1laQ=="), this.b).put(i("dmVy"), this.c).toString();
+            } catch (JSONException e) {
+                v00.c(e);
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

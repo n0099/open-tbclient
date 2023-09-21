@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ky7;
-import com.baidu.tieba.l2a;
+import com.baidu.tieba.j4a;
+import com.baidu.tieba.my7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,7 +111,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 return null;
             }
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.big_image_next, (ViewGroup) null);
-            ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09108c)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
+            ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09107f)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.o);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.d);
@@ -352,7 +352,7 @@ public class ImagePagerAdapter extends PagerAdapter {
             } else {
                 str = null;
             }
-            if (StringUtils.isNull(str) || l2a.j(str) || ky7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
+            if (StringUtils.isNull(str) || j4a.j(str) || my7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
                 return null;
             }
             UrlDragImageView urlDragImageView = new UrlDragImageView(this.a);

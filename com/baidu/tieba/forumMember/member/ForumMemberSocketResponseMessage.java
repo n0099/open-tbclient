@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bg7;
+import com.baidu.tieba.lg7;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -64,8 +64,8 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
             forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
         }
         if (forumMemberRequestMessage != null) {
-            bg7 bg7Var = new bg7();
-            bg7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
+            lg7 lg7Var = new lg7();
+            lg7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
         }
     }
 

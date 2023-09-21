@@ -1,9 +1,5 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.util.Log;
-import android.view.Surface;
-import android.view.SurfaceHolder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,16 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class od0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "od0";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public qd0 a;
-    public List<pd0> b;
-    public int c;
+    public ud0 b;
+    public be0 c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,12 +31,12 @@ public class od0 {
         }
     }
 
-    public od0(Object obj, List<ce0> list) {
+    public od0(be0 be0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, list};
+            Object[] objArr = {be0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,117 +46,100 @@ public class od0 {
                 return;
             }
         }
-        this.c = 0;
-        b(obj, list);
+        this.c = be0Var;
+        this.a = new qd0(be0Var.f(), 1);
+        d();
     }
 
-    public void a(long j) {
-        List<pd0> list;
+    public void b(long j) {
+        be0 be0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && this.a != null && (list = this.b) != null && list.size() != 0) {
-            synchronized (this) {
-                for (pd0 pd0Var : this.b) {
-                    this.a.b(pd0Var.c());
-                    pd0Var.b(j);
-                }
-                notifyAll();
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.b != null && (be0Var = this.c) != null) {
+            if (be0Var.m()) {
+                d();
             }
-            this.a.d(j);
-            this.a.e();
+            if (j != 0) {
+                this.c.h().h(j);
+            }
+            this.b.a(this.c.e(), this.c.h());
         }
     }
 
-    public final void b(Object obj, List<ce0> list) {
-        pd0 pd0Var;
-        qd0 qd0Var;
+    public final void a(ud0 ud0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, list) == null) && list != null && list.size() != 0) {
-            List<pd0> list2 = this.b;
-            if (list2 == null) {
-                this.b = new ArrayList();
+        if (interceptable == null || interceptable.invokeL(1048576, this, ud0Var) == null) {
+            if (ud0Var == null) {
+                this.b = new td0();
             } else {
-                list2.clear();
+                this.b = ud0Var;
             }
-            for (int i = 0; i < list.size(); i++) {
-                try {
-                    this.b.add(new pd0(list.get(i)));
-                    if (list.get(i).k()) {
-                        this.c = i;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            int size = this.b.size();
-            int i2 = this.c;
-            if (size > i2) {
-                if (obj != null) {
-                    if (obj instanceof Surface) {
-                        this.a = new qd0(this.b.get(this.c).c(), (Surface) obj, true);
-                    } else if (obj instanceof SurfaceTexture) {
-                        this.a = new qd0(this.b.get(this.c).c(), (SurfaceTexture) obj);
-                    } else if (obj instanceof SurfaceHolder) {
-                        this.a = new qd0(this.b.get(this.c).c(), (SurfaceHolder) obj);
-                    }
-                } else {
-                    List<pd0> list3 = this.b;
-                    if (list3 != null && list3 != null && (pd0Var = list3.get(i2)) != null && (qd0Var = this.a) != null) {
-                        qd0Var.f(pd0Var.c());
-                    }
-                }
-            }
-            for (pd0 pd0Var2 : this.b) {
-                qd0 qd0Var2 = this.a;
-                if (qd0Var2 != null) {
-                    qd0Var2.b(pd0Var2.c());
-                    pd0Var2.f();
-                }
-            }
+            this.b.b(this.c.j(), this.c.i());
         }
     }
 
-    public void c() {
+    public void g(ud0 ud0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qd0 qd0Var = this.a;
-            if (qd0Var != null) {
-                qd0Var.g();
-                this.a = null;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ud0Var) == null) {
+            be0 be0Var = this.c;
+            if (be0Var != null) {
+                be0Var.p(ud0Var);
             }
-            List<pd0> list = this.b;
-            if (list != null) {
-                for (pd0 pd0Var : list) {
-                    pd0Var.e();
-                }
-                this.b.clear();
+            this.b.release();
+            a(ud0Var);
+        }
+    }
+
+    public qd0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (qd0) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ud0 ud0Var = this.b;
+            if (ud0Var != null) {
+                ud0Var.release();
                 this.b = null;
             }
-        }
-    }
-
-    public void d(vd0 vd0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vd0Var) == null) {
-            for (pd0 pd0Var : this.b) {
-                qd0 qd0Var = this.a;
-                if (qd0Var != null) {
-                    qd0Var.b(pd0Var.c());
-                    pd0Var.g(vd0Var);
-                }
+            qd0 qd0Var = this.a;
+            if (qd0Var != null) {
+                qd0Var.f();
+                this.a = null;
             }
         }
     }
 
-    public void e(List<ce0> list) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            Log.d(d, "updateSurfaceDrawer !!!");
-            this.a.c();
-            for (pd0 pd0Var : this.b) {
-                pd0Var.e();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ud0 g = this.c.g();
+            this.b = g;
+            a(g);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            float[] b = this.c.h().b();
+            de0.b(b);
+            zd0 c = this.c.c();
+            de0.e(b, c.g(), c.h());
+            de0.a(b, c.d());
+            de0.c(b, c.b());
+            if ((c.f() + 360) % 180 == 0) {
+                de0.d(b, this.c.j(), this.c.i(), c.e(), c.c());
+                return;
             }
-            this.b.clear();
-            b(null, list);
+            xd0 clone = this.c.i().clone();
+            clone.e(this.c.i().b());
+            clone.d(this.c.i().c());
+            de0.d(b, this.c.j(), clone, c.e(), c.c());
         }
     }
 }

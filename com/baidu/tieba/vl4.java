@@ -1,91 +1,115 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.bm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vl4 extends nk4<bm4> {
+public class vl4 extends mk4<bm4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
 
-    @Override // com.baidu.tieba.nk4
+    @Override // com.baidu.tieba.mk4
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkglist" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vl4(cj4 cj4Var, nm4 nm4Var) {
-        super(cj4Var, nm4Var);
+    public vl4(String str, bj4 bj4Var, mm4 mm4Var) {
+        super(bj4Var, mm4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cj4Var, nm4Var};
+            Object[] objArr = {str, bj4Var, mm4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((cj4) objArr2[0], (nm4) objArr2[1]);
+                super((bj4) objArr2[0], (mm4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nk4
-    /* renamed from: w */
+    @Override // com.baidu.tieba.mk4
+    /* renamed from: x */
     public bm4 t(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            return oo4.f(jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) {
+            return no4.g(this.d, jSONObject);
         }
         return (bm4) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nk4
+    @Override // com.baidu.tieba.mk4
+    /* renamed from: v */
+    public boolean r(bm4 bm4Var, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bm4Var, i)) == null) {
+            if (bm4Var != null) {
+                q(bm4Var.e);
+                return false;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mk4
     /* renamed from: u */
     public boolean e(bm4 bm4Var) {
         InterceptResult invokeL;
-        List<bm4.a> list;
+        List<gk4> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bm4Var)) == null) {
-            if (bm4Var == null || (list = bm4Var.a) == null || list.isEmpty()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bm4Var)) == null) {
+            if (bm4Var == null) {
                 return false;
             }
-            for (bm4.a aVar : bm4Var.a) {
-                if (TextUtils.isEmpty(aVar.b)) {
-                    return false;
-                }
-                if (aVar.a == 0) {
-                    if (aVar.d == null && aVar.g == null && aVar.e == null) {
-                        return false;
-                    }
-                    gk4 gk4Var = aVar.d;
-                    if (gk4Var != null && !gk4Var.a()) {
-                        return false;
-                    }
-                    PMSAppInfo pMSAppInfo = aVar.g;
-                    if (pMSAppInfo != null && !pMSAppInfo.checkValid()) {
+            if (bm4Var.a == null && (((list = bm4Var.b) == null || list.isEmpty()) && bm4Var.d == null && bm4Var.f == null && bm4Var.e == null)) {
+                return false;
+            }
+            fk4 fk4Var = bm4Var.a;
+            if (fk4Var != null && !fk4Var.a()) {
+                return false;
+            }
+            List<gk4> list2 = bm4Var.b;
+            if (list2 != null) {
+                for (gk4 gk4Var : list2) {
+                    if (!gk4Var.a()) {
                         return false;
                     }
                 }
+            }
+            dk4 dk4Var = bm4Var.d;
+            if (dk4Var != null && !dk4Var.a()) {
+                return false;
+            }
+            bk4 bk4Var = bm4Var.f;
+            if (bk4Var != null && !bk4Var.a()) {
+                return false;
+            }
+            PMSAppInfo pMSAppInfo = bm4Var.e;
+            if (pMSAppInfo != null && !pMSAppInfo.checkValid()) {
+                return false;
             }
             return true;
         }
@@ -93,80 +117,28 @@ public class vl4 extends nk4<bm4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nk4
-    /* renamed from: v */
-    public bk4 s(bm4 bm4Var) {
+    @Override // com.baidu.tieba.mk4
+    /* renamed from: w */
+    public ak4 s(bm4 bm4Var) {
         InterceptResult invokeL;
-        PMSAppInfo pMSAppInfo;
-        PMSAppInfo pMSAppInfo2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bm4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bm4Var)) == null) {
             this.a.E();
-            po4 po4Var = new po4();
-            Map<String, PMSAppInfo> v = ej4.i().v();
-            ArrayList arrayList = new ArrayList();
-            List<ik4> list = null;
-            for (bm4.a aVar : bm4Var.a) {
-                if (aVar != null) {
-                    int i = aVar.a;
-                    if (i != 0) {
-                        this.a.v().o(aVar, v.get(aVar.b), new bk4(i, aVar.b + "，Server返回错误"));
-                    } else {
-                        List<hk4> list2 = aVar.e;
-                        if (list2 != null) {
-                            for (hk4 hk4Var : list2) {
-                                if (hk4Var != null) {
-                                    hk4Var.o = aVar.b;
-                                }
-                            }
-                            o(aVar.e, po4Var);
-                            arrayList.addAll(aVar.e);
-                        }
-                        list = f(aVar.f);
-                        if (list != null) {
-                            m(list, po4Var);
-                        }
-                        if (aVar.d != null && (pMSAppInfo2 = aVar.g) != null) {
-                            pMSAppInfo2.appId = aVar.b;
-                            this.a.v().l(aVar.g);
-                            n(aVar.d, po4Var);
-                        } else {
-                            PMSAppInfo pMSAppInfo3 = v.get(aVar.b);
-                            if (pMSAppInfo3 == null) {
-                                PMSAppInfo pMSAppInfo4 = aVar.g;
-                                if (pMSAppInfo4 != null) {
-                                    pMSAppInfo4.appId = aVar.b;
-                                    List<hk4> list3 = aVar.e;
-                                    if (list3 != null && !list3.isEmpty()) {
-                                        aVar.g.copySubPkgInfo(aVar.e.get(0));
-                                    }
-                                    this.a.v().p(aVar.g, null);
-                                } else {
-                                    this.a.v().o(aVar, null, new bk4(aVar.a, aVar.b + "，本地记录不存在"));
-                                }
-                            } else if (aVar.d == null && (pMSAppInfo = aVar.g) != null) {
-                                pMSAppInfo.appId = aVar.b;
-                                this.a.v().p(aVar.g, pMSAppInfo3);
-                            } else {
-                                gk4 gk4Var = aVar.d;
-                                if (gk4Var != null && aVar.g == null) {
-                                    aVar.h = true;
-                                    aVar.g = pMSAppInfo3;
-                                    n(gk4Var, po4Var);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            if (po4Var.n() == 0) {
+            oo4 oo4Var = new oo4();
+            n(bm4Var.a, oo4Var);
+            o(bm4Var.b, oo4Var);
+            m(f(bm4Var.c), oo4Var);
+            l(bm4Var.d, oo4Var);
+            k(bm4Var.f, oo4Var);
+            q(bm4Var.e);
+            if (oo4Var.n() == 0) {
                 this.a.F();
-            } else {
-                this.a.G(po4Var);
-                sk4.a(bm4Var, arrayList, list, this.a);
+                return null;
             }
+            this.a.G(oo4Var);
+            rk4.b(bm4Var, this.a);
             return null;
         }
-        return (bk4) invokeL.objValue;
+        return (ak4) invokeL.objValue;
     }
 }

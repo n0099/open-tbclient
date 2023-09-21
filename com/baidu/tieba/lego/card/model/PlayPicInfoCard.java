@@ -8,11 +8,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e39;
-import com.baidu.tieba.f39;
-import com.baidu.tieba.g39;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
+import com.baidu.tieba.p49;
+import com.baidu.tieba.q49;
+import com.baidu.tieba.r49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements e39<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements p49<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -41,8 +41,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements e39<PlayPicInfoCard
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public g39 c;
-        public f39 d;
+        public r49 c;
+        public q49 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements e39<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                g39 g39Var = new g39();
-                this.c = g39Var;
-                g39Var.d = jSONObject.optString("rText");
+                r49 r49Var = new r49();
+                this.c = r49Var;
+                r49Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    f39 f39Var = new f39(optJSONObject);
-                    this.d = f39Var;
-                    if (!f39Var.j()) {
+                    q49 q49Var = new q49(optJSONObject);
+                    this.d = q49Var;
+                    if (!q49Var.j()) {
                         this.d = null;
                     }
                 }
@@ -248,7 +248,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements e39<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.e39
+    @Override // com.baidu.tieba.p49
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {

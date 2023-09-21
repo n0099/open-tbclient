@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
 /* loaded from: classes5.dex */
 public class bwb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public String c;
+    public final LinkedHashMap<Long, StackTraceElement[]> a;
+    public int b;
 
     public bwb() {
         Interceptable interceptable = $ic;
@@ -27,47 +28,29 @@ public class bwb {
                 return;
             }
         }
-        this.a = 0;
+        this.a = new LinkedHashMap<>();
+        this.b = 100;
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long b() {
+    public LinkedHashMap<Long, StackTraceElement[]> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (LinkedHashMap) invokeV.objValue;
     }
 
-    public void c(String str) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.b = j;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int size = this.a.size();
+            int i = this.b;
+            if (size == i && i > 0) {
+                LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
+                linkedHashMap.remove(linkedHashMap.keySet().iterator().next());
+            }
+            this.a.put(Long.valueOf(System.currentTimeMillis()), Looper.getMainLooper().getThread().getStackTrace());
         }
     }
 }

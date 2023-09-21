@@ -1,47 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
-import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes5.dex */
-public final class dl2 {
+public class dl2 implements kw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Queue<el2> c;
 
-    public static void a(fa2 fa2Var, hl2 hl2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, fa2Var, hl2Var) == null) && fa2Var != null && hl2Var != null) {
-            hl2Var.g(fa2Var);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final dl2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-858065503, "Lcom/baidu/tieba/dl2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-858065503, "Lcom/baidu/tieba/dl2$b;");
+                    return;
+                }
+            }
+            a = new dl2(null);
         }
     }
 
-    public static String b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public dl2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                String quote = JSONObject.quote(str3);
-                return str + "." + str2 + " = " + quote + ParamableElem.DIVIDE_PARAM;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return "";
         }
-        return (String) invokeLLL.objValue;
+        this.c = new ConcurrentLinkedQueue();
     }
 
-    public static String c(fa2 fa2Var) {
-        InterceptResult invokeL;
+    public static dl2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fa2Var)) == null) {
-            if (fa2Var.isWebView()) {
-                return ClearCacheUbcController.DOCUMENT;
-            }
-            return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (String) invokeL.objValue;
+        return (dl2) invokeV.objValue;
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.c.clear();
+            }
+        }
+    }
+
+    public /* synthetic */ dl2(a aVar) {
+        this();
+    }
+
+    public synchronized void c(@NonNull el2 el2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, el2Var, str) == null) {
+            synchronized (this) {
+                while (this.c.size() > 0) {
+                    el2 peek = this.c.peek();
+                    if (peek == null) {
+                        this.c.remove();
+                    } else if (peek.a()) {
+                        break;
+                    } else {
+                        this.c.remove();
+                    }
+                }
+                int size = this.c.size();
+                if (size == 0) {
+                    this.c.offer(el2Var);
+                    ap3.g0(el2Var);
+                } else {
+                    el2 peek2 = this.c.peek();
+                    this.c.offer(el2Var);
+                    if (size == 1 && peek2 != null && peek2.b(str)) {
+                        ap3.g0(el2Var);
+                    } else {
+                        ap3.q().post(el2Var);
+                    }
+                }
+            }
+        }
     }
 }

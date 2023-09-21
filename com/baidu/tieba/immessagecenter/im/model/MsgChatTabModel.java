@@ -2,7 +2,7 @@ package com.baidu.tieba.immessagecenter.im.model;
 
 import android.text.TextUtils;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.re5;
+import com.baidu.tieba.ve5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class MsgChatTabModel extends ImMessageCenterModel {
             if (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() == -4) {
                 return false;
             }
-            if (imMessageCenterPojo.getCustomGroupType() == 4 && imMessageCenterPojo.getUserType() == 4 && !re5.P(imMessageCenterPojo.getGid())) {
+            if (imMessageCenterPojo.getCustomGroupType() == 4 && imMessageCenterPojo.getUserType() == 4 && !ve5.P(imMessageCenterPojo.getGid())) {
                 return true;
             }
             if (imMessageCenterPojo.getCustomGroupType() == -8) {

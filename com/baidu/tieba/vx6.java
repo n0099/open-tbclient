@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.l0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class vx6 implements cn {
+public final class vx6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final vx6 a;
+    public static final l0 b;
+    public static final Class<? extends xv6>[] c;
+    public static final l0 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardCompetition a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +32,16 @@ public class vx6 implements cn {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = new vx6();
+        l0 b2 = l0.d(cw6.class).b();
+        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
+        b = b2;
+        c = new Class[]{cw6.class, bw6.class};
+        l0.b d2 = l0.d(cw6.class, bw6.class);
+        d2.c(dw6.class, fw6.class);
+        l0 b3 = d2.b();
+        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
+        d = b3;
     }
 
     public vx6() {
@@ -47,33 +58,30 @@ public class vx6 implements cn {
         }
     }
 
-    public FeatureCardCompetition a() {
+    public final l0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return b;
         }
-        return (FeatureCardCompetition) invokeV.objValue;
+        return (l0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cn
-    public BdUniqueId getType() {
+    public final Class<? extends xv6>[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c;
+        }
+        return (Class[]) invokeV.objValue;
+    }
+
+    public final l0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+            return d;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void b(FeatureCardCompetition featureCardCompetition) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetition) != null) || featureCardCompetition == null) {
-            return;
-        }
-        this.a = featureCardCompetition;
-        String str = featureCardCompetition.title;
-        Integer num = featureCardCompetition.floor;
-        Integer num2 = featureCardCompetition.type;
+        return (l0) invokeV.objValue;
     }
 }

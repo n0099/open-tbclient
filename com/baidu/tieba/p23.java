@@ -1,70 +1,145 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Deprecated
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import okio.BufferedSource;
+import okio.ForwardingSource;
+import okio.Okio;
+import okio.Source;
 /* loaded from: classes7.dex */
-public class p23 extends ed3 {
+public class p23 extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ResponseBody a;
+    public final m23 b;
+    public BufferedSource c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p23(ec3 ec3Var) {
-        super(ec3Var, "/swanAPI/networkStatusChange");
+    /* loaded from: classes7.dex */
+    public class a extends ForwardingSource {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public final /* synthetic */ p23 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(p23 p23Var, Source source) {
+            super(source);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p23Var, source};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Source) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = p23Var;
+            this.a = 0L;
+        }
+
+        @Override // okio.ForwardingSource, okio.Source
+        public long read(Buffer buffer, long j) throws IOException {
+            InterceptResult invokeLJ;
+            long j2;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, buffer, j)) == null) {
+                long read = super.read(buffer, j);
+                long j3 = this.a;
+                int i = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
+                if (i != 0) {
+                    j2 = read;
+                } else {
+                    j2 = 0;
+                }
+                this.a = j3 + j2;
+                m23 m23Var = this.b.b;
+                long j4 = this.a;
+                long contentLength = this.b.a.contentLength();
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                m23Var.a(j4, contentLength, z);
+                return read;
+            }
+            return invokeLJ.longValue;
+        }
+    }
+
+    public p23(ResponseBody responseBody, m23 m23Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ec3Var};
+            Object[] objArr = {responseBody, m23Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = responseBody;
+        this.b = m23Var;
     }
 
-    @Override // com.baidu.tieba.ed3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
-        InterceptResult invokeLLLL;
+    public final Source c(Source source) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
-            if (hb3Var != null && context != null && callbackHandler != null) {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    h82.c("networkStatusChange", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    h82.c("networkStatusChange", "callback is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                hb3Var.a0().b(callbackHandler, optString);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((JSONObject) null, 0));
-                return true;
-            }
-            h82.c("networkStatusChange", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, source)) == null) {
+            return new a(this, source);
         }
-        return invokeLLLL.booleanValue;
+        return (Source) invokeL.objValue;
+    }
+
+    @Override // okhttp3.ResponseBody
+    public long contentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.contentLength();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // okhttp3.ResponseBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.contentType();
+        }
+        return (MediaType) invokeV.objValue;
+    }
+
+    @Override // okhttp3.ResponseBody
+    public BufferedSource source() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c == null) {
+                this.c = Okio.buffer(c(this.a.source()));
+            }
+            return this.c;
+        }
+        return (BufferedSource) invokeV.objValue;
     }
 }

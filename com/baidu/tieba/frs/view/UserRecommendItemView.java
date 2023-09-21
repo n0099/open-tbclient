@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UserRecommendItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -126,8 +126,8 @@ public class UserRecommendItemView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03b0, (ViewGroup) this, true);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0928a9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03b1, (ViewGroup) this, true);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f092875);
             this.a = clickableHeaderImageView;
             clickableHeaderImageView.setAutoChangeStyle(true);
             this.a.setDefaultResource(17170445);
@@ -136,8 +136,8 @@ public class UserRecommendItemView extends LinearLayout {
             CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
             this.b = cardUserLikeButton;
             cardUserLikeButton.setGravity(17);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0928ad);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0928a8);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092879);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092874);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);

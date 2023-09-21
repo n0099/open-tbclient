@@ -4,12 +4,12 @@ import android.webkit.MimeTypeMap;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.media.WebpUtils;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.cg2;
-import com.baidu.tieba.nf2;
+import com.baidu.tieba.bg2;
+import com.baidu.tieba.mf2;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class SystemStrategyImpl implements nf2 {
+public class SystemStrategyImpl implements mf2 {
     public final List<String> a = new ArrayList<String>() { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl.1
         {
             add("png");
@@ -26,8 +26,8 @@ public class SystemStrategyImpl implements nf2 {
         return "SystemStrategyImpl";
     }
 
-    @Override // com.baidu.tieba.nf2
-    public boolean a(@NonNull cg2.a aVar) {
+    @Override // com.baidu.tieba.mf2
+    public boolean a(@NonNull bg2.a aVar) {
         String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(aVar.d());
         aVar.a(MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl));
         return this.a.contains(fileExtensionFromUrl);

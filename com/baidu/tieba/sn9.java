@@ -1,182 +1,364 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.NonNull;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.main.PbCommenFloorItemViewHolder;
+import com.baidu.tbadk.module.pb.BarManageResultListener;
+import com.baidu.tieba.pb.pb.main.view.CustomBlueCheckRadioButton;
+import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class sn9 extends jm9 {
+public class sn9 implements yp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public TbPageContext a;
+    @NonNull
+    public ForumManageModel b;
+    @NonNull
+    public final i9 c;
+    public List<CustomBlueCheckRadioButton> d;
+    public Dialog e;
+    public View f;
+    public LinearLayout g;
+    public CompoundButton.OnCheckedChangeListener h;
+    public TextView i;
+    public TextView j;
+    public String k;
+    public ScrollView l;
+    public String m;
+    public String n;
+    public String o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sn9(rr9 rr9Var, BdUniqueId bdUniqueId) {
-        super(rr9Var, bdUniqueId);
+    /* loaded from: classes8.dex */
+    public class a extends i9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sn9 a;
+
+        public a(sn9 sn9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sn9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sn9Var;
+        }
+
+        @Override // com.baidu.tieba.i9
+        public void c(Object obj) {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || obj == null || this.a.a.getPageActivity().isDestroyed()) {
+                return;
+            }
+            int loadDataMode = this.a.b.getLoadDataMode();
+            if (loadDataMode != 2 && loadDataMode != 3 && loadDataMode != 4 && loadDataMode != 5) {
+                if (loadDataMode != 6) {
+                    return;
+                }
+                this.a.m(((ForumManageModel.g) obj).c);
+                return;
+            }
+            ForumManageModel.g gVar = (ForumManageModel.g) obj;
+            if (TextUtils.isEmpty(gVar.b)) {
+                if (gVar.a) {
+                    i = R.string.operation_success;
+                } else {
+                    i = R.string.operation_failed;
+                }
+                gVar.b = this.a.a.getString(i);
+            }
+            BarManageResultListener.j(this.a.b.d0(this.a.b.getLoadDataMode(), gVar));
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements CompoundButton.OnCheckedChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sn9 a;
+
+        public b(sn9 sn9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sn9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sn9Var;
+        }
+
+        @Override // android.widget.CompoundButton.OnCheckedChangeListener
+        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && z) {
+                this.a.k = (String) compoundButton.getTag();
+                if (this.a.d != null) {
+                    for (CustomBlueCheckRadioButton customBlueCheckRadioButton : this.a.d) {
+                        String str = (String) customBlueCheckRadioButton.getTag();
+                        if (str != null && this.a.k != null && !str.equals(this.a.k)) {
+                            customBlueCheckRadioButton.setChecked(false);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sn9 a;
+
+        public c(sn9 sn9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sn9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sn9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.e instanceof Dialog)) {
+                jg.b(this.a.e, this.a.a);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sn9 a;
+
+        public d(sn9 sn9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sn9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sn9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.b.j0(this.a.m, this.a.n, this.a.o, 2, this.a.k);
+                if (this.a.e instanceof Dialog) {
+                    jg.b(this.a.e, this.a.a);
+                }
+            }
+        }
+    }
+
+    public sn9(@NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rr9Var, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((rr9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new a(this);
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.a = tbPageContext;
+        ForumManageModel forumManageModel = new ForumManageModel(tbPageContext);
+        this.b = forumManageModel;
+        forumManageModel.setLoadDataCallBack(this.c);
     }
 
-    public final void I0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+    @Override // com.baidu.tieba.yp5
+    public void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pbCommenFloorItemViewHolder) == null) {
-            N0(pbCommenFloorItemViewHolder.F0);
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) != null) || this.b.f0()) {
+            return;
         }
-    }
-
-    public final void J0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbCommenFloorItemViewHolder) == null) {
-            N0(pbCommenFloorItemViewHolder.C0);
+        this.m = str;
+        this.n = str2;
+        this.o = str3;
+        if (z) {
+            i = 3;
+        } else {
+            i = 6;
         }
+        this.b.j0(str, str2, str3, i, null);
     }
 
-    public final void K0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+    @Override // com.baidu.tieba.yp5
+    public void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbCommenFloorItemViewHolder) == null) {
-            N0(pbCommenFloorItemViewHolder.r);
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) != null) || this.b.f0()) {
+            return;
         }
-    }
-
-    public final void L0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, pbCommenFloorItemViewHolder) == null) && (view2 = pbCommenFloorItemViewHolder.I) != null) {
-            view2.setVisibility(4);
+        if (z) {
+            i = 5;
+        } else {
+            i = 4;
         }
+        this.b.j0(str, str2, str3, i, null);
     }
 
-    public final void M0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
+    public final CustomBlueCheckRadioButton l(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pbCommenFloorItemViewHolder) == null) {
-            TextView textView = pbCommenFloorItemViewHolder.C;
-            if (textView != null) {
-                textView.setVisibility(8);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            Activity pageActivity = this.a.getPageActivity();
+            CustomBlueCheckRadioButton customBlueCheckRadioButton = new CustomBlueCheckRadioButton(pageActivity);
+            RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(-1, BdUtilHelper.getDimens(pageActivity, R.dimen.obfuscated_res_0x7f07019a));
+            customBlueCheckRadioButton.setOnCheckedChangeListener(this.h);
+            customBlueCheckRadioButton.setTag(str);
+            customBlueCheckRadioButton.setText(str2);
+            customBlueCheckRadioButton.setLayoutParams(layoutParams);
+            return customBlueCheckRadioButton;
+        }
+        return (CustomBlueCheckRadioButton) invokeLL.objValue;
+    }
+
+    public final void m(ArrayList<r25> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            if (this.f == null) {
+                this.f = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.commit_good, (ViewGroup) null);
             }
-            TextView textView2 = pbCommenFloorItemViewHolder.l;
-            if (textView2 != null) {
-                textView2.setVisibility(8);
+            if (this.e == null) {
+                Dialog dialog = new Dialog(this.a.getPageActivity());
+                this.e = dialog;
+                dialog.setCanceledOnTouchOutside(true);
+                this.e.setCancelable(true);
+                this.l = (ScrollView) this.f.findViewById(R.id.good_scroll);
+                this.e.setContentView(this.f);
+                WindowManager.LayoutParams attributes = this.e.getWindow().getAttributes();
+                attributes.width = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703f9);
+                this.e.getWindow().setAttributes(attributes);
+                this.h = new b(this);
+                this.g = (LinearLayout) this.f.findViewById(R.id.good_class_group);
+                TextView textView = (TextView) this.f.findViewById(R.id.dialog_button_cancel);
+                this.j = textView;
+                textView.setOnClickListener(new c(this));
+                TextView textView2 = (TextView) this.f.findViewById(R.id.dialog_button_ok);
+                this.i = textView2;
+                textView2.setOnClickListener(new d(this));
             }
-        }
-    }
-
-    public final void O0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, pbCommenFloorItemViewHolder) == null) {
-            N0(pbCommenFloorItemViewHolder.v);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jm9, com.baidu.tieba.pm
-    /* renamed from: u0 */
-    public PbCommenFloorItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
-            PbCommenFloorItemViewHolder onCreateViewHolder = super.onCreateViewHolder(viewGroup);
-            P0(onCreateViewHolder);
-            return onCreateViewHolder;
-        }
-        return (PbCommenFloorItemViewHolder) invokeL.objValue;
-    }
-
-    public final void N0(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            marginLayoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
-            marginLayoutParams.leftMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
-            view2.setLayoutParams(marginLayoutParams);
-        }
-    }
-
-    public final void Q0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pbCommenFloorItemViewHolder) == null) {
-            View findViewById = pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f0927b0);
-            if (findViewById != null) {
-                SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
-            }
-            View findViewById2 = pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f0927af);
-            if (findViewById2 != null) {
-                SkinManager.setViewTextColor(findViewById2, R.color.CAM_X0105, 1);
-            }
-        }
-    }
-
-    public final void P0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        RelativeLayout.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, pbCommenFloorItemViewHolder) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f091b5c);
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07c8, (ViewGroup) null);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
-            if (relativeLayout != null) {
-                relativeLayout.addView(inflate, 0, layoutParams2);
-            }
-            LinearLayout linearLayout = (LinearLayout) pbCommenFloorItemViewHolder.getView().findViewById(R.id.obfuscated_res_0x7f0911bd);
-            if (linearLayout != null) {
-                if (linearLayout.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
-                } else {
-                    layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            this.g.removeAllViews();
+            this.d = new ArrayList();
+            CustomBlueCheckRadioButton l = l("0", this.a.getString(R.string.thread_good_class));
+            this.d.add(l);
+            l.setChecked(true);
+            this.g.addView(l);
+            if (arrayList != null) {
+                for (int i = 0; i < arrayList.size(); i++) {
+                    r25 r25Var = arrayList.get(i);
+                    if (r25Var != null && !TextUtils.isEmpty(r25Var.b()) && r25Var.a() > 0) {
+                        CustomBlueCheckRadioButton l2 = l(String.valueOf(r25Var.a()), r25Var.b());
+                        this.d.add(l2);
+                        View view2 = new View(this.a.getPageActivity());
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070198));
+                        SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
+                        view2.setLayoutParams(layoutParams);
+                        this.g.addView(view2);
+                        this.g.addView(l2);
+                    }
                 }
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091fbc);
-                linearLayout.setLayoutParams(layoutParams);
+                ViewGroup.LayoutParams layoutParams2 = this.l.getLayoutParams();
+                int size = arrayList.size();
+                if (size != 0 && size != 1) {
+                    if (size != 2) {
+                        layoutParams2.height = BdUtilHelper.dip2px(this.a.getPageActivity(), 220.0f);
+                    } else {
+                        layoutParams2.height = BdUtilHelper.dip2px(this.a.getPageActivity(), 186.0f);
+                    }
+                } else {
+                    layoutParams2.height = BdUtilHelper.dip2px(this.a.getPageActivity(), 120.0f);
+                }
+                this.l.setLayoutParams(layoutParams2);
+                this.l.removeAllViews();
+                LinearLayout linearLayout = this.g;
+                if (linearLayout != null && linearLayout.getParent() == null) {
+                    this.l.addView(this.g);
+                }
             }
+            jg.j(this.e, this.a);
         }
-    }
-
-    @Override // com.baidu.tieba.jm9, com.baidu.tieba.lm9, com.baidu.tieba.pm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v0(i, view2, viewGroup, (tha) obj, (PbCommenFloorItemViewHolder) viewHolder);
-        return view2;
-    }
-
-    @Override // com.baidu.tieba.jm9
-    public View v0(int i, View view2, ViewGroup viewGroup, tha thaVar, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, thaVar, pbCommenFloorItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, thaVar, pbCommenFloorItemViewHolder);
-            K0(pbCommenFloorItemViewHolder);
-            M0(pbCommenFloorItemViewHolder);
-            I0(pbCommenFloorItemViewHolder);
-            J0(pbCommenFloorItemViewHolder);
-            O0(pbCommenFloorItemViewHolder);
-            L0(pbCommenFloorItemViewHolder);
-            Q0(pbCommenFloorItemViewHolder);
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
     }
 }

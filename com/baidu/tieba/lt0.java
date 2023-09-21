@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.nadcore.net.request.Headers;
-import java.io.InputStream;
-/* loaded from: classes6.dex */
-public interface lt0 {
-    void a(Exception exc, int i);
+/* loaded from: classes7.dex */
+public interface lt0<T> extends kt0 {
+    void b(Headers headers, T t, int i);
 
-    void c(Headers headers, InputStream inputStream, int i) throws Exception;
+    T d(Headers headers, String str, int i) throws Exception;
 }

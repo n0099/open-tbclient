@@ -12,9 +12,9 @@ import com.baidu.tbadk.CustomRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.io8;
+import com.baidu.tieba.tf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class DirectChatSlice extends Slice {
     @Nullable
     public ChatRoomDetail m;
     @Nullable
-    public io8 n;
+    public tf8 n;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -62,19 +62,19 @@ public class DirectChatSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0908cc);
+                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0908c3);
                 return aVar;
             }
             return (a) invokeL.objValue;
         }
     }
 
-    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull io8 io8Var) {
+    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull tf8 tf8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, io8Var};
+            Object[] objArr = {tbPageContext, tf8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,14 +85,14 @@ public class DirectChatSlice extends Slice {
             }
         }
         this.j = tbPageContext;
-        this.n = io8Var;
+        this.n = tf8Var;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void X(@Nullable View view2, @Nullable Bundle bundle) {
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
+    public void Z(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.X(view2, bundle);
+            super.Z(view2, bundle);
             if (view2 != null) {
                 this.k = a.a(view2);
             }
@@ -102,18 +102,18 @@ public class DirectChatSlice extends Slice {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
     @Nullable
-    public View R(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View T(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08dd, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08da, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
-    public final void a0() {
+    public final void c0() {
         ChatRoomDetail chatRoomDetail;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (chatRoomDetail = this.m) != null && chatRoomDetail.getQuickTalk() != null) {
@@ -127,15 +127,15 @@ public class DirectChatSlice extends Slice {
         }
     }
 
-    public void b0(@NonNull ChatRoomDetail chatRoomDetail) {
+    public void d0(@NonNull ChatRoomDetail chatRoomDetail) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, chatRoomDetail) == null) {
             this.m = chatRoomDetail;
-            a0();
+            c0();
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
+    @Override // com.baidu.tieba.im.base.core.slice.Slice
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {

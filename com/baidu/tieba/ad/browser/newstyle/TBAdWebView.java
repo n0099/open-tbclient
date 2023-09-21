@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
-import com.baidu.tieba.i66;
-import com.baidu.tieba.il0;
-import com.baidu.tieba.o36;
+import com.baidu.tieba.hl0;
+import com.baidu.tieba.j66;
+import com.baidu.tieba.p36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,16 +84,16 @@ public class TBAdWebView extends BaseAdWebView {
     }
 
     @Override // com.baidu.tieba.ad.webview.BaseAdWebView
-    public void b(@NonNull il0 il0Var, boolean z) {
+    public void b(@NonNull hl0 hl0Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, il0Var, z) == null) {
-            if (!o36.a().f() && !PermissionUtil.checkWriteExternalStorage(this.b)) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, hl0Var, z) == null) {
+            if (!p36.a().f() && !PermissionUtil.checkWriteExternalStorage(this.b)) {
                 PermissionUtil.requestWriteExternalStorage((Activity) this.b, 0);
                 return;
             }
-            i66 i66Var = this.c;
-            if (i66Var != null) {
-                i66Var.Z0(il0Var);
+            j66 j66Var = this.c;
+            if (j66Var != null) {
+                j66Var.v0(hl0Var);
             }
         }
     }

@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.WindowManager;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class kd8 {
+public class kd8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final kd8 a;
+    public static final String a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
+    public static final String e;
+    public static final String f;
+    public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,47 +31,12 @@ public final class kd8 {
                 return;
             }
         }
-        a = new kd8();
-    }
-
-    public kd8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @JvmStatic
-    public static final int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            return a.a(context).heightPixels;
-        }
-        return invokeL.intValue;
-    }
-
-    public final DisplayMetrics a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            Object systemService = context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-            if (systemService != null) {
-                Display defaultDisplay = ((WindowManager) systemService).getDefaultDisplay();
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                defaultDisplay.getMetrics(displayMetrics);
-                return displayMetrics;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type android.view.WindowManager");
-        }
-        return (DisplayMetrics) invokeL.objValue;
+        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0940);
+        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0942);
+        c = TbadkCoreApplication.getInst().getString(R.string.group_chat_group_had_close);
+        d = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_all);
+        e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f095a);
+        f = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_person);
+        g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f094e);
     }
 }

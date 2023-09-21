@@ -149,7 +149,7 @@ public class k05 implements Application.ActivityLifecycleCallbacks {
                 DrawableCompat.setTintList(drawable, colorListByResourceType);
             }
             imageView.setImageDrawable(drawable);
-            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f092116);
+            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f0920e0);
             if (relativeLayout == null) {
                 return;
             }

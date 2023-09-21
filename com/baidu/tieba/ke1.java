@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IHostAppRuntime;
-import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,14 +17,14 @@ public class ke1 {
     public static ke1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public ok1<IHostAppRuntime> a;
+    public nk1<IPackageGetter> a;
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            mk1 b2 = mk1.b();
+            lk1 b2 = lk1.b();
             this.a = b2;
-            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
+            b2.a(new IPackageGetter_PackageGetter_Provider());
         }
     }
 
@@ -61,7 +60,7 @@ public class ke1 {
         c();
     }
 
-    public static ke1 b() {
+    public static ke1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -70,12 +69,12 @@ public class ke1 {
         return (ke1) invokeV.objValue;
     }
 
-    public Application a() {
+    public IPackageGetter b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get().getApplication();
+            return this.a.get();
         }
-        return (Application) invokeV.objValue;
+        return (IPackageGetter) invokeV.objValue;
     }
 }

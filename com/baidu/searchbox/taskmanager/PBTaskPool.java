@@ -68,7 +68,6 @@ import com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask;
 import com.baidu.searchbox.task.view.appcreate.InitMonitorTask;
 import com.baidu.searchbox.task.view.appcreate.InitWebViewTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -154,9 +153,6 @@ public class PBTaskPool extends BaseTaskPool {
         if (i == 2) {
             arrayList.add(new LaunchWithPrivacyTask());
             arrayList.add(new DeleteApkTask());
-            if (!DelayInitNightPluginSwitch.isOn()) {
-                arrayList.add(new NightPluginTask());
-            }
             arrayList.add(new LogoTask());
             arrayList.add(new InitAdvertDbTask());
             arrayList.addAll(new AsyncTaskCollector().asyncList());
@@ -172,9 +168,7 @@ public class PBTaskPool extends BaseTaskPool {
             arrayList.add(new MaintabAsyncInitTask());
             arrayList.add(new LaunchStatTask());
             arrayList.add(new InitSDKIdleTask());
-            if (DelayInitNightPluginSwitch.isOn()) {
-                arrayList.add(new NightPluginTask());
-            }
+            arrayList.add(new NightPluginTask());
             arrayList.add(new InitCyberPlayerTask());
             arrayList.add(new InitSwanAppTask());
             arrayList.add(new InitPrologueAdTask());

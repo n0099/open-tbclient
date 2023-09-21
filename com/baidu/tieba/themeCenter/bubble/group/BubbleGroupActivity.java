@@ -4,11 +4,11 @@ import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.goa;
-import com.baidu.tieba.ioa;
-import com.baidu.tieba.joa;
+import com.baidu.tieba.ara;
+import com.baidu.tieba.mqa;
+import com.baidu.tieba.oqa;
+import com.baidu.tieba.pqa;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
-import com.baidu.tieba.uoa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,8 +20,8 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel a;
-    public joa b;
-    public goa c;
+    public pqa b;
+    public mqa c;
     public BubbleGroupModel.c d;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -56,9 +56,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
-        public void a(int i, String str, uoa uoaVar, List<ioa> list) {
+        public void a(int i, String str, ara araVar, List<oqa> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, uoaVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, araVar, list}) == null) {
                 BubbleGroupActivity bubbleGroupActivity = this.a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.b.d());
                 this.a.b.i();
@@ -67,7 +67,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     this.a.b.j();
                     return;
                 }
-                this.a.b.k(uoaVar, list, this.a.a.T());
+                this.a.b.k(araVar, list, this.a.a.T());
             }
         }
     }
@@ -112,10 +112,10 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        joa joaVar;
+        pqa pqaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (joaVar = this.b) != null) {
-            showLoadingView(joaVar.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (pqaVar = this.b) != null) {
+            showLoadingView(pqaVar.d());
             this.a.loadData();
         }
     }
@@ -125,9 +125,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            joa joaVar = this.b;
-            if (joaVar != null) {
-                joaVar.f();
+            pqa pqaVar = this.b;
+            if (pqaVar != null) {
+                pqaVar.f();
             }
         }
     }
@@ -140,11 +140,11 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.a = bubbleGroupModel;
             bubbleGroupModel.W(this.d);
-            goa goaVar = new goa(getPageContext());
-            this.c = goaVar;
-            joa joaVar = new joa(this, goaVar);
-            this.b = joaVar;
-            joaVar.e();
+            mqa mqaVar = new mqa(getPageContext());
+            this.c = mqaVar;
+            pqa pqaVar = new pqa(this, mqaVar);
+            this.b = pqaVar;
+            pqaVar.e();
             showLoadingView(this.b.d());
             this.a.loadData();
         }

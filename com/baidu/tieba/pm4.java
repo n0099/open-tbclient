@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
@@ -13,18 +14,24 @@ public abstract class pm4 implements sm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sm4
-    public void a(JSONArray jSONArray, cj4 cj4Var, @Nullable cj4 cj4Var2, @Nullable cj4 cj4Var3) {
+    @Nullable
+    public JSONArray c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, cj4Var, cj4Var2, cj4Var3) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
+        return (JSONArray) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sm4
-    public void b(JSONObject jSONObject, cj4 cj4Var, @Nullable cj4 cj4Var2, @Nullable cj4 cj4Var3) {
+    @Nullable
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, cj4Var, cj4Var2, cj4Var3) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
     public pm4() {
@@ -39,5 +46,43 @@ public abstract class pm4 implements sm4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static <T> T e(@Nullable T t, @Nullable qm4<T> qm4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, qm4Var)) == null) {
+            if (t != null && qm4Var != null) {
+                qm4Var.a(t);
+            }
+            return t;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sm4
+    @Nullable
+    public JSONObject a(@Nullable qm4<JSONObject> qm4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qm4Var)) == null) {
+            JSONObject d = d();
+            e(d, qm4Var);
+            return d;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sm4
+    @Nullable
+    public JSONArray b(@Nullable qm4<JSONArray> qm4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qm4Var)) == null) {
+            JSONArray c = c();
+            e(c, qm4Var);
+            return c;
+        }
+        return (JSONArray) invokeL.objValue;
     }
 }

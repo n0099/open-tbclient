@@ -1,104 +1,137 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x23;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Response;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class t94 implements Interceptor {
+public class t94 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public x23.b a;
-    public final n23 b;
+    public List<n32> a;
 
-    /* loaded from: classes8.dex */
-    public class a implements n23 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t94 a;
-
-        public a(t94 t94Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136026, "Lcom/baidu/tieba/t94;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t94Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = t94Var;
-        }
-
-        @Override // com.baidu.tieba.n23
-        public void a(long j, long j2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-                if (this.a.a == null) {
-                    if (rr1.a) {
-                        Log.e("onProgress", "DownloadProgressInterceptor.mIProgressCallback == null");
-                    }
-                } else if (j2 == -1 && j != 0) {
-                    this.a.a.b(0, j, j2);
-                } else if (j2 > 52428800) {
-                    this.a.a.a(j2);
-                    this.a.a = null;
-                } else if (j2 > 0 && j <= j2 && j != 0) {
-                    int floor = (int) Math.floor((100 * j) / j2);
-                    if (floor <= 100) {
-                        this.a.a.b(floor, j, j2);
-                    }
-                } else {
-                    this.a.a.c(j, j2);
-                    this.a.a = null;
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948136026, "Lcom/baidu/tieba/t94;");
+                return;
             }
         }
+        b = qr1.a;
     }
 
-    public t94() {
+    public t94(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
-    }
-
-    public void c(x23.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.a = bVar;
+        this.a = new ArrayList();
+        if (jSONArray == null) {
+            return;
+        }
+        if (b) {
+            Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
+        }
+        int length = jSONArray.length();
+        int i3 = 0;
+        int i4 = 0;
+        for (int i5 = 0; i5 < length; i5++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("type");
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != 1095692943) {
+                    if (hashCode == 1427818632 && optString.equals("download")) {
+                        c = 1;
+                    }
+                } else if (optString.equals("request")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c == 1 && i4 < 10) {
+                        this.a.add(a(optJSONObject));
+                        i4++;
+                    }
+                } else if (i3 < 3) {
+                    this.a.add(b(optJSONObject));
+                    i3++;
+                }
+            }
         }
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public final n32 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            Response proceed = chain.proceed(chain.request());
-            return proceed.newBuilder().body(new q23(proceed.body(), this.b)).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            n32 n32Var = new n32();
+            n32Var.G("type", jSONObject.optString("type"));
+            n32Var.G("url", jSONObject.optString("url"));
+            n32Var.G("filePath", jSONObject.optString("filePath"));
+            n32Var.G("header", c(jSONObject.optJSONObject("header")));
+            return n32Var;
         }
-        return (Response) invokeL.objValue;
+        return (n32) invokeL.objValue;
+    }
+
+    public final n32 b(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            n32 n32Var = new n32();
+            n32Var.G("type", jSONObject.optString("type"));
+            n32Var.G("url", jSONObject.optString("url"));
+            n32Var.G("responseType", jSONObject.optString("responseType"));
+            n32Var.G("header", c(jSONObject.optJSONObject("header")));
+            return n32Var;
+        }
+        return (n32) invokeL.objValue;
+    }
+
+    public final n32 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            n32 n32Var = new n32();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                n32Var.G(next, jSONObject.optString(next));
+            }
+            return n32Var;
+        }
+        return (n32) invokeL.objValue;
     }
 }

@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleProducer;
 /* loaded from: classes7.dex */
-public final class pcc<T> extends xac<T> {
+public abstract class pcc<T> implements rcc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yac<? super T> b;
+    public final cfc a;
 
-    public pcc(yac<? super T> yacVar) {
+    public abstract void b(Throwable th);
+
+    public abstract void c(T t);
+
+    public pcc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yacVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,22 +28,31 @@ public final class pcc<T> extends xac<T> {
                 return;
             }
         }
-        this.b = yacVar;
+        this.a = new cfc();
     }
 
-    @Override // com.baidu.tieba.xac
-    public void b(Throwable th) {
+    @Override // com.baidu.tieba.rcc
+    public final boolean isUnsubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            this.b.onError(th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.isUnsubscribed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rcc
+    public final void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.unsubscribe();
         }
     }
 
-    @Override // com.baidu.tieba.xac
-    public void c(T t) {
+    public final void a(rcc rccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.b.f(new SingleProducer(this.b, t));
+        if (interceptable == null || interceptable.invokeL(1048576, this, rccVar) == null) {
+            this.a.a(rccVar);
         }
     }
 }

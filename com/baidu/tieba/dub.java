@@ -1,61 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes5.dex */
-public class dub {
+public class dub extends jvb<KsFullScreenVideoAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public static long b;
-    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public long b;
-        public long c;
-        public long d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            new HashMap();
-            new HashMap();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947718456, "Lcom/baidu/tieba/dub;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947718456, "Lcom/baidu/tieba/dub;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dub(KsFullScreenVideoAd ksFullScreenVideoAd) {
+        super(ksFullScreenVideoAd);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ksFullScreenVideoAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
+    }
+
+    @Override // com.baidu.tieba.jvb
+    public double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
+            }
+            return ((KsFullScreenVideoAd) a).getECPM();
+        }
+        return invokeV.doubleValue;
+    }
+
+    @Override // com.baidu.tieba.jvb
+    public void b(int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
+        }
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsFullScreenVideoAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
+    }
+
+    @Override // com.baidu.tieba.jvb
+    public void c(long j, long j2) {
+        A a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
+        }
+        ((KsFullScreenVideoAd) a).setBidEcpm((int) j);
     }
 }

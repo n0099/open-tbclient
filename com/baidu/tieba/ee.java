@@ -64,7 +64,7 @@ public class ee extends fe<byte[]> {
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v12, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r0v12, types: [byte[], T] */
     @Override // com.baidu.tieba.fe
     public je<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         InterceptResult invokeLL;

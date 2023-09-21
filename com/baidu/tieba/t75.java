@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.q75;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes8.dex */
-public interface t75<T extends q75> {
-    void a(int i, T t);
+public interface t75 {
+    w75 a();
 
-    void b(int i, String str);
+    View b();
+
+    z75 c();
+
+    TbImageView d(Context context);
 }

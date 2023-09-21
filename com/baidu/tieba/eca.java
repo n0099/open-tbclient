@@ -1,31 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.cloudcommand.processor.CloudCommandProcessor;
+import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
+import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
+import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
+import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class eca {
+public class eca implements ICloudControlRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2) {
+    public eca() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
-            statisticItem.param("obj_source", str);
-            statisticItem.param("obj_type", str2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(String str) {
+    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
+    public void registerAllProcessors(DataProcessors dataProcessors) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
-            statisticItem.param("obj_type", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(1048576, this, dataProcessors) == null) {
+            dataProcessors.addProcessor("aps", new ApsCloudControlProcessor());
+            dataProcessors.addProcessor("ubc", new UBCCloudControlProcessor());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921656, ICloudControlProcessor.class, "register");
+            if (runTask != null) {
+                dataProcessors.addProcessor("config", (ICloudControlProcessor) runTask.getData());
+            }
+            dataProcessors.addProcessor("command", new CloudCommandProcessor());
         }
     }
 }

@@ -1,23 +1,9 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.tieba.browser.TbWebView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class a0b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a0b {
+    void c(int i, int i2);
 
-    public static void a(@NonNull TbWebView tbWebView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, tbWebView) == null) {
-        }
-    }
+    void f();
 
-    public static void b(@NonNull TbWebView tbWebView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, tbWebView) == null) {
-        }
-    }
+    void setDragMode(int i, int i2);
 }

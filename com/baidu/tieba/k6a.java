@@ -5,17 +5,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k6a extends m6a {
+public class k6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.tc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "common_exp" : (String) invokeV.objValue;
-    }
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
     public k6a() {
         Interceptable interceptable = $ic;
@@ -29,5 +27,22 @@ public class k6a extends m6a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static k6a a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            k6a k6aVar = new k6a();
+            k6aVar.a = jSONObject.optInt("agree_num", -1);
+            k6aVar.b = jSONObject.optInt("share_num", -1);
+            k6aVar.c = jSONObject.optInt("reply_num", -1);
+            k6aVar.d = jSONObject.optLong("time", System.currentTimeMillis());
+            return k6aVar;
+        }
+        return (k6a) invokeL.objValue;
     }
 }

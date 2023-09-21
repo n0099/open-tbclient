@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fba;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
-import com.baidu.tieba.z8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z8a a;
+    public fba a;
     public HttpMessageListener b;
 
     /* loaded from: classes8.dex */
@@ -70,14 +70,14 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
                 if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                    this.a.a.E();
+                    this.a.a.y();
                 } else if ("bazhu_show_outside".equals(operation)) {
-                    this.a.a.F();
+                    this.a.a.z();
                 }
                 if (httpResponsedMessage.getError() != -1 && BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f1164);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1166);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e40);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e42);
                 }
             }
         }
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            z8a z8aVar = new z8a(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = z8aVar;
-            setContentView(z8aVar.C());
+            fba fbaVar = new fba(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = fbaVar;
+            setContentView(fbaVar.u());
             registerListener(this.b);
         }
     }

@@ -619,7 +619,7 @@ public class k2 extends t0 implements GLSurfaceView.Renderer {
                         th.printStackTrace();
                     }
                 }
-                this.d.mo6getInput().q1();
+                this.d.mo6getInput().v1();
                 this.l++;
                 this.d.getApplicationListener().render();
             }

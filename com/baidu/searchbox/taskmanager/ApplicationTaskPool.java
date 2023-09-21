@@ -75,7 +75,6 @@ import com.baidu.searchbox.task.view.appcreate.InitWebViewTask;
 import com.baidu.searchbox.task.view.mainactivity.InitAdCardViewTask;
 import com.baidu.searchbox.task.view.mainactivity.InitPersonalizeViewTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -128,36 +127,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List<LaunchTask> onPrivacyPolicyGranted(int i) {
-        ArrayList arrayList = new ArrayList();
-        if (i == 2) {
-            arrayList.add(new LaunchWithPrivacyTask());
-            arrayList.add(new DeleteApkTask());
-            if (!DelayInitNightPluginSwitch.isOn()) {
-                arrayList.add(new NightPluginTask());
-            }
-            arrayList.add(new LogoTask());
-            arrayList.addAll(new AsyncTaskCollector().asyncList());
-        } else if (i == 1) {
-            arrayList.add(new InitSDKWithPrivacyTask());
-        } else if (i == 3) {
-            arrayList.add(new MainTabLoadFinishTask());
-            arrayList.add(new GetYYCloudTask());
-            arrayList.add(new InitCookieTask());
-            arrayList.add(new InitUnionIDTask());
-            arrayList.add(new MaintabAsyncInitTask());
-            arrayList.add(new LaunchStatTask());
-            arrayList.add(new InitSDKIdleTask());
-            if (DelayInitNightPluginSwitch.isOn()) {
-                arrayList.add(new NightPluginTask());
-            }
-            arrayList.add(new InitCyberPlayerTask());
-            arrayList.add(new InitSwanAppTask());
-        }
-        return arrayList;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> onAppCreateSecond(int i) {
         ArrayList arrayList = new ArrayList();
         if (i == 2) {
@@ -196,6 +165,31 @@ public class ApplicationTaskPool extends BaseTaskPool {
             arrayList.add(new InitFlutterNpsPluginTask());
             arrayList.add(new InitMonitorTask());
             arrayList.add(new InitAutoRestartDownloadTask());
+        }
+        return arrayList;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
+    public List<LaunchTask> onPrivacyPolicyGranted(int i) {
+        ArrayList arrayList = new ArrayList();
+        if (i == 2) {
+            arrayList.add(new LaunchWithPrivacyTask());
+            arrayList.add(new DeleteApkTask());
+            arrayList.add(new LogoTask());
+            arrayList.addAll(new AsyncTaskCollector().asyncList());
+        } else if (i == 1) {
+            arrayList.add(new InitSDKWithPrivacyTask());
+        } else if (i == 3) {
+            arrayList.add(new MainTabLoadFinishTask());
+            arrayList.add(new GetYYCloudTask());
+            arrayList.add(new InitCookieTask());
+            arrayList.add(new InitUnionIDTask());
+            arrayList.add(new MaintabAsyncInitTask());
+            arrayList.add(new LaunchStatTask());
+            arrayList.add(new InitSDKIdleTask());
+            arrayList.add(new NightPluginTask());
+            arrayList.add(new InitCyberPlayerTask());
+            arrayList.add(new InitSwanAppTask());
         }
         return arrayList;
     }

@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes9.dex */
-public interface z24 extends a34 {
-    void setFilePath(String str);
-
-    void setPackageName(String str);
+/* loaded from: classes8.dex */
+public interface z24 {
+    void a(b34 b34Var);
 }

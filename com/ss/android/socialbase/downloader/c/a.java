@@ -5,11 +5,11 @@ import android.util.Log;
 /* loaded from: classes10.dex */
 public class a {
     public static int a = 4;
-    public static AbstractC0746a b;
+    public static AbstractC0739a b;
 
     /* renamed from: com.ss.android.socialbase.downloader.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static abstract class AbstractC0746a {
+    public static abstract class AbstractC0739a {
         public void a(String str, String str2) {
         }
 
@@ -55,9 +55,9 @@ public class a {
         if (a <= 2) {
             Log.v(str, str2);
         }
-        AbstractC0746a abstractC0746a = b;
-        if (abstractC0746a != null) {
-            abstractC0746a.a(b(str), str2);
+        AbstractC0739a abstractC0739a = b;
+        if (abstractC0739a != null) {
+            abstractC0739a.a(b(str), str2);
         }
     }
 
@@ -68,9 +68,9 @@ public class a {
         if (a <= 3) {
             Log.d(b(str), str2);
         }
-        AbstractC0746a abstractC0746a = b;
-        if (abstractC0746a != null) {
-            abstractC0746a.b(b(str), str2);
+        AbstractC0739a abstractC0739a = b;
+        if (abstractC0739a != null) {
+            abstractC0739a.b(b(str), str2);
         }
     }
 
@@ -81,9 +81,9 @@ public class a {
         if (a <= 4) {
             Log.i(b(str), str2);
         }
-        AbstractC0746a abstractC0746a = b;
-        if (abstractC0746a != null) {
-            abstractC0746a.c(b(str), str2);
+        AbstractC0739a abstractC0739a = b;
+        if (abstractC0739a != null) {
+            abstractC0739a.c(b(str), str2);
         }
     }
 
@@ -94,9 +94,9 @@ public class a {
         if (a <= 5) {
             Log.w(b(str), str2);
         }
-        AbstractC0746a abstractC0746a = b;
-        if (abstractC0746a != null) {
-            abstractC0746a.e(b(str), str2);
+        AbstractC0739a abstractC0739a = b;
+        if (abstractC0739a != null) {
+            abstractC0739a.e(b(str), str2);
         }
     }
 
@@ -107,9 +107,9 @@ public class a {
         if (a <= 6) {
             Log.e(b(str), str2);
         }
-        AbstractC0746a abstractC0746a = b;
-        if (abstractC0746a != null) {
-            abstractC0746a.d(b(str), str2);
+        AbstractC0739a abstractC0739a = b;
+        if (abstractC0739a != null) {
+            abstractC0739a.d(b(str), str2);
         }
     }
 
@@ -120,9 +120,9 @@ public class a {
         if (a <= 6) {
             Log.e(b(str), str2, th);
         }
-        AbstractC0746a abstractC0746a = b;
-        if (abstractC0746a != null) {
-            abstractC0746a.a(b(str), str2, th);
+        AbstractC0739a abstractC0739a = b;
+        if (abstractC0739a != null) {
+            abstractC0739a.a(b(str), str2, th);
         }
     }
 

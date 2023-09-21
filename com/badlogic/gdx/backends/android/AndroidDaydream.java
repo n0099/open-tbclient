@@ -401,7 +401,7 @@ public class AndroidDaydream extends DreamService implements a2 {
             y0.d = getFiles();
             y0.b = getGraphics();
             getNet();
-            this.input.d1();
+            this.input.k1();
             k2 k2Var = this.graphics;
             if (k2Var != null) {
                 k2Var.q();
@@ -422,7 +422,7 @@ public class AndroidDaydream extends DreamService implements a2 {
             boolean d = this.graphics.d();
             this.graphics.u(true);
             this.graphics.r();
-            this.input.k0();
+            this.input.r0();
             this.graphics.h();
             this.graphics.j();
             this.graphics.u(d);
@@ -462,7 +462,7 @@ public class AndroidDaydream extends DreamService implements a2 {
             createWakeLock(b2Var.n);
             hideStatusBar(b2Var);
             if (getResources().getConfiguration().keyboard != 1) {
-                this.input.t(true);
+                this.input.B(true);
             }
         }
     }
@@ -527,7 +527,7 @@ public class AndroidDaydream extends DreamService implements a2 {
             if (configuration.hardKeyboardHidden != 1) {
                 z = false;
             }
-            this.input.t(z);
+            this.input.B(z);
         }
     }
 

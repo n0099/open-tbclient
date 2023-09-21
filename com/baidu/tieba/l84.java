@@ -2,16 +2,19 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.x74;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import okhttp3.Callback;
+import okhttp3.Request;
+@Singleton
 @Service
 /* loaded from: classes6.dex */
-public class l84 implements ps1 {
+public class l84 implements ts1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,33 +32,21 @@ public class l84 implements ps1 {
         }
     }
 
-    @Override // com.baidu.tieba.ps1
-    public File b() {
+    @Override // com.baidu.tieba.ts1
+    public HttpManager a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return x74.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return n94.b();
         }
-        return (File) invokeV.objValue;
+        return (HttpManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ps1
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ts1
+    public void call(HttpManager httpManager, Request request, Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return x74.d.g().getPath();
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof n94)) {
+            ((n94) httpManager).call(request, callback);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ps1
-    public File a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            return x74.d.h(str, str2);
-        }
-        return (File) invokeLL.objValue;
     }
 }

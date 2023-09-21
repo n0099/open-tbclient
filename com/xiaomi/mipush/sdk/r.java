@@ -15,7 +15,7 @@ public class r implements dl {
 
     @Override // com.xiaomi.push.dl
     public String a() {
-        return b.m225a(this.a).d();
+        return b.m227a(this.a).d();
     }
 
     @Override // com.xiaomi.push.dl

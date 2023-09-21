@@ -1,210 +1,230 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.recentforum.data.RecentForumRespondedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.adapter.FrsAppLegoViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public final class m5a {
+public class m5a extends pi7<AdvertAppInfo, FrsAppLegoViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public boolean b;
-    public a c;
-    public boolean d;
-    public final b e;
+    public AdvertAppInfo.ILegoAdvert l;
+    public c5a m;
+    public String n;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a(f78 f78Var);
-
-        void onFail();
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b extends HttpMessageListener {
+    public class a implements g49 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m5a a;
+        public final /* synthetic */ AdvertAppInfo a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(m5a m5aVar) {
-            super(CmdConfigHttp.CMD_RECENT_FORUM);
+        public a(m5a m5aVar, AdvertAppInfo advertAppInfo, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m5aVar};
+                Object[] objArr = {m5aVar, advertAppInfo, Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = m5aVar;
+            this.a = advertAppInfo;
+            this.b = i;
+            this.c = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.tieba.g49
+        public void a(int i, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003572 && (httpResponsedMessage instanceof RecentForumRespondedMessage)) {
-                    RecentForumRespondedMessage recentForumRespondedMessage = (RecentForumRespondedMessage) httpResponsedMessage;
-                    if (recentForumRespondedMessage.getError() != 0) {
-                        this.a.g(false);
-                        TbLog defaultLog = DefaultLog.getInstance();
-                        defaultLog.i("RecentForumLog", "请求结束，返回错误，错误码为：" + recentForumRespondedMessage.getError());
-                        a a = this.a.a();
-                        if (a != null) {
-                            a.onFail();
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.g(false);
-                    f78 data = recentForumRespondedMessage.getData();
-                    Unit unit = null;
-                    if (data != null) {
-                        m5a m5aVar = this.a;
-                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，有返回数据");
-                        a a2 = m5aVar.a();
-                        if (a2 != null) {
-                            a2.a(data);
-                            unit = Unit.INSTANCE;
-                        }
-                    }
-                    if (unit == null) {
-                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，返回数据为空");
-                        return;
-                    }
-                    return;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, hashMap) == null) {
+                if (h5a.h(i)) {
+                    v6a.g(this.a, this.b, hashMap, i);
+                } else {
+                    v6a.n(this.a, this.b, this.c, null, hashMap);
                 }
-                this.a.g(false);
-                DefaultLog.getInstance().i("RecentForumLog", "请求结束，数据不合法");
-                a a3 = this.a.a();
-                if (a3 != null) {
-                    a3.onFail();
-                }
+                o49.c(this.a);
             }
         }
     }
 
-    public m5a(BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m5a(c5a c5aVar, BdUniqueId bdUniqueId, String str) {
+        super(c5aVar.C(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {c5aVar, bdUniqueId, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bdUniqueId;
-        this.e = new b(this);
-        e();
+        this.l = null;
+        this.m = c5aVar;
+        this.n = str;
     }
 
-    public final a a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: G */
+    public View getView(int i, View view2, ViewGroup viewGroup, AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeCommon;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, advertAppInfo})) == null) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null) {
+                return null;
+            }
+            this.l = iLegoAdvert;
+            if (H(view2)) {
+                FrsAppLegoViewHolder onCreateViewHolder = onCreateViewHolder(viewGroup);
+                this.viewholder = onCreateViewHolder;
+                if (onCreateViewHolder == null) {
+                    return null;
+                }
+                view2 = onCreateViewHolder.getView();
+            }
+            View view3 = view2;
+            return onFillViewHolder(i, view3, viewGroup, advertAppInfo, (FrsAppLegoViewHolder) view3.getTag());
         }
-        return (a) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_RECENT_FORUM);
-            MessageManager.getInstance().unRegisterListener(this.e);
-            this.d = true;
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d();
-            this.e.setSelfListener(true);
-            this.e.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.e);
-        }
-    }
-
-    public final boolean b(j08 j08Var) {
+    public final boolean H(View view2) {
         InterceptResult invokeL;
+        V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j08Var)) == null) {
-            if (this.d) {
-                e();
-                this.d = false;
-                DefaultLog.getInstance().i("RecentForumLog", "重新注册");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.l == null || !((FrsAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((FrsAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
+                return true;
             }
-            if (this.b) {
-                DefaultLog.getInstance().i("RecentForumLog", "上一次请求正在执行，不请求");
-                return false;
-            }
-            this.b = true;
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RECENT_FORUM);
-            String str = null;
-            if (j08Var != null) {
-                str = j08Var.a().toString();
-                httpMessage.addParam("forum_frscsm", str);
-            }
-            httpMessage.setTag(this.a);
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("RecentForumLog", "开始请求，请求参数：" + str);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            return true;
+            return !this.l.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.tag_first));
         }
         return invokeL.booleanValue;
     }
 
-    public final void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: I */
+    public FrsAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECENT_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecentForum");
-            tbHttpMessageTask.setResponsedClass(RecentForumRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            if (this.l == null || (view2 = (View) h49.h().a(this.c, this.l, 1)) == null) {
+                return null;
+            }
+            view2.setTag(R.id.tag_first, this.l);
+            return new FrsAppLegoViewHolder((b59) view2);
+        }
+        return (FrsAppLegoViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: J */
+    public FrsAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup, AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeLL;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, advertAppInfo)) == null) {
+            if (advertAppInfo != null && (iLegoAdvert = advertAppInfo.h) != null) {
+                this.l = iLegoAdvert;
+                return onCreateViewHolder(viewGroup);
+            }
+            return null;
+        }
+        return (FrsAppLegoViewHolder) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pi7, com.baidu.tieba.om
+    /* renamed from: K */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, AdvertAppInfo advertAppInfo, FrsAppLegoViewHolder frsAppLegoViewHolder) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, advertAppInfo, frsAppLegoViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) advertAppInfo, (AdvertAppInfo) frsAppLegoViewHolder);
+            if (this.m == null) {
+                return null;
+            }
+            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
+            this.l = iLegoAdvert;
+            if (iLegoAdvert == null || view2 == null) {
+                return null;
+            }
+            if (this.c.getPageActivity() instanceof wi0) {
+                advertAppInfo.s = yi0.b(advertAppInfo.s, (wi0) this.c.getPageActivity(), frsAppLegoViewHolder.itemView);
+            }
+            BDLayoutMode layoutMode = this.c.getLayoutMode();
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.setNightMode(z);
+            this.c.getLayoutMode().onModeChanged(view2);
+            String s0 = this.m.s0();
+            int J1 = this.m.J1();
+            g15.b(advertAppInfo);
+            advertAppInfo.u = s0;
+            advertAppInfo.v = 2;
+            b59 b59Var = (b59) view2;
+            b59Var.setFromCDN(this.a);
+            b59Var.update(this.l);
+            o6a.e(advertAppInfo, b59Var, s0, this.n, 2, -1);
+            this.m.M0();
+            b59Var.setAfterClickSchemeListener(new a(this, advertAppInfo, J1, s0));
+            if (z4a.class.isAssignableFrom(view2.getClass())) {
+                frsAppLegoViewHolder.b(((z4a) view2).getVideoOrVrView());
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void L(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.n = str;
         }
     }
 
-    public final void f(a aVar) {
+    @Override // com.baidu.tieba.pi7
+    public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            V v = this.viewholder;
+            if (v != 0) {
+                ((FrsAppLegoViewHolder) v).a();
+            }
+            super.x();
         }
     }
 }

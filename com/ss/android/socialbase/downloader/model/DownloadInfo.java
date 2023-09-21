@@ -177,7 +177,7 @@ public class DownloadInfo implements Parcelable {
         public int[] S;
 
         /* renamed from: T  reason: collision with root package name */
-        public int f1224T;
+        public int f1221T;
         public boolean U;
         public boolean V;
         public long W;
@@ -392,7 +392,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a f(int i) {
-            this.f1224T = i;
+            this.f1221T = i;
             return this;
         }
 
@@ -836,7 +836,7 @@ public class DownloadInfo implements Parcelable {
             safePutToDBJsonData("download_setting", jSONObject.toString());
         }
         safePutToDBJsonData("dbjson_key_expect_file_length", Long.valueOf(aVar.C));
-        safePutToDBJsonData("executor_group", Integer.valueOf(aVar.f1224T));
+        safePutToDBJsonData("executor_group", Integer.valueOf(aVar.f1221T));
         safePutToDBJsonData("auto_install", Integer.valueOf(aVar.t ? 1 : 0));
         this.needSDKMonitor = aVar.Q;
         this.monitorScene = aVar.R;

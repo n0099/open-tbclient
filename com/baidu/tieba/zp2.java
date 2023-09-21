@@ -8,18 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class zp2 extends bp2<rr2> {
+public class zp2 extends ap2<qr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onFocus" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoHeight" : (String) invokeV.objValue;
     }
 
     public zp2() {
@@ -37,18 +36,14 @@ public class zp2 extends bp2<rr2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bp2
+    @Override // com.baidu.tieba.ap2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull qr2 qr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rr2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qr2Var) == null) {
+            command.ret = qr2Var.getVideoHeight();
             String str = command.what;
-            d(rr2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                rr2Var.s(jSONObject.optInt("focusWidth"), jSONObject.optInt("focusHeight"), jSONObject.optInt("focusX"), jSONObject.optInt("focusY"));
-            }
+            d(qr2Var, str, "Height: " + command.ret, true);
         }
     }
 }

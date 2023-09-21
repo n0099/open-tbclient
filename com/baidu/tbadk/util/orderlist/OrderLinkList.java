@@ -1,8 +1,8 @@
 package com.baidu.tbadk.util.orderlist;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sy5;
 import com.baidu.tieba.ty5;
+import com.baidu.tieba.uy5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class OrderLinkList<D extends sy5> {
+public class OrderLinkList<D extends ty5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ty5<D> a;
-    public ty5<D> b;
-    public ty5<D> c;
+    public uy5<D> a;
+    public uy5<D> b;
+    public uy5<D> c;
     public boolean d;
     public volatile int e;
 
@@ -108,8 +108,8 @@ public class OrderLinkList<D extends sy5> {
         D d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ty5<D> ty5Var = this.a;
-            if (ty5Var != null && (d = ty5Var.b) != null) {
+            uy5<D> uy5Var = this.a;
+            if (uy5Var != null && (d = uy5Var.b) != null) {
                 return d;
             }
             return null;
@@ -119,28 +119,28 @@ public class OrderLinkList<D extends sy5> {
 
     public D a(int i) {
         InterceptResult invokeI;
-        ty5<D> ty5Var;
+        uy5<D> uy5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ty5<D> ty5Var2 = this.a;
-            if (ty5Var2 == null) {
+            uy5<D> uy5Var2 = this.a;
+            if (uy5Var2 == null) {
                 return null;
             }
-            this.b = ty5Var2;
+            this.b = uy5Var2;
             do {
-                ty5<D> ty5Var3 = this.b;
-                if (ty5Var3.a == i) {
+                uy5<D> uy5Var3 = this.b;
+                if (uy5Var3.a == i) {
                     break;
                 }
-                this.c = ty5Var3;
-                ty5Var = ty5Var3.c;
-                this.b = ty5Var;
-            } while (ty5Var != null);
-            ty5<D> ty5Var4 = this.b;
-            if (ty5Var4 == null) {
+                this.c = uy5Var3;
+                uy5Var = uy5Var3.c;
+                this.b = uy5Var;
+            } while (uy5Var != null);
+            uy5<D> uy5Var4 = this.b;
+            if (uy5Var4 == null) {
                 return null;
             }
-            return ty5Var4.b;
+            return uy5Var4.b;
         }
         return (D) invokeI.objValue;
     }
@@ -157,9 +157,9 @@ public class OrderLinkList<D extends sy5> {
                 while (this.b.a != i) {
                     z = false;
                     this.c = this.b;
-                    ty5<D> ty5Var = this.b.c;
-                    this.b = ty5Var;
-                    if (ty5Var == null) {
+                    uy5<D> uy5Var = this.b.c;
+                    this.b = uy5Var;
+                    if (uy5Var == null) {
                         break;
                     }
                 }
@@ -174,35 +174,35 @@ public class OrderLinkList<D extends sy5> {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: D extends com.baidu.tieba.sy5 */
-    /* JADX DEBUG: Type inference failed for r5v11. Raw type applied. Possible types: com.baidu.tieba.ty5<D extends com.baidu.tieba.sy5>, com.baidu.tieba.ty5<E> */
-    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: com.baidu.tieba.ty5<D extends com.baidu.tieba.sy5>, com.baidu.tieba.ty5<E> */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: D extends com.baidu.tieba.ty5 */
+    /* JADX DEBUG: Type inference failed for r5v11. Raw type applied. Possible types: com.baidu.tieba.uy5<D extends com.baidu.tieba.ty5>, com.baidu.tieba.uy5<E> */
+    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: com.baidu.tieba.uy5<D extends com.baidu.tieba.ty5>, com.baidu.tieba.uy5<E> */
     /* JADX WARN: Multi-variable type inference failed */
     public synchronized void insert(D d) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, d) == null) {
             synchronized (this) {
-                ty5 ty5Var = (ty5<D>) new ty5();
-                ty5Var.a = d.a();
-                ty5Var.b = d;
-                ty5 ty5Var2 = (ty5<D>) this.a;
-                ty5Var.c = ty5Var2;
-                this.a = ty5Var;
-                this.b = ty5Var;
-                this.c = ty5Var2;
-                while (this.b.c != null && ty5Var.a < this.b.c.a) {
+                uy5 uy5Var = (uy5<D>) new uy5();
+                uy5Var.a = d.a();
+                uy5Var.b = d;
+                uy5 uy5Var2 = (uy5<D>) this.a;
+                uy5Var.c = uy5Var2;
+                this.a = uy5Var;
+                this.b = uy5Var;
+                this.c = uy5Var2;
+                while (this.b.c != null && uy5Var.a < this.b.c.a) {
                     this.d = true;
                     this.b = this.b.c;
                 }
-                if (this.b.c != null && ty5Var.a == this.b.c.a) {
-                    this.b.c.b = ty5Var.b;
+                if (this.b.c != null && uy5Var.a == this.b.c.a) {
+                    this.b.c.b = uy5Var.b;
                     this.a = this.c;
                     this.d = false;
                     return;
                 }
                 if (this.d) {
-                    ty5Var.c = (ty5<D>) this.b.c;
-                    this.b.c = ty5Var;
+                    uy5Var.c = (uy5<D>) this.b.c;
+                    this.b.c = uy5Var;
                     this.a = this.c;
                     this.d = false;
                 }

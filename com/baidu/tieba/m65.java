@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.data.TopNotifyData;
-import com.baidu.tieba.yt6;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class m65 extends e65 {
+public class m65 extends g65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,40 +31,16 @@ public final class m65 extends e65 {
         }
     }
 
-    public static final void b() {
+    @Override // com.baidu.tieba.g65
+    public void a(@NonNull Context context, @NonNull u55 u55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            YunDialogManager.unMarkShowingDialogName("topNotify");
-        }
-    }
-
-    @Override // com.baidu.tieba.e65
-    public void a(Context context, v55 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
-                TopNotifyData a = TopNotifyData.Companion.a();
-                if (a != null) {
-                    mg5.a.i(a, new yt6.e() { // from class: com.baidu.tieba.w55
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // com.baidu.tieba.yt6.e
-                        public final void onDismiss() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                m65.b();
-                            }
-                        }
-                    });
-                }
-                YunDialogManager.markShowingDialogName("topNotify");
-                return;
-            }
-            YunDialogManager.unMarkShowingDialogName("topNotify");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u55Var) == null) {
+            TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(context, "", "https://tieba.baidu.com/mo/q/hybrid/popups?page=god-invite", false, true, true);
+            activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            activityConfig.setWebDialogName("newGod");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, activityConfig));
+            SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_new_god_pop_is_show"), false);
+            YunDialogManager.markShowingDialogName("newGod");
         }
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx5;
+import com.baidu.tieba.dx5;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,7 +39,7 @@ public class ItemMsgManage extends LinearLayout {
     public TextView h;
 
     /* loaded from: classes6.dex */
-    public class a implements cx5<Boolean> {
+    public class a implements dx5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ItemMsgManage a;
@@ -63,7 +63,7 @@ public class ItemMsgManage extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cx5
+        @Override // com.baidu.tieba.dx5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -142,16 +142,16 @@ public class ItemMsgManage extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02fd, (ViewGroup) this, true);
-            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f09035e);
+            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f090358);
             this.a = settingTextSwitchView;
             settingTextSwitchView.setTextLeftMargin(R.dimen.obfuscated_res_0x7f0701d5);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090350);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090357);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090356);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090358);
-            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090352);
-            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090359);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09035a);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090349);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090350);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09034f);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090351);
+            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09034b);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090353);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090354);
             setVisibility(8);
         }
     }
@@ -219,7 +219,7 @@ public class ItemMsgManage extends LinearLayout {
                     i2 = 8;
                 }
                 relativeLayout2.setVisibility(i2);
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f090355);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f09034e);
                 if (z) {
                     i3 = 0;
                 } else {

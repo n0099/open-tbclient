@@ -1,72 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class rg1<K, V> {
+public class rg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<K, V> a;
 
-    public rg1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = hi1.c();
-    }
-
-    public Map<K, V> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public Map<K, V> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public V a(K k) {
+    public static NetworkInfo a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            return this.a.get(k);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return null;
+                }
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (SecurityException unused) {
+                return null;
+            }
         }
-        return (V) invokeL.objValue;
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    public void e(Map<K, V> map) {
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            this.a = map;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            NetworkInfo a = a(context);
+            if (a != null && a.isConnectedOrConnecting()) {
+                return true;
+            }
+            return false;
         }
-    }
-
-    public void d(K k, V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
-            this.a.put(k, v);
-        }
+        return invokeL.booleanValue;
     }
 }

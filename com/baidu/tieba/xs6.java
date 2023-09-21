@@ -1,26 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import com.squareup.wire.Message;
+import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes8.dex */
-public final class xs6 implements tc7 {
+public class xs6 implements ma7<Message> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.tc7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
-    }
 
     public xs6() {
         Interceptable interceptable = $ic;
@@ -36,28 +26,22 @@ public final class xs6 implements tc7 {
         }
     }
 
-    @Override // com.baidu.tieba.tc7
-    public Map<String, String> a(f87 businessInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ma7
+    /* renamed from: a */
+    public yc7<?> b(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_locate", "1");
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String str = "";
-            if (currentAccount == null) {
-                currentAccount = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            if (!(message instanceof LiveAnswer)) {
+                return null;
             }
-            hashMap.put("obj_id", currentAccount);
-            String str2 = a.get("user_id");
-            if (str2 != null) {
-                str = str2;
-            }
-            hashMap.put("obj_param1", str);
-            return hashMap;
+            j78 j78Var = new j78();
+            j78Var.c((LiveAnswer) message);
+            w97 w97Var = new w97();
+            w97Var.a = j78Var;
+            return new zc7(new i67(w97Var), "recommend_banner");
         }
-        return (Map) invokeL.objValue;
+        return (yc7) invokeL.objValue;
     }
 }

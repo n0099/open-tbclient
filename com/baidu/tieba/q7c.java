@@ -1,61 +1,66 @@
 package com.baidu.tieba;
 
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
+import com.yy.transvod.player.core.TransVodProxy;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class q7c {
+public abstract class q7c extends v7c implements o7c {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile q7c c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<Integer, a> a;
-    public TreeMap<Integer, TreeSet<String>> b;
+    public int c;
+    public o7c d;
+    public p7c e;
+    public ConcurrentLinkedQueueX<MediaSample> f;
+    public WeakReference<s6c> g;
+    public String h;
+    public boolean i;
+    public boolean j;
+    public Object k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948046188, "Lcom/baidu/tieba/q7c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948046188, "Lcom/baidu/tieba/q7c;");
+    @Override // com.baidu.tieba.o7c
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
+    public void f(MediaSample mediaSample) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mediaSample) == null) {
+        }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            this.b = false;
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
         }
     }
 
@@ -63,152 +68,145 @@ public class q7c {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new TreeMap<>();
-        this.b = new TreeMap<>();
+        this.c = -1;
+        this.d = null;
+        this.e = null;
+        this.f = new ConcurrentLinkedQueueX<>();
+        this.g = new WeakReference<>(null);
+        this.h = null;
+        this.i = true;
+        this.j = false;
+        this.k = new Object();
     }
 
-    public static q7c c() {
-        InterceptResult invokeV;
+    public void d(String str, Object obj, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (q7c.class) {
-                    if (c == null) {
-                        c = new q7c();
-                    }
-                }
-            }
-            return c;
-        }
-        return (q7c) invokeV.objValue;
-    }
-
-    public synchronized int a() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                size = this.b.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int d() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                size = this.a.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int b() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, TreeSet<String>> entry : this.b.entrySet()) {
-                    i += entry.getValue().size();
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int f() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
-                    if (entry.getValue().a && entry.getValue().b) {
-                        i++;
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int i() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
-                    if (entry.getValue().a) {
-                        i++;
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void e(n5c n5cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n5cVar) == null) {
-            synchronized (this) {
-                if (n5cVar != null) {
-                    if (!this.a.containsKey(Integer.valueOf(n5cVar.hashCode()))) {
-                        this.a.put(Integer.valueOf(n5cVar.hashCode()), new a());
-                    }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            synchronized (this.k) {
+                if (this.d != null && z) {
+                    this.d.d(str, obj, i, z);
                 }
             }
         }
     }
 
-    public synchronized void h(n5c n5cVar) {
-        a aVar;
+    @Override // com.baidu.tieba.o7c
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, n5cVar) == null) {
-            synchronized (this) {
-                if (n5cVar != null) {
-                    if (this.a.containsKey(Integer.valueOf(n5cVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(n5cVar.hashCode()))) != null) {
-                        aVar.a = false;
-                        aVar.b = false;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public final void k(o7c o7cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, o7cVar) == null) {
+            synchronized (this.k) {
+                this.d = o7cVar;
             }
         }
     }
 
-    public synchronized void g(n5c n5cVar, int i, boolean z) {
-        a aVar;
+    public final void m(int i) {
+        TransVodProxy i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{n5cVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (n5cVar != null) {
-                    if (this.a.containsKey(Integer.valueOf(n5cVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(n5cVar.hashCode()))) != null) {
-                        aVar.a = true;
-                        aVar.b = z;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            int g = this.e.g();
+            if ((g == 6 || g == 7) && (i2 = this.e.i()) != null) {
+                i2.c(i);
+            }
+        }
+    }
+
+    public final void q(p7c p7cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, p7cVar) == null) {
+            this.e = p7cVar;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void s(s6c s6cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, s6cVar) == null) {
+            this.g = new WeakReference<>(s6cVar);
+        }
+    }
+
+    public final void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void w(MediaSample mediaSample) {
+        a7c f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, mediaSample) == null) {
+            int g = this.e.g();
+            if ((g == 6 || g == 7) && (f = this.e.f()) != null) {
+                f.e(mediaSample);
+            }
+        }
+    }
+
+    public final void j(int i, int i2, MediaInfo mediaInfo) {
+        s6c s6cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, mediaInfo) == null) && mediaInfo != null) {
+            if ((i != mediaInfo.b || i2 != mediaInfo.c) && (s6cVar = this.g.get()) != null) {
+                Message obtain = Message.obtain();
+                obtain.what = SpeedStatsStampTable.HOME_VIEW_ON_LAYOUT_END_STAMP_KEY;
+                obtain.arg1 = mediaInfo.b;
+                obtain.arg2 = mediaInfo.c;
+                s6cVar.a(obtain, this.a);
+            }
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c = -1;
+            synchronized (this.k) {
+                this.d = null;
+            }
+        }
+    }
+
+    public final void n(MediaSample mediaSample) {
+        z6c h;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSample) == null) && (h = this.e.h()) != null && mediaSample.g != null) {
+            h.d(mediaSample, this.g.get(), this.h);
+            mediaSample.g.p = null;
+            mediaSample.I = null;
+            mediaSample.J = null;
+        }
+    }
+
+    public final void v(MediaSample mediaSample, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048592, this, mediaSample, i, str) == null) {
+            int g = this.e.g();
+            if (g == 6 || g == 7) {
+                this.e.f();
             }
         }
     }

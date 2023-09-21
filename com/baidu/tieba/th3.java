@@ -1,24 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.ew2;
-import com.baidu.tieba.ph3;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class th3 {
+public final class th3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ii3 a;
+
+        public a(ii3 ii3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ii3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ii3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nh3.k("1719", this.a.f());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,76 +60,20 @@ public class th3 {
                 return;
             }
         }
-        a = rr1.a;
-        b = ou2.g0().u() * 1024;
+        a = qr1.a;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static void onEvent(ii3 ii3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b > 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(65537, null, ii3Var) == null) {
+            if (ii3Var == null) {
+                if (a) {
+                    Log.w("SwanAppPermissionDialogUbc", "event is null");
+                    return;
+                }
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.getBytes().length <= b) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!c()) {
-                return false;
-            }
-            boolean a2 = a(str);
-            if (a2) {
-                d(str);
-            }
-            return a2;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(@NonNull String str) {
-        hb3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || (b0 = hb3.b0()) == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            ew2.a W = b0.W();
-            SwanCoreVersion coreVersion = uw2.T().getCoreVersion();
-            int k = b0.k();
-            jSONObject.putOpt("scheme", W.W());
-            jSONObject.putOpt("swanjs", mk3.i(coreVersion, k));
-            if (str != null && str.length() > 1024) {
-                jSONObject.putOpt("params", str.substring(0, 1024));
-            }
-            ph3.b bVar = new ph3.b(10020);
-            bVar.j(bp3.n().e());
-            bVar.i(jSONObject.toString());
-            bVar.h(b0.getAppId());
-            bVar.m();
-            h82.k("SwanAppParamChecker", "10020, params: " + str);
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
-            }
+            ao3.j(new a(ii3Var), "SwanAppPermissionDialogUbc");
         }
     }
 }

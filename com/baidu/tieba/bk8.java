@@ -1,61 +1,68 @@
 package com.baidu.tieba;
 
-import android.text.InputFilter;
-import android.text.Spanned;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes5.dex */
-public class bk8 implements InputFilter {
+public class bk8 implements hz4.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext a;
-    public int b;
 
-    public bk8(@NonNull TbPageContext tbPageContext, int i) {
+    @Override // com.baidu.tieba.hz4.d
+    @NonNull
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "personCenter.openNativeSendGifts" : (String) invokeV.objValue;
+    }
+
+    public bk8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        this.b = i;
     }
 
-    @Override // android.text.InputFilter
-    public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.hz4.c
+    public void a(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            int length = this.b - (spanned.length() - (i4 - i3));
-            int i5 = i2 - i;
-            if (length < i5) {
-                new BdTopToast(this.a.getContext(), 3000).setIcon(false).setContent(this.a.getString(R.string.obfuscated_res_0x7f0f0119)).show((ViewGroup) this.a.getPageActivity().getWindow().getDecorView().findViewById(16908290));
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("uid");
+                String optString2 = jSONObject.optString("name");
+                String optString3 = jSONObject.optString("nameShow");
+                jSONObject.optString("scene");
+                GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), JavaTypesHelper.toLong(optString, 0L), optString2, optString3, GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
+                giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
+            } catch (Exception e) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("NativeSendGiftHybridNotify", "发送私聊图片消息失败" + e);
             }
-            if (length <= 0) {
-                return "";
-            }
-            if (length >= i5) {
-                return null;
-            }
-            return charSequence.subSequence(i, length + i);
         }
-        return (CharSequence) invokeCommon.objValue;
     }
 }

@@ -1,52 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.kcc;
+import com.baidu.tieba.occ;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class jec<E> extends wdc<E> {
+public final class jec<T> implements kcc.a<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final occ.c<T> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947881857, "Lcom/baidu/tieba/jec;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947881857, "Lcom/baidu/tieba/jec;");
-                return;
-            }
-        }
-        f = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jec(int i) {
-        super(i);
+    public jec(occ.c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            Object[] objArr = {cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Math.min(i / 4, f.intValue());
+        this.a = cVar;
+    }
+
+    public void call(qcc<? super T> qccVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qccVar) == null) {
+            hec hecVar = new hec(qccVar);
+            qccVar.b(hecVar);
+            this.a.call(hecVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.kcc.a, com.baidu.tieba.ycc
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((qcc) ((qcc) obj));
     }
 }

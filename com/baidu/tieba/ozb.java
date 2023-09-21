@@ -1,37 +1,49 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class ozb {
+public final class ozb {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, nzb nzbVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, nzbVar)) == null) {
-            return gzb.g(str, nzbVar.c());
-        }
-        return (String) invokeLL.objValue;
+    /* loaded from: classes7.dex */
+    public interface a {
+        String a(mzb mzbVar);
     }
 
-    public static String b(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bArr)) == null) {
-            return gzb.g(str, bArr);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948050962, "Lcom/baidu/tieba/ozb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948050962, "Lcom/baidu/tieba/ozb;");
+                return;
+            }
         }
-        return (String) invokeLL.objValue;
+        a = new HashMap();
     }
 
-    public static String c(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public static Map<String, a> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
-            return gzb.k(str, bArr);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Map) invokeV.objValue;
+    }
+
+    public static void b(String str, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
+            a.put(str, aVar);
         }
-        return (String) invokeLL.objValue;
     }
 }

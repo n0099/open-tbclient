@@ -1,76 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public final class vj3 {
+public class vj3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, pj3> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948242666, "Lcom/baidu/tieba/vj3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948242666, "Lcom/baidu/tieba/vj3;");
-                return;
-            }
-        }
-        boolean z = rr1.a;
-        a = new HashMap();
-    }
 
     public vj3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static pj3 a() {
-        InterceptResult invokeV;
+    @Nullable
+    public static AshmemFileDescriptor c(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b("searchbox_webapps_sp");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("name", str);
+            bundle.putInt("size", i);
+            v73 c = t73.c(vj3.class, bundle);
+            if (c.a()) {
+                c.a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+                return (AshmemFileDescriptor) c.a.getParcelable("result");
+            }
+            return null;
         }
-        return (pj3) invokeV.objValue;
+        return (AshmemFileDescriptor) invokeLI.objValue;
     }
 
-    public static pj3 b(String str) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            pj3 pj3Var = a.get(str);
-            if (pj3Var == null) {
-                synchronized (vj3.class) {
-                    pj3Var = a.get(str);
-                    if (pj3Var == null) {
-                        pj3Var = new pj3(str);
-                        a.put(str, pj3Var);
-                    }
-                }
-            }
-            return pj3Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            String string = bundle.getString("name", null);
+            int i = bundle.getInt("size", 0);
+            Bundle bundle2 = new Bundle();
+            bundle2.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+            bundle2.putParcelable("result", ak3.a(string, i));
+            return bundle2;
         }
-        return (pj3) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

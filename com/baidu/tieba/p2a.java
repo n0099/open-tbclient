@@ -1,85 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oe;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.postsearch.PostSearchActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class p2a implements a3a, c3a {
+public class p2a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile p2a h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<oe<String>> a;
-    public AtomicReference<oe<String>> b;
-    public HashMap<String, u2a> c;
-    public int d;
-    public String e;
-    public boolean f;
-    public boolean g;
+    public PostSearchActivity a;
+    public View b;
+    public NavigationBar c;
+    public View d;
+    public EditText e;
+    public ImageView f;
+    public Runnable g;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ p2a a;
-
-        /* renamed from: com.baidu.tieba.p2a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0430a implements oe.a<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0430a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.oe.a
-            /* renamed from: b */
-            public void a(String str, String str2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !TextUtils.isEmpty(str2)) {
-                    Iterator it = this.a.a.q(str2).iterator();
-                    while (it.hasNext()) {
-                        u2a u2aVar = (u2a) it.next();
-                        if (u2aVar != null) {
-                            this.a.a.c.put(u2aVar.a, u2aVar);
-                            this.a.a.f = true;
-                        }
-                    }
-                }
-            }
-        }
 
         public a(p2a p2aVar) {
             Interceptable interceptable = $ic;
@@ -99,64 +58,230 @@ public class p2a implements a3a, c3a {
             this.a = p2aVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            oe oeVar;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (oeVar = (oe) this.a.a.get()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.e.hasFocus()) {
+                    BdUtilHelper.hideSoftKeyPad(this.a.a.getPageContext().getPageActivity(), this.a.e);
+                }
+                this.a.a.finish();
             }
-            oeVar.f(this.a.e, new C0430a(this));
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
+    public class b implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ p2a a;
 
-        /* loaded from: classes7.dex */
-        public class a implements oe.a<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+        public b(p2a p2aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p2aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                this.a = bVar;
             }
+            this.a = p2aVar;
+        }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.oe.a
-            /* renamed from: b */
-            public void a(String str, String str2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !TextUtils.isEmpty(str2)) {
-                    try {
-                        this.a.a.d = Integer.parseInt(str2);
-                    } catch (NumberFormatException unused) {
-                        this.a.a.d = 0;
-                    }
-                    this.a.a.g = true;
+        @Override // android.view.View.OnFocusChangeListener
+        public void onFocusChange(View view2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
+                if (z) {
+                    this.a.n();
+                    this.a.m();
+                    return;
                 }
+                BdUtilHelper.hideSoftKeyPad(this.a.a.getPageContext().getPageActivity(), view2);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p2a a;
+
+        public c(p2a p2aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p2aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p2aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.n();
+            this.a.m();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements TextView.OnEditorActionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p2a a;
+
+        public d(p2a p2aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p2aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p2aVar;
+        }
+
+        @Override // android.widget.TextView.OnEditorActionListener
+        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
+                if (i != 2 && i != 6 && i != 4 && i != 3) {
+                    return false;
+                }
+                String charSequence = textView.getText().toString();
+                if (!StringUtils.isNull(charSequence)) {
+                    this.a.a.C1(charSequence);
+                    TiebaStatic.log(new StatisticItem("c12842").param("obj_name", charSequence).param("obj_source", "1").param("obj_type", "2").param("fid", this.a.a.e));
+                    return true;
+                }
+                return true;
+            }
+            return invokeLIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p2a a;
+
+        public e(p2a p2aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p2aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p2aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.e.setText("");
+                this.a.n();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p2a a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
             }
         }
 
-        public b(p2a p2aVar) {
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        public f(p2a p2aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p2aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p2aVar;
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+                String obj = editable.toString();
+                this.a.a.c = obj;
+                if (obj.trim().length() == 0) {
+                    this.a.n();
+                    this.a.f.setVisibility(8);
+                    return;
+                }
+                this.a.f.setVisibility(0);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p2a a;
+
+        public g(p2a p2aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,84 +303,17 @@ public class p2a implements a3a, c3a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((oe) this.a.b.get()).f(this.a.e, new a(this));
+                BdUtilHelper.showSoftKeyPad(this.a.a.getPageContext().getPageActivity(), this.a.e);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static final class c extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference<oe<String>> a;
-        public final String b;
-        public final Runnable c;
-
-        public c(AtomicReference<oe<String>> atomicReference, String str, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {atomicReference, str, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicReference;
-            this.b = str;
-            this.c = runnable;
-            setPriority(4);
-        }
-
-        public /* synthetic */ c(AtomicReference atomicReference, String str, Runnable runnable, a aVar) {
-            this(atomicReference, str, runnable);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public void onPostExecute(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                super.onPostExecute(r5);
-                Runnable runnable = this.c;
-                if (runnable != null) {
-                    runnable.run();
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
-                if (this.a.get() != null) {
-                    return null;
-                }
-                synchronized (c.class) {
-                    if (this.a.get() == null) {
-                        AtomicReference<oe<String>> atomicReference = this.a;
-                        x45.k();
-                        atomicReference.set(x45.l(this.b));
-                    }
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    public p2a() {
+    public p2a(PostSearchActivity postSearchActivity, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {postSearchActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -265,211 +323,97 @@ public class p2a implements a3a, c3a {
                 return;
             }
         }
-        this.a = new AtomicReference<>(null);
-        this.b = new AtomicReference<>(null);
-        this.f = false;
-        this.g = false;
-        this.c = new HashMap<>();
-        this.d = 0;
-        this.e = r();
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.b = view2;
+        this.a = postSearchActivity;
+        i();
     }
 
-    public final boolean v(String str) {
-        InterceptResult invokeL;
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (!TextUtils.isEmpty(this.e)) {
-                return this.e.equals(str);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.a3a
-    public int d(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            return s(str, true, z);
-        }
-        return invokeLZ.intValue;
-    }
-
-    @Override // com.baidu.tieba.a3a
-    public int e(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
-            return s(str, false, z);
-        }
-        return invokeLZ.intValue;
-    }
-
-    public static p2a t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (h == null) {
-                synchronized (p2a.class) {
-                    if (h == null) {
-                        h = new p2a();
-                    }
-                }
-            }
-            return h;
-        }
-        return (p2a) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c3a
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!v(r())) {
-                return 0;
-            }
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.c3a
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.g) {
-            return;
-        }
-        b bVar = new b(this);
-        if (this.b.get() == null) {
-            new c(this.b, "hot.splash.count", bVar, null).execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e.setText(str);
         }
     }
 
-    @Override // com.baidu.tieba.a3a
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.f) {
-            return;
-        }
-        a aVar = new a(this);
-        if (this.a.get() == null) {
-            new c(this.a, "frs.refresh.count", aVar, null).execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f.setVisibility(8);
         }
     }
 
-    public final void p() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            String r = r();
-            if (!v(r)) {
-                this.c.clear();
-                this.d = 0;
-                this.e = r;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.setFocusable(true);
+            this.b.setFocusableInTouchMode(true);
+            this.b.requestFocus();
         }
     }
 
-    public final String r() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c3a
-    public void b() {
-        oe<String> oeVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (oeVar = this.b.get()) == null) {
-            return;
-        }
-        p();
-        this.d++;
-        System.out.println("TestTest => mCachedHotSplashCount: " + this.d);
-        oeVar.i(this.e, Integer.toString(this.d), 86400000L);
-    }
-
-    @Override // com.baidu.tieba.a3a
-    public void g(String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i == 1) {
-                u(str, true, z);
-            } else if (i == 2) {
-                u(str, false, z);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            BdUtilHelper.hideSoftKeyPad(this.a.getPageContext().getPageActivity(), this.e);
         }
     }
 
-    public final int s(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            u2a u2aVar = this.c.get(str);
-            if (u2aVar != null && v(r())) {
-                return u2aVar.b(z, z2);
-            }
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final ArrayList<u2a> q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            ArrayList<u2a> arrayList = new ArrayList<>();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(new u2a(jSONArray.optJSONObject(i)));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void u(String str, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            p();
-            u2a u2aVar = this.c.get(str);
-            if (u2aVar == null) {
-                u2aVar = new u2a();
-                u2aVar.a = str;
-                this.c.put(str, u2aVar);
-            }
-            u2aVar.a(z, z2);
-            w(this.c);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.g != null) {
+            SafeHandler.getInst().removeCallbacks(this.g);
         }
     }
 
-    public final synchronized void w(HashMap<String, u2a> hashMap) {
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, hashMap) == null) {
-            synchronized (this) {
-                oe<String> oeVar = this.a.get();
-                if (oeVar == null) {
-                    return;
-                }
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, u2a> entry : hashMap.entrySet()) {
-                    JSONObject c2 = entry.getValue().c();
-                    if (c2 != null) {
-                        jSONArray.put(c2);
-                    }
-                }
-                oeVar.i(this.e, jSONArray.toString(), 86400000L);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !StringUtils.isNull(this.e.getText().toString())) {
+            this.f.setVisibility(0);
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d082a, (View.OnClickListener) null);
+            this.d = addCustomView;
+            this.e = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f09214b);
+            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092120);
+            this.f = imageView;
+            imageView.setVisibility(8);
+            this.e.requestFocus();
+            this.e.setOnFocusChangeListener(new b(this));
+            this.e.setOnClickListener(new c(this));
+            this.e.setOnEditorActionListener(new d(this));
+            this.f.setOnClickListener(new e(this));
+            this.e.addTextChangedListener(new f(this));
+            this.g = new g(this);
+            SafeHandler.getInst().postDelayed(this.g, 500L);
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c.onChangeSkinType(this.a.getPageContext(), i);
+            wt5.a(this.a.getPageContext(), this.d);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && !this.a.x1()) {
+            this.a.z1();
+            if (!this.e.hasFocus()) {
+                this.e.requestFocus();
+                BdUtilHelper.showSoftKeyPad(this.a.getPageContext().getPageActivity(), this.e);
             }
         }
     }

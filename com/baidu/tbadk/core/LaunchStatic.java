@@ -37,24 +37,24 @@ import com.baidu.tbadk.mutiprocess.aiApply.AICapacityStatusUpdateEvent;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.dk8;
-import com.baidu.tieba.fc8;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.di7;
+import com.baidu.tieba.hja;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
-import com.baidu.tieba.ir5;
-import com.baidu.tieba.k75;
+import com.baidu.tieba.ip8;
+import com.baidu.tieba.jc8;
+import com.baidu.tieba.jr5;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
-import com.baidu.tieba.oq5;
-import com.baidu.tieba.rf8;
-import com.baidu.tieba.ria;
+import com.baidu.tieba.mj8;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.pq5;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
-import com.baidu.tieba.sl5;
-import com.baidu.tieba.th7;
 import com.baidu.tieba.wallet.WalletStaticInit;
-import com.baidu.tieba.z75;
+import com.baidu.tieba.wl5;
+import com.baidu.tieba.xka;
+import com.baidu.tieba.zw4;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -231,16 +231,16 @@ public class LaunchStatic {
         b();
         d();
         c();
-        ria.a();
-        dk8.a();
-        fc8.a();
+        xka.a();
+        ip8.a();
+        jc8.a();
         ImMemoryCacheRegister.i();
-        rf8.i();
-        ax4.h();
+        mj8.i();
+        zw4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        k75.d();
-        z75.a();
+        o75.d();
+        d85.a();
         zz4.d();
         a();
         e();
@@ -254,9 +254,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            sl5.d().f();
-            bha.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, bha.a(TbConfig.GET_PAY_CONFIG, 303039));
+            wl5.d().f();
+            hja.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, hja.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -279,7 +279,7 @@ public class LaunchStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !Fresco.hasBeenInitialized()) {
-            Fresco.initialize(TbadkCoreApplication.getInst(), th7.a());
+            Fresco.initialize(TbadkCoreApplication.getInst(), di7.a());
         }
     }
 
@@ -288,8 +288,8 @@ public class LaunchStatic {
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             try {
                 MutiProcessManager mutiProcessManager = MutiProcessManager.getInstance();
-                mutiProcessManager.registerForeverListener(SyncDataEvent.class, new ir5());
-                mutiProcessManager.registerForeverListener(AICapacityStatusUpdateEvent.class, new oq5());
+                mutiProcessManager.registerForeverListener(SyncDataEvent.class, new jr5());
+                mutiProcessManager.registerForeverListener(AICapacityStatusUpdateEvent.class, new pq5());
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -27,7 +27,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,17 +84,17 @@ public class FrsTopItemInfoView extends LinearLayout {
         public final /* synthetic */ FrsTopItemInfoView a;
 
         /* loaded from: classes5.dex */
-        public class a implements y45.e {
+        public class a implements z45.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ y45 a;
+            public final /* synthetic */ z45 a;
 
-            public a(b bVar, y45 y45Var) {
+            public a(b bVar, z45 z45Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, y45Var};
+                    Object[] objArr = {bVar, z45Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -104,13 +104,13 @@ public class FrsTopItemInfoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = y45Var;
+                this.a = z45Var;
             }
 
-            @Override // com.baidu.tieba.y45.e
-            public void onClick(y45 y45Var) {
+            @Override // com.baidu.tieba.z45.e
+            public void onClick(z45 z45Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, y45Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, z45Var) == null) {
                     this.a.dismiss();
                 }
             }
@@ -140,10 +140,10 @@ public class FrsTopItemInfoView extends LinearLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(this.a.a instanceof FrsActivity)) {
                 return;
             }
-            y45 y45Var = new y45((FrsActivity) this.a.a);
-            y45Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f048f));
-            y45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f048e, new a(this, y45Var));
-            y45Var.create(((FrsActivity) this.a.a).getPageContext()).show();
+            z45 z45Var = new z45((FrsActivity) this.a.a);
+            z45Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f048f));
+            z45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f048e, new a(this, z45Var));
+            z45Var.create(((FrsActivity) this.a.a).getPageContext()).show();
         }
     }
 
@@ -287,23 +287,23 @@ public class FrsTopItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03ac, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03ad, this);
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0911f6);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0911e9);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0911f8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091012);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0911e7);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0911da);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0911e9);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091005);
             this.e = imageView;
             imageView.setOnClickListener(this.t);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0903f8);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b9d);
-            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f0911ed);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09259d);
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a88);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0903f2);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b89);
+            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f0911de);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092569);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a80);
             this.k = (HeadImageView) findViewById(R.id.user_head);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09071d);
-            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f09230c);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f61);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090714);
+            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0922d7);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f2a);
             this.o = findViewById(R.id.bottom_line);
             this.b.setText(R.string.obfuscated_res_0x7f0f0804);
             this.l.setText(R.string.obfuscated_res_0x7f0f0802);

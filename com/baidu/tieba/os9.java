@@ -1,52 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import java.util.List;
-import tbclient.Anti;
-import tbclient.DynamicInfo;
-import tbclient.ForumDynamic;
-import tbclient.HotUserRankEntry;
-import tbclient.PostInfoList;
-import tbclient.Profile.NicknameInfo;
-import tbclient.Profile.TAInfo;
-import tbclient.Profile.UserAgreeInfo;
-import tbclient.Profile.UserGodInfo;
-import tbclient.TbBookrack;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public interface os9 {
-    Anti GetAntiStat();
+public final class os9 extends c3a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    List<PostInfoList> GetPostList();
+    @Override // com.baidu.tieba.g3a
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pb_to_personalize" : (String) invokeV.objValue;
+    }
 
-    User GetUser();
-
-    TbBookrack getBookrackData();
-
-    List<ForumDynamic> getConcernedForumList();
-
-    List<DynamicInfo> getDynamicInfoList();
-
-    int getErrorCode();
-
-    wz7 getGoodsWindowInfo();
-
-    HotUserRankEntry getHotRankEntry();
-
-    AlaLiveInfoCoreData getLiveInfo();
-
-    List<AlaLiveInfoCoreData> getLiveReplayInfo();
-
-    int getMaskType();
-
-    List<ThreadInfo> getNewestThreadList();
-
-    NicknameInfo getNicknameInfo();
-
-    TAInfo getTaInfo();
-
-    UserAgreeInfo getUserAgreeInfo();
-
-    UserGodInfo getUserGodInfo();
+    public os9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -2,51 +2,47 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.ArrayMap;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import com.baidu.webkit.sdk.PermissionRequest;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class p22 extends g22 {
+public class p22 extends f22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.kz1
+    @Override // com.baidu.tieba.jz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "PreviewImageApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "SystemInfoApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a implements aq3<String> {
+    public class a implements cp3<g32> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ArrayMap a;
-        public final /* synthetic */ JSONArray b;
-        public final /* synthetic */ JSONArray c;
-        public final /* synthetic */ JSONArray d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ p22 f;
+        public final /* synthetic */ p22 a;
 
-        public a(p22 p22Var, ArrayMap arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONObject jSONObject) {
+        public a(p22 p22Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p22Var, arrayMap, jSONArray, jSONArray2, jSONArray3, jSONObject};
+                Object[] objArr = {p22Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,68 +52,82 @@ public class p22 extends g22 {
                     return;
                 }
             }
-            this.f = p22Var;
-            this.a = arrayMap;
-            this.b = jSONArray;
-            this.c = jSONArray2;
-            this.d = jSONArray3;
-            this.e = jSONObject;
+            this.a = p22Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.aq3
-        /* renamed from: b */
-        public void a(String str) {
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.cp3
+        public g32 call() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject d = u43.c().d("getSystemInfo");
+                if (d == null) {
+                    p22 p22Var = this.a;
+                    d = p22Var.G(p22Var.getContext());
+                    u43.c().h("getSystemInfo", d);
+                    u43.c().h("getSystemInfoSync", d);
+                }
+                if (d == null) {
+                    return new g32(202, "empty joData");
+                }
+                return new g32(0, d);
             }
-            JSONArray jSONArray = null;
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException unused) {
+            return (g32) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ cp3 b;
+        public final /* synthetic */ p22 c;
+
+        public b(p22 p22Var, String str, cp3 cp3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p22Var, str, cp3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (jSONArray != null && jSONArray.length() > 0) {
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("fileID");
-                    String optString2 = optJSONObject.optString("tempFileURL");
-                    if (optJSONObject.optString("status").equals("0") && !TextUtils.isEmpty(optString2)) {
-                        this.a.put(optString, optString2);
-                    }
-                }
-                this.f.G(this.a, this.b, "images");
-                this.f.G(this.a, this.c, "urls");
-                this.f.G(this.a, this.d, "url");
-                try {
-                    this.e.put("images", this.b);
-                    this.e.put("urls", this.c);
-                    this.e.put("url", this.d);
-                } catch (JSONException unused2) {
-                }
-                SwanAppActivity activity = uw2.T().getActivity();
-                if (activity != null) {
-                    ou2.C().b(activity, this.e);
-                } else {
-                    ou2.C().b(this.f.getContext(), this.e);
-                }
+            this.c = p22Var;
+            this.a = str;
+            this.b = cp3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a, (g32) this.b.call());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p22(@NonNull iz1 iz1Var) {
-        super(iz1Var);
+    public p22(@NonNull hz1 hz1Var) {
+        super(hz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iz1Var};
+            Object[] objArr = {hz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((iz1) newInitContext.callArgs[0]);
+                super((hz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -125,218 +135,208 @@ public class p22 extends g22 {
         }
     }
 
-    public final String A(JSONArray jSONArray, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, jSONArray, str, i)) == null) {
-            if (str.equals("images")) {
-                return jSONArray.optJSONObject(i).optString("url");
-            }
-            return jSONArray.optString(i);
-        }
-        return (String) invokeLLI.objValue;
-    }
-
-    public h32 B(String str) {
+    public static String F(Context context) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#handlePreviewImage", false);
-            if (n()) {
-                h82.c("PreviewImageApi", "PreviewImageApi does not supported when app is invisible.");
-                return new h32(1001, "PreviewImageApi does not supported when app is invisible.");
-            } else if (TextUtils.isEmpty(str)) {
-                return new h32(202);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context instanceof SwanAppActivity) {
+                i = ((SwanAppActivity) context).R();
             } else {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    if (jSONObject.optBoolean("only_support_wifi") && !SwanAppNetworkUtils.j(getContext())) {
-                        return new h32(403);
-                    }
-                    String optString = jSONObject.optString("source", "unitedscheme");
-                    String optString2 = jSONObject.optString("type", "0");
-                    JSONArray optJSONArray = jSONObject.optJSONArray("urls");
-                    if (optJSONArray != null && optJSONArray.length() != 0) {
-                        JSONArray optJSONArray2 = jSONObject.optJSONArray("images");
-                        if (optJSONArray2 != null) {
-                            F(optJSONArray2);
-                            jSONObject.put("images", optJSONArray2);
-                        } else {
-                            JSONArray jSONArray = new JSONArray();
-                            int length = optJSONArray.length();
-                            for (int i = 0; i < length; i++) {
-                                JSONObject jSONObject2 = new JSONObject();
-                                String optString3 = optJSONArray.optString(i);
-                                jSONObject2.put("url", optString3);
-                                String b = oo3.b();
-                                if (oo3.c(optString3) && !TextUtils.isEmpty(b)) {
-                                    jSONObject2.put("referer", b);
-                                }
-                                String g0 = bi2.U().g0();
-                                if (!TextUtils.isEmpty(g0)) {
-                                    jSONObject2.put("user_agent", g0);
-                                }
-                                jSONArray.put(jSONObject2);
-                            }
-                            jSONObject.put("images", jSONArray);
-                        }
-                        if (TextUtils.equals(optString, "swan")) {
-                            C(optJSONArray);
-                        }
-                        jSONObject.put("url", optJSONArray);
-                        jSONObject.put("type", optString2);
-                        int z = z(jSONObject, optJSONArray);
-                        if (z >= 0 && z < optJSONArray.length()) {
-                            jSONObject.put("index", String.valueOf(z));
-                            ArrayMap<String, String> arrayMap = new ArrayMap<>();
-                            JSONArray optJSONArray3 = jSONObject.optJSONArray("images");
-                            JSONArray optJSONArray4 = jSONObject.optJSONArray("urls");
-                            JSONArray optJSONArray5 = jSONObject.optJSONArray("url");
-                            D(arrayMap, optJSONArray3, "images");
-                            D(arrayMap, optJSONArray4, "urls");
-                            D(arrayMap, optJSONArray5, "url");
-                            if (arrayMap.keySet().size() > 0) {
-                                E(jSONObject, arrayMap, optJSONArray3, optJSONArray4, optJSONArray5);
-                            } else {
-                                Context activity = uw2.T().getActivity();
-                                if (activity != null) {
-                                    ou2.C().b(activity, jSONObject);
-                                } else {
-                                    ou2.C().b(getContext(), jSONObject);
-                                }
-                            }
-                            return h32.f();
-                        }
-                        return new h32(202);
-                    }
-                    return new h32(202);
-                } catch (JSONException unused) {
-                    return new h32(202);
-                }
+                i = 0;
             }
+            if (i == 1) {
+                return lk3.i(ou2.i().m(), i);
+            }
+            return lk3.i(ai2.U().d0(), i);
         }
-        return (h32) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final JSONArray C(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        hb3 M;
+    public static void B(@NonNull JSONObject jSONObject) throws JSONException {
+        gb3 M;
+        fe3 h;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            int length = jSONArray.length();
-            if (jSONArray != null && length > 0 && (M = hb3.M()) != null && !TextUtils.isEmpty(M.b) && !TextUtils.isEmpty(M.k0())) {
-                for (int i = 0; i < length; i++) {
-                    try {
-                        String optString = jSONArray.optString(i);
-                        PathType s = pi3.s(optString);
-                        if (s == PathType.BD_FILE) {
-                            optString = pi3.M(optString, M.b);
-                        } else if (s == PathType.RELATIVE) {
-                            optString = pi3.L(optString, M, M.k0());
-                        }
-                        if (!TextUtils.isEmpty(optString)) {
-                            jSONArray.put(i, optString);
-                        }
-                    } catch (JSONException unused) {
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) && (M = gb3.M()) != null && M.e0().f("mapp_location")) {
+            gv2 I = nu2.I();
+            if (I == null) {
+                h = null;
+            } else {
+                h = I.h();
             }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public final void F(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) {
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                try {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("url");
-                        String b = oo3.b();
-                        if (oo3.c(optString) && !TextUtils.isEmpty(b)) {
-                            optJSONObject.put("referer", b);
-                        }
-                        String g0 = bi2.U().g0();
-                        if (!TextUtils.isEmpty(g0)) {
-                            optJSONObject.put("user_agent", g0);
-                        }
-                    }
-                } catch (JSONException unused) {
-                    return;
-                }
-            }
-        }
-    }
-
-    public final void D(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048579, this, arrayMap, jSONArray, str) == null) && jSONArray != null && jSONArray.length() > 0) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                String A = A(jSONArray, str, i);
-                if (!TextUtils.isEmpty(A) && pi3.s(A) == PathType.CLOUD) {
-                    arrayMap.put(A, A);
-                }
-            }
-        }
-    }
-
-    public final void E(JSONObject jSONObject, ArrayMap<String, String> arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048580, this, jSONObject, arrayMap, jSONArray, jSONArray2, jSONArray3) == null) && jSONObject != null && arrayMap != null && arrayMap.keySet().size() > 0) {
-            JSONArray jSONArray4 = new JSONArray();
-            for (String str : arrayMap.values()) {
-                jSONArray4.put(str);
-            }
-            pv1 l = ou2.l();
-            if (l == null) {
+            if (h == null) {
                 return;
             }
-            l.c(getContext(), jSONArray4, new a(this, arrayMap, jSONArray, jSONArray2, jSONArray3, jSONObject));
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("city", h.k);
+            jSONObject2.put("cityCode", h.l);
+            jSONObject2.put("country", h.i);
+            jSONObject2.put("district", h.n);
+            jSONObject2.put("province", h.m);
+            jSONObject2.put("street", h.o);
+            jSONObject2.put("streetNumber", h.p);
+            jSONObject2.put("coord_gcj02", D(h, "gcj02"));
+            jSONObject2.put("coord_wgs84", D(h, "wgs84"));
+            jSONObject.put("cacheLocation", jSONObject2);
         }
     }
 
-    public final void G(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048582, this, arrayMap, jSONArray, str) == null) && arrayMap != null && jSONArray != null && jSONArray.length() > 0) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                String str2 = arrayMap.get(A(jSONArray, str, i));
-                if (!TextUtils.isEmpty(str2)) {
-                    try {
-                        if (str.equals("images")) {
-                            jSONArray.optJSONObject(i).put("url", str2);
-                        } else {
-                            jSONArray.put(i, str2);
-                        }
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-        }
-    }
-
-    public final int z(@NonNull JSONObject jSONObject, @NonNull JSONArray jSONArray) throws JSONException {
+    public static JSONObject D(@NonNull fe3 fe3Var, @NonNull String str) throws JSONException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, jSONArray)) == null) {
-            int optInt = jSONObject.optInt(ProgressInfo.JSON_KEY_CURRENT, -1);
-            if (optInt >= 0) {
-                return optInt;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, fe3Var, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            double[] g = nu2.I().g(fe3Var, str);
+            if (g != null && g.length >= 2) {
+                jSONObject.put("longitude", g[0]);
+                jSONObject.put("latitude", g[1]);
             }
-            String optString = jSONObject.optString(ProgressInfo.JSON_KEY_CURRENT);
-            if (TextUtils.isEmpty(optString)) {
-                return 0;
-            }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.equals(optString, jSONArray.getString(i))) {
-                    return i;
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final void A(@NonNull JSONObject jSONObject) throws JSONException {
+        gb3 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (M = gb3.M()) != null && M.e0().f("mapp_set_user_agent")) {
+            jSONObject.put(TTDownloadField.TT_USERAGENT, yh4.b().getUserAgent());
+        }
+    }
+
+    public final void C(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull Pair<Integer, Integer> pair) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, pair) == null) {
+            int O = xo3.O(po3.e(context));
+            int O2 = xo3.O(((Integer) pair.first).intValue());
+            int O3 = xo3.O(((Integer) pair.second).intValue());
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("left", 0);
+            jSONObject2.put("right", O2);
+            jSONObject2.put("top", O);
+            jSONObject2.put("width", O2);
+            jSONObject2.put("bottom", O3);
+            jSONObject2.put("height", O3 - O);
+            jSONObject.put("safeArea", jSONObject2);
+        }
+    }
+
+    public g32 E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#getCommonSysInfoSync", false);
+            JSONObject d = u43.c().d("getCommonSysInfoSync");
+            if (d == null) {
+                try {
+                    d = new JSONObject();
+                    d.put("imei", ap3.r());
+                    u43.c().h("getCommonSysInfoSync", d);
+                } catch (JSONException unused) {
+                    return new g32(1001, "exec fail");
                 }
             }
-            return -1;
+            return new g32(0, d);
         }
-        return invokeLL.intValue;
+        return (g32) invokeV.objValue;
+    }
+
+    public g32 J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            q("#getSystemInfoSync", false);
+            JSONObject d = u43.c().d("getSystemInfoSync");
+            if (d == null) {
+                d = G(getContext());
+                u43.c().h("getSystemInfoSync", d);
+                u43.c().h("getSystemInfo", d);
+            }
+            if (d == null) {
+                return new g32(202, "empty joData");
+            }
+            return new g32(0, d);
+        }
+        return (g32) invokeV.objValue;
+    }
+
+    public final JSONObject G(Context context) {
+        InterceptResult invokeL;
+        JSONObject a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (nu2.g0().o()) {
+                a2 = q22.b(context);
+            } else {
+                a2 = q22.a(context);
+            }
+            if (a2 == null) {
+                return null;
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
+            Pair<Integer, Integer> r = tw2.T().r();
+            Pair<Integer, Integer> x = tw2.T().x();
+            try {
+                a2.put("SDKVersion", F(context));
+                a2.put("windowWidth", (int) (((Integer) r.first).intValue() / displayMetrics.density));
+                a2.put("windowHeight", (int) (((Integer) r.second).intValue() / displayMetrics.density));
+                a2.put("screenWidth", xo3.O(((Integer) x.first).intValue()));
+                a2.put("screenHeight", xo3.O(((Integer) x.second).intValue()));
+                a2.put("privacyMode", nu2.y0().c());
+                B(a2);
+                z(context, a2);
+                C(context, a2, x);
+                A(a2);
+            } catch (JSONException e) {
+                p("json put data fail", e, false);
+            }
+            return a2;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public g32 H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            q("#getSystemInfo", false);
+            return I(null);
+        }
+        return (g32) invokeV.objValue;
+    }
+
+    public g32 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            q("#getSystemInfoAsync", false);
+            a aVar = new a(this);
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    String optString = new JSONObject(str).optString("cb");
+                    if (!TextUtils.isEmpty(optString)) {
+                        ao3.k(new b(this, optString, aVar), "SystemInfoApi");
+                        return g32.f();
+                    }
+                } catch (JSONException e) {
+                    p("json put data fail", e, false);
+                }
+            }
+            return aVar.call();
+        }
+        return (g32) invokeL.objValue;
+    }
+
+    public final void z(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, jSONObject) == null) {
+            jSONObject.put("cameraAuthorized", ko3.j(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE));
+            jSONObject.put("locationAuthorized", ko3.j(context, com.kuaishou.weapon.p0.h.g));
+            jSONObject.put("microphoneAuthorized", ko3.j(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE));
+            jSONObject.put("notificationAuthorized", ap3.N(context));
+            jSONObject.put("locationEnabled", ap3.L(context));
+            jSONObject.put("wifiEnabled", ap3.V(context));
+        }
     }
 }

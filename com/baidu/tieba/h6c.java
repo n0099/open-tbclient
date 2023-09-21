@@ -1,94 +1,137 @@
 package com.baidu.tieba;
 
-import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
+import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
 import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.NativeIttiam;
-import java.lang.ref.WeakReference;
+import com.yy.transvod.player.mediacodec.MediaSample;
 import java.nio.ByteBuffer;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes6.dex */
-public class h6c extends b6c implements NativeIttiam.a {
+public final class h6c {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile h6c c;
     public transient /* synthetic */ FieldHolder $fh;
+    public AtomicLong a;
+    public ConcurrentLinkedQueueX<MediaSample> b;
 
-    @Override // com.baidu.tieba.v5c
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947777108, "Lcom/baidu/tieba/h6c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947777108, "Lcom/baidu/tieba/h6c;");
         }
     }
 
-    public h6c(e5c e5cVar, int i) {
+    public h6c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e5cVar, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l.d(-16);
-        this.G = new WeakReference<>(e5cVar);
-        this.w = true;
-        this.b = i;
-        this.A.i(i);
-        this.o = 2;
+        this.a = new AtomicLong(0L);
+        this.b = new ConcurrentLinkedQueueX<>();
+        c(512L);
     }
 
-    public void M(MediaInfo mediaInfo) {
+    public static h6c f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
-            TLog.g(this, mediaInfo.toString());
-            synchronized (this) {
-                if (this.q.e(mediaInfo)) {
-                    this.q.c(mediaInfo);
-                }
-                if (this.B == null || this.B.capacity() < this.q.i) {
-                    this.B = ByteBuffer.allocateDirect(this.q.i);
-                }
-                int j = ((((int) r5c.j(this.q.d, 16L)) * ((int) r5c.j(this.q.e, 16L))) * 3) >> 1;
-                if (j > this.D) {
-                    this.D = j;
-                    this.C = ByteBuffer.allocateDirect(j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (h6c.class) {
+                    if (c == null) {
+                        c = new h6c();
+                    }
                 }
             }
+            return c;
+        }
+        return (h6c) invokeV.objValue;
+    }
+
+    public MediaSample a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            MediaSample poll = this.b.poll();
+            if (poll == null) {
+                if (this.a.get() < 1024) {
+                    c(1024 - this.a.get());
+                    poll = this.b.poll();
+                } else {
+                    poll = MediaSample.a(this.a.getAndIncrement());
+                }
+            }
+            poll.d();
+            poll.a = str;
+            return poll;
+        }
+        return (MediaSample) invokeL.objValue;
+    }
+
+    public MediaSample b(String str, ByteBuffer byteBuffer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, byteBuffer)) == null) {
+            MediaSample a = a(str);
+            a.i.k = byteBuffer;
+            return a;
+        }
+        return (MediaSample) invokeLL.objValue;
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            for (int i = 0; i < j; i++) {
+                this.b.add(MediaSample.a(this.a.getAndIncrement()));
+            }
+            d();
         }
     }
 
-    @Override // com.baidu.tieba.v5c
-    public void z(MediaFormat mediaFormat, int i) {
-        int i2;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
-            this.x = System.currentTimeMillis();
-            this.a = i;
-            this.A.m(this);
-            this.A.h(i);
-            String string = mediaFormat.getString("mime");
-            if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
-                i2 = 7;
-            } else {
-                i2 = 0;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int elementCount = this.b.getElementCount();
+            int i = (int) this.a.get();
+            TLog.g(this, String.format("MediaAllocator check capacity:%d, realCapacity:%d, sizeInQueue:%d, lostSize:%d", 1024L, Integer.valueOf(i), Integer.valueOf(elementCount), Integer.valueOf(i - elementCount)));
+        }
+    }
+
+    public void e(MediaSample mediaSample) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mediaSample) == null) {
+            mediaSample.d();
+            if (this.b.size() <= 1536.0d) {
+                if (!this.b.contains(mediaSample)) {
+                    this.b.add(mediaSample);
+                    return;
+                }
+                return;
             }
-            if (this.A.j(i2, mediaFormat) != 0) {
-                m(50);
-                TLog.g(this, "createDecoder failed mine: " + string);
-            }
-            M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
-            this.y = System.currentTimeMillis();
-            TLog.g(this, "ittiamDecoder handleCreateDecoder: taskId " + i + ", spent: " + (this.y - this.x));
+            this.a.decrementAndGet();
         }
     }
 }

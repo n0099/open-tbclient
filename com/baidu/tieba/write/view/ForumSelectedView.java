@@ -111,11 +111,11 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f5, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090668);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09066a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09066b);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090667);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090669);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090660);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090662);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090663);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09065f);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090661);
             setOnClickListener(this);
             c();
         }

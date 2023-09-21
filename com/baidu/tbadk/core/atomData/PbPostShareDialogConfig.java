@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.nj9;
+import com.baidu.tieba.yk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbPostShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nj9 mPbPostData;
+    public yk9 mPbPostData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, nj9 nj9Var) {
+    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, yk9 yk9Var) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), nj9Var};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), yk9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,15 +33,15 @@ public class PbPostShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mPbPostData = nj9Var;
+        this.mPbPostData = yk9Var;
     }
 
-    public nj9 getPbPostData() {
+    public yk9 getPbPostData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mPbPostData;
         }
-        return (nj9) invokeV.objValue;
+        return (yk9) invokeV.objValue;
     }
 }

@@ -1,15 +1,42 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kj2 implements si2 {
+public abstract class kj2 implements lj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.lj2
+    @Nullable
+    public V8EngineConfiguration.CodeCacheSetting b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lj2
+    public void c(oi2 oi2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oi2Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.lj2
+    public void d(oi2 oi2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oi2Var) == null) {
+        }
+    }
 
     public kj2() {
         Interceptable interceptable = $ic;
@@ -23,29 +50,5 @@ public class kj2 implements si2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.si2
-    @SuppressLint({"BDThrowableCheck"})
-    public xi2 a(wi2 wi2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wi2Var)) == null) {
-            int type = wi2Var.getType();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (!rr1.a) {
-                            return new nj2();
-                        }
-                        throw new IllegalArgumentException("invalid model object:" + wi2Var);
-                    }
-                    return new bd2();
-                }
-                return pu2.b();
-            }
-            return new nj2();
-        }
-        return (xi2) invokeL.objValue;
     }
 }

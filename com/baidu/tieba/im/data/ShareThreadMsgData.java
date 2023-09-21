@@ -22,7 +22,7 @@ import com.baidu.tieba.im.db.pojo.PbContentPojo;
 import com.baidu.tieba.im.db.pojo.PluginUserPojo;
 import com.baidu.tieba.im.db.pojo.TiebaPlusInfoPojo;
 import com.baidu.tieba.im.db.pojo.TogetherHiPojo;
-import com.baidu.tieba.xf8;
+import com.baidu.tieba.sj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -405,7 +405,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 while (it.hasNext()) {
                     TbRichTextImageInfo next = it.next();
                     MediaPojo mediaPojo = new MediaPojo();
-                    mediaPojo.srcPic = next.P();
+                    mediaPojo.srcPic = next.Q();
                     mediaPojo.width = next.getWidth();
                     mediaPojo.height = next.getHeight();
                     shareThreadMsgData.media_list.add(mediaPojo);
@@ -541,25 +541,25 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                     }
                     if (pbContentPojo.item != null) {
                         Item.Builder builder8 = new Item.Builder();
-                        xf8 xf8Var = pbContentPojo.item;
-                        builder8.item_id = xf8Var.a;
-                        builder8.item_name = xf8Var.b;
-                        builder8.icon_size = xf8Var.c;
-                        builder8.icon_url = xf8Var.d;
-                        if (xf8Var.e != null) {
+                        sj8 sj8Var = pbContentPojo.item;
+                        builder8.item_id = sj8Var.a;
+                        builder8.item_name = sj8Var.b;
+                        builder8.icon_size = sj8Var.c;
+                        builder8.icon_url = sj8Var.d;
+                        if (sj8Var.e != null) {
                             builder8.tags = new ArrayList(pbContentPojo.item.e);
                         }
-                        xf8 xf8Var2 = pbContentPojo.item;
-                        builder8.score = xf8Var2.f;
-                        builder8.star = xf8Var2.g;
-                        builder8.button_name = xf8Var2.h;
-                        builder8.button_link = xf8Var2.i;
-                        builder8.item_appid = xf8Var2.j;
-                        builder8.category_id = xf8Var2.k;
-                        builder8.button_link_type = xf8Var2.l;
-                        builder8.apk_name = xf8Var2.m;
-                        builder8.forum_name = xf8Var2.n;
-                        if (xf8Var2.o != null) {
+                        sj8 sj8Var2 = pbContentPojo.item;
+                        builder8.score = sj8Var2.f;
+                        builder8.star = sj8Var2.g;
+                        builder8.button_name = sj8Var2.h;
+                        builder8.button_link = sj8Var2.i;
+                        builder8.item_appid = sj8Var2.j;
+                        builder8.category_id = sj8Var2.k;
+                        builder8.button_link_type = sj8Var2.l;
+                        builder8.apk_name = sj8Var2.m;
+                        builder8.forum_name = sj8Var2.n;
+                        if (sj8Var2.o != null) {
                             ApkDetail.Builder builder9 = new ApkDetail.Builder();
                             ApkDetailPojo apkDetailPojo = pbContentPojo.item.o;
                             builder9.developer = apkDetailPojo.developer;

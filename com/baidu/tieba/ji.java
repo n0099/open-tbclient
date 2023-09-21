@@ -1,176 +1,114 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.database.Cursor;
-import com.baidu.adp.lib.safe.BdCloseHelper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.oe;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.io.InputStream;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
 public class ji {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Comparator<oe.b<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308302, "Lcom/baidu/tieba/ji;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308302, "Lcom/baidu/tieba/ji;");
+                return;
             }
         }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(oe.b<?> bVar, oe.b<?> bVar2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                long j = bVar.c;
-                long j2 = bVar2.c;
-                if (j == j2) {
-                    return 0;
-                }
-                if (j > j2) {
-                    return -1;
-                }
-                return 1;
-            }
-            return invokeLL.intValue;
-        }
+        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
-    @SuppressLint({"Range"})
-    public static List<oe.b<byte[]>> a(oe<byte[]> oeVar) {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
-        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, oeVar)) == null) {
-            LinkedList linkedList = new LinkedList();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            String str = null;
+            if (inputStream == null) {
+                return null;
+            }
             try {
-                cursor = c(oeVar);
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            if (cursor == null) {
-                return null;
-            }
-            while (cursor.moveToNext()) {
                 try {
-                    oe.b bVar = new oe.b();
-                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.b = cursor.getBlob(cursor.getColumnIndex("m_value"));
-                    linkedList.add(bVar);
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        BdLog.e(th);
-                        BdCloseHelper.close(cursor);
-                        Collections.sort(linkedList, new b(null));
-                        return linkedList;
-                    } finally {
-                        BdCloseHelper.close(cursor);
+                    byte[] bArr = new byte[1024];
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
                     }
+                    str = a(messageDigest.digest());
+                } catch (Exception e) {
+                    BdLog.e(e.toString());
                 }
+                return str;
+            } finally {
+                ei.e(inputStream);
             }
-            BdCloseHelper.close(cursor);
-            Collections.sort(linkedList, new b(null));
-            return linkedList;
         }
-        return (List) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r3v11, types: [T, java.lang.String] */
-    @SuppressLint({"Range"})
-    public static List<oe.b<String>> b(oe<String> oeVar) {
+    public static String c(String str) {
         InterceptResult invokeL;
-        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, oeVar)) == null) {
-            LinkedList linkedList = new LinkedList();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
             try {
-                cursor = c(oeVar);
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            if (cursor == null) {
+                return d(str.getBytes("UTF-8"));
+            } catch (Exception unused) {
                 return null;
             }
-            while (cursor.moveToNext()) {
-                try {
-                    oe.b bVar = new oe.b();
-                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
-                    linkedList.add(bVar);
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        BdLog.e(th);
-                        BdCloseHelper.close(cursor);
-                        Collections.sort(linkedList, new b(null));
-                        return linkedList;
-                    } finally {
-                        BdCloseHelper.close(cursor);
-                    }
-                }
-            }
-            BdCloseHelper.close(cursor);
-            Collections.sort(linkedList, new b(null));
-            return linkedList;
         }
-        return (List) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static Cursor c(oe<?> oeVar) {
+    public static String d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, oeVar)) == null) {
-            if (oeVar == null || !(oeVar instanceof oe.c)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                return a(messageDigest.digest());
+            } catch (Exception e) {
+                BdLog.e(e);
                 return null;
             }
-            oe.c cVar = (oe.c) oeVar;
-            if (!(cVar.c() instanceof me)) {
-                return null;
-            }
-            fe n = ((me) cVar.c()).n();
-            return n.q(n.h().f(), cVar.j());
         }
-        return (Cursor) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

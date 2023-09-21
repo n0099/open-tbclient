@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jk9;
+import com.baidu.tieba.am9;
 import com.baidu.tieba.pb.databinding.AigcFeedbackViewBinding;
 import com.baidu.tieba.pb.feedback.AigcFeedbackView;
-import com.baidu.tieba.pk9;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tha;
+import com.baidu.tieba.ul9;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -265,7 +265,7 @@ public final class AigcFeedbackView extends RelativeLayout {
         return (AigcFeedbackViewBinding) invokeV.objValue;
     }
 
-    public final void b(jk9 postState) {
+    public final void b(ul9 postState) {
         String str;
         String str2;
         String str3;
@@ -278,7 +278,7 @@ public final class AigcFeedbackView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, postState) == null) {
             Intrinsics.checkNotNullParameter(postState, "postState");
-            tha c = postState.c();
+            zja c = postState.c();
             AigcFeedbackInfo s = c.s();
             String str5 = null;
             if (s != null) {
@@ -396,7 +396,7 @@ public final class AigcFeedbackView extends RelativeLayout {
                     binding.c.a(this.$state.g().b());
                 }
             });
-            aigcFeedbackViewState.g().e().j(new View.OnClickListener() { // from class: com.baidu.tieba.ck9
+            aigcFeedbackViewState.g().e().j(new View.OnClickListener() { // from class: com.baidu.tieba.nl9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -408,7 +408,7 @@ public final class AigcFeedbackView extends RelativeLayout {
                     }
                 }
             });
-            aigcFeedbackViewState.g().c().j(new View.OnClickListener() { // from class: com.baidu.tieba.fk9
+            aigcFeedbackViewState.g().c().j(new View.OnClickListener() { // from class: com.baidu.tieba.ql9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -420,7 +420,7 @@ public final class AigcFeedbackView extends RelativeLayout {
                     }
                 }
             });
-            aigcFeedbackViewState.g().b().j(new View.OnClickListener() { // from class: com.baidu.tieba.dk9
+            aigcFeedbackViewState.g().b().j(new View.OnClickListener() { // from class: com.baidu.tieba.ol9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -432,7 +432,7 @@ public final class AigcFeedbackView extends RelativeLayout {
                     }
                 }
             });
-            aigcFeedbackViewState.g().d().j(new View.OnClickListener() { // from class: com.baidu.tieba.ek9
+            aigcFeedbackViewState.g().d().j(new View.OnClickListener() { // from class: com.baidu.tieba.pl9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -444,7 +444,7 @@ public final class AigcFeedbackView extends RelativeLayout {
                     }
                 }
             });
-            aigcFeedbackViewState.g().a().j(new View.OnClickListener() { // from class: com.baidu.tieba.hk9
+            aigcFeedbackViewState.g().a().j(new View.OnClickListener() { // from class: com.baidu.tieba.sl9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -462,22 +462,22 @@ public final class AigcFeedbackView extends RelativeLayout {
                     if (i == 3) {
                         getBinding().c.a(aigcFeedbackViewState.g().e());
                         getBinding().b.a(aigcFeedbackViewState.g().d());
-                        pk9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), true, false);
-                        pk9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), false, false);
+                        am9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), true, false);
+                        am9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), false, false);
                         return;
                     }
                     return;
                 }
                 getBinding().c.a(aigcFeedbackViewState.g().e());
                 getBinding().b.a(aigcFeedbackViewState.g().a());
-                pk9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), true, false);
-                pk9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), false, true);
+                am9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), true, false);
+                am9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), false, true);
                 return;
             }
             getBinding().c.a(aigcFeedbackViewState.g().b());
             getBinding().b.a(aigcFeedbackViewState.g().d());
-            pk9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), true, true);
-            pk9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), false, false);
+            am9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), true, true);
+            am9.c(aigcFeedbackViewState.l(), aigcFeedbackViewState.k(), false, false);
         }
     }
 }

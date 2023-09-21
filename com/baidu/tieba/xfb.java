@@ -1,142 +1,176 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes8.dex */
-public class xfb {
+public final class xfb {
     public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public static File b;
+    public static RandomAccessFile c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public File b;
-    public CharSequence c;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public File b;
-        public CharSequence c;
-        public CharSequence d;
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948299861, "Lcom/baidu/tieba/xfb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        public xfb a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new xfb(this.a, this.b, this.c, this.d, null);
-            }
-            return (xfb) invokeV.objValue;
-        }
-
-        public b b(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-                this.b = file;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b c(CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence)) == null) {
-                this.c = charSequence;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.a = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public xfb(String str, File file, CharSequence charSequence, CharSequence charSequence2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, file, charSequence, charSequence2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948299861, "Lcom/baidu/tieba/xfb;");
                 return;
             }
         }
-        this.a = str;
-        this.b = file;
-        this.c = charSequence;
+        a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
-    public /* synthetic */ xfb(String str, File file, CharSequence charSequence, CharSequence charSequence2, a aVar) {
-        this(str, file, charSequence, charSequence2);
-    }
-
-    public File a() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public CharSequence b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                this.c = FileUtils.getFileFullName(c());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            if (file.exists()) {
+                return true;
             }
-            return this.c;
+            return false;
         }
-        return (CharSequence) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public String c() {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            if (file.delete()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (reb.h().getContext().checkCallingOrSelfPermission(a[0]) != 0 || !externalStorageState.equals("mounted")) {
+                    return false;
+                }
+                return true;
+            }
+            return externalStorageState.equals("mounted");
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static synchronized boolean d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+            synchronized (xfb.class) {
+                if (!c() || !f(str2, str3)) {
+                    return false;
+                }
+                try {
+                    b = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(b, "rwd");
+                    c = randomAccessFile;
+                    randomAccessFile.seek(b.length());
+                    c.write((str + "\r\n").getBytes("UTF-8"));
+                    c.close();
+                    return true;
+                } catch (Exception e) {
+                    agb.e(e);
+                    return false;
+                }
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static synchronized String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            synchronized (xfb.class) {
+                if (c()) {
+                    if (a(str + str2)) {
+                        try {
+                            b = new File(str + str2);
+                            c = new RandomAccessFile(b, "r");
+                            StringBuffer stringBuffer = new StringBuffer();
+                            while (true) {
+                                String readLine = c.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), "utf-8"));
+                                stringBuffer.append(",");
+                            }
+                            String stringBuffer2 = stringBuffer.toString();
+                            try {
+                                c.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return stringBuffer2;
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            try {
+                                c.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                    }
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            try {
+                b = new File(str);
+                if (!a(str)) {
+                    b.mkdirs();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                File file = new File(str + str2);
+                b = file;
+                if (file.exists()) {
+                    return true;
+                }
+                return b.createNewFile();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,78 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
 /* loaded from: classes6.dex */
-public class gw7 {
+public final class gw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public gw7(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = str2;
-    }
-
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && !"0".equals(str) && !"0".equals(str2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final String b() {
+    public static final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a + "_" + this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_entrance_guide_has_show_array"), "");
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean c() {
+    public static final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!a(this.a, this.b)) {
-                return false;
-            }
-            String b = b();
-            Date date = new Date(SharedPrefHelper.getInstance().getLong(b, 0L));
-            long currentTimeMillis = System.currentTimeMillis();
-            if (TimeHelper.getDayDifference(new Date(currentTimeMillis), date) < 2) {
-                return false;
-            }
-            SharedPrefHelper.getInstance().putLong(b, currentTimeMillis);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show_array"), "");
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static final int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_entrance_guide_frequency"), 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static final int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_frequency"), 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static final void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_entrance_guide_has_show_array"), str);
+        }
+    }
+
+    public static final void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show_array"), str);
+        }
     }
 }

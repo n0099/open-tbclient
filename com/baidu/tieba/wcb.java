@@ -1,30 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class wcb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wcb {
+    boolean a();
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "process";
-            }
-            try {
-                return new String(Base64.encode(str.getBytes("UTF-8"), 0), "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    int b();
+
+    boolean c(String str);
+
+    boolean d();
+
+    int e();
+
+    int f();
+
+    boolean g();
+
+    String h();
+
+    List<String> i();
+
+    boolean isPeakTime();
+
+    boolean j();
+
+    boolean k();
+
+    boolean l();
+
+    boolean m();
+
+    boolean n();
+
+    boolean o();
+
+    boolean p();
 }

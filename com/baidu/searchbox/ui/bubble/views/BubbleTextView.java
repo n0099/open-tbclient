@@ -58,7 +58,7 @@ public class BubbleTextView extends BubbleBaseView {
             return false;
         }
         int textColor = getTextColor();
-        TextView textView = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090525);
+        TextView textView = (TextView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09051e);
         this.mBubbleText = textView;
         textView.setTextColor(textColor);
         FontSizeTextViewExtKt.setScaledSizeRes(this.mBubbleText, 0, R.dimen.obfuscated_res_0x7f0701fd);

@@ -69,7 +69,7 @@ public class ej implements ef {
     @Override // com.xiaomi.push.ef
     public void a(Context context, eb ebVar) {
         if (ebVar != null) {
-            a(context, ebVar.m448a(), ebVar.c(), ebVar.d());
+            a(context, ebVar.m450a(), ebVar.c(), ebVar.d());
         }
     }
 }

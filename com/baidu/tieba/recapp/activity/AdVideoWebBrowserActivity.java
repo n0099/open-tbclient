@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdBrowserActivity;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.o4a;
-import com.baidu.tieba.p4a;
+import com.baidu.tieba.m6a;
+import com.baidu.tieba.n6a;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
@@ -40,7 +40,7 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
     public int K;
     public int L;
     public int M;
-    public o4a N;
+    public m6a N;
     public WebViewContainer.OnScrollChangedCallback O;
 
     /* loaded from: classes7.dex */
@@ -71,7 +71,7 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
         public void onScroll(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                AdVideoWebBrowserActivity.P1(this.a, i2);
+                AdVideoWebBrowserActivity.r1(this.a, i2);
                 boolean z = false;
                 if (this.a.K < this.a.L) {
                     DistributeVideoView distributeVideoView = this.a.D;
@@ -104,20 +104,11 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
         this.O = new a(this);
     }
 
-    public final int U1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f070282);
-        }
-        return invokeV.intValue;
-    }
-
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             DistributeVideoView distributeVideoView = this.D;
             if (distributeVideoView != null) {
                 if (distributeVideoView.getPlayStatus() != 2) {
@@ -136,7 +127,7 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
         DistributeVideoView distributeVideoView;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.K > 0 && (distributeVideoView = this.D) != null) {
                 if (distributeVideoView.getPlayStatus() != 2) {
                     z = true;
@@ -153,7 +144,7 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
     public void onResume() {
         DistributeVideoView distributeVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.K > this.L && (distributeVideoView = this.D) != null) {
                 distributeVideoView.autoPlay(0);
             }
@@ -161,41 +152,40 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
         }
     }
 
+    public final int v1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f070282);
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBrowserActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public void onReceivedError(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || i == -2) {
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || i == -2) {
             return;
         }
         super.onReceivedError(i);
     }
 
-    public static /* synthetic */ int P1(AdVideoWebBrowserActivity adVideoWebBrowserActivity, int i) {
+    public static /* synthetic */ int r1(AdVideoWebBrowserActivity adVideoWebBrowserActivity, int i) {
         int i2 = adVideoWebBrowserActivity.K - i;
         adVideoWebBrowserActivity.K = i2;
         return i2;
-    }
-
-    public final void T1(int i) {
-        FrameLayout.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (layoutParams = (FrameLayout.LayoutParams) this.t.getLayoutParams()) != null) {
-            layoutParams.topMargin = i;
-            layoutParams.height = (BdUtilHelper.getEquipmentHeight(getActivity()) - BdUtilHelper.getStatusBarHeight(getActivity())) - U1();
-            this.t.setLayoutParams(layoutParams);
-        }
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBrowserActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public View createWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d007e, (ViewGroup) null, false);
-            this.E = (WebViewContainer) frameLayout.findViewById(R.id.obfuscated_res_0x7f092a4b);
-            this.t = (TbWebView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092a4d);
-            E1();
-            this.D = (DistributeVideoView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092a4c);
+            this.E = (WebViewContainer) frameLayout.findViewById(R.id.obfuscated_res_0x7f092a16);
+            this.t = (TbWebView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092a18);
+            f1();
+            this.D = (DistributeVideoView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092a17);
             if (!TextUtils.isEmpty(this.F) && !TextUtils.isEmpty(this.G)) {
                 VideoInfo.Builder builder = new VideoInfo.Builder();
                 builder.video_url = this.F;
@@ -204,7 +194,7 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
                 if (this.M == 14) {
                     Integer valueOf = Integer.valueOf(BdUtilHelper.getEquipmentWidth(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(p4a.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(n6a.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(BdUtilHelper.getEquipmentWidth(getActivity()));
                     builder.video_width = valueOf2;
@@ -223,9 +213,9 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
                 int intValue2 = build.video_height.intValue();
                 this.J = intValue2;
                 this.L = intValue2 / 2;
-                o4a o4aVar = this.N;
-                if (o4aVar != null) {
-                    this.D.setVideoTailFrameData(o4aVar);
+                m6a m6aVar = this.N;
+                if (m6aVar != null) {
+                    this.D.setVideoTailFrameData(m6aVar);
                 }
                 this.D.setPageContext(getPageContext());
                 this.D.setData(build, 2, getPageContext());
@@ -246,7 +236,7 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
                     this.D.updateTailFrameView(null);
                 }
                 this.D.autoPlay(0);
-                T1(build.video_height.intValue());
+                u1(build.video_height.intValue());
             } else {
                 this.D.setVisibility(8);
             }
@@ -258,7 +248,7 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBrowserActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             Intent intent = getIntent();
             if (intent != null) {
                 this.F = intent.getStringExtra("video_url");
@@ -268,9 +258,9 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
                 this.M = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
                 String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
                 if (!TextUtils.isEmpty(stringExtra)) {
-                    o4a o4aVar = new o4a();
-                    this.N = o4aVar;
-                    o4aVar.c(stringExtra);
+                    m6a m6aVar = new m6a();
+                    this.N = m6aVar;
+                    m6aVar.c(stringExtra);
                 }
             } else if (bundle != null) {
                 this.F = bundle.getString("video_url");
@@ -282,6 +272,16 @@ public class AdVideoWebBrowserActivity extends AdBrowserActivity {
                 BdLog.e("NewWebVideoActivity: onCreate invalid parameters");
             }
             super.onCreate(bundle);
+        }
+    }
+
+    public final void u1(int i) {
+        FrameLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (layoutParams = (FrameLayout.LayoutParams) this.t.getLayoutParams()) != null) {
+            layoutParams.topMargin = i;
+            layoutParams.height = (BdUtilHelper.getEquipmentHeight(getActivity()) - BdUtilHelper.getStatusBarHeight(getActivity())) - v1();
+            this.t.setLayoutParams(layoutParams);
         }
     }
 }

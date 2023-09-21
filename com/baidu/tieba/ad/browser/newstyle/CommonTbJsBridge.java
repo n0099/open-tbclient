@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.iia;
-import com.baidu.tieba.ki;
-import com.baidu.tieba.mia;
+import com.baidu.tieba.ji;
+import com.baidu.tieba.oka;
+import com.baidu.tieba.ska;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class CommonTbJsBridge implements iia {
+public class CommonTbJsBridge implements oka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements iia {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.iia
+    @Override // com.baidu.tieba.oka
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements iia {
         return invokeLLLL.booleanValue;
     }
 
-    public mia getSupplementInfo() {
+    public ska getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            mia miaVar = new mia();
+            ska skaVar = new ska();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements iia {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c = ki.c(sb.toString());
+            String c = ji.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements iia {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                miaVar.o(jSONObject.toString());
-                return miaVar;
+                skaVar.o(jSONObject.toString());
+                return skaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                miaVar.o("");
-                return miaVar;
+                skaVar.o("");
+                return skaVar;
             }
         }
-        return (mia) invokeV.objValue;
+        return (ska) invokeV.objValue;
     }
 }

@@ -1,41 +1,30 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class js8 implements is8 {
+public class js8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<hs8> a;
-    public ls8 b;
-    public is8 c;
-    public int d;
+    public is8 a;
+    public CollapseState b;
+    public int c;
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public abstract List<hs8> j(List list);
-
-    public js8() {
+    public js8(is8 is8Var, ks8 ks8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {is8Var, ks8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,93 +34,144 @@ public abstract class js8 implements is8 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.d = -1;
+        this.c = 0;
+        this.a = is8Var;
+        this.b = new CollapseState();
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public final void d(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.size() > 0) {
-                return this.a.size();
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            if (!TextUtils.isEmpty(str) && j != 0) {
+                CollapseState collapseState = this.b;
+                collapseState.a = CollapseState.Icon.FORUM;
+                collapseState.e = str;
+                collapseState.d = j;
+                return;
             }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<hs8> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return Collections.unmodifiableList(this.a);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public hs8 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= 0 && i < e()) {
-                return f().get(i);
-            }
-            return null;
-        }
-        return (hs8) invokeI.objValue;
-    }
-
-    public void i(int i) {
-        ls8 ls8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && i >= 0 && (ls8Var = this.b) != null) {
-            ls8Var.c(i, 1);
+            CollapseState collapseState2 = this.b;
+            collapseState2.a = CollapseState.Icon.DEFAULT;
+            collapseState2.e = null;
+            collapseState2.d = 0L;
         }
     }
 
-    public void k(is8 is8Var) {
+    public final void e(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, is8Var) == null) {
-            this.c = is8Var;
-        }
-    }
-
-    public void l(ls8 ls8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ls8Var) == null) {
-            this.b = ls8Var;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void g(List list) {
-        List<hs8> j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty()) {
-            this.a.addAll(j);
-            ls8 ls8Var = this.b;
-            if (ls8Var != null) {
-                ls8Var.b(0, e());
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                this.b.c = CollapseState.Tip.AT_ME;
+            } else if (z2) {
+                this.b.c = CollapseState.Tip.THREE_EXP;
+            } else {
+                this.b.c = CollapseState.Tip.DEFAULT;
             }
         }
     }
 
-    public void h(List list) {
-        List<hs8> j;
+    public void a(List<Long> list, long j, List list2, int i) {
+        List<Long> list3;
+        ChatRoomInfo chatRoomInfo;
+        boolean z;
+        boolean a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty() && this.b != null) {
-            int e = e();
-            this.a.clear();
-            this.b.a(0, e);
-            this.a.addAll(j);
-            this.b.c(0, e());
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) && (list3 = list) != null && list2 != null) {
+            long j2 = 0;
+            String str = null;
+            this.c = 0;
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                if (list2.get(i2) instanceof ChatGroupInfo) {
+                    List<ChatRoomInfo> roomInfoList = ((ChatGroupInfo) list2.get(i2)).getRoomInfoList();
+                    if (!ListUtils.isEmpty(roomInfoList)) {
+                        this.c += roomInfoList.size();
+                    }
+                }
+            }
+            int i3 = -1;
+            int i4 = 0;
+            boolean z2 = false;
+            boolean z3 = false;
+            int i5 = -1;
+            while (i4 < list2.size()) {
+                if (list2.get(i4) instanceof ChatGroupInfo) {
+                    List<ChatRoomInfo> roomInfoList2 = ((ChatGroupInfo) list2.get(i4)).getRoomInfoList();
+                    if (!ListUtils.isEmpty(roomInfoList2)) {
+                        int i6 = 0;
+                        while (i6 < roomInfoList2.size() && (chatRoomInfo = roomInfoList2.get(i6)) != null) {
+                            if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            int indexOf = list3.indexOf(Long.valueOf(chatRoomInfo.getRoomId()));
+                            if (indexOf != i3) {
+                                if (z && !z2) {
+                                    j2 = chatRoomInfo.getRoomId();
+                                    str = chatRoomInfo.getAvatar();
+                                } else if (z && z2) {
+                                    if (i5 < 0 || indexOf < i5) {
+                                        j2 = chatRoomInfo.getRoomId();
+                                        str = chatRoomInfo.getAvatar();
+                                    }
+                                } else if (!z && !z2 && ((!(a = au8.a(j)) || this.c == 1) && (i5 < 0 || indexOf < i5))) {
+                                    j2 = chatRoomInfo.getRoomId();
+                                    z3 = !a;
+                                    str = chatRoomInfo.getAvatar();
+                                    i5 = indexOf;
+                                    z2 = false;
+                                }
+                                i5 = indexOf;
+                                z2 = true;
+                                z3 = false;
+                            }
+                            i6++;
+                            list3 = list;
+                            i3 = -1;
+                        }
+                    }
+                }
+                i4++;
+                list3 = list;
+                i3 = -1;
+            }
+            CollapseState clone = this.b.clone();
+            e(z2, z3);
+            d(str, j2);
+            is8 is8Var = this.a;
+            if (is8Var != null) {
+                is8Var.update(clone, this.b);
+            }
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            CollapseState clone = this.b.clone();
+            if (z) {
+                this.b.b = CollapseState.State.EXPAND;
+            } else {
+                this.b.b = CollapseState.State.COLLAPSE;
+            }
+            is8 is8Var = this.a;
+            if (is8Var != null) {
+                is8Var.update(clone, this.b);
+            }
+        }
+    }
+
+    public void c(List<Long> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            CollapseState clone = this.b.clone();
+            e(false, false);
+            if (this.c != 1) {
+                d(null, 0L);
+            }
+            is8 is8Var = this.a;
+            if (is8Var != null) {
+                is8Var.update(clone, this.b);
+            }
         }
     }
 }

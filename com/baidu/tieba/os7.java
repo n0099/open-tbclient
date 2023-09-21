@@ -1,268 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.StringUtils;
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class os7 extends PriorityOrganizer.Task {
+public class os7 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public FrsActivity b;
-    public FrsFragment c;
-    public boolean d;
+    public WeakReference<FrsModelController> a;
+    public MvcSocketResponsedMessage<pia, ?> b;
+    public MvcSocketMessage<FrsRequestData, pia> c;
+    public MvcNetMessage<FrsRequestData, pia> d;
+    public wia e;
 
-    /* loaded from: classes7.dex */
-    public class a implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ os7 a;
-
-        public a(os7 os7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {os7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = os7Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                YunDialogManager.unMarkShowingDialogName("userGrowth");
-                this.a.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ os7 a;
-
-        public b(os7 os7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {os7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = os7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LevePopData a;
-        public final /* synthetic */ os7 b;
-
-        public c(os7 os7Var, LevePopData levePopData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {os7Var, levePopData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = os7Var;
-            this.a = levePopData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                BrowserHelper.startWebActivity(view2.getContext(), (String) null, this.a.getBtn_scheme(), true);
-                this.b.finish();
-            }
-        }
-    }
-
-    public os7(FrsActivity frsActivity) {
+    public os7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = false;
-        this.b = frsActivity;
-        this.a = frsActivity.getPageContext();
     }
 
-    public os7(FrsActivity frsActivity, FrsFragment frsFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.c = frsFragment;
-        this.b = frsActivity;
-        this.a = frsActivity.getPageContext();
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isDataReady() {
+    @Override // android.os.MessageQueue.IdleHandler
+    public boolean queueIdle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.d) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.a.get();
+            if (frsModelController == null) {
+                return false;
             }
-            FrsFragment frsFragment = this.c;
-            if (frsFragment != null && !frsFragment.Z3()) {
-                return true;
+            frsModelController.S0(this.b, this.c, this.d);
+            wia wiaVar = this.e;
+            if (wiaVar != null) {
+                wiaVar.b();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isNeedExecute() {
-        InterceptResult invokeV;
+    public void a(FrsModelController frsModelController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (YunDialogManager.isShowingDialog()) {
-                return false;
-            }
-            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
-            if (levePopData.isHadShow() || StringUtils.isNull(levePopData.getTitle()) || StringUtils.isNull(levePopData.getDesc()) || StringUtils.isNull(levePopData.getBtn_scheme()) || levePopData.getLevel() <= 0 || levePopData.getLevel() > 10 || !this.b.A1() || levePopData.getUid().longValue() != TbadkCoreApplication.getCurrentAccountId()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
+            this.a = new WeakReference<>(frsModelController);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void onExecute() {
-        String cancel_btn_text;
-        String btn_text;
+    public void b(wia wiaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wiaVar) == null) {
+            this.e = wiaVar;
         }
-        LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
-        if (!levePopData.isHadShow() && !StringUtils.isNull(levePopData.getTitle()) && !StringUtils.isNull(levePopData.getDesc()) && !StringUtils.isNull(levePopData.getBtn_scheme()) && levePopData.getLevel() > 0 && levePopData.getLevel() <= 10) {
-            RelativeLayout relativeLayout = new RelativeLayout(this.a.getPageActivity());
-            View view2 = new View(this.a.getPageActivity());
-            EMManager.from(view2).setCardType(1).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds127));
-            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
-            relativeLayout.addView(view2, layoutParams);
-            ImageView imageView = new ImageView(this.a.getPageActivity());
-            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_usergrouth_home, WebPManager.ResourceStateType.NORMAL));
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(14);
-            relativeLayout.addView(imageView, layoutParams2);
-            TBAlertBuilder customHeaderView = new TBAlertBuilder(this.a.getPageActivity()).setTitleStr(levePopData.getTitle()).setDescStr(levePopData.getDesc()).setDescLightStyle(true).setCustomHeaderView(relativeLayout);
-            TBAlertConfig.OperateBtnConfig[] operateBtnConfigArr = new TBAlertConfig.OperateBtnConfig[2];
-            if (StringUtils.isNull(levePopData.getCancel_btn_text())) {
-                cancel_btn_text = TbadkCoreApplication.getInst().getString(R.string.guide_popup_window_known);
-            } else {
-                cancel_btn_text = levePopData.getCancel_btn_text();
-            }
-            operateBtnConfigArr[0] = new TBAlertConfig.OperateBtnConfig(cancel_btn_text, TBAlertConfig.OperateBtnStyle.SECONDARY, new b(this));
-            if (StringUtils.isNull(levePopData.getBtn_text())) {
-                btn_text = TbadkCoreApplication.getInst().getString(R.string.check_detail);
-            } else {
-                btn_text = levePopData.getBtn_text();
-            }
-            operateBtnConfigArr[1] = new TBAlertConfig.OperateBtnConfig(btn_text, TBAlertConfig.OperateBtnStyle.MAIN, new c(this, levePopData));
-            customHeaderView.setOperateBtn(operateBtnConfigArr).setOnDismissListener(new a(this)).setCancelable(false).setAutoClose().show();
-            YunDialogManager.markShowingDialogName("userGrowth");
-            if (!this.d) {
-                this.c.l5(true);
-            }
-            PollingModel.setLevelPopData(levePopData, true);
-            return;
+    }
+
+    public void c(MvcSocketMessage<FrsRequestData, pia> mvcSocketMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
+            this.c = mvcSocketMessage;
         }
-        finish();
+    }
+
+    public void d(MvcNetMessage<FrsRequestData, pia> mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
+            this.d = mvcNetMessage;
+        }
+    }
+
+    public void e(MvcSocketResponsedMessage<pia, ?> mvcSocketResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
+            this.b = mvcSocketResponsedMessage;
+        }
     }
 }

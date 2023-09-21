@@ -44,6 +44,7 @@ public class HeadImageView extends TbClipImageView {
     public String mUrl;
     public int officialIconResId;
     public boolean showActiveStatus;
+    public String targetScheme;
     public String tid;
     public String user_id;
     public String user_name;
@@ -129,6 +130,7 @@ public class HeadImageView extends TbClipImageView {
         this.iconMargin = 0;
         this.mIconWidth = 0;
         this.isShowV = false;
+        this.targetScheme = "";
         this.user_id = null;
         this.user_name = null;
         this.fid = null;
@@ -174,49 +176,49 @@ public class HeadImageView extends TbClipImageView {
 
     public void setAlaInfo(AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, alaInfoData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, alaInfoData) == null) {
             this.alaInfo = alaInfoData;
         }
     }
 
     public void setBazhuIconRes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.mBazhuIconResId = i;
         }
     }
 
     public void setBjhAuthIconRes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.mBjhAuthIconResId = i;
         }
     }
 
     public void setFName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.fName = str;
         }
     }
 
     public void setFid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.fid = str;
         }
     }
 
     public void setFloor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.floor = i;
         }
     }
 
     public void setGodIconMargin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             setIsRound(true);
             if (i > 0) {
                 this.iconMargin = BdUtilHelper.getDimens(getContext(), i);
@@ -227,14 +229,14 @@ public class HeadImageView extends TbClipImageView {
 
     public void setGodIconResId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.mGodIconResId = i;
         }
     }
 
     public void setGodIconWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             if (i > 0) {
                 this.mIconWidth = BdUtilHelper.getDimens(getContext(), i);
             }
@@ -244,14 +246,14 @@ public class HeadImageView extends TbClipImageView {
 
     public void setIsBigV(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.isShowV = z;
         }
     }
 
     public void setIsGod(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             this.isShowV = z;
             if (z) {
                 setGodIconMargin(0);
@@ -265,28 +267,28 @@ public class HeadImageView extends TbClipImageView {
 
     public void setLiveStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             this.liveStatus = i;
         }
     }
 
     public void setOfficialIconResId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             this.officialIconResId = i;
         }
     }
 
     public void setOriginatorResId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
             this.mOriginatorResId = i;
         }
     }
 
     public void setShowActiveStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
             this.showActiveStatus = z;
             if (z) {
                 Paint paint = new Paint(1);
@@ -299,35 +301,42 @@ public class HeadImageView extends TbClipImageView {
 
     public void setShowV(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             this.isShowV = z;
+        }
+    }
+
+    public void setTargetScheme(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            this.targetScheme = str;
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             this.tid = str;
         }
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
             this.mUrl = str;
         }
     }
 
     public void setUserId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
             this.user_id = str;
         }
     }
 
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
             setUserName(str, str + getResources().getString(R.string.somebodys_portrait));
         }
     }
@@ -377,10 +386,19 @@ public class HeadImageView extends TbClipImageView {
         return invokeV.intValue;
     }
 
-    public String getTid() {
+    public String getTargetScheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.targetScheme;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.tid;
         }
         return (String) invokeV.objValue;
@@ -390,7 +408,7 @@ public class HeadImageView extends TbClipImageView {
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mUrl;
         }
         return (String) invokeV.objValue;
@@ -399,7 +417,7 @@ public class HeadImageView extends TbClipImageView {
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.user_id;
         }
         return (String) invokeV.objValue;
@@ -408,7 +426,7 @@ public class HeadImageView extends TbClipImageView {
     public String getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.user_name;
         }
         return (String) invokeV.objValue;
@@ -417,7 +435,7 @@ public class HeadImageView extends TbClipImageView {
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView, android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048586, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048587, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             this.width = getWidth();
             this.height = getHeight();
@@ -426,7 +444,7 @@ public class HeadImageView extends TbClipImageView {
 
     public void setUserName(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048607, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048609, this, str, str2) == null) {
             this.user_name = str;
             setContentDescription(str2);
         }
@@ -435,7 +453,7 @@ public class HeadImageView extends TbClipImageView {
     public void updateVIcon(Canvas canvas) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048608, this, canvas) == null) && this.isShowV && this.mIconWidth > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048610, this, canvas) == null) && this.isShowV && this.mIconWidth > 0) {
             int i = this.officialIconResId;
             if (i != 0) {
                 Drawable drawable2 = SkinManager.getDrawable(i);

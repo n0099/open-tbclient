@@ -25,11 +25,11 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nr5;
+import com.baidu.tieba.or5;
 import com.baidu.tieba.q15;
 import com.baidu.tieba.r35;
 import com.baidu.tieba.s35;
-import com.baidu.tieba.vx;
+import com.baidu.tieba.ux;
 import com.baidu.tieba.wz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class RecommendForumLayout extends LinearLayout implements vx {
+public class RecommendForumLayout extends LinearLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -128,7 +128,7 @@ public class RecommendForumLayout extends LinearLayout implements vx {
                 this.g.setVisibility(8);
             }
             if (s35Var != null && s35Var.e() != null && s35Var.e().size() > 0) {
-                ArrayList<? extends nr5> arrayList = new ArrayList<>();
+                ArrayList<? extends or5> arrayList = new ArrayList<>();
                 ArrayList<r35> e = s35Var.e();
                 if (this.h) {
                     if (this.i) {
@@ -195,7 +195,7 @@ public class RecommendForumLayout extends LinearLayout implements vx {
         }
     }
 
-    @Override // com.baidu.tieba.vx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {

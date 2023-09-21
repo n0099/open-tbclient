@@ -1,117 +1,124 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 /* loaded from: classes6.dex */
-public class jha {
+public final class jha implements uha {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] c;
-    public static final int[] d;
-    public static final int[] e;
-    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseIntArray a;
-    public final int[] b;
+    public final sha a;
+    public final pha b;
+    public final qha c;
+    public final rha d;
+    public final kha e;
+    public final lha f;
+    public final mha g;
+    public final HashMap<xha, HashMap<vha, xha>> h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947884678, "Lcom/baidu/tieba/jha;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947884678, "Lcom/baidu/tieba/jha;");
-                return;
-            }
-        }
-        c = new int[]{3, 8, 13};
-        d = new int[]{2, 12};
-        e = new int[]{20};
-        f = new int[]{3, 13, 23};
-    }
-
-    public jha(String str, int[] iArr) {
+    public jha() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = iArr;
-        this.a = new SparseIntArray();
+        this.a = new sha();
+        this.b = new pha();
+        this.c = new qha();
+        this.d = new rha();
+        this.e = new kha();
+        this.f = new lha();
+        this.g = new mha();
+        this.h = MapsKt__MapsKt.hashMapOf(new Pair(a(), MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.b))), new Pair(this.b, MapsKt__MapsKt.hashMapOf(new Pair(this.f, this.c))), new Pair(this.c, MapsKt__MapsKt.hashMapOf(new Pair(this.g, this.d))));
     }
 
-    public void a(int i, int i2) {
-        SparseIntArray sparseIntArray;
+    public final kha b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 >= 0 && (sparseIntArray = this.a) != null) {
-            sparseIntArray.append(i2, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
+        return (kha) invokeV.objValue;
     }
 
-    public int b(int i) {
-        InterceptResult invokeI;
-        SparseIntArray sparseIntArray;
+    public final pha c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0 || (sparseIntArray = this.a) == null) {
-                return -1;
-            }
-            return sparseIntArray.get(i, -1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return invokeI.intValue;
+        return (pha) invokeV.objValue;
     }
 
-    public void c(int i) {
-        SparseIntArray sparseIntArray;
+    public final lha d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (sparseIntArray = this.a) != null) {
-            sparseIntArray.delete(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
+        return (lha) invokeV.objValue;
     }
 
-    public void e(int i) {
+    public final qha e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            SparseIntArray sparseIntArray = this.a;
-            if (sparseIntArray != null) {
-                sparseIntArray.clear();
-                int[] iArr = this.b;
-                if (iArr != null) {
-                    for (int i2 : iArr) {
-                        if (i2 >= 0) {
-                            this.a.append(i2 + i, i2);
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
         }
+        return (qha) invokeV.objValue;
     }
 
-    public void d() {
+    public final mha f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
         }
+        return (mha) invokeV.objValue;
+    }
+
+    public final rha g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (rha) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.uha
+    public HashMap<xha, HashMap<vha, xha>> getMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uha
+    /* renamed from: h */
+    public sha a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (sha) invokeV.objValue;
     }
 }

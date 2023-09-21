@@ -153,10 +153,10 @@ public final class DownloadManageButton extends AppCompatTextView {
                 }
             }
             NONE_INIT = new DownloadManageType("NONE_INIT", 0, "", 0);
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c4f);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c51);
             Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.manage)");
             NONE_TASK = new DownloadManageType("NONE_TASK", 1, string, R.color.CAM_X0110);
-            String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c4f);
+            String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c51);
             Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.string.manage)");
             NORMAL = new DownloadManageType("NORMAL", 2, string2, R.color.CAM_X0107);
             String string3 = TbadkCoreApplication.getInst().getString(R.string.exit_manage);
@@ -229,7 +229,7 @@ public final class DownloadManageButton extends AppCompatTextView {
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = DownloadManageType.NONE_INIT;
         f(DownloadManageType.NONE_TASK);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cz6
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.iz6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

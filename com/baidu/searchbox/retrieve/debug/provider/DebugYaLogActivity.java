@@ -25,8 +25,8 @@ import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.flb;
-import com.baidu.tieba.xkb;
+import com.baidu.tieba.pmb;
+import com.baidu.tieba.xmb;
 import com.baidu.yalog.Logger;
 import com.baidu.yalog.LoggerManager;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
@@ -682,9 +682,9 @@ public class DebugYaLogActivity extends Activity {
             if (jSONObject2.length() > 0) {
                 jSONObject.put("set", jSONObject2);
             }
-            flb flbVar = (flb) ServiceManager.getService(flb.a);
-            if (flbVar != null) {
-                flbVar.a(jSONObject);
+            xmb xmbVar = (xmb) ServiceManager.getService(xmb.a);
+            if (xmbVar != null) {
+                xmbVar.a(jSONObject);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }
@@ -840,9 +840,9 @@ public class DebugYaLogActivity extends Activity {
             jSONObject4.put("only_wifi", str2);
             jSONObject2.put(str20, jSONObject4);
             jSONObject.put("set", jSONObject2);
-            xkb xkbVar = (xkb) ServiceManager.getService(xkb.a);
-            if (xkbVar != null) {
-                xkbVar.d(jSONObject);
+            pmb pmbVar = (pmb) ServiceManager.getService(pmb.a);
+            if (pmbVar != null) {
+                pmbVar.d(jSONObject);
                 Toast.makeText(this, "voyager配置成功！\n" + jSONObject.toString(), 1).show();
             } else {
                 Toast.makeText(this, "无法获取service！请正确配置easybox服务框架！", 0).show();
@@ -909,9 +909,9 @@ public class DebugYaLogActivity extends Activity {
                 Toast.makeText(this, "无id配置", 0).show();
                 return;
             }
-            flb flbVar = (flb) ServiceManager.getService(flb.a);
-            if (flbVar != null) {
-                flbVar.b(jSONObject, true);
+            xmb xmbVar = (xmb) ServiceManager.getService(xmb.a);
+            if (xmbVar != null) {
+                xmbVar.b(jSONObject, true);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }

@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.oy;
-import com.baidu.tieba.zy;
+import com.baidu.tieba.ny;
+import com.baidu.tieba.yy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class z38 extends v38<h45, ThreadCardViewHolder<ThreadData>> {
+/* loaded from: classes8.dex */
+public class z38 extends x38<h45, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mp6<ThreadData> e;
+    public sp6<ThreadData> e;
 
-    /* loaded from: classes9.dex */
-    public class a extends mp6<ThreadData> {
+    /* loaded from: classes8.dex */
+    public class a extends sp6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z38 b;
@@ -48,7 +48,7 @@ public class z38 extends v38<h45, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mp6
+        @Override // com.baidu.tieba.sp6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class z38 extends v38<h45, ThreadCardViewHolder<ThreadData>> {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b implements mn {
+    /* loaded from: classes8.dex */
+    public class b implements ln {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z38 a;
@@ -82,25 +82,25 @@ public class z38 extends v38<h45, ThreadCardViewHolder<ThreadData>> {
             this.a = z38Var;
         }
 
-        @Override // com.baidu.tieba.mn
-        public void b(View view2, cn cnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.ln
+        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cnVar instanceof h45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (bnVar instanceof h45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((h45) cnVar).t;
+                ThreadData threadData = ((h45) bnVar).t;
                 threadData.objType = 1;
                 if (this.a.e != null) {
                     this.a.e.a(threadCardViewHolder.getView(), threadData);
                 }
                 ThreadCardUtils.jumpToPB((b15) threadData, view2.getContext(), 0, false);
-                threadCardViewHolder.a().p(new zy.a(1));
+                threadCardViewHolder.a().p(new yy.a(1));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z38(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_TEXT_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,19 +121,19 @@ public class z38 extends v38<h45, ThreadCardViewHolder<ThreadData>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
+    @Override // com.baidu.tieba.om
     /* renamed from: A */
     public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            oy.b bVar = new oy.b(this.b.getPageActivity(), false);
-            dy dyVar = new dy(this.b.getPageActivity());
-            dyVar.setFrom("index");
-            dyVar.x(t());
-            bVar.n(dyVar);
-            oy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.c);
-            k.s(0);
+            ny.b bVar = new ny.b(this.b.getPageActivity(), false);
+            zx zxVar = new zx(this.b.getPageActivity());
+            zxVar.setFrom("hot_topic");
+            zxVar.y(this.a);
+            bVar.n(zxVar);
+            ny k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.c);
+            k.s(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.mPageId);
             setOnAdapterItemClickListener(new b(this));
@@ -143,7 +143,7 @@ public class z38 extends v38<h45, ThreadCardViewHolder<ThreadData>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v38, com.baidu.tieba.pm
+    @Override // com.baidu.tieba.x38, com.baidu.tieba.om
     /* renamed from: B */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h45 h45Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;

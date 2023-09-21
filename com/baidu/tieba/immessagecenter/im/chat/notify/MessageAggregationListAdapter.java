@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.me8;
+import com.baidu.tieba.hi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,15 +35,15 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
         }
     }
 
-    public void b0(TbPageContext tbPageContext) {
+    public void a0(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             this.g = tbPageContext;
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.me8
-    public void k(me8.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.hi8
+    public void k(hi8.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, imMessageCenterShowItemData) == null) {
             super.k(aVar, imMessageCenterShowItemData);

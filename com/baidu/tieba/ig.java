@@ -1,175 +1,125 @@
 package com.baidu.tieba;
 
-import android.view.animation.Animation;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class ig implements Animation.AnimationListener {
+public class ig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void a(Animation animation) {
+    public static boolean a(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, intent)) == null) {
+            try {
+                context.sendBroadcast(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
     }
 
-    public void b(Animation animation) {
+    public static boolean startActivity(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-        }
-    }
-
-    public void c(Animation animation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Animation a;
-        public final /* synthetic */ ig b;
-
-        public a(ig igVar, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {igVar, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
+            try {
+                if (!(context instanceof Activity) && intent != null) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
-            }
-            this.b = igVar;
-            this.a = animation;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c(this.a);
+                context.startActivity(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Animation a;
-        public final /* synthetic */ ig b;
-
-        public b(ig igVar, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {igVar, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = igVar;
-            this.a = animation;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Animation a;
-        public final /* synthetic */ ig b;
-
-        public c(ig igVar, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {igVar, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = igVar;
-            this.a = animation;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b(this.a);
-            }
-        }
-    }
-
-    public ig() {
+    public static boolean startService(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent)) == null) {
+            try {
+                context.startService(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    public static boolean stopService(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animation) == null) {
-            SafeHandler.getInst().post(new b(this, animation));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, intent)) == null) {
+            try {
+                context.stopService(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public static boolean unbindService(Context context, ServiceConnection serviceConnection) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, animation) == null) {
-            SafeHandler.getInst().post(new c(this, animation));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, serviceConnection)) == null) {
+            try {
+                context.unbindService(serviceConnection);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, animation) == null) {
-            SafeHandler.getInst().post(new a(this, animation));
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i)) == null) {
+            try {
+                context.bindService(intent, serviceConnection, i);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
         }
+        return invokeLLLI.booleanValue;
+    }
+
+    public static boolean startActivityForResult(Activity activity, Intent intent, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i)) == null) {
+            try {
+                activity.startActivityForResult(intent, i);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLLI.booleanValue;
     }
 }

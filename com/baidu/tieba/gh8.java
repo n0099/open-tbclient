@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import android.view.View;
+import com.baidu.tieba.im.biz.aibot.keyboardtool.PanelType;
 /* loaded from: classes6.dex */
-public interface gh8<SdkMsg> {
-    void a(SdkMsg sdkmsg, TbBaseMsg tbBaseMsg, String str);
+public interface gh8 extends dh8 {
+    void B1(jh8 jh8Var);
 
-    int b(SdkMsg sdkmsg);
+    void l();
 
-    String c(SdkMsg sdkmsg);
+    void r();
+
+    void s(adc<PanelType, PanelType, Float, Float> adcVar);
+
+    View y();
 }

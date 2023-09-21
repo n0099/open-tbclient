@@ -1,22 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.du2;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class o82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public JSONArray c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public long h;
 
     static {
         InterceptResult invokeClinit;
@@ -31,89 +43,70 @@ public class o82 {
                 return;
             }
         }
-        a = "__localDebug__" + File.separator + "master.js";
-        b = "__localDebug__" + File.separator + "main.js";
-        c = "__localDebug__" + File.separator + "slave.js";
+        i = qr1.a;
     }
 
-    public static du2.g a(ew2 ew2Var) {
+    public o82() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @NonNull
+    public static o82 c(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ew2Var)) == null) {
-            File d = d();
-            q82.e().f("unzipstart");
-            du2.M(b(), d, ew2Var);
-            q82.e().f("unzipend");
-            du2.g gVar = new du2.g();
-            File file = new File(d, "app.json");
-            SwanAppConfigData b2 = tb3.b(d.getAbsolutePath());
-            gVar.a = d.getPath() + File.separator;
-            gVar.b = b2;
-            h82.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
-        }
-        return (du2.g) invokeL.objValue;
-    }
-
-    public static File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new File(c(), "local_debug.swan");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            o82 o82Var = new o82();
+            try {
+                o82Var.c = jSONObject.getJSONArray("host");
+                o82Var.b = jSONObject.getString("appKey");
+                o82Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                o82Var.d = jSONObject.getString("serverPort");
+                o82Var.f = jSONObject.getString("wsServerPort");
+                Uri.decode(jSONObject.optString("url"));
+                o82Var.g = jSONObject.optString("notInHistory", "1");
+                o82Var.h = jSONObject.optLong("coreVersion");
+            } catch (JSONException unused) {
+                if (i) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
+                }
             }
-            return file;
+            return o82Var;
         }
-        return (File) invokeV.objValue;
+        return (o82) invokeL.objValue;
     }
 
-    public static File d() {
-        InterceptResult invokeV;
+    public String a(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            JSONArray jSONArray = this.c;
+            if (jSONArray == null) {
+                return "";
             }
-            return file;
+            return jSONArray.optString(i2);
         }
-        return (File) invokeV.objValue;
+        return (String) invokeI.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return d() + File.separator + a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return "http://" + str + ":" + this.d + "/app.zip";
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d() + File.separator + c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
-        }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

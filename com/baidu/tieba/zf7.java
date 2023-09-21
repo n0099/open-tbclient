@@ -1,140 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.forumMember.member.ComplaintBarlordViewHolder;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.oe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zf7 extends pm<ag7, ComplaintBarlordViewHolder> {
+public class zf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public View.OnClickListener b;
+    public oe<byte[]> a;
 
-    /* loaded from: classes9.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf7 a;
-
-        public a(zf7 zf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zf7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
-                String str = (String) view2.getTag();
-                if (this.a.a == 4) {
-                    str = str + "?isNightModel=1";
-                }
-                BrowserHelper.startWebActivity(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f04b5), str, true);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zf7(BdPageContext bdPageContext) {
-        super(bdPageContext.getPageActivity(), ag7.c, bdPageContext.getUniqueId());
+    public zf7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pm
-    /* renamed from: z */
-    public ComplaintBarlordViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            y45.k();
+            this.a = y45.i("tb.bawu_team_info");
+        }
+    }
+
+    public byte[] a(String str) {
         InterceptResult invokeL;
+        oe.b<byte[]> bVar;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d046b, viewGroup, false));
-        }
-        return (ComplaintBarlordViewHolder) invokeL.objValue;
-    }
-
-    public View A(int i, View view2, ViewGroup viewGroup, ag7 ag7Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ag7Var, complaintBarlordViewHolder})) == null) {
-            if (ag7Var != null && complaintBarlordViewHolder != null) {
-                y(complaintBarlordViewHolder);
-                x(complaintBarlordViewHolder, ag7Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            oe<byte[]> oeVar = this.a;
+            if (oeVar != null && str != null) {
+                bVar = oeVar.h(str);
+            } else {
+                bVar = null;
             }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.pm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ag7 ag7Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
-        A(i, view2, viewGroup, ag7Var, complaintBarlordViewHolder);
-        return view2;
-    }
-
-    public final void x(ComplaintBarlordViewHolder complaintBarlordViewHolder, ag7 ag7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, complaintBarlordViewHolder, ag7Var) == null) {
-            complaintBarlordViewHolder.d.setText(ag7Var.a);
-            complaintBarlordViewHolder.b.setTag(ag7Var.b);
-            complaintBarlordViewHolder.b.setOnClickListener(this.b);
-        }
-    }
-
-    public final void y(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, complaintBarlordViewHolder) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            this.a = skinType;
-            if (complaintBarlordViewHolder.a == skinType) {
-                return;
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
             }
-            complaintBarlordViewHolder.a = skinType;
-            SkinManager.setBackgroundResource(complaintBarlordViewHolder.b, R.drawable.frs_member_manito_bg);
-            SkinManager.setBackgroundColor(complaintBarlordViewHolder.c, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(complaintBarlordViewHolder.d, R.color.CAM_X0105, 1);
-            SkinManager.setImageResource(complaintBarlordViewHolder.e, R.drawable.icon_arrow12_gray66_right);
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
+            b();
+            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

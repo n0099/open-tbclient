@@ -1,137 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import com.baidu.android.util.devices.StorageUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class x4c {
     public static /* synthetic */ Interceptable $ic;
+    public static x4c a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<String, String> a;
-    public TreeMap<String, String> b;
 
-    public x4c(TreeMap<String, String> treeMap, TreeMap<String, String> treeMap2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251842, "Lcom/baidu/tieba/x4c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948251842, "Lcom/baidu/tieba/x4c;");
+                return;
+            }
+        }
+        a = new x4c();
+    }
+
+    public x4c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {treeMap, treeMap2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = treeMap;
-        this.b = treeMap2;
     }
 
-    public static x4c a(String str) {
-        InterceptResult invokeL;
-        TreeMap<String, String> treeMap;
-        TreeMap<String, String> treeMap2;
+    public static x4c b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            TreeMap<String, String> treeMap3 = null;
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("mText");
-                if (optString != null && !optString.isEmpty()) {
-                    treeMap2 = c(optString);
-                } else {
-                    treeMap2 = null;
-                }
-                try {
-                    String optString2 = jSONObject.optString("mImages");
-                    if (optString2 != null && !optString2.isEmpty()) {
-                        treeMap3 = c(optString2);
-                    }
-                } catch (JSONException e) {
-                    treeMap = treeMap2;
-                    e = e;
-                    e.printStackTrace();
-                    treeMap2 = treeMap;
-                    return new x4c(treeMap2, treeMap3);
-                }
-            } catch (JSONException e2) {
-                e = e2;
-                treeMap = null;
-            }
-            return new x4c(treeMap2, treeMap3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (x4c) invokeL.objValue;
+        return (x4c) invokeV.objValue;
     }
 
-    public static String b(TreeMap<String, String> treeMap) {
+    public File a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, treeMap)) == null) {
-            if (treeMap != null && !treeMap.isEmpty()) {
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, String> entry : treeMap.entrySet()) {
-                    try {
-                        jSONObject.put(entry.getKey(), entry.getValue());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                return jSONObject.toString();
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static TreeMap<String, String> c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str != null && !str.isEmpty()) {
-                TreeMap<String, String> treeMap = new TreeMap<>();
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        treeMap.put(next, (String) jSONObject.get(next));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return treeMap;
-            }
-            return null;
-        }
-        return (TreeMap) invokeL.objValue;
-    }
-
-    public static String d(x4c x4cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x4cVar)) == null) {
-            if (x4cVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (context == null) {
+                q4c.b(StorageUtils.TAG, "Context is null, need setting Context!");
                 return null;
+            } else if (context.getExternalCacheDir() != null && context.getExternalCacheDir().exists()) {
+                return context.getExternalCacheDir();
+            } else {
+                return context.getCacheDir();
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("mText", b(x4cVar.a));
-                jSONObject.put("mImages", b(x4cVar.b));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
         }
-        return (String) invokeL.objValue;
+        return (File) invokeL.objValue;
     }
 }

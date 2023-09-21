@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.s19;
+import com.baidu.tieba.d39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,9 +20,9 @@ public class RequestGetLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1124common;
+    public CommonReq f1119common;
     public int from;
-    public s19 mLabelDataSet;
+    public d39 mLabelDataSet;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetLabelMessage() {
@@ -49,7 +49,7 @@ public class RequestGetLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1392common = this.f1124common;
+            builder.f1387common = this.f1119common;
             builder.from = Integer.valueOf(this.from);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
@@ -61,19 +61,19 @@ public class RequestGetLabelMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public s19 getLabelDataSet() {
+    public d39 getLabelDataSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mLabelDataSet;
         }
-        return (s19) invokeV.objValue;
+        return (d39) invokeV.objValue;
     }
 
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f1124common = commonReq;
+            this.f1119common = commonReq;
         }
     }
 
@@ -84,10 +84,10 @@ public class RequestGetLabelMessage extends NetMessage {
         }
     }
 
-    public void setLabelDataSet(s19 s19Var) {
+    public void setLabelDataSet(d39 d39Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, s19Var) == null) {
-            this.mLabelDataSet = s19Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d39Var) == null) {
+            this.mLabelDataSet = d39Var;
         }
     }
 }

@@ -70,8 +70,8 @@ public final class MaterialCalendarGridView extends GridView {
         super(context, attributeSet, i);
         this.dayCompute = UtcDates.getUtcCalendar();
         if (MaterialDatePicker.isFullscreen(getContext())) {
-            setNextFocusLeftId(R.id.obfuscated_res_0x7f090543);
-            setNextFocusRightId(R.id.obfuscated_res_0x7f09079c);
+            setNextFocusLeftId(R.id.obfuscated_res_0x7f09053b);
+            setNextFocusRightId(R.id.obfuscated_res_0x7f090793);
         }
         ViewCompat.setAccessibilityDelegate(this, new AccessibilityDelegateCompat() { // from class: com.google.android.material.datepicker.MaterialCalendarGridView.1
             @Override // androidx.core.view.AccessibilityDelegateCompat

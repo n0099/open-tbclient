@@ -12,7 +12,7 @@ import com.bytedance.tools.ui.ui.c;
 /* loaded from: classes9.dex */
 public class a extends FragmentPagerAdapter {
     @StringRes
-    public static final int[] b = {R.string.obfuscated_res_0x7f0f15e7, R.string.obfuscated_res_0x7f0f15e8, R.string.obfuscated_res_0x7f0f15e9};
+    public static final int[] b = {R.string.obfuscated_res_0x7f0f15ea, R.string.obfuscated_res_0x7f0f15eb, R.string.obfuscated_res_0x7f0f15ec};
     public final Context a;
 
     @Override // androidx.viewpager.widget.PagerAdapter

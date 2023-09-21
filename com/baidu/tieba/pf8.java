@@ -1,26 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pf8 {
+public class pf8 extends kf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static volatile SQLiteDatabase b;
-    public static HashMap<String, SQLiteDatabase> c;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b;
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,98 +38,209 @@ public class pf8 {
                 return;
             }
         }
-        c = new HashMap<>();
+        d = BdUniqueId.gen().getId();
     }
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            try {
-                try {
-                    if (!TextUtils.isEmpty(str)) {
-                        qf8.d().f();
-                        Iterator<String> it = b().iterator();
-                        while (it.hasNext()) {
-                            String next = it.next();
-                            if (next != null) {
-                                if (next.equals("tb_message_center")) {
-                                    ContentValues contentValues = new ContentValues();
-                                    contentValues.put("is_hidden", (Integer) 1);
-                                    qf8.d().update("tb_message_center", contentValues, null, null);
-                                } else if (!next.equals("tb_new_friends") && !next.startsWith("tb_group_chat_room_") && !next.equals("tb_chat_sys_notify")) {
-                                    qf8.d().delete(next, null, null);
-                                }
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
-                    e.printStackTrace();
-                }
-            } finally {
-                qf8.d().b();
-            }
-        }
-    }
-
-    public static LinkedList<String> b() {
+    @Override // com.baidu.tieba.kf8
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            SQLiteDatabase c2 = c();
-            LinkedList<String> linkedList = new LinkedList<>();
-            Cursor cursor = null;
-            try {
-                if (c2 != null) {
-                    try {
-                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
-                        if (cursor != null) {
-                            cursor.moveToFirst();
-                            while (cursor.moveToNext()) {
-                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
-                            }
-                        }
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
-                        e.printStackTrace();
-                    }
-                }
-                return linkedList;
-            } finally {
-                fi.a(cursor);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return d;
         }
-        return (LinkedList) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static synchronized SQLiteDatabase c() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (pf8.class) {
-                try {
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
-                }
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (c.containsKey(str)) {
-                    return c.get(str);
-                }
-                if (b != null && str.equals(a) && b.isOpen()) {
-                    return b;
-                }
-                if (b != null) {
-                    fi.b(b);
-                }
-                of8 of8Var = new of8(TbadkCoreApplication.getInst().getApp(), str);
-                a = str;
-                b = of8Var.getWritableDatabase();
-                return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.getName() + "：" + h();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public List<AtSelectData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.c;
+            if (optsDTO != null && optsDTO.getExt() != null) {
+                return this.c.getExt().getAtUserInfos();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
+    }
+
+    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = this.b;
+            if (itemsDTO != null) {
+                return itemsDTO.getOpts();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b.getItemType();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = this.b;
+            if (itemsDTO != null && itemsDTO.getOpts() != null && this.b.getOpts().size() > 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = this.b;
+            if (itemsDTO != null) {
+                return itemsDTO.isOptional();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public pf8(BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {itemsDTO};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        this.b = itemsDTO;
+        this.c = e();
+    }
+
+    public final BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b.getOpts() != null && !this.b.getOpts().isEmpty()) {
+                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO : this.b.getOpts()) {
+                    if (optsDTO.getDefaultX() == 1) {
+                        return optsDTO;
+                    }
+                }
+                return this.b.getOpts().get(0);
+            }
+            return null;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = "";
+            if (this.b.getItemType() == 2 && (optsDTO = this.c) != null && optsDTO.getExt() != null) {
+                List<AtSelectData> atUserInfos = this.c.getExt().getAtUserInfos();
+                if (!ListUtils.isEmpty(atUserInfos)) {
+                    int size = atUserInfos.size();
+                    AtSelectData atSelectData = atUserInfos.get(0);
+                    if (atSelectData != null) {
+                        str = atSelectData.getNameShow();
+                    }
+                    int chineseAndEnglishLength = StringHelper.getChineseAndEnglishLength(str);
+                    if (chineseAndEnglishLength > 8) {
+                        str = StringHelper.subString(str, 8) + "...";
+                    }
+                    if (size == 1) {
+                        return str;
+                    }
+                    if (chineseAndEnglishLength <= 8) {
+                        return str + "...等" + size + "人";
+                    }
+                    return str + "等" + size + "人";
+                }
+            }
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO2 = this.c;
+            if (optsDTO2 == null) {
+                return "";
+            }
+            return optsDTO2.getName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void m(BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, optsDTO) == null) {
+            this.c = optsDTO;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void o(List<AtSelectData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, list) == null) && this.c != null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = new BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext();
+            ext.setAtUserInfos(list);
+            this.c.setExt(ext);
+        }
     }
 }

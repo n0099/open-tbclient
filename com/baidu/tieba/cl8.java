@@ -1,90 +1,84 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Objects;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
+import com.google.gson.annotations.SerializedName;
 /* loaded from: classes5.dex */
-public final class cl8 {
+public class cl8 extends ty5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final cl8 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947678714, "Lcom/baidu/tieba/cl8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947678714, "Lcom/baidu/tieba/cl8;");
-                return;
-            }
-        }
-        a = new cl8();
-    }
+    @SerializedName(alternate = {"mask_type"}, value = "mask_id")
+    public int b;
+    @SerializedName("content")
+    public String c;
+    @SerializedName("is_use_default_text")
+    public boolean d;
 
     public cl8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = true;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public final <T> boolean a(List<? extends T> first, List<? extends T> second) {
-        InterceptResult invokeLL;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, first, second)) == null) {
-            Intrinsics.checkNotNullParameter(first, "first");
-            Intrinsics.checkNotNullParameter(second, "second");
-            if (first == second) {
-                return true;
-            }
-            if (first.size() != second.size()) {
-                return false;
-            }
-            int i = 0;
-            for (T t : first) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
-                }
-                if (!Objects.equals(t, second.get(i))) {
-                    return false;
-                }
-                i = i2;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
         }
-        return invokeLL.booleanValue;
     }
 
-    public final <T> boolean b(List<? extends T> list, List<? extends T> list2) {
-        InterceptResult invokeLL;
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2)) == null) {
-            if (list == null || list2 == null) {
-                return true;
-            }
-            return !a(list, list2);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
         }
-        return invokeLL.booleanValue;
     }
 }

@@ -23,7 +23,7 @@ public class i05 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, activity, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, activity, bundle) == null) {
         }
     }
 
@@ -41,6 +41,13 @@ public class i05 implements Application.ActivityLifecycleCallbacks {
         }
     }
 
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && nz6.a.a()) {
+            nz6.f();
+        }
+    }
+
     public final void a(@Nullable Activity activity, @NonNull Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, event) != null) || activity == null) {
@@ -49,22 +56,25 @@ public class i05 implements Application.ActivityLifecycleCallbacks {
         String name = activity.getClass().getName();
         if (Lifecycle.Event.ON_START.equals(event)) {
             if (PermissionUtil.isAgreePrivacyPolicy() && !TbadkCoreApplication.getInst().isMainProcess(false)) {
-                b(1, name);
+                c(1, name);
             } else {
                 TbadkCoreApplication.getInst().notifyPageCountDelta(1, name);
             }
         } else if (Lifecycle.Event.ON_STOP.equals(event)) {
             if (PermissionUtil.isAgreePrivacyPolicy() && !TbadkCoreApplication.getInst().isMainProcess(false)) {
-                b(-1, name);
+                c(-1, name);
             } else {
                 TbadkCoreApplication.getInst().notifyPageCountDelta(-1, name);
             }
+            b();
+        } else if (Lifecycle.Event.ON_PAUSE.equals(event)) {
+            b();
         }
     }
 
-    public final void b(int i, String str) {
+    public final void c(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
             Intent intent = new Intent("com.tieba.baidu.pagecount");
             intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
             intent.putExtra("countDelta", i);
@@ -76,7 +86,7 @@ public class i05 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, bundle) == null) {
             a(activity, Lifecycle.Event.ON_CREATE);
         }
     }
@@ -84,7 +94,7 @@ public class i05 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
             a(activity, Lifecycle.Event.ON_DESTROY);
         }
     }
@@ -92,7 +102,7 @@ public class i05 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             a(activity, Lifecycle.Event.ON_PAUSE);
         }
     }
@@ -100,7 +110,7 @@ public class i05 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
             a(activity, Lifecycle.Event.ON_RESUME);
         }
     }
@@ -108,7 +118,7 @@ public class i05 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
             a(activity, Lifecycle.Event.ON_START);
         }
     }
@@ -116,7 +126,7 @@ public class i05 implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
             a(activity, Lifecycle.Event.ON_STOP);
         }
     }

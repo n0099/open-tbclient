@@ -1,31 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes8.dex */
-public final class vh9 implements g65 {
+public class vh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.g65
-    public Class<? extends e65> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? uh9.class : (Class) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.g65
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pbFriendBotBottomNewUser" : (String) invokeV.objValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
     public vh9() {
         Interceptable interceptable = $ic;
@@ -39,5 +26,41 @@ public final class vh9 implements g65 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.b;
+            int hashCode = str.hashCode();
+            if (hashCode != 2154) {
+                if (hashCode != 2161) {
+                    if (hashCode == 2162 && str.equals("CU")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("CT")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("CM")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c == 1) {
+                    return 2;
+                }
+                return 3;
+            }
+            return 1;
+        }
+        return invokeV.intValue;
     }
 }

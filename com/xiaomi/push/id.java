@@ -60,11 +60,11 @@ public class id implements is<id, Object>, Serializable, Cloneable {
         int a8;
         int a9;
         if (id.class.equals(idVar.getClass())) {
-            int compareTo = Boolean.valueOf(m629a()).compareTo(Boolean.valueOf(idVar.m629a()));
+            int compareTo = Boolean.valueOf(m631a()).compareTo(Boolean.valueOf(idVar.m631a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m629a() || (a9 = it.a(this.f631a, idVar.f631a)) == 0) {
+            if (!m631a() || (a9 = it.a(this.f631a, idVar.f631a)) == 0) {
                 int compareTo2 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(idVar.c()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -126,7 +126,7 @@ public class id implements is<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public hu m625a() {
+    public hu m627a() {
         return this.f632a;
     }
 
@@ -157,17 +157,17 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     public id a(boolean z) {
         this.f637a = z;
-        m628a(true);
+        m630a(true);
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m626a() {
+    public String m628a() {
         return this.f634a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m627a() {
+    public void m629a() {
         if (this.f631a == null) {
             throw new je("Required field 'action' was not present! Struct: " + toString());
         } else if (this.f635a == null) {
@@ -180,62 +180,62 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo701a();
+        jdVar.mo703a();
         while (true) {
-            ja mo697a = jdVar.mo697a();
-            byte b2 = mo697a.a;
+            ja mo699a = jdVar.mo699a();
+            byte b2 = mo699a.a;
             if (b2 == 0) {
                 jdVar.f();
                 if (!c()) {
                     throw new je("Required field 'encryptAction' was not found in serialized data! Struct: " + toString());
                 } else if (d()) {
-                    m627a();
+                    m629a();
                     return;
                 } else {
                     throw new je("Required field 'isRequest' was not found in serialized data! Struct: " + toString());
                 }
             }
-            switch (mo697a.f813a) {
+            switch (mo699a.f813a) {
                 case 1:
                     if (b2 == 8) {
-                        this.f631a = hh.a(jdVar.mo695a());
+                        this.f631a = hh.a(jdVar.mo697a());
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 2:
                     if (b2 == 2) {
-                        this.f637a = jdVar.mo707a();
-                        m628a(true);
+                        this.f637a = jdVar.mo709a();
+                        m630a(true);
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 3:
                     if (b2 == 2) {
-                        this.f639b = jdVar.mo707a();
-                        m632b(true);
+                        this.f639b = jdVar.mo709a();
+                        m634b(true);
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f635a = jdVar.mo703a();
+                        this.f635a = jdVar.mo705a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f634a = jdVar.mo702a();
+                        this.f634a = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f638b = jdVar.mo702a();
+                        this.f638b = jdVar.mo704a();
                         continue;
                         jdVar.g();
                     }
@@ -265,23 +265,23 @@ public class id implements is<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m628a(boolean z) {
+    public void m630a(boolean z) {
         this.f636a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m629a() {
+    public boolean m631a() {
         return this.f631a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m630a(id idVar) {
+    public boolean m632a(id idVar) {
         if (idVar == null) {
             return false;
         }
-        boolean m629a = m629a();
-        boolean m629a2 = idVar.m629a();
-        if (((!m629a && !m629a2) || (m629a && m629a2 && this.f631a.equals(idVar.f631a))) && this.f637a == idVar.f637a && this.f639b == idVar.f639b) {
+        boolean m631a = m631a();
+        boolean m631a2 = idVar.m631a();
+        if (((!m631a && !m631a2) || (m631a && m631a2 && this.f631a.equals(idVar.f631a))) && this.f637a == idVar.f637a && this.f639b == idVar.f639b) {
             boolean e2 = e();
             boolean e3 = idVar.e();
             if ((e2 || e3) && !(e2 && e3 && this.f635a.equals(idVar.f635a))) {
@@ -299,13 +299,13 @@ public class id implements is<id, Object>, Serializable, Cloneable {
             }
             boolean h2 = h();
             boolean h3 = idVar.h();
-            if ((h2 || h3) && !(h2 && h3 && this.f633a.m597a(idVar.f633a))) {
+            if ((h2 || h3) && !(h2 && h3 && this.f633a.m599a(idVar.f633a))) {
                 return false;
             }
             boolean i = i();
             boolean i2 = idVar.i();
             if (i || i2) {
-                return i && i2 && this.f632a.m589a(idVar.f632a);
+                return i && i2 && this.f632a.m591a(idVar.f632a);
             }
             return true;
         }
@@ -313,7 +313,7 @@ public class id implements is<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m631a() {
+    public byte[] m633a() {
         a(it.a(this.f635a));
         return this.f635a.array();
     }
@@ -325,7 +325,7 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     public id b(boolean z) {
         this.f639b = z;
-        m632b(true);
+        m634b(true);
         return this;
     }
 
@@ -335,11 +335,11 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m627a();
+        m629a();
         jdVar.a(f630a);
         if (this.f631a != null) {
             jdVar.a(a);
-            jdVar.mo706a(this.f631a.a());
+            jdVar.mo708a(this.f631a.a());
             jdVar.b();
         }
         jdVar.a(b);
@@ -374,16 +374,16 @@ public class id implements is<id, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo705a();
+        jdVar.mo707a();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m632b(boolean z) {
+    public void m634b(boolean z) {
         this.f636a.set(1, z);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m633b() {
+    public boolean m635b() {
         return this.f637a;
     }
 
@@ -401,7 +401,7 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof id)) {
-            return m630a((id) obj);
+            return m632a((id) obj);
         }
         return false;
     }

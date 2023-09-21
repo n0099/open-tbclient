@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.lib.socket.msg;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ch8;
+import com.baidu.tieba.xk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,8 +21,8 @@ public final class TbTextToSpeechMsg extends TbTextMsg {
     public static final a Companion;
     public static final int MSG_TYPE = 103;
     public transient /* synthetic */ FieldHolder $fh;
+    @xk8
     @SerializedName("speak_id")
-    @ch8
     public String speakerId;
 
     static {
@@ -102,7 +102,7 @@ public final class TbTextToSpeechMsg extends TbTextMsg {
         setType(103);
     }
 
-    @Override // com.baidu.tieba.im.lib.socket.msg.TbTextMsg, com.baidu.tieba.im.lib.socket.msg.TbNormalMsg, com.baidu.tieba.im.lib.socket.msg.TbBaseMsg
+    @Override // com.baidu.tieba.im.lib.socket.msg.TbTextMsg, com.baidu.tieba.im.lib.socket.msg.TbNormalMsg, com.baidu.tieba.im.lib.socket.msg.TbBaseMsg, java.lang.Object
     public Object clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

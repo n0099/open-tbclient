@@ -12,8 +12,8 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tieba.bob;
-import com.baidu.tieba.hob;
+import com.baidu.tieba.tpb;
+import com.baidu.tieba.zpb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,7 +124,7 @@ public class AdReporter<A> {
                 return;
             }
         }
-        a = hob.a();
+        a = zpb.a();
     }
 
     public AdReporter(String str, String str2, String str3) {
@@ -393,7 +393,7 @@ public class AdReporter<A> {
             int i2 = i + 1;
             objArr[i] = DI.AB_NAME;
             int i3 = i2 + 1;
-            Boolean bool = bob.a;
+            Boolean bool = tpb.a;
             if (Settings.Secure.getInt(FunAdSdk.getAppContext().getContentResolver(), "adb_enabled", 0) != 0) {
                 z = true;
             } else {
@@ -403,7 +403,7 @@ public class AdReporter<A> {
             int i4 = i3 + 1;
             objArr[i3] = "rt";
             int i5 = i4 + 1;
-            if (bob.a == null) {
+            if (tpb.a == null) {
                 String str2 = null;
                 try {
                     Object invoke = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(null, "ro.secure");
@@ -421,7 +421,7 @@ public class AdReporter<A> {
                     String str3 = System.getenv("PATH");
                     if (TextUtils.isEmpty(str3)) {
                         split = new String[]{"/sbin", "/system/bin", "/system/xbin", "/data/local/xbin", "/data/local/bin", "/system/sd/xbin", "/system/bin/failsafe", CommandLineInitUtil.COMMAND_LINE_FILE_PATH};
-                    } else if (!bob.b && str3 == null) {
+                    } else if (!tpb.b && str3 == null) {
                         throw new AssertionError();
                     } else {
                         split = str3.split(":");
@@ -442,13 +442,13 @@ public class AdReporter<A> {
                     }
                     if (!z4) {
                         z3 = false;
-                        bob.a = Boolean.valueOf(z3);
+                        tpb.a = Boolean.valueOf(z3);
                     }
                 }
                 z3 = true;
-                bob.a = Boolean.valueOf(z3);
+                tpb.a = Boolean.valueOf(z3);
             }
-            objArr[i4] = Boolean.valueOf(bob.a.booleanValue());
+            objArr[i4] = Boolean.valueOf(tpb.a.booleanValue());
             int i7 = i5 + 1;
             objArr[i5] = "vn";
             int i8 = i7 + 1;

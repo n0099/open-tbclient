@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
+import android.graphics.Matrix;
+import android.graphics.PointF;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes7.dex */
-public abstract class nk extends gk {
+public class nk extends dk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path t;
-    public Paint u;
-    public a v;
-    public boolean w;
-
-    /* loaded from: classes7.dex */
-    public interface a {
-        Path a(RectF rectF);
-
-        void b(Canvas canvas);
-    }
+    public Matrix s;
+    public BitmapShader t;
+    public RectF u;
 
     public nk() {
         Interceptable interceptable = $ic;
@@ -39,61 +36,131 @@ public abstract class nk extends gk {
                 return;
             }
         }
-        this.t = new Path();
-        this.u = null;
-        this.w = false;
+        this.s = new Matrix();
+        this.u = new RectF();
     }
 
-    @Override // com.baidu.tieba.ek
-    public void c(hk hkVar, ImageView imageView, ImageView.ScaleType scaleType) {
-        Path a2;
+    @Override // com.baidu.tieba.dk
+    public void a(gk gkVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, hkVar, imageView, scaleType) == null) {
-            super.c(hkVar, imageView, scaleType);
-            a aVar = this.v;
-            if (aVar == null || (a2 = aVar.a(j())) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, gkVar, imageView) == null) {
+            int b = gkVar.b();
+            int a = gkVar.a();
+            RectF rectF = this.g;
+            PointF b2 = b(rectF.left, rectF.top, this.f);
+            int i = (int) b2.x;
+            int i2 = (int) b2.y;
+            RectF rectF2 = this.g;
+            PointF b3 = b(rectF2.right, rectF2.bottom, this.f);
+            int i3 = (int) b3.x;
+            int i4 = (int) b3.y;
+            this.s.reset();
+            this.s.postScale((i3 - i) / b, (i4 - i2) / a);
+            this.s.postTranslate(i, i2);
+            if (gkVar.e()) {
+                Bitmap bitmap = gkVar.a.getBitmap();
+                Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+                this.t = new BitmapShader(bitmap, tileMode, tileMode);
+            } else {
+                this.t = gkVar.b.createBitmapShader();
+            }
+            BitmapShader bitmapShader = this.t;
+            if (bitmapShader == null) {
                 return;
             }
-            this.t.set(a2);
-            if (this.u == null) {
-                Paint paint = new Paint();
-                this.u = paint;
-                paint.setStyle(Paint.Style.STROKE);
-                this.u.setAntiAlias(true);
-                this.u.setColor(637534208);
-                this.u.setDither(true);
-                this.u.setStrokeWidth(2.0f);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ek
-    public void g(Canvas canvas, hk hkVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, hkVar, imageView) == null) {
-            super.g(canvas, hkVar, imageView);
-            if (!this.w) {
+            bitmapShader.setLocalMatrix(this.s);
+            this.c.setShader(this.t);
+            int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
+            int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
+            this.u.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width), Math.min(i4, height));
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.c) {
                 return;
             }
-            canvas.drawPath(this.t, this.u);
-            a aVar = this.v;
-            if (aVar != null) {
-                aVar.b(canvas);
+            float f = drawerArgs.d / 2.0f;
+            if (!drawerArgs.g) {
+                this.h.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+                return;
             }
+            RectF rectF3 = this.h;
+            RectF rectF4 = this.u;
+            rectF3.set(rectF4.left + f, rectF4.top + f, rectF4.right - f, rectF4.bottom - f);
         }
     }
 
-    public void t(a aVar) {
+    @Override // com.baidu.tieba.dk
+    public void f(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.v = aVar;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) {
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.c) {
+                return;
+            }
+            if (!drawerArgs.b) {
+                canvas.drawPath(l(this.h, drawerArgs.a), this.d);
+                return;
+            }
+            RectF rectF = this.u;
+            float f = (rectF.right + rectF.left) / 2.0f;
+            float f2 = (rectF.top + rectF.bottom) / 2.0f;
+            float min = Math.min(rectF.width(), this.u.height()) / 2.0f;
+            if (min <= 0.0f) {
+                f = (imageView.getRight() + imageView.getLeft()) / 2.0f;
+                f2 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
+                min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
+            }
+            canvas.drawCircle(f, f2, min - (this.l.d / 2.0f), this.d);
         }
     }
 
-    public void u(boolean z) {
+    @Override // com.baidu.tieba.dk
+    public void i(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.w = z;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, canvas, imageView) != null) || this.l.m == 0) {
+            return;
+        }
+        int scrollX = imageView.getScrollX();
+        int scrollY = imageView.getScrollY();
+        canvas.translate(scrollX, scrollY);
+        this.e.setColor(this.l.m);
+        if (!this.l.b) {
+            this.o.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+            canvas.drawPath(l(this.o, this.l.a), this.e);
+        } else {
+            float width = imageView.getWidth() / 2.0f;
+            float height = imageView.getHeight() / 2.0f;
+            canvas.drawCircle(width, height, Math.min(width, height) - (this.l.d / 2.0f), this.e);
+        }
+        canvas.translate(-scrollX, -scrollY);
+    }
+
+    @Override // com.baidu.tieba.dk
+    public void h(Canvas canvas, gk gkVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, gkVar, imageView) == null) {
+            boolean d = gkVar.d();
+            if (d && gkVar.d()) {
+                gkVar.b.changeDrawing(true);
+            }
+            DrawerArgs drawerArgs = this.l;
+            if (!drawerArgs.b) {
+                float[] fArr = drawerArgs.a;
+                float[] copyOf = Arrays.copyOf(fArr, fArr.length);
+                if (this.l.c) {
+                    for (int i = 0; i < copyOf.length; i++) {
+                        if (copyOf[i] != 0.0f) {
+                            copyOf[i] = copyOf[i] + 1.0f;
+                        }
+                    }
+                }
+                canvas.drawPath(l(this.u, copyOf), this.c);
+            } else {
+                RectF rectF = this.u;
+                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.u.height()) / 2.0f, this.c);
+            }
+            if (d && gkVar.d()) {
+                gkVar.b.changeDrawing(false);
+            }
         }
     }
 }

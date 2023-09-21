@@ -15,7 +15,7 @@ public class yn2 {
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
-    public String savedFilePath;
+    public mn2 stats;
 
     public yn2() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class yn2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SaveFileCallBack" + this.b;
+            return "StatCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

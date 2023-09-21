@@ -8,13 +8,13 @@ import com.baidu.browser.sailor.BdSailorWebViewClientExt;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.tieba.cr3;
-import com.baidu.tieba.d13;
-import com.baidu.tieba.gb3;
-import com.baidu.tieba.rh3;
-import com.baidu.tieba.vc2;
-import com.baidu.tieba.yo3;
-import com.baidu.tieba.zq3;
+import com.baidu.tieba.br3;
+import com.baidu.tieba.c13;
+import com.baidu.tieba.fb3;
+import com.baidu.tieba.qh3;
+import com.baidu.tieba.uc2;
+import com.baidu.tieba.xo3;
+import com.baidu.tieba.yq3;
 /* loaded from: classes4.dex */
 public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackHandler {
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
@@ -27,7 +27,7 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
         return false;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.px1
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ox1
     public String Z() {
         return "swan_app_web_mode_widget";
     }
@@ -40,21 +40,21 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
-            vc2 vc2Var = SwanWebModeWidget.this.U;
-            if (vc2Var != null) {
-                vc2Var.e(str);
+            uc2 uc2Var = SwanWebModeWidget.this.U;
+            if (uc2Var != null) {
+                uc2Var.e(str);
             }
-            cr3.a().h(str);
-            zq3.c().q(str);
+            br3.a().h(str);
+            yq3.c().q(str);
             SwanWebModeWidget.this.W1();
-            zq3.c().l(str);
+            yq3.c().l(str);
             super.onPageFinished(bdSailorWebView, str);
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public boolean shouldOverrideUrlLoading(BdSailorWebView bdSailorWebView, String str) {
-            vc2 vc2Var = SwanWebModeWidget.this.U;
-            if (vc2Var != null && vc2Var.a(str)) {
+            uc2 uc2Var = SwanWebModeWidget.this.U;
+            if (uc2Var != null && uc2Var.a(str)) {
                 return true;
             }
             return false;
@@ -62,15 +62,15 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onPageStarted(BdSailorWebView bdSailorWebView, String str, Bitmap bitmap) {
-            SwanWebModeWidget.this.f1071T = yo3.t();
+            SwanWebModeWidget.this.f1071T = xo3.t();
             super.onPageStarted(bdSailorWebView, str, bitmap);
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
-            vc2 vc2Var = SwanWebModeWidget.this.U;
-            if (vc2Var != null) {
-                vc2Var.c(i, str, str2);
+            uc2 uc2Var = SwanWebModeWidget.this.U;
+            if (uc2Var != null) {
+                uc2Var.c(i, str, str2);
             }
             super.onReceivedError(bdSailorWebView, i, str, str2);
         }
@@ -84,28 +84,28 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstContentfulPaintExt(BdSailorWebView bdSailorWebView, String str) {
             super.onFirstContentfulPaintExt(bdSailorWebView, str);
-            cr3.a().c(str);
+            br3.a().c(str);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstImagePaintExt(BdSailorWebView bdSailorWebView, String str) {
             super.onFirstImagePaintExt(bdSailorWebView, str);
-            cr3.a().d(str);
+            br3.a().d(str);
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
             super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
-            cr3.a().f(str);
-            if (TextUtils.equals(zq3.c().f(), "3")) {
-                rh3.s(gb3.K().q().W());
+            br3.a().f(str);
+            if (TextUtils.equals(yq3.c().f(), "3")) {
+                qh3.s(fb3.K().q().W());
             }
         }
 
         @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
         public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
             super.onFirstTextPaintExt(bdSailorWebView, str);
-            cr3.a().e(str);
+            br3.a().e(str);
         }
     }
 
@@ -122,15 +122,15 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
     }
 
     public void W1() {
-        int b = d13.b();
-        d13.g(b, d13.a(b));
+        int b = c13.b();
+        c13.g(b, c13.a(b));
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ha2
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.ga2
     public boolean n() {
-        vc2 vc2Var = this.U;
-        if (vc2Var != null) {
-            vc2Var.goBack();
+        uc2 uc2Var = this.U;
+        if (uc2Var != null) {
+            uc2Var.goBack();
         }
         return super.n();
     }

@@ -14,6 +14,9 @@ public class ud5 {
     public String a;
     public String b;
     public String c;
+    public String d;
+    public String e;
+    public String f;
 
     public ud5() {
         Interceptable interceptable = $ic;
@@ -33,7 +36,7 @@ public class ud5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
@@ -51,21 +54,50 @@ public class ud5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public static ud5 d(JSONObject jSONObject) {
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static ud5 g(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             ud5 ud5Var = new ud5();
             if (jSONObject != null) {
-                ud5Var.a = jSONObject.optString("scene_name");
-                jSONObject.optString("style");
-                ud5Var.b = jSONObject.optString("title");
-                ud5Var.c = jSONObject.optString("text");
+                ud5Var.a = jSONObject.optString("source");
+                ud5Var.b = jSONObject.optString("show_text");
+                ud5Var.c = jSONObject.optString("show_link");
+                ud5Var.d = jSONObject.optString("show_image");
+                ud5Var.e = jSONObject.optString("show_time");
+                ud5Var.f = jSONObject.optString("show_max");
             }
             return ud5Var;
         }

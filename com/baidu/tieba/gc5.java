@@ -1,11 +1,23 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes6.dex */
 public interface gc5 {
     void a();
 
-    void b(AccountData accountData);
+    boolean b(String str);
 
-    void c(AccountData accountData);
+    int c();
+
+    void d();
+
+    void e();
+
+    int f();
+
+    void g();
+
+    boolean isPlaying();
+
+    boolean isPrepared();
+
+    void seek(int i);
 }

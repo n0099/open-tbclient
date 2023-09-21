@@ -30,9 +30,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GamePlayOrderMsgData;
 import com.baidu.tieba.im.model.FlutterCommonModel;
 import com.baidu.tieba.im.model.IFlutterCommonDataCallback;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.pa5;
-import com.baidu.tieba.vf8;
+import com.baidu.tieba.qj8;
+import com.baidu.tieba.sa5;
+import com.baidu.tieba.ta5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,12 +69,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.im.widget.GamePlayCardMsgView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0332a implements View.OnClickListener {
+        public class View$OnClickListenerC0339a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0332a(a aVar) {
+            public View$OnClickListenerC0339a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(this.a.f("c14878").addParam("obj_locate", 2));
-                new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.game_play_confirm_order).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f0590, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f059b, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0332a(this))).setAutoClose().setCancelable(false).show();
+                new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.game_play_confirm_order).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f0590, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f059b, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0339a(this))).setAutoClose().setCancelable(false).show();
             }
         }
     }
@@ -883,7 +883,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (this.n == null) {
                 return false;
             }
-            return vf8.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
+            return qj8.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
         }
         return invokeV.booleanValue;
     }
@@ -910,14 +910,14 @@ public final class GamePlayCardMsgView extends LinearLayout {
             this.i = (LinearLayout) findViewById(R.id.msg_card_btn_ll);
             this.j = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_main);
             this.k = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_second);
-            oa5 oa5Var = new oa5();
-            oa5Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.j.setConfig(oa5Var);
+            sa5 sa5Var = new sa5();
+            sa5Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.j.setConfig(sa5Var);
             this.j.setTextSize(R.dimen.T_X08);
             this.j.setEnabled(true);
-            pa5 pa5Var = new pa5();
-            pa5Var.t(R.color.CAM_X0105);
-            this.k.setConfig(pa5Var);
+            ta5 ta5Var = new ta5();
+            ta5Var.t(R.color.CAM_X0105);
+            this.k.setConfig(ta5Var);
             this.k.setTextSize(R.dimen.T_X08);
             this.k.setEnabled(true);
             l("");

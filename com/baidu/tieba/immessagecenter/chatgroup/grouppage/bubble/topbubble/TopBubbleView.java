@@ -20,7 +20,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zh;
+import com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData;
+import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,15 +78,15 @@ public class TopBubbleView extends RelativeLayout implements View.OnClickListene
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.b = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091cc8);
-                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091105);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cc7);
-                aVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091cc3);
-                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cc2);
-                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cc6);
-                aVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091cc5);
-                aVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cc4);
-                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091104);
+                aVar.b = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c96);
+                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910f5);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c95);
+                aVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c91);
+                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c90);
+                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c94);
+                aVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c93);
+                aVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c92);
+                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910f4);
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -161,7 +162,7 @@ public class TopBubbleView extends RelativeLayout implements View.OnClickListene
         int ceil;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, topBubbleData, textView, textView2, textView3) == null) {
-            int a2 = zh.a(TbadkApplication.getInst());
+            int a2 = yh.a(TbadkApplication.getInst());
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             int dimenPixelSize2 = (((a2 - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2)) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X005) * 2)) - UtilHelper.getDimenPixelSize(R.dimen.tbds110)) - dimenPixelSize;
             if (topBubbleData.getActivityStatus() == 1) {
@@ -176,7 +177,7 @@ public class TopBubbleView extends RelativeLayout implements View.OnClickListene
     public void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09b5, this));
+            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09b2, this));
             setOnClickListener(this);
             setOnLongClickListener(this);
             d();
@@ -219,7 +220,7 @@ public class TopBubbleView extends RelativeLayout implements View.OnClickListene
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, topBubbleData) == null) {
-            setTag(R.id.obfuscated_res_0x7f0906d6, topBubbleData);
+            setTag(R.id.obfuscated_res_0x7f0906cd, topBubbleData);
             String pinnedType = topBubbleData.getPinnedType();
             int hashCode = pinnedType.hashCode();
             if (hashCode != -1655966961) {
@@ -260,7 +261,7 @@ public class TopBubbleView extends RelativeLayout implements View.OnClickListene
             } else {
                 this.a.d.setVisibility(8);
                 this.a.c.setVisibility(0);
-                WebPManager.setMaskDrawable(this.a.c, R.drawable.obfuscated_res_0x7f0804d4, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setMaskDrawable(this.a.c, R.drawable.obfuscated_res_0x7f0804d3, WebPManager.ResourceStateType.NORMAL);
                 a aVar = this.a;
                 a(topBubbleData, aVar.f, aVar.g, aVar.i);
                 this.a.f.setText(topBubbleData.getContent());
@@ -279,15 +280,15 @@ public class TopBubbleView extends RelativeLayout implements View.OnClickListene
                         this.a.j.setVisibility(8);
                     } else {
                         this.a.j.setVisibility(0);
-                        WebPManager.setPureDrawable(this.a.j, R.drawable.obfuscated_res_0x7f080af3, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+                        WebPManager.setPureDrawable(this.a.j, R.drawable.obfuscated_res_0x7f080af2, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
                     }
                 } else {
                     this.a.j.setVisibility(0);
-                    WebPManager.setPureDrawable(this.a.j, R.drawable.obfuscated_res_0x7f0804e2, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a.j, R.drawable.obfuscated_res_0x7f0804e1, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
                 }
             } else {
                 this.a.j.setVisibility(0);
-                WebPManager.setMaskDrawable(this.a.j, R.drawable.obfuscated_res_0x7f080626, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setMaskDrawable(this.a.j, R.drawable.obfuscated_res_0x7f080625, WebPManager.ResourceStateType.NORMAL);
             }
             d();
         }

@@ -12,10 +12,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ForumRuleBaseData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bha;
 import com.baidu.tieba.frs.forumRule.message.ResponseHttpRorumRuleCommitMessage;
 import com.baidu.tieba.frs.forumRule.message.ResponseHttpRorumRuleDraftMessage;
-import com.baidu.tieba.wn7;
+import com.baidu.tieba.go7;
+import com.baidu.tieba.hja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import org.json.JSONArray;
 public class ForumRuleEditModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wn7 a;
+    public final go7 a;
     public int b;
     public HttpMessageListener c;
     public HttpMessageListener d;
@@ -87,12 +87,12 @@ public class ForumRuleEditModel extends BdBaseModel {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpRorumRuleDraftMessage)) {
                     ResponseHttpRorumRuleDraftMessage responseHttpRorumRuleDraftMessage = (ResponseHttpRorumRuleDraftMessage) httpResponsedMessage;
                     if (responseHttpRorumRuleDraftMessage != null) {
-                        this.a.a.b1(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
+                        this.a.a.y0(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                this.a.a.b1(0, null, "");
+                this.a.a.y0(0, null, "");
             }
         }
     }
@@ -130,27 +130,27 @@ public class ForumRuleEditModel extends BdBaseModel {
             ResponseHttpRorumRuleCommitMessage responseHttpRorumRuleCommitMessage;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) && (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) != null && this.a.b != -1) {
-                wn7 wn7Var = this.a.a;
+                go7 go7Var = this.a.a;
                 int error = responseHttpRorumRuleCommitMessage.getError();
                 String errorString = responseHttpRorumRuleCommitMessage.getErrorString();
                 boolean z = true;
                 if (this.a.b != 1) {
                     z = false;
                 }
-                wn7Var.k1(error, errorString, z);
+                go7Var.H0(error, errorString, z);
                 this.a.b = -1;
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumRuleEditModel(TbPageContext tbPageContext, wn7 wn7Var, String str) {
+    public ForumRuleEditModel(TbPageContext tbPageContext, go7 go7Var, String str) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, wn7Var, str};
+            Object[] objArr = {tbPageContext, go7Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -164,7 +164,7 @@ public class ForumRuleEditModel extends BdBaseModel {
         this.b = -1;
         this.c = new a(this, CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
         this.d = new b(this, CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
-        this.a = wn7Var;
+        this.a = go7Var;
         R();
     }
 
@@ -194,8 +194,8 @@ public class ForumRuleEditModel extends BdBaseModel {
     public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bha.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
-            bha.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
+            hja.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
+            hja.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
             registerListener(this.c);
             registerListener(this.d);
         }

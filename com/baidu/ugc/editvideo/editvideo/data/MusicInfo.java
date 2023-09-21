@@ -66,7 +66,7 @@ public class MusicInfo implements Parcelable, Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public MusicInfo m158clone() {
+    public MusicInfo m160clone() {
         MusicInfo musicInfo = new MusicInfo();
         musicInfo.mMusicId = this.mMusicId;
         musicInfo.name = this.name;

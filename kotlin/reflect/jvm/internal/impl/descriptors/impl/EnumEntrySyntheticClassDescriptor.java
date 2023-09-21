@@ -211,13 +211,13 @@ public class EnumEntrySyntheticClassDescriptor extends ClassDescriptorBase {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor */
-    public ClassDescriptor mo2098getCompanionObjectDescriptor() {
+    public ClassDescriptor mo2100getCompanionObjectDescriptor() {
         return null;
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    public ClassConstructorDescriptor mo2099getUnsubstitutedPrimaryConstructor() {
+    public ClassConstructorDescriptor mo2101getUnsubstitutedPrimaryConstructor() {
         return null;
     }
 
@@ -629,7 +629,7 @@ public class EnumEntrySyntheticClassDescriptor extends ClassDescriptorBase {
         }
 
         private MemberScope getSupertypeScope() {
-            MemberScope memberScope = this.this$0.getTypeConstructor().mo2106getSupertypes().iterator().next().getMemberScope();
+            MemberScope memberScope = this.this$0.getTypeConstructor().mo2108getSupertypes().iterator().next().getMemberScope();
             if (memberScope == null) {
                 $$$reportNull$$$0(9);
             }

@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.base.api.CallBack;
 /* loaded from: classes8.dex */
-public abstract class vp1<T> implements CallBack<T> {
+public class vp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public wp1 a;
+    public Context b;
 
-    public vp1() {
+    public vp1(Context context, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,15 +29,19 @@ public abstract class vp1<T> implements CallBack<T> {
                 return;
             }
         }
-        this.a = System.currentTimeMillis();
+        this.a = new wp1(context, handler);
+        this.b = context;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public String a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            if (str != null) {
+                return this.a.b(str, bArr, null);
+            }
+            throw new IllegalArgumentException("postToServerForm request null");
         }
-        return invokeV.longValue;
+        return (String) invokeLL.objValue;
     }
 }
